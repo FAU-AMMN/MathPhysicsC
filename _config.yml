@@ -1,0 +1,90 @@
+title: "Mathematik für Data Science"
+author: J. Laubmann, T. Roith, D. Tenbrinck
+logo: img/FAU-DMM-Logo-rgb-10cm.png
+copyright: "2021"
+execute:
+  execute_notebooks: off
+
+repository:
+  url: https://github.com/FAU-AMMN/MathPhysikerC
+
+html:
+  favicon: "img/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"
+  comments:
+    hypothesis: true
+  use_repository_button: true
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath
+    - dollarmath
+    - colon_fence
+    - html_image
+
+latex:
+  latex_documents:
+    targetname: skript.tex
+
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+    - sphinx_tojupyter
+    - sphinx_jupyterbook_latex
+        
+
+  config:
+    # html_js_files:
+    # - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    latex_engine: pdflatex
+    mathjax_config:
+      TeX:
+        Macros:
+          "Z"    : "\\mathbb{Z}"
+          "N"    : "\\mathbb{N}"
+          "C"    : "\\mathbb{C}"
+          "Q"    : "\\mathbb{Q}"
+          "K"    : "\\mathbb{K}"
+          "floor": ["\\lfloor#1\\rfloor", 1]
+          "bmat" : ["\\left[\\begin{array}"]
+          "emat" : ["\\end{array}\\right]"]
+          "R"    : ["\\mathbb{R}"]
+          "norm" : ["{\\Vert#1\\Vert}",1]
+          "abs" : ["{|#1|}",1]
+          "coloneqq": ["{:=}"]
+          "eqqcolon": ["{=:}"]
+          "emph" : ["\\pmb#1",1]
+          "tr"   : "\\operatorname{Spur}"
+          "lin"  : "\\operatorname{lin}"
+          "dv"   : "\\mathrm{div}~"
+          "rot"  : "\\mathrm{rot}~"
+          "Dim"  : "\\operatorname{dim}"
+          "diag" : "\\operatorname{diag}"
+          "Kern" : "\\operatorname{Kern}"
+          "Bild" : "\\operatorname{Bild}"
+          "Rang" : "\\operatorname{Rang}"
+          "GL"   : "\\operatorname{GL}"
+          "Eig"  : "\\operatorname{Eig}"
+          "End"  : "\\operatorname{End}"
+          "Hau"  : "\\operatorname{Haupt}"
+          "mymathbb" : ["\\boldsymbol{#1}",1]
+          "idx"  : "\\mathrm{d}x"
+          "d"    : "\\mathrm{d}"
+          "i"    : "\\mathrm{i}"
+          "x"    : "\\mathbf{x}"
+          "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]
+    # mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js
+    tojupyter_target_html: true
+    tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]
+    tojupyter_kernels:
+      python3:
+        kernelspec:
+          display_name: "Python"
+          language: python3
+          name: python3
+        file_extension: ".py"
+    tojupyter_images_markdown: true
+
+bibtex_bibfiles:
+    - bibliography.bib
