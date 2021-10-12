@@ -17,3 +17,15 @@ Development branch for the lecture notes.
 6. ```git commit -m "[message]"``` (commit changes to your local git.
 
 7. ```git push -u origin [branch you want to push to]``` (push changes to online repo.
+
+## Jupyter Book Workflow
+
+1. Open terminal.
+
+2. ```cd``` into folder.
+
+3. ```jb build .```
+
+4. Navigate manually to folder ```_build\html```.
+
+5. Click on ```index```.
