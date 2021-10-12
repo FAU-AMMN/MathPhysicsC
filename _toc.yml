@@ -7,3 +7,4 @@ chapters:
   sections:
   - file: ode/fluesse.md
   - file: ode/hamilton.md
+- file: references.md
