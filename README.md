@@ -10,7 +10,7 @@ Development branch for the lecture notes.
 
 3. ```git pull``` (pull changes)
 
-4. Changes, add content etc.
+4. Add your own changes, add content etc.
 
 5. ```git add .```
 
