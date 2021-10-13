@@ -1,0 +1,10 @@
+format: jb-book
+root: intro
+options:
+  numbered: True
+chapters:
+- file: ode/ode.md
+  sections:
+  - file: ode/fluesse.ipynb
+  - file: ode/hamilton.md
+- file: references.md
