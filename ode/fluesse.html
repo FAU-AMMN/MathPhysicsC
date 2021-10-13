@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.4. Flüsse und Phasenportraits &#8212; Mathematik für Data Science</title>
+    <title>1.2. Flüsse und Phasenportraits &#8212; Mathematik für Data Science</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.5. Hamiltonsche Differentialgkeichungen und Phasenportraits" href="hamilton.html" />
-    <link rel="prev" title="1. Gewöhnliche Differentialgleichungen" href="ode.html" />
+    <link rel="next" title="1.3. Hamiltonsche Differentialgkeichungen und Phasenportraits" href="hamilton.html" />
+    <link rel="prev" title="1.1. Einführung in dynamische Systeme" href="motivation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -101,7 +101,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="ode.html">
-   1. Gewöhnliche Differentialgleichungen
+   1. Gewöhnliche Differentialgleichungen für dynamische Systeme
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -109,14 +109,19 @@
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="motivation.html">
+     1.1. Einführung in dynamische Systeme
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     1.4. Flüsse und Phasenportraits
+     1.2. Flüsse und Phasenportraits
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="hamilton.html">
-     1.5. Hamiltonsche Differentialgkeichungen und Phasenportraits
+     1.3. Hamiltonsche Differentialgkeichungen und Phasenportraits
     </a>
    </li>
   </ul>
@@ -229,12 +234,12 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#flusse">
-   1.4.1. Flüsse
+   1.2.1. Flüsse
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#phasenportraits">
-   1.4.2. Phasenportraits
+   1.2.2. Phasenportraits
   </a>
  </li>
 </ul>
@@ -249,12 +254,12 @@
               <div>
                 
   <div class="section" id="flusse-und-phasenportraits">
-<h1><span class="section-number">1.4. </span>Flüsse und Phasenportraits<a class="headerlink" href="#flusse-und-phasenportraits" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.2. </span>Flüsse und Phasenportraits<a class="headerlink" href="#flusse-und-phasenportraits" title="Permalink to this headline">¶</a></h1>
 <p>In diesem Abschnitt führen wir zunächst grundlegende Konzepte ein und betrachten danach geometrische Interpretation von DGLs.</p>
 <p>Untenstehend die wichtigsten Schlagwörter:</p>
 <ul class="simple">
 <li><p>Fluss <a class="reference internal" href="#def:Fluss">Definition 1.4</a>,</p></li>
-<li><p>lokaler Fluss<a class="reference internal" href="#def:LokFluss">Definition 1.5</a>,</p></li>
+<li><p>lokaler Fluss <a class="reference internal" href="#def:LokFluss">Definition 1.5</a>,</p></li>
 <li><p>Fluss einer DGL,</p>
 <ul>
 <li><p>Bahnkurve,</p></li>
@@ -264,7 +269,7 @@
 </li>
 </ul>
 <div class="section" id="flusse">
-<h2><span class="section-number">1.4.1. </span>Flüsse<a class="headerlink" href="#flusse" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.1. </span>Flüsse<a class="headerlink" href="#flusse" title="Permalink to this headline">¶</a></h2>
 <p>Wir beginnen zunächst damit ein wichtiges Konzept einzuführen, welches die Beschreibung zeitabhängiger Systeme vereinfacht. Die folgende Definition ist zunächst sehr allgemein gehalten und wird später für unsere Anwendungen auf DGLs konkretisiert.</p>
 <div class="proof definition admonition" id="def:Fluss">
 <p class="admonition-title"><span class="caption-number">Definition 1.4 </span> (Fluss)</p>
@@ -274,6 +279,7 @@
 <li><p><span class="math notranslate nohighlight">\(\Phi(0, x) = x\)</span> für alle <span class="math notranslate nohighlight">\(x\in U\)</span>,</p></li>
 <li><p><span class="math notranslate nohighlight">\(\Phi(t, \Phi(x,s)) = \Phi(s + t, x)\)</span> für alle <span class="math notranslate nohighlight">\(x\in U\)</span> und alle <span class="math notranslate nohighlight">\(s,t\in I\)</span>.</p></li>
 </ol>
+<p>Das Tripel <span class="math notranslate nohighlight">\((I, U, \Phi)\)</span> heißt <strong>dynamisches System</strong>.</p>
 </div>
 </div><div class="proof remark admonition" id="remark-1">
 <p class="admonition-title"><span class="caption-number">Remark 1.1 </span> (Notation)</p>
@@ -351,7 +357,7 @@ eine Folgerung aus dem Eindeutigkeitssatz (<span id="id2">[<a class="reference i
 </div>
 </div>
 <div class="section" id="phasenportraits">
-<h2><span class="section-number">1.4.2. </span>Phasenportraits<a class="headerlink" href="#phasenportraits" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.2. </span>Phasenportraits<a class="headerlink" href="#phasenportraits" title="Permalink to this headline">¶</a></h2>
 <p>Die teilweise abstrakten Begriffe zu Flüssen werden nun mit einfachen geometrische Anschauung unterlegen. Dafür benötigen wir zunächst die folgenden Definitionen.</p>
 <div class="proof definition admonition" id="definition-5">
 <p class="admonition-title"><span class="caption-number">Definition 1.6 </span></p>
@@ -495,11 +501,11 @@ p \cos(\omega t) - m x \sin(\omega t)
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="ode.html" title="previous page">
+        <a class="left-prev" href="motivation.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">1. </span>Gewöhnliche Differentialgleichungen</p>
+                <p class="prevnext-title"><span class="section-number">1.1. </span>Einführung in dynamische Systeme</p>
             </div>
         </a>
     </div>
@@ -507,7 +513,7 @@ p \cos(\omega t) - m x \sin(\omega t)
         <a class="right-next" href="hamilton.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">1.5. </span>Hamiltonsche Differentialgkeichungen und Phasenportraits</p>
+                <p class="prevnext-title"><span class="section-number">1.3. </span>Hamiltonsche Differentialgkeichungen und Phasenportraits</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
