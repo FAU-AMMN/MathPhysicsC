@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.4. Flüsse und Phasenportraits &#8212; Mathematik für Data Science</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.5. Hamiltonsche Differentialgkeichungen und Phasenportraits" href="hamilton.html" />
+    <link rel="prev" title="1. Gewöhnliche Differentialgleichungen" href="ode.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/FAU-DMM-Logo-rgb-10cm.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Mathematik für Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Mathematik für Physiker C
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="ode.html">
+   1. Gewöhnliche Differentialgleichungen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.4. Flüsse und Phasenportraits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hamilton.html">
+     1.5. Hamiltonsche Differentialgkeichungen und Phasenportraits
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   2. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ode/fluesse.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FAU-AMMN/MathPhysikerC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FAU-AMMN/MathPhysikerC/master?urlpath=tree/ode/fluesse.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flusse">
+   1.4.1. Flüsse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phasenportraits">
+   1.4.2. Phasenportraits
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="flusse-und-phasenportraits">
+<h1><span class="section-number">1.4. </span>Flüsse und Phasenportraits<a class="headerlink" href="#flusse-und-phasenportraits" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Abschnitt führen wir zunächst grundlegende Konzepte ein und betrachten danach geometrische Interpretation von DGLs.</p>
+<p>Untenstehend die wichtigsten Schlagwörter:</p>
+<ul class="simple">
+<li><p>Fluss <a class="reference internal" href="#def:Fluss">Definition 1.4</a>,</p></li>
+<li><p>lokaler Fluss<a class="reference internal" href="#def:LokFluss">Definition 1.5</a>,</p></li>
+<li><p>Fluss einer DGL,</p>
+<ul>
+<li><p>Bahnkurve,</p></li>
+<li><p>Orbit,</p></li>
+<li><p>Ruhelage</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="flusse">
+<h2><span class="section-number">1.4.1. </span>Flüsse<a class="headerlink" href="#flusse" title="Permalink to this headline">¶</a></h2>
+<p>Wir beginnen zunächst damit ein wichtiges Konzept einzuführen, welches die Beschreibung zeitabhängiger Systeme vereinfacht. Die folgende Definition ist zunächst sehr allgemein gehalten und wird später für unsere Anwendungen auf DGLs konkretisiert.</p>
+<div class="proof definition admonition" id="def:Fluss">
+<p class="admonition-title"><span class="caption-number">Definition 1.4 </span> (Fluss)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(U\)</span> eine Menge und <span class="math notranslate nohighlight">\(I=\R^+_0\)</span>, dann heißt eine Abbildung <span class="math notranslate nohighlight">\(\Phi:I\times U\rightarrow U\)</span> <strong>Fluss</strong>, falls gilt,</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Phi(0, x) = x\)</span> für alle <span class="math notranslate nohighlight">\(x\in U\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Phi(t, \Phi(x,s)) = \Phi(s + t, x)\)</span> für alle <span class="math notranslate nohighlight">\(x\in U\)</span> und alle <span class="math notranslate nohighlight">\(s,t\in I\)</span>.</p></li>
+</ol>
+</div>
+</div><div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 1.1 </span> (Notation)</p>
+<div class="remark-content section" id="proof-content">
+<p>Anstatt beide Argument in Klammern wie in obiger Definition zu schreiben, benutzt man häufig folgende Darstellung,</p>
+<div class="math notranslate nohighlight">
+\[\Phi_t(x) = \Phi(t, x).\]</div>
+</div>
+</div><p>In unserem Fall wollen wir speziell die Lösungen einer autonomen DGL</p>
+<div class="math notranslate nohighlight">
+\[\dot{x} = F(x).\]</div>
+<p>für <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> als Fluss interpretieren. Hierbei soll das zweite Argument jeweils den Anfangswert
+<span class="math notranslate nohighlight">\(x_0\in U\)</span> angeben und <span class="math notranslate nohighlight">\(\Phi(x_0) = \Phi(\cdot, x_0)\)</span> dann eine Lösung der DGL sein, d.h., <span class="math notranslate nohighlight">\(\frac{\d}{\d t} \Phi(x_0) = F(\Phi(x_0))\)</span>.</p>
+<p>Nach dem Satz von Picard-Lindelöf (Kapitel 7, <span id="id1">[<a class="reference internal" href="../references.html#id7">Ten21</a>]</span>) wissen wir, dass für jeden Anfangswert <span class="math notranslate nohighlight">\(x_0\in U\)</span> ein <span class="math notranslate nohighlight">\(\epsilon(x_0) &gt;0\)</span> existiert, s.d., es eine eindeutige Lösung <span class="math notranslate nohighlight">\(\phi: [-\epsilon(x_0), \epsilon(x_0)]\)</span> gibt. In diesem Fall wählen wir also <span class="math notranslate nohighlight">\(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\)</span>. Wir können also nicht wie in <a class="reference internal" href="#def:Fluss">Definition 1.4</a> auf ganz <span class="math notranslate nohighlight">\(\R^+_0\)</span> als Zeitintervall arbeiten. Stattdessen können wir nur Tupel der Form <span class="math notranslate nohighlight">\((x_0, t)\)</span> betrachten, wobei <span class="math notranslate nohighlight">\(x_0\in U\)</span> fixiert ist und <span class="math notranslate nohighlight">\(t\)</span> aus <span class="math notranslate nohighlight">\(I(x_0)\)</span> gewählt werden kann, was wir mithilfe des kartesischen Produkts</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\{x_0\}\times I(x_0)
+\end{align*}\]</div>
+<p>dargestellt werden kann. Dies führt uns auf den Begriff des lokalen Flusses.</p>
+<div class="proof definition admonition" id="def:LokFluss">
+<p class="admonition-title"><span class="caption-number">Definition 1.5 </span> (Lokaler Fluss)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(U\)</span> eine Menge und die Menge <span class="math notranslate nohighlight">\(G\subset \R^+_0\times U\)</span> sei gegeben als</p>
+<div class="math notranslate nohighlight">
+\[G = \bigcup_{x\in U} \{x\}\times I(x),\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(0\in I(x)\subset \R^+_0\)</span> für jedes <span class="math notranslate nohighlight">\(x\in U\)</span>.</p>
+<p>Dann heißt eine Abbildung <span class="math notranslate nohighlight">\(\Phi: G\rightarrow U\)</span> <strong>lokaler Fluss</strong>, falls</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Phi(0,x) = x\)</span> für alle <span class="math notranslate nohighlight">\(x\in U\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Phi(t, \Phi(s, x)) = \Phi(s+t, x)\)</span> für alle <span class="math notranslate nohighlight">\(x\in U\)</span> und alle <span class="math notranslate nohighlight">\(s,t\)</span> s.d. <span class="math notranslate nohighlight">\(s, s+t\in I(x)\)</span> und <span class="math notranslate nohighlight">\(t\in I(\Phi(x,s))\)</span>.</p></li>
+</ol>
+</div>
+</div><p>Im nächsten Lemma wollen wir nun sehen, dass die Lösung einer DGL tatsächlich als lokaler Fluss interpretiert werden kann.</p>
+<div class="proof lemma admonition" id="lemma-3">
+<p class="admonition-title"><span class="caption-number">Lemma 1.1 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(U\subset\R^n\)</span>, <span class="math notranslate nohighlight">\(F:U \rightarrow \R^n\)</span> lokal Lipschitz stetig, dann existieren Intervalle <span class="math notranslate nohighlight">\(I(x_0)\)</span>, sodass es für</p>
+<div class="math notranslate nohighlight">
+\[G = \bigcup_{x_0\in U} I(x_0)\times\{x_0\},\]</div>
+<p>eine Funktion <span class="math notranslate nohighlight">\(\Phi:G\rightarrow \R^n\)</span> gibt, mit folgenden Eigenschaften</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{\d}{\d t} \Phi(t, x_0) = F(\Phi(t, x_0))\)</span> für alle <span class="math notranslate nohighlight">\((t,x_0)\in G\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Phi\)</span> ist ein lokaler Fluss auf <span class="math notranslate nohighlight">\(G\)</span>.</p></li>
+</ol>
+</div>
+</div><div class="proof remark admonition" id="remark-4">
+<p class="admonition-title"><span class="caption-number">Remark 1.2 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Die Abbildung <span class="math notranslate nohighlight">\(\Phi\)</span> bezeichnet man hier auch als<strong>Fluss einer DGL</strong>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Nach dem Satz von Picard-Lindelöf existiert für jedes <span class="math notranslate nohighlight">\(x_0\in U\)</span> ein <span class="math notranslate nohighlight">\(\epsilon(x_0)&gt;0\)</span> s.d., die Lösung der DGL
+auf <span class="math notranslate nohighlight">\([-\epsilon(x_0),\epsilon(x_0)]\)</span> mit AW <span class="math notranslate nohighlight">\(x_0\)</span> existiert. Daher können wir</p>
+<div class="math notranslate nohighlight">
+\[G = \bigcup_{x_0\in U} [-\epsilon(x_0),\epsilon(x_0)] \times\{x_0\}\]</div>
+<p>wählen und <span class="math notranslate nohighlight">\(\Phi\)</span> so definieren, dass</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\d}{\d t} \Phi(t, x_0) &amp;= F(\Phi(t, x_0))\\
+\Phi(0, x_0) &amp;= x_0\end{split}\]</div>
+<p>für alle <span class="math notranslate nohighlight">\((t, x_0)\in G\)</span>. Damit haben wir 1. und die erste Flusseigenschaft gezeigt. Die zweite Flusseigenschaften ist eine direkte Folgerung aus der Eindeutigkeit der Lösung der DGL. Wir führen den Beweis trotzdem explizit aus. Es sei <span class="math notranslate nohighlight">\(x_0\in U, s\in [-\epsilon(x_0), \epsilon(x_0)]\)</span> und weiterhin <span class="math notranslate nohighlight">\(t\)</span>, s.d., <span class="math notranslate nohighlight">\(s+t \in [-\epsilon(x_0), \epsilon(x_0)]\)</span> und <span class="math notranslate nohighlight">\(t\in [-\epsilon(\Phi(s,x_0)), \epsilon(\Phi(s,x_0))]\)</span>.
+Per Definition löst die Funktion</p>
+<div class="math notranslate nohighlight">
+\[\phi_1(\tau) := \Phi(s + \tau, x_0)\]</div>
+<p>sowie auch die Funktion</p>
+<div class="math notranslate nohighlight">
+\[\phi_2(\tau) := \Phi(\tau, \Phi(s,x_0))\]</div>
+<p>die DGL auf dem Intervall <span class="math notranslate nohighlight">\([t, \epsilon(x_0)]\)</span>. Weiterhin wissen wir, dass</p>
+<div class="math notranslate nohighlight">
+\[\phi_1(0) = \Phi(s, x_0) = \Phi(0, \Phi(s, x_0)) = \phi_2(0),\]</div>
+<p>somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall <span class="math notranslate nohighlight">\([t, \epsilon(x_0)]\)</span> gleich, was
+eine Folgerung aus dem Eindeutigkeitssatz (<span id="id2">[<a class="reference internal" href="../references.html#id7">Ten21</a>]</span>, Kapitel 7) ist. Wir haben also</p>
+<div class="math notranslate nohighlight">
+\[\Phi(s + \tau, x_0) = \phi_1(\tau) = \phi_2(\tau) = \Phi(\tau, \Phi(s,x_0))\]</div>
+<p>für jedes <span class="math notranslate nohighlight">\(\tau\in [t, \epsilon(x_0)]\)</span>.</p>
+</div>
+</div>
+<div class="section" id="phasenportraits">
+<h2><span class="section-number">1.4.2. </span>Phasenportraits<a class="headerlink" href="#phasenportraits" title="Permalink to this headline">¶</a></h2>
+<p>Die teilweise abstrakten Begriffe zu Flüssen werden nun mit einfachen geometrische Anschauung unterlegen. Dafür benötigen wir zunächst die folgenden Definitionen.</p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 1.6 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\Phi:G\rightarrow U\)</span> ein Fluss einer DGL, mit <span class="math notranslate nohighlight">\(G\subset \R^+_0\times U\)</span>.</p>
+<ul class="simple">
+<li><p>Für jedes <span class="math notranslate nohighlight">\(x_0\in U\)</span> heißt die Funktion <span class="math notranslate nohighlight">\(t\mapsto \Phi(t, x_0)\)</span> <strong>Bahnkurve</strong> durch <span class="math notranslate nohighlight">\(x_0\)</span>.</p></li>
+<li><p>Die Menge <span class="math notranslate nohighlight">\(\mathcal{O}(x_0) := \{\Phi(t, x_0): (t, x_0)\in G\}\)</span> heißt <strong>Orbit</strong> oder <strong>Trajektorie</strong> durch <span class="math notranslate nohighlight">\(x_0\)</span>.</p></li>
+<li><p>Ein Orbit heißt <strong>Ruhelage</strong>, falls <span class="math notranslate nohighlight">\(\mathcal{O}(x_0) = \{x_0\}\)</span>.</p></li>
+<li><p>Ein Anfangswert <span class="math notranslate nohighlight">\(x_0\in U\)</span> heißt <strong>periodisch</strong> mit Periode <span class="math notranslate nohighlight">\(T&gt;0\)</span>, falls <span class="math notranslate nohighlight">\(\Phi(T, x_0) = x_0\)</span>.</p></li>
+</ul>
+</div>
+</div><div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 1.1 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Die Bewgeungsgeleichung für den harmonischen Oszillator is gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[r~\ddot{x}(t) + m~\dot{x}(t) + k~x(t)=0\]</div>
+<p>hierbei ist</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x(t)\)</span> die horizontale Auslenkung zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> die Masse des Objekts,</p></li>
+<li><p><span class="math notranslate nohighlight">\(r\)</span> die Dämpfungskonstante,</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> die Federkonstante.</p></li>
+</ul>
+<p>Durch einführung der Variable <span class="math notranslate nohighlight">\(p(t):= m~\dot{x}(t)\)</span> als Impuls erhalten wir das System von DGLs</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\dot{x}(t) &amp;= \frac{1}{m}~p(t) \\
+\dot{p}(t) &amp;= -k~x(t) - \frac{r}{m}~p(t).\end{split}\]</div>
+<p>Betrachten wir speziell den ungedämpften Fall, <span class="math notranslate nohighlight">\(r=0\)</span>, erhalten wir zum Anfangswert <span class="math notranslate nohighlight">\((x,p)\)</span> die Lösung</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Phi(t, (x,p)) = 
+\begin{pmatrix}
+\frac{p}{\omega m}\sin(\omega t) + x~\cos(\omega t)\\
+p \cos(\omega t) - m x \sin(\omega t)
+\end{pmatrix}\end{split}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\omega=\sqrt{\frac{k}{m}}\)</span> die Eigenfrequenz des Systems ist.</p>
+</div>
+</div><div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">r</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">phi</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span>  <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t_0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_pts</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="n">omega</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">num_pts</span><span class="p">)</span>
+
+    
+    <span class="n">phi_1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">phi_2</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">phi_1</span><span class="p">,</span> <span class="n">phi_2</span>
+
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
+
+<span class="n">num_pts</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">,</span> <span class="n">num_pts</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">,</span> <span class="n">num_pts</span><span class="p">)</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="n">X_Q</span><span class="p">,</span> <span class="n">P_Q</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">P</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+
+<span class="n">norms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">P_Q</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">X_Q</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">norms</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">norms</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">X_Q</span><span class="p">,</span> <span class="n">P_Q</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="p">(</span><span class="n">num_pts</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Vektorplot der Funktion F&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="o">-</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">])</span>
+
+
+<span class="n">start_values</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="ow">in</span> <span class="n">start_values</span><span class="p">:</span>
+    <span class="n">phi_1</span><span class="p">,</span> <span class="n">phi_2</span> <span class="o">=</span> <span class="n">phi</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">phi_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">phi_2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">norms</span><span class="p">))</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_1</span><span class="p">,</span> <span class="n">phi_2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">phi_1</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+        
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">phi_1</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">phi_2</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">phi_1</span><span class="p">[</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">phi_1</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">phi_2</span><span class="p">[</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">phi_2</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+                  <span class="n">shape</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">X_Q</span><span class="p">,</span> <span class="n">P_Q</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="p">(</span><span class="n">num_pts</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Phasenporträt&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="o">-</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fluesse_1_0.png" src="../_images/fluesse_1_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ode"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="ode.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Gewöhnliche Differentialgleichungen</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="hamilton.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1.5. </span>Hamiltonsche Differentialgkeichungen und Phasenportraits</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By J. Laubmann, T. Roith, D. Tenbrinck<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
