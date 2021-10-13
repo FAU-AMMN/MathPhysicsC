@@ -1,0 +1,4 @@
+jupyter-book>=0.7.0b
+sphinx_proof
+sphinx_tojupyter
+sphinx_jupyterbook_latex
