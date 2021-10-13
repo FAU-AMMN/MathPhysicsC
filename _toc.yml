@@ -5,6 +5,6 @@ options:
 chapters:
 - file: ode/ode.md
   sections:
-  - file: ode/fluesse.md
+  - file: ode/fluesse.ipynb
   - file: ode/hamilton.md
 - file: references.md
