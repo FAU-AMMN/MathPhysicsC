@@ -1,5 +1,5 @@
 
-# Hamiltonsche Differentialgkeichungen und Phasenportraits
+# Hamiltonsche Differentialgleichungen und Phasenportraits
 
 Ein wichtiges Prinzip für viele physikalischen Anwendungen sind Erhaltungssätze und die dazugehörigen Erhaltungsgrößen. Aus der klassichen Mechanik kennen wir z.B.
 
