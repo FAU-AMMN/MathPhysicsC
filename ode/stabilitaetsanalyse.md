@@ -24,3 +24,20 @@ ii) Eine Lösung $ t \in [0,\infty) \mapsto \Phi_t(x)$ heißt **asymptotisch sta
 
 iii) Eine Lösung heißt **instabil**, wenn sie nicht stabil ist.
 ````
+
+````{prf:example} harmonischer Oszillator
+
+Der Fluss für den harmonischen Oszillator im ungedämpfte Fall ist, wie wir im vorherigem Beispiel herausgefunden haben, gegeben durch $ \Phi(t, (x,p)) = \begin{pmatrix}
+\frac{p}{\omega m}\sin(\omega t) + x~\cos(\omega t)\\
+p \cos(\omega t) - m x \sin(\omega t)
+\end{pmatrix} \stackrel{!}{=}\begin{pmatrix}
+x\\p\end{pmatrix}
+ $. Wir sehen, dass eine Ruhelage sich bei
+$\begin{pmatrix}
+x\\p\end{pmatrix} = \begin{pmatrix}
+0\\0\end{pmatrix}$ befindet.
+
+Diese Ruhelage ist stabil.
+Sie ist sogar asymptotisch stabil für den Fall mit Reibung $(r>0)$ und instabil, falls die Reibung negativ ist (Hausuafgabe?).
+
+````
