@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.2. Flüsse und Phasenportraits &#8212; Mathematik für Data Science</title>
+    <title>1.2. Flüsse und Phasenportraits &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.3. Hamiltonsche Differentialgkeichungen und Phasenportraits" href="hamilton.html" />
+    <link rel="next" title="1.3. Hamiltonsche Differentialgleichungen und Phasenportraits" href="hamilton.html" />
     <link rel="prev" title="1.1. Einführung in dynamische Systeme" href="motivation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -83,7 +83,7 @@
       <img src="../_static/FAU-DMM-Logo-rgb-10cm.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Mathematik für Data Science</h1>
+      <h1 class="site-logo" id="site-title">Mathematik für Physikstudierende C</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -121,7 +121,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="hamilton.html">
-     1.3. Hamiltonsche Differentialgkeichungen und Phasenportraits
+     1.3. Hamiltonsche Differentialgleichungen und Phasenportraits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stabilitaetsanalyse.html">
+     1.4. Stabilitätsanalyse
     </a>
    </li>
   </ul>
@@ -188,7 +193,7 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/FAU-AMMN/MathPhysikerC"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/FAU-AMMN/MathPhysicsC"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
@@ -210,7 +215,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/FAU-AMMN/MathPhysikerC/master?urlpath=tree/ode/fluesse.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FAU-AMMN/MathPhysicsC/master?urlpath=tree/ode/fluesse.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -293,7 +298,7 @@
 \[\dot{x} = F(x).\]</div>
 <p>für <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> als Fluss interpretieren. Hierbei soll das zweite Argument jeweils den Anfangswert
 <span class="math notranslate nohighlight">\(x_0\in U\)</span> angeben und <span class="math notranslate nohighlight">\(\Phi(x_0) = \Phi(\cdot, x_0)\)</span> dann eine Lösung der DGL sein, d.h., <span class="math notranslate nohighlight">\(\frac{\d}{\d t} \Phi(x_0) = F(\Phi(x_0))\)</span>.</p>
-<p>Nach dem Satz von Picard-Lindelöf (Kapitel 7, <span id="id1">[<a class="reference internal" href="../references.html#id7">Ten21</a>]</span>) wissen wir, dass für jeden Anfangswert <span class="math notranslate nohighlight">\(x_0\in U\)</span> ein <span class="math notranslate nohighlight">\(\epsilon(x_0) &gt;0\)</span> existiert, s.d., es eine eindeutige Lösung <span class="math notranslate nohighlight">\(\phi: [-\epsilon(x_0), \epsilon(x_0)]\)</span> gibt. In diesem Fall wählen wir also <span class="math notranslate nohighlight">\(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\)</span>. Wir können also nicht wie in <a class="reference internal" href="#def:Fluss">Definition 1.4</a> auf ganz <span class="math notranslate nohighlight">\(\R^+_0\)</span> als Zeitintervall arbeiten. Stattdessen können wir nur Tupel der Form <span class="math notranslate nohighlight">\((x_0, t)\)</span> betrachten, wobei <span class="math notranslate nohighlight">\(x_0\in U\)</span> fixiert ist und <span class="math notranslate nohighlight">\(t\)</span> aus <span class="math notranslate nohighlight">\(I(x_0)\)</span> gewählt werden kann, was wir mithilfe des kartesischen Produkts</p>
+<p>Nach dem Satz von Picard-Lindelöf (Kapitel 7, <span id="id1">[<a class="reference internal" href="../references.html#id10">Ten21</a>]</span>) wissen wir, dass für jeden Anfangswert <span class="math notranslate nohighlight">\(x_0\in U\)</span> ein <span class="math notranslate nohighlight">\(\epsilon(x_0) &gt;0\)</span> existiert, s.d., es eine eindeutige Lösung <span class="math notranslate nohighlight">\(\phi: [-\epsilon(x_0), \epsilon(x_0)]\)</span> gibt. In diesem Fall wählen wir also <span class="math notranslate nohighlight">\(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\)</span>. Wir können also nicht wie in <a class="reference internal" href="#def:Fluss">Definition 1.4</a> auf ganz <span class="math notranslate nohighlight">\(\R^+_0\)</span> als Zeitintervall arbeiten. Stattdessen können wir nur Tupel der Form <span class="math notranslate nohighlight">\((x_0, t)\)</span> betrachten, wobei <span class="math notranslate nohighlight">\(x_0\in U\)</span> fixiert ist und <span class="math notranslate nohighlight">\(t\)</span> aus <span class="math notranslate nohighlight">\(I(x_0)\)</span> gewählt werden kann, was wir mithilfe des kartesischen Produkts</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \{x_0\}\times I(x_0)
@@ -350,7 +355,7 @@ Per Definition löst die Funktion</p>
 <div class="math notranslate nohighlight">
 \[\phi_1(0) = \Phi(s, x_0) = \Phi(0, \Phi(s, x_0)) = \phi_2(0),\]</div>
 <p>somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall <span class="math notranslate nohighlight">\([t, \epsilon(x_0)]\)</span> gleich, was
-eine Folgerung aus dem Eindeutigkeitssatz (<span id="id2">[<a class="reference internal" href="../references.html#id7">Ten21</a>]</span>, Kapitel 7) ist. Wir haben also</p>
+eine Folgerung aus dem Eindeutigkeitssatz (<span id="id2">[<a class="reference internal" href="../references.html#id10">Ten21</a>]</span>, Kapitel 7) ist. Wir haben also</p>
 <div class="math notranslate nohighlight">
 \[\Phi(s + \tau, x_0) = \phi_1(\tau) = \phi_2(\tau) = \Phi(\tau, \Phi(s,x_0))\]</div>
 <p>für jedes <span class="math notranslate nohighlight">\(\tau\in [t, \epsilon(x_0)]\)</span>.</p>
@@ -513,7 +518,7 @@ p \cos(\omega t) - m x \sin(\omega t)
         <a class="right-next" href="hamilton.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">1.3. </span>Hamiltonsche Differentialgkeichungen und Phasenportraits</p>
+                <p class="prevnext-title"><span class="section-number">1.3. </span>Hamiltonsche Differentialgleichungen und Phasenportraits</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

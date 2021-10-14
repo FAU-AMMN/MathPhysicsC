@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Gewöhnliche Differentialgleichungen für dynamische Systeme &#8212; Mathematik für Physikstudierende C</title>
+    <title>1.4. Stabilitätsanalyse &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -44,6 +44,8 @@
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,8 +56,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.1. Einführung in dynamische Systeme" href="motivation.html" />
-    <link rel="prev" title="Mathematik für Physiker C" href="../intro.html" />
+    <link rel="next" title="2. Bibliography" href="../references.html" />
+    <link rel="prev" title="1.3. Hamiltonsche Differentialgleichungen und Phasenportraits" href="hamilton.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -98,7 +100,7 @@
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="ode.html">
    1. Gewöhnliche Differentialgleichungen für dynamische Systeme
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -106,7 +108,7 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="motivation.html">
      1.1. Einführung in dynamische Systeme
@@ -122,8 +124,8 @@
      1.3. Hamiltonsche Differentialgleichungen und Phasenportraits
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="stabilitaetsanalyse.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      1.4. Stabilitätsanalyse
     </a>
    </li>
@@ -175,7 +177,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/ode/ode.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/ode/stabilitaetsanalyse.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -221,12 +223,39 @@
         
               <div>
                 
-  <div class="section" id="gewohnliche-differentialgleichungen-fur-dynamische-systeme">
-<h1><span class="section-number">1. </span>Gewöhnliche Differentialgleichungen für dynamische Systeme<a class="headerlink" href="#gewohnliche-differentialgleichungen-fur-dynamische-systeme" title="Permalink to this headline">¶</a></h1>
-<p>Wir wollen in diesem Kapitel weiterführende Konzepte zum Thema gewöhnlicher Differentialgleichungen einführen. Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 7 <span id="id1">[]</span> kengelernt haben.</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="stabilitatsanalyse">
+<h1><span class="section-number">1.4. </span>Stabilitätsanalyse<a class="headerlink" href="#stabilitatsanalyse" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Abschnitt schauen wir uns das Verhalten von dynamischen Systemen um Ruhelagen an.
+Zur Erinnerung <span class="math notranslate nohighlight">\(x\in U \)</span> heißt Ruhelage, wenn <span class="math notranslate nohighlight">\(\Phi_t(x) = x\)</span> für alle <span class="math notranslate nohighlight">\(t\)</span> ein Fixpunkt des Flusses ist.
+Anschaulich versteht man unter der stabilitätsanalyse von Ruhelagen ob benachbarte Lösungen von der Ruhelage wegstreben oder nicht.</p>
+<div class="proof definition admonition" id="def:Stabilitaet">
+<p class="admonition-title"><span class="caption-number">Definition 1.7 </span> (Stabilität von Lösungen)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\Phi\)</span> der Fluss zu dem Vektorfeld <span class="math notranslate nohighlight">\(f\in C^1(U,\R^n)\)</span> auf <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<p>i) Eine Lösung <span class="math notranslate nohighlight">\( t \in [0,\infty) \mapsto \Phi_t(x)\)</span> heißt <strong>(Lyapunov) stabil</strong>, wenn zu jedem <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> ein <span class="math notranslate nohighlight">\(\delta&gt;0\)</span> existiert mit:</p>
+<div class="math notranslate nohighlight">
+\[\|x-y\|&lt;\delta \Rightarrow \sup_{t\geq0}\|\Phi_t(x)-\Phi_t(y)\|&lt;\epsilon.\]</div>
+<p>ii) Eine Lösung <span class="math notranslate nohighlight">\( t \in [0,\infty) \mapsto \Phi_t(x)\)</span> heißt <strong>asymptotisch stabil</strong>, wenn ein <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span> existiert mit:</p>
+<div class="math notranslate nohighlight">
+\[\|x-y\|&lt;\delta \Rightarrow \lim{t\to\infty}\|\Phi_t(x)-\Phi_t(y)\|=0.\]</div>
+<p>iii) Eine Lösung heißt <strong>instabil</strong>, wenn sie nicht stabil ist.</p>
 </div>
+</div><div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 1.3 </span> (harmonischer Oszillator)</p>
+<div class="example-content section" id="proof-content">
+<p>Der Fluss für den harmonischen Oszillator im ungedämpfte Fall ist, wie wir im vorherigem Beispiel herausgefunden haben, gegeben durch <span class="math notranslate nohighlight">\( \Phi(t, (x,p)) = \begin{pmatrix}
+\frac{p}{\omega m}\sin(\omega t) + x~\cos(\omega t)\\
+p \cos(\omega t) - m x \sin(\omega t)
+\end{pmatrix} \stackrel{!}{=}\begin{pmatrix}
+x\\p\end{pmatrix}
+ \)</span>. Wir sehen, dass eine Ruhelage sich bei
+<span class="math notranslate nohighlight">\(\begin{pmatrix}
+x\\p\end{pmatrix} = \begin{pmatrix}
+0\\0\end{pmatrix}\)</span> befindet.</p>
+<p>Diese Ruhelage ist stabil.
+Sie ist sogar asymptotisch stabil für den Fall mit Reibung <span class="math notranslate nohighlight">\((r&gt;0)\)</span> und instabil, falls die Reibung negativ ist (Hausuafgabe?).</p>
 </div>
+</div></div>
 
     <script type="text/x-thebe-config">
     {
@@ -258,19 +287,19 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../intro.html" title="previous page">
+        <a class="left-prev" href="hamilton.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Mathematik für Physiker C</p>
+                <p class="prevnext-title"><span class="section-number">1.3. </span>Hamiltonsche Differentialgleichungen und Phasenportraits</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="motivation.html" title="next page">
+        <a class="right-next" href="../references.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">1.1. </span>Einführung in dynamische Systeme</p>
+                <p class="prevnext-title"><span class="section-number">2. </span>Bibliography</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
