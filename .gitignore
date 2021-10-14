@@ -160,3 +160,4 @@ _build
 *.idx
 *.els
 *.ilg
+*.DS_Store
