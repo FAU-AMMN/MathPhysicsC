@@ -1,4 +1,4 @@
-title: "Mathematik für Data Science"
+title: "Mathematik für Physikstudierende C"
 author: J. Laubmann, T. Roith, D. Tenbrinck
 logo: img/FAU-DMM-Logo-rgb-10cm.png
 copyright: "2021"
@@ -6,7 +6,7 @@ execute:
   execute_notebooks: off
 
 repository:
-  url: https://github.com/FAU-AMMN/MathPhysikerC
+  url: https://github.com/FAU-AMMN/MathPhysicsC
 
 html:
   favicon: "img/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"
