@@ -8,5 +8,4 @@ chapters:
   - file: ode/motivation.md
   - file: ode/fluesse.ipynb
   - file: ode/hamilton.md
-  - file: ode/stabilitaetsanalyse.md
 - file: references.md
