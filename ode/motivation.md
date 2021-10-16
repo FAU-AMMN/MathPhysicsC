@@ -1,12 +1,10 @@
-# Einführung in dynamische Systeme
-
-## Dynamische Systeme
+# Gewöhnliche Differentialgleichungen
 
 ## Gewöhnliche Differentialgleichungen
 
-Im folgenden bezeichnet $U\subset\R^n$ stets eine **offene** Teilmenge des $\R^n$
+Im Folgenden bezeichnet $U\subset\R^n$ stets eine **offene** Teilmenge des $\R^n$
 
-````{prf:definition}
+````{prf:definition} Gewöhnliche Differentialgleichung und Phasenraum
 :label: def:DGL
 Es sei $I\subset\R^+_0$ eine offenes Intervall und $F:I\times U\rightarrow\R^n$ eine **stetige** Funktion, dann nennen wir
 
@@ -27,7 +25,7 @@ Die Menge $G=I\times U$ wird hier auch als **erweiterter Phasenraum** bezeichnet
 Speziell in den nächsten Abschnitten behandeln wir DGLs, für welche die Funktion $F$ nicht von der Zeit abhängt.
 
 ````{prf:definition} Autonome DGL
-Hängt die Funktion $F$ in {prf:ref}`def:DGL` nicht von der Zeit ab, d.h., wir haben $F:U\rightarrow\R^n$ dann heiß die Gleichung
+Hängt die Funktion $F$ in {prf:ref}`def:DGL` nicht explizit von der Zeit ab, d.h., wir haben $F:U\rightarrow\R^n$ dann heißt die Gleichung
 
 ```{math}
 :label: eq:DGL
@@ -49,7 +47,7 @@ das Gleichungssystem
 x(t_0) = x_0
 ```
 
-**Anfangswertproblem**. Sofern nicht explizit angegeben werden wir im folgenden annehmen, dass $t_0=0$ gilt.
+**Anfangswertproblem**. Sofern nicht explizit angegeben werden wir im folgenden annehmen, dass ohne Beschränkung der Allgemeinheit $t_0=0$ gilt.
 
 ## Existenz und Eindeutigkeit einer Lösung
 
