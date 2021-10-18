@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.2. Gewöhnliche Differentialgleichungen &#8212; Mathematik für Physikstudierende C</title>
+    <title>1.1. Einführung in dynamische Systeme &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.3. Flüsse und Phasenportraits" href="fluesse.html" />
-    <link rel="prev" title="1.1. Einführung in dynamische Systeme" href="dynamicSystems.html" />
+    <link rel="next" title="1.2. Gewöhnliche Differentialgleichungen" href="motivation.html" />
+    <link rel="prev" title="1. Gewöhnliche Differentialgleichungen für dynamische Systeme" href="ode.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -110,13 +110,13 @@
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="dynamicSystems.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      1.1. Einführung in dynamische Systeme
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="motivation.html">
      1.2. Gewöhnliche Differentialgleichungen
     </a>
    </li>
@@ -178,7 +178,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/ode/motivation.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/ode/dynamicSystems.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -222,18 +222,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   1.2.1. Gewöhnliche Differentialgleichungen
+  <a class="reference internal nav-link" href="#diskrete-dynamische-systeme">
+   1.1.1. Diskrete dynamische Systeme
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anfangswertprobleme">
-   1.2.2. Anfangswertprobleme
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#existenz-und-eindeutigkeit-einer-losung">
-   1.2.3. Existenz und Eindeutigkeit einer Lösung
+  <a class="reference internal nav-link" href="#kontinuierliche-dynamische-systeme">
+   1.1.2. Kontinuierliche dynamische Systeme
   </a>
  </li>
 </ul>
@@ -247,50 +242,55 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="gewohnliche-differentialgleichungen">
-<h1><span class="section-number">1.2. </span>Gewöhnliche Differentialgleichungen<a class="headerlink" href="#gewohnliche-differentialgleichungen" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2><span class="section-number">1.2.1. </span>Gewöhnliche Differentialgleichungen<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Im Folgenden bezeichnet <span class="math notranslate nohighlight">\(U\subset\R^n\)</span> stets eine <strong>offene</strong> Teilmenge des <span class="math notranslate nohighlight">\(\R^n\)</span></p>
-<div class="proof definition admonition" id="def:DGL">
-<p class="admonition-title"><span class="caption-number">Definition 1.1 </span> (Gewöhnliche Differentialgleichung und Phasenraum)</p>
-<div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(I\subset\R^+_0\)</span> eine offenes Intervall und <span class="math notranslate nohighlight">\(F:I\times U\rightarrow\R^n\)</span> eine <strong>stetige</strong> Funktion, dann nennen wir</p>
-<div class="math notranslate nohighlight" id="equation-eq-dgl">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-dgl" title="Permalink to this equation">¶</a></span>\[\dot{x}(t) = F(t, x(t))\quad\forall t\in I\]</div>
-<p>gewöhnliche Differentialgleichung (DGL) erster Ordnung. Eine Funktion <span class="math notranslate nohighlight">\(\phi\in C^1(I,\R^n)\)</span> heißt <strong>Lösung</strong> der DGL, falls gilt,</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="einfuhrung-in-dynamische-systeme">
+<h1><span class="section-number">1.1. </span>Einführung in dynamische Systeme<a class="headerlink" href="#einfuhrung-in-dynamische-systeme" title="Permalink to this headline">¶</a></h1>
+<p>Dynamische Systeme spielen eine zentrale Rolle bei der Beschreibung zeitabhängiger Prozesse in vielen verschiedenen Anwendungsgebieten, wie zum Beispiel der Biologie oder der Physik.
+Durch diese Art von mathematischen Modellen ist es beispielsweise möglich das Ausschwingen eines Pendels zu beschreiben oder den Bestand zweier unterschiedlicher Populationen über die Zeit in einer Räuber-Beute Beziehung zu untersuchen.</p>
+<p>Maßgeblich für dynamische Systeme ist die Beobachtung, dass die beschriebenen Prozesse nicht von der Wahl des Anfangszeitpunktes abhängig sind, sondern lediglich von dem gewählten Anfangszustand.
+Wir werden diese Eigenschaft später in Kapitel noch genauer mathematisch charakterisieren.</p>
+<p>Je nach Anwendungsgebiet können dynamische Systeme entweder <strong>diskret</strong> oder <strong>kontinuierlich</strong> in der Zeitentwicklung sein.
+Wir wollen im Folgenden zwei Beispiele zur Illustration des Unterschieds in der Zeitmodellierung diskutieren.</p>
+<div class="section" id="diskrete-dynamische-systeme">
+<h2><span class="section-number">1.1.1. </span>Diskrete dynamische Systeme<a class="headerlink" href="#diskrete-dynamische-systeme" title="Permalink to this headline">¶</a></h2>
+<p>Zur Veranschaulichung von diskreten dynamischen System wollen wir uns im Folgenden mit einem Beispiel aus der Biologie beschäftigen.</p>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 1.1 </span> (Wachstum von Bakterien)</p>
+<div class="example-content section" id="proof-content">
+<p>In diesem Beispiel wollen wir annehmen, dass wir das <strong>exponentielle Wachstum</strong> von Bakterien durch Zellteilung als diskretes dynamisches System zu festen, äquidistanten Zeitpunkten <span class="math notranslate nohighlight">\(t_0, t_1, \ldots \in I\)</span> in einem offenen Zeitintervall <span class="math notranslate nohighlight">\(I\subset\R^+_0\)</span> untersuchen wollen.
+Wir modellieren die (ungefähre) Anzahl der Bakterien zu einem Zeitpunkt <span class="math notranslate nohighlight">\(t \in I\)</span> als Funktion <span class="math notranslate nohighlight">\(F \colon I \rightarrow \R\)</span>.
+Da die Zeitpunkte äquidistant gewählt sind können wir eine einheitliche Wachstumsrate <span class="math notranslate nohighlight">\(\alpha \in R^*+\)</span> mit <span class="math notranslate nohighlight">\(\alpha &gt; 1\)</span> annehmen, so dass für alle <span class="math notranslate nohighlight">\(n \in \N\)</span> gilt:</p>
 <div class="math notranslate nohighlight">
-\[\dot{\phi}(t) = F(t, \phi(t))\quad\forall t\in I.\]</div>
-<p>Die Menge <span class="math notranslate nohighlight">\(G=I\times U\)</span> wird hier auch als <strong>erweiterter Phasenraum</strong> bezeichnet.</p>
+\[F(t_{n+1}) = \alpha \cdot F(t_n)\]</div>
+<p>Wir erkennen, dass der Prozess des Bakterienwachstums nicht von der konkreten Wahl des Startzeitpunkts <span class="math notranslate nohighlight">\(t_0 \in I\)</span> abhängt, sondern nur von anfänglichen Anzahl der Bakterien <span class="math notranslate nohighlight">\(F_0 \coloneqq F(t_0)\)</span>. Abbildung \xxx zeigt, dass eine unterschiedliche Wahl des Anfangszeitpunkt bei gleicher Wahl der Anfangspopulation keinen Effekt auf die zeitliche Dynamik hat.</p>
+<p>Dies können wir wie folgt mathematisch verifizieren. Seien <span class="math notranslate nohighlight">\(t_m, t_n \in I\)</span> mit <span class="math notranslate nohighlight">\(n,m \in \N\)</span> zwei unterschiedliche Anfangszeitpunkte für die die gleiche Anfangspopulation <span class="math notranslate nohighlight">\(F_0 \in \N\)</span> von Bakterien angenommen wird, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[F(t_m) = F_0 = F(t_n).\]</div>
+<p>Betrachten wir nun für die beiden unterschiedlichen Anfangszeitpunkte das Bakterienwachstum nach <span class="math notranslate nohighlight">\(k \in \N\)</span> äquidistanten Zeitschritten, so ergibt sich:</p>
+<div class="math notranslate nohighlight">
+\[F(t_{m+k}) = \alpha \cdot F(t_{m+k-1}) = \ldots = \alpha^k \cdot F(t_{m}) = \alpha^k \cdot F_0 = \alpha^k \cdot F(t_n) = F(t_{n+k}).\]</div>
+<p>Wir erkennen also, dass unabhängig vom gewählten Anfangszeitpunkt die Bakterienpopulation nach <span class="math notranslate nohighlight">\(k \in \N\)</span> Zeitschritten gleich ist.</p>
 </div>
-</div><p>Speziell in den nächsten Abschnitten behandeln wir DGLs, für welche die Funktion <span class="math notranslate nohighlight">\(F\)</span> nicht von der Zeit abhängt.</p>
-<div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 1.2 </span> (Autonome DGL)</p>
-<div class="definition-content section" id="proof-content">
-<p>Hängt die Funktion <span class="math notranslate nohighlight">\(F\)</span> in <a class="reference internal" href="#def:DGL">Definition 1.1</a> nicht explizit von der Zeit ab, d.h., wir haben <span class="math notranslate nohighlight">\(F:U\rightarrow\R^n\)</span> dann heißt die Gleichung</p>
-<div class="math notranslate nohighlight" id="equation-eq-dgl">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-dgl" title="Permalink to this equation">¶</a></span>\[\dot{x(t)} = F(x(t))\quad\forall t\in I\]</div>
-<p><strong>autonome DGL</strong>.</p>
+</div><p>Diskrete dynamische Systeme tauchen auch in anderen spannenden Anwendungen auf, wie beispielsweise in der <a class="reference external" href="https://de.wikipedia.org/wiki/Bifurkation_(Mathematik)#Bifurkationsdiagramm">Chaostheorie</a> und in der <a class="reference external" href="https://de.wikipedia.org/wiki/Markow-Kette">Stochastik</a>.</p>
 </div>
-</div></div>
-<div class="section" id="anfangswertprobleme">
-<h2><span class="section-number">1.2.2. </span>Anfangswertprobleme<a class="headerlink" href="#anfangswertprobleme" title="Permalink to this headline">¶</a></h2>
-<p>Üblicherweise betrachtet man nicht nur DGLs sondern sogenannte Anfangswertprobleme. Hierbei wählt man einen ausgezeichneten Zeitpunkt <span class="math notranslate nohighlight">\(t_0\in I\)</span> aus dem Zeitintervall <span class="math notranslate nohighlight">\(I\)</span> an welchem man die Lösung explizit durch einen Anfangswert <span class="math notranslate nohighlight">\(x_0\in U\)</span> vorgibt. Im Setting von <a class="reference internal" href="#def:DGL">Definition 1.1</a> heißt
-das Gleichungssystem</p>
-<div class="math notranslate nohighlight" id="equation-eq-awp">
-<span class="eqno">(1.3)<a class="headerlink" href="#equation-eq-awp" title="Permalink to this equation">¶</a></span>\[\dot{x}(t) = F(t, x(t))\quad\forall t\in I
-x(t_0) = x_0\]</div>
-<p><strong>Anfangswertproblem</strong>. Sofern nicht explizit angegeben werden wir im folgenden annehmen, dass ohne Beschränkung der Allgemeinheit <span class="math notranslate nohighlight">\(t_0=0\)</span> gilt.</p>
+<div class="section" id="kontinuierliche-dynamische-systeme">
+<h2><span class="section-number">1.1.2. </span>Kontinuierliche dynamische Systeme<a class="headerlink" href="#kontinuierliche-dynamische-systeme" title="Permalink to this headline">¶</a></h2>
+<p>Im Unterschied zu diskreten dynamischen Systemen wird die Zeit bei kontinuerlichen dynamischen Systemen nicht an abzählbar vielen Punkten modelliert, sondern als Kontinuum.
+Im Folgenden beschreiben wir das physikalische Experiment des freien Falls als Spezialfall eines kontinuierlichen dynamischen Systems.</p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 1.2 </span> (Freier Fall)</p>
+<div class="example-content section" id="proof-content">
+<p>In diesem Beispiel betrachten wir ein physikalisches Modell für den freien Fall eines Steins mit Masse <span class="math notranslate nohighlight">\(m \in \R^+\)</span>, den wir in einer Hand halten, bis wir ihn zu einem definierten Anfangszeitpunkt <span class="math notranslate nohighlight">\(t_0 \in I\)</span> mit <span class="math notranslate nohighlight">\(I \subset \R^+_0\)</span> fallen lassen.</p>
+<p>Die aktuelle Entfernung des Steins zum Boden zu einem Zeitpunkt <span class="math notranslate nohighlight">\(t \in I\)</span>, d.h. seine gegenwärtige Höhe, ist gegeben durch eine monoton-fallende Funktion <span class="math notranslate nohighlight">\(F \colon I \rightarrow \R^+_0\)</span>.
+Unsere Hand befindet sich zum Anfangszeitpunkt <span class="math notranslate nohighlight">\(t_0\)</span> in einer Höhe von <span class="math notranslate nohighlight">\(F_0 &gt; 0\)</span>.
+Für jeden beliebigen Zeitpunkt <span class="math notranslate nohighlight">\(t &gt; t_0\)</span> lässt sich die aktuelle Höhe des fallenden Steins mit Hilfe des Newtonschen Gravitationsgesetzes wie folgt angeben:</p>
+<div class="math notranslate nohighlight">
+\[F(t) = \max(0, F_0 - \frac{1}{2}gt^2),\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(g = 9,81 \frac{m}{s^2}\)</span> die Erdbeschleunigungskonstante bezeichnet.</p>
+<p>Es wird klar, dass auch hier die Dynamik des freien Falls nicht von der Wahl des Anfangszeitpunkts <span class="math notranslate nohighlight">\(t_0 \in I\)</span> abhängt.
+Anschaulich gesprochen, würde der Stein genauso fallen, wenn wir ihn noch einige Sekunden länger festhalten würden.</p>
 </div>
-<div class="section" id="existenz-und-eindeutigkeit-einer-losung">
-<h2><span class="section-number">1.2.3. </span>Existenz und Eindeutigkeit einer Lösung<a class="headerlink" href="#existenz-und-eindeutigkeit-einer-losung" title="Permalink to this headline">¶</a></h2>
-<p>Wir wiederholen die wichtigsten Existenzaussagen zu Anfangswertproblem. Die wichtigste Eigenschaften in diesem Kontext ist die Lipschitzstetigkeit der rechten Seite <span class="math notranslate nohighlight">\(F\)</span>.</p>
-<div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 1.3 </span> (Lipschitzstetigkeit)</p>
-<div class="definition-content section" id="proof-content">
-<p><span class="math notranslate nohighlight">\(F\)</span></p>
+</div><p>Häufig kommen zur Beschreibung von kontinuierlichen dynamischen Systemen sogenannte <strong>autonome gewöhnliche Differentialgleichungen</strong> zum Einsatz, wie die in Beispiel \xxx implizit genutzten Bewegungsgleichungen. Wir werden diese Art von Differentialgleichungen in Kapitel \xxx mathematisch genauer betrachten.</p>
 </div>
-</div></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -323,19 +323,19 @@ x(t_0) = x_0\]</div>
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="dynamicSystems.html" title="previous page">
+        <a class="left-prev" href="ode.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">1.1. </span>Einführung in dynamische Systeme</p>
+                <p class="prevnext-title"><span class="section-number">1. </span>Gewöhnliche Differentialgleichungen für dynamische Systeme</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="fluesse.html" title="next page">
+        <a class="right-next" href="motivation.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">1.3. </span>Flüsse und Phasenportraits</p>
+                <p class="prevnext-title"><span class="section-number">1.2. </span>Gewöhnliche Differentialgleichungen</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
