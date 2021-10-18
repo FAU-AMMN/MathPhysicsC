@@ -2,7 +2,11 @@
 
 In diesem Abschnitt schauen wir uns das Verhalten von dynamischen Systemen um Ruhelagen an. Diese sind oftmals von besonderes Interesse, da man in vielen technischen Anwendungen daran interessiert ist das System in eine oder nahe einer Gleichgewichtslage zu bringen.
 
-Zur Erinnerung $x\in U $ heißt Ruhelage, wenn $\Phi_t(x) = x$ für alle $t$ ein Fixpunkt des Flusses ist.
+Zur Erinnerung $x\in U $ heißt Ruhelage, wenn $\Phi_t(x) = x$ für alle $t$ ein Fixpunkt des Flusses ist. Für spezielle autonome DGL mit
+```{math}
+\dot{x} = F(x)
+```
+ist $x$ auch eine Ruhelage, falls $F(x) = 0$ gilt.
 
 ## Stabilität von Lösungen
 
@@ -33,14 +37,13 @@ iii) Eine Lösung heißt **instabil**, wenn sie nicht stabil ist.
 Der Fluss für den harmonischen Oszillator im ungedämpfte Fall ist, wie wir im vorherigem Beispiel herausgefunden haben, gegeben durch $ \Phi(t, (x,p)) = \begin{pmatrix}
 \frac{p}{\omega m}\sin(\omega t) + x~\cos(\omega t)\\
 p \cos(\omega t) - m x \sin(\omega t)
-\end{pmatrix} \stackrel{!}{=}\begin{pmatrix}
-x\\p\end{pmatrix}
- $. Wir sehen, dass eine Ruhelage sich bei
+\end{pmatrix}
+ $. Nun suchen wir einen Fixpunkt der unabhängig ist von $t$. Wir sehen, dass eine Ruhelage sich bei
 $\begin{pmatrix}
 x\\p\end{pmatrix} = \begin{pmatrix}
 0\\0\end{pmatrix}$ befindet.
 
-Diese Ruhelage ist stabil.
+Diese Ruhelage ist stabil, denn wie wir im Phasenporträt gesehen habe ist jeder Anfangswert um (0,0) periodisch. Damit kann das System nicht wegstreben von der Ruhelage.
 Sie ist sogar asymptotisch stabil für den Fall mit Reibung $(r>0)$ und instabil, falls die Reibung negativ ist (Hausuafgabe?).
 
 ````
@@ -75,9 +78,20 @@ Zu beliebiger Anfangsbedingung $x$ und $\epsilon > 0$ erhalten wir die Abschätz
 Weil $ e^{tJ}$ ein Polynom in $t$ ist gilt die Abschätzung $ \|e^{tJ}\|\leq \|e^{\epsilon t}\|$ und $\|e^{tD}\|\leq e^{t\gamma}$ wegen der Definiton von $\gamma$. <br />
 Das verhalten der Norm des Flusses hängt vom Vorzeichen von $\gamma$ ab. <br />
 Wenn $\gamma >0$, existiert $v$ mit $e^{tA}\lambda v = \lambda e^{t\gamma}v \to \infty $ für alle $\lambda>0$. Also enthällt jede Umgebung von 0 Punkte, die explodieren. <br />
-Falls $\gamma <0$, dann gilt $0\leq \|\Phi_t(x)-0\|\leq Ce^{\gamma t} \|e^{tJ}\| \to 0$. Also asymptotische stabilität des Ruhepunktes 0.
+Falls $\gamma <0$, dann gilt $0\leq \|\Phi_t(x)-0\|\leq Ce^{\gamma t} \|e^{tJ}\| \to 0$. Also asymptotische Stabilität des Ruhepunktes 0.
+````
+````{prf:example}
+
+Wir führen das Beispiel vom vorherigen Abschnitt weiter. 
+
 ````
 
 ## Linearisierung um Ruhelage
 
-In diesem Abschnitt wollen wir unsere Erkentnisse 
+In diesem Abschnitt wollen wir unsere Erkentnisse aus dem linearen Fall auf den allgemeinen übertragen. Man möchte Stabilitätsfragen auch für DGLn klären, deren Lösungen man nicht hinschreiben kann.
+
+Wir betrachten nun beliebige autonome DGL auf $\R^n$ mit Ruhelage bei $x_f$:
+
+```{math}
+\dot{x} = F(x), \quad F(x_f)=0
+```
