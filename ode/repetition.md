@@ -1,32 +1,53 @@
 # Gewöhnliche Differentialgleichungen
 
-In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel xxx {cite:p}`tenbrink_2021` wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer System mathematisch untersuchen können.
+In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel xxx {cite:p}`tenbrinck_2021` wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
 
 ## Gewöhnliche Differentialgleichungen
 
-Im Folgenden bezeichnet $U\subset\R^n$ stets eine **offene** Teilmenge des $\R^n$.
-Wir erinnern uns zunächst an die Definition einer gewöhnlichen Differentialgleichung erster Ordnung und führen den Phasenraum ein.
-````{prf:definition} Gewöhnliche Differentialgleichung und Phasenraum
+Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgleichungssystems $m$-ter Ordnung als Grundlage für unsere weiteren Betrachtungen.
+
+````{prf:definition} Gewöhnliches Differentialgleichungssystem
 :label: def:DGL
-Es sei $I\subset\R^+_0$ eine offenes Intervall und $F:I\times U\rightarrow\R^n$ eine stetige Funktion, dann nennen wir
+Seien $n,m \in \N$.
+Wir betrachten im Folgenden eine offene Teilmenge $U\subset (\R^n)^{m+1}$ und ein offenes Intervall $I\subset\R^+_0$. 
+Es sei außerdem $F:I\times U\rightarrow\R^n$ eine stetige Funktion, dann nennen wir
 
 ```{math}
 :label: eq:DGL
-\dot{x}(t) = F(t, x(t))\quad\forall t\in I
+F(x,y,y',\ldots,y^(m)) = 0
 ```
 
-**gewöhnliche Differentialgleichung (DGL) erster Ordnung**.
-Eine Funktion $\phi\in C^1(I;\R^n)$ heißt **Lösung der DGL**, falls gilt,
+ein **gewöhnliches Differentialgleichungssystem (DGL)** $m$-ter Ordnung von $n$ Gleichungen.
+Gilt $m=1$, das heißt die Funktion $F$ ist skalarwertig, so sprechen wir von einer **gewöhnlichen Differentialgleichung**.
+
+Eine Funktion $\phi\in C^m(I;\R^n)$ heißt **Lösung der DGL**, falls gilt,
 
 ```{math}
-\dot{\phi}(t) = F(t, \phi(t))\quad\forall t\in I.
+F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}) = 0 \quad \forall t\in I.
 ```
 
-Die Menge $G\coloneqq I\times U$ wird auch als **erweiterter Phasenraum** bezeichnet.
+Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat
+
+```{math}
+y^{(n)} = F(x,y,y',\ldots,y^{(n-1)}),
+```
+
+so nennen wir die DGL **explizit**, ansonsten wird sie **implizit** genannt.
 ````
 
-Der Phasenraum beschreibt die Menge aller möglichen Zustände 
+## Autonome Differentialgleichungen
+
+Im Fall von dynamischen Systemen erhält der Definitionsbereich der Funktion $F$ einer gewöhnlichen Differentialgleichung einen besonderen Namen, wie die folgende Bemerkung erklärt.
+````{prf:remark} (Erweiterter) Phasenraum
+Wird eine gewöhnliche Differentialgleichung als mathematisches Modell für ein kontinuierliches dynamisches System genutzt, so wird die offene Menge $U\subset (\R^n)^{m+1}$ auch als **Phasenraum** bezeichnet. 
+Der Definitionsbereich $I\times U$ der stetigen Funktion $F$ wird auch als **erweiterter Phasenraum** bezeichnet.
+
+Der Phasenraum beschreibt die Menge aller möglichen Zustände des dynamischen Systems.
+Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zugeordnet.
+
 In Kapitel \xxx werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
+````
+
 Im Fall von kontinuierlichen dynamischen System spielt eine Familie von DGLs eine wichtige Rolle, die wir im Folgenden definieren wollen. 
 Diese zeichnen sich dadurch aus, dass die Funktion $F$ in \xxx nicht explizit von der Zeit abhängt.
 

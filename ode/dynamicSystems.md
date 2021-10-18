@@ -53,4 +53,5 @@ wobei $g = 9,81 \frac{m}{s^2}$ die Erdbeschleunigungskonstante bezeichnet.
 Es wird klar, dass auch hier die Dynamik des freien Falls nicht von der Wahl des Anfangszeitpunkts $t_0 \in I$ abhängt.
 Anschaulich gesprochen, würde der Stein genauso fallen, wenn wir ihn noch einige Sekunden länger festhalten würden.
 ````
-Häufig kommen zur Beschreibung von kontinuierlichen dynamischen Systemen sogenannte **autonome gewöhnliche Differentialgleichungen** zum Einsatz, wie die in Beispiel \xxx implizit genutzten Bewegungsgleichungen. Wir werden diese Art von Differentialgleichungen in Kapitel \xxx mathematisch genauer betrachten.
+Häufig kommen zur Beschreibung von kontinuierlichen dynamischen Systemen sogenannte **autonome gewöhnliche Differentialgleichungen** zum Einsatz, wie die in Beispiel \xxx implizit genutzten Bewegungsgleichungen. 
+Wir werden diese Art von Differentialgleichungen in Kapitel \xxx mathematisch genauer betrachten.
