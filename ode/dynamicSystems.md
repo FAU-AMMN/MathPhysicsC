@@ -4,7 +4,7 @@ Dynamische Systeme spielen eine zentrale Rolle bei der Beschreibung zeitabhängi
 Durch diese Art von mathematischen Modellen ist es beispielsweise möglich das Ausschwingen eines Pendels zu beschreiben oder den Bestand zweier unterschiedlicher Populationen über die Zeit in einer Räuber-Beute Beziehung zu untersuchen.
 
 Maßgeblich für dynamische Systeme ist die Beobachtung, dass die beschriebenen Prozesse nicht von der Wahl des Anfangszeitpunktes abhängig sind, sondern lediglich von dem gewählten Anfangszustand.
-Wir werden diese Eigenschaft später in Kapitel noch genauer mathematisch charakterisieren.
+Wir werden diese Eigenschaft später in Kapitel \xxx noch genauer mathematisch charakterisieren.
 
 Je nach Anwendungsgebiet können dynamische Systeme entweder **diskret** oder **kontinuierlich** in der Zeitentwicklung sein.
 Wir wollen im Folgenden zwei Beispiele zur Illustration des Unterschieds in der Zeitmodellierung diskutieren.
@@ -14,10 +14,11 @@ Zur Veranschaulichung von diskreten dynamischen System wollen wir uns im Folgend
 ````{prf:example} Wachstum von Bakterien
 
 In diesem Beispiel wollen wir annehmen, dass wir das **exponentielle Wachstum** von Bakterien durch Zellteilung als diskretes dynamisches System zu festen, äquidistanten Zeitpunkten $t_0, t_1, \ldots \in I$ in einem offenen Zeitintervall $I\subset\R^+_0$ untersuchen wollen.
-Wir modellieren die (ungefähre) Anzahl der Bakterien zu einem Zeitpunkt $t \in I$ als Funktion $F \colon I \rightarrow \R$.
-Da die Zeitpunkte äquidistant gewählt sind können wir eine einheitliche Wachstumsrate $\alpha \in R^*+$ mit $\alpha > 1$ annehmen, so dass für alle $n \in \N$ gilt:
+Wir modellieren die (ungefähre) Anzahl der Bakterien zu einem Zeitpunkt $t \in I$ als Funktion $F \colon I \rightarrow \R_0^+$.
+Da die Zeitpunkte äquidistant gewählt sind können wir eine einheitliche Wachstumsrate $\alpha \in \R^+$ mit $\alpha > 1$ annehmen, so dass für alle $n \in \N$ gilt:
+
 ```{math}
-F(t_{n+1}) = \alpha \cdot F(t_n)
+F(t_{n+1}) = \alpha \cdot F(t_n).
 ```
 
 Wir erkennen, dass der Prozess des Bakterienwachstums nicht von der konkreten Wahl des Startzeitpunkts $t_0 \in I$ abhängt, sondern nur von anfänglichen Anzahl der Bakterien $F_0 \coloneqq F(t_0)$. Abbildung \xxx zeigt, dass eine unterschiedliche Wahl des Anfangszeitpunkt bei gleicher Wahl der Anfangspopulation keinen Effekt auf die zeitliche Dynamik hat.
