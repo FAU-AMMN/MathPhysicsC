@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.2. Gewöhnliche Differentialgleichungen &#8212; Mathematik für Physikstudierende C</title>
+    <title>1.2. Wiederholung Gewöhnliche Differentialgleichungen &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -116,7 +116,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     1.2. Gewöhnliche Differentialgleichungen
+     1.2. Wiederholung Gewöhnliche Differentialgleichungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -177,7 +177,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/ode/motivation.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/ode/repetition.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -221,18 +221,23 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#gewohnliche-differentialgleichungen">
    1.2.1. Gewöhnliche Differentialgleichungen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autonome-differentialgleichungen">
+   1.2.2. Autonome Differentialgleichungen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#anfangswertprobleme">
-   1.2.2. Anfangswertprobleme
+   1.2.3. Anfangswertprobleme
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#existenz-und-eindeutigkeit-einer-losung">
-   1.2.3. Existenz und Eindeutigkeit einer Lösung
+   1.2.4. Existenz und Eindeutigkeit einer Lösung
   </a>
  </li>
 </ul>
@@ -246,34 +251,56 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="gewohnliche-differentialgleichungen">
-<h1><span class="section-number">1.2. </span>Gewöhnliche Differentialgleichungen<a class="headerlink" href="#gewohnliche-differentialgleichungen" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2><span class="section-number">1.2.1. </span>Gewöhnliche Differentialgleichungen<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Im Folgenden bezeichnet <span class="math notranslate nohighlight">\(U\subset\R^n\)</span> stets eine <strong>offene</strong> Teilmenge des <span class="math notranslate nohighlight">\(\R^n\)</span></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="wiederholung-gewohnliche-differentialgleichungen">
+<h1><span class="section-number">1.2. </span>Wiederholung Gewöhnliche Differentialgleichungen<a class="headerlink" href="#wiederholung-gewohnliche-differentialgleichungen" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel xxx <span id="id1">[<a class="reference internal" href="../references.html#id10">Ten21</a>]</span> wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.</p>
+<div class="section" id="gewohnliche-differentialgleichungen">
+<h2><span class="section-number">1.2.1. </span>Gewöhnliche Differentialgleichungen<a class="headerlink" href="#gewohnliche-differentialgleichungen" title="Permalink to this headline">¶</a></h2>
+<p>Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgleichungssystems <span class="math notranslate nohighlight">\(m\)</span>-ter Ordnung als Grundlage für unsere weiteren Betrachtungen.</p>
 <div class="proof definition admonition" id="def:DGL">
-<p class="admonition-title"><span class="caption-number">Definition 1.1 </span> (Gewöhnliche Differentialgleichung und Phasenraum)</p>
+<p class="admonition-title"><span class="caption-number">Definition 1.1 </span> (Gewöhnliches Differentialgleichungssystem)</p>
 <div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(I\subset\R^+_0\)</span> eine offenes Intervall und <span class="math notranslate nohighlight">\(F:I\times U\rightarrow\R^n\)</span> eine <strong>stetige</strong> Funktion, dann nennen wir</p>
+<p>Seien <span class="math notranslate nohighlight">\(n,m \in \N\)</span>.
+Wir betrachten im Folgenden eine offene Teilmenge <span class="math notranslate nohighlight">\(U\subset (\R^n)^{m+1}\)</span> und ein offenes Intervall <span class="math notranslate nohighlight">\(I\subset\R^+_0\)</span>.
+Es sei außerdem <span class="math notranslate nohighlight">\(F:I\times U\rightarrow\R^n\)</span> eine stetige Funktion, dann nennen wir</p>
 <div class="math notranslate nohighlight" id="equation-eq-dgl">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-dgl" title="Permalink to this equation">¶</a></span>\[\dot{x}(t) = F(t, x(t))\quad\forall t\in I\]</div>
-<p>gewöhnliche Differentialgleichung (DGL) erster Ordnung. Eine Funktion <span class="math notranslate nohighlight">\(\phi\in C^1(I,\R^n)\)</span> heißt <strong>Lösung</strong> der DGL, falls gilt,</p>
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-dgl" title="Permalink to this equation">¶</a></span>\[F(x,y,y',\ldots,y^{(m)}) = 0\]</div>
+<p>ein <strong>gewöhnliches Differentialgleichungssystem (DGL)</strong> <span class="math notranslate nohighlight">\(m\)</span>-ter Ordnung von <span class="math notranslate nohighlight">\(n\)</span> Gleichungen.
+Gilt <span class="math notranslate nohighlight">\(m=1\)</span>, das heißt die Funktion <span class="math notranslate nohighlight">\(F\)</span> ist skalarwertig, so sprechen wir von einer <strong>gewöhnlichen Differentialgleichung</strong>.</p>
+<p>Eine Funktion <span class="math notranslate nohighlight">\(\phi\in C^m(I;\R^n)\)</span> heißt <strong>Lösung der DGL</strong>, falls gilt,</p>
 <div class="math notranslate nohighlight">
-\[\dot{\phi}(t) = F(t, \phi(t))\quad\forall t\in I.\]</div>
-<p>Die Menge <span class="math notranslate nohighlight">\(G=I\times U\)</span> wird hier auch als <strong>erweiterter Phasenraum</strong> bezeichnet.</p>
+\[F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}) = 0 \quad \forall t\in I.\]</div>
+<p>Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat</p>
+<div class="math notranslate nohighlight">
+\[y^{(n)} = F(x,y,y',\ldots,y^{(n-1)}),\]</div>
+<p>so nennen wir die DGL <strong>explizit</strong>, ansonsten wird sie <strong>implizit</strong> genannt.</p>
 </div>
-</div><p>Speziell in den nächsten Abschnitten behandeln wir DGLs, für welche die Funktion <span class="math notranslate nohighlight">\(F\)</span> nicht von der Zeit abhängt.</p>
-<div class="proof definition admonition" id="definition-1">
+</div></div>
+<div class="section" id="autonome-differentialgleichungen">
+<h2><span class="section-number">1.2.2. </span>Autonome Differentialgleichungen<a class="headerlink" href="#autonome-differentialgleichungen" title="Permalink to this headline">¶</a></h2>
+<p>Im Fall von dynamischen Systemen erhält der Definitionsbereich der Funktion <span class="math notranslate nohighlight">\(F\)</span> einer gewöhnlichen Differentialgleichung einen besonderen Namen, wie die folgende Bemerkung erklärt.</p>
+<div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 1.1 </span> ((Erweiterter) Phasenraum)</p>
+<div class="remark-content section" id="proof-content">
+<p>Wird eine gewöhnliche Differentialgleichung als mathematisches Modell für ein kontinuierliches dynamisches System genutzt, so wird die offene Menge <span class="math notranslate nohighlight">\(U\subset (\R^n)^{m+1}\)</span> auch als <strong>Phasenraum</strong> bezeichnet.
+Der Definitionsbereich <span class="math notranslate nohighlight">\(I\times U\)</span> der stetigen Funktion <span class="math notranslate nohighlight">\(F\)</span> wird auch als <strong>erweiterter Phasenraum</strong> bezeichnet.</p>
+<p>Der Phasenraum beschreibt die Menge aller möglichen Zustände des dynamischen Systems.
+Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zugeordnet.</p>
+<p>In Kapitel \xxx werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.</p>
+</div>
+</div><p>Im Fall von kontinuierlichen dynamischen System spielt eine Familie von DGLs eine wichtige Rolle, die wir im Folgenden definieren wollen.
+Diese zeichnen sich dadurch aus, dass die Funktion <span class="math notranslate nohighlight">\(F\)</span> in \xxx nicht explizit von der Zeit abhängt.</p>
+<div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 1.2 </span> (Autonome DGL)</p>
 <div class="definition-content section" id="proof-content">
 <p>Hängt die Funktion <span class="math notranslate nohighlight">\(F\)</span> in <a class="reference internal" href="#def:DGL">Definition 1.1</a> nicht explizit von der Zeit ab, d.h., wir haben <span class="math notranslate nohighlight">\(F:U\rightarrow\R^n\)</span> dann heißt die Gleichung</p>
-<div class="math notranslate nohighlight" id="equation-eq-dgl">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-dgl" title="Permalink to this equation">¶</a></span>\[\dot{x(t)} = F(x(t))\quad\forall t\in I\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-autonome-dgl">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-autonome-dgl" title="Permalink to this equation">¶</a></span>\[\dot{x(t)} = F(x(t))\quad\forall t\in I\]</div>
 <p><strong>autonome DGL</strong>.</p>
 </div>
 </div></div>
 <div class="section" id="anfangswertprobleme">
-<h2><span class="section-number">1.2.2. </span>Anfangswertprobleme<a class="headerlink" href="#anfangswertprobleme" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.3. </span>Anfangswertprobleme<a class="headerlink" href="#anfangswertprobleme" title="Permalink to this headline">¶</a></h2>
 <p>Üblicherweise betrachtet man nicht nur DGLs sondern sogenannte Anfangswertprobleme. Hierbei wählt man einen ausgezeichneten Zeitpunkt <span class="math notranslate nohighlight">\(t_0\in I\)</span> aus dem Zeitintervall <span class="math notranslate nohighlight">\(I\)</span> an welchem man die Lösung explizit durch einen Anfangswert <span class="math notranslate nohighlight">\(x_0\in U\)</span> vorgibt. Im Setting von <a class="reference internal" href="#def:DGL">Definition 1.1</a> heißt
 das Gleichungssystem</p>
 <div class="math notranslate nohighlight" id="equation-eq-awp">
@@ -282,9 +309,9 @@ x(t_0) = x_0\]</div>
 <p><strong>Anfangswertproblem</strong>. Sofern nicht explizit angegeben werden wir im folgenden annehmen, dass ohne Beschränkung der Allgemeinheit <span class="math notranslate nohighlight">\(t_0=0\)</span> gilt.</p>
 </div>
 <div class="section" id="existenz-und-eindeutigkeit-einer-losung">
-<h2><span class="section-number">1.2.3. </span>Existenz und Eindeutigkeit einer Lösung<a class="headerlink" href="#existenz-und-eindeutigkeit-einer-losung" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2.4. </span>Existenz und Eindeutigkeit einer Lösung<a class="headerlink" href="#existenz-und-eindeutigkeit-einer-losung" title="Permalink to this headline">¶</a></h2>
 <p>Wir wiederholen die wichtigsten Existenzaussagen zu Anfangswertproblem. Die wichtigste Eigenschaften in diesem Kontext ist die Lipschitzstetigkeit der rechten Seite <span class="math notranslate nohighlight">\(F\)</span>.</p>
-<div class="proof definition admonition" id="definition-2">
+<div class="proof definition admonition" id="definition-3">
 <p class="admonition-title"><span class="caption-number">Definition 1.3 </span> (Lipschitzstetigkeit)</p>
 <div class="definition-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(F\)</span></p>
