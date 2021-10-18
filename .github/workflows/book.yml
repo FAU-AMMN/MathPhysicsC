@@ -23,6 +23,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+        pip install --upgrade Sphinx==3.5.4
     # Build the book
     - name: Build the book
       run: |
