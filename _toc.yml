@@ -5,7 +5,7 @@ options:
 chapters:
 - file: ode/ode.md
   sections:
-  - file: ode/dynamicSystems.md
+  - file: ode/dynamicSystems.ipynb
   - file: ode/repetition.md
   - file: ode/fluesse.ipynb
   - file: ode/hamilton.md
