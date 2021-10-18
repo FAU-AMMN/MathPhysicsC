@@ -1,4 +1,4 @@
-# Gewöhnliche Differentialgleichungen
+# Wiederholung Gewöhnliche Differentialgleichungen
 
 In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel xxx {cite:p}`tenbrinck_2021` wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
 
@@ -14,7 +14,7 @@ Es sei außerdem $F:I\times U\rightarrow\R^n$ eine stetige Funktion, dann nennen
 
 ```{math}
 :label: eq:DGL
-F(x,y,y',\ldots,y^(m)) = 0
+F(x,y,y',\ldots,y^{(m)}) = 0
 ```
 
 ein **gewöhnliches Differentialgleichungssystem (DGL)** $m$-ter Ordnung von $n$ Gleichungen.

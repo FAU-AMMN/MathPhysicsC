@@ -10,7 +10,9 @@ Je nach Anwendungsgebiet können dynamische Systeme entweder **diskret** oder **
 Wir wollen im Folgenden zwei Beispiele zur Illustration des Unterschieds in der Zeitmodellierung diskutieren.
 
 ## Diskrete dynamische Systeme
+
 Zur Veranschaulichung von diskreten dynamischen System wollen wir uns im Folgenden mit einem Beispiel aus der Biologie beschäftigen.
+
 ````{prf:example} Wachstum von Bakterien
 
 In diesem Beispiel wollen wir annehmen, dass wir das **exponentielle Wachstum** von Bakterien durch Zellteilung als diskretes dynamisches System zu festen, äquidistanten Zeitpunkten $t_0, t_1, \ldots \in I$ in einem offenen Zeitintervall $I\subset\R^+_0$ untersuchen wollen.
@@ -37,8 +39,10 @@ Wir erkennen also, dass unabhängig vom gewählten Anfangszeitpunkt die Bakterie
 Diskrete dynamische Systeme tauchen auch in anderen spannenden Anwendungen auf, wie beispielsweise in der [Chaostheorie](https://de.wikipedia.org/wiki/Bifurkation_(Mathematik)#Bifurkationsdiagramm) und in der [Stochastik](https://de.wikipedia.org/wiki/Markow-Kette).
 
 ## Kontinuierliche dynamische Systeme
+
 Im Unterschied zu diskreten dynamischen Systemen wird die Zeit bei kontinuerlichen dynamischen Systemen nicht an abzählbar vielen Punkten modelliert, sondern als Kontinuum.
 Im Folgenden beschreiben wir das physikalische Experiment des freien Falls als Spezialfall eines kontinuierlichen dynamischen Systems.
+
 ````{prf:example} Freier Fall
 In diesem Beispiel betrachten wir ein physikalisches Modell für den freien Fall eines Steins mit Masse $m \in \R^+$, den wir in einer Hand halten, bis wir ihn zu einem definierten Anfangszeitpunkt $t_0 \in I$ mit $I \subset \R^+_0$ fallen lassen.
 
@@ -53,5 +57,6 @@ wobei $g = 9,81 \frac{m}{s^2}$ die Erdbeschleunigungskonstante bezeichnet.
 Es wird klar, dass auch hier die Dynamik des freien Falls nicht von der Wahl des Anfangszeitpunkts $t_0 \in I$ abhängt.
 Anschaulich gesprochen, würde der Stein genauso fallen, wenn wir ihn noch einige Sekunden länger festhalten würden.
 ````
+
 Häufig kommen zur Beschreibung von kontinuierlichen dynamischen Systemen sogenannte **autonome gewöhnliche Differentialgleichungen** zum Einsatz, wie die in Beispiel \xxx implizit genutzten Bewegungsgleichungen. 
 Wir werden diese Art von Differentialgleichungen in Kapitel \xxx mathematisch genauer betrachten.
