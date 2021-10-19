@@ -9,27 +9,27 @@ Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgle
 ````{prf:definition} Gewöhnliches Differentialgleichungssystem
 :label: def:DGL
 Seien $n,m \in \N$.
-Wir betrachten im Folgenden eine offene Teilmenge $U\subset (\R^n)^{m+1}$ und ein offenes Intervall $I\subset\R^+_0$. 
+Wir betrachten im Folgenden eine offene Teilmenge $U\subset (\R^n)^{m+1}$ und ein offenes Intervall $I\subset\R$. 
 Es sei außerdem $F:I\times U\rightarrow\R^n$ eine stetige Funktion, dann nennen wir
 
 ```{math}
 :label: eq:DGL
-F(x,y,y',\ldots,y^{(m)}) = 0
+F(x,y(x),y'(x),\ldots,y^{(m)}(x)) = 0
 ```
 
 ein **gewöhnliches Differentialgleichungssystem (DGL)** $m$-ter Ordnung von $n$ Gleichungen.
-Gilt $m=1$, das heißt die Funktion $F$ ist skalarwertig, so sprechen wir von einer **gewöhnlichen Differentialgleichung**.
+Gilt $n=1$, das heißt die Funktion $F$ ist skalarwertig, so sprechen wir von einer **gewöhnlichen Differentialgleichung**.
 
 Eine Funktion $\phi\in C^m(I;\R^n)$ heißt **Lösung des Differentialgleichungssystems**, falls gilt,
 
 ```{math}
-F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}) = 0 \quad \forall t\in I.
+F(x, \phi(x), \phi'(x), \ldots, \phi^{(m)}(x)) = 0 \quad \forall x\in I.
 ```
 
 Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat
 
 ```{math}
-y^{(m)} = F(x,y,y',\ldots,y^{(m-1)}),
+y^{(m)}(x) = F(x,y(x),y'(x),\ldots,y^{(m-1)}(x)),
 ```
 
 so nennen wir die DGL **explizit**, ansonsten wird sie **implizit** genannt.
@@ -40,8 +40,8 @@ Folgende Bemerkung beschreibt eine alternative Notation von gewöhnlichen Differ
 Viele physikalische Phänomene können durch zeitabhängige gewöhnliche Differentialgleichungen 1. und 2. Ordnung beschrieben werden.
 In diesen Fällen verwendet man häufig die Variable $t \in \R^+_0$ als unabhängige Variable anstatt einer Variable $x \in \R$.
 Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion $y$, so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
-1. $y'(x) \ \hat{=} \ \dot{y}(t)$,
-2. $y''(x) \ \hat{=} \ \ddot{y}(t)$.
+1. $y'(x) \ \ \hat{=} \ \ \dot{y}(t)$,
+2. $y''(x) \ \ \hat{=} \ \ \ddot{y}(t)$.
 ````
 
 ## Autonome Differentialgleichungen
