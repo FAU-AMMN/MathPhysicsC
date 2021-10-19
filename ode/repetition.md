@@ -20,7 +20,7 @@ F(x,y,y',\ldots,y^{(m)}) = 0
 ein **gewöhnliches Differentialgleichungssystem (DGL)** $m$-ter Ordnung von $n$ Gleichungen.
 Gilt $m=1$, das heißt die Funktion $F$ ist skalarwertig, so sprechen wir von einer **gewöhnlichen Differentialgleichung**.
 
-Eine Funktion $\phi\in C^m(I;\R^n)$ heißt **Lösung der DGL**, falls gilt,
+Eine Funktion $\phi\in C^m(I;\R^n)$ heißt **Lösung des Differentialgleichungssystems**, falls gilt,
 
 ```{math}
 F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}) = 0 \quad \forall t\in I.
@@ -33,6 +33,15 @@ y^{(m)} = F(x,y,y',\ldots,y^{(m-1)}),
 ```
 
 so nennen wir die DGL **explizit**, ansonsten wird sie **implizit** genannt.
+````
+
+Folgende Bemerkung beschreibt eine alternative Notation von gewöhnlichen Differentialgleichungen 1. und 2. Ordnung, die häufig in der Literatur im Kontext dynamischer Systeme auftaucht.
+````{prf:remark} Zeitableitungen bei gewöhnlichen Differentialgleichungen
+Viele physikalische Phänomene können durch zeitabhängige gewöhnliche Differentialgleichungen 1. und 2. Ordnung beschrieben werden.
+In diesen Fällen verwendet man häufig die Variable $t \in \R^+_0$ als unabhängige Variable anstatt einer Variable $x \in \R$.
+Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion $y$, so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
+1. $y'(x) \ \hat{=} \ \dot{y}(t)$,
+2. $y''(x) \ \hat{=} \ \ddot{y}(t)$.
 ````
 
 ## Autonome Differentialgleichungen
