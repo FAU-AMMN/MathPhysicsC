@@ -37,6 +37,10 @@ def replace_tabular(m):
     
     return '\\begin{tabularx}{\linewidth}' + '[' + m.group(1) + ']' + '{' + tab_id + '}'
 
+def replace_underscore(m):
+    s = m.groups(1)[0]
+    return r'\includegraphics[width=\textwidth]{' + re.sub(r'_', r'\\string_', s, flags = re.M) + r'}'
+
 with open (path+file_name+extension, 'r' ) as f:
     content = f.read()
     
@@ -47,9 +51,17 @@ with open (path+file_name+extension, 'r' ) as f:
     # graphics
     #content_new = re.sub(r'\\noindent\\includegraphics\{(.*?)\}\n', r'', content_new, flags = re.M)
     
-    content_new = re.sub(r'\\noindent{\\hspace\*\{\\fill\}\\includegraphics\{(.*?)\}\\hspace\*\{\\fill\}\}',
-                         r'', content_new, flags = re.M)
-    
+    content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)\\(.*?)\}.png\}',
+                         r'\\includegraphics{\3.png}', content_new, flags = re.M)
+
+    content_new = re.sub(r'\\includegraphics\{\{(.*?)\}.png\}',
+                         r'\\includegraphics{\1.png}', content_new, flags = re.M)
+
+    content_new = re.sub(r'\\includegraphics\{(.*?).png\}',
+                         r'\\includegraphics{../_build/html/_images/\1.png}', content_new, flags = re.M)
+    content_new = re.sub(r'\\includegraphics\{(.*?)\}', replace_underscore, content_new, flags = re.M)
+
+    content_new = re.sub(r'\\capstart', r'', content_new, flags = re.M)                    
     # Misc
     content_new = re.sub(r'\\hyphen{}', r' ', content_new, flags = re.M)
     content_new = re.sub(r'\\styleemphasis', '\\emph', content_new, flags = re.M)
@@ -82,7 +94,7 @@ with open (path+file_name+extension, 'r' ) as f:
                          r'', content_new, flags = re.M)
     
     # references
-    content_new = re.sub(r'\{\\hyperref\[\\detokenize\{(.*?)\}\]\{\\crossref\{(.*?)\}\}\}',
+    content_new = re.sub(r'\{\\hyperref\[\\detokenize\{(.*?)\}\]\{\\crossref\{(.*?)\}\}\}( |.)',
                          r'\\cref{\1} ', content_new, flags = re.M)
     
     content_new = re.sub(r'\{tabulary\}', r'{tabularx}', content_new, flags = re.M)
@@ -104,6 +116,9 @@ with open (path+file_name+extension, 'r' ) as f:
     content_new = re.sub(r'\\begin\{sphinxtheindex\}((.|\n)*?)\\end\{sphinxtheindex\}', 
                          r'', content_new, flags = re.M)
     content_new = re.sub(r'\\printindex', r'', content_new, flags = re.M)
+
+    # bibtex citations
+    content_new = re.sub(r'\{\[\}\\hyperlink\{(.*?)\}\{(.*?)\}\{\]\}', r'\\cite{\2}', content_new, flags = re.M)
     
     # get rid of certain commands
     content_new = re.sub(r'\\release\{\}', r'', content_new, flags = re.M)
@@ -114,18 +129,29 @@ with open (path+file_name+extension, 'r' ) as f:
     
     # Umlaute
     special = {'ß':'\ss{}', 'ä':'\"a', 'ü':'\"ü', 'ö':'\"ü'}
+
+    # replacements for intro
+    content_new = re.sub(r'\\begin\{DUlineblock\}\{0em\}\n\\item\[\] \\textbf\{\\Large (.*?)\}\n\\end\{DUlineblock\}', 
+                         r'\\subsection{\1}', content_new, flags = re.M)
      
     
-
+# split up into chapters
 chapters = []
 
 m_chapters = re.split(r'(?=\\chapter)', content_new)
 
 
-for m in m_chapters:
-    chapter_name = re.search(r'\\chapter\{(.*?)\}', m)
+for i, m in enumerate(m_chapters):
+    if i == 0:
+        chapter_name = "intro"
+        m = re.search(r'\\begin\{document\}((.|\n)*)', m, flags = re.M).group(1)
+        m = '\chapter{Vorwort}\n' + m
+    else:
+        chapter_name = re.search(r'\\chapter\{(.*?)\}', m)
+        if not chapter_name is None:
+            chapter_name = chapter_name.group(1)
+
     if not chapter_name is None:
-        chapter_name = chapter_name.group(1)
         with open(path+"chapters\\" + chapter_name + extension, "w") as text_file:
             text_file.write(m)
             chapters.append(chapter_name)
@@ -138,10 +164,14 @@ with open(path+file_name+"_clean"+extension, "w") as text_file:
     text_file.write('\\frontmatter\n')
     text_file.write('\\maketitle\n')  
     text_file.write('\\tableofcontents\n')
+    text_file.write('\\input{chapters/intro}\n') 
     text_file.write('\\mainmatter\n')
     for ch in chapters:
-      text_file.write('\\input{chapters/'+ch+'}\n')  
+        if not ch in ["intro", "Bibliography"]:
+            text_file.write('\\input{chapters/'+ch+'}\n')  
     
+    text_file.write('\\backmatter\n')
+    text_file.write('\\printbibliography\n')
     text_file.write('\\end{document}') 
     
 with open(path+file_name+"_ref"+extension, "w") as text_file:
