@@ -1,6 +1,6 @@
-# Wiederholung Gewöhnliche Differentialgleichungen
+# Wiederholung: Gewöhnliche Differentialgleichungen
 
-In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel xxx {cite:p}`tenbrinck_2021` wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
+In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in {cite:p}`tenbrinck_2021` wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
 
 ## Gewöhnliche Differentialgleichungen
 
@@ -29,7 +29,7 @@ F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}) = 0 \quad \forall t\in I.
 Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat
 
 ```{math}
-y^{(n)} = F(x,y,y',\ldots,y^{(n-1)}),
+y^{(m)} = F(x,y,y',\ldots,y^{(m-1)}),
 ```
 
 so nennen wir die DGL **explizit**, ansonsten wird sie **implizit** genannt.
@@ -48,22 +48,63 @@ Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zug
 In Kapitel \xxx werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
 ````
 
-Im Fall von kontinuierlichen dynamischen System spielt eine Familie von DGLs eine wichtige Rolle, die wir im Folgenden definieren wollen. 
-Diese zeichnen sich dadurch aus, dass die Funktion $F$ in \xxx nicht explizit von der Zeit abhängt.
+Im Fall von **kontinuierlichen dynamischen Systemen** spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen. 
+Diese zeichnen sich dadurch aus, dass die Funktion $F$ in [](eq:DGL) nicht explizit von der Zeit abhängt.
 
 ````{prf:definition} Autonome DGL
 Hängt die Funktion $F$ in {prf:ref}`def:DGL` nicht explizit von der Zeit ab, d.h., wir haben $F:U\rightarrow\R^n$ dann heißt die Gleichung
 
 ```{math}
 :label: eq:autonome_DGL
-\dot{x(t)} = F(x(t))\quad\forall t\in I
+y^{(m)}(x) = F(y(x), y'(x), \ldots, y^{(m-1)}(x)) \quad \forall t\in I
 ```
 
 **autonome DGL**.
 
 ````
 
-## Anfangswertprobleme
+Im folgenden Beispiel wollen wir unterschiedliche gewöhnliche Differentialgleichungen darauf prüfen, ob sie autonom sind.
+````{prf:example} Autonome Differentialgleichungen
+Wir betrachten drei verschiedene gewöhnliche Differentialgleichungen und untersuchen diese auf ihre Zeitabhängigkeit.
+Der Einfachheit-halber konzentrieren wir uns hierbei auf gewöhnliche Differentialgleichungen 1. Ordnung.
+Sei hierzu  im Folgenden $I \subset \R$ ein offenes Intervall. 
+
+1\. Die gewöhnliche Differentialgleichung
+```{math}
+2y'(x) = y(x)\cdot x \quad \forall x \in I
+```
+ist **nicht autonom**, da die rechte Seite der Gleichung durch die Funktion
+```{math}
+F(x,y(x)) = y(x) \cdot x
+```
+beschrieben wird und diese Funktion explizit vom Funktionsargument $x \in I$ abhängt.
+
+<br />
+
+2\. Die gewöhnliche Differentialgleichung
+```{math}
+2t\cdot \dot{y}(t) = y(t)\cdot t \quad \forall t \in I
+```
+ist hingegen **autonom**, da die Gleichung in folgende explizite Form überführt werden kann
+```{math}
+\dot{y}(t) = \frac{1}{2} y(t) \quad \forall t \in I
+```
+und somit die rechte Seite der Gleichung durch die Funktion 
+```{math}
+F(t,y(t)) = \frac{1}{2}y(t)
+```
+beschrieben wird, welche nicht explizit vom Funktionsargument $t \in I$ abhängt.
+
+<br />
+
+3\. Im Fall der gewöhnlichen Differentialgleichung
+```{math}
+2y'(x) = y(x)\cdot \sin(g(x)) \quad \forall x \in I
+```
+können wir für beliebige Funktionen $g \colon I \rightarrow \R$ **nicht entscheiden**, ob sie autonom ist wenn keine konkrete Form der Funktion $g$ gegeben ist.
+````
+
+<!-- ## Anfangswertprobleme
 
 Üblicherweise betrachtet man nicht nur DGLs sondern sogenannte Anfangswertprobleme. Hierbei wählt man einen ausgezeichneten Zeitpunkt $t_0\in I$ aus dem Zeitintervall $I$ an welchem man die Lösung explizit durch einen Anfangswert $x_0\in U$ vorgibt. Im Setting von {prf:ref}`def:DGL` heißt
 das Gleichungssystem
@@ -82,4 +123,4 @@ Wir wiederholen die wichtigsten Existenzaussagen zu Anfangswertproblem. Die wich
 
 ````{prf:definition} Lipschitzstetigkeit
 $F$
-````
+```` -->
