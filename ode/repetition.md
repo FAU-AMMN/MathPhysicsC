@@ -42,6 +42,12 @@ In diesen Fällen verwendet man häufig die Variable $t \in \R^+_0$ als unabhän
 Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion $y$, so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
 1. $y'(x) \ \ \hat{=} \ \ \dot{y}(t)$,
 2. $y''(x) \ \ \hat{=} \ \ \ddot{y}(t)$.
+
+Damit lässt sich das gewöhnliche Differentialgleichungssystem aus [](eq:DGL) schreiben als
+```{math}
+:label: eq:DGL_time
+F(z, y(t), \dot{y}(t), \ldots, y{(m)}(t)) = 0 \quad \forall t\in I.
+```
 ````
 
 ## Autonome Differentialgleichungen
@@ -54,18 +60,18 @@ Der Definitionsbereich $I\times U$ der stetigen Funktion $F$ wird auch als **erw
 Der Phasenraum beschreibt die Menge aller möglichen Zustände des dynamischen Systems.
 Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zugeordnet.
 
-In Kapitel \xxx werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
+In Kapitel {ref}s:fluesse werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
 ````
 
 Im Fall von **kontinuierlichen dynamischen Systemen** spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen. 
-Diese zeichnen sich dadurch aus, dass die Funktion $F$ in [](eq:DGL) nicht explizit von der Zeit abhängt.
+Diese zeichnen sich dadurch aus, dass die Funktion $F$ in [](eq:DGL_time) nicht explizit von der Zeit abhängt.
 
 ````{prf:definition} Autonome DGL
 Hängt die Funktion $F$ in {prf:ref}`def:DGL` nicht explizit von der Zeit ab, d.h., wir haben $F:U\rightarrow\R^n$ dann heißt die Gleichung
 
 ```{math}
 :label: eq:autonome_DGL
-y^{(m)}(x) = F(y(x), y'(x), \ldots, y^{(m-1)}(x)) \quad \forall t\in I
+F(y(x), y'(x), \ldots, y^{(m)}(x)) = 0 \quad \forall t\in I
 ```
 
 **autonome DGL**.
