@@ -155,7 +155,7 @@ y'(x) = y(x) \quad \forall x \in \R.
 Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen $y \colon \R \rightarrow \R$ von der Form
 
 ```{math}
-y(x) = e^x + c
+y(x) = c\cdot e^x
 ```
 
 für eine beliebige Konstante $c \in \R$ sein müssen.
@@ -165,16 +165,51 @@ Hierzu reicht es eine ausgewiesene Stelle $x_0 \in \R$ und einen Funktionswert $
 Wählen wir beispielsweise $x_0 = 0$ und $y_0 = y(0) = 2$, so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
 
 ```{math}
-y(x) = e^x + 1.
+y(x) = 2\cdot e^x.
 ```
 
-Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konstante $c \in \R$ als $c=1$ eindeutig bestimmt wurde.
+Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konstante $c \in \R$ als $c=2$ eindeutig bestimmt wurde.
 ````
 
 ## Existenz und Eindeutigkeit einer Lösung
 
-Wir wiederholen die wichtigsten Existenzaussagen zu Anfangswertproblem. Die wichtigste Eigenschaften in diesem Kontext ist die Lipschitzstetigkeit der rechten Seite $F$.
+Nicht jede gewöhnliche Differentialgleichung ist im Allgemeinen lösbar oder besitzt eindeutige Lösungen, wie das folgende Beispiel belegt.
+````{prf:example}
+Wir wollen im folgenden zwei Beispiele von autonomen, gewöhnlichen Differentialgleichungen erster Ordnung diskutieren, für die entweder die Existenz oder die Eindeutigkeit von Lösungen nicht gegeben ist.
+
+1\. Die gewöhnliche Differentialgleichung
+
+```{math}
+e^{y'(x)} \equiv 0 \quad \forall x \in \R
+```
+
+besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somit keine Funktion $y \colon \R \rightarrow \R$ gibt, so dass die obige Gleichung erfüllt werden kann.
+
+2\. Die gewöhnliche Differentialgleichung
+
+```{math}
+y'(x)(1-y'(x)) \equiv 0 \quad \forall x \in \R
+```
+
+besitzt auf Grund ihrer Symmetrieeigenschaften zwei unterschiedliche Funktionenscharen als Lösung, nämlich
+
+```{math}
+y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,
+```
+
+wobei $c \in \R$ eine beliebige Konstante darstellt.
+````
+
+Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die Lipschitzstetigkeit der rechten Seite $F \colon I \times U$.
+Diese wollen wir der Vollständigkeit im Folgenden definieren.
 
 ````{prf:definition} Lipschitzstetigkeit
 $F$
 ````
+
+Für die (lokale) Existenz von Lösungen haben wir in Kapitel 8.4 {cite:p}`tenbrinck_2021` den **Satz von Picard-Lindelöf** formuliert, den wir im Folgenden wiederholen werden.
+
+````{prf:satz} (Lokaler) Existenzsatz nach Picard-Lindelöf
+
+````
+
