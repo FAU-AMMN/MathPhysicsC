@@ -30,7 +30,7 @@ latex:
 sphinx:
   extra_extensions:
     - sphinx_proof
-    - sphinx_tojupyter
+    #- sphinx_tojupyter
     - sphinx_jupyterbook_latex
         
 
@@ -75,16 +75,16 @@ sphinx:
           "x"    : "\\mathbf{x}"
           "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]
     #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-    tojupyter_target_html: true
-    tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]
-    tojupyter_kernels:
-      python3:
-        kernelspec:
-          display_name: "Python"
-          language: python3
-          name: python3
-        file_extension: ".py"
-    tojupyter_images_markdown: true
+    # tojupyter_target_html: true
+    # tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]
+    # tojupyter_kernels:
+    #   python3:
+    #     kernelspec:
+    #       display_name: "Python"
+    #       language: python3
+    #       name: python3
+    #     file_extension: ".py"
+    #tojupyter_images_markdown: true
 
 bibtex_bibfiles:
     - bibliography.bib

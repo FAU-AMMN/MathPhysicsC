@@ -3,10 +3,10 @@ root: intro
 options:
   numbered: True
 chapters:
-- file: ode/ode.md
+- file: ode/ode
   sections:
-  - file: ode/dynamicSystems.ipynb
-  - file: ode/repetition.md
-  - file: ode/fluesse.ipynb
-  - file: ode/hamilton.md
-- file: references.md
+  - file: ode/dynamicSystems
+  - file: ode/repetition
+  - file: ode/fluesse
+  - file: ode/hamilton
+- file: references
