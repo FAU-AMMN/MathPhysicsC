@@ -119,18 +119,57 @@ beschrieben wird, welche nicht explizit vom Funktionsargument $t \in I$ abhängt
 können wir für beliebige Funktionen $g \colon I \rightarrow \R$ **nicht entscheiden**, ob sie autonom ist wenn keine konkrete Form der Funktion $g$ gegeben ist.
 ````
 
-<!-- ## Anfangswertprobleme
+## Anfangswertprobleme
+Um gewöhnliche Differentialgleichungen zu lösen, betrachtet man in der Regel sogenannte Anfangswertprobleme.
+Hierbei wählt man einen ausgezeichneten Zeitpunkt $t_0\in I$ aus dem Zeitintervall $I$, an welchem man die Lösung explizit durch einen Anfangswert $y_0\in U$ vorgibt.
+Dieses Vorgehen wird in der folgenden Definition nochmal kurz wiederholt.
 
-Üblicherweise betrachtet man nicht nur DGLs sondern sogenannte Anfangswertprobleme. Hierbei wählt man einen ausgezeichneten Zeitpunkt $t_0\in I$ aus dem Zeitintervall $I$ an welchem man die Lösung explizit durch einen Anfangswert $x_0\in U$ vorgibt. Im Setting von {prf:ref}`def:DGL` heißt
-das Gleichungssystem
+````{prf:definition}
+:label: def:anfangswertproblem
+Sei ein gewöhnliches Differentialgleichungssystem 1. Ordnung wie in {prf:ref}`def:DGL` gegeben, wobei $I \times U \subset \R_0^+ \times \R^n$ den erweiterten Phasenraum des Systems bezeichnet.
+Sei außerdem $t_0 \in I$ ein Anfangszeitpunkt und $y_0 \in U$ der zugehörige Anfangszustand.
+
+Dann nennen wir das Gleichungssystem
 
 ```{math}
 :label: eq:AWP
-\dot{x}(t) = F(t, x(t))\quad\forall t\in I
-x(t_0) = x_0
+\dot{y}(t) &= F(t, y(t))\quad\forall t\in I, \\
+y(t_0) &= y_0
 ```
 
-**Anfangswertproblem**. Sofern nicht explizit angegeben werden wir im folgenden annehmen, dass ohne Beschränkung der Allgemeinheit $t_0=0$ gilt.
+**Anfangswertproblem** des gewöhnlichen Differentialgleichungssystems. 
+Sofern nicht explizit angegeben werden wir im Folgenden annehmen, dass ohne Beschränkung der Allgemeinheit $t_0=0$ gilt.
+````
+
+Die explizite Wahl des Anfangszeitpunkts und -zustands erlaubt es erst eine gewöhnliche Differentialgleichung eindeutig zu lösen.
+Ohne diese zusätzlichen Informationen könnte man lediglich Funktionenscharen als Lösungsmenge angeben.
+Dies wird durch das folgende Beispiel nochmal dargestellt.
+
+````{prf:example}
+Wir betrachten eine sehr einfache gewöhnliche Differentialgleichung erster Ordnung, die sich explizit in folgender Form schreiben lässt:
+
+```{math}
+y'(x) = y(x) \quad \forall x \in \R.
+```
+
+Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen $y \colon \R \rightarrow \R$ von der Form
+
+```{math}
+y(x) = e^x + c
+```
+
+für eine beliebige Konstante $c \in \R$ sein müssen.
+Um diese Funktionenschar weiter einzuschränken und eine eindeutige Lösung zu erhalten, müssen wir noch Anfangswertbedindungen hinzunehmen.
+Hierzu reicht es eine ausgewiesene Stelle $x_0 \in \R$ und einen Funktionswert $y_0 = y(x_0)$ festzulegen.
+
+Wählen wir beispielsweise $x_0 = 0$ und $y_0 = y(0) = 2$, so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
+
+```{math}
+y(x) = e^x + 1.
+```
+
+Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konstante $c \in \R$ als $c=1$ eindeutig bestimmt wurde.
+````
 
 ## Existenz und Eindeutigkeit einer Lösung
 
@@ -138,4 +177,4 @@ Wir wiederholen die wichtigsten Existenzaussagen zu Anfangswertproblem. Die wich
 
 ````{prf:definition} Lipschitzstetigkeit
 $F$
-```` -->
+````
