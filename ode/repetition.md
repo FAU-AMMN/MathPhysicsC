@@ -200,16 +200,40 @@ y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,
 wobei $c \in \R$ eine beliebige Konstante darstellt.
 ````
 
-Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die Lipschitzstetigkeit der rechten Seite $F \colon I \times U$.
-Diese wollen wir der Vollständigkeit im Folgenden definieren.
+Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die **(lokale) Lipschitzstetigkeit** der rechten Seite $F \colon I \times U$.
+Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
 
-````{prf:definition} Lipschitzstetigkeit
-$F$
+````{prf:definition} (Lokale) Lipschitzstetigkeit
+Sei $F \colon G \to \R^n$ eine Funktion mit dem erweiterten Phasenraum $G \, \coloneqq \, I \times U \subset \R\times\R^n$.
+Man sagt, dass $F$ in $G$ einer **globalen Lipschitz-Bedingung** genügt (bezüglich der Variablen $y \in U$) mit der Lipschitz-Konstanten $L\geq0$, wenn gilt
+
+```{math}
+\Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.
+```
+
+Man sagt, $F$ genüge in $G$ einer **lokalen Lipschitz-Bedingung**, falls jeder Punkt $(a,b)\in G$ im erweiterten Phasenraum eine Umgebung $V$ besitzt, sodass $F$ in $G\cap V$ einer Lipschitzbedingung mit einer gewissen (von $V$ abhängigen) Konstanten $L\in\R_+$ genügt.
+%\end{definition}
 ````
 
 Für die (lokale) Existenz von Lösungen haben wir in Kapitel 8.4 {cite:p}`tenbrinck_2021` den **Satz von Picard-Lindelöf** formuliert, den wir im Folgenden wiederholen werden.
 
-````{prf:satz} (Lokaler) Existenzsatz nach Picard-Lindelöf
+````{prf:theorem} (Lokaler) Existenzsatz nach Picard-Lindelöf
+:label: satz:picardlindeloef_lokal
+Sei $F\colon G\to\R^n$ eine stetige Funktion mit erweitertem Phasenraum $G \coloneqq I \times U \subset \R\times\R^n$, die lokal Lipschitz-stetig auf $G$ bezüglich der $y$-Variablen ist.
+Dann existiert zu jedem Anfangswert $(t_0,y_0) \in G$ ein $\varepsilon>0$, sowie eine Lösung
 
+```{math}
+\phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n
+```
+
+der gewöhnlichen Differentialgleichung 
+
+```{math}
+\dot{y}(t) \ = \ F(t,y(t))
+```
+
+unter der Anfangsbedingung $\phi(t_0)=y_0$.
 ````
-
+````{prf:proof}
+Siehe \cite[§12, Satz 4]{forster}.
+````
