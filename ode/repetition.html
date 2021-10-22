@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.2. Wiederholung Gewöhnliche Differentialgleichungen &#8212; Mathematik für Physikstudierende C</title>
+    <title>1.2. Wiederholung: Gewöhnliche Differentialgleichungen &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.3. Flüsse und Phasenportraits" href="fluesse.html" />
+    <link rel="next" title="1.3. Phasenflüsse und Phasenportraits" href="fluesse.html" />
     <link rel="prev" title="1.1. Einführung in dynamische Systeme" href="dynamicSystems.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -116,12 +116,12 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     1.2. Wiederholung Gewöhnliche Differentialgleichungen
+     1.2. Wiederholung: Gewöhnliche Differentialgleichungen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="fluesse.html">
-     1.3. Flüsse und Phasenportraits
+     1.3. Phasenflüsse und Phasenportraits
     </a>
    </li>
    <li class="toctree-l2">
@@ -252,8 +252,8 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="wiederholung-gewohnliche-differentialgleichungen">
-<h1><span class="section-number">1.2. </span>Wiederholung Gewöhnliche Differentialgleichungen<a class="headerlink" href="#wiederholung-gewohnliche-differentialgleichungen" title="Permalink to this headline">¶</a></h1>
-<p>In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel xxx <span id="id1">[<a class="reference internal" href="../references.html#id10">Ten21</a>]</span> wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.</p>
+<h1><span class="section-number">1.2. </span>Wiederholung: Gewöhnliche Differentialgleichungen<a class="headerlink" href="#wiederholung-gewohnliche-differentialgleichungen" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id10">Ten21</a>]</span> wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.</p>
 <div class="section" id="gewohnliche-differentialgleichungen">
 <h2><span class="section-number">1.2.1. </span>Gewöhnliche Differentialgleichungen<a class="headerlink" href="#gewohnliche-differentialgleichungen" title="Permalink to this headline">¶</a></h2>
 <p>Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgleichungssystems <span class="math notranslate nohighlight">\(m\)</span>-ter Ordnung als Grundlage für unsere weiteren Betrachtungen.</p>
@@ -261,62 +261,200 @@
 <p class="admonition-title"><span class="caption-number">Definition 1.1 </span> (Gewöhnliches Differentialgleichungssystem)</p>
 <div class="definition-content section" id="proof-content">
 <p>Seien <span class="math notranslate nohighlight">\(n,m \in \N\)</span>.
-Wir betrachten im Folgenden eine offene Teilmenge <span class="math notranslate nohighlight">\(U\subset (\R^n)^{m+1}\)</span> und ein offenes Intervall <span class="math notranslate nohighlight">\(I\subset\R^+_0\)</span>.
+Wir betrachten im Folgenden eine offene Teilmenge <span class="math notranslate nohighlight">\(U\subset (\R^n)^{m+1}\)</span> und ein offenes Intervall <span class="math notranslate nohighlight">\(I\subset\R\)</span>.
 Es sei außerdem <span class="math notranslate nohighlight">\(F:I\times U\rightarrow\R^n\)</span> eine stetige Funktion, dann nennen wir</p>
 <div class="math notranslate nohighlight" id="equation-eq-dgl">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-dgl" title="Permalink to this equation">¶</a></span>\[F(x,y,y',\ldots,y^{(m)}) = 0\]</div>
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-dgl" title="Permalink to this equation">¶</a></span>\[F(x,y(x),y'(x),\ldots,y^{(m)}(x)) = 0\]</div>
 <p>ein <strong>gewöhnliches Differentialgleichungssystem (DGL)</strong> <span class="math notranslate nohighlight">\(m\)</span>-ter Ordnung von <span class="math notranslate nohighlight">\(n\)</span> Gleichungen.
-Gilt <span class="math notranslate nohighlight">\(m=1\)</span>, das heißt die Funktion <span class="math notranslate nohighlight">\(F\)</span> ist skalarwertig, so sprechen wir von einer <strong>gewöhnlichen Differentialgleichung</strong>.</p>
-<p>Eine Funktion <span class="math notranslate nohighlight">\(\phi\in C^m(I;\R^n)\)</span> heißt <strong>Lösung der DGL</strong>, falls gilt,</p>
+Gilt <span class="math notranslate nohighlight">\(n=1\)</span>, das heißt die Funktion <span class="math notranslate nohighlight">\(F\)</span> ist skalarwertig, so sprechen wir von einer <strong>gewöhnlichen Differentialgleichung</strong>.</p>
+<p>Eine Funktion <span class="math notranslate nohighlight">\(\phi\in C^m(I;\R^n)\)</span> heißt <strong>Lösung des Differentialgleichungssystems</strong>, falls gilt,</p>
 <div class="math notranslate nohighlight">
-\[F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}) = 0 \quad \forall t\in I.\]</div>
+\[F(x, \phi(x), \phi'(x), \ldots, \phi^{(m)}(x)) = 0 \quad \forall x\in I.\]</div>
 <p>Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat</p>
 <div class="math notranslate nohighlight">
-\[y^{(n)} = F(x,y,y',\ldots,y^{(n-1)}),\]</div>
+\[y^{(m)}(x) = F(x,y(x),y'(x),\ldots,y^{(m-1)}(x)),\]</div>
 <p>so nennen wir die DGL <strong>explizit</strong>, ansonsten wird sie <strong>implizit</strong> genannt.</p>
+</div>
+</div><p>Folgende Bemerkung beschreibt eine alternative Notation von gewöhnlichen Differentialgleichungen 1. und 2. Ordnung, die häufig in der Literatur im Kontext dynamischer Systeme auftaucht.</p>
+<div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 1.1 </span> (Zeitableitungen bei gewöhnlichen Differentialgleichungen)</p>
+<div class="remark-content section" id="proof-content">
+<p>Viele physikalische Phänomene können durch zeitabhängige gewöhnliche Differentialgleichungen 1. und 2. Ordnung beschrieben werden.
+In diesen Fällen verwendet man häufig die Variable <span class="math notranslate nohighlight">\(t \in \R^+_0\)</span> als unabhängige Variable anstatt einer Variable <span class="math notranslate nohighlight">\(x \in \R\)</span>.
+Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion <span class="math notranslate nohighlight">\(y\)</span>, so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(y'(x) \ \ \hat{=} \ \ \dot{y}(t)\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(y''(x) \ \ \hat{=} \ \ \ddot{y}(t)\)</span>.</p></li>
+</ol>
+<p>Damit lässt sich das gewöhnliche Differentialgleichungssystem aus <a class="reference internal" href="#equation-eq-dgl">(1.1)</a> schreiben als</p>
+<div class="math notranslate nohighlight" id="equation-eq-dgl-time">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-dgl-time" title="Permalink to this equation">¶</a></span>\[F(z, y(t), \dot{y}(t), \ldots, y{(m)}(t)) = 0 \quad \forall t\in I.\]</div>
 </div>
 </div></div>
 <div class="section" id="autonome-differentialgleichungen">
 <h2><span class="section-number">1.2.2. </span>Autonome Differentialgleichungen<a class="headerlink" href="#autonome-differentialgleichungen" title="Permalink to this headline">¶</a></h2>
 <p>Im Fall von dynamischen Systemen erhält der Definitionsbereich der Funktion <span class="math notranslate nohighlight">\(F\)</span> einer gewöhnlichen Differentialgleichung einen besonderen Namen, wie die folgende Bemerkung erklärt.</p>
-<div class="proof remark admonition" id="remark-1">
-<p class="admonition-title"><span class="caption-number">Remark 1.1 </span> ((Erweiterter) Phasenraum)</p>
+<div class="proof remark admonition" id="remark-2">
+<p class="admonition-title"><span class="caption-number">Remark 1.2 </span> ((Erweiterter) Phasenraum)</p>
 <div class="remark-content section" id="proof-content">
 <p>Wird eine gewöhnliche Differentialgleichung als mathematisches Modell für ein kontinuierliches dynamisches System genutzt, so wird die offene Menge <span class="math notranslate nohighlight">\(U\subset (\R^n)^{m+1}\)</span> auch als <strong>Phasenraum</strong> bezeichnet.
 Der Definitionsbereich <span class="math notranslate nohighlight">\(I\times U\)</span> der stetigen Funktion <span class="math notranslate nohighlight">\(F\)</span> wird auch als <strong>erweiterter Phasenraum</strong> bezeichnet.</p>
 <p>Der Phasenraum beschreibt die Menge aller möglichen Zustände des dynamischen Systems.
 Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zugeordnet.</p>
-<p>In Kapitel \xxx werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.</p>
+<p>In Kapitel {ref}s:fluesse werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.</p>
 </div>
-</div><p>Im Fall von kontinuierlichen dynamischen System spielt eine Familie von DGLs eine wichtige Rolle, die wir im Folgenden definieren wollen.
-Diese zeichnen sich dadurch aus, dass die Funktion <span class="math notranslate nohighlight">\(F\)</span> in \xxx nicht explizit von der Zeit abhängt.</p>
-<div class="proof definition admonition" id="definition-2">
+</div><p>Im Fall von <strong>kontinuierlichen dynamischen Systemen</strong> spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen.
+Diese zeichnen sich dadurch aus, dass die Funktion <span class="math notranslate nohighlight">\(F\)</span> in <a class="reference internal" href="#equation-eq-dgl-time">(1.2)</a> nicht explizit von der Zeit abhängt.</p>
+<div class="proof definition admonition" id="definition-3">
 <p class="admonition-title"><span class="caption-number">Definition 1.2 </span> (Autonome DGL)</p>
 <div class="definition-content section" id="proof-content">
 <p>Hängt die Funktion <span class="math notranslate nohighlight">\(F\)</span> in <a class="reference internal" href="#def:DGL">Definition 1.1</a> nicht explizit von der Zeit ab, d.h., wir haben <span class="math notranslate nohighlight">\(F:U\rightarrow\R^n\)</span> dann heißt die Gleichung</p>
 <div class="math notranslate nohighlight" id="equation-eq-autonome-dgl">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-autonome-dgl" title="Permalink to this equation">¶</a></span>\[\dot{x(t)} = F(x(t))\quad\forall t\in I\]</div>
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-eq-autonome-dgl" title="Permalink to this equation">¶</a></span>\[F(y(x), y'(x), \ldots, y^{(m)}(x)) = 0 \quad \forall t\in I\]</div>
 <p><strong>autonome DGL</strong>.</p>
+</div>
+</div><p>Im folgenden Beispiel wollen wir unterschiedliche gewöhnliche Differentialgleichungen darauf prüfen, ob sie autonom sind.</p>
+<div class="proof example admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">Example 1.3 </span> (Autonome Differentialgleichungen)</p>
+<div class="example-content section" id="proof-content">
+<p>Wir betrachten drei verschiedene gewöhnliche Differentialgleichungen und untersuchen diese auf ihre Zeitabhängigkeit.
+Der Einfachheit-halber konzentrieren wir uns hierbei auf gewöhnliche Differentialgleichungen 1. Ordnung.
+Sei hierzu  im Folgenden <span class="math notranslate nohighlight">\(I \subset \R\)</span> ein offenes Intervall.</p>
+<p>1. Die gewöhnliche Differentialgleichung</p>
+<div class="math notranslate nohighlight">
+\[2y'(x) = y(x)\cdot x \quad \forall x \in I\]</div>
+<p>ist <strong>nicht autonom</strong>, da die rechte Seite der Gleichung durch die Funktion</p>
+<div class="math notranslate nohighlight">
+\[F(x,y(x)) = y(x) \cdot x\]</div>
+<p>beschrieben wird und diese Funktion explizit vom Funktionsargument <span class="math notranslate nohighlight">\(x \in I\)</span> abhängt.</p>
+<br />
+<p>2. Die gewöhnliche Differentialgleichung</p>
+<div class="math notranslate nohighlight">
+\[2t\cdot \dot{y}(t) = y(t)\cdot t \quad \forall t \in I\]</div>
+<p>ist hingegen <strong>autonom</strong>, da die Gleichung in folgende explizite Form überführt werden kann</p>
+<div class="math notranslate nohighlight">
+\[\dot{y}(t) = \frac{1}{2} y(t) \quad \forall t \in I\]</div>
+<p>und somit die rechte Seite der Gleichung durch die Funktion</p>
+<div class="math notranslate nohighlight">
+\[F(t,y(t)) = \frac{1}{2}y(t)\]</div>
+<p>beschrieben wird, welche nicht explizit vom Funktionsargument <span class="math notranslate nohighlight">\(t \in I\)</span> abhängt.</p>
+<br />
+<p>3. Im Fall der gewöhnlichen Differentialgleichung</p>
+<div class="math notranslate nohighlight">
+\[2y'(x) = y(x)\cdot \sin(g(x)) \quad \forall x \in I\]</div>
+<p>können wir für beliebige Funktionen <span class="math notranslate nohighlight">\(g \colon I \rightarrow \R\)</span> <strong>nicht entscheiden</strong>, ob sie autonom ist wenn keine konkrete Form der Funktion <span class="math notranslate nohighlight">\(g\)</span> gegeben ist.</p>
 </div>
 </div></div>
 <div class="section" id="anfangswertprobleme">
 <h2><span class="section-number">1.2.3. </span>Anfangswertprobleme<a class="headerlink" href="#anfangswertprobleme" title="Permalink to this headline">¶</a></h2>
-<p>Üblicherweise betrachtet man nicht nur DGLs sondern sogenannte Anfangswertprobleme. Hierbei wählt man einen ausgezeichneten Zeitpunkt <span class="math notranslate nohighlight">\(t_0\in I\)</span> aus dem Zeitintervall <span class="math notranslate nohighlight">\(I\)</span> an welchem man die Lösung explizit durch einen Anfangswert <span class="math notranslate nohighlight">\(x_0\in U\)</span> vorgibt. Im Setting von <a class="reference internal" href="#def:DGL">Definition 1.1</a> heißt
-das Gleichungssystem</p>
-<div class="math notranslate nohighlight" id="equation-eq-awp">
-<span class="eqno">(1.3)<a class="headerlink" href="#equation-eq-awp" title="Permalink to this equation">¶</a></span>\[\dot{x}(t) = F(t, x(t))\quad\forall t\in I
-x(t_0) = x_0\]</div>
-<p><strong>Anfangswertproblem</strong>. Sofern nicht explizit angegeben werden wir im folgenden annehmen, dass ohne Beschränkung der Allgemeinheit <span class="math notranslate nohighlight">\(t_0=0\)</span> gilt.</p>
-</div>
-<div class="section" id="existenz-und-eindeutigkeit-einer-losung">
-<h2><span class="section-number">1.2.4. </span>Existenz und Eindeutigkeit einer Lösung<a class="headerlink" href="#existenz-und-eindeutigkeit-einer-losung" title="Permalink to this headline">¶</a></h2>
-<p>Wir wiederholen die wichtigsten Existenzaussagen zu Anfangswertproblem. Die wichtigste Eigenschaften in diesem Kontext ist die Lipschitzstetigkeit der rechten Seite <span class="math notranslate nohighlight">\(F\)</span>.</p>
-<div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 1.3 </span> (Lipschitzstetigkeit)</p>
+<p>Um gewöhnliche Differentialgleichungen zu lösen, betrachtet man in der Regel sogenannte Anfangswertprobleme.
+Hierbei wählt man einen ausgezeichneten Zeitpunkt <span class="math notranslate nohighlight">\(t_0\in I\)</span> aus dem Zeitintervall <span class="math notranslate nohighlight">\(I\)</span>, an welchem man die Lösung explizit durch einen Anfangswert <span class="math notranslate nohighlight">\(y_0\in U\)</span> vorgibt.
+Dieses Vorgehen wird in der folgenden Definition nochmal kurz wiederholt.</p>
+<div class="proof definition admonition" id="def:anfangswertproblem">
+<p class="admonition-title"><span class="caption-number">Definition 1.3 </span></p>
 <div class="definition-content section" id="proof-content">
-<p><span class="math notranslate nohighlight">\(F\)</span></p>
+<p>Sei ein gewöhnliches Differentialgleichungssystem 1. Ordnung wie in <a class="reference internal" href="#def:DGL">Definition 1.1</a> gegeben, wobei <span class="math notranslate nohighlight">\(I \times U \subset \R_0^+ \times \R^n\)</span> den erweiterten Phasenraum des Systems bezeichnet.
+Sei außerdem <span class="math notranslate nohighlight">\(t_0 \in I\)</span> ein Anfangszeitpunkt und <span class="math notranslate nohighlight">\(y_0 \in U\)</span> der zugehörige Anfangszustand.</p>
+<p>Dann nennen wir das Gleichungssystem</p>
+<div class="math notranslate nohighlight" id="equation-eq-awp">
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-awp" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{y}(t) &amp;= F(t, y(t))\quad\forall t\in I, \\
+y(t_0) &amp;= y_0\end{split}\]</div>
+<p><strong>Anfangswertproblem</strong> des gewöhnlichen Differentialgleichungssystems.
+Sofern nicht explizit angegeben werden wir im Folgenden annehmen, dass ohne Beschränkung der Allgemeinheit <span class="math notranslate nohighlight">\(t_0=0\)</span> gilt.</p>
+</div>
+</div><p>Die explizite Wahl des Anfangszeitpunkts und -zustands erlaubt es erst eine gewöhnliche Differentialgleichung eindeutig zu lösen.
+Ohne diese zusätzlichen Informationen könnte man lediglich Funktionenscharen als Lösungsmenge angeben.
+Dies wird durch das folgende Beispiel nochmal dargestellt.</p>
+<div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 1.4 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Wir betrachten eine sehr einfache gewöhnliche Differentialgleichung erster Ordnung, die sich explizit in folgender Form schreiben lässt:</p>
+<div class="math notranslate nohighlight">
+\[y'(x) = y(x) \quad \forall x \in \R.\]</div>
+<p>Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen <span class="math notranslate nohighlight">\(y \colon \R \rightarrow \R\)</span> von der Form</p>
+<div class="math notranslate nohighlight">
+\[y(x) = c\cdot e^x\]</div>
+<p>für eine beliebige Konstante <span class="math notranslate nohighlight">\(c \in \R\)</span> sein müssen.
+Um diese Funktionenschar weiter einzuschränken und eine eindeutige Lösung zu erhalten, müssen wir noch Anfangswertbedindungen hinzunehmen.
+Hierzu reicht es eine ausgewiesene Stelle <span class="math notranslate nohighlight">\(x_0 \in \R\)</span> und einen Funktionswert <span class="math notranslate nohighlight">\(y_0 = y(x_0)\)</span> festzulegen.</p>
+<p>Wählen wir beispielsweise <span class="math notranslate nohighlight">\(x_0 = 0\)</span> und <span class="math notranslate nohighlight">\(y_0 = y(0) = 2\)</span>, so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion</p>
+<div class="math notranslate nohighlight">
+\[y(x) = 2\cdot e^x.\]</div>
+<p>Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konstante <span class="math notranslate nohighlight">\(c \in \R\)</span> als <span class="math notranslate nohighlight">\(c=2\)</span> eindeutig bestimmt wurde.</p>
 </div>
 </div></div>
+<div class="section" id="existenz-und-eindeutigkeit-einer-losung">
+<h2><span class="section-number">1.2.4. </span>Existenz und Eindeutigkeit einer Lösung<a class="headerlink" href="#existenz-und-eindeutigkeit-einer-losung" title="Permalink to this headline">¶</a></h2>
+<p>Nicht jede gewöhnliche Differentialgleichung ist im Allgemeinen lösbar oder besitzt eindeutige Lösungen, wie das folgende Beispiel belegt.</p>
+<div class="proof example admonition" id="example-7">
+<p class="admonition-title"><span class="caption-number">Example 1.5 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Wir wollen im folgenden zwei Beispiele von autonomen, gewöhnlichen Differentialgleichungen erster Ordnung diskutieren, für die entweder die Existenz oder die Eindeutigkeit von Lösungen nicht gegeben ist.</p>
+<p>1. Die gewöhnliche Differentialgleichung</p>
+<div class="math notranslate nohighlight">
+\[e^{y'(x)} \equiv 0 \quad \forall x \in \R\]</div>
+<p>besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somit keine Funktion <span class="math notranslate nohighlight">\(y \colon \R \rightarrow \R\)</span> gibt, so dass die obige Gleichung erfüllt werden kann.</p>
+<p>2. Die gewöhnliche Differentialgleichung</p>
+<div class="math notranslate nohighlight">
+\[y'(x)(1-y'(x)) \equiv 0 \quad \forall x \in \R\]</div>
+<p>besitzt auf Grund ihrer Symmetrieeigenschaften zwei unterschiedliche Funktionenscharen als Lösung, nämlich</p>
+<div class="math notranslate nohighlight">
+\[y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(c \in \R\)</span> eine beliebige Konstante darstellt.</p>
+</div>
+</div><p>Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die <strong>(lokale) Lipschitzstetigkeit</strong> der rechten Seite <span class="math notranslate nohighlight">\(F \colon I \times U\)</span>.
+Diese wollen wir der Vollständigkeit halber im Folgenden definieren.</p>
+<div class="proof definition admonition" id="definition-8">
+<p class="admonition-title"><span class="caption-number">Definition 1.4 </span> ((Lokale) Lipschitzstetigkeit)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(F \colon G \to \R^n\)</span> eine Funktion mit dem erweiterten Phasenraum <span class="math notranslate nohighlight">\(G \, \coloneqq \, I \times U \subset \R\times\R^n\)</span>.
+Man sagt, dass <span class="math notranslate nohighlight">\(F\)</span> in <span class="math notranslate nohighlight">\(G\)</span> einer <strong>globalen Lipschitz-Bedingung</strong> genügt (bezüglich der Variablen <span class="math notranslate nohighlight">\(y \in U\)</span>) mit der Lipschitz-Konstanten <span class="math notranslate nohighlight">\(L\geq0\)</span>, wenn gilt</p>
+<div class="math notranslate nohighlight">
+\[\Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.\]</div>
+<p>Man sagt, <span class="math notranslate nohighlight">\(F\)</span> genüge in <span class="math notranslate nohighlight">\(G\)</span> einer <strong>lokalen Lipschitz-Bedingung</strong>, falls jeder Punkt <span class="math notranslate nohighlight">\((a,b)\in G\)</span> im erweiterten Phasenraum eine Umgebung <span class="math notranslate nohighlight">\(V\)</span> besitzt, sodass <span class="math notranslate nohighlight">\(F\)</span> in <span class="math notranslate nohighlight">\(G\cap V\)</span> einer Lipschitzbedingung mit einer gewissen (von <span class="math notranslate nohighlight">\(V\)</span> abhängigen) Konstanten <span class="math notranslate nohighlight">\(L\in\R_+\)</span> genügt.</p>
+</div>
+</div><p>Für die <strong>(lokale) Existenz von Lösungen</strong> haben wir in Kapitel 8.4 <span id="id2">[<a class="reference internal" href="../references.html#id10">Ten21</a>]</span> den Satz von Picard-Lindelöf formuliert, den wir im Folgenden wiederholen werden.</p>
+<div class="proof theorem admonition" id="satz:picardlindeloef_lokal">
+<p class="admonition-title"><span class="caption-number">Theorem 1.2 </span> (Lokaler Existenzsatz nach Picard-Lindelöf)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(F\colon G\to\R^n\)</span> eine stetige Funktion mit erweitertem Phasenraum <span class="math notranslate nohighlight">\(G \coloneqq I \times U \subset \R\times\R^n\)</span>, die lokal Lipschitz-stetig auf <span class="math notranslate nohighlight">\(G\)</span> bezüglich der <span class="math notranslate nohighlight">\(y\)</span>-Variablen ist.
+Dann existiert zu jedem Anfangswert <span class="math notranslate nohighlight">\((t_0,y_0) \in G\)</span> ein <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, sowie eine Lösung</p>
+<div class="math notranslate nohighlight">
+\[\phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n\]</div>
+<p>der gewöhnlichen Differentialgleichung</p>
+<div class="math notranslate nohighlight">
+\[\dot{y}(t) \ = \ F(t,y(t))\]</div>
+<p>unter der Anfangsbedingung <span class="math notranslate nohighlight">\(\phi(t_0)=y_0\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe \cite[§12, Satz 4]{forster}.</p>
+</div>
+<p>Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
+Unter den strengeren Voraussetzungen einer rechten Seite <span class="math notranslate nohighlight">\(F\)</span> der gewöhnlichen Differentialgleichung, die einer globalen Lipschitzbedingung genügt, lässt sich jedoch eine <strong>globale Existenzaussage</strong> formulieren, die besonders für konkrete Anwendungen sehr praktisch ist.</p>
+<div class="proof theorem admonition" id="satz:picardlindeloef_lokal">
+<p class="admonition-title"><span class="caption-number">Theorem 1.2 </span> (Globaler Existenzsatz nach Picard-Lindelöf)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(F\colon G\to\R^n\)</span> eine stetige Funktion mit erweitertem Phasenraum <span class="math notranslate nohighlight">\(G \, \coloneqq \, I \times U \subset \R\times\R^n\)</span>, die eine globale Lipschitzbedingung auf <span class="math notranslate nohighlight">\(G\)</span> bezüglich der <span class="math notranslate nohighlight">\(y\)</span>-Variablen erfüllt.
+Dann existiert zu jedem Anfangswert <span class="math notranslate nohighlight">\((t_0,y_0) \in G\)</span> eine globale Lösung</p>
+<div class="math notranslate nohighlight">
+\[\phi \colon I \to \R^n\]</div>
+<p>der gewöhnlichen Differentialgleichung</p>
+<div class="math notranslate nohighlight">
+\[\dot{y}(t) \ = \ F(t,y(t))\]</div>
+<p>unter der Anfangsbedingung <span class="math notranslate nohighlight">\(\phi(t_0)=y_0\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe \cite[§2.3]{knabner}.</p>
+</div>
+<div class="proof corollary admonition" id="corollary-11">
+<p class="admonition-title"><span class="caption-number">Corollary 1.1 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>Das Anfangswertproblem jedes <strong>linearen</strong> gewöhnlichen Differentialgleichungssystems 1. Ordnung hat eine eindeutige globale Lösung.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe \cite[§2.3, Theorem 2.25]{knabner}.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -361,7 +499,7 @@ x(t_0) = x_0\]</div>
         <a class="right-next" href="fluesse.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">1.3. </span>Flüsse und Phasenportraits</p>
+                <p class="prevnext-title"><span class="section-number">1.3. </span>Phasenflüsse und Phasenportraits</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
