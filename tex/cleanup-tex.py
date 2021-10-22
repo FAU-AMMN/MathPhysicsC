@@ -53,6 +53,8 @@ with open (path+file_name+extension, 'r' ) as f:
     
     content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)\\(.*?)\}.png\}',
                          r'\\includegraphics{\3.png}', content_new, flags = re.M)
+    content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)/(.*?)\}.png\}',
+                         r'\\includegraphics{\3.png}', content_new, flags = re.M)
 
     content_new = re.sub(r'\\includegraphics\{\{(.*?)\}.png\}',
                          r'\\includegraphics{\1.png}', content_new, flags = re.M)
@@ -119,6 +121,10 @@ with open (path+file_name+extension, 'r' ) as f:
 
     # bibtex citations
     content_new = re.sub(r'\{\[\}\\hyperlink\{(.*?)\}\{(.*?)\}\{\]\}', r'\\cite{\2}', content_new, flags = re.M)
+    
+    # Par
+    content_new = re.sub(r'\\AtStartPar', r'\\par', content_new, flags = re.M)
+    
     
     # get rid of certain commands
     content_new = re.sub(r'\\release\{\}', r'', content_new, flags = re.M)

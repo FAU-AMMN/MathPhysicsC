@@ -1,48 +1,58 @@
 \chapter{Gewöhnliche Differentialgleichungen für dynamische Systeme}
 \label{\detokenize{ode/ode:gewohnliche-differentialgleichungen-fur-dynamische-systeme}}\label{\detokenize{ode/ode::doc}}
+\par
 In diesem ersten Kapitel der Vorlesung wollen wir weiterführende Konzepte zum Thema gewöhnlicher Differentialgleichungen einführen.
 Insbesondere wollen wir uns mit gewöhnlichen Differentialgleichungen für dynamische Systeme beschäftigen.
-Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 7 {[}{]} kennengelernt haben.
+Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 8 \cite{Ten21} kennengelernt haben.
 Anschließend definieren wir zwei grundlegende mathematische Werkzeuge um dynamische Systeme zu charakterisieren, nämlich Flüsse und Phasenportraits.
 Zum Schluss wollen wir diese zur Untersuchung und Lösung von Hamiltonschen Differentialgleichungen nutzen, welche eine insbesondere in der klassischen Mechanik innerhalb der Physik eine wichtige Rolle spielen.
 
 
 \section{Einführung in dynamische Systeme}
 \label{\detokenize{ode/dynamicSystems:einfuhrung-in-dynamische-systeme}}\label{\detokenize{ode/dynamicSystems::doc}}
+\par
 Dynamische Systeme spielen eine zentrale Rolle bei der Beschreibung zeitabhängiger Prozesse in vielen verschiedenen Anwendungsgebieten, wie zum Beispiel der Biologie oder der Physik.
 Durch diese Art von mathematischen Modellen ist es beispielsweise möglich das Ausschwingen eines Pendels zu beschreiben oder den Bestand zweier unterschiedlicher Populationen über die Zeit in einer Räuber Beute Beziehung zu untersuchen.
 
+\par
 Maßgeblich für dynamische Systeme ist die Beobachtung, dass die beschriebenen Prozesse nicht von der Wahl des Anfangszeitpunktes abhängig sind, sondern lediglich von dem gewählten Anfangszustand.
 Wir werden diese Eigenschaft später in Sektion \cref{ode/fluesse:s-fluesse}  noch genauer mathematisch charakterisieren.
 
+\par
 Je nach Anwendungsgebiet können dynamische Systeme entweder \textbf{diskret} oder \textbf{kontinuierlich} in der Zeitentwicklung sein.
 Wir wollen im Folgenden zwei Beispiele zur Illustration des Unterschieds in der Zeitmodellierung diskutieren.
 
 
 \subsection{Diskrete dynamische Systeme}
 \label{\detokenize{ode/dynamicSystems:diskrete-dynamische-systeme}}
+\par
 Zur Veranschaulichung von diskreten dynamischen System wollen wir uns im Folgenden mit einem Beispiel aus der Biologie beschäftigen.
 \label{ode/dynamicSystems:ex:bacteria}
 \begin{example}{}{}
 
 
 
+\par
 In diesem Beispiel wollen wir annehmen, dass wir das \textbf{exponentielle Wachstum} von Bakterien durch Zellteilung als diskretes dynamisches System zu festen, äquidistanten Zeitpunkten \(t_0, t_1, \ldots \in I\) in einem offenen Zeitintervall \(I\subset\R^+_0\) untersuchen wollen.
 Wir modellieren die (ungefähre) Anzahl der Bakterien zu einem Zeitpunkt \(t \in I\) als Funktion \(F \colon I \rightarrow \R_0^+\).
 Da die Zeitpunkte äquidistant gewählt sind können wir eine einheitliche Wachstumsrate \(\alpha \in \R^+\) mit \(\alpha > 1\) annehmen, so dass für alle \(n \in \N\) gilt:
 \begin{align*}
 F(t_{n+1}) = \alpha \cdot F(t_n).
 \end{align*}
+\par
 Wir erkennen, dass der Prozess des Bakterienwachstums nicht von der konkreten Wahl des Startzeitpunkts \(t_0 \in I\) abhängt, sondern nur von anfänglichen Anzahl der Bakterien \(F_0 \coloneqq F(t_0)\). \hyperref[\detokenize{ode/dynamicSystems:fig-bacteria}]{Fig.\@ \ref{\detokenize{ode/dynamicSystems:fig-bacteria}}} zeigt, dass eine unterschiedliche Wahl des Anfangszeitpunkt bei gleicher Wahl der Anfangspopulation keinen Effekt auf die zeitliche Dynamik hat.
 
+\par
 Dies können wir wie folgt mathematisch verifizieren. Seien \(t_m, t_n \in I\) mit \(n,m \in \N\) zwei unterschiedliche Anfangszeitpunkte für die die gleiche Anfangspopulation \(F_0 \in \N\) von Bakterien angenommen wird, d.h.,
 \begin{align*}
 F(t_m) = F_0 = F(t_n).
 \end{align*}
+\par
 Betrachten wir nun für die beiden unterschiedlichen Anfangszeitpunkte das Bakterienwachstum nach \(k \in \N\) äquidistanten Zeitschritten, so ergibt sich:
 \begin{align*}
 F(t_{m+k}) = \alpha \cdot F(t_{m+k-1}) = \ldots = \alpha^k \cdot F(t_{m}) = \alpha^k \cdot F_0 = \alpha^k \cdot F(t_n) = F(t_{n+k}).
 \end{align*}
+\par
 Wir erkennen also, dass unabhängig vom gewählten Anfangszeitpunkt die Bakterienpopulation nach \(k \in \N\) Zeitschritten gleich ist.
 \end{example}
 
@@ -50,14 +60,16 @@ Wir erkennen also, dass unabhängig vom gewählten Anfangszeitpunkt die Bakterie
 \centering
 
 
-\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/dynamicSystems\string_1\string_0.png}
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/dynamicSystems\string_3\string_0.png}
 \caption{Visualisierung für Beispiel \cref{ode/dynamicSystems:ex:bacteria}  Wir erkennen, dass die Dynamik der Koloniegröße nicht von der Startzeit abhängt, sondern nur vom Anfangswert. Zu beachten gilt, es ist ein diskretes System, die angezeichneten kontinuierlichen Linien dienen lediglich zur Veranschaulichung der Dynamik.}\label{\detokenize{ode/dynamicSystems:fig-bacteria}}\end{figure}
 
+\par
 Diskrete dynamische Systeme tauchen auch in anderen spannenden Anwendungen auf, wie beispielsweise in der \href{https://de.wikipedia.org/wiki/Bifurkation\_(Mathematik)\#Bifurkationsdiagramm}{Chaostheorie} und in der \href{https://de.wikipedia.org/wiki/Markow-Kette}{Stochastik}.
 
 
 \subsection{Kontinuierliche dynamische Systeme}
 \label{\detokenize{ode/dynamicSystems:kontinuierliche-dynamische-systeme}}
+\par
 Im Unterschied zu diskreten dynamischen Systemen wird die Zeit bei kontinuierlichen dynamischen Systemen nicht an abzählbar vielen Punkten modelliert, sondern als Kontinuum.
 Im Folgenden beschreiben wir das physikalische Experiment des freien Falls als Spezialfall eines kontinuierlichen dynamischen Systems.
 \label{ode/dynamicSystems:ex:freefall}
@@ -65,16 +77,20 @@ Im Folgenden beschreiben wir das physikalische Experiment des freien Falls als S
 
 
 
+\par
 In diesem Beispiel betrachten wir ein physikalisches Modell für den freien Fall eines Steins mit Masse \(m \in \R^+\), den wir in einer Hand halten, bis wir ihn zu einem definierten Anfangszeitpunkt \(t_0 \in I\) mit \(I \subset \R^+_0\) fallen lassen.
 
+\par
 Die aktuelle Entfernung des Steins zum Boden zu einem Zeitpunkt \(t \in I\), d.h. seine gegenwärtige Höhe, ist gegeben durch eine monoton fallende Funktion \(F \colon I \rightarrow \R^+_0\).
 Unsere Hand befindet sich zum Anfangszeitpunkt \(t_0\) in einer Höhe von \(F_0 > 0\).
 Für jeden beliebigen Zeitpunkt \(t > t_0\) lässt sich die aktuelle Höhe des fallenden Steins mit Hilfe des Newtonschen Gravitationsgesetzes wie folgt angeben:
 \begin{align*}
 F(t) = \max(0, F_0 - \frac{1}{2}gt^2),
 \end{align*}
+\par
 wobei \(g \approx 9,81 \frac{m}{s^2}\) die Erdbeschleunigungskonstante bezeichnet.
 
+\par
 Aus \hyperref[\detokenize{ode/dynamicSystems:fig-free-fall}]{Fig.\@ \ref{\detokenize{ode/dynamicSystems:fig-free-fall}}} wird klar, dass auch hier die Dynamik des freien Falls nicht von der Wahl des Anfangszeitpunkts \(t_0 \in I\) abhängt.
 Anschaulich gesprochen, würde der Stein genauso fallen, wenn wir ihn noch einige Sekunden länger festhalten würden.
 \end{example}
@@ -83,279 +99,603 @@ Anschaulich gesprochen, würde der Stein genauso fallen, wenn wir ihn noch einig
 \centering
 
 
-\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/dynamicSystems\string_3\string_0.png}
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/dynamicSystems\string_6\string_0.png}
 \caption{Visualisierung für Beispiel \cref{ode/dynamicSystems:ex:freefall}  Wir erkennen, dass die Dynamik der Fallhöhe nicht von der Startzeit abhängt, sondern nur von der Starthöhe.}\label{\detokenize{ode/dynamicSystems:fig-free-fall}}\end{figure}
 
+\par
 Häufig kommen zur Beschreibung von kontinuierlichen dynamischen Systemen sogenannte \textbf{autonome gewöhnliche Differentialgleichungen} zum Einsatz, wie die in Beispiel \cref{ode/dynamicSystems:ex:freefall} implizit genutzten Bewegungsgleichungen.
 Wir werden diese Art von Differentialgleichungen in Kapitel \cref{ode/fluesse:s-fluesse}  mathematisch genauer betrachten.
 
 
-\section{Wiederholung Gewöhnliche Differentialgleichungen}
+\section{Wiederholung: Gewöhnliche Differentialgleichungen}
 \label{\detokenize{ode/repetition:wiederholung-gewohnliche-differentialgleichungen}}\label{\detokenize{ode/repetition::doc}}
-In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel xxx \cite{Ten21} wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
+\par
+In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in \cite{Ten21} wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
 
 
 \subsection{Gewöhnliche Differentialgleichungen}
 \label{\detokenize{ode/repetition:gewohnliche-differentialgleichungen}}
+\par
 Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgleichungssystems \(m\) ter Ordnung als Grundlage für unsere weiteren Betrachtungen.
 \label{ode/repetition:def:DGL}
 \begin{definition}{}{}
 
 
 
+\par
 Seien \(n,m \in \N\).
-Wir betrachten im Folgenden eine offene Teilmenge \(U\subset (\R^n)^{m+1}\) und ein offenes Intervall \(I\subset\R^+_0\).
+Wir betrachten im Folgenden eine offene Teilmenge \(U\subset (\R^n)^{m+1}\) und ein offenes Intervall \(I\subset\R\).
 Es sei außerdem \(F:I\times U\rightarrow\R^n\) eine stetige Funktion, dann nennen wir
 \begin{align}\label{equation:ode/repetition:eq:DGL}
-F(x,y,y',\ldots,y^{(m)}) = 0
+F(x,y(x),y'(x),\ldots,y^{(m)}(x)) = 0
 \end{align}
+\par
 ein \textbf{gewöhnliches Differentialgleichungssystem (DGL)} \(m\) ter Ordnung von \(n\) Gleichungen.
-Gilt \(m=1\), das heißt die Funktion \(F\) ist skalarwertig, so sprechen wir von einer \textbf{gewöhnlichen Differentialgleichung}.
+Gilt \(n=1\), das heißt die Funktion \(F\) ist skalarwertig, so sprechen wir von einer \textbf{gewöhnlichen Differentialgleichung}.
 
-Eine Funktion \(\phi\in C^m(I;\R^n)\) heißt \textbf{Lösung der DGL}, falls gilt,
+\par
+Eine Funktion \(\phi\in C^m(I;\R^n)\) heißt \textbf{Lösung des Differentialgleichungssystems}, falls gilt,
 \begin{align*}
-F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}) = 0 \quad \forall t\in I.
+F(x, \phi(x), \phi'(x), \ldots, \phi^{(m)}(x)) = 0 \quad \forall x\in I.
 \end{align*}
+\par
 Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat
 \begin{align*}
-y^{(n)} = F(x,y,y',\ldots,y^{(n-1)}),
+y^{(m)}(x) = F(x,y(x),y'(x),\ldots,y^{(m-1)}(x)),
 \end{align*}
+\par
 so nennen wir die DGL \textbf{explizit}, ansonsten wird sie \textbf{implizit} genannt.
 \end{definition}
+
+\par
+Folgende Bemerkung beschreibt eine alternative Notation von gewöhnlichen Differentialgleichungen 1. und 2. Ordnung, die häufig in der Literatur im Kontext dynamischer Systeme auftaucht.
+\label{ode/repetition:remark-1}
+\begin{emphBox}{}{}{Remark 1.1 (Zeitableitungen bei gewöhnlichen Differentialgleichungen)}
+
+
+
+\par
+Viele physikalische Phänomene können durch zeitabhängige gewöhnliche Differentialgleichungen 1. und 2. Ordnung beschrieben werden.
+In diesen Fällen verwendet man häufig die Variable \(t \in \R^+_0\) als unabhängige Variable anstatt einer Variable \(x \in \R\).
+Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion \(y\), so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
+\begin{enumerate}
+
+\item {} 
+\par
+\(y'(x) \ \ \hat{=} \ \ \dot{y}(t)\),
+
+\item {} 
+\par
+\(y''(x) \ \ \hat{=} \ \ \ddot{y}(t)\).
+
+\end{enumerate}
+
+\par
+Damit lässt sich das gewöhnliche Differentialgleichungssystem aus \cref{ode/repetition:equation-eq-dgl} schreiben als
+\begin{align}\label{equation:ode/repetition:eq:DGL_time}
+F(z, y(t), \dot{y}(t), \ldots, y{(m)}(t)) = 0 \quad \forall t\in I.
+\end{align}\end{emphBox}
 
 
 \subsection{Autonome Differentialgleichungen}
 \label{\detokenize{ode/repetition:autonome-differentialgleichungen}}
+\par
 Im Fall von dynamischen Systemen erhält der Definitionsbereich der Funktion \(F\) einer gewöhnlichen Differentialgleichung einen besonderen Namen, wie die folgende Bemerkung erklärt.
-\label{ode/repetition:remark-1}
-\begin{emphBox}{}{}{Remark 1.1 ((Erweiterter) Phasenraum)}
+\label{ode/repetition:remark-2}
+\begin{emphBox}{}{}{Remark 1.2 ((Erweiterter) Phasenraum)}
 
 
 
+\par
 Wird eine gewöhnliche Differentialgleichung als mathematisches Modell für ein kontinuierliches dynamisches System genutzt, so wird die offene Menge \(U\subset (\R^n)^{m+1}\) auch als \textbf{Phasenraum} bezeichnet.
 Der Definitionsbereich \(I\times U\) der stetigen Funktion \(F\) wird auch als \textbf{erweiterter Phasenraum} bezeichnet.
 
+\par
 Der Phasenraum beschreibt die Menge aller möglichen Zustände des dynamischen Systems.
 Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zugeordnet.
 
-In Kapitel \textbackslash{}xxx werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
+\par
+In Kapitel \{ref\}s:fluesse werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
 \end{emphBox}
 
-Im Fall von kontinuierlichen dynamischen System spielt eine Familie von DGLs eine wichtige Rolle, die wir im Folgenden definieren wollen.
-Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \textbackslash{}xxx nicht explizit von der Zeit abhängt.
-\label{ode/repetition:definition-2}
-\begin{definition}{}{}
-
-
-
-Hängt die Funktion \(F\) in \cref{ode/repetition:def:DGL} nicht explizit von der Zeit ab, d.h., wir haben \(F:U\rightarrow\R^n\) dann heißt die Gleichung
-\begin{align}\label{equation:ode/repetition:eq:autonome_DGL}
-\dot{x(t)} = F(x(t))\quad\forall t\in I
-\end{align}
-\textbf{autonome DGL}.
-\end{definition}
-
-
-\subsection{Anfangswertprobleme}
-\label{\detokenize{ode/repetition:anfangswertprobleme}}
-Üblicherweise betrachtet man nicht nur DGLs sondern sogenannte Anfangswertprobleme. Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\) an welchem man die Lösung explizit durch einen Anfangswert \(x_0\in U\) vorgibt. Im Setting von \cref{ode/repetition:def:DGL} heißt
-das Gleichungssystem
-\begin{align}\label{equation:ode/repetition:eq:AWP}
-\dot{x}(t) = F(t, x(t))\quad\forall t\in I
-x(t_0) = x_0
-\end{align}
-\textbf{Anfangswertproblem}. Sofern nicht explizit angegeben werden wir im folgenden annehmen, dass ohne Beschränkung der Allgemeinheit \(t_0=0\) gilt.
-
-
-\subsection{Existenz und Eindeutigkeit einer Lösung}
-\label{\detokenize{ode/repetition:existenz-und-eindeutigkeit-einer-losung}}
-Wir wiederholen die wichtigsten Existenzaussagen zu Anfangswertproblem. Die wichtigste Eigenschaften in diesem Kontext ist die Lipschitzstetigkeit der rechten Seite \(F\).
+\par
+Im Fall von \textbf{kontinuierlichen dynamischen Systemen} spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen.
+Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \cref{ode/repetition:equation-eq-dgl-time} nicht explizit von der Zeit abhängt.
 \label{ode/repetition:definition-3}
 \begin{definition}{}{}
 
 
 
-\(F\)
+\par
+Hängt die Funktion \(F\) in \cref{ode/repetition:def:DGL} nicht explizit von der Zeit ab, d.h., wir haben \(F:U\rightarrow\R^n\) dann heißt die Gleichung
+\begin{align}\label{equation:ode/repetition:eq:autonome_DGL}
+F(y(x), y'(x), \ldots, y^{(m)}(x)) = 0 \quad \forall t\in I
+\end{align}
+\par
+\textbf{autonome DGL}.
 \end{definition}
 
-
-\section{Flüsse und Phasenportraits}
-\label{\detokenize{ode/fluesse:flusse-und-phasenportraits}}\label{\detokenize{ode/fluesse:s-fluesse}}\label{\detokenize{ode/fluesse::doc}}
-In diesem Abschnitt führen wir zunächst grundlegende Konzepte ein und betrachten danach geometrische Interpretation von DGLs.
-
-Untenstehend die wichtigsten Schlagwörter:
-\begin{itemize}
-\item {} 
-Fluss \cref{ode/fluesse:def:Fluss} 
-
-\item {} 
-lokaler Fluss \cref{ode/fluesse:def:LokFluss} 
-
-\item {} 
-Fluss einer DGL,
-\begin{itemize}
-\item {} 
-Bahnkurve,
-
-\item {} 
-Orbit,
-
-\item {} 
-Ruhelage
-
-\end{itemize}
-
-\end{itemize}
+\par
+Im folgenden Beispiel wollen wir unterschiedliche gewöhnliche Differentialgleichungen darauf prüfen, ob sie autonom sind.
+\label{ode/repetition:example-4}
+\begin{example}{}{}
 
 
-\subsection{Flüsse}
-\label{\detokenize{ode/fluesse:flusse}}
-Wir beginnen zunächst damit ein wichtiges Konzept einzuführen, welches die Beschreibung zeitabhängiger Systeme vereinfacht. Die folgende Definition ist zunächst sehr allgemein gehalten und wird später für unsere Anwendungen auf DGLs konkretisiert.
+
+\par
+Wir betrachten drei verschiedene gewöhnliche Differentialgleichungen und untersuchen diese auf ihre Zeitabhängigkeit.
+Der Einfachheit halber konzentrieren wir uns hierbei auf gewöhnliche Differentialgleichungen 1. Ordnung.
+Sei hierzu  im Folgenden \(I \subset \R\) ein offenes Intervall.
+
+\par
+1. Die gewöhnliche Differentialgleichung
+\begin{align*}
+2y'(x) = y(x)\cdot x \quad \forall x \in I
+\end{align*}
+\par
+ist \textbf{nicht autonom}, da die rechte Seite der Gleichung durch die Funktion
+\begin{align*}
+F(x,y(x)) = y(x) \cdot x
+\end{align*}
+\par
+beschrieben wird und diese Funktion explizit vom Funktionsargument \(x \in I\) abhängt.
+
+
+
+\par
+2. Die gewöhnliche Differentialgleichung
+\begin{align*}
+2t\cdot \dot{y}(t) = y(t)\cdot t \quad \forall t \in I
+\end{align*}
+\par
+ist hingegen \textbf{autonom}, da die Gleichung in folgende explizite Form überführt werden kann
+\begin{align*}
+\dot{y}(t) = \frac{1}{2} y(t) \quad \forall t \in I
+\end{align*}
+\par
+und somit die rechte Seite der Gleichung durch die Funktion
+\begin{align*}
+F(t,y(t)) = \frac{1}{2}y(t)
+\end{align*}
+\par
+beschrieben wird, welche nicht explizit vom Funktionsargument \(t \in I\) abhängt.
+
+
+
+\par
+3. Im Fall der gewöhnlichen Differentialgleichung
+\begin{align*}
+2y'(x) = y(x)\cdot \sin(g(x)) \quad \forall x \in I
+\end{align*}
+\par
+können wir für beliebige Funktionen \(g \colon I \rightarrow \R\) \textbf{nicht entscheiden}, ob sie autonom ist wenn keine konkrete Form der Funktion \(g\) gegeben ist.
+\end{example}
+
+
+\subsection{Anfangswertprobleme}
+\label{\detokenize{ode/repetition:anfangswertprobleme}}
+\par
+Um gewöhnliche Differentialgleichungen zu lösen, betrachtet man in der Regel sogenannte Anfangswertprobleme.
+Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\), an welchem man die Lösung explizit durch einen Anfangswert \(y_0\in U\) vorgibt.
+Dieses Vorgehen wird in der folgenden Definition nochmal kurz wiederholt.
+\label{ode/repetition:def:anfangswertproblem}
+\begin{definition}{}{}
+
+
+
+\par
+Sei ein gewöhnliches Differentialgleichungssystem 1. Ordnung wie in \cref{ode/repetition:def:DGL} gegeben, wobei \(I \times U \subset \R_0^+ \times \R^n\) den erweiterten Phasenraum des Systems bezeichnet.
+Sei außerdem \(t_0 \in I\) ein Anfangszeitpunkt und \(y_0 \in U\) der zugehörige Anfangszustand.
+
+\par
+Dann nennen wir das Gleichungssystem
+\begin{align}\label{equation:ode/repetition:eq:AWP}
+\dot{y}(t) &= F(t, y(t))\quad\forall t\in I, \\
+y(t_0) &= y_0
+\end{align}
+\par
+\textbf{Anfangswertproblem} des gewöhnlichen Differentialgleichungssystems.
+Sofern nicht explizit angegeben werden wir im Folgenden annehmen, dass ohne Beschränkung der Allgemeinheit \(t_0=0\) gilt.
+\end{definition}
+
+\par
+Die explizite Wahl des Anfangszeitpunkts und  zustands erlaubt es erst eine gewöhnliche Differentialgleichung eindeutig zu lösen.
+Ohne diese zusätzlichen Informationen könnte man lediglich Funktionenscharen als Lösungsmenge angeben.
+Dies wird durch das folgende Beispiel nochmal dargestellt.
+\label{ode/repetition:example-6}
+\begin{example}{}{}
+
+
+
+\par
+Wir betrachten eine sehr einfache gewöhnliche Differentialgleichung erster Ordnung, die sich explizit in folgender Form schreiben lässt:
+\begin{align*}
+y'(x) = y(x) \quad \forall x \in \R.
+\end{align*}
+\par
+Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen \(y \colon \R \rightarrow \R\) von der Form
+\begin{align*}
+y(x) = c\cdot e^x
+\end{align*}
+\par
+für eine beliebige Konstante \(c \in \R\) sein müssen.
+Um diese Funktionenschar weiter einzuschränken und eine eindeutige Lösung zu erhalten, müssen wir noch Anfangswertbedindungen hinzunehmen.
+Hierzu reicht es eine ausgewiesene Stelle \(x_0 \in \R\) und einen Funktionswert \(y_0 = y(x_0)\) festzulegen.
+
+\par
+Wählen wir beispielsweise \(x_0 = 0\) und \(y_0 = y(0) = 2\), so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
+\begin{align*}
+y(x) = 2\cdot e^x.
+\end{align*}
+\par
+Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konstante \(c \in \R\) als \(c=2\) eindeutig bestimmt wurde.
+\end{example}
+
+
+\subsection{Existenz und Eindeutigkeit einer Lösung}
+\label{\detokenize{ode/repetition:existenz-und-eindeutigkeit-einer-losung}}
+\par
+Nicht jede gewöhnliche Differentialgleichung ist im Allgemeinen lösbar oder besitzt eindeutige Lösungen, wie das folgende Beispiel belegt.
+\label{ode/repetition:example-7}
+\begin{example}{}{}
+
+
+
+\par
+Wir wollen im folgenden zwei Beispiele von autonomen, gewöhnlichen Differentialgleichungen erster Ordnung diskutieren, für die entweder die Existenz oder die Eindeutigkeit von Lösungen nicht gegeben ist.
+
+\par
+1. Die gewöhnliche Differentialgleichung
+\begin{align*}
+e^{y'(x)} \equiv 0 \quad \forall x \in \R
+\end{align*}
+\par
+besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somit keine Funktion \(y \colon \R \rightarrow \R\) gibt, so dass die obige Gleichung erfüllt werden kann.
+
+\par
+2. Die gewöhnliche Differentialgleichung
+\begin{align*}
+y'(x)(1-y'(x)) \equiv 0 \quad \forall x \in \R
+\end{align*}
+\par
+besitzt auf Grund ihrer Symmetrieeigenschaften zwei unterschiedliche Funktionenscharen als Lösung, nämlich
+\begin{align*}
+y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,
+\end{align*}
+\par
+wobei \(c \in \R\) eine beliebige Konstante darstellt.
+\end{example}
+
+\par
+Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die \textbf{(lokale) Lipschitzstetigkeit} der rechten Seite \(F \colon I \times U\).
+Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
+\label{ode/repetition:definition-8}
+\begin{definition}{}{}
+
+
+
+\par
+Sei \(F \colon G \to \R^n\) eine Funktion mit dem erweiterten Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\).
+Man sagt, dass \(F\) in \(G\) einer \textbf{globalen Lipschitz Bedingung} genügt (bezüglich der Variablen \(y \in U\)) mit der Lipschitz Konstanten \(L\geq0\), wenn gilt
+\begin{align*}
+\Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.
+\end{align*}
+\par
+Man sagt, \(F\) genüge in \(G\) einer \textbf{lokalen Lipschitz Bedingung}, falls jeder Punkt \((a,b)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_+\) genügt.
+\end{definition}
+
+\par
+Für die \textbf{(lokale) Existenz von Lösungen} haben wir in Kapitel 8.4 \cite{Ten21} den Satz von Picard Lindelöf formuliert, den wir im Folgenden wiederholen werden.
+\label{ode/repetition:satz:picardlindeloef_lokal}
+\begin{theorem}{}{}
+
+
+
+\par
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \coloneqq I \times U \subset \R\times\R^n\), die lokal Lipschitz stetig auf \(G\) bezüglich der \(y\) Variablen ist.
+Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) ein \(\varepsilon>0\), sowie eine Lösung
+\begin{align*}
+\phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n
+\end{align*}
+\par
+der gewöhnlichen Differentialgleichung
+\begin{align*}
+\dot{y}(t) \ = \ F(t,y(t))
+\end{align*}
+\par
+unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+\end{theorem}
+
+\begin{emphBox}{}{}
+\par
+Proof. Siehe \textbackslash{}cite{[}§12, Satz 4{]}\{forster\}.
+\end{emphBox}
+
+\par
+Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
+Unter den strengeren Voraussetzungen einer rechten Seite \(F\) der gewöhnlichen Differentialgleichung, die einer globalen Lipschitzbedingung genügt, lässt sich jedoch eine \textbf{globale Existenzaussage} formulieren, die besonders für konkrete Anwendungen sehr praktisch ist.
+\label{ode/repetition:satz:picardlindeloef_lokal}
+\begin{theorem}{}{}
+
+
+
+\par
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\), die eine globale Lipschitzbedingung auf \(G\) bezüglich der \(y\) Variablen erfüllt.
+Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) eine globale Lösung
+\begin{align*}
+\phi \colon I \to \R^n
+\end{align*}
+\par
+der gewöhnlichen Differentialgleichung
+\begin{align*}
+\dot{y}(t) \ = \ F(t,y(t))
+\end{align*}
+\par
+unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+\end{theorem}
+
+\begin{emphBox}{}{}
+\par
+Proof. Siehe \textbackslash{}cite{[}§2.3{]}\{knabner\}.
+\end{emphBox}
+\label{ode/repetition:corollary-11}
+\begin{emphBox}{}{}{Corollary 1.1}
+
+
+
+\par
+Das Anfangswertproblem jedes \textbf{linearen} gewöhnlichen Differentialgleichungssystems 1. Ordnung hat eine eindeutige globale Lösung.
+\end{emphBox}
+
+\begin{emphBox}{}{}
+\par
+Proof. Siehe \textbackslash{}cite{[}§2.3, Theorem 2.25{]}\{knabner\}.
+\end{emphBox}
+
+
+\section{Phasenflüsse und Phasenportraits}
+\label{\detokenize{ode/fluesse:phasenflusse-und-phasenportraits}}\label{\detokenize{ode/fluesse:s-fluesse}}\label{\detokenize{ode/fluesse::doc}}
+\par
+In diesem Abschnitt führen wir die grundlegende mathematischen Konzepte zur Analyse von kontinuierlichen dynamischen Systemen ein. Insbesondere diskutieren wir Flüsse als Lösungen von autonomen gewöhnlichen Differentialgleichungen und definieren sogenannte Phasenportraits, die es uns erlauben dynamische Systeme geometrisch zu interpretieren.
+
+
+\subsection{Phasenflüsse}
+\label{\detokenize{ode/fluesse:phasenflusse}}
+\par
+Wir beginnen zunächst damit eine Klasse von Funktionen einzuführen, welche die Beschreibung zeitabhängiger Systeme vereinfacht.
+Die folgende Definition ist zunächst sehr allgemein für beliebige dynamische Systreme gehalten und wird später im Kontext von konkreten Anwendungsbeispielen spezieller diskutiert.
 \label{ode/fluesse:def:Fluss}
 \begin{definition}{}{}
 
 
 
-Sei \(U\) eine Menge und \(I=\R^+_0\), dann heißt eine Abbildung \(\Phi:I\times U\rightarrow U\) \textbf{Fluss}, falls gilt,
+\par
+Sei \(U \subset \R^n\) eine offene Teilmenge und \(I=\R^+_0\), dann heißt eine Abbildung \(\Phi:I\times U\rightarrow U\) \textbf{(Phasen )Fluss}, falls gilt,
 \begin{enumerate}
 
 \item {} 
+\par
 \(\Phi(0, x) = x\) für alle \(x\in U\),
 
 \item {} 
-\(\Phi(t, \Phi(x,s)) = \Phi(s + t, x)\) für alle \(x\in U\) und alle \(s,t\in I\).
+\par
+\(\Phi(t, \Phi(s,x)) = \Phi(s + t, \Phi(0, x)) = \Phi(s + t, x)\) für alle \(x\in U\) und alle \(s,t\in I\).
 
 \end{enumerate}
 
+\par
 Das Tripel \((I, U, \Phi)\) heißt \textbf{dynamisches System}.
-\end{definition}
-\label{ode/fluesse:remark-1}
-\begin{emphBox}{}{}{Remark 1.2 (Notation)}
 
-
-
-Anstatt beide Argument in Klammern wie in obiger Definition zu schreiben, benutzt man häufig folgende Darstellung,
+\par
+Zur Vereinfachung der Notation schreibt man häufig auch das erste Argument des Flusses als Index wie folgt
 \begin{align*}
-\Phi_t(x) = \Phi(t, x).
-\end{align*}\end{emphBox}
+\Phi_t(x) \coloneqq \Phi(t, x).
+\end{align*}\end{definition}
 
-In unserem Fall wollen wir speziell die Lösungen einer autonomen DGL
+\par
+Für die Analyse von dynamischen Systemen beschreibt der Fluss die Bewegung im Phasenraum in Abhängigkeit zur Zeit.
+Im Folgenden wollen wir speziell die \textbf{Lösungen einer autonomen DGL}
 \begin{align*}
 \dot{x} = F(x).
 \end{align*}
-für \(F\in C^1(U;\R^n)\) als Fluss interpretieren. Hierbei soll das zweite Argument jeweils den Anfangswert
-\(x_0\in U\) angeben und \(\Phi(x_0) = \Phi(\cdot, x_0)\) dann eine Lösung der DGL sein, d.h., \(\frac{\d}{\d t} \Phi(x_0) = F(\Phi(x_0))\).
+\par
+für \(F\in C^1(U;\R^n)\) als Fluss interpretieren.
+Hierbei soll das zweite Argument des Flusses jeweils den Anfangswert \(x_0\in U\) angeben und \(\Phi(x_0) = \Phi(\cdot, x_0)\) dann eine Lösung der DGL sein, d.h.,
+\begin{align*}
+\frac{\d}{\d t} \Phi(x_0) = F(\Phi(x_0))
+\end{align*}
+\par
+So werden durch den Phasenfluss die Lösungen des dynamischen Systems in Abhängigkeit vom Anfangszustand angegeben.
+Im folgenden Beispiel betrachten wir den \textbf{Fluss eines Vektorfeldes}, das die rechte Seite eines gewöhnlichen Differentialgleichungssystems beschreibt.
+\label{ode/fluesse:example-1}
+\begin{example}{}{}
 
-Nach dem Satz von Picard Lindelöf (Kapitel 7, \cite{Ten21}) wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0) >0\) existiert, s.d., es eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt. In diesem Fall wählen wir also \(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\). Wir können also nicht wie in \cref{ode/fluesse:def:Fluss} auf ganz \(\R^+_0\) als Zeitintervall arbeiten. Stattdessen können wir nur Tupel der Form \((x_0, t)\) betrachten, wobei \(x_0\in U\) fixiert ist und \(t\) aus \(I(x_0)\) gewählt werden kann, was wir mithilfe des kartesischen Produkts
+
+
+\par
+Sei \(I\subset \R_0^+\) ein offenes Zeitintervall.
+Wir interessieren uns für Lösungen des autonomen gewöhnlichen Differentialgleichungssystems
+\begin{align*}
+\dot{\vec{x}}(t) = F(\vec{x}) \quad \forall t\in I,
+\end{align*}
+\par
+dessen rechte Seite durch das Vektorfeld \(F \colon \R^2 \rightarrow \R^2\) mit \(F(x,y) \, \coloneqq \, (y, -x)\) gegeben ist.
+Abbildung \textbackslash{}xxx illustriert das Vektorfeld in \(\R^2\).
+
+\par
+Wir wollen den Fluss des Vektorfeldes \(F\) angeben, der die Bewegung entlang der Lösungskurven der durch das Vektorfeld gegebenen gewöhnlichen Differentialgleichung beschreibt.
+Dieser ist gegeben durch
+\begin{align*}
+\Phi(t,(x,y)) = (\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y).
+\end{align*}
+\par
+Das die Funktion \(\Phi \colon I \times \R^2 \rightarrow \R^2\) ein Fluss ist, lässt sich leicht verifizieren durch Nachrechnen der beiden Eigenschaften eines Flusses aus Definition \textbackslash{}ref.
+
+\par
+1. Es gilt \(\Phi(0, (x,y)) = (x,y)\) für beliebige Paare \((x,y) \in \R^2\), da
+\begin{align*}
+\Phi(0, (x,y)) = (1\cdot x + 0\cdot y, - 0 \cdot x + 1 \cdot y) = (x,y).
+\end{align*}
+\par
+2. Es gilt \(\Phi(t, \Phi(s,(x,y)) = \Phi(s + t, (x,y))\) für beliebige Paare \((x,y) \in \R^2\) und Zeitpunkte \(s,t \in I\), da wegen der Additionstheoreme von Sinus und Cosinus gilt
+\begin{align*}
+\Phi(t, \Phi(s,(x,y))) &= \Phi(t, (\cos(s)x + \sin(s)y, -\sin(s)x + \cos(s)y)) \\
+&= [\cos(t)(\cos(s)x + \sin(s)y) + \sin(t)(-\sin(s)x + \cos(s)y), \\
+& \ \ -\sin(t)(\cos(s)x + \sin(s)y) + \cos(t)(-\sin(s)x + \cos(s)y)]\\
+&= \ [ (\cos(t)\cos(s) - \sin(t)\sin(s))x + (\cos(t)\sin(s) + \sin(t)\cos(s))y, \\
+& \quad (-\sin(t)\cos(s) - \cos(t)\sin(s))x + (\cos(t)\cos(s) - \sin(t)\sin(s))y ] \\
+&= (\cos(s+t)x + \sin(s+t)y, -\sin(s+t)x + \cos(s+t)y).
+\end{align*}
+\par
+Nun verfizieren wir noch, dass der Fluss tatsächlich Lösungen des gewöhnlichen Differentialgleichungssystems realisiert.
+Es gilt
+\begin{align*}
+\dot{\Phi}(t, (x,y)) &= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) \\
+&= (-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) = F(\Phi(t,(x,y)).
+\end{align*}
+\par
+Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lösung des gewöhnlichen Differentialgleichungssystems.
+\end{example}
+
+
+\subsection{Lokaler Fluss}
+\label{\detokenize{ode/fluesse:lokaler-fluss}}
+\par
+Nach dem Satz von Picard Lindelöf (Kapitel 7, \cite{Ten21}) wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt. In diesem Fall wählen wir also \(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\). Wir können also nicht wie in \cref{ode/fluesse:def:Fluss} auf ganz \(\R^+_0\) als Zeitintervall arbeiten. Stattdessen können wir nur Tupel der Form \((x_0, t)\) betrachten, wobei \(x_0\in U\) fixiert ist und \(t\) aus \(I(x_0)\) gewählt werden kann, was wir mithilfe des kartesischen Produkts
 \begin{align*}
 \{x_0\}\times I(x_0)
 \end{align*}
+\par
 dargestellt werden kann. Dies führt uns auf den Begriff des lokalen Flusses.
 \label{ode/fluesse:def:LokFluss}
 \begin{definition}{}{}
 
 
 
+\par
 Sei \(U\) eine Menge und die Menge \(G\subset \R^+_0\times U\) sei gegeben als
 \begin{align*}
 G = \bigcup_{x\in U} \{x\}\times I(x),
 \end{align*}
+\par
 wobei \(0\in I(x)\subset \R^+_0\) für jedes \(x\in U\).
 
+\par
 Dann heißt eine Abbildung \(\Phi: G\rightarrow U\) \textbf{lokaler Fluss}, falls
 \begin{enumerate}
 
 \item {} 
+\par
 \(\Phi(0,x) = x\) für alle \(x\in U\),
 
 \item {} 
+\par
 \(\Phi(t, \Phi(s, x)) = \Phi(s+t, x)\) für alle \(x\in U\) und alle \(s,t\) s.d. \(s, s+t\in I(x)\) und \(t\in I(\Phi(x,s))\).
 
 \end{enumerate}
 \end{definition}
 
+\par
 Im nächsten Lemma wollen wir nun sehen, dass die Lösung einer DGL tatsächlich als lokaler Fluss interpretiert werden kann.
 \label{ode/fluesse:lemma-3}
 \begin{lemma}{}{}
 
 
 
+\par
 Sei \(U\subset\R^n\), \(F:U \rightarrow \R^n\) lokal Lipschitz stetig, dann existieren Intervalle \(I(x_0)\), sodass es für
 \begin{align*}
 G = \bigcup_{x_0\in U} I(x_0)\times\{x_0\},
 \end{align*}
+\par
 eine Funktion \(\Phi:G\rightarrow \R^n\) gibt, mit folgenden Eigenschaften
 \begin{enumerate}
 
 \item {} 
+\par
 \(\frac{\d}{\d t} \Phi(t, x_0) = F(\Phi(t, x_0))\) für alle \((t,x_0)\in G\),
 
 \item {} 
+\par
 \(\Phi\) ist ein lokaler Fluss auf \(G\).
 
 \end{enumerate}
 \end{lemma}
-\label{ode/fluesse:remark-4}
-\begin{emphBox}{}{}{Remark 1.3}
+\label{ode/fluesse:rem:fluss_dgl}
+\begin{emphBox}{}{}{Remark 1.3 (Fluss einer DGL)}
 
 
 
+\par
 Die Abbildung \(\Phi\) bezeichnet man hier auch als \textbf{Fluss einer DGL}.
 \end{emphBox}
 
-\begin{proof}
- Nach dem Satz von Picard Lindelöf existiert für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\) s.d., die Lösung der DGL
+\begin{emphBox}{}{}
+\par
+Proof. Nach dem Satz von Picard Lindelöf existiert für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\) s.d., die Lösung der DGL
 auf \([-\epsilon(x_0),\epsilon(x_0)]\) mit AW \(x_0\) existiert. Daher können wir
 \begin{align*}
 G = \bigcup_{x_0\in U} [-\epsilon(x_0),\epsilon(x_0)] \times\{x_0\}
 \end{align*}
+\par
 wählen und \(\Phi\) so definieren, dass
 \begin{align*}
 \frac{\d}{\d t} \Phi(t, x_0) &= F(\Phi(t, x_0))\\
 \Phi(0, x_0) &= x_0
 \end{align*}
+\par
 für alle \((t, x_0)\in G\). Damit haben wir 1. und die erste Flusseigenschaft gezeigt. Die zweite Flusseigenschaften ist eine direkte Folgerung aus der Eindeutigkeit der Lösung der DGL. Wir führen den Beweis trotzdem explizit aus. Es sei \(x_0\in U, s\in [-\epsilon(x_0), \epsilon(x_0)]\) und weiterhin \(t\), s.d., \(s+t \in [-\epsilon(x_0), \epsilon(x_0)]\) und \(t\in [-\epsilon(\Phi(s,x_0)), \epsilon(\Phi(s,x_0))]\).
 Per Definition löst die Funktion
 \begin{align*}
 \phi_1(\tau) := \Phi(s + \tau, x_0)
 \end{align*}
+\par
 sowie auch die Funktion
 \begin{align*}
 \phi_2(\tau) := \Phi(\tau, \Phi(s,x_0))
 \end{align*}
+\par
 die DGL auf dem Intervall \([t, \epsilon(x_0)]\). Weiterhin wissen wir, dass
 \begin{align*}
 \phi_1(0) = \Phi(s, x_0) = \Phi(0, \Phi(s, x_0)) = \phi_2(0),
 \end{align*}
+\par
 somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall \([t, \epsilon(x_0)]\) gleich, was
 eine Folgerung aus dem Eindeutigkeitssatz (\cite{Ten21}, Kapitel 7) ist. Wir haben also
 \begin{align*}
 \Phi(s + \tau, x_0) = \phi_1(\tau) = \phi_2(\tau) = \Phi(\tau, \Phi(s,x_0))
 \end{align*}
+\par
 für jedes \(\tau\in [t, \epsilon(x_0)]\).
-\end{proof}
+\end{emphBox}
 
 
 \subsection{Phasenportraits}
 \label{\detokenize{ode/fluesse:phasenportraits}}
+\par
 Die teilweise abstrakten Begriffe zu Flüssen werden nun mit einfachen geometrische Anschauung unterlegen. Dafür benötigen wir zunächst die folgenden Definitionen.
 \label{ode/fluesse:definition-5}
 \begin{definition}{}{}
 
 
 
+\par
 Es sei \(\Phi:G\rightarrow U\) ein Fluss einer DGL, mit \(G\subset \R^+_0\times U\).
 \begin{itemize}
 \item {} 
+\par
 Für jedes \(x_0\in U\) heißt die Funktion \(t\mapsto \Phi(t, x_0)\) \textbf{Bahnkurve} durch \(x_0\).
 
 \item {} 
+\par
 Die Menge \(\mathcal{O}(x_0) := \{\Phi(t, x_0): (t, x_0)\in G\}\) heißt \textbf{Orbit} oder \textbf{Trajektorie} durch \(x_0\).
 
 \item {} 
+\par
 Ein Orbit heißt \textbf{Ruhelage}, falls \(\mathcal{O}(x_0) = \{x_0\}\).
 
 \item {} 
+\par
 Ein Anfangswert \(x_0\in U\) heißt \textbf{periodisch} mit Periode \(T>0\), falls \(\Phi(T, x_0) = x_0\).
 
 \end{itemize}
@@ -365,31 +705,39 @@ Ein Anfangswert \(x_0\in U\) heißt \textbf{periodisch} mit Periode \(T>0\), fal
 
 
 
+\par
 Die Bewgeungsgeleichung für den harmonischen Oszillator is gegeben durch
 \begin{align*}
 m~\ddot{x}(t) + r~\dot{x}(t) + k~x(t)=0
 \end{align*}
+\par
 hierbei ist
 \begin{itemize}
 \item {} 
+\par
 \(x(t)\) die horizontale Auslenkung zum Zeitpunkt \(t\),
 
 \item {} 
+\par
 \(m\) die Masse des Objekts,
 
 \item {} 
+\par
 \(r\) die Dämpfungskonstante,
 
 \item {} 
+\par
 \(k\) die Federkonstante.
 
 \end{itemize}
 
-Durch einführung der Variable \(p(t):= m~\dot{x}(t)\) als Impuls erhalten wir das System von DGLs
+\par
+Durch Einführung der Variable \(p(t):= m~\dot{x}(t)\) als Impuls erhalten wir das System von DGLs
 \begin{align*}
 \dot{x}(t) &= \frac{1}{m}~p(t) \\
 \dot{p}(t) &= -k~x(t) - \frac{r}{m}~p(t).
 \end{align*}
+\par
 Betrachten wir speziell den ungedämpften Fall, \(r=0\), erhalten wir zum Anfangswert \((x,p)\) die Lösung
 \begin{align*}
 \Phi(t, (x,p)) = 
@@ -398,24 +746,29 @@ Betrachten wir speziell den ungedämpften Fall, \(r=0\), erhalten wir zum Anfang
 p \cos(\omega t) - m x \sin(\omega t)
 \end{pmatrix}
 \end{align*}
+\par
 wobei \(\omega=\sqrt{\frac{k}{m}}\) die Eigenfrequenz des Systems ist.
 \end{example}
 
-\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_1\string_0.png}
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_2\string_0.png}
 
 
 \section{Hamiltonsche Differentialgleichungen und Phasenportraits}
 \label{\detokenize{ode/hamilton:hamiltonsche-differentialgleichungen-und-phasenportraits}}\label{\detokenize{ode/hamilton::doc}}
+\par
 Ein wichtiges Prinzip für viele physikalischen Anwendungen sind Erhaltungssätze und die dazugehörigen Erhaltungsgrößen. Aus der klassichen Mechanik kennen wir z.B.
 \begin{itemize}
 \item {} 
+\par
 Energieerhaltung,
 
 \item {} 
+\par
 Impulserhaltung.
 
 \end{itemize}
 
+\par
 In ?? haben wir Bewegungslgleichungen als System von DGLs hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der DGL Formulierung zu erhalten.
 \label{ode/hamilton:example-0}
 \begin{example}{}{}
