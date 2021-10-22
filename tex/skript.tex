@@ -7,6 +7,9 @@
 %% turn off hyperref patch of \index as sphinx.xdy xindy module takes care of
 %% suitable \hyperpage mark-up, working around hyperref-xindy incompatibility
 \PassOptionsToPackage{hyperindex=false}{hyperref}
+%% memoir class requires extra handling
+\makeatletter\@ifclassloaded{memoir}
+{\ifdefined\memhyperindexfalse\memhyperindexfalse\fi}{}\makeatother
 
 \PassOptionsToPackage{warn}{textcomp}
 
@@ -75,7 +78,11 @@
         
 
 \title{Mathematik für Physikstudierende C}
+<<<<<<< HEAD
 \date{Oct 19, 2021}
+=======
+\date{Oct 22, 2021}
+>>>>>>> origin/main
 \release{}
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -93,60 +100,110 @@
 
 \noindent\sphinxincludegraphics{{intro_1_0}.png}
 
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 Das vorliegende Skript begleitet die \sphinxstylestrong{Vorlesung Mathematik für Physikstudierende C} und ist im Wintersemester 21/22 an der FAU Erlangen\sphinxhyphen{}Nürnberg entstanden. Es soll den Studierenden zusätzlich zur virtuellen Vorlesung als Nachschlagewerk dienen und ist ausführlicher und genauer gehalten als die Vorlesungsnotizen.
 
 \begin{DUlineblock}{0em}
 \item[] \sphinxstylestrong{\Large Referenz}
 \end{DUlineblock}
 
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 Das Skript orientiert sich teilweise an dem Vorlesungsskript “Mathematik für Physikstudierende 3” {[}\hyperlink{cite.references:id6}{Kna20}{]} von Prof.Dr.Andreas Knauf (FAU) aus dem Sommersemester 2020 und den Folien zu “Mathematik für Physiker 3” von Prof.Dr.Hermann Schulz\sphinxhyphen{}Baldes (FAU) {[}\hyperlink{cite.references:id8}{SB18}{]}. Weiterhin wird in der Vorlesung oft auch auf das Buch “Mathematische Physik: Klassiche Mechanik” {[}\hyperlink{cite.references:id7}{Kna17}{]} von Prof.Knauf verwiesen, was wir Ihnen als zusätzliches Nachschlagewerk empfehlen können.
 
 
 \chapter{Gewöhnliche Differentialgleichungen für dynamische Systeme}
 \label{\detokenize{ode/ode:gewohnliche-differentialgleichungen-fur-dynamische-systeme}}\label{\detokenize{ode/ode::doc}}
+<<<<<<< HEAD
 In diesem ersten Kapitel der Vorlesung wollen wir weiterführende Konzepte zum Thema gewöhnlicher Differentialgleichungen einführen.
 Insbesondere wollen wir uns mit gewöhnlichen Differentialgleichungen für dynamische Systeme beschäftigen.
 Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 7 {[}{]} kennengelernt haben.
+=======
+\sphinxAtStartPar
+In diesem ersten Kapitel der Vorlesung wollen wir weiterführende Konzepte zum Thema gewöhnlicher Differentialgleichungen einführen.
+Insbesondere wollen wir uns mit gewöhnlichen Differentialgleichungen für dynamische Systeme beschäftigen.
+Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 8 {[}\hyperlink{cite.references:id10}{Ten21}{]} kennengelernt haben.
+>>>>>>> origin/main
 Anschließend definieren wir zwei grundlegende mathematische Werkzeuge um dynamische Systeme zu charakterisieren, nämlich Flüsse und Phasenportraits.
 Zum Schluss wollen wir diese zur Untersuchung und Lösung von Hamiltonschen Differentialgleichungen nutzen, welche eine insbesondere in der klassischen Mechanik innerhalb der Physik eine wichtige Rolle spielen.
 
 
 \section{Einführung in dynamische Systeme}
 \label{\detokenize{ode/dynamicSystems:einfuhrung-in-dynamische-systeme}}\label{\detokenize{ode/dynamicSystems::doc}}
+<<<<<<< HEAD
 Dynamische Systeme spielen eine zentrale Rolle bei der Beschreibung zeitabhängiger Prozesse in vielen verschiedenen Anwendungsgebieten, wie zum Beispiel der Biologie oder der Physik.
 Durch diese Art von mathematischen Modellen ist es beispielsweise möglich das Ausschwingen eines Pendels zu beschreiben oder den Bestand zweier unterschiedlicher Populationen über die Zeit in einer Räuber\sphinxhyphen{}Beute Beziehung zu untersuchen.
 
 Maßgeblich für dynamische Systeme ist die Beobachtung, dass die beschriebenen Prozesse nicht von der Wahl des Anfangszeitpunktes abhängig sind, sondern lediglich von dem gewählten Anfangszustand.
 Wir werden diese Eigenschaft später in Sektion {\hyperref[\detokenize{ode/fluesse:s-fluesse}]{\sphinxcrossref{\DUrole{std,std-ref}{Flüsse und Phasenportraits}}}} noch genauer mathematisch charakterisieren.
 
+=======
+\sphinxAtStartPar
+Dynamische Systeme spielen eine zentrale Rolle bei der Beschreibung zeitabhängiger Prozesse in vielen verschiedenen Anwendungsgebieten, wie zum Beispiel der Biologie oder der Physik.
+Durch diese Art von mathematischen Modellen ist es beispielsweise möglich das Ausschwingen eines Pendels zu beschreiben oder den Bestand zweier unterschiedlicher Populationen über die Zeit in einer Räuber\sphinxhyphen{}Beute Beziehung zu untersuchen.
+
+\sphinxAtStartPar
+Maßgeblich für dynamische Systeme ist die Beobachtung, dass die beschriebenen Prozesse nicht von der Wahl des Anfangszeitpunktes abhängig sind, sondern lediglich von dem gewählten Anfangszustand.
+Wir werden diese Eigenschaft später in Sektion {\hyperref[\detokenize{ode/fluesse:s-fluesse}]{\sphinxcrossref{\DUrole{std,std-ref}{Phasenflüsse und Phasenportraits}}}} noch genauer mathematisch charakterisieren.
+
+\sphinxAtStartPar
+>>>>>>> origin/main
 Je nach Anwendungsgebiet können dynamische Systeme entweder \sphinxstylestrong{diskret} oder \sphinxstylestrong{kontinuierlich} in der Zeitentwicklung sein.
 Wir wollen im Folgenden zwei Beispiele zur Illustration des Unterschieds in der Zeitmodellierung diskutieren.
 
 
 \subsection{Diskrete dynamische Systeme}
 \label{\detokenize{ode/dynamicSystems:diskrete-dynamische-systeme}}
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 Zur Veranschaulichung von diskreten dynamischen System wollen wir uns im Folgenden mit einem Beispiel aus der Biologie beschäftigen.
 \label{ode/dynamicSystems:ex:bacteria}
 \begin{sphinxadmonition}{note}{Example 1.1 (Wachstum von Bakterien)}
 
 
 
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 In diesem Beispiel wollen wir annehmen, dass wir das \sphinxstylestrong{exponentielle Wachstum} von Bakterien durch Zellteilung als diskretes dynamisches System zu festen, äquidistanten Zeitpunkten \(t_0, t_1, \ldots \in I\) in einem offenen Zeitintervall \(I\subset\R^+_0\) untersuchen wollen.
 Wir modellieren die (ungefähre) Anzahl der Bakterien zu einem Zeitpunkt \(t \in I\) als Funktion \(F \colon I \rightarrow \R_0^+\).
 Da die Zeitpunkte äquidistant gewählt sind können wir eine einheitliche Wachstumsrate \(\alpha \in \R^+\) mit \(\alpha > 1\) annehmen, so dass für alle \(n \in \N\) gilt:
 \begin{equation*}
 \begin{split}F(t_{n+1}) = \alpha \cdot F(t_n).\end{split}
 \end{equation*}
+<<<<<<< HEAD
 Wir erkennen, dass der Prozess des Bakterienwachstums nicht von der konkreten Wahl des Startzeitpunkts \(t_0 \in I\) abhängt, sondern nur von anfänglichen Anzahl der Bakterien \(F_0 \coloneqq F(t_0)\). \hyperref[\detokenize{ode/dynamicSystems:fig-bacteria}]{Fig.\@ \ref{\detokenize{ode/dynamicSystems:fig-bacteria}}} zeigt, dass eine unterschiedliche Wahl des Anfangszeitpunkt bei gleicher Wahl der Anfangspopulation keinen Effekt auf die zeitliche Dynamik hat.
 
+=======
+\sphinxAtStartPar
+Wir erkennen, dass der Prozess des Bakterienwachstums nicht von der konkreten Wahl des Startzeitpunkts \(t_0 \in I\) abhängt, sondern nur von anfänglichen Anzahl der Bakterien \(F_0 \coloneqq F(t_0)\). \hyperref[\detokenize{ode/dynamicSystems:fig-bacteria}]{Fig.\@ \ref{\detokenize{ode/dynamicSystems:fig-bacteria}}} zeigt, dass eine unterschiedliche Wahl des Anfangszeitpunkt bei gleicher Wahl der Anfangspopulation keinen Effekt auf die zeitliche Dynamik hat.
+
+\sphinxAtStartPar
+>>>>>>> origin/main
 Dies können wir wie folgt mathematisch verifizieren. Seien \(t_m, t_n \in I\) mit \(n,m \in \N\) zwei unterschiedliche Anfangszeitpunkte für die die gleiche Anfangspopulation \(F_0 \in \N\) von Bakterien angenommen wird, d.h.,
 \begin{equation*}
 \begin{split}F(t_m) = F_0 = F(t_n).\end{split}
 \end{equation*}
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 Betrachten wir nun für die beiden unterschiedlichen Anfangszeitpunkte das Bakterienwachstum nach \(k \in \N\) äquidistanten Zeitschritten, so ergibt sich:
 \begin{equation*}
 \begin{split}F(t_{m+k}) = \alpha \cdot F(t_{m+k-1}) = \ldots = \alpha^k \cdot F(t_{m}) = \alpha^k \cdot F_0 = \alpha^k \cdot F(t_n) = F(t_{n+k}).\end{split}
 \end{equation*}
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 Wir erkennen also, dass unabhängig vom gewählten Anfangszeitpunkt die Bakterienpopulation nach \(k \in \N\) Zeitschritten gleich ist.
 \end{sphinxadmonition}
 
@@ -154,14 +211,25 @@ Wir erkennen also, dass unabhängig vom gewählten Anfangszeitpunkt die Bakterie
 \centering
 \capstart
 
+<<<<<<< HEAD
 \noindent\sphinxincludegraphics{{C:/Tim/Uni/Lectures/MathPhysicsC/_build/jupyter_execute\dynamicSystems_1_0}.png}
 \caption{Visualisierung für Beispiel {\hyperref[\detokenize{ode/dynamicSystems:ex:bacteria}]{\sphinxcrossref{Example 1.1}}}. Wir erkennen, dass die Dynamik der Koloniegröße nicht von der Startzeit abhängt, sondern nur vom Anfangswert. Zu beachten gilt, es ist ein diskretes System, die angezeichneten kontinuierlichen Linien dienen lediglich zur Veranschaulichung der Dynamik.}\label{\detokenize{ode/dynamicSystems:fig-bacteria}}\end{figure}
 
+=======
+\noindent\sphinxincludegraphics{{C:/Tim/Uni/Lectures/MathPhysicsC/_build/jupyter_execute/dynamicSystems_3_0}.png}
+\caption{Visualisierung für Beispiel {\hyperref[\detokenize{ode/dynamicSystems:ex:bacteria}]{\sphinxcrossref{Example 1.1}}}. Wir erkennen, dass die Dynamik der Koloniegröße nicht von der Startzeit abhängt, sondern nur vom Anfangswert. Zu beachten gilt, es ist ein diskretes System, die angezeichneten kontinuierlichen Linien dienen lediglich zur Veranschaulichung der Dynamik.}\label{\detokenize{ode/dynamicSystems:fig-bacteria}}\end{figure}
+
+\sphinxAtStartPar
+>>>>>>> origin/main
 Diskrete dynamische Systeme tauchen auch in anderen spannenden Anwendungen auf, wie beispielsweise in der \sphinxhref{https://de.wikipedia.org/wiki/Bifurkation\_(Mathematik)\#Bifurkationsdiagramm}{Chaostheorie} und in der \sphinxhref{https://de.wikipedia.org/wiki/Markow-Kette}{Stochastik}.
 
 
 \subsection{Kontinuierliche dynamische Systeme}
 \label{\detokenize{ode/dynamicSystems:kontinuierliche-dynamische-systeme}}
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 Im Unterschied zu diskreten dynamischen Systemen wird die Zeit bei kontinuierlichen dynamischen Systemen nicht an abzählbar vielen Punkten modelliert, sondern als Kontinuum.
 Im Folgenden beschreiben wir das physikalische Experiment des freien Falls als Spezialfall eines kontinuierlichen dynamischen Systems.
 \label{ode/dynamicSystems:ex:freefall}
@@ -169,16 +237,30 @@ Im Folgenden beschreiben wir das physikalische Experiment des freien Falls als S
 
 
 
+<<<<<<< HEAD
 In diesem Beispiel betrachten wir ein physikalisches Modell für den freien Fall eines Steins mit Masse \(m \in \R^+\), den wir in einer Hand halten, bis wir ihn zu einem definierten Anfangszeitpunkt \(t_0 \in I\) mit \(I \subset \R^+_0\) fallen lassen.
 
+=======
+\sphinxAtStartPar
+In diesem Beispiel betrachten wir ein physikalisches Modell für den freien Fall eines Steins mit Masse \(m \in \R^+\), den wir in einer Hand halten, bis wir ihn zu einem definierten Anfangszeitpunkt \(t_0 \in I\) mit \(I \subset \R^+_0\) fallen lassen.
+
+\sphinxAtStartPar
+>>>>>>> origin/main
 Die aktuelle Entfernung des Steins zum Boden zu einem Zeitpunkt \(t \in I\), d.h. seine gegenwärtige Höhe, ist gegeben durch eine monoton\sphinxhyphen{}fallende Funktion \(F \colon I \rightarrow \R^+_0\).
 Unsere Hand befindet sich zum Anfangszeitpunkt \(t_0\) in einer Höhe von \(F_0 > 0\).
 Für jeden beliebigen Zeitpunkt \(t > t_0\) lässt sich die aktuelle Höhe des fallenden Steins mit Hilfe des Newtonschen Gravitationsgesetzes wie folgt angeben:
 \begin{equation*}
 \begin{split}F(t) = \max(0, F_0 - \frac{1}{2}gt^2),\end{split}
 \end{equation*}
+<<<<<<< HEAD
 wobei \(g \approx 9,81 \frac{m}{s^2}\) die Erdbeschleunigungskonstante bezeichnet.
 
+=======
+\sphinxAtStartPar
+wobei \(g \approx 9,81 \frac{m}{s^2}\) die Erdbeschleunigungskonstante bezeichnet.
+
+\sphinxAtStartPar
+>>>>>>> origin/main
 Aus \hyperref[\detokenize{ode/dynamicSystems:fig-free-fall}]{Fig.\@ \ref{\detokenize{ode/dynamicSystems:fig-free-fall}}} wird klar, dass auch hier die Dynamik des freien Falls nicht von der Wahl des Anfangszeitpunkts \(t_0 \in I\) abhängt.
 Anschaulich gesprochen, würde der Stein genauso fallen, wenn wir ihn noch einige Sekunden länger festhalten würden.
 \end{sphinxadmonition}
@@ -187,6 +269,7 @@ Anschaulich gesprochen, würde der Stein genauso fallen, wenn wir ihn noch einig
 \centering
 \capstart
 
+<<<<<<< HEAD
 \noindent\sphinxincludegraphics{{C:/Tim/Uni/Lectures/MathPhysicsC/_build/jupyter_execute\dynamicSystems_3_0}.png}
 \caption{Visualisierung für Beispiel {\hyperref[\detokenize{ode/dynamicSystems:ex:freefall}]{\sphinxcrossref{Example 1.2}}}. Wir erkennen, dass die Dynamik der Fallhöhe nicht von der Startzeit abhängt, sondern nur von der Starthöhe.}\label{\detokenize{ode/dynamicSystems:fig-free-fall}}\end{figure}
 
@@ -197,16 +280,35 @@ Wir werden diese Art von Differentialgleichungen in Kapitel {\hyperref[\detokeni
 \section{Wiederholung Gewöhnliche Differentialgleichungen}
 \label{\detokenize{ode/repetition:wiederholung-gewohnliche-differentialgleichungen}}\label{\detokenize{ode/repetition::doc}}
 In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel xxx {[}\hyperlink{cite.references:id10}{Ten21}{]} wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
+=======
+\noindent\sphinxincludegraphics{{C:/Tim/Uni/Lectures/MathPhysicsC/_build/jupyter_execute/dynamicSystems_6_0}.png}
+\caption{Visualisierung für Beispiel {\hyperref[\detokenize{ode/dynamicSystems:ex:freefall}]{\sphinxcrossref{Example 1.2}}}. Wir erkennen, dass die Dynamik der Fallhöhe nicht von der Startzeit abhängt, sondern nur von der Starthöhe.}\label{\detokenize{ode/dynamicSystems:fig-free-fall}}\end{figure}
+
+\sphinxAtStartPar
+Häufig kommen zur Beschreibung von kontinuierlichen dynamischen Systemen sogenannte \sphinxstylestrong{autonome gewöhnliche Differentialgleichungen} zum Einsatz, wie die in Beispiel {\hyperref[\detokenize{ode/dynamicSystems:ex:freefall}]{\sphinxcrossref{Example 1.2}}} implizit genutzten Bewegungsgleichungen.
+Wir werden diese Art von Differentialgleichungen in Kapitel {\hyperref[\detokenize{ode/fluesse:s-fluesse}]{\sphinxcrossref{\DUrole{std,std-ref}{Phasenflüsse und Phasenportraits}}}} mathematisch genauer betrachten.
+
+
+\section{Wiederholung: Gewöhnliche Differentialgleichungen}
+\label{\detokenize{ode/repetition:wiederholung-gewohnliche-differentialgleichungen}}\label{\detokenize{ode/repetition::doc}}
+\sphinxAtStartPar
+In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in {[}\hyperlink{cite.references:id10}{Ten21}{]} wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
+>>>>>>> origin/main
 
 
 \subsection{Gewöhnliche Differentialgleichungen}
 \label{\detokenize{ode/repetition:gewohnliche-differentialgleichungen}}
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgleichungssystems \(m\)\sphinxhyphen{}ter Ordnung als Grundlage für unsere weiteren Betrachtungen.
 \label{ode/repetition:def:DGL}
 \begin{sphinxadmonition}{note}{Definition 1.1 (Gewöhnliches Differentialgleichungssystem)}
 
 
 
+<<<<<<< HEAD
 Seien \(n,m \in \N\).
 Wir betrachten im Folgenden eine offene Teilmenge \(U\subset (\R^n)^{m+1}\) und ein offenes Intervall \(I\subset\R^+_0\).
 Es sei außerdem \(F:I\times U\rightarrow\R^n\) eine stetige Funktion, dann nennen wir
@@ -248,20 +350,167 @@ In Kapitel \textbackslash{}xxx werden wir spezielle Diagramme basierend auf dem 
 Im Fall von kontinuierlichen dynamischen System spielt eine Familie von DGLs eine wichtige Rolle, die wir im Folgenden definieren wollen.
 Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \textbackslash{}xxx nicht explizit von der Zeit abhängt.
 \label{ode/repetition:definition-2}
+=======
+\sphinxAtStartPar
+Seien \(n,m \in \N\).
+Wir betrachten im Folgenden eine offene Teilmenge \(U\subset (\R^n)^{m+1}\) und ein offenes Intervall \(I\subset\R\).
+Es sei außerdem \(F:I\times U\rightarrow\R^n\) eine stetige Funktion, dann nennen wir
+\begin{equation}\label{equation:ode/repetition:eq:DGL}
+\begin{split}F(x,y(x),y'(x),\ldots,y^{(m)}(x)) = 0\end{split}
+\end{equation}
+\sphinxAtStartPar
+ein \sphinxstylestrong{gewöhnliches Differentialgleichungssystem (DGL)} \(m\)\sphinxhyphen{}ter Ordnung von \(n\) Gleichungen.
+Gilt \(n=1\), das heißt die Funktion \(F\) ist skalarwertig, so sprechen wir von einer \sphinxstylestrong{gewöhnlichen Differentialgleichung}.
+
+\sphinxAtStartPar
+Eine Funktion \(\phi\in C^m(I;\R^n)\) heißt \sphinxstylestrong{Lösung des Differentialgleichungssystems}, falls gilt,
+\begin{equation*}
+\begin{split}F(x, \phi(x), \phi'(x), \ldots, \phi^{(m)}(x)) = 0 \quad \forall x\in I.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat
+\begin{equation*}
+\begin{split}y^{(m)}(x) = F(x,y(x),y'(x),\ldots,y^{(m-1)}(x)),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so nennen wir die DGL \sphinxstylestrong{explizit}, ansonsten wird sie \sphinxstylestrong{implizit} genannt.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Folgende Bemerkung beschreibt eine alternative Notation von gewöhnlichen Differentialgleichungen 1. und 2. Ordnung, die häufig in der Literatur im Kontext dynamischer Systeme auftaucht.
+\label{ode/repetition:remark-1}
+\begin{sphinxadmonition}{note}{Remark 1.1 (Zeitableitungen bei gewöhnlichen Differentialgleichungen)}
+
+
+
+\sphinxAtStartPar
+Viele physikalische Phänomene können durch zeitabhängige gewöhnliche Differentialgleichungen 1. und 2. Ordnung beschrieben werden.
+In diesen Fällen verwendet man häufig die Variable \(t \in \R^+_0\) als unabhängige Variable anstatt einer Variable \(x \in \R\).
+Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion \(y\), so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\(y'(x) \ \ \hat{=} \ \ \dot{y}(t)\),
+
+\item {} 
+\sphinxAtStartPar
+\(y''(x) \ \ \hat{=} \ \ \ddot{y}(t)\).
+
+\end{enumerate}
+
+\sphinxAtStartPar
+Damit lässt sich das gewöhnliche Differentialgleichungssystem aus {\hyperref[\detokenize{ode/repetition:equation-eq-dgl}]{\sphinxcrossref{(1.1)}}} schreiben als
+\begin{equation}\label{equation:ode/repetition:eq:DGL_time}
+\begin{split}F(z, y(t), \dot{y}(t), \ldots, y{(m)}(t)) = 0 \quad \forall t\in I.\end{split}
+\end{equation}\end{sphinxadmonition}
+
+
+\subsection{Autonome Differentialgleichungen}
+\label{\detokenize{ode/repetition:autonome-differentialgleichungen}}
+\sphinxAtStartPar
+Im Fall von dynamischen Systemen erhält der Definitionsbereich der Funktion \(F\) einer gewöhnlichen Differentialgleichung einen besonderen Namen, wie die folgende Bemerkung erklärt.
+\label{ode/repetition:remark-2}
+\begin{sphinxadmonition}{note}{Remark 1.2 ((Erweiterter) Phasenraum)}
+
+
+
+\sphinxAtStartPar
+Wird eine gewöhnliche Differentialgleichung als mathematisches Modell für ein kontinuierliches dynamisches System genutzt, so wird die offene Menge \(U\subset (\R^n)^{m+1}\) auch als \sphinxstylestrong{Phasenraum} bezeichnet.
+Der Definitionsbereich \(I\times U\) der stetigen Funktion \(F\) wird auch als \sphinxstylestrong{erweiterter Phasenraum} bezeichnet.
+
+\sphinxAtStartPar
+Der Phasenraum beschreibt die Menge aller möglichen Zustände des dynamischen Systems.
+Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zugeordnet.
+
+\sphinxAtStartPar
+In Kapitel \{ref\}s:fluesse werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Im Fall von \sphinxstylestrong{kontinuierlichen dynamischen Systemen} spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen.
+Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in {\hyperref[\detokenize{ode/repetition:equation-eq-dgl-time}]{\sphinxcrossref{(1.2)}}} nicht explizit von der Zeit abhängt.
+\label{ode/repetition:definition-3}
+>>>>>>> origin/main
 \begin{sphinxadmonition}{note}{Definition 1.2 (Autonome DGL)}
 
 
 
+<<<<<<< HEAD
 Hängt die Funktion \(F\) in {\hyperref[\detokenize{ode/repetition:def:DGL}]{\sphinxcrossref{Definition 1.1}}} nicht explizit von der Zeit ab, d.h., wir haben \(F:U\rightarrow\R^n\) dann heißt die Gleichung
 \begin{equation}\label{equation:ode/repetition:eq:autonome_DGL}
 \begin{split}\dot{x(t)} = F(x(t))\quad\forall t\in I\end{split}
+=======
+\sphinxAtStartPar
+Hängt die Funktion \(F\) in {\hyperref[\detokenize{ode/repetition:def:DGL}]{\sphinxcrossref{Definition 1.1}}} nicht explizit von der Zeit ab, d.h., wir haben \(F:U\rightarrow\R^n\) dann heißt die Gleichung
+\begin{equation}\label{equation:ode/repetition:eq:autonome_DGL}
+\begin{split}F(y(x), y'(x), \ldots, y^{(m)}(x)) = 0 \quad \forall t\in I\end{split}
+>>>>>>> origin/main
 \end{equation}
+\sphinxAtStartPar
 \sphinxstylestrong{autonome DGL}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Im folgenden Beispiel wollen wir unterschiedliche gewöhnliche Differentialgleichungen darauf prüfen, ob sie autonom sind.
+\label{ode/repetition:example-4}
+\begin{sphinxadmonition}{note}{Example 1.3 (Autonome Differentialgleichungen)}
+
+
+
+\sphinxAtStartPar
+Wir betrachten drei verschiedene gewöhnliche Differentialgleichungen und untersuchen diese auf ihre Zeitabhängigkeit.
+Der Einfachheit\sphinxhyphen{}halber konzentrieren wir uns hierbei auf gewöhnliche Differentialgleichungen 1. Ordnung.
+Sei hierzu  im Folgenden \(I \subset \R\) ein offenes Intervall.
+
+\sphinxAtStartPar
+1. Die gewöhnliche Differentialgleichung
+\begin{equation*}
+\begin{split}2y'(x) = y(x)\cdot x \quad \forall x \in I\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ist \sphinxstylestrong{nicht autonom}, da die rechte Seite der Gleichung durch die Funktion
+\begin{equation*}
+\begin{split}F(x,y(x)) = y(x) \cdot x\end{split}
+\end{equation*}
+\sphinxAtStartPar
+beschrieben wird und diese Funktion explizit vom Funktionsargument \(x \in I\) abhängt.
+
+
+
+\sphinxAtStartPar
+2. Die gewöhnliche Differentialgleichung
+\begin{equation*}
+\begin{split}2t\cdot \dot{y}(t) = y(t)\cdot t \quad \forall t \in I\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ist hingegen \sphinxstylestrong{autonom}, da die Gleichung in folgende explizite Form überführt werden kann
+\begin{equation*}
+\begin{split}\dot{y}(t) = \frac{1}{2} y(t) \quad \forall t \in I\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und somit die rechte Seite der Gleichung durch die Funktion
+\begin{equation*}
+\begin{split}F(t,y(t)) = \frac{1}{2}y(t)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+beschrieben wird, welche nicht explizit vom Funktionsargument \(t \in I\) abhängt.
+
+
+
+\sphinxAtStartPar
+3. Im Fall der gewöhnlichen Differentialgleichung
+\begin{equation*}
+\begin{split}2y'(x) = y(x)\cdot \sin(g(x)) \quad \forall x \in I\end{split}
+\end{equation*}
+\sphinxAtStartPar
+können wir für beliebige Funktionen \(g \colon I \rightarrow \R\) \sphinxstylestrong{nicht entscheiden}, ob sie autonom ist wenn keine konkrete Form der Funktion \(g\) gegeben ist.
 \end{sphinxadmonition}
 
 
 \subsection{Anfangswertprobleme}
 \label{\detokenize{ode/repetition:anfangswertprobleme}}
+<<<<<<< HEAD
 Üblicherweise betrachtet man nicht nur DGLs sondern sogenannte Anfangswertprobleme. Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\) an welchem man die Lösung explizit durch einen Anfangswert \(x_0\in U\) vorgibt. Im Setting von {\hyperref[\detokenize{ode/repetition:def:DGL}]{\sphinxcrossref{Definition 1.1}}} heißt
 das Gleichungssystem
 \begin{equation}\label{equation:ode/repetition:eq:AWP}
@@ -269,231 +518,508 @@ das Gleichungssystem
 x(t_0) = x_0\end{split}
 \end{equation}
 \sphinxstylestrong{Anfangswertproblem}. Sofern nicht explizit angegeben werden wir im folgenden annehmen, dass ohne Beschränkung der Allgemeinheit \(t_0=0\) gilt.
+=======
+\sphinxAtStartPar
+Um gewöhnliche Differentialgleichungen zu lösen, betrachtet man in der Regel sogenannte Anfangswertprobleme.
+Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\), an welchem man die Lösung explizit durch einen Anfangswert \(y_0\in U\) vorgibt.
+Dieses Vorgehen wird in der folgenden Definition nochmal kurz wiederholt.
+\label{ode/repetition:def:anfangswertproblem}
+\begin{sphinxadmonition}{note}{Definition 1.3}
+
+
+
+\sphinxAtStartPar
+Sei ein gewöhnliches Differentialgleichungssystem 1. Ordnung wie in {\hyperref[\detokenize{ode/repetition:def:DGL}]{\sphinxcrossref{Definition 1.1}}} gegeben, wobei \(I \times U \subset \R_0^+ \times \R^n\) den erweiterten Phasenraum des Systems bezeichnet.
+Sei außerdem \(t_0 \in I\) ein Anfangszeitpunkt und \(y_0 \in U\) der zugehörige Anfangszustand.
+
+\sphinxAtStartPar
+Dann nennen wir das Gleichungssystem
+\begin{equation}\label{equation:ode/repetition:eq:AWP}
+\begin{split}\dot{y}(t) &= F(t, y(t))\quad\forall t\in I, \\
+y(t_0) &= y_0\end{split}
+\end{equation}
+\sphinxAtStartPar
+\sphinxstylestrong{Anfangswertproblem} des gewöhnlichen Differentialgleichungssystems.
+Sofern nicht explizit angegeben werden wir im Folgenden annehmen, dass ohne Beschränkung der Allgemeinheit \(t_0=0\) gilt.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Die explizite Wahl des Anfangszeitpunkts und \sphinxhyphen{}zustands erlaubt es erst eine gewöhnliche Differentialgleichung eindeutig zu lösen.
+Ohne diese zusätzlichen Informationen könnte man lediglich Funktionenscharen als Lösungsmenge angeben.
+Dies wird durch das folgende Beispiel nochmal dargestellt.
+\label{ode/repetition:example-6}
+\begin{sphinxadmonition}{note}{Example 1.4}
+
+
+
+\sphinxAtStartPar
+Wir betrachten eine sehr einfache gewöhnliche Differentialgleichung erster Ordnung, die sich explizit in folgender Form schreiben lässt:
+\begin{equation*}
+\begin{split}y'(x) = y(x) \quad \forall x \in \R.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen \(y \colon \R \rightarrow \R\) von der Form
+\begin{equation*}
+\begin{split}y(x) = c\cdot e^x\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für eine beliebige Konstante \(c \in \R\) sein müssen.
+Um diese Funktionenschar weiter einzuschränken und eine eindeutige Lösung zu erhalten, müssen wir noch Anfangswertbedindungen hinzunehmen.
+Hierzu reicht es eine ausgewiesene Stelle \(x_0 \in \R\) und einen Funktionswert \(y_0 = y(x_0)\) festzulegen.
+
+\sphinxAtStartPar
+Wählen wir beispielsweise \(x_0 = 0\) und \(y_0 = y(0) = 2\), so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
+\begin{equation*}
+\begin{split}y(x) = 2\cdot e^x.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konstante \(c \in \R\) als \(c=2\) eindeutig bestimmt wurde.
+\end{sphinxadmonition}
+>>>>>>> origin/main
 
 
 \subsection{Existenz und Eindeutigkeit einer Lösung}
 \label{\detokenize{ode/repetition:existenz-und-eindeutigkeit-einer-losung}}
+<<<<<<< HEAD
 Wir wiederholen die wichtigsten Existenzaussagen zu Anfangswertproblem. Die wichtigste Eigenschaften in diesem Kontext ist die Lipschitzstetigkeit der rechten Seite \(F\).
 \label{ode/repetition:definition-3}
 \begin{sphinxadmonition}{note}{Definition 1.3 (Lipschitzstetigkeit)}
+=======
+\sphinxAtStartPar
+Nicht jede gewöhnliche Differentialgleichung ist im Allgemeinen lösbar oder besitzt eindeutige Lösungen, wie das folgende Beispiel belegt.
+\label{ode/repetition:example-7}
+\begin{sphinxadmonition}{note}{Example 1.5}
+>>>>>>> origin/main
 
 
 
-\(F\)
+\sphinxAtStartPar
+Wir wollen im folgenden zwei Beispiele von autonomen, gewöhnlichen Differentialgleichungen erster Ordnung diskutieren, für die entweder die Existenz oder die Eindeutigkeit von Lösungen nicht gegeben ist.
+
+\sphinxAtStartPar
+1. Die gewöhnliche Differentialgleichung
+\begin{equation*}
+\begin{split}e^{y'(x)} \equiv 0 \quad \forall x \in \R\end{split}
+\end{equation*}
+\sphinxAtStartPar
+besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somit keine Funktion \(y \colon \R \rightarrow \R\) gibt, so dass die obige Gleichung erfüllt werden kann.
+
+\sphinxAtStartPar
+2. Die gewöhnliche Differentialgleichung
+\begin{equation*}
+\begin{split}y'(x)(1-y'(x)) \equiv 0 \quad \forall x \in \R\end{split}
+\end{equation*}
+\sphinxAtStartPar
+besitzt auf Grund ihrer Symmetrieeigenschaften zwei unterschiedliche Funktionenscharen als Lösung, nämlich
+\begin{equation*}
+\begin{split}y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei \(c \in \R\) eine beliebige Konstante darstellt.
 \end{sphinxadmonition}
 
+\sphinxAtStartPar
+Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die \sphinxstylestrong{(lokale) Lipschitzstetigkeit} der rechten Seite \(F \colon I \times U\).
+Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
+\label{ode/repetition:definition-8}
+\begin{sphinxadmonition}{note}{Definition 1.4 ((Lokale) Lipschitzstetigkeit)}
 
+<<<<<<< HEAD
 \section{Flüsse und Phasenportraits}
 \label{\detokenize{ode/fluesse:flusse-und-phasenportraits}}\label{\detokenize{ode/fluesse:s-fluesse}}\label{\detokenize{ode/fluesse::doc}}
 In diesem Abschnitt führen wir zunächst grundlegende Konzepte ein und betrachten danach geometrische Interpretation von DGLs.
-
-Untenstehend die wichtigsten Schlagwörter:
-\begin{itemize}
-\item {} 
-Fluss {\hyperref[\detokenize{ode/fluesse:def:Fluss}]{\sphinxcrossref{Definition 1.4}}},
-
-\item {} 
-lokaler Fluss {\hyperref[\detokenize{ode/fluesse:def:LokFluss}]{\sphinxcrossref{Definition 1.5}}},
-
-\item {} 
-Fluss einer DGL,
-\begin{itemize}
-\item {} 
-Bahnkurve,
-
-\item {} 
-Orbit,
-
-\item {} 
-Ruhelage
-
-\end{itemize}
-
-\end{itemize}
+=======
+>>>>>>> origin/main
 
 
-\subsection{Flüsse}
-\label{\detokenize{ode/fluesse:flusse}}
-Wir beginnen zunächst damit ein wichtiges Konzept einzuführen, welches die Beschreibung zeitabhängiger Systeme vereinfacht. Die folgende Definition ist zunächst sehr allgemein gehalten und wird später für unsere Anwendungen auf DGLs konkretisiert.
+\sphinxAtStartPar
+Sei \(F \colon G \to \R^n\) eine Funktion mit dem erweiterten Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\).
+Man sagt, dass \(F\) in \(G\) einer \sphinxstylestrong{globalen Lipschitz\sphinxhyphen{}Bedingung} genügt (bezüglich der Variablen \(y \in U\)) mit der Lipschitz\sphinxhyphen{}Konstanten \(L\geq0\), wenn gilt
+\begin{equation*}
+\begin{split}\Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Man sagt, \(F\) genüge in \(G\) einer \sphinxstylestrong{lokalen Lipschitz\sphinxhyphen{}Bedingung}, falls jeder Punkt \((a,b)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_+\) genügt.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Für die \sphinxstylestrong{(lokale) Existenz von Lösungen} haben wir in Kapitel 8.4 {[}\hyperlink{cite.references:id10}{Ten21}{]} den Satz von Picard\sphinxhyphen{}Lindelöf formuliert, den wir im Folgenden wiederholen werden.
+\label{ode/repetition:satz:picardlindeloef_lokal}
+\begin{sphinxadmonition}{note}{Theorem 1.2 (Lokaler Existenzsatz nach Picard\sphinxhyphen{}Lindelöf)}
+
+
+
+\sphinxAtStartPar
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \coloneqq I \times U \subset \R\times\R^n\), die lokal Lipschitz\sphinxhyphen{}stetig auf \(G\) bezüglich der \(y\)\sphinxhyphen{}Variablen ist.
+Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) ein \(\varepsilon>0\), sowie eine Lösung
+\begin{equation*}
+\begin{split}\phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n\end{split}
+\end{equation*}
+\sphinxAtStartPar
+der gewöhnlichen Differentialgleichung
+\begin{equation*}
+\begin{split}\dot{y}(t) \ = \ F(t,y(t))\end{split}
+\end{equation*}
+\sphinxAtStartPar
+unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe \textbackslash{}cite{[}§12, Satz 4{]}\{forster\}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
+Unter den strengeren Voraussetzungen einer rechten Seite \(F\) der gewöhnlichen Differentialgleichung, die einer globalen Lipschitzbedingung genügt, lässt sich jedoch eine \sphinxstylestrong{globale Existenzaussage} formulieren, die besonders für konkrete Anwendungen sehr praktisch ist.
+\label{ode/repetition:satz:picardlindeloef_lokal}
+\begin{sphinxadmonition}{note}{Theorem 1.2 (Globaler Existenzsatz nach Picard\sphinxhyphen{}Lindelöf)}
+
+
+
+\sphinxAtStartPar
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\), die eine globale Lipschitzbedingung auf \(G\) bezüglich der \(y\)\sphinxhyphen{}Variablen erfüllt.
+Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) eine globale Lösung
+\begin{equation*}
+\begin{split}\phi \colon I \to \R^n\end{split}
+\end{equation*}
+\sphinxAtStartPar
+der gewöhnlichen Differentialgleichung
+\begin{equation*}
+\begin{split}\dot{y}(t) \ = \ F(t,y(t))\end{split}
+\end{equation*}
+\sphinxAtStartPar
+unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe \textbackslash{}cite{[}§2.3{]}\{knabner\}.
+\end{sphinxadmonition}
+\label{ode/repetition:corollary-11}
+\begin{sphinxadmonition}{note}{Corollary 1.1}
+
+
+
+\sphinxAtStartPar
+Das Anfangswertproblem jedes \sphinxstylestrong{linearen} gewöhnlichen Differentialgleichungssystems 1. Ordnung hat eine eindeutige globale Lösung.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe \textbackslash{}cite{[}§2.3, Theorem 2.25{]}\{knabner\}.
+\end{sphinxadmonition}
+
+
+\section{Phasenflüsse und Phasenportraits}
+\label{\detokenize{ode/fluesse:phasenflusse-und-phasenportraits}}\label{\detokenize{ode/fluesse:s-fluesse}}\label{\detokenize{ode/fluesse::doc}}
+\sphinxAtStartPar
+In diesem Abschnitt führen wir die grundlegende mathematischen Konzepte zur Analyse von kontinuierlichen dynamischen Systemen ein. Insbesondere diskutieren wir Flüsse als Lösungen von autonomen gewöhnlichen Differentialgleichungen und definieren sogenannte Phasenportraits, die es uns erlauben dynamische Systeme geometrisch zu interpretieren.
+
+
+\subsection{Phasenflüsse}
+\label{\detokenize{ode/fluesse:phasenflusse}}
+\sphinxAtStartPar
+Wir beginnen zunächst damit eine Klasse von Funktionen einzuführen, welche die Beschreibung zeitabhängiger Systeme vereinfacht.
+Die folgende Definition ist zunächst sehr allgemein für beliebige dynamische Systreme gehalten und wird später im Kontext von konkreten Anwendungsbeispielen spezieller diskutiert.
 \label{ode/fluesse:def:Fluss}
-\begin{sphinxadmonition}{note}{Definition 1.4 (Fluss)}
+\begin{sphinxadmonition}{note}{Definition 1.5 (Fluss und dynamisches System)}
 
 
 
-Sei \(U\) eine Menge und \(I=\R^+_0\), dann heißt eine Abbildung \(\Phi:I\times U\rightarrow U\) \sphinxstylestrong{Fluss}, falls gilt,
+\sphinxAtStartPar
+Sei \(U \subset \R^n\) eine offene Teilmenge und \(I=\R^+_0\), dann heißt eine Abbildung \(\Phi:I\times U\rightarrow U\) \sphinxstylestrong{(Phasen\sphinxhyphen{})Fluss}, falls gilt,
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
+\sphinxAtStartPar
 \(\Phi(0, x) = x\) für alle \(x\in U\),
 
 \item {} 
-\(\Phi(t, \Phi(x,s)) = \Phi(s + t, x)\) für alle \(x\in U\) und alle \(s,t\in I\).
+\sphinxAtStartPar
+\(\Phi(t, \Phi(s,x)) = \Phi(s + t, \Phi(0, x)) = \Phi(s + t, x)\) für alle \(x\in U\) und alle \(s,t\in I\).
 
 \end{enumerate}
 
+\sphinxAtStartPar
 Das Tripel \((I, U, \Phi)\) heißt \sphinxstylestrong{dynamisches System}.
+<<<<<<< HEAD
 \end{sphinxadmonition}
 \label{ode/fluesse:remark-1}
 \begin{sphinxadmonition}{note}{Remark 1.2 (Notation)}
 
 
+=======
+>>>>>>> origin/main
 
-Anstatt beide Argument in Klammern wie in obiger Definition zu schreiben, benutzt man häufig folgende Darstellung,
+\sphinxAtStartPar
+Zur Vereinfachung der Notation schreibt man häufig auch das erste Argument des Flusses als Index wie folgt
 \begin{equation*}
-\begin{split}\Phi_t(x) = \Phi(t, x).\end{split}
+\begin{split}\Phi_t(x) \coloneqq \Phi(t, x).\end{split}
 \end{equation*}\end{sphinxadmonition}
 
-In unserem Fall wollen wir speziell die Lösungen einer autonomen DGL
+\sphinxAtStartPar
+Für die Analyse von dynamischen Systemen beschreibt der Fluss die Bewegung im Phasenraum in Abhängigkeit zur Zeit.
+Im Folgenden wollen wir speziell die \sphinxstylestrong{Lösungen einer autonomen DGL}
 \begin{equation*}
 \begin{split}\dot{x} = F(x).\end{split}
 \end{equation*}
-für \(F\in C^1(U;\R^n)\) als Fluss interpretieren. Hierbei soll das zweite Argument jeweils den Anfangswert
-\(x_0\in U\) angeben und \(\Phi(x_0) = \Phi(\cdot, x_0)\) dann eine Lösung der DGL sein, d.h., \(\frac{\d}{\d t} \Phi(x_0) = F(\Phi(x_0))\).
+\sphinxAtStartPar
+für \(F\in C^1(U;\R^n)\) als Fluss interpretieren.
+Hierbei soll das zweite Argument des Flusses jeweils den Anfangswert \(x_0\in U\) angeben und \(\Phi(x_0) = \Phi(\cdot, x_0)\) dann eine Lösung der DGL sein, d.h.,
+\begin{equation*}
+\begin{split}\frac{\d}{\d t} \Phi(x_0) = F(\Phi(x_0))\end{split}
+\end{equation*}
+\sphinxAtStartPar
+So werden durch den Phasenfluss die Lösungen des dynamischen Systems in Abhängigkeit vom Anfangszustand angegeben.
+Im folgenden Beispiel betrachten wir den \sphinxstylestrong{Fluss eines Vektorfeldes}, das die rechte Seite eines gewöhnlichen Differentialgleichungssystems beschreibt.
+\label{ode/fluesse:example-1}
+\begin{sphinxadmonition}{note}{Example 1.6}
 
+
+<<<<<<< HEAD
 Nach dem Satz von Picard\sphinxhyphen{}Lindelöf (Kapitel 7, {[}\hyperlink{cite.references:id10}{Ten21}{]}) wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0) >0\) existiert, s.d., es eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt. In diesem Fall wählen wir also \(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\). Wir können also nicht wie in {\hyperref[\detokenize{ode/fluesse:def:Fluss}]{\sphinxcrossref{Definition 1.4}}} auf ganz \(\R^+_0\) als Zeitintervall arbeiten. Stattdessen können wir nur Tupel der Form \((x_0, t)\) betrachten, wobei \(x_0\in U\) fixiert ist und \(t\) aus \(I(x_0)\) gewählt werden kann, was wir mithilfe des kartesischen Produkts
+=======
+
+\sphinxAtStartPar
+Sei \(I\subset \R_0^+\) ein offenes Zeitintervall.
+Wir interessieren uns für Lösungen des autonomen gewöhnlichen Differentialgleichungssystems
+\begin{equation*}
+\begin{split}\dot{\vec{x}}(t) = F(\vec{x}) \quad \forall t\in I,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+dessen rechte Seite durch das Vektorfeld \(F \colon \R^2 \rightarrow \R^2\) mit \(F(x,y) \, \coloneqq \, (y, -x)\) gegeben ist.
+Abbildung \textbackslash{}xxx illustriert das Vektorfeld in \(\R^2\).
+
+\sphinxAtStartPar
+Wir wollen den Fluss des Vektorfeldes \(F\) angeben, der die Bewegung entlang der Lösungskurven der durch das Vektorfeld gegebenen gewöhnlichen Differentialgleichung beschreibt.
+Dieser ist gegeben durch
+\begin{equation*}
+\begin{split}\Phi(t,(x,y)) = (\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Das die Funktion \(\Phi \colon I \times \R^2 \rightarrow \R^2\) ein Fluss ist, lässt sich leicht verifizieren durch Nachrechnen der beiden Eigenschaften eines Flusses aus Definition \textbackslash{}ref.
+
+\sphinxAtStartPar
+1. Es gilt \(\Phi(0, (x,y)) = (x,y)\) für beliebige Paare \((x,y) \in \R^2\), da
+\begin{equation*}
+\begin{split}\Phi(0, (x,y)) = (1\cdot x + 0\cdot y, - 0 \cdot x + 1 \cdot y) = (x,y).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+2. Es gilt \(\Phi(t, \Phi(s,(x,y)) = \Phi(s + t, (x,y))\) für beliebige Paare \((x,y) \in \R^2\) und Zeitpunkte \(s,t \in I\), da wegen der Additionstheoreme von Sinus und Cosinus gilt
+\begin{equation*}
+\begin{split}\Phi(t, \Phi(s,(x,y))) &= \Phi(t, (\cos(s)x + \sin(s)y, -\sin(s)x + \cos(s)y)) \\
+&= [\cos(t)(\cos(s)x + \sin(s)y) + \sin(t)(-\sin(s)x + \cos(s)y), \\
+& \ \ -\sin(t)(\cos(s)x + \sin(s)y) + \cos(t)(-\sin(s)x + \cos(s)y)]\\
+&= \ [ (\cos(t)\cos(s) - \sin(t)\sin(s))x + (\cos(t)\sin(s) + \sin(t)\cos(s))y, \\
+& \quad (-\sin(t)\cos(s) - \cos(t)\sin(s))x + (\cos(t)\cos(s) - \sin(t)\sin(s))y ] \\
+&= (\cos(s+t)x + \sin(s+t)y, -\sin(s+t)x + \cos(s+t)y).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Nun verfizieren wir noch, dass der Fluss tatsächlich Lösungen des gewöhnlichen Differentialgleichungssystems realisiert.
+Es gilt
+\begin{equation*}
+\begin{split}\dot{\Phi}(t, (x,y)) &= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) \\
+&= (-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) = F(\Phi(t,(x,y)).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lösung des gewöhnlichen Differentialgleichungssystems.
+\end{sphinxadmonition}
+
+
+\subsection{Lokaler Fluss}
+\label{\detokenize{ode/fluesse:lokaler-fluss}}
+\sphinxAtStartPar
+Nach dem Satz von Picard\sphinxhyphen{}Lindelöf (Kapitel 7, {[}\hyperlink{cite.references:id10}{Ten21}{]}) wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt. In diesem Fall wählen wir also \(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\). Wir können also nicht wie in {\hyperref[\detokenize{ode/fluesse:def:Fluss}]{\sphinxcrossref{Definition 1.5}}} auf ganz \(\R^+_0\) als Zeitintervall arbeiten. Stattdessen können wir nur Tupel der Form \((x_0, t)\) betrachten, wobei \(x_0\in U\) fixiert ist und \(t\) aus \(I(x_0)\) gewählt werden kann, was wir mithilfe des kartesischen Produkts
+>>>>>>> origin/main
 \begin{align*}
 \{x_0\}\times I(x_0)
 \end{align*}
+\sphinxAtStartPar
 dargestellt werden kann. Dies führt uns auf den Begriff des lokalen Flusses.
 \label{ode/fluesse:def:LokFluss}
-\begin{sphinxadmonition}{note}{Definition 1.5 (Lokaler Fluss)}
+\begin{sphinxadmonition}{note}{Definition 1.6 (Lokaler Fluss)}
 
 
 
+\sphinxAtStartPar
 Sei \(U\) eine Menge und die Menge \(G\subset \R^+_0\times U\) sei gegeben als
 \begin{equation*}
 \begin{split}G = \bigcup_{x\in U} \{x\}\times I(x),\end{split}
 \end{equation*}
+\sphinxAtStartPar
 wobei \(0\in I(x)\subset \R^+_0\) für jedes \(x\in U\).
 
+\sphinxAtStartPar
 Dann heißt eine Abbildung \(\Phi: G\rightarrow U\) \sphinxstylestrong{lokaler Fluss}, falls
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
+\sphinxAtStartPar
 \(\Phi(0,x) = x\) für alle \(x\in U\),
 
 \item {} 
+\sphinxAtStartPar
 \(\Phi(t, \Phi(s, x)) = \Phi(s+t, x)\) für alle \(x\in U\) und alle \(s,t\) s.d. \(s, s+t\in I(x)\) und \(t\in I(\Phi(x,s))\).
 
 \end{enumerate}
 \end{sphinxadmonition}
 
+\sphinxAtStartPar
 Im nächsten Lemma wollen wir nun sehen, dass die Lösung einer DGL tatsächlich als lokaler Fluss interpretiert werden kann.
 \label{ode/fluesse:lemma-3}
 \begin{sphinxadmonition}{note}{Lemma 1.1}
 
 
 
+\sphinxAtStartPar
 Sei \(U\subset\R^n\), \(F:U \rightarrow \R^n\) lokal Lipschitz stetig, dann existieren Intervalle \(I(x_0)\), sodass es für
 \begin{equation*}
 \begin{split}G = \bigcup_{x_0\in U} I(x_0)\times\{x_0\},\end{split}
 \end{equation*}
+\sphinxAtStartPar
 eine Funktion \(\Phi:G\rightarrow \R^n\) gibt, mit folgenden Eigenschaften
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
+\sphinxAtStartPar
 \(\frac{\d}{\d t} \Phi(t, x_0) = F(\Phi(t, x_0))\) für alle \((t,x_0)\in G\),
 
 \item {} 
+\sphinxAtStartPar
 \(\Phi\) ist ein lokaler Fluss auf \(G\).
 
 \end{enumerate}
 \end{sphinxadmonition}
+<<<<<<< HEAD
 \label{ode/fluesse:remark-4}
 \begin{sphinxadmonition}{note}{Remark 1.3}
 
 
 
+=======
+\label{ode/fluesse:rem:fluss_dgl}
+\begin{sphinxadmonition}{note}{Remark 1.3 (Fluss einer DGL)}
+
+
+
+\sphinxAtStartPar
+>>>>>>> origin/main
 Die Abbildung \(\Phi\) bezeichnet man hier auch als \sphinxstylestrong{Fluss einer DGL}.
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
+\sphinxAtStartPar
 Proof. Nach dem Satz von Picard\sphinxhyphen{}Lindelöf existiert für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\) s.d., die Lösung der DGL
 auf \([-\epsilon(x_0),\epsilon(x_0)]\) mit AW \(x_0\) existiert. Daher können wir
 \begin{equation*}
 \begin{split}G = \bigcup_{x_0\in U} [-\epsilon(x_0),\epsilon(x_0)] \times\{x_0\}\end{split}
 \end{equation*}
+\sphinxAtStartPar
 wählen und \(\Phi\) so definieren, dass
 \begin{equation*}
 \begin{split}\frac{\d}{\d t} \Phi(t, x_0) &= F(\Phi(t, x_0))\\
 \Phi(0, x_0) &= x_0\end{split}
 \end{equation*}
+\sphinxAtStartPar
 für alle \((t, x_0)\in G\). Damit haben wir 1. und die erste Flusseigenschaft gezeigt. Die zweite Flusseigenschaften ist eine direkte Folgerung aus der Eindeutigkeit der Lösung der DGL. Wir führen den Beweis trotzdem explizit aus. Es sei \(x_0\in U, s\in [-\epsilon(x_0), \epsilon(x_0)]\) und weiterhin \(t\), s.d., \(s+t \in [-\epsilon(x_0), \epsilon(x_0)]\) und \(t\in [-\epsilon(\Phi(s,x_0)), \epsilon(\Phi(s,x_0))]\).
 Per Definition löst die Funktion
 \begin{equation*}
 \begin{split}\phi_1(\tau) := \Phi(s + \tau, x_0)\end{split}
 \end{equation*}
+\sphinxAtStartPar
 sowie auch die Funktion
 \begin{equation*}
 \begin{split}\phi_2(\tau) := \Phi(\tau, \Phi(s,x_0))\end{split}
 \end{equation*}
+\sphinxAtStartPar
 die DGL auf dem Intervall \([t, \epsilon(x_0)]\). Weiterhin wissen wir, dass
 \begin{equation*}
 \begin{split}\phi_1(0) = \Phi(s, x_0) = \Phi(0, \Phi(s, x_0)) = \phi_2(0),\end{split}
 \end{equation*}
+\sphinxAtStartPar
 somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall \([t, \epsilon(x_0)]\) gleich, was
 eine Folgerung aus dem Eindeutigkeitssatz ({[}\hyperlink{cite.references:id10}{Ten21}{]}, Kapitel 7) ist. Wir haben also
 \begin{equation*}
 \begin{split}\Phi(s + \tau, x_0) = \phi_1(\tau) = \phi_2(\tau) = \Phi(\tau, \Phi(s,x_0))\end{split}
 \end{equation*}
+\sphinxAtStartPar
 für jedes \(\tau\in [t, \epsilon(x_0)]\).
 \end{sphinxadmonition}
 
 
 \subsection{Phasenportraits}
 \label{\detokenize{ode/fluesse:phasenportraits}}
+\sphinxAtStartPar
 Die teilweise abstrakten Begriffe zu Flüssen werden nun mit einfachen geometrische Anschauung unterlegen. Dafür benötigen wir zunächst die folgenden Definitionen.
 \label{ode/fluesse:definition-5}
-\begin{sphinxadmonition}{note}{Definition 1.6}
+\begin{sphinxadmonition}{note}{Definition 1.7}
 
 
 
+\sphinxAtStartPar
 Es sei \(\Phi:G\rightarrow U\) ein Fluss einer DGL, mit \(G\subset \R^+_0\times U\).
 \begin{itemize}
 \item {} 
+\sphinxAtStartPar
 Für jedes \(x_0\in U\) heißt die Funktion \(t\mapsto \Phi(t, x_0)\) \sphinxstylestrong{Bahnkurve} durch \(x_0\).
 
 \item {} 
+\sphinxAtStartPar
 Die Menge \(\mathcal{O}(x_0) := \{\Phi(t, x_0): (t, x_0)\in G\}\) heißt \sphinxstylestrong{Orbit} oder \sphinxstylestrong{Trajektorie} durch \(x_0\).
 
 \item {} 
+\sphinxAtStartPar
 Ein Orbit heißt \sphinxstylestrong{Ruhelage}, falls \(\mathcal{O}(x_0) = \{x_0\}\).
 
 \item {} 
+\sphinxAtStartPar
 Ein Anfangswert \(x_0\in U\) heißt \sphinxstylestrong{periodisch} mit Periode \(T>0\), falls \(\Phi(T, x_0) = x_0\).
 
 \end{itemize}
 \end{sphinxadmonition}
 \label{ode/fluesse:example-6}
+<<<<<<< HEAD
 \begin{sphinxadmonition}{note}{Example 1.3}
+=======
+\begin{sphinxadmonition}{note}{Example 1.7}
+>>>>>>> origin/main
 
 
 
+\sphinxAtStartPar
 Die Bewgeungsgeleichung für den harmonischen Oszillator is gegeben durch
 \begin{equation*}
 \begin{split}m~\ddot{x}(t) + r~\dot{x}(t) + k~x(t)=0\end{split}
 \end{equation*}
+\sphinxAtStartPar
 hierbei ist
 \begin{itemize}
 \item {} 
+\sphinxAtStartPar
 \(x(t)\) die horizontale Auslenkung zum Zeitpunkt \(t\),
 
 \item {} 
+\sphinxAtStartPar
 \(m\) die Masse des Objekts,
 
 \item {} 
+\sphinxAtStartPar
 \(r\) die Dämpfungskonstante,
 
 \item {} 
+\sphinxAtStartPar
 \(k\) die Federkonstante.
 
 \end{itemize}
 
-Durch einführung der Variable \(p(t):= m~\dot{x}(t)\) als Impuls erhalten wir das System von DGLs
+\sphinxAtStartPar
+Durch Einführung der Variable \(p(t):= m~\dot{x}(t)\) als Impuls erhalten wir das System von DGLs
 \begin{equation*}
 \begin{split}\dot{x}(t) &= \frac{1}{m}~p(t) \\
 \dot{p}(t) &= -k~x(t) - \frac{r}{m}~p(t).\end{split}
 \end{equation*}
+\sphinxAtStartPar
 Betrachten wir speziell den ungedämpften Fall, \(r=0\), erhalten wir zum Anfangswert \((x,p)\) die Lösung
 \begin{equation*}
 \begin{split}\Phi(t, (x,p)) = 
@@ -502,27 +1028,43 @@ Betrachten wir speziell den ungedämpften Fall, \(r=0\), erhalten wir zum Anfang
 p \cos(\omega t) - m x \sin(\omega t)
 \end{pmatrix}\end{split}
 \end{equation*}
+\sphinxAtStartPar
 wobei \(\omega=\sqrt{\frac{k}{m}}\) die Eigenfrequenz des Systems ist.
 \end{sphinxadmonition}
 
+<<<<<<< HEAD
 \noindent\sphinxincludegraphics{{C:/Tim/Uni/Lectures/MathPhysicsC/_build/jupyter_execute\fluesse_1_0}.png}
+=======
+\noindent\sphinxincludegraphics{{C:/Tim/Uni/Lectures/MathPhysicsC/_build/jupyter_execute/fluesse_2_0}.png}
+>>>>>>> origin/main
 
 
 \section{Hamiltonsche Differentialgleichungen und Phasenportraits}
 \label{\detokenize{ode/hamilton:hamiltonsche-differentialgleichungen-und-phasenportraits}}\label{\detokenize{ode/hamilton::doc}}
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 Ein wichtiges Prinzip für viele physikalischen Anwendungen sind Erhaltungssätze und die dazugehörigen Erhaltungsgrößen. Aus der klassichen Mechanik kennen wir z.B.
 \begin{itemize}
 \item {} 
+\sphinxAtStartPar
 Energieerhaltung,
 
 \item {} 
+\sphinxAtStartPar
 Impulserhaltung.
 
 \end{itemize}
 
+\sphinxAtStartPar
 In ?? haben wir Bewegungslgleichungen als System von DGLs hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der DGL Formulierung zu erhalten.
 \label{ode/hamilton:example-0}
+<<<<<<< HEAD
 \begin{sphinxadmonition}{note}{Example 1.4 (Harmonischer Oszillator)}
+=======
+\begin{sphinxadmonition}{note}{Example 1.8 (Harmonischer Oszillator)}
+>>>>>>> origin/main
 
 
 \end{sphinxadmonition}
@@ -530,16 +1072,33 @@ In ?? haben wir Bewegungslgleichungen als System von DGLs hergeleitet und gelös
 
 \chapter{Bibliography}
 \label{\detokenize{references:bibliography}}\label{\detokenize{references::doc}}
+<<<<<<< HEAD
+=======
+\sphinxAtStartPar
+>>>>>>> origin/main
 
 
 \begin{sphinxthebibliography}{Kna17}
 \bibitem[Kna17]{references:id7}
+<<<<<<< HEAD
 Andreas Knauf. \sphinxstyleemphasis{Mathematische Physik: Klassische Mechanik}. Springer Berlin Heidelberg, 2017. \sphinxhref{https://doi.org/10.1007/978-3-662-55776-1}{doi:10.1007/978\sphinxhyphen{}3\sphinxhyphen{}662\sphinxhyphen{}55776\sphinxhyphen{}1}.
 \bibitem[Kna20]{references:id6}
 Andreas Knauf. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Physikstudierende 3"}. 2020.
 \bibitem[SB18]{references:id8}
 Herman Schulz\sphinxhyphen{}Baldes. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Physiker 3"}. 2018.
 \bibitem[Ten21]{references:id10}
+=======
+\sphinxAtStartPar
+Andreas Knauf. \sphinxstyleemphasis{Mathematische Physik: Klassische Mechanik}. Springer Berlin Heidelberg, 2017. \sphinxhref{https://doi.org/10.1007/978-3-662-55776-1}{doi:10.1007/978\sphinxhyphen{}3\sphinxhyphen{}662\sphinxhyphen{}55776\sphinxhyphen{}1}.
+\bibitem[Kna20]{references:id6}
+\sphinxAtStartPar
+Andreas Knauf. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Physikstudierende 3"}. 2020.
+\bibitem[SB18]{references:id8}
+\sphinxAtStartPar
+Herman Schulz\sphinxhyphen{}Baldes. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Physiker 3"}. 2018.
+\bibitem[Ten21]{references:id10}
+\sphinxAtStartPar
+>>>>>>> origin/main
 Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Data Science 2"}. 2021. URL: \sphinxurl{https://fau-ammn.github.io/MathDataScience2}.
 \end{sphinxthebibliography}
 
@@ -551,6 +1110,9 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \renewcommand{\indexname}{Proof Index}
 \begin{sphinxtheindex}
 \let\bigletter\sphinxstyleindexlettergroup
+\bigletter{corollary\sphinxhyphen{}11}
+\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}11}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{corollary-11}}
+\indexspace
 \bigletter{def:DGL}
 \item\relax\sphinxstyleindexentry{def:DGL}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:DGL}}
 \indexspace
@@ -560,8 +1122,13 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{def:LokFluss}
 \item\relax\sphinxstyleindexentry{def:LokFluss}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{def:LokFluss}}
 \indexspace
+<<<<<<< HEAD
 \bigletter{definition\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-2}}
+=======
+\bigletter{def:anfangswertproblem}
+\item\relax\sphinxstyleindexentry{def:anfangswertproblem}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:anfangswertproblem}}
+>>>>>>> origin/main
 \indexspace
 \bigletter{definition\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-3}}
@@ -569,6 +1136,12 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{definition\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{definition-5}}
 \indexspace
+<<<<<<< HEAD
+=======
+\bigletter{definition\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-8}}
+\indexspace
+>>>>>>> origin/main
 \bigletter{ex:bacteria}
 \item\relax\sphinxstyleindexentry{ex:bacteria}\sphinxstyleindexextra{ode/dynamicSystems}\sphinxstyleindexpageref{ode/dynamicSystems:\detokenize{ex:bacteria}}
 \indexspace
@@ -578,17 +1151,35 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{example\sphinxhyphen{}0}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{example-0}}
 \indexspace
+\bigletter{example\sphinxhyphen{}1}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{example-1}}
+\indexspace
+\bigletter{example\sphinxhyphen{}4}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{example-4}}
+\indexspace
 \bigletter{example\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{example-6}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{example-6}}
+\indexspace
+\bigletter{example\sphinxhyphen{}7}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{example-7}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}3}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{lemma-3}}
 \indexspace
+\bigletter{rem:fluss\_dgl}
+\item\relax\sphinxstyleindexentry{rem:fluss\_dgl}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{rem:fluss_dgl}}
+\indexspace
 \bigletter{remark\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-1}}
+<<<<<<< HEAD
+=======
 \indexspace
-\bigletter{remark\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}4}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{remark-4}}
+\bigletter{remark\sphinxhyphen{}2}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-2}}
+>>>>>>> origin/main
+\indexspace
+\bigletter{satz:picardlindeloef\_lokal}
+\item\relax\sphinxstyleindexentry{satz:picardlindeloef\_lokal}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef_lokal}}
 \end{sphinxtheindex}
 
 \renewcommand{\indexname}{Index}
