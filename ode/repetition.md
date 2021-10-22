@@ -215,9 +215,9 @@ Man sagt, $F$ genüge in $G$ einer **lokalen Lipschitz-Bedingung**, falls jeder 
 %\end{definition}
 ````
 
-Für die (lokale) Existenz von Lösungen haben wir in Kapitel 8.4 {cite:p}`tenbrinck_2021` den **Satz von Picard-Lindelöf** formuliert, den wir im Folgenden wiederholen werden.
+Für die **(lokale) Existenz von Lösungen** haben wir in Kapitel 8.4 {cite:p}`tenbrinck_2021` den Satz von Picard-Lindelöf formuliert, den wir im Folgenden wiederholen werden.
 
-````{prf:theorem} (Lokaler) Existenzsatz nach Picard-Lindelöf
+````{prf:theorem} Lokaler Existenzsatz nach Picard-Lindelöf
 :label: satz:picardlindeloef_lokal
 Sei $F\colon G\to\R^n$ eine stetige Funktion mit erweitertem Phasenraum $G \coloneqq I \times U \subset \R\times\R^n$, die lokal Lipschitz-stetig auf $G$ bezüglich der $y$-Variablen ist.
 Dann existiert zu jedem Anfangswert $(t_0,y_0) \in G$ ein $\varepsilon>0$, sowie eine Lösung
@@ -236,4 +236,36 @@ unter der Anfangsbedingung $\phi(t_0)=y_0$.
 ````
 ````{prf:proof}
 Siehe \cite[§12, Satz 4]{forster}.
+````
+
+Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
+Unter den strengeren Voraussetzungen einer rechten Seite $F$ der gewöhnlichen Differentialgleichung, die einer globalen Lipschitzbedingung genügt, lässt sich jedoch eine **globale Existenzaussage** formulieren, die besonders für konkrete Anwendungen sehr praktisch ist.
+
+````{prf:theorem} Globaler Existenzsatz nach Picard-Lindelöf
+:label: satz:picardlindeloef_lokal
+Sei $F\colon G\to\R^n$ eine stetige Funktion mit erweitertem Phasenraum $G \, \coloneqq \, I \times U \subset \R\times\R^n$, die eine globale Lipschitzbedingung auf $G$ bezüglich der $y$-Variablen erfüllt.
+Dann existiert zu jedem Anfangswert $(t_0,y_0) \in G$ eine globale Lösung
+
+```{math}
+\phi \colon I \to \R^n
+```
+
+der gewöhnlichen Differentialgleichung 
+
+```{math}
+\dot{y}(t) \ = \ F(t,y(t))
+```
+
+unter der Anfangsbedingung $\phi(t_0)=y_0$.
+````
+````{prf:proof}
+Siehe \cite[§2.3]{knabner}.
+````
+
+````{prf:corollary}
+Das Anfangswertproblem jedes **linearen** gewöhnlichen Differentialgleichungssystems 1. Ordnung hat eine eindeutige globale Lösung.
+````
+
+````{prf:proof}
+Siehe \cite[§2.3, Theorem 2.25]{knabner}.
 ````
