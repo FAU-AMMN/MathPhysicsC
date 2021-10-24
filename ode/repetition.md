@@ -200,7 +200,7 @@ y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,
 wobei $c \in \R$ eine beliebige Konstante darstellt.
 ````
 
-Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die **(lokale) Lipschitzstetigkeit** der rechten Seite $F \colon I \times U$.
+Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die **(lokale) Lipschitzstetigkeit** der rechten Seite $F \colon I \times U \rightarrow U$.
 Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
 
 ````{prf:definition} (Lokale) Lipschitzstetigkeit
@@ -211,7 +211,7 @@ Man sagt, dass $F$ in $G$ einer **globalen Lipschitz-Bedingung** genügt (bezüg
 \Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.
 ```
 
-Man sagt, $F$ genüge in $G$ einer **lokalen Lipschitz-Bedingung**, falls jeder Punkt $(a,b)\in G$ im erweiterten Phasenraum eine Umgebung $V$ besitzt, sodass $F$ in $G\cap V$ einer Lipschitzbedingung mit einer gewissen (von $V$ abhängigen) Konstanten $L\in\R_+$ genügt.
+Man sagt, $F$ genüge in $G$ einer **lokalen Lipschitz-Bedingung**, falls jeder Punkt $(a,b)\in G$ im erweiterten Phasenraum eine Umgebung $V$ besitzt, sodass $F$ in $G\cap V$ einer Lipschitzbedingung mit einer gewissen (von $V$ abhängigen) Konstanten $L\in\R_0^+$ genügt.
 %\end{definition}
 ````
 
@@ -220,7 +220,7 @@ Für die **(lokale) Existenz von Lösungen** haben wir in Kapitel 8.4 {cite:p}`t
 ````{prf:theorem} Lokaler Existenzsatz nach Picard-Lindelöf
 :label: satz:picardlindeloef_lokal
 Sei $F\colon G\to\R^n$ eine stetige Funktion mit erweitertem Phasenraum $G \coloneqq I \times U \subset \R\times\R^n$, die lokal Lipschitz-stetig auf $G$ bezüglich der $y$-Variablen ist.
-Dann existiert zu jedem Anfangswert $(t_0,y_0) \in G$ ein $\varepsilon>0$, sowie eine Lösung
+Dann existiert zu jedem Anfangswert $(t_0,y_0) \in G$ ein $\varepsilon>0$, sowie genau eine Lösung
 
 ```{math}
 \phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n
@@ -257,6 +257,7 @@ der gewöhnlichen Differentialgleichung
 ```
 
 unter der Anfangsbedingung $\phi(t_0)=y_0$.
+Es existieren außerdem keine weiteren (lokalen) Lösungen.
 ````
 ````{prf:proof}
 Siehe \cite[§2.3]{knabner}.
