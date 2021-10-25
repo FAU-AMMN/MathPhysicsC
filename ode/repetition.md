@@ -235,14 +235,14 @@ der gewöhnlichen Differentialgleichung
 unter der Anfangsbedingung $\phi(t_0)=y_0$.
 ````
 ````{prf:proof}
-Siehe \cite[§12, Satz 4]{forster}.
+Siehe Kapitel 12, Satz 4 Kapitel 8.4 {cite:p}`forster_2017`
 ````
 
 Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
 Unter den strengeren Voraussetzungen einer rechten Seite $F$ der gewöhnlichen Differentialgleichung, die einer globalen Lipschitzbedingung genügt, lässt sich jedoch eine **globale Existenzaussage** formulieren, die besonders für konkrete Anwendungen sehr praktisch ist.
 
 ````{prf:theorem} Globaler Existenzsatz nach Picard-Lindelöf
-:label: satz:picardlindeloef_lokal
+:label: satz:picardlindeloef
 Sei $F\colon G\to\R^n$ eine stetige Funktion mit erweitertem Phasenraum $G \, \coloneqq \, I \times U \subset \R\times\R^n$, die eine globale Lipschitzbedingung auf $G$ bezüglich der $y$-Variablen erfüllt.
 Dann existiert zu jedem Anfangswert $(t_0,y_0) \in G$ eine globale Lösung
 
@@ -260,7 +260,7 @@ unter der Anfangsbedingung $\phi(t_0)=y_0$.
 Es existieren außerdem keine weiteren (lokalen) Lösungen.
 ````
 ````{prf:proof}
-Siehe \cite[§2.3]{knabner}.
+Siehe Kapitel 2.3 {cite:p}`knabner_2013`
 ````
 
 ````{prf:corollary}
@@ -268,5 +268,5 @@ Das Anfangswertproblem jedes **linearen** gewöhnlichen Differentialgleichungssy
 ````
 
 ````{prf:proof}
-Siehe \cite[§2.3, Theorem 2.25]{knabner}.
+Siehe Theorem 2.25, Kapitel 2.3 {cite:p}`knabner_2013`
 ````
