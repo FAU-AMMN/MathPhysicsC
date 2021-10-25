@@ -6,7 +6,7 @@ Zur Erinnerung $x\in U $ heißt Ruhelage, wenn $\Phi_t(x) = x$ für alle $t$ ein
 ```{math}
 \dot{x} = F(x)
 ```
-ist $x$ auch eine Ruhelage, falls $F(x) = 0$ gilt.
+ist $x$ auch eine Ruhelage, falls $F(x) = 0$ gilt. Das ist einfach zu verstehen, da die Geschwindigkeit 0 ist und somit die Funktion $F$ die nur vom Ort abhängt sich nicht ändern kann.
 
 ## Stabilität von Lösungen
 
@@ -88,10 +88,88 @@ Wir führen das Beispiel vom vorherigen Abschnitt weiter.
 
 ## Linearisierung um Ruhelage
 
-In diesem Abschnitt wollen wir unsere Erkentnisse aus dem linearen Fall auf den allgemeinen übertragen. Man möchte Stabilitätsfragen auch für DGLn klären, deren Lösungen man nicht hinschreiben kann.
+In diesem Abschnitt wollen wir unsere Erkentnisse aus dem linearen Fall auf den allgemeinen übertragen. Man möchte Stabilitätsfragen auch für DGLn klären, deren Lösungen man nicht direkt hinschreiben kann.
 
-Wir betrachten nun beliebige autonome DGL auf $\R^n$ mit Ruhelage bei $x_f$:
+Wie betrachten nun eine nicht notwendig lineare DGL auf $U\in \R^n$
 
 ```{math}
-\dot{x} = F(x), \quad F(x_f)=0
+\dot{x} = F(x), \quad f\in C^1(U,\R^n)
 ```
+
+in einer Umgebung einer Gleichgewichtslage $x_f$. Von dieser können wir (durch Einführung verschobener Koordinaten $x-x_f$) o.B.d.A. annehmen, dass sie sich im Nullpunkt befindet.
+Mit $A := Df(0)$ bezeichne 
+
+```{math}
+R\in C^1(U, \R^n),\quad R(x):=f(x) -Ax
+```
+die Abweichung des Vektorfeldes von seiner Linearisierung an der Gleichgewichtslage.
+
+Wir wollen zeigen, dass die Lösung der DGL in führender Ordnung durch die Linearisierung von $f$ kontrolliert werden, soweit wir uns in der Nähe der Gleichgewichtslage befinden. Dazu benutzen wir das folgende Lemma.
+
+````{prf:lemma}
+```{math}
+x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds
+```
+````
+````{prf:proof}
+Wir setzen die Lösung $x(t)$ des AWP $\dot{x} = F(x), x(0) = x_0$ in der Form
+```{math}
+x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0
+```
+an, und suchen eine Bestimmugsgleichung für den Vektor $c(t)$(sog. Variation der Konstanten).
+Es gilt
+```{math}
+\dot{x}(s) =A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s)
+```
+und 
+```{math}
+\dot{x}(s) = Ax(s) + e^{As}\dot{c}(s) +R(x(s)),
+```
+also
+```{math}
+e^{As}\dot{c}(s) = R(x(s))\quad \text{oder}\quad \dot{c}(s) = e^{-As}R(x(s)).
+```
+Damit ist
+```{math}
+c(t) = c(0) + \int_0^t \dot{c}(s)\, ds=x_0+ \int_0^t e^{-As}R(x(s)) \, ds
+```
+und
+```{math}
+x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, ds.
+```
+````
+Scheinbar nützt uns diese Identität nicht viel, denn auch auf der rechten Seite taucht $x(s)$, also die unbekannte Lösung des AWP auf.
+
+Wir können aber die Gronwall-Ungleichung auf diese Integralgleichung anwenden. Diese in der Differentialgleichungstheorie wichtige Abschätzung ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
+
+````{prf:lemma} Gronwall-Ungleichung
+Für $f,g\in C^0([t_0,t_1), [0,\infty))$ gelte mit einem geeigneten $a \geq 0$ die Ungleichung
+```{math}
+f(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).
+```
+Dann ist
+```{math}
+f(t)\leq a \exp{ \left(\int_{t_0}^t g(s)\, ds\right)}\quad (t\in [t_0,t_1)).
+```
+````
+
+````{prf:proof}
+
+- Ist $a>0$, dann gilt für die rechte Seite
+```{math}
+h(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1))
+```
+mit der Vorraussetzung $h(t)\geq 0$ und $h'(t) = f(t)g(t)$, also $\frac{h'(t)}{h(t)}\leq g(t)$.\\
+Integration ergibt $\ln \left(\frac{h(t)}{a}\right)\leq \int_{t_0}^t g(s)\, ds$, oder $h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}$, also die Behauptung.
+
+- Ist $a=0$, dann gelten Voraussetzung und Resultat für alle $\hat{a} :=\epsilon >0$, also ist $f=0$.
+````
+
+````{prf:remark} Zur Gronwall-Ungleichung
+Man kann sich die Abschätzung leicht merken, wenn man Gleichheit annimmt. Die Integralgleichung
+```{math}
+f(t) = a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).
+```
+entspricht ja dem Anfangswertproblem $\dot{f} = f\cdot g,\ f(t_0) = a$ mit der Lösung $f(t) = a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}$.
+
+````
