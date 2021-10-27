@@ -26,7 +26,8 @@ def match_theorems(content):
 def match_proofs(content):
     content = re.sub(r'\\begin\{emphBox\}\{\}\{\}\nProof\.((.|\n)*?)\\end\{emphBox\}', 
                      r'\\begin{proof}\n\1\\end{proof}', content, flags = re.M)
-
+    content = re.sub(r'\\begin\{emphBox\}\{\}\{\}\n\\par\nProof\.((.|\n)*?)\\end\{emphBox\}', 
+                     r'\\begin{proof}\n\1\\end{proof}', content, flags = re.M)
     return content
 
 

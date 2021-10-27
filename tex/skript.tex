@@ -78,7 +78,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{Oct 22, 2021}
+\date{Oct 26, 2021}
 \release{}
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -104,7 +104,7 @@ Das vorliegende Skript begleitet die \sphinxstylestrong{Vorlesung Mathematik fü
 \end{DUlineblock}
 
 \sphinxAtStartPar
-Das Skript orientiert sich teilweise an dem Vorlesungsskript “Mathematik für Physikstudierende 3” {[}\hyperlink{cite.references:id6}{Kna20}{]} von Prof.Dr.Andreas Knauf (FAU) aus dem Sommersemester 2020 und den Folien zu “Mathematik für Physiker 3” von Prof.Dr.Hermann Schulz\sphinxhyphen{}Baldes (FAU) {[}\hyperlink{cite.references:id8}{SB18}{]}. Weiterhin wird in der Vorlesung oft auch auf das Buch “Mathematische Physik: Klassiche Mechanik” {[}\hyperlink{cite.references:id7}{Kna17}{]} von Prof.Knauf verwiesen, was wir Ihnen als zusätzliches Nachschlagewerk empfehlen können.
+Das Skript orientiert sich teilweise an dem Vorlesungsskript “Mathematik für Physikstudierende 3” {[}\hyperlink{cite.references:id7}{Kna20}{]} von Prof.Dr.Andreas Knauf (FAU) aus dem Sommersemester 2020 und den Folien zu “Mathematik für Physiker 3” von Prof.Dr.Hermann Schulz\sphinxhyphen{}Baldes (FAU) {[}\hyperlink{cite.references:id9}{SB18}{]}. Weiterhin wird in der Vorlesung oft auch auf das Buch “Mathematische Physik: Klassiche Mechanik” {[}\hyperlink{cite.references:id8}{Kna17}{]} von Prof.Knauf verwiesen, was wir Ihnen als zusätzliches Nachschlagewerk empfehlen können.
 
 
 \chapter{Gewöhnliche Differentialgleichungen für dynamische Systeme}
@@ -112,7 +112,7 @@ Das Skript orientiert sich teilweise an dem Vorlesungsskript “Mathematik für 
 \sphinxAtStartPar
 In diesem ersten Kapitel der Vorlesung wollen wir weiterführende Konzepte zum Thema gewöhnlicher Differentialgleichungen einführen.
 Insbesondere wollen wir uns mit gewöhnlichen Differentialgleichungen für dynamische Systeme beschäftigen.
-Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 8 {[}\hyperlink{cite.references:id10}{Ten21}{]} kennengelernt haben.
+Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 8 {[}\hyperlink{cite.references:id11}{Ten21}{]} kennengelernt haben.
 Anschließend definieren wir zwei grundlegende mathematische Werkzeuge um dynamische Systeme zu charakterisieren, nämlich Flüsse und Phasenportraits.
 Zum Schluss wollen wir diese zur Untersuchung und Lösung von Hamiltonschen Differentialgleichungen nutzen, welche eine insbesondere in der klassischen Mechanik innerhalb der Physik eine wichtige Rolle spielen.
 
@@ -219,7 +219,7 @@ Wir werden diese Art von Differentialgleichungen in Kapitel {\hyperref[\detokeni
 \section{Wiederholung: Gewöhnliche Differentialgleichungen}
 \label{\detokenize{ode/repetition:wiederholung-gewohnliche-differentialgleichungen}}\label{\detokenize{ode/repetition::doc}}
 \sphinxAtStartPar
-In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in {[}\hyperlink{cite.references:id10}{Ten21}{]} wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
+In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in {[}\hyperlink{cite.references:id11}{Ten21}{]} wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
 
 
 \subsection{Gewöhnliche Differentialgleichungen}
@@ -476,7 +476,7 @@ wobei \(c \in \R\) eine beliebige Konstante darstellt.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die \sphinxstylestrong{(lokale) Lipschitzstetigkeit} der rechten Seite \(F \colon I \times U\).
+Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die \sphinxstylestrong{(lokale) Lipschitzstetigkeit} der rechten Seite \(F \colon I \times U \rightarrow U\).
 Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
 \label{ode/repetition:definition-8}
 \begin{sphinxadmonition}{note}{Definition 1.4 ((Lokale) Lipschitzstetigkeit)}
@@ -490,19 +490,19 @@ Man sagt, dass \(F\) in \(G\) einer \sphinxstylestrong{globalen Lipschitz\sphinx
 \begin{split}\Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Man sagt, \(F\) genüge in \(G\) einer \sphinxstylestrong{lokalen Lipschitz\sphinxhyphen{}Bedingung}, falls jeder Punkt \((a,b)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_+\) genügt.
+Man sagt, \(F\) genüge in \(G\) einer \sphinxstylestrong{lokalen Lipschitz\sphinxhyphen{}Bedingung}, falls jeder Punkt \((a,b)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_0^+\) genügt.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Für die \sphinxstylestrong{(lokale) Existenz von Lösungen} haben wir in Kapitel 8.4 {[}\hyperlink{cite.references:id10}{Ten21}{]} den Satz von Picard\sphinxhyphen{}Lindelöf formuliert, den wir im Folgenden wiederholen werden.
+Für die \sphinxstylestrong{(lokale) Existenz von Lösungen} haben wir in Kapitel 8.4 {[}\hyperlink{cite.references:id11}{Ten21}{]} den Satz von Picard\sphinxhyphen{}Lindelöf formuliert, den wir im Folgenden wiederholen werden.
 \label{ode/repetition:satz:picardlindeloef_lokal}
-\begin{sphinxadmonition}{note}{Theorem 1.2 (Lokaler Existenzsatz nach Picard\sphinxhyphen{}Lindelöf)}
+\begin{sphinxadmonition}{note}{Theorem 1.1 (Lokaler Existenzsatz nach Picard\sphinxhyphen{}Lindelöf)}
 
 
 
 \sphinxAtStartPar
 Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \coloneqq I \times U \subset \R\times\R^n\), die lokal Lipschitz\sphinxhyphen{}stetig auf \(G\) bezüglich der \(y\)\sphinxhyphen{}Variablen ist.
-Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) ein \(\varepsilon>0\), sowie eine Lösung
+Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) ein \(\varepsilon>0\), sowie genau eine Lösung
 \begin{equation*}
 \begin{split}\phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n\end{split}
 \end{equation*}
@@ -517,13 +517,13 @@ unter der Anfangsbedingung \(\phi(t_0)=y_0\).
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Siehe \textbackslash{}cite{[}§12, Satz 4{]}\{forster\}.
+Proof. Siehe Kapitel 12, Satz 4 Kapitel 8.4 {[}\hyperlink{cite.references:id4}{For17}{]}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
 Unter den strengeren Voraussetzungen einer rechten Seite \(F\) der gewöhnlichen Differentialgleichung, die einer globalen Lipschitzbedingung genügt, lässt sich jedoch eine \sphinxstylestrong{globale Existenzaussage} formulieren, die besonders für konkrete Anwendungen sehr praktisch ist.
-\label{ode/repetition:satz:picardlindeloef_lokal}
+\label{ode/repetition:satz:picardlindeloef}
 \begin{sphinxadmonition}{note}{Theorem 1.2 (Globaler Existenzsatz nach Picard\sphinxhyphen{}Lindelöf)}
 
 
@@ -541,11 +541,12 @@ der gewöhnlichen Differentialgleichung
 \end{equation*}
 \sphinxAtStartPar
 unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+Es existieren außerdem keine weiteren (lokalen) Lösungen.
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Siehe \textbackslash{}cite{[}§2.3{]}\{knabner\}.
+Proof. Siehe Kapitel 2.3 {[}\hyperlink{cite.references:id5}{Kna13}{]}
 \end{sphinxadmonition}
 \label{ode/repetition:corollary-11}
 \begin{sphinxadmonition}{note}{Corollary 1.1}
@@ -558,7 +559,7 @@ Das Anfangswertproblem jedes \sphinxstylestrong{linearen} gewöhnlichen Differen
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Siehe \textbackslash{}cite{[}§2.3, Theorem 2.25{]}\{knabner\}.
+Proof. Siehe Theorem 2.25, Kapitel 2.3 {[}\hyperlink{cite.references:id5}{Kna13}{]}
 \end{sphinxadmonition}
 
 
@@ -667,30 +668,30 @@ Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lös
 \end{sphinxadmonition}
 
 
-\subsection{Lokaler Fluss}
-\label{\detokenize{ode/fluesse:lokaler-fluss}}
+\subsection{Lokale Flüsse}
+\label{\detokenize{ode/fluesse:lokale-flusse}}
 \sphinxAtStartPar
-Nach dem Satz von Picard\sphinxhyphen{}Lindelöf (Kapitel 7, {[}\hyperlink{cite.references:id10}{Ten21}{]}) wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt. In diesem Fall wählen wir also \(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\). Wir können also nicht wie in {\hyperref[\detokenize{ode/fluesse:def:Fluss}]{\sphinxcrossref{Definition 1.5}}} auf ganz \(\R^+_0\) als Zeitintervall arbeiten. Stattdessen können wir nur Tupel der Form \((x_0, t)\) betrachten, wobei \(x_0\in U\) fixiert ist und \(t\) aus \(I(x_0)\) gewählt werden kann, was wir mithilfe des kartesischen Produkts
-\begin{align*}
-\{x_0\}\times I(x_0)
-\end{align*}
+Nach dem Satz von Picard\sphinxhyphen{}Lindelöf {\hyperref[\detokenize{ode/repetition:satz:picardlindeloef_lokal}]{\sphinxcrossref{Theorem 1.1}}} wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es lokal eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt, falls die rechte Seite \(F\) lokal Lipschitzstetig bezüglich der \(y\)\sphinxhyphen{}Variablen ist.
+In diesem Fall müssen wir das Zeitintervall \(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\) wählen und können also nicht wie in {\hyperref[\detokenize{ode/fluesse:def:Fluss}]{\sphinxcrossref{Definition 1.5}}} auf ganz \(I = \R^+_0\) als Zeitintervall arbeiten.
+Stattdessen können wir nur Tupel der Form \((t, x_0) \in I(x_0) \times \{x_0\}\) betrachten, wobei \(x_0\in U\) fixiert ist und \(t\) aus dem lokalen Existenzintervall \(I(x_0)\) gewählt werden kann.
+
 \sphinxAtStartPar
-dargestellt werden kann. Dies führt uns auf den Begriff des lokalen Flusses.
+Diese Einschränkung führt uns auf den Begriff des \sphinxstylestrong{lokalen Phasenflusses}.
 \label{ode/fluesse:def:LokFluss}
 \begin{sphinxadmonition}{note}{Definition 1.6 (Lokaler Fluss)}
 
 
 
 \sphinxAtStartPar
-Sei \(U\) eine Menge und die Menge \(G\subset \R^+_0\times U\) sei gegeben als
+Sei \(U \subset \R^n\) eine offene Teilmenge und der erweiterte Phasenraum \(G\subset \R^+_0\times U\) sei gegeben als
 \begin{equation*}
-\begin{split}G = \bigcup_{x\in U} \{x\}\times I(x),\end{split}
+\begin{split}G = \bigcup_{x_0\in U} I(x_0) \times \{x_0\},\end{split}
 \end{equation*}
 \sphinxAtStartPar
-wobei \(0\in I(x)\subset \R^+_0\) für jedes \(x\in U\).
+wobei \(0\in I(x_0)\) für jedes \(x_0\in U\) gelte.
 
 \sphinxAtStartPar
-Dann heißt eine Abbildung \(\Phi: G\rightarrow U\) \sphinxstylestrong{lokaler Fluss}, falls
+Dann heißt eine Abbildung \(\Phi: G\rightarrow U\) \sphinxstylestrong{lokaler (Phasen\sphinxhyphen{})Fluss}, falls
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
@@ -699,25 +700,27 @@ Dann heißt eine Abbildung \(\Phi: G\rightarrow U\) \sphinxstylestrong{lokaler F
 
 \item {} 
 \sphinxAtStartPar
-\(\Phi(t, \Phi(s, x)) = \Phi(s+t, x)\) für alle \(x\in U\) und alle \(s,t\) s.d. \(s, s+t\in I(x)\) und \(t\in I(\Phi(x,s))\).
+\(\Phi(t, \Phi(s, x)) = \Phi(s+t, x)\) für alle \(x\in U\) und alle \(s,t\) mit \(s, s+t\in I(x)\) und \(t\in I(\Phi(s,x))\).
 
 \end{enumerate}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Im nächsten Lemma wollen wir nun sehen, dass die Lösung einer DGL tatsächlich als lokaler Fluss interpretiert werden kann.
+Im nächsten Lemma werden wir sehen, dass die Lösung eines autonomen gewöhnlichen Differentialgleichungssystems tatsächlich als solch ein lokaler Fluss interpretiert werden kann.
+In diesem Fall spircht man auch vom \sphinxstylestrong{Fluss einer Differentialgleichung}.
 \label{ode/fluesse:lemma-3}
 \begin{sphinxadmonition}{note}{Lemma 1.1}
 
 
 
 \sphinxAtStartPar
-Sei \(U\subset\R^n\), \(F:U \rightarrow \R^n\) lokal Lipschitz stetig, dann existieren Intervalle \(I(x_0)\), sodass es für
+Sei \(U\subset\R^n\) eine offene Teilmenge und es sei \(F \colon U \rightarrow \R^n\) eine lokal Lipschitzstetige Abbildung.
+Dann existieren Intervalle \(I(x_0)\), so dass es für den erweiterten Phasenraum
 \begin{equation*}
-\begin{split}G = \bigcup_{x_0\in U} I(x_0)\times\{x_0\},\end{split}
+\begin{split}G = \bigcup_{x_0\in U} I(x_0)\times\{x_0\}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-eine Funktion \(\Phi:G\rightarrow \R^n\) gibt, mit folgenden Eigenschaften
+eine Funktion \(\Phi \colon G\rightarrow \R^n\) gibt, mit folgenden Eigenschaften
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
@@ -730,66 +733,72 @@ eine Funktion \(\Phi:G\rightarrow \R^n\) gibt, mit folgenden Eigenschaften
 
 \end{enumerate}
 \end{sphinxadmonition}
-\label{ode/fluesse:rem:fluss_dgl}
-\begin{sphinxadmonition}{note}{Remark 1.3 (Fluss einer DGL)}
-
-
-
-\sphinxAtStartPar
-Die Abbildung \(\Phi\) bezeichnet man hier auch als \sphinxstylestrong{Fluss einer DGL}.
-\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Nach dem Satz von Picard\sphinxhyphen{}Lindelöf existiert für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\) s.d., die Lösung der DGL
-auf \([-\epsilon(x_0),\epsilon(x_0)]\) mit AW \(x_0\) existiert. Daher können wir
+Proof. Da die rechte Seite \(F\) des autonomen gewöhnlichen Differentialgleichungssystems nach Voraussetzung lokal Lipschitzstetig ist, existiert nach dem Satz von Picard\sphinxhyphen{}Lindelöf {\hyperref[\detokenize{ode/repetition:satz:picardlindeloef_lokal}]{\sphinxcrossref{Theorem 1.1}}} für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\), so dass eine Lösung des Differentialgleichungssystems \(\Phi_{x_0} \colon [-\epsilon(x_0),\epsilon(x_0)] \rightarrow U\) mit dem Anfangswert \(x_0\) existiert, d.h.,
+\begin{equation*}
+\begin{split}\dot{\Phi}_{x_0}(t) &= F(\Phi_{x_0}(t)) \quad \forall t \in [-\epsilon(x_0),\epsilon(x_0)],\\
+\Phi_{x_0}(0) &= x_0.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Daher können wir den erweiterten Phasenraum als
 \begin{equation*}
 \begin{split}G = \bigcup_{x_0\in U} [-\epsilon(x_0),\epsilon(x_0)] \times\{x_0\}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-wählen und \(\Phi\) so definieren, dass
+wählen und die Abbildung \(\Phi\) als Einschränkung auf die Funktionen \(\Phi_{x_0}\) so definieren, dass
 \begin{equation*}
-\begin{split}\frac{\d}{\d t} \Phi(t, x_0) &= F(\Phi(t, x_0))\\
-\Phi(0, x_0) &= x_0\end{split}
+\begin{split}\frac{\d}{\d t} \Phi(t, x_0) &= \dot{\Phi}_{x_0}(t) = F(\Phi_{x_0}(t)) = F(\Phi(t, x_0))\\
+\Phi(0, x_0) &= \Phi_{x_0}(0) = x_0\end{split}
 \end{equation*}
 \sphinxAtStartPar
-für alle \((t, x_0)\in G\). Damit haben wir 1. und die erste Flusseigenschaft gezeigt. Die zweite Flusseigenschaften ist eine direkte Folgerung aus der Eindeutigkeit der Lösung der DGL. Wir führen den Beweis trotzdem explizit aus. Es sei \(x_0\in U, s\in [-\epsilon(x_0), \epsilon(x_0)]\) und weiterhin \(t\), s.d., \(s+t \in [-\epsilon(x_0), \epsilon(x_0)]\) und \(t\in [-\epsilon(\Phi(s,x_0)), \epsilon(\Phi(s,x_0))]\).
+für alle \((t, x_0)\in G\).
+Damit haben wir sowohl die erste Aussage des Lemmas als auch die erste Flusseigenschaft aus {\hyperref[\detokenize{ode/fluesse:def:Fluss}]{\sphinxcrossref{Definition 1.5}}} gezeigt.
+
+\sphinxAtStartPar
+Die zweite Flusseigenschaft ist eine direkte Folgerung aus der Eindeutigkeit der Lösung des gewöhnlichen Differentialgleichungssystems.
+Wir führen den Beweis trotzdem im Folgenden explizit aus.
+Es sei \(x_0\in U, s\in [-\epsilon(x_0), \epsilon(x_0)]\) und zusätzlich \(t\) so gewählt, dass \(s+t \in [-\epsilon(x_0), \epsilon(x_0)]\) und \(t\in [-\epsilon(\Phi(s,x_0)), \epsilon(\Phi(s,x_0))]\).
 Per Definition löst die Funktion
 \begin{equation*}
-\begin{split}\phi_1(\tau) := \Phi(s + \tau, x_0)\end{split}
+\begin{split}\phi_1(\tau) \ \coloneqq \ \Phi(s + \tau, x_0)\end{split}
 \end{equation*}
 \sphinxAtStartPar
 sowie auch die Funktion
 \begin{equation*}
-\begin{split}\phi_2(\tau) := \Phi(\tau, \Phi(s,x_0))\end{split}
+\begin{split}\phi_2(\tau) \ \coloneqq \ \Phi(\tau, \Phi(s,x_0))\end{split}
 \end{equation*}
 \sphinxAtStartPar
-die DGL auf dem Intervall \([t, \epsilon(x_0)]\). Weiterhin wissen wir, dass
+das gewöhnliche Differentialgleichungssystem auf dem Intervall \([t, \epsilon(x_0)]\), da \(\Phi\) eine Lösung ist.
+Weiterhin wissen wir auf Grund der ersten Flusseigenschaft, dass
 \begin{equation*}
-\begin{split}\phi_1(0) = \Phi(s, x_0) = \Phi(0, \Phi(s, x_0)) = \phi_2(0),\end{split}
+\begin{split}\phi_1(0) = \Phi(s, x_0) = \Phi(0, \Phi(s, x_0)) = \phi_2(0).\end{split}
 \end{equation*}
 \sphinxAtStartPar
-somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall \([t, \epsilon(x_0)]\) gleich, was
-eine Folgerung aus dem Eindeutigkeitssatz ({[}\hyperlink{cite.references:id10}{Ten21}{]}, Kapitel 7) ist. Wir haben also
+Somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall \([t, \epsilon(x_0)]\) gleich, was eine direkte Folgerung aus dem Eindeutigkeitssatz 8.20 aus {[}\hyperlink{cite.references:id11}{Ten21}{]} ist.
+Wir haben also insgesamt
 \begin{equation*}
 \begin{split}\Phi(s + \tau, x_0) = \phi_1(\tau) = \phi_2(\tau) = \Phi(\tau, \Phi(s,x_0))\end{split}
 \end{equation*}
 \sphinxAtStartPar
-für jedes \(\tau\in [t, \epsilon(x_0)]\).
+für jedes \(\tau\in [t, \epsilon(x_0)]\), was die zweite Flusseigenschaft aus {\hyperref[\detokenize{ode/fluesse:def:Fluss}]{\sphinxcrossref{Definition 1.5}}} zeigt.
 \end{sphinxadmonition}
 
 
 \subsection{Phasenportraits}
 \label{\detokenize{ode/fluesse:phasenportraits}}
 \sphinxAtStartPar
-Die teilweise abstrakten Begriffe zu Flüssen werden nun mit einfachen geometrische Anschauung unterlegen. Dafür benötigen wir zunächst die folgenden Definitionen.
-\label{ode/fluesse:definition-5}
+Die teilweise abstrakten Konzepte und Eigenschaften von Phasenflüssen aus den vorangegangenen Abschnitten werden wir im Folgenden mit einfachen geometrischen Anschauung illustrieren.
+Dafür benötigen wir zunächst die folgenden Definitionen.
+\label{ode/fluesse:definition-4}
 \begin{sphinxadmonition}{note}{Definition 1.7}
 
 
 
 \sphinxAtStartPar
-Es sei \(\Phi:G\rightarrow U\) ein Fluss einer DGL, mit \(G\subset \R^+_0\times U\).
+Es sei \(\Phi:G\rightarrow U\) ein Phasenfluss eines gewöhnlichen Differentialgleichungssystems für den erweiterten Phasenraum \(G\subset \R^+_0\times U\).
+Dann können wir folgende Begriffe für den Fluss einführen:
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -809,22 +818,28 @@ Ein Anfangswert \(x_0\in U\) heißt \sphinxstylestrong{periodisch} mit Periode \
 
 \end{itemize}
 \end{sphinxadmonition}
-\label{ode/fluesse:example-6}
+
+\sphinxAtStartPar
+Ein klassisches Beispiel aus der Mechanik ist besonders gut geeignet, um die eben eingeführten Konzepte näher zu diskutieren \sphinxhyphen{} die \sphinxstylestrong{gedämpfte Schwingungsgleichung}.
+\label{ode/fluesse:ex:oscillations}
 \begin{sphinxadmonition}{note}{Example 1.7}
 
 
 
 \sphinxAtStartPar
-Die Bewgeungsgeleichung für den harmonischen Oszillator is gegeben durch
+Die gedämpfte Schwingungsgleichung ist gegeben durch
 \begin{equation*}
-\begin{split}m~\ddot{x}(t) + r~\dot{x}(t) + k~x(t)=0\end{split}
+\begin{split}m\ddot{x}(t) + r\dot{x}(t) + kx(t)=0\end{split}
 \end{equation*}
 \sphinxAtStartPar
-hierbei ist
+und beschreibt beispielsweise die eindimensionale Auslenkung eines Federpendels, das durch Reibungsverluste Schwingungsenergie über die Zeit verliert.
+
+\sphinxAtStartPar
+Hierbei bezeichnet
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-\(x(t)\) die horizontale Auslenkung zum Zeitpunkt \(t\),
+\(x(t)\) die vertikale Auslenkung des Pendels zum Zeitpunkt \(t\),
 
 \item {} 
 \sphinxAtStartPar
@@ -841,25 +856,34 @@ hierbei ist
 \end{itemize}
 
 \sphinxAtStartPar
-Durch Einführung der Variable \(p(t):= m~\dot{x}(t)\) als Impuls erhalten wir das System von DGLs
+Durch Einführung der Variablen \(p(t):= m~\dot{x}(t)\) als Impuls erhalten wir das folgende gewöhnliche Differentialgleichungssystem
 \begin{equation*}
 \begin{split}\dot{x}(t) &= \frac{1}{m}~p(t) \\
 \dot{p}(t) &= -k~x(t) - \frac{r}{m}~p(t).\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Betrachten wir speziell den ungedämpften Fall, \(r=0\), erhalten wir zum Anfangswert \((x,p)\) die Lösung
+Betrachten wir speziell den ungedämpften Fall für \(r=0\), d.h. ohne Reibungsverluste, so geht die Gleichung in die \sphinxstylestrong{Bewegungsgleichung für einen harmonischen Oszillator} über.
+In diesem Fall erhalten wir zum Anfangswert \((x,p) \in \) die Lösung
 \begin{equation*}
 \begin{split}\Phi(t, (x,p)) = 
 \begin{pmatrix}
 \frac{p}{\omega m}\sin(\omega t) + x~\cos(\omega t)\\
 p \cos(\omega t) - m x \sin(\omega t)
-\end{pmatrix}\end{split}
+\end{pmatrix},\end{split}
 \end{equation*}
 \sphinxAtStartPar
 wobei \(\omega=\sqrt{\frac{k}{m}}\) die Eigenfrequenz des Systems ist.
 \end{sphinxadmonition}
 
+\sphinxAtStartPar
+Das in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} dargestellte Phasenportrait
+
 \noindent\sphinxincludegraphics{{C:/Tim/Uni/Lectures/MathPhysicsC/_build/jupyter_execute/fluesse_2_0}.png}
+
+\begin{figure}[htbp]
+\centering
+\capstart
+\caption{Visualisierung für Beispiel {\hyperref[\detokenize{ode/fluesse:ex:oscillations}]{\sphinxcrossref{Example 1.7}}}.}\label{\detokenize{ode/fluesse:fig-harmonic-oscillator}}\end{figure}
 
 
 \section{Hamiltonsche Differentialgleichungen und Phasenportraits}
@@ -891,17 +915,23 @@ In ?? haben wir Bewegungslgleichungen als System von DGLs hergeleitet und gelös
 \sphinxAtStartPar
 
 
-\begin{sphinxthebibliography}{Kna17}
-\bibitem[Kna17]{references:id7}
+\begin{sphinxthebibliography}{For17}
+\bibitem[For17]{references:id4}
+\sphinxAtStartPar
+Otto Forster. \sphinxstyleemphasis{Analysis 2}. Springer, 2017.
+\bibitem[Kna13]{references:id5}
+\sphinxAtStartPar
+Peter Knabner. \sphinxstyleemphasis{Skript zur Vorlesung "Gewöhnliche Differentialgleichungen"}. 2013.
+\bibitem[Kna17]{references:id8}
 \sphinxAtStartPar
 Andreas Knauf. \sphinxstyleemphasis{Mathematische Physik: Klassische Mechanik}. Springer Berlin Heidelberg, 2017. \sphinxhref{https://doi.org/10.1007/978-3-662-55776-1}{doi:10.1007/978\sphinxhyphen{}3\sphinxhyphen{}662\sphinxhyphen{}55776\sphinxhyphen{}1}.
-\bibitem[Kna20]{references:id6}
+\bibitem[Kna20]{references:id7}
 \sphinxAtStartPar
 Andreas Knauf. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Physikstudierende 3"}. 2020.
-\bibitem[SB18]{references:id8}
+\bibitem[SB18]{references:id9}
 \sphinxAtStartPar
 Herman Schulz\sphinxhyphen{}Baldes. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Physiker 3"}. 2018.
-\bibitem[Ten21]{references:id10}
+\bibitem[Ten21]{references:id11}
 \sphinxAtStartPar
 Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Data Science 2"}. 2021. URL: \sphinxurl{https://fau-ammn.github.io/MathDataScience2}.
 \end{sphinxthebibliography}
@@ -932,8 +962,8 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{definition\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-3}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}5}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{definition-5}}
+\bigletter{definition\sphinxhyphen{}4}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{definition-4}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}8}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-8}}
@@ -943,6 +973,9 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{ex:freefall}
 \item\relax\sphinxstyleindexentry{ex:freefall}\sphinxstyleindexextra{ode/dynamicSystems}\sphinxstyleindexpageref{ode/dynamicSystems:\detokenize{ex:freefall}}
+\indexspace
+\bigletter{ex:oscillations}
+\item\relax\sphinxstyleindexentry{ex:oscillations}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{ex:oscillations}}
 \indexspace
 \bigletter{example\sphinxhyphen{}0}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{example-0}}
@@ -962,14 +995,14 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{lemma\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}3}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{lemma-3}}
 \indexspace
-\bigletter{rem:fluss\_dgl}
-\item\relax\sphinxstyleindexentry{rem:fluss\_dgl}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{rem:fluss_dgl}}
-\indexspace
 \bigletter{remark\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-1}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-2}}
+\indexspace
+\bigletter{satz:picardlindeloef}
+\item\relax\sphinxstyleindexentry{satz:picardlindeloef}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef}}
 \indexspace
 \bigletter{satz:picardlindeloef\_lokal}
 \item\relax\sphinxstyleindexentry{satz:picardlindeloef\_lokal}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef_lokal}}
