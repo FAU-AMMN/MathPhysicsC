@@ -253,7 +253,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="wiederholung-gewohnliche-differentialgleichungen">
 <h1><span class="section-number">1.2. </span>Wiederholung: Gewöhnliche Differentialgleichungen<a class="headerlink" href="#wiederholung-gewohnliche-differentialgleichungen" title="Permalink to this headline">¶</a></h1>
-<p>In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id10">Ten21</a>]</span> wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.</p>
+<p>In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id11">Ten21</a>]</span> wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.</p>
 <div class="section" id="gewohnliche-differentialgleichungen">
 <h2><span class="section-number">1.2.1. </span>Gewöhnliche Differentialgleichungen<a class="headerlink" href="#gewohnliche-differentialgleichungen" title="Permalink to this headline">¶</a></h2>
 <p>Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgleichungssystems <span class="math notranslate nohighlight">\(m\)</span>-ter Ordnung als Grundlage für unsere weiteren Betrachtungen.</p>
@@ -402,7 +402,7 @@ Hierzu reicht es eine ausgewiesene Stelle <span class="math notranslate nohighli
 \[y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(c \in \R\)</span> eine beliebige Konstante darstellt.</p>
 </div>
-</div><p>Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die <strong>(lokale) Lipschitzstetigkeit</strong> der rechten Seite <span class="math notranslate nohighlight">\(F \colon I \times U\)</span>.
+</div><p>Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die <strong>(lokale) Lipschitzstetigkeit</strong> der rechten Seite <span class="math notranslate nohighlight">\(F \colon I \times U \rightarrow U\)</span>.
 Diese wollen wir der Vollständigkeit halber im Folgenden definieren.</p>
 <div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 1.4 </span> ((Lokale) Lipschitzstetigkeit)</p>
@@ -411,14 +411,14 @@ Diese wollen wir der Vollständigkeit halber im Folgenden definieren.</p>
 Man sagt, dass <span class="math notranslate nohighlight">\(F\)</span> in <span class="math notranslate nohighlight">\(G\)</span> einer <strong>globalen Lipschitz-Bedingung</strong> genügt (bezüglich der Variablen <span class="math notranslate nohighlight">\(y \in U\)</span>) mit der Lipschitz-Konstanten <span class="math notranslate nohighlight">\(L\geq0\)</span>, wenn gilt</p>
 <div class="math notranslate nohighlight">
 \[\Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.\]</div>
-<p>Man sagt, <span class="math notranslate nohighlight">\(F\)</span> genüge in <span class="math notranslate nohighlight">\(G\)</span> einer <strong>lokalen Lipschitz-Bedingung</strong>, falls jeder Punkt <span class="math notranslate nohighlight">\((a,b)\in G\)</span> im erweiterten Phasenraum eine Umgebung <span class="math notranslate nohighlight">\(V\)</span> besitzt, sodass <span class="math notranslate nohighlight">\(F\)</span> in <span class="math notranslate nohighlight">\(G\cap V\)</span> einer Lipschitzbedingung mit einer gewissen (von <span class="math notranslate nohighlight">\(V\)</span> abhängigen) Konstanten <span class="math notranslate nohighlight">\(L\in\R_+\)</span> genügt.</p>
+<p>Man sagt, <span class="math notranslate nohighlight">\(F\)</span> genüge in <span class="math notranslate nohighlight">\(G\)</span> einer <strong>lokalen Lipschitz-Bedingung</strong>, falls jeder Punkt <span class="math notranslate nohighlight">\((a,b)\in G\)</span> im erweiterten Phasenraum eine Umgebung <span class="math notranslate nohighlight">\(V\)</span> besitzt, sodass <span class="math notranslate nohighlight">\(F\)</span> in <span class="math notranslate nohighlight">\(G\cap V\)</span> einer Lipschitzbedingung mit einer gewissen (von <span class="math notranslate nohighlight">\(V\)</span> abhängigen) Konstanten <span class="math notranslate nohighlight">\(L\in\R_0^+\)</span> genügt.</p>
 </div>
-</div><p>Für die <strong>(lokale) Existenz von Lösungen</strong> haben wir in Kapitel 8.4 <span id="id2">[<a class="reference internal" href="../references.html#id10">Ten21</a>]</span> den Satz von Picard-Lindelöf formuliert, den wir im Folgenden wiederholen werden.</p>
+</div><p>Für die <strong>(lokale) Existenz von Lösungen</strong> haben wir in Kapitel 8.4 <span id="id2">[<a class="reference internal" href="../references.html#id11">Ten21</a>]</span> den Satz von Picard-Lindelöf formuliert, den wir im Folgenden wiederholen werden.</p>
 <div class="proof theorem admonition" id="satz:picardlindeloef_lokal">
-<p class="admonition-title"><span class="caption-number">Theorem 1.2 </span> (Lokaler Existenzsatz nach Picard-Lindelöf)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 1.1 </span> (Lokaler Existenzsatz nach Picard-Lindelöf)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(F\colon G\to\R^n\)</span> eine stetige Funktion mit erweitertem Phasenraum <span class="math notranslate nohighlight">\(G \coloneqq I \times U \subset \R\times\R^n\)</span>, die lokal Lipschitz-stetig auf <span class="math notranslate nohighlight">\(G\)</span> bezüglich der <span class="math notranslate nohighlight">\(y\)</span>-Variablen ist.
-Dann existiert zu jedem Anfangswert <span class="math notranslate nohighlight">\((t_0,y_0) \in G\)</span> ein <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, sowie eine Lösung</p>
+Dann existiert zu jedem Anfangswert <span class="math notranslate nohighlight">\((t_0,y_0) \in G\)</span> ein <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, sowie genau eine Lösung</p>
 <div class="math notranslate nohighlight">
 \[\phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n\]</div>
 <p>der gewöhnlichen Differentialgleichung</p>
@@ -427,11 +427,11 @@ Dann existiert zu jedem Anfangswert <span class="math notranslate nohighlight">\
 <p>unter der Anfangsbedingung <span class="math notranslate nohighlight">\(\phi(t_0)=y_0\)</span>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe \cite[§12, Satz 4]{forster}.</p>
+<p>Proof. Siehe Kapitel 12, Satz 4 Kapitel 8.4 <span id="id3">[<a class="reference internal" href="../references.html#id4">For17</a>]</span></p>
 </div>
 <p>Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
 Unter den strengeren Voraussetzungen einer rechten Seite <span class="math notranslate nohighlight">\(F\)</span> der gewöhnlichen Differentialgleichung, die einer globalen Lipschitzbedingung genügt, lässt sich jedoch eine <strong>globale Existenzaussage</strong> formulieren, die besonders für konkrete Anwendungen sehr praktisch ist.</p>
-<div class="proof theorem admonition" id="satz:picardlindeloef_lokal">
+<div class="proof theorem admonition" id="satz:picardlindeloef">
 <p class="admonition-title"><span class="caption-number">Theorem 1.2 </span> (Globaler Existenzsatz nach Picard-Lindelöf)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(F\colon G\to\R^n\)</span> eine stetige Funktion mit erweitertem Phasenraum <span class="math notranslate nohighlight">\(G \, \coloneqq \, I \times U \subset \R\times\R^n\)</span>, die eine globale Lipschitzbedingung auf <span class="math notranslate nohighlight">\(G\)</span> bezüglich der <span class="math notranslate nohighlight">\(y\)</span>-Variablen erfüllt.
@@ -441,10 +441,11 @@ Dann existiert zu jedem Anfangswert <span class="math notranslate nohighlight">\
 <p>der gewöhnlichen Differentialgleichung</p>
 <div class="math notranslate nohighlight">
 \[\dot{y}(t) \ = \ F(t,y(t))\]</div>
-<p>unter der Anfangsbedingung <span class="math notranslate nohighlight">\(\phi(t_0)=y_0\)</span>.</p>
+<p>unter der Anfangsbedingung <span class="math notranslate nohighlight">\(\phi(t_0)=y_0\)</span>.
+Es existieren außerdem keine weiteren (lokalen) Lösungen.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe \cite[§2.3]{knabner}.</p>
+<p>Proof. Siehe Kapitel 2.3 <span id="id4">[<a class="reference internal" href="../references.html#id5">Kna13</a>]</span></p>
 </div>
 <div class="proof corollary admonition" id="corollary-11">
 <p class="admonition-title"><span class="caption-number">Corollary 1.1 </span></p>
@@ -452,7 +453,7 @@ Dann existiert zu jedem Anfangswert <span class="math notranslate nohighlight">\
 <p>Das Anfangswertproblem jedes <strong>linearen</strong> gewöhnlichen Differentialgleichungssystems 1. Ordnung hat eine eindeutige globale Lösung.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe \cite[§2.3, Theorem 2.25]{knabner}.</p>
+<p>Proof. Siehe Theorem 2.25, Kapitel 2.3 <span id="id5">[<a class="reference internal" href="../references.html#id5">Kna13</a>]</span></p>
 </div>
 </div>
 </div>
