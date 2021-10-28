@@ -396,7 +396,7 @@ Wir haben also insgesamt</p>
 </div>
 <div class="section" id="phasenportrats">
 <h2><span class="section-number">1.3.3. </span>Phasenporträts<a class="headerlink" href="#phasenportrats" title="Permalink to this headline">¶</a></h2>
-<p>Die teilweise abstrakten Konzepte und Eigenschaften von Phasenflüssen aus den vorangegangenen Abschnitten werden wir im Folgenden mit einfachen geometrischen Anschauung illustrieren.
+<p>Die teilweise abstrakten Konzepte und Eigenschaften von Phasenflüssen aus den vorangegangenen Abschnitten werden wir im Folgenden mit einfachen geometrischen Anschauungen illustrieren.
 Dafür benötigen wir zunächst die folgenden Definitionen.</p>
 <div class="proof definition admonition" id="definition-4">
 <p class="admonition-title"><span class="caption-number">Definition 1.7 </span> (Phasenporträt)</p>
@@ -406,7 +406,7 @@ Dann können wir folgende Begriffe für den Fluss einführen:</p>
 <ul class="simple">
 <li><p>Für jedes <span class="math notranslate nohighlight">\(x_0\in U\)</span> heißt die Funktion <span class="math notranslate nohighlight">\(t\mapsto \Phi(t, x_0)\)</span> <strong>Bahnkurve</strong> durch <span class="math notranslate nohighlight">\(x_0\)</span>.</p></li>
 <li><p>Die Menge <span class="math notranslate nohighlight">\(\mathcal{O}(x_0) := \{\Phi(t, x_0): (t, x_0)\in G\}\)</span> heißt <strong>Orbit</strong> oder <strong>Trajektorie</strong> durch <span class="math notranslate nohighlight">\(x_0\)</span>.</p></li>
-<li><p>Ein Orbit heißt <strong>Ruhelage</strong>, falls <span class="math notranslate nohighlight">\(\mathcal{O}(x_0) = \{x_0\}\)</span>.</p></li>
+<li><p>Ein Punkt <span class="math notranslate nohighlight">\(x_0 \in U\)</span> heißt <strong>Ruhelage</strong>, falls <span class="math notranslate nohighlight">\(\mathcal{O}(x_0) = \{x_0\}\)</span>.</p></li>
 <li><p>Ein Anfangswert <span class="math notranslate nohighlight">\(x_0\in U\)</span> heißt <strong>periodisch</strong> mit Periode <span class="math notranslate nohighlight">\(T&gt;0\)</span>, falls <span class="math notranslate nohighlight">\(\Phi(T, x_0) = x_0\)</span>.</p></li>
 </ul>
 <p>Wir nennen die Zerlegung des erweiterten Phasenraums <span class="math notranslate nohighlight">\(G\)</span> in Orbits ein <strong>Phasenporträt</strong> des dynamischen Systems <span class="math notranslate nohighlight">\((I,U, \Phi)\)</span>.</p>
@@ -434,8 +434,11 @@ Aus dem gleichen Grund beschränkt man sich in der Regel außerdem auf ein- und 
 <div class="math notranslate nohighlight">
 \[\begin{split}\dot{x}(t) &amp;= \frac{1}{m}~p(t) \\
 \dot{p}(t) &amp;= -k~x(t) - \frac{r}{m}~p(t).\end{split}\]</div>
+<p>Dies lässt sich in kompakter Form schreiben als:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix} \dot{x} \\ \dot{p} \end{pmatrix}(t) = \begin{pmatrix}0 &amp; \frac{1}{m} \\ -k &amp; -\frac{r}{m}\end{pmatrix} \begin{pmatrix}x \\ p\end{pmatrix}`\end{split}\]</div>
 <p>Betrachten wir speziell den ungedämpften Fall für <span class="math notranslate nohighlight">\(r=0\)</span>, d.h. ohne Reibungsverluste, so geht die Gleichung in die <strong>Bewegungsgleichung für einen harmonischen Oszillator</strong> über.
-In diesem Fall erhalten wir zum Anfangswert <span class="math notranslate nohighlight">\((x,p) \in \)</span> die Lösung</p>
+In diesem Fall erhalten wir zum Anfangswert <span class="math notranslate nohighlight">\((x,p) \in U \subset \R^2 \)</span> die Lösung</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\Phi(t, (x,p)) = 
 \begin{pmatrix}
