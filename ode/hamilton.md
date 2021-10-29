@@ -45,7 +45,7 @@ Wird das hamiltonsche Vektorfeld auf der linken Seite von [](eq:hamilton_Gleichu
 X = \dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix} (t)
 ```
 
-gewählt, so lässt sich die Gleichung schreiben als
+gewählt, so lässt sich die Gleichung für $J \, \coloneqq \, \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \in \R^{2n \times 2n}$ schreiben als
 
 ```{math}
 :label: hamilton_DGL
@@ -53,9 +53,16 @@ gewählt, so lässt sich die Gleichung schreiben als
 ```
 
 In dieser Form wird die entstehende Differentialgleichung in []{eq:hamilton_DGL} **Hamiltonsche Differentialgleichung** genannt.
+
+Äquivalent lässt sich dieses System von gewöhnlichen Differentialgleichungen auch explizit für die $2n$ unbekannten Orts- und Impulsfunktionen $q_i, p_i$ für $1 \leq i \leq n$ schreiben als
+
+```{math}
+\dot{q_i}(t) = \frac{\partial H}{\partial p_i}(t), \quad \dot{p_i}(t) = -\frac{\partial H}{\partial q_i}(t), \quad i=1,\ldots,n.
+```
+
 ````
 
-Für diesen einfachen Fall lässt sich beobachten, dass die Lösungskurven der Hamiltonschen Differentialgleichungen sich nicht schneiden und durch jeden Punkt des Phasenraums eine Lösungskurve verläuft. 
+Für den einfachen Fall einer zeitunabhängigen Hamilton-Funktion $H$ lässt sich beobachten, dass die Lösungskurven der Hamiltonschen Differentialgleichungen sich nicht schneiden und durch jeden Punkt des Phasenraums eine Lösungskurve verläuft. 
 
 Die Hamilton-Funktion $H$ als Funktion des Phasenraumes kann als die Energie eines Systems von Teilchen aufgefasst werden.
 Wir wollen uns die Rolle der Hamilton-Funktion $H$ an Hand eines physikalischen Beispiels klar machen.
@@ -84,7 +91,7 @@ Betrachten wir nun einen Punkt $x = \begin{pmatrix} p \\ q\end{pmatrix} \in U$ i
 \dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t)
 ```
 
-Definieren wir nun die **Hamilton-Funktion** aus {prf:ref}`def:hamiltonsch`
+Wählen wir nun die **Hamilton-Funktion** aus {prf:ref}`def:hamiltonsch`
 
 ```{math}
 H(p,q) \, \coloneqq \, \frac{||p||^2}{2m} + V(q),
@@ -99,7 +106,7 @@ X = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix} = \begin{pmatrix} -\nabla V(
 
 ````
 
-Ergänzend wollen wir noch folgendes Beispiel einer Hamilton-Funktion nennen im Folgenden nennen.
+Ergänzend wollen wir noch folgendes Beispiel einer Hamilton-Funktion nennen.
 
 
 ````{prf:example}
@@ -114,4 +121,39 @@ H(x,p) = \frac{p^2}{2m} + \frac{m}{2} \omega^2 x^2.
 Hierbei bezeichnet $\omega = \sqrt{\frac{k}{m}}$ die Eigenfrequenz des Systems.
 ````
 
+Bisher haben wir noch nicht den Grund diskutiert, warum die Hamilton-Funktion eine besondere Rolle im Kontext dynamischer Systeme spielt.
+Das wollen wir nun im folgenden Satz nachholen.
 
+````{prf:theorem}
+:label: satz:hamilton_konstant
+Sei $n\in \N, U \subseteq \mathbb{R}^{2n}$ ein (offener) Phasenraum und $J= \begin{pmatrix} 0 & - \mathbf{1} \\ \mathbf{1} & 0 \end{pmatrix} \in \mathbb{R}^{2n \times 2n}$.
+Ist die Hamilton-Funktion $H \in C^2(U; \mathbb{R})$, dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung 
+\begin{equation*}
+\dot x = J \nabla H(x)
+\end{equation*}
+konstant.
+````
+
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
+````
+
+{prf:ref}`satz:hamilton_konstant` sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton-Funktion verlaufen.
+Dies erlaubt es uns dynamische Systeme auf diese häufig auch *Energieschalen* genannten Niveaumengen $H^{−1}(E)$ für $E \in \R$ zu restringieren. 
+Diese Energieschalen bilden Untermannigfaltigkeiten des Phasenraums $U$.
+
+Für den einfachen Fall eines Freiheitsgrades, d.h., für $n = 1$, lassen sich für eine gegebene Hamilton-Funktion die Orbits des dynamischen Systems bestimmen.
+Für einen Punkt $x \in U$ im Phasenraum $U \subset \R^2$ unterscheiden wir zwei Fälle:
+1. Ist $\nabla H(x) = 0$, so ist der Orbit wegem []{hamilton_DGL} von der Form $O(x) = {x}$.
+2. Ist $\nabla H(x) \neq 0$, so ist der Orbit $O(x)$ gegeben durch die Menge
+
+```{math} 
+O(x) = \{y \in U | H(y) = H(x), \nabla H(y) \neq 0\}
+```
+
+Die Orientierung des Orbits erhält man durch die Richtung, die orthogonal zum Gradienten $\nabla H$ steht, d.h., durch Drehung des Gradienten im Uhrzeigersinn um $\frac{\pi}{2}$.
+Die Matrix $J$ entspricht eben einer solchen Drehung.
+
+````{prf:remark}
+Eine Formulierung der Bewegungsgleichungen eines dynamischen Systems als Hamiltonsche Differentialgleichungen hat den Vorteil, dass sie unter den sogenannten *kanonischen Transformationen* in manchen Fällen in eine einfachere, lösbare Form gebracht werden können.
+````
