@@ -1,18 +1,12 @@
 
 # Hamiltonsche Differentialgleichungen
 
-Ein wichtiges Prinzip für viele physikalischen Anwendungen und dynamische System sind Erhaltungssätze und die dazugehörigen Erhaltungsgrößen. 
+Ein wichtiges Prinzip für viele physikalischen Anwendungen und dynamische System sind *Erhaltungssätze* und die dazugehörigen *Erhaltungsgrößen*. 
 Aus der klassichen Mechanik kennen wir beispielsweise die *Energieerhaltung* oder die *Impulserhaltung*. 
 
-In ?? haben wir Bewegungslgleichungen als System von DGLs hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der DGL Formulierung zu erhalten.
-
-````{prf:example} Harmonischer Oszillator
-
-````
-
-
+In []{s:fluesse} haben wir Bewegungslgleichungen als System von DGLs hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der Formulierung des Differentialgleichungssystems abzulesen.
 Hamiltonsche Differentialgleichungen haben in der Physik eine besondere Rolle, insbesondere in der klassischen Mechanik bei Abwesenheit von Reibung.
-Typischwerweise tauchen diese bei der Untersuchtung von Bewegungen im Phasenraum auf, d.h., bei der Betrachtung von Paaren aus Orts- und Impulswerten.
+Typischerweise tauchen diese bei der Untersuchung von Bewegungen im Phasenraum auf, d.h., bei der Betrachtung von Paaren aus Orts- und Impulswerten.
 Ihre Lösungen liefern uns Trajektorien im Phasenraum für die die Gesamtenergie des Systems erhalten bleibt.
 Dies macht sie für uns besonders interessant.
 
@@ -103,6 +97,21 @@ Durch diese Hamilton-Funktion $H$ lässt sich []{eq:newton} als **Hamiltonsche D
 X = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix} = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix} = \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix} = J \nabla H(p,q).
 ```
 
+````
+
+Ergänzend wollen wir noch folgendes Beispiel einer Hamilton-Funktion nennen im Folgenden nennen.
+
+
+````{prf:example}
+Im Fall des eindimensionalen harmonischen Oszillators aus []{ex:oscillations} lässt sich ebenfalls eine Hamilton-Funktion des dynamischen Systems angeben. 
+Sei $(x,p) \in U$ als Punkt des Phasenraums $U \subset \R^2$ der Ort und Impuls eines Pendels.
+Dann lässt sich die zugehörige Hamilton-Funktion $H \colon U \rightarrow \R$ angeben als:
+
+```{math}
+H(x,p) = \frac{p^2}{2m} + \frac{m}{2} \omega^2 x^2.
+```
+
+Hierbei bezeichnet $\omega = \sqrt{\frac{k}{m}}$ die Eigenfrequenz des Systems.
 ````
 
 
