@@ -101,7 +101,7 @@ so erkennen wir, dass diese sich aus *kinetischer* und *potentieller Energie* zu
 Durch diese Hamilton-Funktion $H$ lässt sich [](eq:newton) als **Hamiltonsche Differentialgleichung** schreiben mit
 
 ```{math}
-X = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix} = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix} = \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix} = J \nabla H(p,q).
+\dot{x}(t) = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t) = \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix}(t) = J \nabla H(p(t),q(t)).
 ```
 
 ````
@@ -110,7 +110,7 @@ Ergänzend wollen wir noch folgendes Beispiel einer Hamilton-Funktion nennen.
 
 
 ````{prf:example}
-Im Fall des eindimensionalen harmonischen Oszillators aus [](ex:oscillations) lässt sich ebenfalls eine Hamilton-Funktion des dynamischen Systems angeben. 
+Im Fall des eindimensionalen harmonischen Oszillators mit Masse $m > 0$ aus [](ex:oscillations) lässt sich ebenfalls eine Hamilton-Funktion des dynamischen Systems angeben. 
 Sei $(x,p) \in U$ als Punkt des Phasenraums $U \subset \R^2$ der Ort und Impuls eines Pendels.
 Dann lässt sich die zugehörige Hamilton-Funktion $H \colon U \rightarrow \R$ angeben als:
 
@@ -118,7 +118,7 @@ Dann lässt sich die zugehörige Hamilton-Funktion $H \colon U \rightarrow \R$ a
 H(x,p) = \frac{p^2}{2m} + \frac{m}{2} \omega^2 x^2.
 ```
 
-Hierbei bezeichnet $\omega = \sqrt{\frac{k}{m}}$ die Eigenfrequenz des Systems.
+Hierbei bezeichnet $\omega = \sqrt{\frac{k}{m}}$ die Eigenfrequenz des Systems und $k > 0$ die Federkonstante.
 ````
 
 Bisher haben wir noch nicht den Grund diskutiert, warum die Hamilton-Funktion eine besondere Rolle im Kontext dynamischer Systeme spielt.
@@ -145,7 +145,7 @@ Diese Energieschalen bilden Untermannigfaltigkeiten des Phasenraums $U$.
 Für den einfachen Fall eines Freiheitsgrades, d.h., für $n = 1$, lassen sich für eine gegebene Hamilton-Funktion $H$ die Orbits des dynamischen Systems bestimmen.
 Für einen Punkt $x \in U$ im Phasenraum $U \subset \R^2$ unterscheiden wir zwei Fälle:
 1. Ist $\nabla H(x) = 0$, so ist der Orbit wegem [](eq:hamilton_DGL) von der Form $O(x) = {x}$.
-2. Ist $\nabla H(x) \neq 0$, so ist der Orbit $O(x)$ gegeben durch die Menge
+2. Ist $\nabla H(x) \neq 0$, so ist der Orbit $O(x)$ gegeben durch die zusammenhängende Menge
 
 ```{math} 
 O(x) = \{y \in U | H(y) = H(x), \nabla H(y) \neq 0\}
