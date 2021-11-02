@@ -10,4 +10,7 @@ chapters:
   - file: ode/fluesse
   - file: ode/hamilton
 - file: ode_stability/stabilitaetsanalyse.md
+  sections:
+  - file: ode_stability/stabilitaetsbegriffe.md
+  - file: ode_stability/ruhelagen.md
 - file: references
