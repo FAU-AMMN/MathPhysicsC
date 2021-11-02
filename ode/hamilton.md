@@ -1,7 +1,7 @@
 
 # Hamiltonsche Differentialgleichungen
 
-Ein wichtiges Prinzip für viele physikalischen Anwendungen und dynamische System sind *Erhaltungssätze* und die dazugehörigen *Erhaltungsgrößen*. 
+Ein wichtiges Prinzip für viele physikalischen Anwendungen und dynamische Systeme sind *Erhaltungssätze* und die dazugehörigen *Erhaltungsgrößen*. 
 Aus der klassichen Mechanik kennen wir beispielsweise die *Energieerhaltung* oder die *Impulserhaltung*.
 In [](s:fluesse) haben wir Bewegungslgleichungen als System von gewöhnlichen Differentialgleichungen hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der Formulierung des Differentialgleichungssystems abzulesen.
 
@@ -110,7 +110,7 @@ Ergänzend wollen wir noch folgendes Beispiel einer Hamilton-Funktion nennen.
 
 
 ````{prf:example}
-Im Fall des eindimensionalen harmonischen Oszillators mit Masse $m > 0$ aus [](ex:oscillations) lässt sich ebenfalls eine Hamilton-Funktion des dynamischen Systems angeben. 
+Im Fall des eindimensionalen harmonischen Oszillators mit Masse $m > 0$ aus {prf:ref}`ex:oscillations` lässt sich ebenfalls eine Hamilton-Funktion des dynamischen Systems angeben. 
 Sei $(x,p) \in U$ als Punkt des Phasenraums $U \subset \R^2$ der Ort und Impuls eines Pendels.
 Dann lässt sich die zugehörige Hamilton-Funktion $H \colon U \rightarrow \R$ angeben als:
 
