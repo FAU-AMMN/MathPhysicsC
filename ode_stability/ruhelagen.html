@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2. Stabilität von Ruhelagen &#8212; Mathematik für Physikstudierende C</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Bibliography" href="../references.html" />
+    <link rel="prev" title="2.1. Stabilitätsbegriffe" href="stabilitaetsbegriffe.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/FAU-DMM-Logo-rgb-10cm.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Mathematik für Physikstudierende C</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Mathematik für Physikstudierende C
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode/ode.html">
+   1. Gewöhnliche Differentialgleichungen für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/dynamicSystems.html">
+     1.1. Einführung in dynamische Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/repetition.html">
+     1.2. Wiederholung: Gewöhnliche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/fluesse.html">
+     1.3. Phasenflüsse und Phasenportraits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/hamilton.html">
+     1.4. Hamiltonsche Differentialgleichungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="stabilitaetsanalyse.html">
+   2. Stabilitätsanalyse für dynamische Systeme
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="stabilitaetsbegriffe.html">
+     2.1. Stabilitätsbegriffe
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.2. Stabilität von Ruhelagen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   3. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ode_stability/ruhelagen.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FAU-AMMN/MathPhysicsC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linearisierung-um-ruhelage">
+   2.2.1. Linearisierung um Ruhelage
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="stabilitat-von-ruhelagen">
+<h1><span class="section-number">2.2. </span>Stabilität von Ruhelagen<a class="headerlink" href="#stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h1>
+<p>Zuerst wollen wir uns den einfachen Fall von Ruhelagen für allgemeine <em>lineare</em> Differentialgleichungssysteme anschauen. Diese art von DGL haben wir schon genauer kennen gelernt.</p>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 2.1 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(A\in \C^{n\times n}\)</span> eine Matrix mit Eigenwerten <span class="math notranslate nohighlight">\( z_1,\dots, z_k\in \C \)</span>.
+Der Fluss <span class="math notranslate nohighlight">\(\Phi_t\)</span> zur linearen DGL  <span class="math notranslate nohighlight">\(\dot{x}(t) = Ax(t)\)</span> hat eine Ruhelage <span class="math notranslate nohighlight">\(0\in \C^n\)</span> (welche eindeutig ist, wenn alle <span class="math notranslate nohighlight">\(z_k\neq0\)</span>).</p>
+<p>Setze <span class="math notranslate nohighlight">\(\gamma = \max_{k=1,\dots,K} \mathcal{R}e(z_k)\)</span></p>
+<p>i) Falls <span class="math notranslate nohighlight">\(\gamma &lt;0\)</span>, ist die Ruhelage 0 asymptotisch stabil</p>
+<p>i) Falls <span class="math notranslate nohighlight">\(\gamma &gt;0\)</span>, ist die Ruhelage 0 instabil.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Zu beliebiger Anfangsbedingung <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> erhalten wir die Abschätzung</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\|\Phi_t(x)\| &amp;= \|e^{tA}x\|=\|M^{-1}e^{tD}e^{tJ}Mx\|\leq \|M^{-1}\|\|e^{tD}\|\|e^{tJ}\|\|M\|\|x\|\\
+&amp;\leq C_1\|e^{td}\|C_2 e^{\epsilon t}C_3C_4 = Ce^{\gamma t} e^{\epsilon t}.
+\end{align*}\end{split}\]</div>
+<p>Weil <span class="math notranslate nohighlight">\( e^{tJ}\)</span> ein Polynom in <span class="math notranslate nohighlight">\(t\)</span> ist gilt die Abschätzung <span class="math notranslate nohighlight">\( \|e^{tJ}\|\leq \|e^{\epsilon t}\|\)</span> und <span class="math notranslate nohighlight">\(\|e^{tD}\|\leq e^{t\gamma}\)</span> wegen der Definiton von <span class="math notranslate nohighlight">\(\gamma\)</span>. <br />
+Das verhalten der Norm des Flusses hängt vom Vorzeichen von <span class="math notranslate nohighlight">\(\gamma\)</span> ab. <br />
+Wenn <span class="math notranslate nohighlight">\(\gamma &gt;0\)</span>, existiert <span class="math notranslate nohighlight">\(v\)</span> mit <span class="math notranslate nohighlight">\(e^{tA}\lambda v = \lambda e^{t\gamma}v \to \infty \)</span> für alle <span class="math notranslate nohighlight">\(\lambda&gt;0\)</span>. Also enthällt jede Umgebung von 0 Punkte, die explodieren. <br />
+Falls <span class="math notranslate nohighlight">\(\gamma &lt;0\)</span>, dann gilt <span class="math notranslate nohighlight">\(0\leq \|\Phi_t(x)-0\|\leq Ce^{\gamma t} \|e^{tJ}\| \to 0\)</span>. Also asymptotische Stabilität des Ruhepunktes 0.</p>
+</div>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 2.2 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Wir führen das Beispiel vom vorherigen Abschnitt weiter.</p>
+</div>
+</div><div class="section" id="linearisierung-um-ruhelage">
+<h2><span class="section-number">2.2.1. </span>Linearisierung um Ruhelage<a class="headerlink" href="#linearisierung-um-ruhelage" title="Permalink to this headline">¶</a></h2>
+<p>In diesem Abschnitt wollen wir unsere Erkentnisse aus dem linearen Fall auf den allgemeinen übertragen. Man möchte Stabilitätsfragen auch für DGLn klären, deren Lösungen man nicht direkt hinschreiben kann.</p>
+<p>Wie betrachten nun eine nicht notwendig lineare DGL auf <span class="math notranslate nohighlight">\(U\in \R^n\)</span></p>
+<div class="math notranslate nohighlight">
+\[\dot{x} = F(x), \quad f\in C^1(U,\R^n)\]</div>
+<p>in einer Umgebung einer Gleichgewichtslage <span class="math notranslate nohighlight">\(x_f\)</span>. Von dieser können wir (durch Einführung verschobener Koordinaten <span class="math notranslate nohighlight">\(x-x_f\)</span>) o.B.d.A. annehmen, dass sie sich im Nullpunkt befindet.
+Mit <span class="math notranslate nohighlight">\(A := Df(0)\)</span> bezeichne</p>
+<div class="math notranslate nohighlight">
+\[R\in C^1(U, \R^n),\quad R(x):=f(x) -Ax\]</div>
+<p>die Abweichung des Vektorfeldes von seiner Linearisierung an der Gleichgewichtslage.</p>
+<p>Wir wollen zeigen, dass die Lösung der DGL in führender Ordnung durch die Linearisierung von <span class="math notranslate nohighlight">\(f\)</span> kontrolliert werden, soweit wir uns in der Nähe der Gleichgewichtslage befinden. Dazu benutzen wir das folgende Lemma.</p>
+<div class="proof lemma admonition" id="lemma:intexpglgn">
+<p class="admonition-title"><span class="caption-number">Lemma 2.1 </span></p>
+<div class="lemma-content section" id="proof-content">
+<div class="math notranslate nohighlight">
+\[x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Wir setzen die Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des AWP <span class="math notranslate nohighlight">\(\dot{x} = F(x), x(0) = x_0\)</span> in der Form</p>
+<div class="math notranslate nohighlight">
+\[x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0\]</div>
+<p>an, und suchen eine Bestimmugsgleichung für den Vektor <span class="math notranslate nohighlight">\(c(t)\)</span>(sog. Variation der Konstanten).
+Es gilt</p>
+<div class="math notranslate nohighlight">
+\[\dot{x}(s) =A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s)\]</div>
+<p>und</p>
+<div class="math notranslate nohighlight">
+\[\dot{x}(s) = Ax(s) + e^{As}\dot{c}(s) +R(x(s)),\]</div>
+<p>also</p>
+<div class="math notranslate nohighlight">
+\[e^{As}\dot{c}(s) = R(x(s))\quad \text{oder}\quad \dot{c}(s) = e^{-As}R(x(s)).\]</div>
+<p>Damit ist</p>
+<div class="math notranslate nohighlight">
+\[c(t) = c(0) + \int_0^t \dot{c}(s)\, ds=x_0+ \int_0^t e^{-As}R(x(s)) \, ds\]</div>
+<p>und</p>
+<div class="math notranslate nohighlight">
+\[x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, ds.\]</div>
+</div>
+<p>Scheinbar nützt uns diese Identität nicht viel, denn auch auf der rechten Seite taucht <span class="math notranslate nohighlight">\(x(s)\)</span>, also die unbekannte Lösung des AWP auf.</p>
+<p>Wir können aber die Gronwall-Ungleichung auf diese Integralgleichung anwenden. Diese in der Differentialgleichungstheorie wichtige Abschätzung ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.</p>
+<div class="proof lemma admonition" id="lemma:Gronwall">
+<p class="admonition-title"><span class="caption-number">Lemma 2.2 </span> (Gronwall-Ungleichung)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Für <span class="math notranslate nohighlight">\(f,g\in C^0([t_0,t_1), [0,\infty))\)</span> gelte mit einem geeigneten <span class="math notranslate nohighlight">\(a \geq 0\)</span> die Ungleichung</p>
+<div class="math notranslate nohighlight">
+\[f(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).\]</div>
+<p>Dann ist</p>
+<div class="math notranslate nohighlight">
+\[f(t)\leq a \exp{ \left(\int_{t_0}^t g(s)\, ds\right)}\quad (t\in [t_0,t_1)).\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. - Ist <span class="math notranslate nohighlight">\(a&gt;0\)</span>, dann gilt für die rechte Seite</p>
+<div class="math notranslate nohighlight">
+\[h(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1))\]</div>
+<p>mit der Vorraussetzung <span class="math notranslate nohighlight">\(h(t)\geq 0\)</span> und <span class="math notranslate nohighlight">\(h'(t) = f(t)g(t)\)</span>, also <span class="math notranslate nohighlight">\(\frac{h'(t)}{h(t)}\leq g(t)\)</span>.\
+Integration ergibt <span class="math notranslate nohighlight">\(\ln \left(\frac{h(t)}{a}\right)\leq \int_{t_0}^t g(s)\, ds\)</span>, oder <span class="math notranslate nohighlight">\(h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}\)</span>, also die Behauptung.</p>
+<ul class="simple">
+<li><p>Ist <span class="math notranslate nohighlight">\(a=0\)</span>, dann gelten Voraussetzung und Resultat für alle <span class="math notranslate nohighlight">\(\hat{a} :=\epsilon &gt;0\)</span>, also ist <span class="math notranslate nohighlight">\(f=0\)</span>.</p></li>
+</ul>
+</div>
+<div class="proof remark admonition" id="remark-4">
+<p class="admonition-title"><span class="caption-number">Remark 2.2 </span> (Zur Gronwall-Ungleichung)</p>
+<div class="remark-content section" id="proof-content">
+<p>Man kann sich die Abschätzung leicht merken, wenn man Gleichheit annimmt. Die Integralgleichung</p>
+<div class="math notranslate nohighlight">
+\[f(t) = a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).\]</div>
+<p>entspricht ja dem Anfangswertproblem <span class="math notranslate nohighlight">\(\dot{f} = f\cdot g,\ f(t_0) = a\)</span> mit der Lösung <span class="math notranslate nohighlight">\(f(t) = a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}\)</span>.</p>
+</div>
+</div><div class="proof theorem admonition" id="theorem-5">
+<p class="admonition-title"><span class="caption-number">Theorem 2.2 </span> (Asymptotische stabilität von Ruhelagen)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Eine Gleichgewichtslage <span class="math notranslate nohighlight">\(x_s\in  U\subset \R^n\)</span> der DGL</p>
+<div class="math notranslate nohighlight">
+\[\dot{x} = F(x), \quad f\in C^1(U,\R^n)\]</div>
+<p>ist asymptotisch stabil, wenn für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda\)</span> von <span class="math notranslate nohighlight">\(Df(x_s)\)</span> gilt: <span class="math notranslate nohighlight">\(Re(\lambda)&lt;0\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. - Wieder können wir durch eine Verschiebung <span class="math notranslate nohighlight">\(x_s = 0\)</span> erreichen. Da <span class="math notranslate nohighlight">\(U\subseteq\R^n \)</span> offen ist, gehört eine Kugelumgebung vom positiven Radius <span class="math notranslate nohighlight">\(\vec{r}\)</span> zu <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<ul class="simple">
+<li><p>Für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> von <span class="math notranslate nohighlight">\(A:=Df(x_s)\)</span> gelte die Abschätzung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt; -\Lambda,\ \Lambda&gt;0\)</span> geeignet. Dann gibt es ein <span class="math notranslate nohighlight">\(c&gt;0\)</span>, sodass gilt</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad (t\geq 0).\]</div>
+<p>Das ersieht man aus der Tatsache, dass die Einträge von <span class="math notranslate nohighlight">\(e^{At}\)</span> Summen von <span class="math notranslate nohighlight">\(\lambda_i\)</span>-Quasipolynomen <span class="math notranslate nohighlight">\(e^{\lambda_i t}p_i(t)\)</span> sind und dass wegen <span class="math notranslate nohighlight">\(Re(\lambda_i) + \Lambda &lt;0\)</span></p>
+<div class="math notranslate nohighlight">
+\[\lim_{t\to\infty} \exp((\lambda_i + \Lambda)t)p_i(t) = 0\]</div>
+<p>ist.</p>
+<ul class="simple">
+<li><p>Nun existiert ein Radius <span class="math notranslate nohighlight">\(r\in (0,\vec{r})\)</span> mit</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\|R(x)\|\leq \frac{\Lambda}{2c} \|x\|, \quad \text{falls } \|x\|\leq r,\]</div>
+<p>denn <span class="math notranslate nohighlight">\(\lim_{x\to 0} \frac{\|Re(x)\|}{\|x\|} = \lim_{x\to}\frac{\|f(x)- Df(0)\cdot x\|}{\|x\|} = 0\)</span>.</p>
+<ul class="simple">
+<li><p>Wenn wir nun zeigen können, dass aus</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-eq-residuumabsch">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-residuumabsch" title="Permalink to this equation">¶</a></span>\[\|x(0)\|\leq \epsilon &lt;\frac{r}{c}\]</div>
+<p>folgt, dass für <span class="math notranslate nohighlight">\(t\geq 0\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\|x(t)\|\leq c\epsilon e^{-\Lambda t/2},\]</div>
+<p>dann haben wir den Satz bewiesen, denn für die rechte Seite gilt: <span class="math notranslate nohighlight">\(c\epsilon e^{-\Lambda t/2} \leq c\epsilon&lt;r&lt;\tilde{r}\)</span>, und für <span class="math notranslate nohighlight">\(t\to \infty\)</span> strebt sie gegen Null.</p>
+<p>Nun gilt nach Lemma \ref{lemma:intexpglgn}: <span class="math notranslate nohighlight">\(x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds\)</span> woraus mit \ref{eq:residuumabsch} die Ungleichung</p>
+<div class="math notranslate nohighlight">
+\[\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, ds\]</div>
+<p>folgt, soweit <span class="math notranslate nohighlight">\(\|x\|\leq r\)</span>.</p>
+<p>Setzt man <span class="math notranslate nohighlight">\(F(t):=e^{\Lambda t}\|x(t)\|\)</span>, dann gilt</p>
+<div class="math notranslate nohighlight">
+\[F(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} F(s)\, ds,\]</div>
+<p>also nach dem Gronwall-Lemma \ref{lemma:Gronwall}</p>
+<div class="math notranslate nohighlight">
+\[F(t) \leq c \|x_0\| + \exp{\left( \frac{1}{2} \int_0^t \Lambda \, ds \right) }
+\leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}\]</div>
+<p>oder <span class="math notranslate nohighlight">\(\|x(t)\|\leq re^{-\frac{\Lambda}{2}t}\)</span>. Die Lösungskurve bleibt also für alle positiven Zeiten in der Vollkugel <span class="math notranslate nohighlight">\(\{x\in \R^n|\|x\|\leq r\}\)</span> und konvergiert gegen Null.</p>
+</div>
+<div class="proof remark admonition" id="remark-6">
+<p class="admonition-title"><span class="caption-number">Remark 2.3 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Der Beweis liefert zusätzlich die Aussage, dass alle <span class="math notranslate nohighlight">\(x\in U\)</span> mit <span class="math notranslate nohighlight">\(\|x\|&lt;\frac{r}{c}\)</span> zu gegen die Gleichgewichtslage konvergierenden Orbits gehören, also in deren Einzugsbereich, dem so genannten <em>Bassin</em>, liegen.</p>
+</div>
+</div><p>Während ein hinreichendes Kriterium für das Vorliegen <em>asymptotischer Stabilität</em> die strikte Ungleichung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> der Jacobi-Matrix war, ist die Situation bezüglich der Liapunov-Stabilität komplizierter.</p>
+<div class="proof theorem admonition" id="theorem-7">
+<p class="admonition-title"><span class="caption-number">Theorem 2.3 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Besitzen die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> von <span class="math notranslate nohighlight">\(A\in \R^{n\times n}\)</span> Realteil <span class="math notranslate nohighlight">\(Re(\lambda_i) \leq 0\)</span>, und ist im Fall <span class="math notranslate nohighlight">\(Re(\lambda_i)=0\)</span> die geometrische Vielfachheit gleich der algebraischen, dann ist <span class="math notranslate nohighlight">\(0\in \R^n\)</span> Liapunov-stabile Gleichgewichtslage der DGL <span class="math notranslate nohighlight">\(\dot{x} = Ax\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. - Aus der <strong>Jordan Normalform</strong> <span class="math notranslate nohighlight">\(A=VJV^{-1}\)</span> mit Jordan-Matrix <span class="math notranslate nohighlight">\(J\)</span> der Form</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}J=
+\begin{pmatrix}
+J_{r_1}(\lambda_1)&amp; &amp; &amp; 0\\
+ &amp; J_{r_2}(\lambda_2) &amp; &amp; \\
+ &amp; &amp; \ddots &amp; \\
+ 0 &amp; &amp; J_{r_k}(\lambda_k)
+\end{pmatrix}, \quad J_r(\lambda_r):=\begin{pmatrix}
+\lambda_r &amp; 1 &amp; &amp; 0\\
+ &amp; \ddots &amp; \ddots &amp; \\
+ &amp; &amp; \ddots &amp; 1\\
+ 0 &amp; &amp; &amp; \lambda_r
+ \end{pmatrix} \in \C^{r\times r}\end{split}\]</div>
+<p>folgt mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\exp{(Jt)} = \begin{pmatrix}
+\exp{(J_{r_1}(\lambda_1)t)} &amp; &amp; 0\\
+ &amp; \ddots &amp; \\
+ 0&amp; &amp; \exp{(J_{r_k}(\lambda_k)t)}
+ \end{pmatrix}\end{split}\]</div>
+<p>die Liapunov-Stabilität der Gleichgewichtslage aus</p>
+<div class="math notranslate nohighlight">
+\[\|\exp{(At)}\|= \|V\exp{(Jt)}V^{-1}\|\leq \|V\|\|V^{-1}\|\|\exp{(Jt)}\|,\]</div>
+<p>wenn für alle Jordanblöcke <span class="math notranslate nohighlight">\(J_{r_i}(\lambda_i)\)</span> von <span class="math notranslate nohighlight">\(J\)</span> der Ursprung <span class="math notranslate nohighlight">\(0\in \C^{r_i}\)</span> Liapunov-stabile Gleichgewichtslage der DGL <span class="math notranslate nohighlight">\(\dot{y} = J_{r_i}(\lambda_i)y\)</span> ist.</p>
+<ul class="simple">
+<li><p>Aus <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> folgt sogar asymptotische Stabilität.</p></li>
+<li><p>Da für einen komplexen Eigenwert <span class="math notranslate nohighlight">\(\lambda\)</span> von <span class="math notranslate nohighlight">\(A\)</span> mit <span class="math notranslate nohighlight">\(Re(\lambda)=0\)</span> die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen ist, sind die ihm zugeordneten Jordanblöcke alle eindimensional: <span class="math notranslate nohighlight">\(J_{r_i}(\lambda_i) = \lambda\)</span>. Damit ist in diesem Fall</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\|exp{(J_{r_i}(\lambda_i)t)}\|= |\cos{(Im(\lambda)t)} + i \sin{(Im(\lambda)t)}|=1.\]</div>
+</div>
+<div class="proof remark admonition" id="remark-8">
+<p class="admonition-title"><span class="caption-number">Remark 2.4 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Dass man die Gleichheit von geoemtrischer und algebraischer Vielfachheit fordern muss, sieht man schon am Beispiel von</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A = \begin{pmatrix} 0&amp;1\\0&amp;0\end{pmatrix} \quad \text{mit} \quad e^{At} = \begin{pmatrix} 0&amp;t\\0&amp;0\end{pmatrix}.\end{split}\]</div>
+</div>
+</div><p>Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf dern nicht linearen Fall folgern.</p>
+<div class="proof example admonition" id="example-9">
+<p class="admonition-title"><span class="caption-number">Example 2.3 </span></p>
+<div class="example-content section" id="proof-content">
+<p>DGL <span class="math notranslate nohighlight">\(\dot{x} = \alpha x+ \beta x^3\)</span> mit Parametern <span class="math notranslate nohighlight">\(\alpha, \beta\in \R\)</span>. \
+Die Null ist Gleichgewichtslage der DGL und ihre Linearisierung <span class="math notranslate nohighlight">\(\dot{y} = \alpha y\)</span>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p></p></th>
+<th class="text-align:left head"><p>linearisierte Gleichung</p></th>
+<th class="text-align:left head"><p>nicht lineare Gleichung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(\alpha&lt;0\)</span></p></td>
+<td class="text-align:left"><p>asymptotisch stabil</p></td>
+<td class="text-align:left"><p>asymptotisch stabil</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(\alpha&gt;0\)</span></p></td>
+<td class="text-align:left"><p>instabil</p></td>
+<td class="text-align:left"><p>instabil</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(\alpha=0\)</span></p></td>
+<td class="text-align:left"><p>Liapunov-stabil</p></td>
+<td class="text-align:left"><p><table><tbody><tr><td>asymptotisch stabil für</td><td>β &lt; 0</td></tr><tr><td>stabil für</td><td>β =0</td></tr><tr><td> instabil für</td><td>β &gt; 0</td></tr></tbody></table></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="proof remark admonition" id="remark-10">
+<p class="admonition-title"><span class="caption-number">Remark 2.5 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Anschaulich gesprochen kann asymptotische Stabilität nur vorliegen, wenn der Fluss in der Nähe der Gleichgewichtslage das Phasenraumvolumen verkleinert. Daher kann man in physikalischen Situationen ohne Reibungseffekte höchstens Liapunov-Stabilität erwarten. das hat z.B. zur Folge, dass die Frage der <strong>Stabilität des Sonnensystems</strong> sehr subtil ist.</p>
+</div>
+</div></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ode_stability"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="stabilitaetsbegriffe.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">2.1. </span>Stabilitätsbegriffe</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../references.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">3. </span>Bibliography</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By J. Laubmann, T. Roith, D. Tenbrinck<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

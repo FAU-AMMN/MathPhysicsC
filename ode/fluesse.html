@@ -131,9 +131,31 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode_stability/stabilitaetsanalyse.html">
+   2. Stabilitätsanalyse für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode_stability/stabilitaetsbegriffe.html">
+     2.1. Stabilitätsbegriffe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode_stability/ruhelagen.html">
+     2.2. Stabilität von Ruhelagen
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../references.html">
-   2. Bibliography
+   3. Bibliography
   </a>
  </li>
 </ul>
@@ -322,7 +344,7 @@ Dieser ist gegeben durch</p>
 Es gilt</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\dot{\Phi}(t, (x,y)) &amp;= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) \\
-&amp;= (-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) = F(\Phi(t,(x,y)).\end{split}\]</div>
+&amp;= (-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) = F(\Phi(t,(x,y)), \quad \forall t \in I, (x,y) \in U.\end{split}\]</div>
 <p>Offensichtlich ist der Fluss <span class="math notranslate nohighlight">\(\Phi \colon I \times \R^2 \rightarrow \R^2\)</span> Lösung des gewöhnlichen Differentialgleichungssystems.</p>
 </div>
 </div></div>
@@ -417,11 +439,11 @@ Da ein Phasenporträt den gesamten Phasenraum zerlegt werden typischerweise nur 
 Aus dem gleichen Grund beschränkt man sich in der Regel außerdem auf ein- und zweidimensionale Phasenräume.</p>
 <p>Ein klassisches Beispiel aus der Mechanik ist besonders gut geeignet, um die eben eingeführten Konzepte näher zu diskutieren - die gedämpfte Schwingungsgleichung.</p>
 <div class="proof example admonition" id="ex:oscillations">
-<p class="admonition-title"><span class="caption-number">Example 1.7 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 1.7 </span> (Gedämpfte Schwingungsgleichung)</p>
 <div class="example-content section" id="proof-content">
 <p>Die <strong>gedämpfte Schwingungsgleichung</strong> ist gegeben durch</p>
-<div class="math notranslate nohighlight">
-\[m\ddot{x}(t) + r\dot{x}(t) + kx(t)=0\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-schwingungsgleichung">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-schwingungsgleichung" title="Permalink to this equation">¶</a></span>\[m\ddot{x}(t) + r\dot{x}(t) + kx(t)=0\]</div>
 <p>und beschreibt beispielsweise die horizontale (eindimensionale) Auslenkung eines Federpendels, das durch Reibungsverluste Schwingungsenergie über die Zeit verliert.</p>
 <p>Hierbei bezeichnet</p>
 <ul class="simple">
@@ -432,18 +454,18 @@ Aus dem gleichen Grund beschränkt man sich in der Regel außerdem auf ein- und 
 </ul>
 <p>Durch Einführung der Variablen <span class="math notranslate nohighlight">\(p(t):= m\dot{x}(t)\)</span> als Impuls erhalten wir das folgende gewöhnliche Differentialgleichungssystem</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\dot{x}(t) &amp;= \frac{1}{m}~p(t) \\
-\dot{p}(t) &amp;= -k~x(t) - \frac{r}{m}~p(t).\end{split}\]</div>
+\[\begin{split}\dot{p}(t) &amp;= -kx(t) - \frac{r}{m}p(t), \\
+\dot{x}(t) &amp;= \frac{1}{m}p(t).\end{split}\]</div>
 <p>Dies lässt sich in kompakter Form schreiben als:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{pmatrix} \dot{x} \\ \dot{p} \end{pmatrix}(t) = \begin{pmatrix}0 &amp; \frac{1}{m} \\ -k &amp; -\frac{r}{m}\end{pmatrix} \begin{pmatrix}x \\ p\end{pmatrix}`\end{split}\]</div>
+\[\begin{split}\begin{pmatrix} \dot{p} \\ \dot{x} \end{pmatrix}(t) = \begin{pmatrix} -\frac{r}{m} &amp; -k \\ \frac{1}{m} &amp; 0\end{pmatrix} \begin{pmatrix}p \\ x\end{pmatrix}`\end{split}\]</div>
 <p>Betrachten wir speziell den ungedämpften Fall für <span class="math notranslate nohighlight">\(r=0\)</span>, d.h. ohne Reibungsverluste, so geht die Gleichung in die <strong>Bewegungsgleichung für einen harmonischen Oszillator</strong> über.
-In diesem Fall erhalten wir zum Anfangswert <span class="math notranslate nohighlight">\((x,p) \in U \subset \R^2 \)</span> die Lösung</p>
+In diesem Fall erhalten wir zum Anfangswert <span class="math notranslate nohighlight">\((p,x) \in U \subset \R^2 \)</span> die Lösung</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\Phi(t, (x,p)) = 
+\[\begin{split}\Phi(t, (p,x)) = 
 \begin{pmatrix}
-\frac{p}{\omega m}\sin(\omega t) + x~\cos(\omega t)\\
-p \cos(\omega t) - m x \sin(\omega t)
+p \cos(\omega t) - m x \sin(\omega t) \\
+\frac{p}{\omega m}\sin(\omega t) + x\cos(\omega t)
 \end{pmatrix},\end{split}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(\omega=\sqrt{\frac{k}{m}}\)</span> die Eigenfrequenz des Systems ist.</p>
 </div>

@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Bibliography" href="../references.html" />
+    <link rel="next" title="2. Stabilitätsanalyse für dynamische Systeme" href="../ode_stability/stabilitaetsanalyse.html" />
     <link rel="prev" title="1.3. Phasenflüsse und Phasenportraits" href="fluesse.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -131,9 +131,31 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode_stability/stabilitaetsanalyse.html">
+   2. Stabilitätsanalyse für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode_stability/stabilitaetsbegriffe.html">
+     2.1. Stabilitätsbegriffe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode_stability/ruhelagen.html">
+     2.2. Stabilität von Ruhelagen
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../references.html">
-   2. Bibliography
+   3. Bibliography
   </a>
  </li>
 </ul>
@@ -225,7 +247,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="hamiltonsche-differentialgleichungen">
 <h1><span class="section-number">1.4. </span>Hamiltonsche Differentialgleichungen<a class="headerlink" href="#hamiltonsche-differentialgleichungen" title="Permalink to this headline">¶</a></h1>
-<p>Ein wichtiges Prinzip für viele physikalischen Anwendungen und dynamische System sind <em>Erhaltungssätze</em> und die dazugehörigen <em>Erhaltungsgrößen</em>.
+<p>Ein wichtiges Prinzip für viele physikalischen Anwendungen und dynamische Systeme sind <em>Erhaltungssätze</em> und die dazugehörigen <em>Erhaltungsgrößen</em>.
 Aus der klassichen Mechanik kennen wir beispielsweise die <em>Energieerhaltung</em> oder die <em>Impulserhaltung</em>.
 In <a class="reference internal" href="fluesse.html#s-fluesse"><span class="std std-ref">Phasenflüsse und Phasenportraits</span></a> haben wir Bewegungslgleichungen als System von gewöhnlichen Differentialgleichungen hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der Formulierung des Differentialgleichungssystems abzulesen.</p>
 <p>Hamiltonsche Differentialgleichungen haben in der Physik eine besondere Rolle, insbesondere in der klassischen Mechanik bei Abwesenheit von Reibung.
@@ -239,7 +261,7 @@ Dies macht sie für uns besonders interessant.</p>
 <p>Sei <span class="math notranslate nohighlight">\(n \in N\)</span> die <strong>Anzahl der Freiheitsgrade</strong> des betrachteten dynamischen Systems und sei <span class="math notranslate nohighlight">\(U\subset \R^n \times \R^n\)</span> der zugehörige Phasenraum.
 Wir nennen ein Vektorfeld <span class="math notranslate nohighlight">\(X \colon U \rightarrow \R^{2n}\)</span> mit <span class="math notranslate nohighlight">\(X \in C^1(P;\R^{2n})\)</span> <strong>Hamiltonsch</strong>, falls eine reellwertige Funktion <span class="math notranslate nohighlight">\(H \colon U \rightarrow \R\)</span> sowie eine Matrix <span class="math notranslate nohighlight">\(J \, \coloneqq \, \begin{pmatrix}0 &amp; -\mathbf{1}\\ \mathbf{1} &amp; 0 \end{pmatrix} \in \R^{2n \times 2n}\)</span> existiert, so dass sich das Vektorfeld darstellen lässt als</p>
 <div class="math notranslate nohighlight" id="equation-eq-hamilton-gleichung">
-<span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-hamilton-gleichung" title="Permalink to this equation">¶</a></span>\[X(p,q) = J \, \nabla H (p,q) \quad \forall (p,q) \in U.\]</div>
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-hamilton-gleichung" title="Permalink to this equation">¶</a></span>\[X(p,q) = J \, \nabla H (p,q) \quad \forall (p,q) \in U.\]</div>
 <p>In diesem Fall nennen wir die Funktion <span class="math notranslate nohighlight">\(H\)</span> eine <strong>Hamilton-Funktion</strong> des Vektorfelds <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </div>
 </div><p>Folgende Bemerkungen zur Hamilton-Funktion wollen wir festhalten.</p>
@@ -257,13 +279,13 @@ In dieser Vorlesung verzichten wir auf diesen Zugang zur Hamilton-Funktion und v
 <p class="admonition-title"><span class="caption-number">Definition 1.9 </span> (Hamiltonsche Differentialgleichung)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(x(t) = (p(t),q(t)) \in U\)</span> eine Bahnkurve des Phasenraums <span class="math notranslate nohighlight">\(U \subset \R^{2n}\)</span>.
-Wird das hamiltonsche Vektorfeld auf der linken Seite von <a class="reference internal" href="#equation-eq-hamilton-gleichung">(1.5)</a> als</p>
+Wird das hamiltonsche Vektorfeld auf der linken Seite von <a class="reference internal" href="#equation-eq-hamilton-gleichung">(1.6)</a> als</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}X = \dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix} (t)\end{split}\]</div>
 <p>gewählt, so lässt sich die Gleichung für <span class="math notranslate nohighlight">\(J \, \coloneqq \, \begin{pmatrix}0 &amp; -\mathbf{1}\\ \mathbf{1} &amp; 0 \end{pmatrix} \in \R^{2n \times 2n}\)</span> schreiben als</p>
 <div class="math notranslate nohighlight" id="equation-eq-hamilton-dgl">
-<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-hamilton-dgl" title="Permalink to this equation">¶</a></span>\[\dot{x}(t) = J \nabla H(x(t)).\]</div>
-<p>In dieser Form wird die entstehende Differentialgleichung in <a class="reference internal" href="#equation-eq-hamilton-dgl">(1.6)</a> <strong>Hamiltonsche Differentialgleichung</strong> genannt.</p>
+<span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-hamilton-dgl" title="Permalink to this equation">¶</a></span>\[\dot{x}(t) = J \nabla H(x(t)).\]</div>
+<p>In dieser Form wird die entstehende Differentialgleichung in <a class="reference internal" href="#equation-eq-hamilton-dgl">(1.7)</a> <strong>Hamiltonsche Differentialgleichung</strong> genannt.</p>
 <p>Äquivalent lässt sich dieses System von gewöhnlichen Differentialgleichungen auch explizit für die <span class="math notranslate nohighlight">\(2n\)</span> unbekannten Orts- und Impulsfunktionen <span class="math notranslate nohighlight">\(q_i, p_i\)</span> für <span class="math notranslate nohighlight">\(1 \leq i \leq n\)</span> schreiben als</p>
 <div class="math notranslate nohighlight">
 \[\dot{q_i}(t) = \frac{\partial H}{\partial p_i}(t), \quad \dot{p_i}(t) = -\frac{\partial H}{\partial q_i}(t), \quad i=1,\ldots,n.\]</div>
@@ -277,33 +299,33 @@ Wir wollen uns die Rolle der Hamilton-Funktion <span class="math notranslate noh
 <p>Im folgenden Beispiel wollen wir die Bewegung eines Teilchens mit Masse <span class="math notranslate nohighlight">\(m&gt;0\)</span> in einem Kraftfeld <span class="math notranslate nohighlight">\(F \colon \R^3 \rightarrow \R^3\)</span>  untersuchen, welches nur vom Ort <span class="math notranslate nohighlight">\(q \in \R^3\)</span> abhängt.
 Nach dem 2. Newtonschen Gesetz erhalten wir die Bewegungsgleichung</p>
 <div class="math notranslate nohighlight" id="equation-eq-newton">
-<span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-newton" title="Permalink to this equation">¶</a></span>\[m\ddot{q}(t) = F(q(t)).\]</div>
-<p>Die gewöhnliche Differentialgleichung 2. Ordnung in <a class="reference internal" href="#equation-eq-newton">(1.7)</a> lässt sich durch die Definition des Impulses des Teilchens <span class="math notranslate nohighlight">\(p(t) \, \coloneqq \, m \dot{q(t)}\)</span> in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:</p>
+<span class="eqno">(1.8)<a class="headerlink" href="#equation-eq-newton" title="Permalink to this equation">¶</a></span>\[m\ddot{q}(t) = F(q(t)).\]</div>
+<p>Die gewöhnliche Differentialgleichung 2. Ordnung in <a class="reference internal" href="#equation-eq-newton">(1.8)</a> lässt sich durch die Definition des Impulses des Teilchens <span class="math notranslate nohighlight">\(p(t) \, \coloneqq \, m \dot{q(t)}\)</span> in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:</p>
 <div class="math notranslate nohighlight">
 \[\dot{p}(t) = F(q(t)), \quad \dot{q}(t) = \frac{1}{m}p(t).\]</div>
 <p>Wir nehmen zur Vereinfachung nun an, dass das gegebene Kraftfeld <span class="math notranslate nohighlight">\(F\)</span> <em>konservativ</em> sei, d.h., wir können annehmen, dass <span class="math notranslate nohighlight">\(F = - \nabla V\)</span> gilt für ein Potential <span class="math notranslate nohighlight">\(V \colon \R^3 \rightarrow \R\)</span> (z.B. die Erdanziehungskraft).
 Dann können wir das physikalische Modell als kontinuierliches dynamisches System interpretieren mit dem erweiterten Phasenraum <span class="math notranslate nohighlight">\(I \times U \subset \R^+_0 \times \R^6\)</span>.
 Betrachten wir nun einen Punkt <span class="math notranslate nohighlight">\(x = \begin{pmatrix} p \\ q\end{pmatrix} \in U\)</span> im Phasenraum, so lässt sich das autonome gewöhnliche Differentialgleichungssystem kompakt schreiben als</p>
 <div class="math notranslate nohighlight" id="equation-eq-newton-dgl">
-<span class="eqno">(1.8)<a class="headerlink" href="#equation-eq-newton-dgl" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t)\end{split}\]</div>
+<span class="eqno">(1.9)<a class="headerlink" href="#equation-eq-newton-dgl" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t)\end{split}\]</div>
 <p>Wählen wir nun die <strong>Hamilton-Funktion</strong> aus <a class="reference internal" href="#def:hamiltonsch">Definition 1.8</a></p>
 <div class="math notranslate nohighlight">
 \[H(p,q) \, \coloneqq \, \frac{||p||^2}{2m} + V(q),\]</div>
 <p>so erkennen wir, dass diese sich aus <em>kinetischer</em> und <em>potentieller Energie</em> zusammensetzt.
-Durch diese Hamilton-Funktion <span class="math notranslate nohighlight">\(H\)</span> lässt sich <a class="reference internal" href="#equation-eq-newton">(1.7)</a> als <strong>Hamiltonsche Differentialgleichung</strong> schreiben mit</p>
+Durch diese Hamilton-Funktion <span class="math notranslate nohighlight">\(H\)</span> lässt sich <a class="reference internal" href="#equation-eq-newton">(1.8)</a> als <strong>Hamiltonsche Differentialgleichung</strong> schreiben mit</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}X = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix} = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix} = \begin{pmatrix}0 &amp; -\mathbf{1}\\ \mathbf{1} &amp; 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix} = J \nabla H(p,q).\end{split}\]</div>
+\[\begin{split}\dot{x}(t) = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t) = \begin{pmatrix}0 &amp; -\mathbf{1}\\ \mathbf{1} &amp; 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix}(t) = J \nabla H(p(t),q(t)).\end{split}\]</div>
 </div>
 </div><p>Ergänzend wollen wir noch folgendes Beispiel einer Hamilton-Funktion nennen.</p>
 <div class="proof example admonition" id="example-4">
 <p class="admonition-title"><span class="caption-number">Example 1.9 </span></p>
 <div class="example-content section" id="proof-content">
-<p>Im Fall des eindimensionalen harmonischen Oszillators aus <span class="xref myst"></span> lässt sich ebenfalls eine Hamilton-Funktion des dynamischen Systems angeben.
+<p>Im Fall des eindimensionalen harmonischen Oszillators mit Masse <span class="math notranslate nohighlight">\(m &gt; 0\)</span> aus <a class="reference internal" href="fluesse.html#ex:oscillations">Example 1.7</a> lässt sich ebenfalls eine Hamilton-Funktion des dynamischen Systems angeben.
 Sei <span class="math notranslate nohighlight">\((x,p) \in U\)</span> als Punkt des Phasenraums <span class="math notranslate nohighlight">\(U \subset \R^2\)</span> der Ort und Impuls eines Pendels.
 Dann lässt sich die zugehörige Hamilton-Funktion <span class="math notranslate nohighlight">\(H \colon U \rightarrow \R\)</span> angeben als:</p>
 <div class="math notranslate nohighlight">
 \[H(x,p) = \frac{p^2}{2m} + \frac{m}{2} \omega^2 x^2.\]</div>
-<p>Hierbei bezeichnet <span class="math notranslate nohighlight">\(\omega = \sqrt{\frac{k}{m}}\)</span> die Eigenfrequenz des Systems.</p>
+<p>Hierbei bezeichnet <span class="math notranslate nohighlight">\(\omega = \sqrt{\frac{k}{m}}\)</span> die Eigenfrequenz des Systems und <span class="math notranslate nohighlight">\(k &gt; 0\)</span> die Federkonstante.</p>
 </div>
 </div><p>Bisher haben wir noch nicht den Grund diskutiert, warum die Hamilton-Funktion eine besondere Rolle im Kontext dynamischer Systeme spielt.
 Das wollen wir nun im folgenden Satz nachholen.</p>
@@ -327,8 +349,8 @@ Diese Energieschalen bilden Untermannigfaltigkeiten des Phasenraums <span class=
 <p>Für den einfachen Fall eines Freiheitsgrades, d.h., für <span class="math notranslate nohighlight">\(n = 1\)</span>, lassen sich für eine gegebene Hamilton-Funktion <span class="math notranslate nohighlight">\(H\)</span> die Orbits des dynamischen Systems bestimmen.
 Für einen Punkt <span class="math notranslate nohighlight">\(x \in U\)</span> im Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^2\)</span> unterscheiden wir zwei Fälle:</p>
 <ol class="simple">
-<li><p>Ist <span class="math notranslate nohighlight">\(\nabla H(x) = 0\)</span>, so ist der Orbit wegem <a class="reference internal" href="#equation-eq-hamilton-dgl">(1.6)</a> von der Form <span class="math notranslate nohighlight">\(O(x) = {x}\)</span>.</p></li>
-<li><p>Ist <span class="math notranslate nohighlight">\(\nabla H(x) \neq 0\)</span>, so ist der Orbit <span class="math notranslate nohighlight">\(O(x)\)</span> gegeben durch die Menge</p></li>
+<li><p>Ist <span class="math notranslate nohighlight">\(\nabla H(x) = 0\)</span>, so ist der Orbit wegem <a class="reference internal" href="#equation-eq-hamilton-dgl">(1.7)</a> von der Form <span class="math notranslate nohighlight">\(O(x) = {x}\)</span>.</p></li>
+<li><p>Ist <span class="math notranslate nohighlight">\(\nabla H(x) \neq 0\)</span>, so ist der Orbit <span class="math notranslate nohighlight">\(O(x)\)</span> gegeben durch die zusammenhängende Menge</p></li>
 </ol>
 <div class="math notranslate nohighlight">
 \[O(x) = \{y \in U | H(y) = H(x), \nabla H(y) \neq 0\}\]</div>
@@ -380,10 +402,10 @@ Die Matrix <span class="math notranslate nohighlight">\(J\)</span> entspricht eb
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../references.html" title="next page">
+        <a class="right-next" href="../ode_stability/stabilitaetsanalyse.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">2. </span>Bibliography</p>
+                <p class="prevnext-title"><span class="section-number">2. </span>Stabilitätsanalyse für dynamische Systeme</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
