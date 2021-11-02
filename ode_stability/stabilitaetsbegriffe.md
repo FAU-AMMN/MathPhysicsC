@@ -9,7 +9,7 @@ Für autonome Differentialgleichungssysteme mit
 \dot{x}(t) = F(x)
 ```
 
-ist $x \in U$ auch eine Ruhelage, falls $F(x) = 0$ gilt. 
+ist $x \in U$ auch eine Ruhelage, falls $F(x) = 0$ gilt, d.h., falls $x$ eine Nullstelle von $F$ ist. 
 Das ist einfach zu verstehen, da die Zeitableitung auf der linken Seite für eine Ruhelage Null ist und somit die Funktion $F$, die nur vom Ort abhängt, sich nicht ändern kann.
 
 Anschaulich versteht man unter der Stabilitätsanalyse von Ruhelagen die mathematische Untersuchung, ob benachbarte Lösungen von einer Ruhelage wegstreben oder nicht. 
@@ -61,10 +61,10 @@ Man sieht leicht ein, dass eine **Ruhelage** sich bei $(p_r,x_r) = (0,0)^T \in U
 Die gefundene Ruhelage ist **Lyapunov-stabil**, denn wie wir im Phasenporträt in []() gesehen haben, ist jeder Orbit um die Ruhelage $(0,0)$ periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.
 
 Mathematisch lässt sich diese Eigenschaft wie folgt zeigen.
-Für ein beliebiges $\epsilon > 0$ können wir immer einen periodischen Orbit $O(p,y)$ für ein $(p,y) \in U$ um die Ruhelage $(p_r,x_r) = (0,0)^T \in U$ finden, so dass dessen maximaler Abstand zur Ruhelage kleiner als $\epsilon$ ist, d.h.
+Für ein beliebiges $\epsilon > 0$ sei $(p,y) \in U$ ein Punkt im Phasenraum mit periodischen Orbit $O(p,y)$ um die Ruhelage $(p_r,x_r) = (0,0)^T \in U$, so dass dessen maximaler Abstand zur Ruhelage kleiner als $\epsilon$ ist, d.h.
 
 ```{math}
-\sup_{t \geq 0}||\Phi_t(p_r,x_r) - \Phi_t(p,y)|| < \epsilon
+\sup_{t \geq 0} ||\Phi_t(p_r,x_r) - \Phi_t(p,y)|| < \epsilon
 ```
 
 Auf Grund der ersten Eigenschaft des Phasenflusses $\Phi_0(p,y) = (p,y)$ gilt dann aber schon
@@ -77,7 +77,7 @@ Wählen wir nun $\delta \coloneqq \epsilon$, so haben wir gezeigt, dass die Ruhe
 Sie ist jedoch auf Grund der Periodizität der Orbits um die Ruhelage **nicht asymptotisch stabil**, da für beliebige Punkte $(p,y) \in U$ mit $||(p_r,x_r) - (p,y)|| < \delta$ für ein $\delta > 0$ gilt
 
 ```{math}
-\lim_{t\to\infty}\|\Phi_t(x)-\Phi_t(y)\| \neq 0.
+\lim_{t\to\infty}\|\Phi_t(p_r, x_r)-\Phi_t(p,y)\| \neq 0.
 ```
 ````
 
@@ -85,7 +85,7 @@ Im allgemeinen Fall der gedämpften Schwingungsgleichung in {prf:ref}`ex:oscilla
 
 ````{prf:remark} Stabilität bei der gedämpften Schwingungsgleichung
 Für den Fall der gedämpften Schwingungsgleichung in [](eq:schwingungsgleichung) lässt sich folgendes Stabilitätsverhalten der Ruhelage im Ursprung in Abhängigkeit der Reibungskonstanten $r \in \R$ beobachten:
-1. Die Ruhelage ist **asymptotisch stabil** für den Fall mit positiver Reibung $(r>0)$.
+1. Die Ruhelage ist **asymptotisch stabil** für den Fall mit positiver Reibung $r>0$.
 2. Die Ruhelage ist **Lyapunov-stabil** für den reibungsfreien Fall $r=0$.
 3. Die Ruhelage ist **instabil** für den Fall einer negativen Reibung $r < 0$, d.h. für einen externen Antrieb.
 ````
