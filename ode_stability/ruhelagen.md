@@ -1,17 +1,33 @@
 ## Stabilität von Ruhelagen
 
-Zuerst wollen wir uns den einfachen Fall von Ruhelagen für allgemeine *lineare* Differentialgleichungssysteme anschauen. Diese art von DGL haben wir schon genauer kennen gelernt.
+Zunächst wollen wir uns den einfachen Fall von Ruhelagen für allgemeine **lineare** Differentialgleichungssysteme anschauen. 
+Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in {cite:p}`tenbrinck_2021` kennen gelernt.
+
+Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
 
 ````{prf:theorem}
 
-Sei $A\in \C^{n\times n}$ eine Matrix mit Eigenwerten $ z_1,\dots, z_k\in \C $.
-Der Fluss $\Phi_t$ zur linearen DGL  $\dot{x}(t) = Ax(t)$ hat eine Ruhelage $0\in \C^n$ (welche eindeutig ist, wenn alle $z_k\neq0$).
+Sei $A\in \C^{n\times n}$ eine Matrix mit den Eigenwerten $z_1,\dots, z_n\in \C$.
+Dann beschreibt der zugehörige Phasenfluss $\Phi$ zum homogenen linearen Differentialgleichungssystem
 
-Setze $\gamma = \max_{k=1,\dots,K} \mathcal{R}e(z_k)$
+```{math}
+\dot{x}(t) = Ax(t)
+```
 
-i) Falls $\gamma <0$, ist die Ruhelage 0 asymptotisch stabil
+eine Ruhelage in $\vec{0} \in \C^n$.
+Diese ist sogar eindeutig, falls $z_i\neq0, i=1,\ldots,n$ gilt.
 
-i) Falls $\gamma >0$, ist die Ruhelage 0 instabil.
+Für 
+
+```{math}
+\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{R}e(z_i)
+```
+
+kann die Stabilität der Ruhelage wie folgt charakterisiert werden:
+
+1. Falls $\gamma <0$ gilt, ist die Ruhelage $\vec{0}$ *asymptotisch stabil*
+
+2. Falls $\gamma >0$ gilt, ist die Ruhelage $\vec{0}$ *instabil*.
 
 ````
 
@@ -25,7 +41,18 @@ Zu beliebiger Anfangsbedingung $x$ und $\epsilon > 0$ erhalten wir die Abschätz
 &\leq C_1\|e^{td}\|C_2 e^{\epsilon t}C_3C_4 = Ce^{\gamma t} e^{\epsilon t}.
 \end{align*}
 ```
-Weil $ e^{tJ}$ ein Polynom in $t$ ist gilt die Abschätzung $ \|e^{tJ}\|\leq \|e^{\epsilon t}\|$ und $\|e^{tD}\|\leq e^{t\gamma}$ wegen der Definiton von $\gamma$. <br />
+Weil $ e^{tJ}$ ein Polynom in $t$ ist gilt die Abschätzung 
+
+```{math}
+\|e^{tJ}\|\leq \|e^{\epsilon t}\|.
+```
+
+Außerdem können wir wegen $\gamma = \max_{i=1,\dots,n} \mathcal{R}e(z_i)$ folgende Abschätzung treffen
+
+```{math}
+\|e^{tD}\| \leq e^{t\gamma}.
+```
+
 Das verhalten der Norm des Flusses hängt vom Vorzeichen von $\gamma$ ab. <br />
 Wenn $\gamma >0$, existiert $v$ mit $e^{tA}\lambda v = \lambda e^{t\gamma}v \to \infty $ für alle $\lambda>0$. Also enthällt jede Umgebung von 0 Punkte, die explodieren. <br />
 Falls $\gamma <0$, dann gilt $0\leq \|\Phi_t(x)-0\|\leq Ce^{\gamma t} \|e^{tJ}\| \to 0$. Also asymptotische Stabilität des Ruhepunktes 0.
@@ -125,6 +152,9 @@ f(t) = a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).
 entspricht ja dem Anfangswertproblem $\dot{f} = f\cdot g,\ f(t_0) = a$ mit der Lösung $f(t) = a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}$.
 
 ````
+
+### Asymptotische Stabilität von Ruhelagen
+
 ````{prf:theorem} Asymptotische stabilität von Ruhelagen
 Eine Gleichgewichtslage $x_s\in  U\subset \R^n$ der DGL
 ```{math}
@@ -186,6 +216,9 @@ oder $\|x(t)\|\leq re^{-\frac{\Lambda}{2}t}$. Die Lösungskurve bleibt also für
 ````{prf:remark}
 Der Beweis liefert zusätzlich die Aussage, dass alle $x\in U$ mit $\|x\|<\frac{r}{c}$ zu gegen die Gleichgewichtslage konvergierenden Orbits gehören, also in deren Einzugsbereich, dem so genannten *Bassin*, liegen.
 ````
+
+### Lyapunov-Stabilität von Ruhelagen
+
 Während ein hinreichendes Kriterium für das Vorliegen *asymptotischer Stabilität* die strikte Ungleichung $Re(\lambda_i)<0$ für die Eigenwerte $\lambda_i$ der Jacobi-Matrix war, ist die Situation bezüglich der Liapunov-Stabilität komplizierter.
 
 ````{prf:theorem}
