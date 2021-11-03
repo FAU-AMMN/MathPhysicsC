@@ -293,7 +293,7 @@
 <p>Wir beginnen zunächst damit eine Klasse von Funktionen einzuführen, welche die Beschreibung zeitabhängiger Systeme vereinfacht.
 Die folgende Definition ist zunächst sehr allgemein für beliebige dynamische Systreme gehalten und wird später im Kontext von konkreten Anwendungsbeispielen spezieller diskutiert.</p>
 <div class="proof definition admonition" id="def:Fluss">
-<p class="admonition-title"><span class="caption-number">Definition 1.5 </span> (Fluss und dynamisches System)</p>
+<p class="admonition-title"><span class="caption-number">Definition 1.6 </span> (Fluss und dynamisches System)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(I=\R^+_0\)</span>, dann heißt eine Abbildung <span class="math notranslate nohighlight">\(\Phi:I\times U\rightarrow U\)</span> <strong>(Phasen-)Fluss</strong>, falls gilt,</p>
 <ol class="simple">
@@ -351,11 +351,11 @@ Es gilt</p>
 <div class="section" id="lokale-flusse">
 <h2><span class="section-number">1.3.2. </span>Lokale Flüsse<a class="headerlink" href="#lokale-flusse" title="Permalink to this headline">¶</a></h2>
 <p>Nach dem Satz von Picard-Lindelöf <a class="reference internal" href="repetition.html#satz:picardlindeloef_lokal">Theorem 1.1</a> wissen wir, dass für jeden Anfangswert <span class="math notranslate nohighlight">\(x_0\in U\)</span> ein <span class="math notranslate nohighlight">\(\epsilon(x_0)&gt;0\)</span> existiert, so dass es lokal eine eindeutige Lösung <span class="math notranslate nohighlight">\(\phi: [-\epsilon(x_0), \epsilon(x_0)]\)</span> gibt, falls die rechte Seite <span class="math notranslate nohighlight">\(F\)</span> lokal Lipschitzstetig bezüglich der <span class="math notranslate nohighlight">\(y\)</span>-Variablen ist.
-In diesem Fall müssen wir das Zeitintervall <span class="math notranslate nohighlight">\(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\)</span> wählen und können also nicht wie in <a class="reference internal" href="#def:Fluss">Definition 1.5</a> auf ganz <span class="math notranslate nohighlight">\(I = \R^+_0\)</span> als Zeitintervall arbeiten.
+In diesem Fall müssen wir das Zeitintervall <span class="math notranslate nohighlight">\(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\)</span> wählen und können also nicht wie in <a class="reference internal" href="#def:Fluss">Definition 1.6</a> auf ganz <span class="math notranslate nohighlight">\(I = \R^+_0\)</span> als Zeitintervall arbeiten.
 Stattdessen können wir nur Tupel der Form <span class="math notranslate nohighlight">\((t, x_0) \in I(x_0) \times \{x_0\}\)</span> betrachten, wobei <span class="math notranslate nohighlight">\(x_0\in U\)</span> fixiert ist und <span class="math notranslate nohighlight">\(t\)</span> aus dem lokalen Existenzintervall <span class="math notranslate nohighlight">\(I(x_0)\)</span> gewählt werden kann.</p>
 <p>Diese Einschränkung führt uns auf den Begriff des <strong>lokalen Phasenflusses</strong>.</p>
 <div class="proof definition admonition" id="def:LokFluss">
-<p class="admonition-title"><span class="caption-number">Definition 1.6 </span> (Lokaler Fluss)</p>
+<p class="admonition-title"><span class="caption-number">Definition 1.7 </span> (Lokaler Fluss)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> eine offene Teilmenge und der erweiterte Phasenraum <span class="math notranslate nohighlight">\(G\subset \R^+_0\times U\)</span> sei gegeben als</p>
 <div class="math notranslate nohighlight">
@@ -370,7 +370,7 @@ Stattdessen können wir nur Tupel der Form <span class="math notranslate nohighl
 </div><p>Im nächsten Lemma werden wir sehen, dass die Lösung eines autonomen gewöhnlichen Differentialgleichungssystems tatsächlich als solch ein lokaler Fluss interpretiert werden kann.
 In diesem Fall spircht man auch vom <strong>Fluss einer Differentialgleichung</strong>.</p>
 <div class="proof lemma admonition" id="lemma-3">
-<p class="admonition-title"><span class="caption-number">Lemma 1.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 1.2 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(U\subset\R^n\)</span> eine offene Teilmenge und es sei <span class="math notranslate nohighlight">\(F \colon U \rightarrow \R^n\)</span> eine lokal Lipschitzstetige Abbildung.
 Dann existieren Intervalle <span class="math notranslate nohighlight">\(I(x_0)\)</span>, so dass es für den erweiterten Phasenraum</p>
@@ -395,7 +395,7 @@ Dann existieren Intervalle <span class="math notranslate nohighlight">\(I(x_0)\)
 \[\begin{split}\frac{\d}{\d t} \Phi(t, x_0) &amp;= \dot{\Phi}_{x_0}(t) = F(\Phi_{x_0}(t)) = F(\Phi(t, x_0))\\
 \Phi(0, x_0) &amp;= \Phi_{x_0}(0) = x_0\end{split}\]</div>
 <p>für alle <span class="math notranslate nohighlight">\((t, x_0)\in G\)</span>.
-Damit haben wir sowohl die erste Aussage des Lemmas als auch die erste Flusseigenschaft aus <a class="reference internal" href="#def:Fluss">Definition 1.5</a> gezeigt.</p>
+Damit haben wir sowohl die erste Aussage des Lemmas als auch die erste Flusseigenschaft aus <a class="reference internal" href="#def:Fluss">Definition 1.6</a> gezeigt.</p>
 <p>Die zweite Flusseigenschaft ist eine direkte Folgerung aus der Eindeutigkeit der Lösung des gewöhnlichen Differentialgleichungssystems.
 Wir führen den Beweis trotzdem im Folgenden explizit aus.
 Es sei <span class="math notranslate nohighlight">\(x_0\in U, s\in [-\epsilon(x_0), \epsilon(x_0)]\)</span> und zusätzlich <span class="math notranslate nohighlight">\(t\)</span> so gewählt, dass <span class="math notranslate nohighlight">\(s+t \in [-\epsilon(x_0), \epsilon(x_0)]\)</span> und <span class="math notranslate nohighlight">\(t\in [-\epsilon(\Phi(s,x_0)), \epsilon(\Phi(s,x_0))]\)</span>.
@@ -413,7 +413,7 @@ Weiterhin wissen wir auf Grund der ersten Flusseigenschaft, dass</p>
 Wir haben also insgesamt</p>
 <div class="math notranslate nohighlight">
 \[\Phi(s + \tau, x_0) = \phi_1(\tau) = \phi_2(\tau) = \Phi(\tau, \Phi(s,x_0))\]</div>
-<p>für jedes <span class="math notranslate nohighlight">\(\tau\in [t, \epsilon(x_0)]\)</span>, was die zweite Flusseigenschaft aus <a class="reference internal" href="#def:Fluss">Definition 1.5</a> zeigt.</p>
+<p>für jedes <span class="math notranslate nohighlight">\(\tau\in [t, \epsilon(x_0)]\)</span>, was die zweite Flusseigenschaft aus <a class="reference internal" href="#def:Fluss">Definition 1.6</a> zeigt.</p>
 </div>
 </div>
 <div class="section" id="phasenportrats">
@@ -421,7 +421,7 @@ Wir haben also insgesamt</p>
 <p>Die teilweise abstrakten Konzepte und Eigenschaften von Phasenflüssen aus den vorangegangenen Abschnitten werden wir im Folgenden mit einfachen geometrischen Anschauungen illustrieren.
 Dafür benötigen wir zunächst die folgenden Definitionen.</p>
 <div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 1.7 </span> (Phasenporträt)</p>
+<p class="admonition-title"><span class="caption-number">Definition 1.8 </span> (Phasenporträt)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\Phi:G\rightarrow U\)</span> ein Phasenfluss eines gewöhnlichen Differentialgleichungssystems für den erweiterten Phasenraum <span class="math notranslate nohighlight">\(G = I \times U\subset \R^+_0\times \R^n\)</span>.
 Dann können wir folgende Begriffe für den Fluss einführen:</p>
@@ -443,7 +443,7 @@ Aus dem gleichen Grund beschränkt man sich in der Regel außerdem auf ein- und 
 <div class="example-content section" id="proof-content">
 <p>Die <strong>gedämpfte Schwingungsgleichung</strong> ist gegeben durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-schwingungsgleichung">
-<span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-schwingungsgleichung" title="Permalink to this equation">¶</a></span>\[m\ddot{x}(t) + r\dot{x}(t) + kx(t)=0\]</div>
+<span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-schwingungsgleichung" title="Permalink to this equation">¶</a></span>\[m\ddot{x}(t) + r\dot{x}(t) + kx(t)=0\]</div>
 <p>und beschreibt beispielsweise die horizontale (eindimensionale) Auslenkung eines Federpendels, das durch Reibungsverluste Schwingungsenergie über die Zeit verliert.</p>
 <p>Hierbei bezeichnet</p>
 <ul class="simple">

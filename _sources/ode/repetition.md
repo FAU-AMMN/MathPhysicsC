@@ -264,9 +264,104 @@ Siehe Kapitel 2.3 {cite:p}`knabner_2013`
 ````
 
 ````{prf:corollary}
+:label: cor:eindeutigkeit_linear
 Das Anfangswertproblem jedes **linearen** gewöhnlichen Differentialgleichungssystems 1. Ordnung hat eine eindeutige globale Lösung.
 ````
 
 ````{prf:proof}
 Siehe Theorem 2.25, Kapitel 2.3 {cite:p}`knabner_2013`
+````
+
+## Lösung von linearen Differentialgleichungssystemen
+Analog zu Kapitel 8 in {cite:p}`tenbrinck_2021` wollen wir uns mit Lösungen für **homogene lineare Differentialgleichungen** beschäftigen, jedoch dieses Mal nicht im skalaren Fall $n=1$, sondern für ein Anfangswertproblem von der Form
+
+```{math}
+:label: eq:lin_hom_dglsystem
+\dot{x}(t) &= A x(t), \quad \forall t \in I \subset \R^+_0, \\
+x(t_0) &= x_0 \in U \subset \R^n.
+```
+
+Wir bemerken hierbei, dass im Gegensatz zum skalaren Fall hier die Koeffizientenmatrix $A \in \C^{n\times n}$ nicht von der Zeit abhängt, wir also ein autonomes Differentialgleichungssystem betrachten.
+
+Bevor wir Lösungen von [](eq:lin_hom_dglsystem) angeben, wollen wir ein hilfreiches Funktionalkalkül einführen, dass die Notation im Fall von Differentialgleichungssystemen erleichtert.
+
+````{prf:definition} Matrixexponential
+Sei $n \in \N$ und $A \in \C^{n \times n}$ eine beliebige quadratische Matrix. 
+Das **Matrixexponential** $e^A$ von $A$, ist diejenige $n\times n$-Matrix, welche durch die folgende Potenzreihe definiert ist:
+
+```{math}
+e^A \equiv \exp(A) \ \coloneqq \ \sum_{k=0}^\infty \frac{A^k}{k!} = I_n + A + \frac{A^2}{2} + \frac{A^3}{6} + \ldots.
+```
+
+Analog zur gewöhnlichen Exponentialfunktion konvergiert die Reihe für alle $A \in \C^{n \times n}$, woraus die Wohldefiniertheit der Definition folgt.
+Für den Spezialfall $n=1$ entspricht das Matrixexponential der gewöhnlichen Exponentialfunktion.
+````
+
+````{prf:remark} Rechenregeln für das Matrixexponential
+Es gelten analog die gleichen Rechenregeln für das Matrixexponential, wie für die gewöhnliche Exponentialfunktion, wie zum Beispiel:
+
+* $e^{tA}e^{sA} = e^{(t+s)A}, \quad$ für $s,t \in \R$
+
+* $\frac{d}{dt} e^{tA} = Ae^{tA}, \quad$ für $t \in \R$
+
+* $ e^{D} = \operatorname{diag}(e^{a_1}, \ldots, e^{a_n})$ ist Diagonalmatrix für eine Diagonalmatrix $D = \operatorname{diag}(a_1, \ldots, a_n)$.
+````
+
+Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems [](eq:lin_hom_dglsystem) kompakt angeben, wie uns folgendes Lemma zeigt.
+
+````{prf:lemma}
+Sei $n\in \N$, $I \subset \R^+_0$ und $A \in \C^{n\times n}$ eine beliebige quadratische Matrix.
+Das Anfangswertproblem [](eq:lin_hom_dglsystem) hat die eindeutige Lösung
+
+```{math}
+x(t) = e^{A(t-t_0)}x_0, \quad \forall t \in I.
+```
+````
+
+````{prf:proof}
+Wir zeigen zunächst, dass die Lösung $x(t)$ die Anfangswertbedingung erfüllt:
+
+```{math}
+x(t_0) = e^{A(t_0-t_0)}x_0 = e^0x_0 = I_n x_0.
+```
+
+Um zu zeigen, dass $x(t)$ das lineare homogene Differentialgleichungssystem [](eq:lin_hom_dglsystem) löst, berechnen wir die entsprechende Zeitableitung als
+
+```{math}
+\dot{x}(t) = \frac{d}{dt}(e^{A(t-t_0)}x_0) = A \cdot e^{A(t-t_0)}x_0 = A x(t), \quad \forall t \in I.
+```
+
+Vergleichen wir die linke und rechte Seite dieser Gleichung so erkennen wir, dass $x(t)$ in der Tat eine Lösung des Differentialgleichungssystems ist.
+
+Nach {prf:ref}`cor:eindeutigkeit_linear` ist die Lösung eindeutig, da es sich um ein lineares Differentialgleichungssystem 1. Ordnung handelt.
+````
+
+Im Allgemeinen kann man bei linearen Differentialgleichungssystemen nicht davon ausgehen, dass diese in der einfachsten Form wie in [](eq:lin_hom_dglsystem) vorliegen.
+Außerdem ist die konkrete Berechnung des Matrixexponentials zur Bestimmung einer Lösungsfunktion $x(t)$ in der Regel ungeeignet.
+Hierzu wollen wir die abschließende Bemerkung machen.
+````{prf:remark}
+1\. Zur Berechnung einer konkreten Lösung $x(t)$ des linearen homogenen Differentialgleichungssystems [](eq:lin_hom_dglsystem) bietet es sich an, die **Jordansche Normalform** $J = SAS^{-1}$ von $A$ aus Kapitel 2.7 in {cite:p}`tenbrinck_2021` auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
+
+```{math}
+e^{tA} = S e^{tJ}S^{-1} = S e^{tD} e^{tN} S^{-1}
+```
+
+für eine Transformationsmatrix $S \in \C^{n \times n}$, eine Diagonalmatrix $D \in \C^{n \times n}$ mit den Eigenwerten von $A$ und einer nilpotenten Matrix $N \in \C^{n \times n}$, für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von $N$) abbricht.
+
+2\. Ist das vorliegende lineare Differentialgleichungssystem **inhomogen**, das heißt für eine stetige Inhomogenität $b \colon I \rightarrow \R^n$ von der Form
+
+```{math}
+:label: eq:lin_inhom_dglsystem
+\dot{x}(t) &= A x(t) + b(t), \quad \forall t \in I \subset \R^+_0, \\
+x(t_0) &= x_0 \in U \subset \R^n,
+```
+
+so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in {cite:p}`tenbrinck_2021` eine eindeutige Lösung des Anfangswertproblems [](eq:lin_inhom_dglsystem) angeben als
+
+```{math}
+x(t) = e^{tA}x_0 + \int_0^t e^{(t-s)A}b(s) \, \mathrm{d}s.
+```
+
+3\. Im Falle eines homogenen, linearen Differentialgleichungssystems, das **nicht autonom** ist, das heißt die Koeffizientenmatrix $A = A(t)$ ist zeitabhängig, können wir nicht mehr die Spektraltheorie zur konkreten Berechnung von Lösungen nutzen.
+Formal lassen sich dennoch Lösungen als sogenanntes **zeitgeordnetes Produkt** angeben, was jedoch den Rahmen dieser Vorlesung sprengen würde.
 ````

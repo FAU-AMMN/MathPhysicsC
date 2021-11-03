@@ -247,6 +247,16 @@
    2.2.1. Linearisierung um Ruhelage
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asymptotische-stabilitat-von-ruhelagen">
+   2.2.2. Asymptotische Stabilität von Ruhelagen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lyapunov-stabilitat-von-ruhelagen">
+   2.2.3. Lyapunov-Stabilität von Ruhelagen
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -260,15 +270,26 @@
                 
   <div class="section" id="stabilitat-von-ruhelagen">
 <h1><span class="section-number">2.2. </span>Stabilität von Ruhelagen<a class="headerlink" href="#stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h1>
-<p>Zuerst wollen wir uns den einfachen Fall von Ruhelagen für allgemeine <em>lineare</em> Differentialgleichungssysteme anschauen. Diese art von DGL haben wir schon genauer kennen gelernt.</p>
+<p>Zunächst wollen wir uns den einfachen Fall von Ruhelagen für allgemeine <strong>lineare</strong> Differentialgleichungssysteme anschauen.
+Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> kennen gelernt.</p>
+<p>Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.</p>
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 2.1 </span></p>
 <div class="theorem-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(A\in \C^{n\times n}\)</span> eine Matrix mit Eigenwerten <span class="math notranslate nohighlight">\( z_1,\dots, z_k\in \C \)</span>.
-Der Fluss <span class="math notranslate nohighlight">\(\Phi_t\)</span> zur linearen DGL  <span class="math notranslate nohighlight">\(\dot{x}(t) = Ax(t)\)</span> hat eine Ruhelage <span class="math notranslate nohighlight">\(0\in \C^n\)</span> (welche eindeutig ist, wenn alle <span class="math notranslate nohighlight">\(z_k\neq0\)</span>).</p>
-<p>Setze <span class="math notranslate nohighlight">\(\gamma = \max_{k=1,\dots,K} \mathcal{R}e(z_k)\)</span></p>
-<p>i) Falls <span class="math notranslate nohighlight">\(\gamma &lt;0\)</span>, ist die Ruhelage 0 asymptotisch stabil</p>
-<p>i) Falls <span class="math notranslate nohighlight">\(\gamma &gt;0\)</span>, ist die Ruhelage 0 instabil.</p>
+<p>Sei <span class="math notranslate nohighlight">\(A\in \C^{n\times n}\)</span> eine Matrix mit den Eigenwerten <span class="math notranslate nohighlight">\(z_1,\dots, z_n\in \C\)</span>.
+Dann beschreibt der zugehörige Phasenfluss <span class="math notranslate nohighlight">\(\Phi\)</span> zum homogenen linearen Differentialgleichungssystem</p>
+<div class="math notranslate nohighlight">
+\[\dot{x}(t) = Ax(t)\]</div>
+<p>eine Ruhelage in <span class="math notranslate nohighlight">\(\vec{0} \in \C^n\)</span>.
+Diese ist sogar eindeutig, falls <span class="math notranslate nohighlight">\(z_i\neq0, i=1,\ldots,n\)</span> gilt.</p>
+<p>Für</p>
+<div class="math notranslate nohighlight">
+\[\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{R}e(z_i)\]</div>
+<p>kann die Stabilität der Ruhelage wie folgt charakterisiert werden:</p>
+<ol class="simple">
+<li><p>Falls <span class="math notranslate nohighlight">\(\gamma &lt;0\)</span> gilt, ist die Ruhelage <span class="math notranslate nohighlight">\(\vec{0}\)</span> <em>asymptotisch stabil</em></p></li>
+<li><p>Falls <span class="math notranslate nohighlight">\(\gamma &gt;0\)</span> gilt, ist die Ruhelage <span class="math notranslate nohighlight">\(\vec{0}\)</span> <em>instabil</em>.</p></li>
+</ol>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Zu beliebiger Anfangsbedingung <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> erhalten wir die Abschätzung</p>
@@ -277,8 +298,13 @@ Der Fluss <span class="math notranslate nohighlight">\(\Phi_t\)</span> zur linea
 \|\Phi_t(x)\| &amp;= \|e^{tA}x\|=\|M^{-1}e^{tD}e^{tJ}Mx\|\leq \|M^{-1}\|\|e^{tD}\|\|e^{tJ}\|\|M\|\|x\|\\
 &amp;\leq C_1\|e^{td}\|C_2 e^{\epsilon t}C_3C_4 = Ce^{\gamma t} e^{\epsilon t}.
 \end{align*}\end{split}\]</div>
-<p>Weil <span class="math notranslate nohighlight">\( e^{tJ}\)</span> ein Polynom in <span class="math notranslate nohighlight">\(t\)</span> ist gilt die Abschätzung <span class="math notranslate nohighlight">\( \|e^{tJ}\|\leq \|e^{\epsilon t}\|\)</span> und <span class="math notranslate nohighlight">\(\|e^{tD}\|\leq e^{t\gamma}\)</span> wegen der Definiton von <span class="math notranslate nohighlight">\(\gamma\)</span>. <br />
-Das verhalten der Norm des Flusses hängt vom Vorzeichen von <span class="math notranslate nohighlight">\(\gamma\)</span> ab. <br />
+<p>Weil <span class="math notranslate nohighlight">\( e^{tJ}\)</span> ein Polynom in <span class="math notranslate nohighlight">\(t\)</span> ist gilt die Abschätzung</p>
+<div class="math notranslate nohighlight">
+\[\|e^{tJ}\|\leq \|e^{\epsilon t}\|.\]</div>
+<p>Außerdem können wir wegen <span class="math notranslate nohighlight">\(\gamma = \max_{i=1,\dots,n} \mathcal{R}e(z_i)\)</span> folgende Abschätzung treffen</p>
+<div class="math notranslate nohighlight">
+\[\|e^{tD}\| \leq e^{t\gamma}.\]</div>
+<p>Das verhalten der Norm des Flusses hängt vom Vorzeichen von <span class="math notranslate nohighlight">\(\gamma\)</span> ab. <br />
 Wenn <span class="math notranslate nohighlight">\(\gamma &gt;0\)</span>, existiert <span class="math notranslate nohighlight">\(v\)</span> mit <span class="math notranslate nohighlight">\(e^{tA}\lambda v = \lambda e^{t\gamma}v \to \infty \)</span> für alle <span class="math notranslate nohighlight">\(\lambda&gt;0\)</span>. Also enthällt jede Umgebung von 0 Punkte, die explodieren. <br />
 Falls <span class="math notranslate nohighlight">\(\gamma &lt;0\)</span>, dann gilt <span class="math notranslate nohighlight">\(0\leq \|\Phi_t(x)-0\|\leq Ce^{\gamma t} \|e^{tJ}\| \to 0\)</span>. Also asymptotische Stabilität des Ruhepunktes 0.</p>
 </div>
@@ -356,7 +382,10 @@ Integration ergibt <span class="math notranslate nohighlight">\(\ln \left(\frac{
 \[f(t) = a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).\]</div>
 <p>entspricht ja dem Anfangswertproblem <span class="math notranslate nohighlight">\(\dot{f} = f\cdot g,\ f(t_0) = a\)</span> mit der Lösung <span class="math notranslate nohighlight">\(f(t) = a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}\)</span>.</p>
 </div>
-</div><div class="proof theorem admonition" id="theorem-5">
+</div></div>
+<div class="section" id="asymptotische-stabilitat-von-ruhelagen">
+<h2><span class="section-number">2.2.2. </span>Asymptotische Stabilität von Ruhelagen<a class="headerlink" href="#asymptotische-stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h2>
+<div class="proof theorem admonition" id="theorem-5">
 <p class="admonition-title"><span class="caption-number">Theorem 2.2 </span> (Asymptotische stabilität von Ruhelagen)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Eine Gleichgewichtslage <span class="math notranslate nohighlight">\(x_s\in  U\subset \R^n\)</span> der DGL</p>
@@ -408,7 +437,10 @@ Integration ergibt <span class="math notranslate nohighlight">\(\ln \left(\frac{
 <div class="remark-content section" id="proof-content">
 <p>Der Beweis liefert zusätzlich die Aussage, dass alle <span class="math notranslate nohighlight">\(x\in U\)</span> mit <span class="math notranslate nohighlight">\(\|x\|&lt;\frac{r}{c}\)</span> zu gegen die Gleichgewichtslage konvergierenden Orbits gehören, also in deren Einzugsbereich, dem so genannten <em>Bassin</em>, liegen.</p>
 </div>
-</div><p>Während ein hinreichendes Kriterium für das Vorliegen <em>asymptotischer Stabilität</em> die strikte Ungleichung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> der Jacobi-Matrix war, ist die Situation bezüglich der Liapunov-Stabilität komplizierter.</p>
+</div></div>
+<div class="section" id="lyapunov-stabilitat-von-ruhelagen">
+<h2><span class="section-number">2.2.3. </span>Lyapunov-Stabilität von Ruhelagen<a class="headerlink" href="#lyapunov-stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h2>
+<p>Während ein hinreichendes Kriterium für das Vorliegen <em>asymptotischer Stabilität</em> die strikte Ungleichung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> der Jacobi-Matrix war, ist die Situation bezüglich der Liapunov-Stabilität komplizierter.</p>
 <div class="proof theorem admonition" id="theorem-7">
 <p class="admonition-title"><span class="caption-number">Theorem 2.3 </span></p>
 <div class="theorem-content section" id="proof-content">

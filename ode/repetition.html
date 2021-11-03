@@ -262,6 +262,11 @@
    1.2.4. Existenz und Eindeutigkeit einer Lösung
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losung-von-linearen-differentialgleichungssystemen">
+   1.2.5. Lösung von linearen Differentialgleichungssystemen
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -469,7 +474,7 @@ Es existieren außerdem keine weiteren (lokalen) Lösungen.</p>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Siehe Kapitel 2.3 <span id="id4">[<a class="reference internal" href="../references.html#id5">Kna13</a>]</span></p>
 </div>
-<div class="proof corollary admonition" id="corollary-11">
+<div class="proof corollary admonition" id="cor:eindeutigkeit_linear">
 <p class="admonition-title"><span class="caption-number">Corollary 1.1 </span></p>
 <div class="corollary-content section" id="proof-content">
 <p>Das Anfangswertproblem jedes <strong>linearen</strong> gewöhnlichen Differentialgleichungssystems 1. Ordnung hat eine eindeutige globale Lösung.</p>
@@ -478,6 +483,74 @@ Es existieren außerdem keine weiteren (lokalen) Lösungen.</p>
 <p>Proof. Siehe Theorem 2.25, Kapitel 2.3 <span id="id5">[<a class="reference internal" href="../references.html#id5">Kna13</a>]</span></p>
 </div>
 </div>
+<div class="section" id="losung-von-linearen-differentialgleichungssystemen">
+<h2><span class="section-number">1.2.5. </span>Lösung von linearen Differentialgleichungssystemen<a class="headerlink" href="#losung-von-linearen-differentialgleichungssystemen" title="Permalink to this headline">¶</a></h2>
+<p>Analog zu Kapitel 8 in <span id="id6">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> wollen wir uns mit Lösungen für <strong>homogene lineare Differentialgleichungen</strong> beschäftigen, jedoch dieses Mal nicht im skalaren Fall <span class="math notranslate nohighlight">\(n=1\)</span>, sondern für ein Anfangswertproblem von der Form</p>
+<div class="math notranslate nohighlight" id="equation-eq-lin-hom-dglsystem">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-lin-hom-dglsystem" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= A x(t), \quad \forall t \in I \subset \R^+_0, \\
+x(t_0) &amp;= x_0 \in U \subset \R^n.\end{split}\]</div>
+<p>Wir bemerken hierbei, dass im Gegensatz zum skalaren Fall hier die Koeffizientenmatrix <span class="math notranslate nohighlight">\(A \in \C^{n\times n}\)</span> nicht von der Zeit abhängt, wir also ein autonomes Differentialgleichungssystem betrachten.</p>
+<p>Bevor wir Lösungen von <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> angeben, wollen wir ein hilfreiches Funktionalkalkül einführen, dass die Notation im Fall von Differentialgleichungssystemen erleichtert.</p>
+<div class="proof definition admonition" id="definition-12">
+<p class="admonition-title"><span class="caption-number">Definition 1.5 </span> (Matrixexponential)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(n \in \N\)</span> und <span class="math notranslate nohighlight">\(A \in \C^{n \times n}\)</span> eine beliebige quadratische Matrix.
+Das <strong>Matrixexponential</strong> <span class="math notranslate nohighlight">\(e^A\)</span> von <span class="math notranslate nohighlight">\(A\)</span>, ist diejenige <span class="math notranslate nohighlight">\(n\times n\)</span>-Matrix, welche durch die folgende Potenzreihe definiert ist:</p>
+<div class="math notranslate nohighlight">
+\[e^A \equiv \exp(A) \ \coloneqq \ \sum_{k=0}^\infty \frac{A^k}{k!} = I_n + A + \frac{A^2}{2} + \frac{A^3}{6} + \ldots.\]</div>
+<p>Analog zur gewöhnlichen Exponentialfunktion konvergiert die Reihe für alle <span class="math notranslate nohighlight">\(A \in \C^{n \times n}\)</span>, woraus die Wohldefiniertheit der Definition folgt.
+Für den Spezialfall <span class="math notranslate nohighlight">\(n=1\)</span> entspricht das Matrixexponential der gewöhnlichen Exponentialfunktion.</p>
+</div>
+</div><div class="proof remark admonition" id="remark-13">
+<p class="admonition-title"><span class="caption-number">Remark 1.3 </span> (Rechenregeln für das Matrixexponential)</p>
+<div class="remark-content section" id="proof-content">
+<p>Es gelten analog die gleichen Rechenregeln für das Matrixexponential, wie für die gewöhnliche Exponentialfunktion, wie zum Beispiel:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(e^{tA}e^{sA} = e^{(t+s)A}, \quad\)</span> für <span class="math notranslate nohighlight">\(s,t \in \R\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{d}{dt} e^{tA} = Ae^{tA}, \quad\)</span> für <span class="math notranslate nohighlight">\(t \in \R\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( e^{D} = \operatorname{diag}(e^{a_1}, \ldots, e^{a_n})\)</span> ist Diagonalmatrix für eine Diagonalmatrix <span class="math notranslate nohighlight">\(D = \operatorname{diag}(a_1, \ldots, a_n)\)</span>.</p></li>
+</ul>
+</div>
+</div><p>Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> kompakt angeben, wie uns folgendes Lemma zeigt.</p>
+<div class="proof lemma admonition" id="lemma-14">
+<p class="admonition-title"><span class="caption-number">Lemma 1.1 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(n\in \N\)</span>, <span class="math notranslate nohighlight">\(I \subset \R^+_0\)</span> und <span class="math notranslate nohighlight">\(A \in \C^{n\times n}\)</span> eine beliebige quadratische Matrix.
+Das Anfangswertproblem <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> hat die eindeutige Lösung</p>
+<div class="math notranslate nohighlight">
+\[x(t) = e^{A(t-t_0)}x_0, \quad \forall t \in I.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Wir zeigen zunächst, dass die Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> die Anfangswertbedingung erfüllt:</p>
+<div class="math notranslate nohighlight">
+\[x(t_0) = e^{A(t_0-t_0)}x_0 = e^0x_0 = I_n x_0.\]</div>
+<p>Um zu zeigen, dass <span class="math notranslate nohighlight">\(x(t)\)</span> das lineare homogene Differentialgleichungssystem <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> löst, berechnen wir die entsprechende Zeitableitung als</p>
+<div class="math notranslate nohighlight">
+\[\dot{x}(t) = \frac{d}{dt}(e^{A(t-t_0)}x_0) = A \cdot e^{A(t-t_0)}x_0 = A x(t), \quad \forall t \in I.\]</div>
+<p>Vergleichen wir die linke und rechte Seite dieser Gleichung so erkennen wir, dass <span class="math notranslate nohighlight">\(x(t)\)</span> in der Tat eine Lösung des Differentialgleichungssystems ist.</p>
+<p>Nach <a class="reference internal" href="#cor:eindeutigkeit_linear">Corollary 1.1</a> ist die Lösung eindeutig, da es sich um ein lineares Differentialgleichungssystem 1. Ordnung handelt.</p>
+</div>
+<p>Im Allgemeinen kann man bei linearen Differentialgleichungssystemen nicht davon ausgehen, dass diese in der einfachsten Form wie in <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> vorliegen.
+Außerdem ist die konkrete Berechnung des Matrixexponentials zur Bestimmung einer Lösungsfunktion <span class="math notranslate nohighlight">\(x(t)\)</span> in der Regel ungeeignet.
+Hierzu wollen wir die abschließende Bemerkung machen.</p>
+<div class="proof remark admonition" id="remark-15">
+<p class="admonition-title"><span class="caption-number">Remark 1.4 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>1. Zur Berechnung einer konkreten Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des linearen homogenen Differentialgleichungssystems <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> bietet es sich an, die <strong>Jordansche Normalform</strong> <span class="math notranslate nohighlight">\(J = SAS^{-1}\)</span> von <span class="math notranslate nohighlight">\(A\)</span> aus Kapitel 2.7 in <span id="id7">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:</p>
+<div class="math notranslate nohighlight">
+\[e^{tA} = S e^{tJ}S^{-1} = S e^{tD} e^{tN} S^{-1}\]</div>
+<p>für eine Transformationsmatrix <span class="math notranslate nohighlight">\(S \in \C^{n \times n}\)</span>, eine Diagonalmatrix <span class="math notranslate nohighlight">\(D \in \C^{n \times n}\)</span> mit den Eigenwerten von <span class="math notranslate nohighlight">\(A\)</span> und einer nilpotenten Matrix <span class="math notranslate nohighlight">\(N \in \C^{n \times n}\)</span>, für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von <span class="math notranslate nohighlight">\(N\)</span>) abbricht.</p>
+<p>2. Ist das vorliegende lineare Differentialgleichungssystem <strong>inhomogen</strong>, das heißt für eine stetige Inhomogenität <span class="math notranslate nohighlight">\(b \colon I \rightarrow \R^n\)</span> von der Form</p>
+<div class="math notranslate nohighlight" id="equation-eq-lin-inhom-dglsystem">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-lin-inhom-dglsystem" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= A x(t) + b(t), \quad \forall t \in I \subset \R^+_0, \\
+x(t_0) &amp;= x_0 \in U \subset \R^n,\end{split}\]</div>
+<p>so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in <span id="id8">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> eine eindeutige Lösung des Anfangswertproblems <a class="reference internal" href="#equation-eq-lin-inhom-dglsystem">(1.6)</a> angeben als</p>
+<div class="math notranslate nohighlight">
+\[x(t) = e^{tA}x_0 + \int_0^t e^{(t-s)A}b(s) \, \mathrm{d}s.\]</div>
+<p>3. Im Falle eines homogenen, linearen Differentialgleichungssystems, das <strong>nicht autonom</strong> ist, das heißt die Koeffizientenmatrix <span class="math notranslate nohighlight">\(A = A(t)\)</span> ist zeitabhängig, können wir nicht mehr die Spektraltheorie zur konkreten Berechnung von Lösungen nutzen.
+Formal lassen sich dennoch Lösungen als sogenanntes <strong>zeitgeordnetes Produkt</strong> angeben, was jedoch den Rahmen dieser Vorlesung sprengen würde.</p>
+</div>
+</div></div>
 </div>
 
     <script type="text/x-thebe-config">
