@@ -263,8 +263,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#losung-von-linearen-differentialgleichungssystemen">
-   1.2.5. Lösung von linearen Differentialgleichungssystemen
+  <a class="reference internal nav-link" href="#losungen-von-linearen-differentialgleichungssystemen">
+   1.2.5. Lösungen von linearen Differentialgleichungssystemen
   </a>
  </li>
 </ul>
@@ -483,8 +483,8 @@ Es existieren außerdem keine weiteren (lokalen) Lösungen.</p>
 <p>Proof. Siehe Theorem 2.25, Kapitel 2.3 <span id="id5">[<a class="reference internal" href="../references.html#id5">Kna13</a>]</span></p>
 </div>
 </div>
-<div class="section" id="losung-von-linearen-differentialgleichungssystemen">
-<h2><span class="section-number">1.2.5. </span>Lösung von linearen Differentialgleichungssystemen<a class="headerlink" href="#losung-von-linearen-differentialgleichungssystemen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="losungen-von-linearen-differentialgleichungssystemen">
+<h2><span class="section-number">1.2.5. </span>Lösungen von linearen Differentialgleichungssystemen<a class="headerlink" href="#losungen-von-linearen-differentialgleichungssystemen" title="Permalink to this headline">¶</a></h2>
 <p>Analog zu Kapitel 8 in <span id="id6">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> wollen wir uns mit Lösungen für <strong>homogene lineare Differentialgleichungen</strong> beschäftigen, jedoch dieses Mal nicht im skalaren Fall <span class="math notranslate nohighlight">\(n=1\)</span>, sondern für ein Anfangswertproblem von der Form</p>
 <div class="math notranslate nohighlight" id="equation-eq-lin-hom-dglsystem">
 <span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-lin-hom-dglsystem" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= A x(t), \quad \forall t \in I \subset \R^+_0, \\
@@ -504,7 +504,7 @@ Für den Spezialfall <span class="math notranslate nohighlight">\(n=1\)</span> e
 </div><div class="proof remark admonition" id="remark-13">
 <p class="admonition-title"><span class="caption-number">Remark 1.3 </span> (Rechenregeln für das Matrixexponential)</p>
 <div class="remark-content section" id="proof-content">
-<p>Es gelten analog die gleichen Rechenregeln für das Matrixexponential, wie für die gewöhnliche Exponentialfunktion, wie zum Beispiel:</p>
+<p>Für das Matrixexponential gelten die gleichen Rechenregeln wie für die gewöhnliche Exponentialfunktion, wie zum Beispiel:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(e^{tA}e^{sA} = e^{(t+s)A}, \quad\)</span> für <span class="math notranslate nohighlight">\(s,t \in \R\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\frac{d}{dt} e^{tA} = Ae^{tA}, \quad\)</span> für <span class="math notranslate nohighlight">\(t \in \R\)</span></p></li>
@@ -538,9 +538,9 @@ Hierzu wollen wir die abschließende Bemerkung machen.</p>
 <div class="remark-content section" id="proof-content">
 <p>1. Zur Berechnung einer konkreten Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des linearen homogenen Differentialgleichungssystems <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> bietet es sich an, die <strong>Jordansche Normalform</strong> <span class="math notranslate nohighlight">\(J = SAS^{-1}\)</span> von <span class="math notranslate nohighlight">\(A\)</span> aus Kapitel 2.7 in <span id="id7">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:</p>
 <div class="math notranslate nohighlight">
-\[e^{tA} = S e^{tJ}S^{-1} = S e^{tD} e^{tN} S^{-1}\]</div>
+\[e^{tA} = t \sum_{k=0}^\infty \frac{A^k}{k!} = t \sum_{k=0}^\infty \frac{(S^{-1}JS)^k}{k!} = t S^{-1} \sum_{k=0}^\infty \frac{J^k}{k!} S = S^{-1} e^{tJ}S = S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S\]</div>
 <p>für eine Transformationsmatrix <span class="math notranslate nohighlight">\(S \in \C^{n \times n}\)</span>, eine Diagonalmatrix <span class="math notranslate nohighlight">\(D \in \C^{n \times n}\)</span> mit den Eigenwerten von <span class="math notranslate nohighlight">\(A\)</span> und einer nilpotenten Matrix <span class="math notranslate nohighlight">\(N \in \C^{n \times n}\)</span>, für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von <span class="math notranslate nohighlight">\(N\)</span>) abbricht.</p>
-<p>2. Ist das vorliegende lineare Differentialgleichungssystem <strong>inhomogen</strong>, das heißt für eine stetige Inhomogenität <span class="math notranslate nohighlight">\(b \colon I \rightarrow \R^n\)</span> von der Form</p>
+<p>2. Ist das vorliegende lineare Differentialgleichungssystem <strong>inhomogen</strong>, das heißt für eine stetige Störfunktion <span class="math notranslate nohighlight">\(b \colon I \rightarrow \R^n\)</span> von der Form</p>
 <div class="math notranslate nohighlight" id="equation-eq-lin-inhom-dglsystem">
 <span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-lin-inhom-dglsystem" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= A x(t) + b(t), \quad \forall t \in I \subset \R^+_0, \\
 x(t_0) &amp;= x_0 \in U \subset \R^n,\end{split}\]</div>
