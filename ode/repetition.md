@@ -272,7 +272,7 @@ Das Anfangswertproblem jedes **linearen** gewöhnlichen Differentialgleichungssy
 Siehe Theorem 2.25, Kapitel 2.3 {cite:p}`knabner_2013`
 ````
 
-## Lösung von linearen Differentialgleichungssystemen
+## Lösungen von linearen Differentialgleichungssystemen
 Analog zu Kapitel 8 in {cite:p}`tenbrinck_2021` wollen wir uns mit Lösungen für **homogene lineare Differentialgleichungen** beschäftigen, jedoch dieses Mal nicht im skalaren Fall $n=1$, sondern für ein Anfangswertproblem von der Form
 
 ```{math}
@@ -298,7 +298,7 @@ Für den Spezialfall $n=1$ entspricht das Matrixexponential der gewöhnlichen Ex
 ````
 
 ````{prf:remark} Rechenregeln für das Matrixexponential
-Es gelten analog die gleichen Rechenregeln für das Matrixexponential, wie für die gewöhnliche Exponentialfunktion, wie zum Beispiel:
+Für das Matrixexponential gelten die gleichen Rechenregeln wie für die gewöhnliche Exponentialfunktion, wie zum Beispiel:
 
 * $e^{tA}e^{sA} = e^{(t+s)A}, \quad$ für $s,t \in \R$
 
@@ -343,12 +343,12 @@ Hierzu wollen wir die abschließende Bemerkung machen.
 1\. Zur Berechnung einer konkreten Lösung $x(t)$ des linearen homogenen Differentialgleichungssystems [](eq:lin_hom_dglsystem) bietet es sich an, die **Jordansche Normalform** $J = SAS^{-1}$ von $A$ aus Kapitel 2.7 in {cite:p}`tenbrinck_2021` auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
 
 ```{math}
-e^{tA} = S e^{tJ}S^{-1} = S e^{tD} e^{tN} S^{-1}
+e^{tA} = t \sum_{k=0}^\infty \frac{A^k}{k!} = t \sum_{k=0}^\infty \frac{(S^{-1}JS)^k}{k!} = t S^{-1} \sum_{k=0}^\infty \frac{J^k}{k!} S = S^{-1} e^{tJ}S = S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S
 ```
 
 für eine Transformationsmatrix $S \in \C^{n \times n}$, eine Diagonalmatrix $D \in \C^{n \times n}$ mit den Eigenwerten von $A$ und einer nilpotenten Matrix $N \in \C^{n \times n}$, für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von $N$) abbricht.
 
-2\. Ist das vorliegende lineare Differentialgleichungssystem **inhomogen**, das heißt für eine stetige Inhomogenität $b \colon I \rightarrow \R^n$ von der Form
+2\. Ist das vorliegende lineare Differentialgleichungssystem **inhomogen**, das heißt für eine stetige Störfunktion $b \colon I \rightarrow \R^n$ von der Form
 
 ```{math}
 :label: eq:lin_inhom_dglsystem
