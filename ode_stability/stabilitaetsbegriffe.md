@@ -1,4 +1,4 @@
-## Stabilitätsbegriffe
+# Stabilitätsbegriffe
 
 Im Folgenden wollen wir grundlegende Begriffe der Stabilitätsanalyse von Ruhelagen einführen und diskutieren.
 Wie in [](s:fluesse) definiert, nennen wir einen Punkt $x\in U$ im Phasenraum $U$ **Ruhelage**, falls für den zugehörigen Phasenfluss $\Phi \colon I \times U \rightarrow U$ des dynamischen Systems gilt: $\Phi(t,x) = x, \forall t \in I$, d.h., wenn für alle $t \in I$ der Zustand $x \in U$ ein **Fixpunkt des Flusses** ist. 
