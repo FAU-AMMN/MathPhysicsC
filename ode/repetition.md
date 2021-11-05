@@ -273,6 +273,8 @@ Siehe Theorem 2.25, Kapitel 2.3 {cite:p}`knabner_2013`
 ````
 
 ## Lösungen von linearen Differentialgleichungssystemen
+:label: s:lineare_dglsysteme
+
 Analog zu Kapitel 8 in {cite:p}`tenbrinck_2021` wollen wir uns mit Lösungen für **homogene lineare Differentialgleichungen** beschäftigen, jedoch dieses Mal nicht im skalaren Fall $n=1$, sondern für ein Anfangswertproblem von der Form
 
 ```{math}
@@ -305,6 +307,19 @@ Für das Matrixexponential gelten die gleichen Rechenregeln wie für die gewöhn
 * $\frac{d}{dt} e^{tA} = Ae^{tA}, \quad$ für $t \in \R$
 
 * $ e^{D} = \operatorname{diag}(e^{a_1}, \ldots, e^{a_n})$ ist Diagonalmatrix für eine Diagonalmatrix $D = \operatorname{diag}(a_1, \ldots, a_n)$.
+````
+
+Folgendes Lemma stellt einen interessanten Zusammenhang des Matrixexponentials zur Spektraltheorie her.
+
+````{prf:lemma} Eigenwerte des Matrixexponentials
+:label: lem:matrixpotential_ew
+Sei $A \in \C^{n\times n}$ eine beliebige quadratische Matrix und sei $\lambda \in \C$ ein Eigenwert von $A$ zum
+Eigenvektor $v \in \C^n$.
+Dann ist der Vektor $v$ auch Eigenvektor des Matrixexponentials $e^A$ zum zugehörigen Eigenwert $e^\lambda$.
+````
+
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
 ````
 
 Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems [](eq:lin_hom_dglsystem) kompakt angeben, wie uns folgendes Lemma zeigt.
@@ -343,7 +358,7 @@ Hierzu wollen wir die abschließende Bemerkung machen.
 1\. Zur Berechnung einer konkreten Lösung $x(t)$ des linearen homogenen Differentialgleichungssystems [](eq:lin_hom_dglsystem) bietet es sich an, die **Jordansche Normalform** $J = SAS^{-1}$ von $A$ aus Kapitel 2.7 in {cite:p}`tenbrinck_2021` auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
 
 ```{math}
-e^{tA} = t \sum_{k=0}^\infty \frac{A^k}{k!} = t \sum_{k=0}^\infty \frac{(S^{-1}JS)^k}{k!} = t S^{-1} \sum_{k=0}^\infty \frac{J^k}{k!} S = S^{-1} e^{tJ}S = S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S
+e^{tA} =  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} = S^{-1} \sum_{k=0}^\infty \frac{(tJ)^k}{k!} S = S^{-1} e^{tJ}S = S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S
 ```
 
 für eine Transformationsmatrix $S \in \C^{n \times n}$, eine Diagonalmatrix $D \in \C^{n \times n}$ mit den Eigenwerten von $A$ und einer nilpotenten Matrix $N \in \C^{n \times n}$, für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von $N$) abbricht.
