@@ -18,7 +18,7 @@ Es sei $\V$ ein $\R$-Vektorraum, die Menge
 heißt **algebraischer Dualraum**.
 ````
 
-Aus {cite:p}`tenbrinck_2021` ist bereits der Begriff des *topologischen Dualraums* bekannt, welcher allerdings eine etwas restriktivere Definition hat.
+Aus {cite:p}`tenbrinck_2021` ist bereits der Begriff des *topologischen Dualraums* bekannt, welcher allerdings eine etwas restriktivere Definition hat. Sie fordert noch zusätzlich die Stetigkeit der linearen Abbildungen.
 
 ```{danger}
 Der algebraische Dualraum ist im allgemeinen nicht gleich dem topologischen. Der Hauptzweck dieses Abschnitts ist es diese Tatsache klar zu machen und die Unterschiede der beiden Definitionen zu verstehen.
