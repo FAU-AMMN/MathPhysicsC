@@ -1,6 +1,6 @@
 # Stabilität von Ruhelagen
 
-Zunächst wollen wir uns den einfachen Fall von Ruhelagen für allgemeine **lineare** Differentialgleichungssysteme anschauen. 
+Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine **lineare** Differentialgleichungssysteme untersuchen.
 Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in {cite:p}`tenbrinck_2021` kennen gelernt.
 
 Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
@@ -40,8 +40,8 @@ Sei $J = S^{-1}AS$ die Jordansche Normalform von $A$ mit Transformationsmatrizen
 
 ```{math}
 \begin{align*}
-\|\Phi_t(x_0)\| &= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx\| = \|S^{-1}e^{tD}e^{tN}Sx\| \\
-&\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
+\|\Phi_t(x_0)\| &= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx_0\| = \|S^{-1}e^{tD}e^{tN}Sx_0\| \\
+&\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x_0\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
 \end{align*}
 ```
 für eine Konstante $C_1 > 0$, die unabhängig von $t$ ist.
@@ -54,7 +54,7 @@ Wir sehen nun ein, dass $e^{tN}$ wegen der Nilpotenz von $N$ eine endliche Reihe
 e^{tN} = \sum_{k=0}^m \frac{(tN)^k}{k!} = \sum_{k=0}^m t^k\frac{N^k}{k!},
 ```
 
-welches ein Polynom vom Grad $m$ darstellt, wobei $m$ der Nilpotenzindex der Matrix $N$ ist.
+welches ein Polynom vom Grad $m$ darstellt, wobei $m \in \N$ der Nilpotenzindex der Matrix $N$ ist.
 
 Sei nun $\epsilon > 0$ beliebig klein gewählt.
 Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten $C_2 > 0$, die von $\epsilon$ jedoch nicht von $t$ abhängt, durch eine gewöhnliche Exponentialfunktion abschätzen mit  
@@ -93,7 +93,7 @@ In diesem Fall ist die Ruhelage also **instabil**.
 2\. Falls $\gamma <0$ gilt, so können wir abschätzen, dass 
 
 ```{math}
-0\leq \|\Phi_t(x)-0\|\leq C e^{t\epsilon} e^{t \gamma} \to 0 \quad \text{ für } \ t \to \infty.
+0\leq \|\Phi_t(x_0)-0\|\leq C e^{t\epsilon} e^{t \gamma} \to 0 \quad \text{ für } \ t \to \infty.
 ```
 
 Dies liefert uns also **asymptotische Stabilität** der Ruhelage $0$.
@@ -256,7 +256,7 @@ oder $\|x(t)\|\leq re^{-\frac{\Lambda}{2}t}$. Die Lösungskurve bleibt also für
 Der Beweis liefert zusätzlich die Aussage, dass alle $x\in U$ mit $\|x\|<\frac{r}{c}$ zu gegen die Gleichgewichtslage konvergierenden Orbits gehören, also in deren Einzugsbereich, dem so genannten *Bassin*, liegen.
 ````
 
-### Lyapunov-Stabilität von Ruhelagen
+## Lyapunov-Stabilität von Ruhelagen
 
 Während ein hinreichendes Kriterium für das Vorliegen *asymptotischer Stabilität* die strikte Ungleichung $Re(\lambda_i)<0$ für die Eigenwerte $\lambda_i$ der Jacobi-Matrix war, ist die Situation bezüglich der Liapunov-Stabilität komplizierter.
 
