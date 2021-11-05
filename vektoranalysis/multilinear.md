@@ -34,11 +34,11 @@ Es sei $\V$ ein normierter $\R$-Vektorraum für einen Körper $\R$, dann heißt 
 **topologischer Dualraum**.
 ````
 
-````{remark}
+````{prf:remark}
 Damit die obige Definition sinnvoll ist, ist es in der Tat nicht notwendig, dass $X$ ein normierter Raum ist. Es reicht anzunehmen, dass $\V$ ein topologischer Vektorraum ist.
 ````
 
-In unserem Kontext ist spielt allerdings der Begriff des algebraischen Dualraums eine wichtige Rolle, welcher im Folgenden eingeführt wird. Man erkennt sofort, dass stets $\V^\prime\subset \V^\ast$ gilt. Weiterhin stimmen die beiden Räume im endlich-dimensionalen Fall überein.
+In unserem Kontext spielt allerdings der Begriff des algebraischen Dualraums eine wichtige Rolle, welcher im Folgenden eingeführt wird. Man erkennt sofort, dass stets $\V^\prime\subset \V^\ast$ gilt. Weiterhin stimmen die beiden Räume im endlich-dimensionalen Fall überein.
 
 ````{prf:lemma}
 Für $n\in\N$ sei $\V$ ein $n$-dimensionaler $\R$-Vektorraum, dann gilt 
@@ -68,7 +68,7 @@ Für $i=1,\ldots,k$ seien $\V_i$ endlich-dimensionaler reeller Vektorraum
 Eine Abbildung 
 
 ```{math}
-\varphi:\V_1\times\ldots\times \V_k\ to\R
+\varphi:\V_1\times\ldots\times \V_k\ \to\R
 ``` 
 
 heißt k-**(multi)linear**, wenn für beliebige $z_i\in\V_i$ und jede Komponente $i\in\{1,\ldots,k\}$ die Abbildung 
@@ -264,7 +264,7 @@ Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe [Wikipe
 
 ### Tensoren als Linearformen
 
-Als Einleitung in das Thema wollen wir Tesnoren zunächst als Linearformen auf $\V_1\times\ldots\times\V_k$
+Als Einleitung in das Thema wollen wir Tensoren zunächst als Linearformen auf $\V_1\times\ldots\times\V_k$
 betrachten wobei für $i=1,\ldots,k$ $\V_i$ reelle endlich dimensionale Vektorräume sind.
 Man schreibt in diesem Fall auch 
 
@@ -280,7 +280,7 @@ Der wichtige Spezialfall ist hier allerdings nun nicht $\V^k$ sondern ein kartes
 (V^\ast)^r\times V^s.
 ```
 
-````{prf:defintion}
+````{prf:definition}
 Es sei $\V$ ein reeller endlich-dimensionaler Vektorraum, dann nennt man 
 
 ```{math}
@@ -353,7 +353,7 @@ Hier fallen alle bisherigen Definitionen zusammen, d.h.,
 
 $k=2$:
 
-Für $A\in\R^{2,2}$ definiert die Abbildung $(x,y)\mapsto\langle x,A y\rangle$ eine äußere $2$-Form auf $\R^n$ genau dann, wenn die Matrix $A$ antisymmetrisch ist.
+Für $A\in\R^{2,2}$ definiert die Abbildung $(x,y)\mapsto\langle x,A y\rangle$ eine äußere $2$-Form auf $\R^n$ genau dann, wenn die Matrix $A$ antisymmetrisch ist. D.h., falls $A^T=-A$ gilt.
 
 $k=n$:
 
@@ -363,7 +363,7 @@ Die Determinantenform ist bis auf ihre Vielfachen die einzige äußere $n$-Form 
 Wir beweisen zwei kleine Hilfsaussagen zu äußeren Formen
 
 ````{prf:lemma}
-Es sein $\V$ ein reeller Vektorraum un $\varphi\in\Lambda^k(V)$.
+Es sein $\V$ ein reeller Vektorraum und $\varphi\in\Lambda^k(V)$.
 * Für jede Permutation $\pi:\{1,\ldots,k\}\rightarrow\{1,\ldots,k\}$ gilt 
 
 ```{math}
@@ -423,7 +423,7 @@ definiert.
 Für einen Vektorraum $\V$ ist das äußere Produkt von $\omega_1,\ldots,\omega_k\in\Lambda^1(\V)$ eine $k$-Linearform. 
 ````
 
-````{proof}
+````{prf:proof}
 Siehe Übung.
 ````
 
@@ -433,10 +433,10 @@ Insbesondere gilt damit für die Dualbasis $\eta_1,\ldots,\eta_n$ von $\V^*$, da
 \eta_{i_1}\wedge\ldots\wedge\eta_{i_k}\in\Lambda^k(\V)
 ```
 
-für beliebige Indexkombinationen $i_1,\ldots,i_k \in\{1,\ldots,n}$. Wegen der Eigenschaften der Determinante gilt
+für beliebige Indexkombinationen $i_1,\ldots,i_k \in \{1,\ldots,n \}$. Wegen der Eigenschaften der Determinante gilt
 
 ```{math}
-\eta_{i_1}\wedge\ldots\wedge\eta_{i_k} = \sign(\pi) \eta_{\pi(i_1)}\wedge\ldots\wedge\eta_{\pi(i_k)} 
+\eta_{i_1}\wedge\ldots\wedge\eta_{i_k} = \sign(\pi)\, \eta_{\pi(i_1)}\wedge\ldots\wedge\eta_{\pi(i_k)} 
 ```
 
 wobei $\pi:\{i_1,\ldots,i_k\}\rightarrow\{i_1,\ldots,i_k\}$ eine Permutation ist, s.d.,
@@ -449,47 +449,63 @@ Desweiteren gilt auch
 
 ```{math}
 \eta_{i_1}\wedge\ldots\wedge\eta_{i_k} &\neq 0\\
-&\Rightleftarrow\\
-i_{j}\neq i_l\text{ für } j\neq l.
+&\Leftrightarrow \\
+i_{j}\neq i_l&\text{ für } j\neq l.
 ```
 
-Wir k"onnen nun jede $k$-Form $\omega\in\Lambda^k(E)$ eindeutig als Linearkombination
-\[\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
-\alpha_{i_1}\wedge\ldots\wedge\alpha_{i_k}\]
-mit Koeffizienten\[\omega_{i_1\ldots i_k} := \omega(e_{i_1},\ldots,e_{i_k})\in\bR\]
+Wir können nun jede $k$-Form $\omega\in\Lambda^k(E)$ eindeutig als Linearkombination
+```{math}
+\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
+\alpha_{i_1}\wedge\ldots\wedge\alpha_{i_k}
+```
+mit Koeffizienten
+```{math}
+\omega_{i_1\ldots i_k} := \omega(e_{i_1},\ldots,e_{i_k})\in\R
+```
 darstellen. Da
 die Indexmengen $\{i_1,\ldots ,i_k\}$ die $k$--elementigen Teilmengen von$\{1,\ldots,n\}$ durchlaufen, gilt
-f"ur $\dim(E)=n$
-\[\dim\l(\Lambda^k(E)\ri) = {n\choose k}.\]
-Das {\em "au"sere Produkt}
-:label: Produkt der$k$--Form $\omega$ mit einer $l$--Form
-\[\psi := \sum_{1\leq j_1<\ldots<j_{l}\leq n}\psi_{j_1\ldots j_l}\,
-\alpha_{j_1}\wedge\ldots\wedge\alpha_{j_l}\]
+für $\dim(E)=n$
+```{math}
+\dim\left(\Lambda^k(E)\right) = {n\choose k}.
+```
+Das  *äußere Produkt*
+Produkt der $k$--Form $\omega$ mit einer $l$--Form
+```{math}
+\psi := \sum_{1\leq j_1<\ldots<j_{l}\leq n}\psi_{j_1\ldots j_l}\,
+\alpha_{j_1}\wedge\ldots\wedge\alpha_{j_l}
+```
 wird nun distributiv als $\omega\wedge\psi\in\Lambda^{k+l}(E)$,
-\[\omega\wedge\psi := \sum_{1\leq i_1<\ldots<i_k\leq n} \sum_{1\leq
+```{math}
+\omega\wedge\psi := \sum_{1\leq i_1<\ldots<i_k\leq n} \sum_{1\leq
 j_1<\ldots<j_l\leq n} \omega_{i_1\ldots i_k} \psi_{j_1\ldots j_l}
 \alpha_{i_1}\wedge\ldots\wedge\alpha_{i_k}\wedge\alpha_{j_1}\wedge
-\ldots\wedge\alpha_{j_l}\]
-definiert. All diejenigen Summanden, bei denen ein Indexpaar $i_r=j_s$vorkommt, sind gleich Null, denn$\alpha_l\wedge\alpha_l = -\alpha_l\wedge\alpha_l=0$.
+\ldots\wedge\alpha_{j_l}
+```
+definiert. All diejenigen Summanden, bei denen ein Indexpaar $i_r=j_s$vorkommt, sind gleich Null, denn $\alpha_l\wedge\alpha_l = -\alpha_l\wedge\alpha_l=0$.
 
-*
-Das "au"sere Produkt ist {\em assoziativ}, d.h.\ f"ur beliebige"au"sere Formen auf $E$ gilt
-\[(\omega\wedge\psi)\wedge\rho = \omega\wedge(\psi\wedge\rho).\]
-*
-Weiter gilt f"ur eine $k$--Form $\omega$ und eine $l$--Form $\psi$
-\[\omega\wedge\psi = (-1)^{k\cdot l}\psi\wedge\omega,\]
-denn wir m"ussen $k\!\cdot\! l$--mal Eins--Formen kommutieren, um von der einen
+* Das äußere Produkt ist *assoziativ*, d.h. für beliebige äußere Formen auf $E$ gilt
+```{math}
+(\omega\wedge\psi)\wedge\rho = \omega\wedge(\psi\wedge\rho).
+```
+* Weiter gilt für eine $k$--Form $\omega$ und eine $l$--Form $\psi$
+```{math}
+\omega\wedge\psi = (-1)^{k\cdot l}\psi\wedge\omega,
+```
+denn wir müssen $k\!\cdot\! l$--mal Eins--Formen kommutieren, um von der einen
 zur anderen Gestalt zu gelangen.
 
 
-````{prf:example}[\href{https://de.wikipedia.org/wiki/Symplektischer_Vektorraum}
-{\em Symplektische Form}
-:label: symplektische Form auf dem $\bR^{2n}$]
-\[\omega := \sum_{i=1}^n\alpha_i\wedge\alpha_{i+n}\in\Lambda^2(\bR^{2n}).\]
-F"ur $n=2$ ergibt sich
-\[\omega = \alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4,\]
+````{prf:example} [Wikipedia](https://de.wikipedia.org/wiki/Symplektischer_Vektorraum) *Symplektische Form*
+:label: symplektische Form auf dem $\R^{2n}$
+```{math}
+\omega := \sum_{i=1}^n\alpha_i\wedge\alpha_{i+n}\in\Lambda^2(\R^{2n}).
+```
+Für $n=2$ ergibt sich
+```{math}
+\omega = \alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4,
+```
 also
-\beqno
+```{math}
 \omega\wedge\omega &=& (\alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4)
 \wedge(\alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4)\\
 &=& \underbrace{\alpha_1\wedge\alpha_3\wedge\alpha_1\wedge\alpha_3}_0 +
@@ -499,146 +515,124 @@ also
 &=& (-1)^3\alpha_1\wedge\alpha_2\wedge\alpha_3\wedge\alpha_4 +
 (-1)^1\alpha_1\wedge\alpha_2\wedge\alpha_3\wedge\alpha_4\\
 &=& -2\alpha_1\wedge\alpha_2\wedge\alpha_3\wedge\alpha_4.
-\eeqno
-Die symplektische Form $\omega$ hat eine Schl"usselrolle in derKlassischen Mechanik. Dort bezeichnet man die Koordinaten $x_1,\ldots,
+```
+Die symplektische Form $\omega$ hat eine Schlüsselrolle in der Klassischen Mechanik. Dort bezeichnet man die Koordinaten $x_1,\ldots,
 x_n$ als Impulskoordinaten, die Koordinaten $x_{n+1},\ldots, x_{2n}$ als
 Ortskoordinaten.
-\hfill$\Diamond$
 ````
 
-
-
-
-%
-
-
-````{prf:example} Vektoren und "au\ss ere Formen
-:label: ex8.7\quad\\
+````{prf:example} Vektoren und äußere Formen
 Wir ordnen nun Vektoren
-$v = \bsm v_1\\ \vdots\\ v_n \esm =\sum_{k=1}^nv_ke_k\in\bR^n$ verschiedene "au"sere Formen zu.
+$v = \begin{pmatrix} v_1\\ \vdots\\ v_n \end{pmatrix} =\sum_{k=1}^nv_ke_k\in\R^n$ verschiedene äußere Formen zu.
 
-\begin{enumerate}[$\bullet$]
-*
-Das kanonische innere Produkt im $\bR^n$ vermittelt einen Isomorphismus\[v\mapsto v^*\qmbox{,} v^*(u) := \LA\v,u\RA\qquad(u\in\bR^n)\]des $\bR^n$ und seinesDualraumes. Die Eins--Form $v^*$ besitzt dabei die Gestalt
-\[v^* = \sum_{i=1}^nv_i\alpha_i
-\in\Lambda^1(\bR^n).\]*
-$v\in\bR^n$ wird auch eine $(n-1)$--Form $\omega_\v\in\Lambda^{n-1}(\bR^n)$,
-\[\omega_\v(u_2,\ldots,u_n) := \det(\v,u_2,\ldots,u_n) \qquad (u_2,\ldots,u_n\in\bR^n)\]
-zugeordnet. Speziell im $\bR^3$ finden wir die $2$--Form
-\[\omega_v = v_1\alpha_2\wedge\alpha_3+v_2\alpha_3\wedge\alpha_1+v_3
-\alpha_1\wedge\alpha_2.\]
-*
-Wir betrachten jetzt speziell den (physikalisch wichtigen) $\bR^3$.
-Das "au"sere Produkt zweier solcher $1$--Formen ergibtauf dem $\bR^3$ die $2$--Form
-\beqno
+* Das kanonische innere Produkt im $\R^n$ vermittelt einen Isomorphismus
+```{math}
+v\mapsto v^*,\ v^*(u) :=\, < v,u > \qquad(u\in\R^n)
+```
+des $\R^n$ und seines Dualraumes. Die Eins--Form $v^*$ besitzt dabei die Gestalt
+```{math}
+v^* = \sum_{i=1}^nv_i\alpha_i
+\in\Lambda^1(\R^n).
+```
+* $v\in\R^n$ wird auch eine $(n-1)$--Form $\omega_v\in\Lambda^{n-1}(\R^n)$,
+```{math}
+\omega_v(u_2,\ldots,u_n) := \det(v,u_2,\ldots,u_n) \qquad (u_2,\ldots,u_n\in\R^n)
+```
+zugeordnet. Speziell im $\R^3$ finden wir die $2$--Form
+```{math}
+\omega_v = v_1\alpha_2\wedge\alpha_3+v_2\alpha_3\wedge\alpha_1+v_3
+\alpha_1\wedge\alpha_2.
+```
+* Wir betrachten jetzt speziell den (physikalisch wichtigen) $\R^3$.
+Das äußere Produkt zweier solcher $1$--Formen ergibtauf dem $\R^3$ die $2$--Form
+```{math}
 v^*\wedge u^* &=& (v_1\alpha_1+v_2\alpha_2+v_3\alpha_3)
 \wedge(u_1\alpha_1+u_2\alpha_2+u_3\alpha_3)\\
 &=& (v_1u_2-v_2u_1)\alpha_1\wedge\alpha_2+(v_2u_3-v_3u_2)\alpha_2\wedge
 \alpha_3\\
 && + (v_3u_1-v_1u_3)\alpha_3\wedge\alpha_1\\
-&=& \omega_{\v\times u}.
-\eeqno
-Wir haben auf diese Weise das\href{https://de.wikipedia.org/wiki/Kreuzprodukt}
-{\em Kreuzprodukt}
-:label: Kreuzprodukt
-\[v\times u=\bsm v_2u_3-v_3u_2\\v_3u_1-v_1u_3 \\ v_1u_2-v_2u_1 \esm\in\bR^3\]
-zweier Vektoren $v,u\in\bR^3$ gewonnen.
-\hfill $\Diamond$
-\end{enumerate}
+&=& \omega_{v\times u}.
+```
+Wir haben auf diese Weise das [*Kreuzprodukt*](https://de.wikipedia.org/wiki/Kreuzprodukt)
+```{math}
+v\times u=\begin{pmatrix} v_2u_3-v_3u_2\\v_3u_1-v_1u_3 \\ v_1u_2-v_2u_1 \end{pmatrix} \in\R^3
+```
+zweier Vektoren $v,u\in\R^3$ gewonnen.
 ````
 
-%
-\begin{theorem}
-Die Vektoren $w_1,\ldots,w_k\in E^*$ sind genau dann linear abh"angig, wenn
-\[ w_1\wedge\ldots\wedge w_k=0.\]
-\end{theorem}
-%
-{\footnotesize**Beweis:**
-\begin{enumerate}[$\bullet$]
-*
-Wenn sie linear abh"angig sind, k"onnen wir einen Index $i\in\{1,\ldots,
-k\}$ finden, f"ur den $w_i$ eine Linearkombination$w_i=\sum_{\stackrel{l=1}{l\neq i}}^k c_l w_l$ ist.
-Damit gilt aber
-\[w_1\wedge\ldots\wedge w_k = \sum_{\stackrel{l=1}{l\neq i}}^kc_l\,
-w_1 \wedge \ldots \wedge w_{i-1}\wedge w_l\wedge w_{i+1}\wedge\ldots\wedge w_k = 0,\]
+````{prf:theorem}
+Die Vektoren $w_1,\ldots,w_k\in E^*$ sind genau dann linear abhängig, wenn
+```{math}
+w_1\wedge\ldots\wedge w_k=0.
+```
+````
+
+````{prf:proof}
+* Wenn sie linear abhängig sind, können wir einen Index $i\in\{1,\ldots, k\}$ finden, für den $w_i$ eine Linearkombination $w_i=\sum_{\stackrel{l=1}{l\neq i}}^k c_l w_l$ ist. Damit gilt aber 
+```{math}
+w_1\wedge\ldots\wedge w_k = \sum_{\stackrel{l=1}{l\neq i}}^kc_l\, w_1 \wedge \ldots \wedge w_{i-1}\wedge w_l\wedge w_{i+1 \wedge\ldots\wedge w_k = 0,
+```
 denn in jedem Summanden kommt $w_l$ doppelt vor.
-*
-Andernfalls k"onnen wir die Vektoren $w_1,\ldots,w_k$ zu einer Basis
-\[w_1,\ldots,w_n \qmbox{mit} n:=\dim(E^*)\]
-erg"anzen, sodass $w_1\wedge\ldots\wedge w_n\neq0$ ist.
+* Andernfalls können wir die Vektoren $w_1,\ldots,w_k$ zu einer Basis
+```{math}
+w_1,\ldots,w_n \text{ mit } n:=\dim(E^*)
+```
+ergänzen, sodass $w_1\wedge\ldots\wedge w_n\neq0$ ist.
 Dann ist aber auch $w_1\wedge\ldots\wedge w_k\neq0$.
-\hfill $\Box$
-\end{enumerate}}
+````
 %
-\begin{defi}
-F"ur einen endlich-dimensionalen $\bR$-Vektorraum $E$ hei"st der reelleVektorraum\[\Lambda^*(E) := \bigoplus_{k=0}^{\dim(E)}\Lambda^k(E)\]
-(mit $\Lambda^0(E):=\bR$) mit der durch das Dachprodukt
-gegebenen Multiplikation die **"au"sere** oder\href{https://de.wikipedia.org/wiki/Gra%C3%9Fmann-Algebra}
-**Grassmann-Algebra**
+````{prf:definition} Grassmannalgebra
 :label: Grassmannalgebra "uber $E$.
-\end{defi}
-%
-\begin{remarks}
-\begin{enumerate}
-*
-$\dim(\Lambda^*(E)) = 2^{\dim(E)}$, denn $\sum_{k=0}^n{n\choose k} = 2^n$.
-*
-F"ur beliebige $k,l\in\bN_0$ ist f"ur alle $\omega\in\Lambda^k(E)$ und
-$\varphi\in\Lambda^l(E)$:\\ $\omega\wedge\varphi\in\Lambda^{k+l}(E)$, aber f"ur
+Für einen endlich-dimensionalen $\R$-Vektorraum $E$ heißt der reelle Vektorraum
+```{math}
+\Lambda^*(E) := \bigoplus_{k=0}^{\dim(E)}\Lambda^k(E)
+```
+(mit $\Lambda^0(E):=\R$) mit der durch das Dachprodukt
+gegebenen Multiplikation die **äußere** oder
+[**Grassmann-Algebra**](https://de.wikipedia.org/wiki/Gra%C3%9Fmann-Algebra)
+````
+````{prf:remark}
+* $\dim(\Lambda^*(E)) = 2^{\dim(E)}$, denn $\sum_{k=0}^n{n\choose k} = 2^n$.
+* Für beliebige $k,l\in\N_0$ ist für alle $\omega\in\Lambda^k(E)$ und
+$\varphi\in\Lambda^l(E)$:\\ $\omega\wedge\varphi\in\Lambda^{k+l}(E)$, aber für
 $m>\dim(E)$ ist $\dim(\Lambda^m(E))=0$.
-\hfill $\Diamond$
-\end{enumerate}
-\end{remarks}
-%
-\begin{defi}
-F"ur eine lineare Abbildung $f:E\to F$ endlichdimensionaler$\bR$--Vektorr"aume und $\omega\in\Lambda^k(F)$ hei"st die durch
-\[f^*(\omega)( v_1,\ldots, v_k) := \omega \big(f( v_1),\ldots,f( v_k)\big)
-\qquad (v_1,\ldots,v_k\in E)\]
-definierte $k$--Form $f^*(\omega)$ die **Zur"uckziehung** (engl.
-**pull--back**)
+````
+
+````{prf:definition}
 :label: pull-back von $\omega$ mit $f$.
-\end{defi}
+Für eine lineare Abbildung $f:E\to F$ endlichdimensionaler $\R$--Vektorräume und $\omega\in\Lambda^k(F)$ heißt die durch
+```{math}
+f^*(\omega)( v_1,\ldots, v_k) := \omega \big(f( v_1),\ldots,f( v_k)\big)
+\qquad (v_1,\ldots,v_k\in E)
+```
+definierte $k$--Form $f^*(\omega)$ die **Zurückziehung** (engl.
+**pull--back**).
+````
 %
 Es gilt offensichtlich $f^*(\omega)\in\Lambda^k(E)$, denn $f^*(\omega)$
 ist $k$--linear und antisymmetrisch.
 %
-\begin{theorem}\quad\\[-6mm]
-\begin{enumerate}[1.]
-*
-Die Abbildung $f^*:\Lambda^*(F)\to\Lambda^*(E)$ ist linear.
-*
-F"ur $g\in L(F,G)$ ist $(g\circ f)^*=f^*\circ g^*$.
-*
-F"ur die identische Abbildung $\Id_E:E\to E$ ist $\Id_E^* = \Id_{\Lambda
-^*(E)}$.
-*
-F"ur eine invertierbare Abbildung $f\in {\rm GL}(E,F)$ ist $(f^*)^{-1}=(f^{-1})^*$.
-*
-$f^*(\alpha\wedge\beta) = f^*(\alpha)\wedge f^*(\beta)$.
-\end{enumerate}
-\end{theorem}
-%
-{\footnotesize**Beweis:**
-F"ur alle Vektoren $v_1,\ldots,v_k\in E$ gilt
-\begin{enumerate}[1.]
-*
-Mit $\alpha, \beta\in\Lambda^k(F)$ und $c_1,c_2\in\bR$ ist
-\beqno
+````{prf:theorem}
+* Die Abbildung $f^*:\Lambda^*(F)\to\Lambda^*(E)$ ist linear.
+* Für $g\in L(F,G)$ ist $(g\circ f)^*=f^*\circ g^*$.
+* Für die identische Abbildung $Id_E:E\to E$ ist $Id_E^* = Id_{\Lambda^*(E)}$.
+* Für eine invertierbare Abbildung $f\in {\rm GL}(E,F)$ ist $(f^*)^{-1}=(f^{-1})^*$.
+* $f^*(\alpha\wedge\beta) = f^*(\alpha)\wedge f^*(\beta)$.
+````
+
+````{prf:proof}
+Für alle Vektoren $v_1,\ldots,v_k\in E$ gilt
+* Mit $\alpha, \beta\in\Lambda^k(F)$ und $c_1,c_2\in\R$ ist
+```{math}
 f^*(c_1\alpha+c_2\beta)(v_1,\ldots,v_k)
  &=& (c_1\alpha+c_2\beta) \big(f(v_1),\ldots,f(v_k)\big)\\
 &=& c_1\alpha\big(f(v_1),\ldots,f(v_k)\big) + c_2\beta\big(f(v_1),\ldots,f(v_k)\big)\\
 &=& c_1f^*\alpha(v_1,\ldots,v_k)+c_2f^*\beta(v_1,\ldots,v_k).
-\eeqno
-*
-$(g\circ f)^*\alpha( v_1,\ldots, v_k) = \alpha\big(g\circ f( v_1),\ldots, g\circ f( v_k)\big)= g^*\alpha\big(f( v_1),\ldots,f( v_k)\big)\\=  f^*\circ g^*\alpha( v_1,\ldots, v_k)$
-*
-$\Id_E^*(\alpha)(v_1,\ldots,v_k) = \alpha\big(\Id_E(v_1),\ldots,\Id_E(v_k)\big)
+```
+* $(g\circ f)^*\alpha( v_1,\ldots, v_k) = \alpha\big(g\circ f( v_1),\ldots, g\circ f( v_k)\big)= g^*\alpha\big(f( v_1),\ldots,f( v_k)\big)\\=  f^*\circ g^*\alpha( v_1,\ldots, v_k)$
+* $Id_E^*(\alpha)(v_1,\ldots,v_k) = \alpha\big(Id_E(v_1),\ldots,Id_E(v_k)\big)
 = \alpha(v_1,\ldots,v_k)$.
-*
-Folgt aus 2. und 3.: $(f^{-1})^*f^* = (f\circ f^{-1})^* = \Id_F^* =
-\Id_{\Lambda^*(F)}$.
-*
-Hausaufgabe.
-\hfill $\Box$
-\end{enumerate}}
-%
+* Folgt aus 2. und 3.: $(f^{-1})^*f^* = (f\circ f^{-1})^* = Id_F^* =
+Id_{\Lambda^*(F)}$.
+* Hausaufgabe.
+
