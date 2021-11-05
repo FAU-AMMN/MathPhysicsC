@@ -56,26 +56,27 @@ e^{tN} = \sum_{k=0}^m \frac{(tN)^k}{k!} = \sum_{k=0}^m t^k\frac{N^k}{k!},
 
 welches ein Polynom vom Grad $m$ darstellt, wobei $m$ der Nilpotenzindex der Matrix $N$ ist.
 
-Sei nun $\epsilon > 0$ so gewählt, dass $||N|| \leq \epsilon$ gilt.
-Dann lässt sich für $t\in I \subset \R^+_0$ die Matrixnorm dieses Polynom wie folgt abschätzen
+Sei nun $\epsilon > 0$ beliebig klein gewählt.
+Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten $C_2 > 0$, die von $\epsilon$ jedoch nicht von $t$ abhängt, durch eine gewöhnliche Exponentialfunktion abschätzen mit  
 
 ```{math}
- \|e^{tN}\| \leq \sum_{k=0}^m ||t^k\frac{N^k}{k!}|| = \sum_{k=0}^m t^k\frac{||N^k||}{k!} \leq \sum_{k=0}^m t^k\frac{||N||^k}{k!} \leq \sum_{k=0}^m \frac{(t\epsilon)^k}{k!} \leq \sum_{k=0}^\infty \frac{(t\epsilon)^k}{k!} = e^{t \epsilon}.
+ \|e^{tN}\| = \| \sum_{k=0}^m t^k\frac{N^k}{k!} \| \leq \sum_{k=0}^m t^k \frac{\|N^k\|}{k!} \leq C_2  e^{t \epsilon}.
  ```
 
 Wählen wir nun $\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)$, so folgt direkt, dass gilt
 
 ```{math}
-||e^{tD}|| \leq C_2 e^{t\gamma}.
+||e^{tD}|| \leq C_3 e^{t\gamma}.
 ```
 
 Insgesamt erhalten wir also für die Norm des Phasenflusses
 
 ```{math}
-\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{tN}\| \leq C_1 \cdot e^{t \epsilon} \cdot C_2 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.
+\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.
 ```
 
-Da $\epsilon > 0$ gilt, hängt das Verhalten der Norm des Flusses nur vom Vorzeichen von $\gamma$ ab.
+Da $\epsilon > 0$ beliebig klein ist, können wir $|\epsilon| < |\gamma|$ wählen.
+Damit hängt das Verhalten der Norm des Flusses nur noch vom Vorzeichen von $\gamma$ ab.
 Wir unterscheiden daher zwei Fälle:
 
 1\. Wenn $\gamma >0$ ist, so existiert zum Eigenwert $\gamma$ von $A$ ein zugehöriger Eigenvektor $v\in U$, so dass die Eigenwertgleichung $A v = \gamma v$ gilt.
@@ -83,7 +84,7 @@ Nach Lemma {prf:ref}`lem:matrixexponential_ew` ist dann $e^{t\gamma}$ ein Eigenw
 Insgesamt erhalten wir also
 
 ```{math}
-||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \forall \alpha>0. 
+||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \text{ für } \ t \to \infty, \quad  \forall \alpha>0. 
 ```
 
 Also enthält jede beliebig kleine Umgebung der Ruhelage $0$ Punkte, für die die entsprechenden Lösungen divergieren.
@@ -102,14 +103,15 @@ Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleic
 
 ## Linearisierung um Ruhelage
 
-In diesem Abschnitt wollen wir unsere Erkentnisse aus dem linearen Fall auf den allgemeinen übertragen. Man möchte Stabilitätsfragen auch für DGLn klären, deren Lösungen man nicht direkt hinschreiben kann.
-
-Wie betrachten nun eine nicht notwendig lineare DGL auf $U\in \R^n$
+In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
+Darüber hinaus wäre es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht analytisch explizit herleiten kann.
+Daher betrachten wir im Folgenden ein allgemeines Differentialgleichungssystem erster Ordnung auf dem Phasenraum $U\in \R^n$, das nicht notwendigerweise linear sein muss und wie folgt formuliert wird
 
 ```{math}
-\dot{x} = F(x), \quad f\in C^1(U,\R^n)
+\dot{x} = F(x), \quad F\in C^1(U;\R^n).
 ```
 
+Wir nehmen an, dass $x_F \in U$ eine Ruhelage ist, so dass $F(x_F) = 0$ gilt.
 in einer Umgebung einer Gleichgewichtslage $x_f$. Von dieser können wir (durch Einführung verschobener Koordinaten $x-x_f$) o.B.d.A. annehmen, dass sie sich im Nullpunkt befindet.
 Mit $A := Df(0)$ bezeichne 
 
