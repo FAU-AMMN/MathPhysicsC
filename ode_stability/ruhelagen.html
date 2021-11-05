@@ -309,23 +309,24 @@ Diese Matrizen kommutieren, d.h., <span class="math notranslate nohighlight">\(D
 <div class="math notranslate nohighlight">
 \[e^{tN} = \sum_{k=0}^m \frac{(tN)^k}{k!} = \sum_{k=0}^m t^k\frac{N^k}{k!},\]</div>
 <p>welches ein Polynom vom Grad <span class="math notranslate nohighlight">\(m\)</span> darstellt, wobei <span class="math notranslate nohighlight">\(m\)</span> der Nilpotenzindex der Matrix <span class="math notranslate nohighlight">\(N\)</span> ist.</p>
-<p>Sei nun <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> so gewählt, dass <span class="math notranslate nohighlight">\(||N|| \leq \epsilon\)</span> gilt.
-Dann lässt sich für <span class="math notranslate nohighlight">\(t\in I \subset \R^+_0\)</span> die Matrixnorm dieses Polynom wie folgt abschätzen</p>
+<p>Sei nun <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> beliebig klein gewählt.
+Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten <span class="math notranslate nohighlight">\(C_2 &gt; 0\)</span>, die von <span class="math notranslate nohighlight">\(\epsilon\)</span> jedoch nicht von <span class="math notranslate nohighlight">\(t\)</span> abhängt, durch eine gewöhnliche Exponentialfunktion abschätzen mit</p>
 <div class="math notranslate nohighlight">
-\[ \|e^{tN}\| \leq \sum_{k=0}^m ||t^k\frac{N^k}{k!}|| = \sum_{k=0}^m t^k\frac{||N^k||}{k!} \leq \sum_{k=0}^m t^k\frac{||N||^k}{k!} \leq \sum_{k=0}^m \frac{(t\epsilon)^k}{k!} \leq \sum_{k=0}^\infty \frac{(t\epsilon)^k}{k!} = e^{t \epsilon}.\]</div>
+\[ \|e^{tN}\| = \| \sum_{k=0}^m t^k\frac{N^k}{k!} \| \leq \sum_{k=0}^m t^k \frac{\|N^k\|}{k!} \leq C_2  e^{t \epsilon}.\]</div>
 <p>Wählen wir nun <span class="math notranslate nohighlight">\(\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)\)</span>, so folgt direkt, dass gilt</p>
 <div class="math notranslate nohighlight">
-\[||e^{tD}|| \leq C_2 e^{t\gamma}.\]</div>
+\[||e^{tD}|| \leq C_3 e^{t\gamma}.\]</div>
 <p>Insgesamt erhalten wir also für die Norm des Phasenflusses</p>
 <div class="math notranslate nohighlight">
-\[\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{tN}\| \leq C_1 \cdot e^{t \epsilon} \cdot C_2 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.\]</div>
-<p>Da <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> gilt, hängt das Verhalten der Norm des Flusses nur vom Vorzeichen von <span class="math notranslate nohighlight">\(\gamma\)</span> ab.
+\[\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.\]</div>
+<p>Da <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> beliebig klein ist, können wir <span class="math notranslate nohighlight">\(|\epsilon| &lt; |\gamma|\)</span> wählen.
+Damit hängt das Verhalten der Norm des Flusses nur noch vom Vorzeichen von <span class="math notranslate nohighlight">\(\gamma\)</span> ab.
 Wir unterscheiden daher zwei Fälle:</p>
 <p>1. Wenn <span class="math notranslate nohighlight">\(\gamma &gt;0\)</span> ist, so existiert zum Eigenwert <span class="math notranslate nohighlight">\(\gamma\)</span> von <span class="math notranslate nohighlight">\(A\)</span> ein zugehöriger Eigenvektor <span class="math notranslate nohighlight">\(v\in U\)</span>, so dass die Eigenwertgleichung <span class="math notranslate nohighlight">\(A v = \gamma v\)</span> gilt.
 Nach Lemma <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">lem:matrixexponential_ew</span></code> ist dann <span class="math notranslate nohighlight">\(e^{t\gamma}\)</span> ein Eigenwert des Matrixexponentials <span class="math notranslate nohighlight">\(e^{tA}\)</span> mit zugehörigem Eigenvektor <span class="math notranslate nohighlight">\(v\)</span>.
 Insgesamt erhalten wir also</p>
 <div class="math notranslate nohighlight">
-\[||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \forall \alpha&gt;0. \]</div>
+\[||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \text{ für } \ t \to \infty, \quad  \forall \alpha&gt;0. \]</div>
 <p>Also enthält jede beliebig kleine Umgebung der Ruhelage <span class="math notranslate nohighlight">\(0\)</span> Punkte, für die die entsprechenden Lösungen divergieren.
 In diesem Fall ist die Ruhelage also <strong>instabil</strong>.</p>
 <p>2. Falls <span class="math notranslate nohighlight">\(\gamma &lt;0\)</span> gilt, so können wir abschätzen, dass</p>
@@ -336,11 +337,13 @@ In diesem Fall ist die Ruhelage also <strong>instabil</strong>.</p>
 <p>Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die <span class="math notranslate nohighlight">\(0\)</span> immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.</p>
 <div class="section" id="linearisierung-um-ruhelage">
 <h2><span class="section-number">2.2.1. </span>Linearisierung um Ruhelage<a class="headerlink" href="#linearisierung-um-ruhelage" title="Permalink to this headline">¶</a></h2>
-<p>In diesem Abschnitt wollen wir unsere Erkentnisse aus dem linearen Fall auf den allgemeinen übertragen. Man möchte Stabilitätsfragen auch für DGLn klären, deren Lösungen man nicht direkt hinschreiben kann.</p>
-<p>Wie betrachten nun eine nicht notwendig lineare DGL auf <span class="math notranslate nohighlight">\(U\in \R^n\)</span></p>
+<p>In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
+Darüber hinaus wäre es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht analytisch explizit herleiten kann.
+Daher betrachten wir im Folgenden ein allgemeines Differentialgleichungssystem erster Ordnung auf dem Phasenraum <span class="math notranslate nohighlight">\(U\in \R^n\)</span>, das nicht notwendigerweise linear sein muss und wie folgt formuliert wird</p>
 <div class="math notranslate nohighlight">
-\[\dot{x} = F(x), \quad f\in C^1(U,\R^n)\]</div>
-<p>in einer Umgebung einer Gleichgewichtslage <span class="math notranslate nohighlight">\(x_f\)</span>. Von dieser können wir (durch Einführung verschobener Koordinaten <span class="math notranslate nohighlight">\(x-x_f\)</span>) o.B.d.A. annehmen, dass sie sich im Nullpunkt befindet.
+\[\dot{x} = F(x), \quad F\in C^1(U;\R^n).\]</div>
+<p>Wir nehmen an, dass <span class="math notranslate nohighlight">\(x_F \in U\)</span> eine Ruhelage ist, so dass <span class="math notranslate nohighlight">\(F(x_F) = 0\)</span> gilt.
+in einer Umgebung einer Gleichgewichtslage <span class="math notranslate nohighlight">\(x_f\)</span>. Von dieser können wir (durch Einführung verschobener Koordinaten <span class="math notranslate nohighlight">\(x-x_f\)</span>) o.B.d.A. annehmen, dass sie sich im Nullpunkt befindet.
 Mit <span class="math notranslate nohighlight">\(A := Df(0)\)</span> bezeichne</p>
 <div class="math notranslate nohighlight">
 \[R\in C^1(U, \R^n),\quad R(x):=f(x) -Ax\]</div>
