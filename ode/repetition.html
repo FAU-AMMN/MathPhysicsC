@@ -485,6 +485,7 @@ Es existieren außerdem keine weiteren (lokalen) Lösungen.</p>
 </div>
 <div class="section" id="losungen-von-linearen-differentialgleichungssystemen">
 <h2><span class="section-number">1.2.5. </span>Lösungen von linearen Differentialgleichungssystemen<a class="headerlink" href="#losungen-von-linearen-differentialgleichungssystemen" title="Permalink to this headline">¶</a></h2>
+<p>:label: s:lineare_dglsysteme</p>
 <p>Analog zu Kapitel 8 in <span id="id6">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> wollen wir uns mit Lösungen für <strong>homogene lineare Differentialgleichungen</strong> beschäftigen, jedoch dieses Mal nicht im skalaren Fall <span class="math notranslate nohighlight">\(n=1\)</span>, sondern für ein Anfangswertproblem von der Form</p>
 <div class="math notranslate nohighlight" id="equation-eq-lin-hom-dglsystem">
 <span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-lin-hom-dglsystem" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= A x(t), \quad \forall t \in I \subset \R^+_0, \\
@@ -511,9 +512,20 @@ Für den Spezialfall <span class="math notranslate nohighlight">\(n=1\)</span> e
 <li><p><span class="math notranslate nohighlight">\( e^{D} = \operatorname{diag}(e^{a_1}, \ldots, e^{a_n})\)</span> ist Diagonalmatrix für eine Diagonalmatrix <span class="math notranslate nohighlight">\(D = \operatorname{diag}(a_1, \ldots, a_n)\)</span>.</p></li>
 </ul>
 </div>
-</div><p>Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> kompakt angeben, wie uns folgendes Lemma zeigt.</p>
-<div class="proof lemma admonition" id="lemma-14">
-<p class="admonition-title"><span class="caption-number">Lemma 1.1 </span></p>
+</div><p>Folgendes Lemma stellt einen interessanten Zusammenhang des Matrixexponentials zur Spektraltheorie her.</p>
+<div class="proof lemma admonition" id="lem:matrixpotential_ew">
+<p class="admonition-title"><span class="caption-number">Lemma 1.1 </span> (Eigenwerte des Matrixexponentials)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(A \in \C^{n\times n}\)</span> eine beliebige quadratische Matrix und sei <span class="math notranslate nohighlight">\(\lambda \in \C\)</span> ein Eigenwert von <span class="math notranslate nohighlight">\(A\)</span> zum
+Eigenvektor <span class="math notranslate nohighlight">\(v \in \C^n\)</span>.
+Dann ist der Vektor <span class="math notranslate nohighlight">\(v\)</span> auch Eigenvektor des Matrixexponentials <span class="math notranslate nohighlight">\(e^A\)</span> zum zugehörigen Eigenwert <span class="math notranslate nohighlight">\(e^\lambda\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
+</div>
+<p>Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> kompakt angeben, wie uns folgendes Lemma zeigt.</p>
+<div class="proof lemma admonition" id="lemma-15">
+<p class="admonition-title"><span class="caption-number">Lemma 1.2 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(n\in \N\)</span>, <span class="math notranslate nohighlight">\(I \subset \R^+_0\)</span> und <span class="math notranslate nohighlight">\(A \in \C^{n\times n}\)</span> eine beliebige quadratische Matrix.
 Das Anfangswertproblem <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> hat die eindeutige Lösung</p>
@@ -533,12 +545,12 @@ Das Anfangswertproblem <a class="reference internal" href="#equation-eq-lin-hom-
 <p>Im Allgemeinen kann man bei linearen Differentialgleichungssystemen nicht davon ausgehen, dass diese in der einfachsten Form wie in <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> vorliegen.
 Außerdem ist die konkrete Berechnung des Matrixexponentials zur Bestimmung einer Lösungsfunktion <span class="math notranslate nohighlight">\(x(t)\)</span> in der Regel ungeeignet.
 Hierzu wollen wir die abschließende Bemerkung machen.</p>
-<div class="proof remark admonition" id="remark-15">
+<div class="proof remark admonition" id="remark-16">
 <p class="admonition-title"><span class="caption-number">Remark 1.4 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>1. Zur Berechnung einer konkreten Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des linearen homogenen Differentialgleichungssystems <a class="reference internal" href="#equation-eq-lin-hom-dglsystem">(1.5)</a> bietet es sich an, die <strong>Jordansche Normalform</strong> <span class="math notranslate nohighlight">\(J = SAS^{-1}\)</span> von <span class="math notranslate nohighlight">\(A\)</span> aus Kapitel 2.7 in <span id="id7">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:</p>
 <div class="math notranslate nohighlight">
-\[e^{tA} = t \sum_{k=0}^\infty \frac{A^k}{k!} = t \sum_{k=0}^\infty \frac{(S^{-1}JS)^k}{k!} = t S^{-1} \sum_{k=0}^\infty \frac{J^k}{k!} S = S^{-1} e^{tJ}S = S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S\]</div>
+\[e^{tA} =  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} = S^{-1} \sum_{k=0}^\infty \frac{(tJ)^k}{k!} S = S^{-1} e^{tJ}S = S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S\]</div>
 <p>für eine Transformationsmatrix <span class="math notranslate nohighlight">\(S \in \C^{n \times n}\)</span>, eine Diagonalmatrix <span class="math notranslate nohighlight">\(D \in \C^{n \times n}\)</span> mit den Eigenwerten von <span class="math notranslate nohighlight">\(A\)</span> und einer nilpotenten Matrix <span class="math notranslate nohighlight">\(N \in \C^{n \times n}\)</span>, für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von <span class="math notranslate nohighlight">\(N\)</span>) abbricht.</p>
 <p>2. Ist das vorliegende lineare Differentialgleichungssystem <strong>inhomogen</strong>, das heißt für eine stetige Störfunktion <span class="math notranslate nohighlight">\(b \colon I \rightarrow \R^n\)</span> von der Form</p>
 <div class="math notranslate nohighlight" id="equation-eq-lin-inhom-dglsystem">

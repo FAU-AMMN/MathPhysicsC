@@ -370,7 +370,7 @@ Stattdessen können wir nur Tupel der Form <span class="math notranslate nohighl
 </div><p>Im nächsten Lemma werden wir sehen, dass die Lösung eines autonomen gewöhnlichen Differentialgleichungssystems tatsächlich als solch ein lokaler Fluss interpretiert werden kann.
 In diesem Fall spircht man auch vom <strong>Fluss einer Differentialgleichung</strong>.</p>
 <div class="proof lemma admonition" id="lemma-3">
-<p class="admonition-title"><span class="caption-number">Lemma 1.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 1.3 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(U\subset\R^n\)</span> eine offene Teilmenge und es sei <span class="math notranslate nohighlight">\(F \colon U \rightarrow \R^n\)</span> eine lokal Lipschitzstetige Abbildung.
 Dann existieren Intervalle <span class="math notranslate nohighlight">\(I(x_0)\)</span>, so dass es für den erweiterten Phasenraum</p>
@@ -454,11 +454,11 @@ Aus dem gleichen Grund beschränkt man sich in der Regel außerdem auf ein- und 
 </ul>
 <p>Durch Einführung der Variablen <span class="math notranslate nohighlight">\(p(t):= m\dot{x}(t)\)</span> als Impuls erhalten wir das folgende gewöhnliche Differentialgleichungssystem</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\dot{p}(t) &amp;= -kx(t) - \frac{r}{m}p(t), \\
+\[\begin{split}\dot{p}(t) &amp;= - \frac{r}{m}p(t) -kx(t), \\
 \dot{x}(t) &amp;= \frac{1}{m}p(t).\end{split}\]</div>
 <p>Dies lässt sich in kompakter Form schreiben als:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{pmatrix} \dot{p} \\ \dot{x} \end{pmatrix}(t) = \begin{pmatrix} -\frac{r}{m} &amp; -k \\ \frac{1}{m} &amp; 0\end{pmatrix} \begin{pmatrix}p \\ x\end{pmatrix}`\end{split}\]</div>
+\[\begin{split}\begin{pmatrix} \dot{p} \\ \dot{x} \end{pmatrix}(t) = \begin{pmatrix} -\frac{r}{m} &amp; -k \\ \frac{1}{m} &amp; 0\end{pmatrix} \begin{pmatrix}p \\ x\end{pmatrix}(t)\end{split}\]</div>
 <p>Betrachten wir speziell den ungedämpften Fall für <span class="math notranslate nohighlight">\(r=0\)</span>, d.h. ohne Reibungsverluste, so geht die Gleichung in die <strong>Bewegungsgleichung für einen harmonischen Oszillator</strong> über.
 In diesem Fall erhalten wir zum Anfangswert <span class="math notranslate nohighlight">\((p,x) \in U \subset \R^2 \)</span> die Lösung</p>
 <div class="math notranslate nohighlight">

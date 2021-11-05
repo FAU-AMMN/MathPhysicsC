@@ -1,4 +1,4 @@
-## Stabilität von Ruhelagen
+# Stabilität von Ruhelagen
 
 Zunächst wollen wir uns den einfachen Fall von Ruhelagen für allgemeine **lineare** Differentialgleichungssysteme anschauen. 
 Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in {cite:p}`tenbrinck_2021` kennen gelernt.
@@ -7,7 +7,7 @@ Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage ei
 
 ````{prf:theorem}
 
-Sei $A\in \C^{n\times n}$ eine Matrix mit den Eigenwerten $z_1,\dots, z_n\in \C$.
+Sei $A\in \C^{n\times n}$ eine Matrix mit den Eigenwerten $\lambda_1,\dots, \lambda_n\in \C$.
 Dann beschreibt der zugehörige Phasenfluss $\Phi$ zum homogenen linearen Differentialgleichungssystem
 
 ```{math}
@@ -15,12 +15,12 @@ Dann beschreibt der zugehörige Phasenfluss $\Phi$ zum homogenen linearen Differ
 ```
 
 eine Ruhelage in $\vec{0} \in \C^n$.
-Diese ist sogar eindeutig, falls $z_i\neq0, i=1,\ldots,n$ gilt.
+Diese ist sogar eindeutig, falls $\lambda_i\neq 0, i=1,\ldots,n$ gilt.
 
 Für 
 
 ```{math}
-\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{R}e(z_i)
+\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)
 ```
 
 kann die Stabilität der Ruhelage wie folgt charakterisiert werden:
@@ -33,37 +33,74 @@ kann die Stabilität der Ruhelage wie folgt charakterisiert werden:
 
 ````{prf:proof}
 
-Zu beliebiger Anfangsbedingung $x$ und $\epsilon > 0$ erhalten wir die Abschätzung
+Wir wissen, dass für einen beliebigen Startpunkt $x_0 \in U$ im Phasenraum der Phasenfluss $\Phi \colon I \times U \rightarrow U$ eine Lösung des Differentialgleichungssystems realisiert.
+Für homogene, lineare Differentialgleichungssysteme haben wir bereits in {prf:ref}`s:lineare_dglsysteme` Lösungen mittels des *Matrixexponentials* hergeleitet.
+
+Sei $J = S^{-1}AS$ die Jordansche Normalform von $A$ mit Transformationsmatrizen $S^{-1},S \in \C^{n \times n}$, so erhalten wir die Abschätzung
 
 ```{math}
 \begin{align*}
-\|\Phi_t(x)\| &= \|e^{tA}x\|=\|M^{-1}e^{tD}e^{tJ}Mx\|\leq \|M^{-1}\|\|e^{tD}\|\|e^{tJ}\|\|M\|\|x\|\\
-&\leq C_1\|e^{td}\|C_2 e^{\epsilon t}C_3C_4 = Ce^{\gamma t} e^{\epsilon t}.
+\|\Phi_t(x_0)\| &= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx\| = \|S^{-1}e^{tD}e^{tN}Sx\| \\
+&\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
 \end{align*}
 ```
-Weil $ e^{tJ}$ ein Polynom in $t$ ist gilt die Abschätzung 
+für eine Konstante $C_1 > 0$, die unabhängig von $t$ ist.
+Hierbei haben wir ausgenutzt, dass sich die Jordannormalform $J$ von $A$ als Summe einer Diagonalmatrix $D$ mit den Eigenwerten $\lambda_i \in \C$, $i=1,\ldots,n$ von $A$ und einer nilpotenten Matrix $N$ schreiben lässt als $J = D + N$.
+Diese Matrizen kommutieren, d.h., $D \cdot N = N \cdot D$.
+
+Wir sehen nun ein, dass $e^{tN}$ wegen der Nilpotenz von $N$ eine endliche Reihe bildet der Form
 
 ```{math}
-\|e^{tJ}\|\leq \|e^{\epsilon t}\|.
+e^{tN} = \sum_{k=0}^m \frac{(tN)^k}{k!} = \sum_{k=0}^m t^k\frac{N^k}{k!},
 ```
 
-Außerdem können wir wegen $\gamma = \max_{i=1,\dots,n} \mathcal{R}e(z_i)$ folgende Abschätzung treffen
+welches ein Polynom vom Grad $m$ darstellt, wobei $m$ der Nilpotenzindex der Matrix $N$ ist.
+
+Sei nun $\epsilon > 0$ so gewählt, dass $||N|| \leq \epsilon$ gilt.
+Dann lässt sich für $t\in I \subset \R^+_0$ die Matrixnorm dieses Polynom wie folgt abschätzen
 
 ```{math}
-\|e^{tD}\| \leq e^{t\gamma}.
+ \|e^{tN}\| \leq \sum_{k=0}^m ||t^k\frac{N^k}{k!}|| = \sum_{k=0}^m t^k\frac{||N^k||}{k!} \leq \sum_{k=0}^m t^k\frac{||N||^k}{k!} \leq \sum_{k=0}^m \frac{(t\epsilon)^k}{k!} \leq \sum_{k=0}^\infty \frac{(t\epsilon)^k}{k!} = e^{t \epsilon}.
+ ```
+
+Wählen wir nun $\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)$, so folgt direkt, dass gilt
+
+```{math}
+||e^{tD}|| \leq C_2 e^{t\gamma}.
 ```
 
-Das verhalten der Norm des Flusses hängt vom Vorzeichen von $\gamma$ ab. <br />
-Wenn $\gamma >0$, existiert $v$ mit $e^{tA}\lambda v = \lambda e^{t\gamma}v \to \infty $ für alle $\lambda>0$. Also enthällt jede Umgebung von 0 Punkte, die explodieren. <br />
-Falls $\gamma <0$, dann gilt $0\leq \|\Phi_t(x)-0\|\leq Ce^{\gamma t} \|e^{tJ}\| \to 0$. Also asymptotische Stabilität des Ruhepunktes 0.
+Insgesamt erhalten wir also für die Norm des Phasenflusses
+
+```{math}
+\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{tN}\| \leq C_1 \cdot e^{t \epsilon} \cdot C_2 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.
+```
+
+Da $\epsilon > 0$ gilt, hängt das Verhalten der Norm des Flusses nur vom Vorzeichen von $\gamma$ ab.
+Wir unterscheiden daher zwei Fälle:
+
+1\. Wenn $\gamma >0$ ist, so existiert zum Eigenwert $\gamma$ von $A$ ein zugehöriger Eigenvektor $v\in U$, so dass die Eigenwertgleichung $A v = \gamma v$ gilt.
+Nach Lemma {prf:ref}`lem:matrixexponential_ew` ist dann $e^{t\gamma}$ ein Eigenwert des Matrixexponentials $e^{tA}$ mit zugehörigem Eigenvektor $v$.
+Insgesamt erhalten wir also
+
+```{math}
+||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \forall \alpha>0. 
+```
+
+Also enthält jede beliebig kleine Umgebung der Ruhelage $0$ Punkte, für die die entsprechenden Lösungen divergieren.
+In diesem Fall ist die Ruhelage also **instabil**.
+
+2\. Falls $\gamma <0$ gilt, so können wir abschätzen, dass 
+
+```{math}
+0\leq \|\Phi_t(x)-0\|\leq C e^{t\epsilon} e^{t \gamma} \to 0 \quad \text{ für } \ t \to \infty.
+```
+
+Dies liefert uns also **asymptotische Stabilität** der Ruhelage $0$.
 ````
-````{prf:example}
 
-Wir führen das Beispiel vom vorherigen Abschnitt weiter. 
+Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die $0$ immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.
 
-````
-
-### Linearisierung um Ruhelage
+## Linearisierung um Ruhelage
 
 In diesem Abschnitt wollen wir unsere Erkentnisse aus dem linearen Fall auf den allgemeinen übertragen. Man möchte Stabilitätsfragen auch für DGLn klären, deren Lösungen man nicht direkt hinschreiben kann.
 
@@ -153,7 +190,7 @@ entspricht ja dem Anfangswertproblem $\dot{f} = f\cdot g,\ f(t_0) = a$ mit der L
 
 ````
 
-### Asymptotische Stabilität von Ruhelagen
+## Asymptotische Stabilität von Ruhelagen
 
 ````{prf:theorem} Asymptotische stabilität von Ruhelagen
 Eine Gleichgewichtslage $x_s\in  U\subset \R^n$ der DGL
