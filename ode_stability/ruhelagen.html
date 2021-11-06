@@ -251,13 +251,11 @@
   <a class="reference internal nav-link" href="#asymptotische-stabilitat-von-ruhelagen">
    2.2.2. Asymptotische Stabilität von Ruhelagen
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lyapunov-stabilitat-von-ruhelagen">
-     2.2.2.1. Lyapunov-Stabilität von Ruhelagen
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lyapunov-stabilitat-von-ruhelagen">
+   2.2.3. Lyapunov-Stabilität von Ruhelagen
+  </a>
  </li>
 </ul>
 
@@ -272,7 +270,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="stabilitat-von-ruhelagen">
 <h1><span class="section-number">2.2. </span>Stabilität von Ruhelagen<a class="headerlink" href="#stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h1>
-<p>Zunächst wollen wir uns den einfachen Fall von Ruhelagen für allgemeine <strong>lineare</strong> Differentialgleichungssysteme anschauen.
+<p>Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine <strong>lineare</strong> Differentialgleichungssysteme untersuchen.
 Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> kennen gelernt.</p>
 <p>Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.</p>
 <div class="proof theorem admonition" id="theorem-0">
@@ -299,8 +297,8 @@ Für homogene, lineare Differentialgleichungssysteme haben wir bereits in <code 
 <p>Sei <span class="math notranslate nohighlight">\(J = S^{-1}AS\)</span> die Jordansche Normalform von <span class="math notranslate nohighlight">\(A\)</span> mit Transformationsmatrizen <span class="math notranslate nohighlight">\(S^{-1},S \in \C^{n \times n}\)</span>, so erhalten wir die Abschätzung</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}
-\|\Phi_t(x_0)\| &amp;= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx\| = \|S^{-1}e^{tD}e^{tN}Sx\| \\
-&amp;\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
+\|\Phi_t(x_0)\| &amp;= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx_0\| = \|S^{-1}e^{tD}e^{tN}Sx_0\| \\
+&amp;\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x_0\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
 \end{align*}\end{split}\]</div>
 <p>für eine Konstante <span class="math notranslate nohighlight">\(C_1 &gt; 0\)</span>, die unabhängig von <span class="math notranslate nohighlight">\(t\)</span> ist.
 Hierbei haben wir ausgenutzt, dass sich die Jordannormalform <span class="math notranslate nohighlight">\(J\)</span> von <span class="math notranslate nohighlight">\(A\)</span> als Summe einer Diagonalmatrix <span class="math notranslate nohighlight">\(D\)</span> mit den Eigenwerten <span class="math notranslate nohighlight">\(\lambda_i \in \C\)</span>, <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> von <span class="math notranslate nohighlight">\(A\)</span> und einer nilpotenten Matrix <span class="math notranslate nohighlight">\(N\)</span> schreiben lässt als <span class="math notranslate nohighlight">\(J = D + N\)</span>.
@@ -308,7 +306,7 @@ Diese Matrizen kommutieren, d.h., <span class="math notranslate nohighlight">\(D
 <p>Wir sehen nun ein, dass <span class="math notranslate nohighlight">\(e^{tN}\)</span> wegen der Nilpotenz von <span class="math notranslate nohighlight">\(N\)</span> eine endliche Reihe bildet der Form</p>
 <div class="math notranslate nohighlight">
 \[e^{tN} = \sum_{k=0}^m \frac{(tN)^k}{k!} = \sum_{k=0}^m t^k\frac{N^k}{k!},\]</div>
-<p>welches ein Polynom vom Grad <span class="math notranslate nohighlight">\(m\)</span> darstellt, wobei <span class="math notranslate nohighlight">\(m\)</span> der Nilpotenzindex der Matrix <span class="math notranslate nohighlight">\(N\)</span> ist.</p>
+<p>welches ein Polynom vom Grad <span class="math notranslate nohighlight">\(m\)</span> darstellt, wobei <span class="math notranslate nohighlight">\(m \in \N\)</span> der Nilpotenzindex der Matrix <span class="math notranslate nohighlight">\(N\)</span> ist.</p>
 <p>Sei nun <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> beliebig klein gewählt.
 Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten <span class="math notranslate nohighlight">\(C_2 &gt; 0\)</span>, die von <span class="math notranslate nohighlight">\(\epsilon\)</span> jedoch nicht von <span class="math notranslate nohighlight">\(t\)</span> abhängt, durch eine gewöhnliche Exponentialfunktion abschätzen mit</p>
 <div class="math notranslate nohighlight">
@@ -331,85 +329,131 @@ Insgesamt erhalten wir also</p>
 In diesem Fall ist die Ruhelage also <strong>instabil</strong>.</p>
 <p>2. Falls <span class="math notranslate nohighlight">\(\gamma &lt;0\)</span> gilt, so können wir abschätzen, dass</p>
 <div class="math notranslate nohighlight">
-\[0\leq \|\Phi_t(x)-0\|\leq C e^{t\epsilon} e^{t \gamma} \to 0 \quad \text{ für } \ t \to \infty.\]</div>
+\[0\leq \|\Phi_t(x_0)-0\|\leq C e^{t\epsilon} e^{t \gamma} \to 0 \quad \text{ für } \ t \to \infty.\]</div>
 <p>Dies liefert uns also <strong>asymptotische Stabilität</strong> der Ruhelage <span class="math notranslate nohighlight">\(0\)</span>.</p>
 </div>
 <p>Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die <span class="math notranslate nohighlight">\(0\)</span> immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.</p>
 <div class="section" id="linearisierung-um-ruhelage">
 <h2><span class="section-number">2.2.1. </span>Linearisierung um Ruhelage<a class="headerlink" href="#linearisierung-um-ruhelage" title="Permalink to this headline">¶</a></h2>
 <p>In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
-Darüber hinaus wäre es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht analytisch explizit herleiten kann.
-Daher betrachten wir im Folgenden ein allgemeines Differentialgleichungssystem erster Ordnung auf dem Phasenraum <span class="math notranslate nohighlight">\(U\in \R^n\)</span>, das nicht notwendigerweise linear sein muss und wie folgt formuliert wird</p>
+Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
+Daher betrachten wir im Folgenden das Anfangswertproblem eines <strong>allgemeinen Differentialgleichungssystem erster Ordnung</strong> auf dem Phasenraum <span class="math notranslate nohighlight">\(U\in \R^n\)</span>, das nicht notwendigerweise linear sein muss und für ein Vektorfeld <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> wie folgt formuliert ist</p>
+<div class="math notranslate nohighlight" id="equation-eq-awp-allg">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-awp-allg" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
+x(0) &amp;= x_0.\end{split}\]</div>
+<p>Wir nehmen an, dass <span class="math notranslate nohighlight">\(x_F \in U\)</span> eine Ruhelage des dynamischen Systems ist, so dass dementsprechend <span class="math notranslate nohighlight">\(F(x_F) = 0\)</span> gilt.
+Durch einfache Translation der Koordinaten des Systems um <span class="math notranslate nohighlight">\(x_F \in U\)</span>, können wir ohne Beschränkung der Allgemeinheit annehmen, dass die Ruhelage sich im Nullpunkt befindet.</p>
+<p>Im Folgenden definieren wir zwei wichtige Werkzeuge zur Untersuchung der Stabilität von Ruhelagen für allgemeine Differentialgleichungssysteme.</p>
+<div class="proof definition admonition" id="def:linearisierung">
+<p class="admonition-title"><span class="caption-number">Definition 2.2 </span> (Linearisierung und Abweichung)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> ein Vektorfeld auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> und <span class="math notranslate nohighlight">\(0\)</span> eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in <a class="reference internal" href="#equation-eq-awp-allg">(2.1)</a> charakterisiert wird.
+Sei nun <span class="math notranslate nohighlight">\((DF)(x)\)</span> die Jacobi-Matrix der Funktion <span class="math notranslate nohighlight">\(F\)</span> im Punkt <span class="math notranslate nohighlight">\(x \in U\)</span> (vgl. Kapitel 6.2 in <span id="id2">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>).
+Dann bezeichnen wir mit <span class="math notranslate nohighlight">\(A := (DF)(0)\)</span> die <strong>Linearisierung</strong> von <span class="math notranslate nohighlight">\(F\)</span> in der Ruhelage <span class="math notranslate nohighlight">\(0 \in U\)</span>.
+Außerdem bezeichnen wir die Funktion <span class="math notranslate nohighlight">\(R \in C^1(U; \R^n)\)</span> mit</p>
 <div class="math notranslate nohighlight">
-\[\dot{x} = F(x), \quad F\in C^1(U;\R^n).\]</div>
-<p>Wir nehmen an, dass <span class="math notranslate nohighlight">\(x_F \in U\)</span> eine Ruhelage ist, so dass <span class="math notranslate nohighlight">\(F(x_F) = 0\)</span> gilt.
-in einer Umgebung einer Gleichgewichtslage <span class="math notranslate nohighlight">\(x_f\)</span>. Von dieser können wir (durch Einführung verschobener Koordinaten <span class="math notranslate nohighlight">\(x-x_f\)</span>) o.B.d.A. annehmen, dass sie sich im Nullpunkt befindet.
-Mit <span class="math notranslate nohighlight">\(A := Df(0)\)</span> bezeichne</p>
-<div class="math notranslate nohighlight">
-\[R\in C^1(U, \R^n),\quad R(x):=f(x) -Ax\]</div>
-<p>die Abweichung des Vektorfeldes von seiner Linearisierung an der Gleichgewichtslage.</p>
-<p>Wir wollen zeigen, dass die Lösung der DGL in führender Ordnung durch die Linearisierung von <span class="math notranslate nohighlight">\(f\)</span> kontrolliert werden, soweit wir uns in der Nähe der Gleichgewichtslage befinden. Dazu benutzen wir das folgende Lemma.</p>
-<div class="proof lemma admonition" id="lemma:intexpglgn">
+\[R(x) \ \coloneqq \ F(x) - Ax\]</div>
+<p>als die <strong>Abweichung</strong> (auch <strong>Residuum</strong> genannt) des Vektorfeldes <span class="math notranslate nohighlight">\(F\)</span> von seiner Linearisierung <span class="math notranslate nohighlight">\(A\)</span> in der Ruhelage.</p>
+</div>
+</div><p>Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des Differentialgleichungssystem in führender Ordnung durch die Linearisierung <span class="math notranslate nohighlight">\(A\)</span> von <span class="math notranslate nohighlight">\(F\)</span> kontrolliert werden, solange wir uns nah genug zur Ruhelage befinden.
+Dies wird durch das folgende Lemma ausgedrückt.</p>
+<div class="proof lemma admonition" id="lemma:int_exp_glgn">
 <p class="admonition-title"><span class="caption-number">Lemma 2.1 </span></p>
 <div class="lemma-content section" id="proof-content">
+<p>Wir betrachten das Anfangswertproblem aus <a class="reference internal" href="#equation-eq-awp-allg">(2.1)</a> auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> für ein Vektorfeld <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span>.
+Außerdem sei <span class="math notranslate nohighlight">\(A \coloneqq (DF)(0)\)</span> die Linearisierung des Vektorfelds in der Ruhelage <span class="math notranslate nohighlight">\(0\)</span> des dynamischen Systems und <span class="math notranslate nohighlight">\(R(x) \coloneqq F(x) - Ax\)</span> die Abweichung von <span class="math notranslate nohighlight">\(F\)</span> von seiner Linearisierung <span class="math notranslate nohighlight">\(A\)</span> im Nullpunkt.</p>
+<p>Dann lassen sich Lösungen des Differentialgleichungssystems mittels der Linearisierung <span class="math notranslate nohighlight">\(A\)</span> und der Abweichung <span class="math notranslate nohighlight">\(R\)</span> explizit angeben als</p>
 <div class="math notranslate nohighlight">
-\[x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds\]</div>
+\[x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s, \quad \forall t \in I.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Wir setzen die Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des AWP <span class="math notranslate nohighlight">\(\dot{x} = F(x), x(0) = x_0\)</span> in der Form</p>
+<p>Proof. Wir setzen zunächst die unbekannte Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des Anfangswertproblems <a class="reference internal" href="#equation-eq-awp-allg">(2.1)</a> in der allgemeinen Form</p>
 <div class="math notranslate nohighlight">
 \[x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0\]</div>
-<p>an, und suchen eine Bestimmugsgleichung für den Vektor <span class="math notranslate nohighlight">\(c(t)\)</span>(sog. Variation der Konstanten).
-Es gilt</p>
+<p>an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion <span class="math notranslate nohighlight">\(c(t)\)</span> mittels <strong>Variation der Konstanten</strong> (vgl. Kapitel 8.2 in <span id="id3">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>).</p>
+<p>Mittels der Rechenregeln für das Matrixexponentials in <a class="reference internal" href="../ode/repetition.html#rem:matrixexponential_regeln">Remark 1.3</a> können wir die Ableitung der Funktion <span class="math notranslate nohighlight">\(x\)</span> mittels Produktregel angeben als</p>
 <div class="math notranslate nohighlight">
-\[\dot{x}(s) =A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s)\]</div>
-<p>und</p>
+\[\dot{x}(s) = A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s).\]</div>
+<p>Aus der Definition des Residuums in <a class="reference internal" href="#def:linearisierung">Definition 2.2</a> folgt aber auch</p>
 <div class="math notranslate nohighlight">
-\[\dot{x}(s) = Ax(s) + e^{As}\dot{c}(s) +R(x(s)),\]</div>
-<p>also</p>
+\[\dot{x}(s) = F(x(s)) = Ax(s) + R(x(s)).\]</div>
+<p>Vergleichen wir die beiden Gleichungen, so sieht man ein, dass</p>
 <div class="math notranslate nohighlight">
-\[e^{As}\dot{c}(s) = R(x(s))\quad \text{oder}\quad \dot{c}(s) = e^{-As}R(x(s)).\]</div>
-<p>Damit ist</p>
+\[e^{As}\dot{c}(s) = R(x(s))\]</div>
+<p>gelten muss.
+Äquivalent können wir auch folgern, dass <span class="math notranslate nohighlight">\(\dot{c}(s) = e^{-As}R(x(s))\)</span> gilt.</p>
+<p>Nach dem Hauptsatz der Differential- und Integralrechnung (vgl. Theorem 5.3 in <span id="id4">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>) gilt dann für die unbekannte Funktion <span class="math notranslate nohighlight">\(c\)</span> der folgende Zusammenhang</p>
 <div class="math notranslate nohighlight">
-\[c(t) = c(0) + \int_0^t \dot{c}(s)\, ds=x_0+ \int_0^t e^{-As}R(x(s)) \, ds\]</div>
-<p>und</p>
+\[c(t) = c(0) + \int_0^t \dot{c}(s)\, \mathrm{d}s = x_0+ \int_0^t e^{-As}R(x(s)) \, \mathrm{d}s.\]</div>
+<p>Setzen wir dies in die erste Gleichung unserer Ansatzfunktion ein und nutzen die Rechenregeln des Matrixexponnentials aus <a class="reference internal" href="../ode/repetition.html#rem:matrixexponential_regeln">Remark 1.3</a>, so erhalten wir schließlich die Aussage des Lemmas</p>
 <div class="math notranslate nohighlight">
-\[x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, ds.\]</div>
+\[x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.\]</div>
 </div>
-<p>Scheinbar nützt uns diese Identität nicht viel, denn auch auf der rechten Seite taucht <span class="math notranslate nohighlight">\(x(s)\)</span>, also die unbekannte Lösung des AWP auf.</p>
-<p>Wir können aber die Gronwall-Ungleichung auf diese Integralgleichung anwenden. Diese in der Differentialgleichungstheorie wichtige Abschätzung ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.</p>
+<p>Auf den ersten Blick nützt uns die Identität in <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">int_exp_glgn</span></code> nicht viel, denn auch auf der rechten Seite taucht <span class="math notranslate nohighlight">\(x(s)\)</span>, also die unbekannte Lösung des Anfangswertproblems <a class="reference internal" href="#equation-eq-awp-allg">(2.1)</a> auf.
+Es stellt sich jedoch heraus, dass wir die <strong>Gronwall-Ungleichung</strong> auf diese Integralgleichung anwenden können.
+Diese wichtige Abschätzung in der Theorie von Differentialgleichungen ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.</p>
 <div class="proof lemma admonition" id="lemma:Gronwall">
 <p class="admonition-title"><span class="caption-number">Lemma 2.2 </span> (Gronwall-Ungleichung)</p>
 <div class="lemma-content section" id="proof-content">
-<p>Für <span class="math notranslate nohighlight">\(f,g\in C^0([t_0,t_1), [0,\infty))\)</span> gelte mit einem geeigneten <span class="math notranslate nohighlight">\(a \geq 0\)</span> die Ungleichung</p>
+<p>Für zwei stetige Funktionen <span class="math notranslate nohighlight">\(f,g\in C([t_0,t_1]; \R^+)\)</span> gelte für eine Konstante <span class="math notranslate nohighlight">\(a \geq 0\)</span> die Ungleichung</p>
 <div class="math notranslate nohighlight">
-\[f(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).\]</div>
-<p>Dann ist</p>
+\[f(t) \leq a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad \forall t\in [t_0,t_1].\]</div>
+<p>Dann lässt sich der Wert der Funktion <span class="math notranslate nohighlight">\(f\)</span> durch die Funktion <span class="math notranslate nohighlight">\(g\)</span> wie folgt abschätzen</p>
 <div class="math notranslate nohighlight">
-\[f(t)\leq a \exp{ \left(\int_{t_0}^t g(s)\, ds\right)}\quad (t\in [t_0,t_1)).\]</div>
+\[f(t) \leq a \exp{ \left(\int_{t_0}^t g(s)\, \mathrm{d}s \right)} \quad \forall t\in [t_0,t_1].\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. - Ist <span class="math notranslate nohighlight">\(a&gt;0\)</span>, dann gilt für die rechte Seite</p>
+<p>Proof. Wir definieren zunächst eine Hilfsfunktion</p>
 <div class="math notranslate nohighlight">
-\[h(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1))\]</div>
-<p>mit der Vorraussetzung <span class="math notranslate nohighlight">\(h(t)\geq 0\)</span> und <span class="math notranslate nohighlight">\(h'(t) = f(t)g(t)\)</span>, also <span class="math notranslate nohighlight">\(\frac{h'(t)}{h(t)}\leq g(t)\)</span>.\
-Integration ergibt <span class="math notranslate nohighlight">\(\ln \left(\frac{h(t)}{a}\right)\leq \int_{t_0}^t g(s)\, ds\)</span>, oder <span class="math notranslate nohighlight">\(h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}\)</span>, also die Behauptung.</p>
-<ul class="simple">
-<li><p>Ist <span class="math notranslate nohighlight">\(a=0\)</span>, dann gelten Voraussetzung und Resultat für alle <span class="math notranslate nohighlight">\(\hat{a} :=\epsilon &gt;0\)</span>, also ist <span class="math notranslate nohighlight">\(f=0\)</span>.</p></li>
-</ul>
+\[h(t) \ \coloneqq \ a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s\]</div>
+<p>und bemerken, dass <span class="math notranslate nohighlight">\(0 \leq f(t) \leq h(t)\)</span> nach Voraussetzung gilt für alle <span class="math notranslate nohighlight">\(t \in [t_0, t_1]\)</span>.
+Nun führen wir eine einfache Fallunterscheidung durch:</p>
+<p>1. Ist <span class="math notranslate nohighlight">\(h(t)=0\)</span>, so folgt mit der Abschätzung <span class="math notranslate nohighlight">\(f(t) \leq h(t)\)</span> schon, dass <span class="math notranslate nohighlight">\(f(t) = 0\)</span> gelten muss, so dass die Behauptung des Lemmas trivialerweise erfüllt ist.</p>
+<p>2. Sei also im Folgenden <span class="math notranslate nohighlight">\(h(t) &gt; 0\)</span>.
+Aus dem Haupsatz der Integral- und Differentialrechnung wissen wir, dass <span class="math notranslate nohighlight">\(h'(t) = f(t)g(t)\)</span> gilt.
+Wegen <span class="math notranslate nohighlight">\(f(t) \leq h(t)\)</span> für alle <span class="math notranslate nohighlight">\(t \in [t_0, t_1]\)</span> folgt sofort, dass</p>
+<div class="math notranslate nohighlight">
+\[f(t)g(t) \leq h(t)g(t) \quad \forall t \in [t_0,t_1].\]</div>
+<p>Kombinieren wir diese Abschätzung mit der Identität der Ableitung <span class="math notranslate nohighlight">\(h'(t)\)</span>, so erhalten wir durch Umstellen</p>
+<div class="math notranslate nohighlight">
+\[\frac{h'(t)}{h(t)} \leq g(t) \quad \forall t \in [t_0, t_1].\]</div>
+<p>Da wir <span class="math notranslate nohighlight">\(h(t) &gt; 0\)</span> angenommen haben erhalten wir durch Integration beider Seiten die Abschätzung</p>
+<div class="math notranslate nohighlight">
+\[\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s \leq \int_{t_0}^t g(s) \, \mathrm{d}s \]</div>
+<p>für alle <span class="math notranslate nohighlight">\(t \in [t_0, t_1]\)</span>.
+Für die linke Seite können wir das Integral explizit angeben als</p>
+<div class="math notranslate nohighlight">
+\[\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s = \ln(h(t)) - \ln(h(t_0)) = \ln(h(t)) - \ln(a) = \ln\left(\frac{h(t)}{a}\right).\]</div>
+<p>Es gilt also nun</p>
+<div class="math notranslate nohighlight">
+\[\ln \left(\frac{h(t)}{a}\right) \leq \int_{t_0}^t g(s)\, \mathrm{d}s.\]</div>
+<p>Durch Anwenden der Exponentialfunktion auf beiden Seiten erhalten wir schließlich die Behauptung des Lemmas</p>
+<div class="math notranslate nohighlight">
+\[ h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].\]</div>
 </div>
-<div class="proof remark admonition" id="remark-3">
-<p class="admonition-title"><span class="caption-number">Remark 2.2 </span> (Zur Gronwall-Ungleichung)</p>
+<p>Wir wollen folgende Bemerkungen zur Gronwall-Ungleichung festhalten.</p>
+<div class="proof remark admonition" id="remark-4">
+<p class="admonition-title"><span class="caption-number">Remark 2.2 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>Man kann sich die Abschätzung leicht merken, wenn man Gleichheit annimmt. Die Integralgleichung</p>
+<p>1. Die in <a class="reference internal" href="#lemma:Gronwall">Lemma 2.2</a> beschriebene Gronwall-Ungleichung ist eigentlich ein Spezialfall für eine konstante Funktion <span class="math notranslate nohighlight">\(a(t) \equiv a \geq 0\)</span>.
+Die ursprünglich bewiesene Aussage gilt auch für allgemeinere Funktionen.</p>
+<p>2. Man kann sich die Abschätzung in der Gronwall-Ungleichung leicht merken wenn man Gleichheit der beiden Seiten annimmt.
+Die Integralgleichung</p>
 <div class="math notranslate nohighlight">
-\[f(t) = a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).\]</div>
-<p>entspricht ja dem Anfangswertproblem <span class="math notranslate nohighlight">\(\dot{f} = f\cdot g,\ f(t_0) = a\)</span> mit der Lösung <span class="math notranslate nohighlight">\(f(t) = a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}\)</span>.</p>
+\[f(t) = a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad t\in [t_0,t_1]\]</div>
+<p>entspricht nämlich dem <strong>linearen Anfangswertproblem</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\dot{f}(t) &amp;= f(t)\cdot g(t) \quad \forall t \in [t_0, t_1], \\
+f(t_0) &amp;= a,\end{split}\]</div>
+<p>welches für alle <span class="math notranslate nohighlight">\(t \in [t_0, t_1]\)</span> die folgende explizite Lösung besitzt</p>
+<div class="math notranslate nohighlight">
+\[f(t) = a \exp{\left( \int_{t_0}^t g(s)\, \mathrm{d}s \right)}.\]</div>
 </div>
-</div></div>
+</div><p>Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwenden, um die Stabilität von Ruhelagen eines allgemeinen dynamischen Systems durch eine Linearisierung zu untersuchen.</p>
+</div>
 <div class="section" id="asymptotische-stabilitat-von-ruhelagen">
 <h2><span class="section-number">2.2.2. </span>Asymptotische Stabilität von Ruhelagen<a class="headerlink" href="#asymptotische-stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h2>
-<div class="proof theorem admonition" id="theorem-4">
+<div class="proof theorem admonition" id="theorem-5">
 <p class="admonition-title"><span class="caption-number">Theorem 2.2 </span> (Asymptotische stabilität von Ruhelagen)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Eine Gleichgewichtslage <span class="math notranslate nohighlight">\(x_s\in  U\subset \R^n\)</span> der DGL</p>
@@ -438,7 +482,7 @@ Integration ergibt <span class="math notranslate nohighlight">\(\ln \left(\frac{
 <li><p>Wenn wir nun zeigen können, dass aus</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-eq-residuumabsch">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-residuumabsch" title="Permalink to this equation">¶</a></span>\[\|x(0)\|\leq \epsilon &lt;\frac{r}{c}\]</div>
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-residuumabsch" title="Permalink to this equation">¶</a></span>\[\|x(0)\|\leq \epsilon &lt;\frac{r}{c}\]</div>
 <p>folgt, dass für <span class="math notranslate nohighlight">\(t\geq 0\)</span> gilt:</p>
 <div class="math notranslate nohighlight">
 \[\|x(t)\|\leq c\epsilon e^{-\Lambda t/2},\]</div>
@@ -456,15 +500,16 @@ Integration ergibt <span class="math notranslate nohighlight">\(\ln \left(\frac{
 \leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}\]</div>
 <p>oder <span class="math notranslate nohighlight">\(\|x(t)\|\leq re^{-\frac{\Lambda}{2}t}\)</span>. Die Lösungskurve bleibt also für alle positiven Zeiten in der Vollkugel <span class="math notranslate nohighlight">\(\{x\in \R^n|\|x\|\leq r\}\)</span> und konvergiert gegen Null.</p>
 </div>
-<div class="proof remark admonition" id="remark-5">
+<div class="proof remark admonition" id="remark-6">
 <p class="admonition-title"><span class="caption-number">Remark 2.3 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Der Beweis liefert zusätzlich die Aussage, dass alle <span class="math notranslate nohighlight">\(x\in U\)</span> mit <span class="math notranslate nohighlight">\(\|x\|&lt;\frac{r}{c}\)</span> zu gegen die Gleichgewichtslage konvergierenden Orbits gehören, also in deren Einzugsbereich, dem so genannten <em>Bassin</em>, liegen.</p>
 </div>
-</div><div class="section" id="lyapunov-stabilitat-von-ruhelagen">
-<h3><span class="section-number">2.2.2.1. </span>Lyapunov-Stabilität von Ruhelagen<a class="headerlink" href="#lyapunov-stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h3>
+</div></div>
+<div class="section" id="lyapunov-stabilitat-von-ruhelagen">
+<h2><span class="section-number">2.2.3. </span>Lyapunov-Stabilität von Ruhelagen<a class="headerlink" href="#lyapunov-stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h2>
 <p>Während ein hinreichendes Kriterium für das Vorliegen <em>asymptotischer Stabilität</em> die strikte Ungleichung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> der Jacobi-Matrix war, ist die Situation bezüglich der Liapunov-Stabilität komplizierter.</p>
-<div class="proof theorem admonition" id="theorem-6">
+<div class="proof theorem admonition" id="theorem-7">
 <p class="admonition-title"><span class="caption-number">Theorem 2.3 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Besitzen die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> von <span class="math notranslate nohighlight">\(A\in \R^{n\times n}\)</span> Realteil <span class="math notranslate nohighlight">\(Re(\lambda_i) \leq 0\)</span>, und ist im Fall <span class="math notranslate nohighlight">\(Re(\lambda_i)=0\)</span> die geometrische Vielfachheit gleich der algebraischen, dann ist <span class="math notranslate nohighlight">\(0\in \R^n\)</span> Liapunov-stabile Gleichgewichtslage der DGL <span class="math notranslate nohighlight">\(\dot{x} = Ax\)</span>.</p>
@@ -502,7 +547,7 @@ J_{r_1}(\lambda_1)&amp; &amp; &amp; 0\\
 <div class="math notranslate nohighlight">
 \[\|exp{(J_{r_i}(\lambda_i)t)}\|= |\cos{(Im(\lambda)t)} + i \sin{(Im(\lambda)t)}|=1.\]</div>
 </div>
-<div class="proof remark admonition" id="remark-7">
+<div class="proof remark admonition" id="remark-8">
 <p class="admonition-title"><span class="caption-number">Remark 2.4 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Dass man die Gleichheit von geoemtrischer und algebraischer Vielfachheit fordern muss, sieht man schon am Beispiel von</p>
@@ -510,7 +555,7 @@ J_{r_1}(\lambda_1)&amp; &amp; &amp; 0\\
 \[\begin{split}A = \begin{pmatrix} 0&amp;1\\0&amp;0\end{pmatrix} \quad \text{mit} \quad e^{At} = \begin{pmatrix} 0&amp;t\\0&amp;0\end{pmatrix}.\end{split}\]</div>
 </div>
 </div><p>Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf dern nicht linearen Fall folgern.</p>
-<div class="proof example admonition" id="example-8">
+<div class="proof example admonition" id="example-9">
 <p class="admonition-title"><span class="caption-number">Example 2.2 </span></p>
 <div class="example-content section" id="proof-content">
 <p>DGL <span class="math notranslate nohighlight">\(\dot{x} = \alpha x+ \beta x^3\)</span> mit Parametern <span class="math notranslate nohighlight">\(\alpha, \beta\in \R\)</span>. \
@@ -538,13 +583,12 @@ Die Null ist Gleichgewichtslage der DGL und ihre Linearisierung <span class="mat
 </tbody>
 </table>
 </div>
-</div><div class="proof remark admonition" id="remark-9">
+</div><div class="proof remark admonition" id="remark-10">
 <p class="admonition-title"><span class="caption-number">Remark 2.5 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Anschaulich gesprochen kann asymptotische Stabilität nur vorliegen, wenn der Fluss in der Nähe der Gleichgewichtslage das Phasenraumvolumen verkleinert. Daher kann man in physikalischen Situationen ohne Reibungseffekte höchstens Liapunov-Stabilität erwarten. das hat z.B. zur Folge, dass die Frage der <strong>Stabilität des Sonnensystems</strong> sehr subtil ist.</p>
 </div>
 </div></div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">

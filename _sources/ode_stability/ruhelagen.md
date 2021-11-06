@@ -1,6 +1,6 @@
 # Stabilität von Ruhelagen
 
-Zunächst wollen wir uns den einfachen Fall von Ruhelagen für allgemeine **lineare** Differentialgleichungssysteme anschauen. 
+Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine **lineare** Differentialgleichungssysteme untersuchen.
 Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in {cite:p}`tenbrinck_2021` kennen gelernt.
 
 Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
@@ -40,8 +40,8 @@ Sei $J = S^{-1}AS$ die Jordansche Normalform von $A$ mit Transformationsmatrizen
 
 ```{math}
 \begin{align*}
-\|\Phi_t(x_0)\| &= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx\| = \|S^{-1}e^{tD}e^{tN}Sx\| \\
-&\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
+\|\Phi_t(x_0)\| &= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx_0\| = \|S^{-1}e^{tD}e^{tN}Sx_0\| \\
+&\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x_0\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
 \end{align*}
 ```
 für eine Konstante $C_1 > 0$, die unabhängig von $t$ ist.
@@ -54,7 +54,7 @@ Wir sehen nun ein, dass $e^{tN}$ wegen der Nilpotenz von $N$ eine endliche Reihe
 e^{tN} = \sum_{k=0}^m \frac{(tN)^k}{k!} = \sum_{k=0}^m t^k\frac{N^k}{k!},
 ```
 
-welches ein Polynom vom Grad $m$ darstellt, wobei $m$ der Nilpotenzindex der Matrix $N$ ist.
+welches ein Polynom vom Grad $m$ darstellt, wobei $m \in \N$ der Nilpotenzindex der Matrix $N$ ist.
 
 Sei nun $\epsilon > 0$ beliebig klein gewählt.
 Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten $C_2 > 0$, die von $\epsilon$ jedoch nicht von $t$ abhängt, durch eine gewöhnliche Exponentialfunktion abschätzen mit  
@@ -93,7 +93,7 @@ In diesem Fall ist die Ruhelage also **instabil**.
 2\. Falls $\gamma <0$ gilt, so können wir abschätzen, dass 
 
 ```{math}
-0\leq \|\Phi_t(x)-0\|\leq C e^{t\epsilon} e^{t \gamma} \to 0 \quad \text{ für } \ t \to \infty.
+0\leq \|\Phi_t(x_0)-0\|\leq C e^{t\epsilon} e^{t \gamma} \to 0 \quad \text{ für } \ t \to \infty.
 ```
 
 Dies liefert uns also **asymptotische Stabilität** der Ruhelage $0$.
@@ -104,93 +104,194 @@ Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleic
 ## Linearisierung um Ruhelage
 
 In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
-Darüber hinaus wäre es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht analytisch explizit herleiten kann.
-Daher betrachten wir im Folgenden ein allgemeines Differentialgleichungssystem erster Ordnung auf dem Phasenraum $U\in \R^n$, das nicht notwendigerweise linear sein muss und wie folgt formuliert wird
+Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
+Daher betrachten wir im Folgenden das Anfangswertproblem eines **allgemeinen Differentialgleichungssystem erster Ordnung** auf dem Phasenraum $U\in \R^n$, das nicht notwendigerweise linear sein muss und für ein Vektorfeld $F\in C^1(U;\R^n)$ wie folgt formuliert ist
 
 ```{math}
-\dot{x} = F(x), \quad F\in C^1(U;\R^n).
+:label: eq:awp_allg
+\dot{x}(t) &= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
+x(0) &= x_0.
 ```
 
-Wir nehmen an, dass $x_F \in U$ eine Ruhelage ist, so dass $F(x_F) = 0$ gilt.
-in einer Umgebung einer Gleichgewichtslage $x_f$. Von dieser können wir (durch Einführung verschobener Koordinaten $x-x_f$) o.B.d.A. annehmen, dass sie sich im Nullpunkt befindet.
-Mit $A := Df(0)$ bezeichne 
+Wir nehmen an, dass $x_F \in U$ eine Ruhelage des dynamischen Systems ist, so dass dementsprechend $F(x_F) = 0$ gilt.
+Durch einfache Translation der Koordinaten des Systems um $x_F \in U$, können wir ohne Beschränkung der Allgemeinheit annehmen, dass die Ruhelage sich im Nullpunkt befindet.
+
+Im Folgenden definieren wir zwei wichtige Werkzeuge zur Untersuchung der Stabilität von Ruhelagen für allgemeine Differentialgleichungssysteme.
+
+````{prf:definition} Linearisierung und Abweichung
+:label: def:linearisierung
+Sei $F\in C^1(U;\R^n)$ ein Vektorfeld auf dem Phasenraum $U \subset \R^n$ und $0$ eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in [](eq:awp_allg) charakterisiert wird.
+Sei nun $(DF)(x)$ die Jacobi-Matrix der Funktion $F$ im Punkt $x \in U$ (vgl. Kapitel 6.2 in {cite:p}`tenbrinck_2021`).
+Dann bezeichnen wir mit $A := (DF)(0)$ die **Linearisierung** von $F$ in der Ruhelage $0 \in U$.
+Außerdem bezeichnen wir die Funktion $R \in C^1(U; \R^n)$ mit
 
 ```{math}
-R\in C^1(U, \R^n),\quad R(x):=f(x) -Ax
+R(x) \ \coloneqq \ F(x) - Ax
 ```
-die Abweichung des Vektorfeldes von seiner Linearisierung an der Gleichgewichtslage.
 
-Wir wollen zeigen, dass die Lösung der DGL in führender Ordnung durch die Linearisierung von $f$ kontrolliert werden, soweit wir uns in der Nähe der Gleichgewichtslage befinden. Dazu benutzen wir das folgende Lemma.
+als die **Abweichung** (auch **Residuum** genannt) des Vektorfeldes $F$ von seiner Linearisierung $A$ in der Ruhelage.
+
+````
+
+Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des Differentialgleichungssystem in führender Ordnung durch die Linearisierung $A$ von $F$ kontrolliert werden, solange wir uns nah genug zur Ruhelage befinden. 
+Dies wird durch das folgende Lemma ausgedrückt.
 
 ````{prf:lemma}
-:label: lemma:intexpglgn
+:label: lemma:int_exp_glgn
+Wir betrachten das Anfangswertproblem aus [](eq:awp_allg) auf dem Phasenraum $U \subset \R^n$ für ein Vektorfeld $F\in C^1(U;\R^n)$.
+Außerdem sei $A \coloneqq (DF)(0)$ die Linearisierung des Vektorfelds in der Ruhelage $0$ des dynamischen Systems und $R(x) \coloneqq F(x) - Ax$ die Abweichung von $F$ von seiner Linearisierung $A$ im Nullpunkt.
+
+Dann lassen sich Lösungen des Differentialgleichungssystems mittels der Linearisierung $A$ und der Abweichung $R$ explizit angeben als
 
 ```{math}
-x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds
+x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s, \quad \forall t \in I.
 ```
+
 ````
+
 ````{prf:proof}
-Wir setzen die Lösung $x(t)$ des AWP $\dot{x} = F(x), x(0) = x_0$ in der Form
+Wir setzen zunächst die unbekannte Lösung $x(t)$ des Anfangswertproblems [](eq:awp_allg) in der allgemeinen Form
 ```{math}
 x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0
 ```
-an, und suchen eine Bestimmugsgleichung für den Vektor $c(t)$(sog. Variation der Konstanten).
-Es gilt
-```{math}
-\dot{x}(s) =A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s)
-```
-und 
-```{math}
-\dot{x}(s) = Ax(s) + e^{As}\dot{c}(s) +R(x(s)),
-```
-also
-```{math}
-e^{As}\dot{c}(s) = R(x(s))\quad \text{oder}\quad \dot{c}(s) = e^{-As}R(x(s)).
-```
-Damit ist
-```{math}
-c(t) = c(0) + \int_0^t \dot{c}(s)\, ds=x_0+ \int_0^t e^{-As}R(x(s)) \, ds
-```
-und
-```{math}
-x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, ds.
-```
-````
-Scheinbar nützt uns diese Identität nicht viel, denn auch auf der rechten Seite taucht $x(s)$, also die unbekannte Lösung des AWP auf.
+an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion $c(t)$ mittels **Variation der Konstanten** (vgl. Kapitel 8.2 in {cite:p}`tenbrinck_2021`).
 
-Wir können aber die Gronwall-Ungleichung auf diese Integralgleichung anwenden. Diese in der Differentialgleichungstheorie wichtige Abschätzung ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
+Mittels der Rechenregeln für das Matrixexponentials in {prf:ref}`rem:matrixexponential_regeln` können wir die Ableitung der Funktion $x$ mittels Produktregel angeben als
+
+```{math}
+\dot{x}(s) = A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s).
+```
+
+Aus der Definition des Residuums in {prf:ref}`def:linearisierung` folgt aber auch
+
+```{math}
+\dot{x}(s) = F(x(s)) = Ax(s) + R(x(s)).
+```
+
+Vergleichen wir die beiden Gleichungen, so sieht man ein, dass 
+
+```{math}
+e^{As}\dot{c}(s) = R(x(s))
+```
+
+gelten muss.
+Äquivalent können wir auch folgern, dass $\dot{c}(s) = e^{-As}R(x(s))$ gilt.
+
+Nach dem Hauptsatz der Differential- und Integralrechnung (vgl. Theorem 5.3 in {cite:p}`tenbrinck_2021`) gilt dann für die unbekannte Funktion $c$ der folgende Zusammenhang
+```{math}
+c(t) = c(0) + \int_0^t \dot{c}(s)\, \mathrm{d}s = x_0+ \int_0^t e^{-As}R(x(s)) \, \mathrm{d}s.
+```
+
+Setzen wir dies in die erste Gleichung unserer Ansatzfunktion ein und nutzen die Rechenregeln des Matrixexponnentials aus {prf:ref}`rem:matrixexponential_regeln`, so erhalten wir schließlich die Aussage des Lemmas
+
+```{math}
+x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.
+```
+
+````
+
+Auf den ersten Blick nützt uns die Identität in {prf:ref}`int_exp_glgn` nicht viel, denn auch auf der rechten Seite taucht $x(s)$, also die unbekannte Lösung des Anfangswertproblems [](eq:awp_allg) auf.
+Es stellt sich jedoch heraus, dass wir die **Gronwall-Ungleichung** auf diese Integralgleichung anwenden können. 
+Diese wichtige Abschätzung in der Theorie von Differentialgleichungen ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
 
 ````{prf:lemma} Gronwall-Ungleichung
 :label: lemma:Gronwall
-Für $f,g\in C^0([t_0,t_1), [0,\infty))$ gelte mit einem geeigneten $a \geq 0$ die Ungleichung
+Für zwei stetige Funktionen $f,g\in C([t_0,t_1]; \R^+)$ gelte für eine Konstante $a \geq 0$ die Ungleichung
+
 ```{math}
-f(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).
+f(t) \leq a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad \forall t\in [t_0,t_1].
 ```
-Dann ist
+
+Dann lässt sich der Wert der Funktion $f$ durch die Funktion $g$ wie folgt abschätzen
+
 ```{math}
-f(t)\leq a \exp{ \left(\int_{t_0}^t g(s)\, ds\right)}\quad (t\in [t_0,t_1)).
+f(t) \leq a \exp{ \left(\int_{t_0}^t g(s)\, \mathrm{d}s \right)} \quad \forall t\in [t_0,t_1].
 ```
+
 ````
 
 ````{prf:proof}
-- Ist $a>0$, dann gilt für die rechte Seite
-```{math}
-h(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1))
-```
-mit der Vorraussetzung $h(t)\geq 0$ und $h'(t) = f(t)g(t)$, also $\frac{h'(t)}{h(t)}\leq g(t)$.\\
-Integration ergibt $\ln \left(\frac{h(t)}{a}\right)\leq \int_{t_0}^t g(s)\, ds$, oder $h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}$, also die Behauptung.
+Wir definieren zunächst eine Hilfsfunktion
 
-- Ist $a=0$, dann gelten Voraussetzung und Resultat für alle $\hat{a} :=\epsilon >0$, also ist $f=0$.
+```{math}
+h(t) \ \coloneqq \ a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s
+```
+
+und bemerken, dass $0 \leq f(t) \leq h(t)$ nach Voraussetzung gilt für alle $t \in [t_0, t_1]$.
+Nun führen wir eine einfache Fallunterscheidung durch:
+
+1\. Ist $h(t)=0$, so folgt mit der Abschätzung $f(t) \leq h(t)$ schon, dass $f(t) = 0$ gelten muss, so dass die Behauptung des Lemmas trivialerweise erfüllt ist.
+
+2\. Sei also im Folgenden $h(t) > 0$.
+Aus dem Haupsatz der Integral- und Differentialrechnung wissen wir, dass $h'(t) = f(t)g(t)$ gilt.
+Wegen $f(t) \leq h(t)$ für alle $t \in [t_0, t_1]$ folgt sofort, dass
+
+```{math}
+f(t)g(t) \leq h(t)g(t) \quad \forall t \in [t_0,t_1].
+```
+
+Kombinieren wir diese Abschätzung mit der Identität der Ableitung $h'(t)$, so erhalten wir durch Umstellen
+
+```{math}
+\frac{h'(t)}{h(t)} \leq g(t) \quad \forall t \in [t_0, t_1].
+```
+
+Da wir $h(t) > 0$ angenommen haben erhalten wir durch Integration beider Seiten die Abschätzung
+
+```{math}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s \leq \int_{t_0}^t g(s) \, \mathrm{d}s 
+```
+
+für alle $t \in [t_0, t_1]$.
+Für die linke Seite können wir das Integral explizit angeben als
+
+```{math}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s = \ln(h(t)) - \ln(h(t_0)) = \ln(h(t)) - \ln(a) = \ln\left(\frac{h(t)}{a}\right).
+```
+
+Es gilt also nun
+
+```{math}
+\ln \left(\frac{h(t)}{a}\right) \leq \int_{t_0}^t g(s)\, \mathrm{d}s.
+```
+
+Durch Anwenden der Exponentialfunktion auf beiden Seiten erhalten wir schließlich die Behauptung des Lemmas
+
+```{math}
+ h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].
+```
+
 ````
 
-````{prf:remark} Zur Gronwall-Ungleichung
-Man kann sich die Abschätzung leicht merken, wenn man Gleichheit annimmt. Die Integralgleichung
+Wir wollen folgende Bemerkungen zur Gronwall-Ungleichung festhalten. 
+
+````{prf:remark}
+1\. Die in {prf:ref}`lemma:Gronwall` beschriebene Gronwall-Ungleichung ist eigentlich ein Spezialfall für eine konstante Funktion $a(t) \equiv a \geq 0$.
+Die ursprünglich bewiesene Aussage gilt auch für allgemeinere Funktionen.
+
+2\. Man kann sich die Abschätzung in der Gronwall-Ungleichung leicht merken wenn man Gleichheit der beiden Seiten annimmt. 
+Die Integralgleichung
+
 ```{math}
-f(t) = a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).
+f(t) = a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad t\in [t_0,t_1]
 ```
-entspricht ja dem Anfangswertproblem $\dot{f} = f\cdot g,\ f(t_0) = a$ mit der Lösung $f(t) = a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}$.
+
+entspricht nämlich dem **linearen Anfangswertproblem** 
+
+```{math}
+\dot{f}(t) &= f(t)\cdot g(t) \quad \forall t \in [t_0, t_1], \\
+f(t_0) &= a,
+```
+
+welches für alle $t \in [t_0, t_1]$ die folgende explizite Lösung besitzt 
+
+```{math}
+f(t) = a \exp{\left( \int_{t_0}^t g(s)\, \mathrm{d}s \right)}.
+```
 
 ````
+
+Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwenden, um die Stabilität von Ruhelagen eines allgemeinen dynamischen Systems durch eine Linearisierung zu untersuchen.
 
 ## Asymptotische Stabilität von Ruhelagen
 
@@ -256,7 +357,7 @@ oder $\|x(t)\|\leq re^{-\frac{\Lambda}{2}t}$. Die Lösungskurve bleibt also für
 Der Beweis liefert zusätzlich die Aussage, dass alle $x\in U$ mit $\|x\|<\frac{r}{c}$ zu gegen die Gleichgewichtslage konvergierenden Orbits gehören, also in deren Einzugsbereich, dem so genannten *Bassin*, liegen.
 ````
 
-### Lyapunov-Stabilität von Ruhelagen
+## Lyapunov-Stabilität von Ruhelagen
 
 Während ein hinreichendes Kriterium für das Vorliegen *asymptotischer Stabilität* die strikte Ungleichung $Re(\lambda_i)<0$ für die Eigenwerte $\lambda_i$ der Jacobi-Matrix war, ist die Situation bezüglich der Liapunov-Stabilität komplizierter.
 

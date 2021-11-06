@@ -300,6 +300,7 @@ Für den Spezialfall $n=1$ entspricht das Matrixexponential der gewöhnlichen Ex
 ````
 
 ````{prf:remark} Rechenregeln für das Matrixexponential
+:label: rem:matrixexponential_regeln
 Für das Matrixexponential gelten die gleichen Rechenregeln wie für die gewöhnliche Exponentialfunktion, wie zum Beispiel:
 
 * $e^{tA}e^{sA} = e^{(t+s)A}, \quad$ für $s,t \in \R$
