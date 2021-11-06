@@ -104,59 +104,93 @@ Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleic
 ## Linearisierung um Ruhelage
 
 In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
-Darüber hinaus wäre es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht analytisch explizit herleiten kann.
-Daher betrachten wir im Folgenden ein allgemeines Differentialgleichungssystem erster Ordnung auf dem Phasenraum $U\in \R^n$, das nicht notwendigerweise linear sein muss und wie folgt formuliert wird
+Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
+Daher betrachten wir im Folgenden das Anfangswertproblem eines **allgemeinen Differentialgleichungssystem erster Ordnung** auf dem Phasenraum $U\in \R^n$, das nicht notwendigerweise linear sein muss und für ein Vektorfeld $F\in C^1(U;\R^n)$ wie folgt formuliert ist
 
 ```{math}
-\dot{x} = F(x), \quad F\in C^1(U;\R^n).
+:label: eq:awp_allg
+\dot{x}(t) &= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
+x(0) &= x_0.
 ```
 
-Wir nehmen an, dass $x_F \in U$ eine Ruhelage ist, so dass $F(x_F) = 0$ gilt.
-in einer Umgebung einer Gleichgewichtslage $x_f$. Von dieser können wir (durch Einführung verschobener Koordinaten $x-x_f$) o.B.d.A. annehmen, dass sie sich im Nullpunkt befindet.
-Mit $A := Df(0)$ bezeichne 
+Wir nehmen an, dass $x_F \in U$ eine Ruhelage des dynamischen Systems ist, so dass dementsprechend $F(x_F) = 0$ gilt.
+Durch einfache Translation der Koordinaten des Systems um $x_F \in U$, können wir ohne Beschränkung der Allgemeinheit annehmen, dass die Ruhelage sich im Nullpunkt befindet.
+
+Im Folgenden definieren wir zwei wichtige Werkzeuge zur Untersuchung der Stabilität von Ruhelagen für allgemeine Differentialgleichungssysteme.
+
+````{prf:definition} Linearisierung und Abweichung
+:label: def:linearisierung
+Sei $F\in C^1(U;\R^n)$ ein Vektorfeld auf dem Phasenraum $U \subset \R^n$ und $0$ eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in [](eq:awp_allg) charakterisiert wird.
+Sei nun $(DF)(x)$ die Jacobi-Matrix der Funktion $F$ im Punkt $x \in U$ (vgl. Kapitel 6.2 in {cite:p}`tenbrinck_2021`).
+Dann bezeichnen wir mit $A := (DF)(0)$ die **Linearisierung** von $F$ in der Ruhelage $0 \in U$.
+Außerdem bezeichnen wir die Funktion $R \in C^1(U; \R^n)$ mit
 
 ```{math}
-R\in C^1(U, \R^n),\quad R(x):=f(x) -Ax
+R(x) \ \coloneqq \ F(x) - Ax
 ```
-die Abweichung des Vektorfeldes von seiner Linearisierung an der Gleichgewichtslage.
 
-Wir wollen zeigen, dass die Lösung der DGL in führender Ordnung durch die Linearisierung von $f$ kontrolliert werden, soweit wir uns in der Nähe der Gleichgewichtslage befinden. Dazu benutzen wir das folgende Lemma.
+als die **Abweichung** (auch **Residuum** genannt) des Vektorfeldes $F$ von seiner Linearisierung $A$ in der Ruhelage.
+
+````
+
+Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des Differentialgleichungssystem in führender Ordnung durch die Linearisierung $A$ von $F$ kontrolliert werden, solange wir uns nah genug zur Ruhelage befinden. 
+Dies wird durch das folgende Lemma ausgedrückt.
 
 ````{prf:lemma}
 :label: lemma:intexpglgn
+Wir betrachten das Anfangswertproblem aus [](eq:awp_allg) auf dem Phasenraum $U \subset \R^n$ für ein Vektorfeld $F\in C^1(U;\R^n)$.
+Außerdem sei $A \coloneqq (DF)(0)$ die Linearisierung des Vektorfelds in der Ruhelage $0$ des dynamischen Systems und $R(x) \coloneqq F(x) - Ax$ die Abweichung von $F$ von seiner Linearisierung $A$ im Nullpunkt.
+
+Dann lassen sich Lösungen des Differentialgleichungssystems mittels der Linearisierung $A$ und der Abweichung $R$ explizit angeben als
 
 ```{math}
-x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds
+x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s, \quad \forall t \in I.
 ```
+
 ````
+
 ````{prf:proof}
-Wir setzen die Lösung $x(t)$ des AWP $\dot{x} = F(x), x(0) = x_0$ in der Form
+Wir setzen zunächst die unbekannte Lösung $x(t)$ des Anfangswertproblems [](eq:awp_allg) in der allgemeinen Form
 ```{math}
 x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0
 ```
-an, und suchen eine Bestimmugsgleichung für den Vektor $c(t)$(sog. Variation der Konstanten).
-Es gilt
+an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion $c(t)$ mittels **Variation der Konstanten** (vgl. Kapitel 8.2 in {cite:p}`tenbrinck_2021`).
+
+Mittels der Rechenregeln für das Matrixexponentials in {prf:ref}`rem:matrixexponential_regeln` können wir die Ableitung der Funktion $x$ mittels Produktregel angeben als
+
 ```{math}
-\dot{x}(s) =A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s)
+\dot{x}(s) = A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s).
 ```
-und 
+
+Aus der Definition des Residuums in {prf:ref}`def:linearisierung` folgt aber auch
+
 ```{math}
-\dot{x}(s) = Ax(s) + e^{As}\dot{c}(s) +R(x(s)),
+\dot{x}(s) = F(x(s)) = Ax(s) + R(x(s)).
 ```
-also
+
+Vergleichen wir die beiden Gleichungen, so sieht man ein, dass 
+
 ```{math}
-e^{As}\dot{c}(s) = R(x(s))\quad \text{oder}\quad \dot{c}(s) = e^{-As}R(x(s)).
+e^{As}\dot{c}(s) = R(x(s))
 ```
-Damit ist
+
+gelten muss.
+Äquivalent können wir auch folgern, dass $\dot{c}(s) = e^{-As}R(x(s))$ gilt.
+
+Nach dem Hauptsatz der Differential- und Integralrechnung (vgl. Theorem 5.3 in {cite:p}`tenbrinck_2021`) gilt dann für die unbekannte Funktion $c$ der folgende Zusammenhang
 ```{math}
-c(t) = c(0) + \int_0^t \dot{c}(s)\, ds=x_0+ \int_0^t e^{-As}R(x(s)) \, ds
+c(t) = c(0) + \int_0^t \dot{c}(s)\, \mathrm{d}s = x_0+ \int_0^t e^{-As}R(x(s)) \, \mathrm{d}s.
 ```
-und
+
+Setzen wir dies in die erste Gleichung unserer Ansatzfunktion ein und nutzen die Rechenregeln des Matrixexponnentials aus {prf:ref}`rem:matrixexponential_regeln`, so erhalten wir schließlich die Aussage des Lemmas
+
 ```{math}
-x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, ds.
+x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.
 ```
+
 ````
-Scheinbar nützt uns diese Identität nicht viel, denn auch auf der rechten Seite taucht $x(s)$, also die unbekannte Lösung des AWP auf.
+
+Auf den ersten Blick nützt uns diese Identität nicht viel, denn auch auf der rechten Seite taucht $x(s)$, also die unbekannte Lösung des AWP auf.
 
 Wir können aber die Gronwall-Ungleichung auf diese Integralgleichung anwenden. Diese in der Differentialgleichungstheorie wichtige Abschätzung ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
 
