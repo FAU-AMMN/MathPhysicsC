@@ -137,7 +137,7 @@ Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des 
 Dies wird durch das folgende Lemma ausgedrückt.
 
 ````{prf:lemma}
-:label: lemma:intexpglgn
+:label: lemma:int_exp_glgn
 Wir betrachten das Anfangswertproblem aus [](eq:awp_allg) auf dem Phasenraum $U \subset \R^n$ für ein Vektorfeld $F\in C^1(U;\R^n)$.
 Außerdem sei $A \coloneqq (DF)(0)$ die Linearisierung des Vektorfelds in der Ruhelage $0$ des dynamischen Systems und $R(x) \coloneqq F(x) - Ax$ die Abweichung von $F$ von seiner Linearisierung $A$ im Nullpunkt.
 
@@ -190,41 +190,108 @@ x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.
 
 ````
 
-Auf den ersten Blick nützt uns diese Identität nicht viel, denn auch auf der rechten Seite taucht $x(s)$, also die unbekannte Lösung des AWP auf.
-
-Wir können aber die Gronwall-Ungleichung auf diese Integralgleichung anwenden. Diese in der Differentialgleichungstheorie wichtige Abschätzung ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
+Auf den ersten Blick nützt uns die Identität in {prf:ref}`int_exp_glgn` nicht viel, denn auch auf der rechten Seite taucht $x(s)$, also die unbekannte Lösung des Anfangswertproblems [](eq:awp_allg) auf.
+Es stellt sich jedoch heraus, dass wir die **Gronwall-Ungleichung** auf diese Integralgleichung anwenden können. 
+Diese wichtige Abschätzung in der Theorie von Differentialgleichungen ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
 
 ````{prf:lemma} Gronwall-Ungleichung
 :label: lemma:Gronwall
-Für $f,g\in C^0([t_0,t_1), [0,\infty))$ gelte mit einem geeigneten $a \geq 0$ die Ungleichung
+Für zwei stetige Funktionen $f,g\in C([t_0,t_1]; \R^+)$ gelte für eine Konstante $a \geq 0$ die Ungleichung
+
 ```{math}
-f(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).
+f(t) \leq a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad \forall t\in [t_0,t_1].
 ```
-Dann ist
+
+Dann lässt sich der Wert der Funktion $f$ durch die Funktion $g$ wie folgt abschätzen
+
 ```{math}
-f(t)\leq a \exp{ \left(\int_{t_0}^t g(s)\, ds\right)}\quad (t\in [t_0,t_1)).
+f(t) \leq a \exp{ \left(\int_{t_0}^t g(s)\, \mathrm{d}s \right)} \quad \forall t\in [t_0,t_1].
 ```
+
 ````
 
 ````{prf:proof}
-- Ist $a>0$, dann gilt für die rechte Seite
-```{math}
-h(t)\leq a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1))
-```
-mit der Vorraussetzung $h(t)\geq 0$ und $h'(t) = f(t)g(t)$, also $\frac{h'(t)}{h(t)}\leq g(t)$.\\
-Integration ergibt $\ln \left(\frac{h(t)}{a}\right)\leq \int_{t_0}^t g(s)\, ds$, oder $h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}$, also die Behauptung.
+Wir definieren zunächst eine Hilfsfunktion
 
-- Ist $a=0$, dann gelten Voraussetzung und Resultat für alle $\hat{a} :=\epsilon >0$, also ist $f=0$.
+```{math}
+h(t) \ \coloneqq \ a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s
+```
+
+und bemerken, dass $0 \leq f(t) \leq h(t)$ nach Voraussetzung gilt für alle $t \in [t_0, t_1]$.
+Nun führen wir eine einfache Fallunterscheidung durch:
+
+1\. Ist $h(t)=0$, so folgt mit der Abschätzung $f(t) \leq h(t)$ schon, dass $f(t) = 0$ gelten muss, so dass die Behauptung des Lemmas trivialerweise erfüllt ist.
+
+2\. Sei also im Folgenden $h(t) > 0$.
+Aus dem Haupsatz der Integral- und Differentialrechnung wissen wir, dass $h'(t) = f(t)g(t)$ gilt.
+Wegen $f(t) \leq h(t)$ für alle $t \in [t_0, t_1]$ folgt sofort, dass
+
+```{math}
+f(t)g(t) \leq h(t)g(t) \quad \forall t \in [t_0,t_1].
+```
+
+Kombinieren wir diese Abschätzung mit der Identität der Ableitung $h'(t)$, so erhalten wir durch Umstellen
+
+```{math}
+\frac{h'(t)}{h(t)} \leq g(t) \quad \forall t \in [t_0, t_1].
+```
+
+Da wir $h(t) > 0$ angenommen haben erhalten wir durch Integration beider Seiten die Abschätzung
+
+```{math}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s \leq \int_{t_0}^t g(s) \, \mathrm{d}s 
+```
+
+für alle $t \in [t_0, t_1]$.
+Für die linke Seite können wir das Integral explizit angeben als
+
+```{math}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s = \ln(h(t)) - \ln(h(t_0)) = \ln(h(t)) - \ln(a) = \ln\left(\frac{h(t)}{a}\right).
+```
+
+Es gilt also nun
+
+```{math}
+\ln \left(\frac{h(t)}{a}\right) \leq \int_{t_0}^t g(s)\, \mathrm{d}s.
+```
+
+Durch Anwenden der Exponentialfunktion auf beiden Seiten erhalten wir schließlich die Behauptung des Lemmas
+
+```{math}
+ h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].
+```
+
 ````
 
-````{prf:remark} Zur Gronwall-Ungleichung
-Man kann sich die Abschätzung leicht merken, wenn man Gleichheit annimmt. Die Integralgleichung
+Wir wollen folgende Bemerkungen zur Gronwall-Ungleichung festhalten. 
+
+````{prf:remark}
+1\. Die in {prf:ref}`lemma:Gronwall` beschriebene Gronwall-Ungleichung ist eigentlich ein Spezialfall für eine konstante Funktion $a(t) \equiv a \geq 0$.
+Die ursprünglich bewiesene Aussage gilt auch für allgemeinere Funktionen.
+
+2\. Man kann sich die Abschätzung in der Gronwall-Ungleichung leicht merken wenn man Gleichheit der beiden Seiten annimmt. 
+Die Integralgleichung
+
 ```{math}
-f(t) = a + \int_{t_0}^t f(s)g(s)\, ds\quad (t\in [t_0,t_1)).
+f(t) = a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad t\in [t_0,t_1]
 ```
-entspricht ja dem Anfangswertproblem $\dot{f} = f\cdot g,\ f(t_0) = a$ mit der Lösung $f(t) = a \exp{\left( \int_{t_0}^t g(s)\, ds \right)}$.
+
+entspricht nämlich dem **linearen Anfangswertproblem** 
+
+```{math}
+\dot{f}(t) &= f(t)\cdot g(t) \quad \forall t \in [t_0, t_1], \\
+f(t_0) &= a,
+```
+
+welches für alle $t \in [t_0, t_1]$ die folgende explizite Lösung besitzt 
+
+```{math}
+f(t) = a \exp{\left( \int_{t_0}^t g(s)\, \mathrm{d}s \right)}.
+```
 
 ````
+
+Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwenden, um die Stabilität von Ruhelagen eines allgemeinen dynamischen Systems durch eine Linearisierung zu untersuchen.
 
 ## Asymptotische Stabilität von Ruhelagen
 
