@@ -77,7 +77,7 @@ heißt k-**(multi)linear**, wenn für beliebige $z_i\in\V_i$ und jede Komponente
 x\mapsto \varphi_i(x):= \varphi(z_1,\ldots, z_{i-1}, x, z_{i+1},\ldots,z_k)
 ```
 
-linear ist. Die Menge aller $k$-linearen Abbildungen wird mit $L(\V_1\times\ldots\times \V_k,\R)$ bezeichnet.
+linear ist. Die Menge aller $k$-linearen Abbildungen wird mit $L^k(\V_1\times\ldots\times \V_k,\R)$ bezeichnet.
 ````
 
 ````{prf:remark}
@@ -100,7 +100,7 @@ und
 
 ````
 
-Falls alle Vektorräume übereinstimmen, d.h., $\V_i = \V$ für alle $i=1,\ldots,k$, so schreibt man auch $L(\V\times\ldots\times \V,\R) = L^k(\V,\R)$. Als Vereinfachung werden wir im Folgenden überwiegend diese Menge betrachten.
+Falls alle Vektorräume übereinstimmen, d.h., $\V_i = \V$ für alle $i=1,\ldots,k$, so schreibt man auch $L^k(\V\times\ldots\times \V,\R) = L^k(\V,\R)$. Als Vereinfachung werden wir im Folgenden überwiegend diese Menge betrachten.
 Viele multilineare Abbildungen sind schon aus der Linearen Algebra vertraut. Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
 
 ````{prf:example}
@@ -183,6 +183,10 @@ $\eta_i:\V\rightarrow\R$ für $i=1,\ldots,n$,
 
 bilden einen Basis von $\V^\ast$, die sogenannte **duale Basis** zu $B$. 
 
+````
+
+````{prf:remark}
+Insbesondere zeigt diese Aussage, dass $\dim(\V) = \dim(\V^\ast)$.
 ````
 
 ````{prf:proof}
