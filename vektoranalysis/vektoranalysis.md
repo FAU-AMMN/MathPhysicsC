@@ -7,6 +7,6 @@ Um diese Integration durchzuführen, entwickeln wir das Kalkül der _Differentia
 Dieses Kalkül lässt auch den _geometrischen Gehalt_ physikalischer
 Theorien wie Elektrodynamik oder Allgemeine Relativitätstheorie klar
 hervortreten. So lassen sich beispielsweise die sog. Maxwellschen Gleichungen der
-Elektrodynamik mit Differentialformen als schreiben.
+Elektrodynamik in Differentialformenkalkül schreiben.
 
 Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von _Agricola_ und _Friedrich_, {cite:p}`agricola_2013`.
