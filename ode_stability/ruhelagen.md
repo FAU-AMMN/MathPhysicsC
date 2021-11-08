@@ -255,10 +255,10 @@ Es gilt also nun
 \ln \left(\frac{h(t)}{a}\right) \leq \int_{t_0}^t g(s)\, \mathrm{d}s.
 ```
 
-Durch Anwenden der Exponentialfunktion auf beiden Seiten erhalten wir schließlich die Behauptung des Lemmas
+Durch Anwenden der Exponentialfunktion auf beiden Seiten und Ausnutzen der Voraussetzung $f(t) \leq h(t)$ erhalten wir schließlich die Behauptung des Lemmas
 
 ```{math}
- h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].
+ f(t) \leq h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].
 ```
 
 ````
