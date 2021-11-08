@@ -78,7 +78,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{Oct 26, 2021}
+\date{Nov 08, 2021}
 
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 
@@ -513,10 +513,9 @@ der gewöhnlichen Differentialgleichung
 unter der Anfangsbedingung \(\phi(t_0)=y_0\).
 \end{theorem}
 
-\begin{emphBox}{}{}
-\par
-Proof. Siehe Kapitel 12, Satz 4 Kapitel 8.4 \cite{For17}
-\end{emphBox}
+\begin{proof}
+ Siehe Kapitel 12, Satz 4 Kapitel 8.4 \cite{For17}
+\end{proof}
 
 \par
 Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
@@ -542,11 +541,10 @@ unter der Anfangsbedingung \(\phi(t_0)=y_0\).
 Es existieren außerdem keine weiteren (lokalen) Lösungen.
 \end{theorem}
 
-\begin{emphBox}{}{}
-\par
-Proof. Siehe Kapitel 2.3 \cite{Kna13}
-\end{emphBox}
-\label{ode/repetition:corollary-11}
+\begin{proof}
+ Siehe Kapitel 2.3 \cite{Kna13}
+\end{proof}
+\label{ode/repetition:cor:eindeutigkeit_linear}
 \begin{emphBox}{}{}{Corollary 1.1}
 
 
@@ -555,9 +553,141 @@ Proof. Siehe Kapitel 2.3 \cite{Kna13}
 Das Anfangswertproblem jedes \textbf{linearen} gewöhnlichen Differentialgleichungssystems 1. Ordnung hat eine eindeutige globale Lösung.
 \end{emphBox}
 
-\begin{emphBox}{}{}
+\begin{proof}
+ Siehe Theorem 2.25, Kapitel 2.3 \cite{Kna13}
+\end{proof}
+
+
+\subsection{Lösungen von linearen Differentialgleichungssystemen}
+\label{\detokenize{ode/repetition:losungen-von-linearen-differentialgleichungssystemen}}\label{\detokenize{ode/repetition:s-lineare-dglsysteme}}
 \par
-Proof. Siehe Theorem 2.25, Kapitel 2.3 \cite{Kna13}
+Analog zu Kapitel 8 in \cite{Ten21} wollen wir uns mit Lösungen für \textbf{homogene lineare Differentialgleichungen} beschäftigen, jedoch dieses Mal nicht im skalaren Fall \(n=1\), sondern für ein Anfangswertproblem von der Form
+\begin{align}\label{equation:ode/repetition:eq:lin_hom_dglsystem}
+\dot{x}(t) &= A x(t), \quad \forall t \in I \subset \R^+_0, \\
+x(t_0) &= x_0 \in U \subset \R^n.
+\end{align}
+\par
+Wir bemerken hierbei, dass im Gegensatz zum skalaren Fall hier die Koeffizientenmatrix \(A \in \C^{n\times n}\) nicht von der Zeit abhängt, wir also ein autonomes Differentialgleichungssystem betrachten.
+
+\par
+Bevor wir Lösungen von \cref{ode/repetition:equation-eq-lin-hom-dglsystem} angeben, wollen wir ein hilfreiches Funktionalkalkül einführen, dass die Notation im Fall von Differentialgleichungssystemen erleichtert.
+\label{ode/repetition:definition-12}
+\begin{definition}{}{}
+
+
+
+\par
+Sei \(n \in \N\) und \(A \in \C^{n \times n}\) eine beliebige quadratische Matrix.
+Das \textbf{Matrixexponential} \(e^A\) von \(A\), ist diejenige \(n\times n\) Matrix, welche durch die folgende Potenzreihe definiert ist:
+\begin{align*}
+e^A \equiv \exp(A) \ \coloneqq \ \sum_{k=0}^\infty \frac{A^k}{k!} = I_n + A + \frac{A^2}{2} + \frac{A^3}{6} + \ldots.
+\end{align*}
+\par
+Analog zur gewöhnlichen Exponentialfunktion konvergiert die Reihe für alle \(A \in \C^{n \times n}\), woraus die Wohldefiniertheit der Definition folgt.
+Für den Spezialfall \(n=1\) entspricht das Matrixexponential der gewöhnlichen Exponentialfunktion.
+\end{definition}
+\label{ode/repetition:rem:matrixexponential_regeln}
+\begin{emphBox}{}{}{Remark 1.3 (Rechenregeln für das Matrixexponential)}
+
+
+
+\par
+Für das Matrixexponential gelten die gleichen Rechenregeln wie für die gewöhnliche Exponentialfunktion, wie zum Beispiel:
+\begin{itemize}
+\item {} 
+\par
+\(e^{tA}e^{sA} = e^{(t+s)A}, \quad\) für \(s,t \in \R\)
+
+\item {} 
+\par
+\(\frac{d}{dt} e^{tA} = Ae^{tA}, \quad\) für \(t \in \R\)
+
+\item {} 
+\par
+\( e^{D} = \operatorname{diag}(e^{a_1}, \ldots, e^{a_n})\) ist Diagonalmatrix für eine Diagonalmatrix \(D = \operatorname{diag}(a_1, \ldots, a_n)\).
+
+\end{itemize}
+\end{emphBox}
+
+\par
+Folgendes Lemma stellt einen interessanten Zusammenhang des Matrixexponentials zur Spektraltheorie her.
+\label{ode/repetition:lem:mpotew}
+\begin{lemma}{}{}
+
+
+
+\par
+Sei \(A \in \C^{n\times n}\) eine beliebige quadratische Matrix und sei \(\lambda \in \C\) ein Eigenwert von \(A\) zum
+Eigenvektor \(v \in \C^n\).
+Dann ist der Vektor \(v\) auch Eigenvektor des Matrixexponentials \(e^A\) zum zugehörigen Eigenwert \(e^\lambda\).
+\end{lemma}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+
+\par
+Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems \cref{ode/repetition:equation-eq-lin-hom-dglsystem} kompakt angeben, wie uns folgendes Lemma zeigt.
+\label{ode/repetition:lemma-15}
+\begin{lemma}{}{}
+
+
+
+\par
+Sei \(n\in \N\), \(I \subset \R^+_0\) und \(A \in \C^{n\times n}\) eine beliebige quadratische Matrix.
+Das Anfangswertproblem \cref{ode/repetition:equation-eq-lin-hom-dglsystem} hat die eindeutige Lösung
+\begin{align*}
+x(t) = e^{A(t-t_0)}x_0, \quad \forall t \in I.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Wir zeigen zunächst, dass die Lösung \(x(t)\) die Anfangswertbedingung erfüllt:
+\begin{align*}
+x(t_0) = e^{A(t_0-t_0)}x_0 = e^0x_0 = I_n x_0.
+\end{align*}
+\par
+Um zu zeigen, dass \(x(t)\) das lineare homogene Differentialgleichungssystem \cref{ode/repetition:equation-eq-lin-hom-dglsystem} löst, berechnen wir die entsprechende Zeitableitung als
+\begin{align*}
+\dot{x}(t) = \frac{d}{dt}(e^{A(t-t_0)}x_0) = A \cdot e^{A(t-t_0)}x_0 = A x(t), \quad \forall t \in I.
+\end{align*}
+\par
+Vergleichen wir die linke und rechte Seite dieser Gleichung so erkennen wir, dass \(x(t)\) in der Tat eine Lösung des Differentialgleichungssystems ist.
+
+\par
+Nach \cref{ode/repetition:cor:eindeutigkeit_linear} ist die Lösung eindeutig, da es sich um ein lineares Differentialgleichungssystem 1. Ordnung handelt.
+\end{proof}
+
+\par
+Im Allgemeinen kann man bei linearen Differentialgleichungssystemen nicht davon ausgehen, dass diese in der einfachsten Form wie in \cref{ode/repetition:equation-eq-lin-hom-dglsystem} vorliegen.
+Außerdem ist die konkrete Berechnung des Matrixexponentials zur Bestimmung einer Lösungsfunktion \(x(t)\) in der Regel ungeeignet.
+Hierzu wollen wir die abschließende Bemerkung machen.
+\label{ode/repetition:remark-16}
+\begin{emphBox}{}{}{Remark 1.4}
+
+
+
+\par
+1. Zur Berechnung einer konkreten Lösung \(x(t)\) des linearen homogenen Differentialgleichungssystems \cref{ode/repetition:equation-eq-lin-hom-dglsystem} bietet es sich an, die \textbf{Jordansche Normalform} \(J = SAS^{-1}\) von \(A\) aus Kapitel 2.7 in \cite{Ten21} auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
+\begin{align*}
+e^{tA} =  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} = S^{-1} \sum_{k=0}^\infty \frac{(tJ)^k}{k!} S = S^{-1} e^{tJ}S = S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S
+\end{align*}
+\par
+für eine Transformationsmatrix \(S \in \C^{n \times n}\), eine Diagonalmatrix \(D \in \C^{n \times n}\) mit den Eigenwerten von \(A\) und einer nilpotenten Matrix \(N \in \C^{n \times n}\), für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von \(N\)) abbricht.
+
+\par
+2. Ist das vorliegende lineare Differentialgleichungssystem \textbf{inhomogen}, das heißt für eine stetige Störfunktion \(b \colon I \rightarrow \R^n\) von der Form
+\begin{align}\label{equation:ode/repetition:eq:lin_inhom_dglsystem}
+\dot{x}(t) &= A x(t) + b(t), \quad \forall t \in I \subset \R^+_0, \\
+x(t_0) &= x_0 \in U \subset \R^n,
+\end{align}
+\par
+so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in \cite{Ten21} eine eindeutige Lösung des Anfangswertproblems \cref{ode/repetition:equation-eq-lin-inhom-dglsystem} angeben als
+\begin{align*}
+x(t) = e^{tA}x_0 + \int_0^t e^{(t-s)A}b(s) \, \mathrm{d}s.
+\end{align*}
+\par
+3. Im Falle eines homogenen, linearen Differentialgleichungssystems, das \textbf{nicht autonom} ist, das heißt die Koeffizientenmatrix \(A = A(t)\) ist zeitabhängig, können wir nicht mehr die Spektraltheorie zur konkreten Berechnung von Lösungen nutzen.
+Formal lassen sich dennoch Lösungen als sogenanntes \textbf{zeitgeordnetes Produkt} angeben, was jedoch den Rahmen dieser Vorlesung sprengen würde.
 \end{emphBox}
 
 
@@ -659,7 +789,7 @@ Nun verfizieren wir noch, dass der Fluss tatsächlich Lösungen des gewöhnliche
 Es gilt
 \begin{align*}
 \dot{\Phi}(t, (x,y)) &= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) \\
-&= (-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) = F(\Phi(t,(x,y)).
+&= (-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) = F(\Phi(t,(x,y)), \quad \forall t \in I, (x,y) \in U.
 \end{align*}
 \par
 Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lösung des gewöhnlichen Differentialgleichungssystems.
@@ -732,9 +862,8 @@ eine Funktion \(\Phi \colon G\rightarrow \R^n\) gibt, mit folgenden Eigenschafte
 \end{enumerate}
 \end{lemma}
 
-\begin{emphBox}{}{}
-\par
-Proof. Da die rechte Seite \(F\) des autonomen gewöhnlichen Differentialgleichungssystems nach Voraussetzung lokal Lipschitzstetig ist, existiert nach dem Satz von Picard Lindelöf \cref{ode/repetition:satz:picardlindeloef_lokal} für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\), so dass eine Lösung des Differentialgleichungssystems \(\Phi_{x_0} \colon [-\epsilon(x_0),\epsilon(x_0)] \rightarrow U\) mit dem Anfangswert \(x_0\) existiert, d.h.,
+\begin{proof}
+ Da die rechte Seite \(F\) des autonomen gewöhnlichen Differentialgleichungssystems nach Voraussetzung lokal Lipschitzstetig ist, existiert nach dem Satz von Picard Lindelöf \cref{ode/repetition:satz:picardlindeloef_lokal} für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\), so dass eine Lösung des Differentialgleichungssystems \(\Phi_{x_0} \colon [-\epsilon(x_0),\epsilon(x_0)] \rightarrow U\) mit dem Anfangswert \(x_0\) existiert, d.h.,
 \begin{align*}
 \dot{\Phi}_{x_0}(t) &= F(\Phi_{x_0}(t)) \quad \forall t \in [-\epsilon(x_0),\epsilon(x_0)],\\
 \Phi_{x_0}(0) &= x_0.
@@ -781,13 +910,13 @@ Wir haben also insgesamt
 \end{align*}
 \par
 für jedes \(\tau\in [t, \epsilon(x_0)]\), was die zweite Flusseigenschaft aus \cref{ode/fluesse:def:Fluss} zeigt.
-\end{emphBox}
+\end{proof}
 
 
-\subsection{Phasenportraits}
-\label{\detokenize{ode/fluesse:phasenportraits}}
+\subsection{Phasenporträts}
+\label{\detokenize{ode/fluesse:phasenportrats}}
 \par
-Die teilweise abstrakten Konzepte und Eigenschaften von Phasenflüssen aus den vorangegangenen Abschnitten werden wir im Folgenden mit einfachen geometrischen Anschauung illustrieren.
+Die teilweise abstrakten Konzepte und Eigenschaften von Phasenflüssen aus den vorangegangenen Abschnitten werden wir im Folgenden mit einfachen geometrischen Anschauungen illustrieren.
 Dafür benötigen wir zunächst die folgenden Definitionen.
 \label{ode/fluesse:definition-4}
 \begin{definition}{}{}
@@ -795,7 +924,7 @@ Dafür benötigen wir zunächst die folgenden Definitionen.
 
 
 \par
-Es sei \(\Phi:G\rightarrow U\) ein Phasenfluss eines gewöhnlichen Differentialgleichungssystems für den erweiterten Phasenraum \(G\subset \R^+_0\times U\).
+Es sei \(\Phi:G\rightarrow U\) ein Phasenfluss eines gewöhnlichen Differentialgleichungssystems für den erweiterten Phasenraum \(G = I \times U\subset \R^+_0\times \R^n\).
 Dann können wir folgende Begriffe für den Fluss einführen:
 \begin{itemize}
 \item {} 
@@ -808,36 +937,45 @@ Die Menge \(\mathcal{O}(x_0) := \{\Phi(t, x_0): (t, x_0)\in G\}\) heißt \textbf
 
 \item {} 
 \par
-Ein Orbit heißt \textbf{Ruhelage}, falls \(\mathcal{O}(x_0) = \{x_0\}\).
+Ein Punkt \(x_0 \in U\) heißt \textbf{Ruhelage}, falls \(\mathcal{O}(x_0) = \{x_0\}\).
 
 \item {} 
 \par
 Ein Anfangswert \(x_0\in U\) heißt \textbf{periodisch} mit Periode \(T>0\), falls \(\Phi(T, x_0) = x_0\).
 
 \end{itemize}
+
+\par
+Wir nennen die Zerlegung des erweiterten Phasenraums \(G\) in Orbits ein \textbf{Phasenporträt} des dynamischen Systems \((I,U, \Phi)\).
 \end{definition}
 
 \par
-Ein klassisches Beispiel aus der Mechanik ist besonders gut geeignet, um die eben eingeführten Konzepte näher zu diskutieren   die \textbf{gedämpfte Schwingungsgleichung}.
+Phasenporträts erlauben es uns das charakteristische Verhalten kontinuierlicher dynamischer Systeme zu visualisieren und graphisch zu analysieren.
+An ihnen lassen sich beispielsweise die Existenz und Stabilität von Fixpunkten und periodischen Orbits direkt erkennen.
+Da ein Phasenporträt den gesamten Phasenraum zerlegt werden typischerweise nur einige charakteristische Orbits gezeichnet um die Übersichtlichkeit zu gewährleisten.
+Aus dem gleichen Grund beschränkt man sich in der Regel außerdem auf ein  und zweidimensionale Phasenräume.
+
+\par
+Ein klassisches Beispiel aus der Mechanik ist besonders gut geeignet, um die eben eingeführten Konzepte näher zu diskutieren   die gedämpfte Schwingungsgleichung.
 \label{ode/fluesse:ex:oscillations}
 \begin{example}{}{}
 
 
 
 \par
-Die gedämpfte Schwingungsgleichung ist gegeben durch
-\begin{align*}
+Die \textbf{gedämpfte Schwingungsgleichung} ist gegeben durch
+\begin{align}\label{equation:ode/fluesse:eq:schwingungsgleichung}
 m\ddot{x}(t) + r\dot{x}(t) + kx(t)=0
-\end{align*}
+\end{align}
 \par
-und beschreibt beispielsweise die eindimensionale Auslenkung eines Federpendels, das durch Reibungsverluste Schwingungsenergie über die Zeit verliert.
+und beschreibt beispielsweise die horizontale (eindimensionale) Auslenkung eines Federpendels, das durch Reibungsverluste Schwingungsenergie über die Zeit verliert.
 
 \par
 Hierbei bezeichnet
 \begin{itemize}
 \item {} 
 \par
-\(x(t)\) die vertikale Auslenkung des Pendels zum Zeitpunkt \(t\),
+\(x(t)\) die horizontale Auslenkung des Federpendels zum Zeitpunkt \(t\),
 
 \item {} 
 \par
@@ -854,19 +992,24 @@ Hierbei bezeichnet
 \end{itemize}
 
 \par
-Durch Einführung der Variablen \(p(t):= m~\dot{x}(t)\) als Impuls erhalten wir das folgende gewöhnliche Differentialgleichungssystem
+Durch Einführung der Variablen \(p(t):= m\dot{x}(t)\) als Impuls erhalten wir das folgende gewöhnliche Differentialgleichungssystem
 \begin{align*}
-\dot{x}(t) &= \frac{1}{m}~p(t) \\
-\dot{p}(t) &= -k~x(t) - \frac{r}{m}~p(t).
+\dot{p}(t) &= - \frac{r}{m}p(t) -kx(t), \\
+\dot{x}(t) &= \frac{1}{m}p(t).
+\end{align*}
+\par
+Dies lässt sich in kompakter Form schreiben als:
+\begin{align*}
+\begin{pmatrix} \dot{p} \\ \dot{x} \end{pmatrix}(t) = \begin{pmatrix} -\frac{r}{m} & -k \\ \frac{1}{m} & 0\end{pmatrix} \begin{pmatrix}p \\ x\end{pmatrix}(t)
 \end{align*}
 \par
 Betrachten wir speziell den ungedämpften Fall für \(r=0\), d.h. ohne Reibungsverluste, so geht die Gleichung in die \textbf{Bewegungsgleichung für einen harmonischen Oszillator} über.
-In diesem Fall erhalten wir zum Anfangswert \((x,p) \in \) die Lösung
+In diesem Fall erhalten wir zum Anfangswert \((p,x) \in U \subset \R^2 \) die Lösung
 \begin{align*}
-\Phi(t, (x,p)) = 
+\Phi(t, (p,x)) = 
 \begin{pmatrix}
-\frac{p}{\omega m}\sin(\omega t) + x~\cos(\omega t)\\
-p \cos(\omega t) - m x \sin(\omega t)
+p \cos(\omega t) - m x \sin(\omega t) \\
+\frac{p}{\omega m}\sin(\omega t) + x\cos(\omega t)
 \end{pmatrix},
 \end{align*}
 \par
@@ -874,38 +1017,894 @@ wobei \(\omega=\sqrt{\frac{k}{m}}\) die Eigenfrequenz des Systems ist.
 \end{example}
 
 \par
-Das in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} dargestellte Phasenportrait
+Wir wollen im Folgenden die Phasenporträts der gedämpften Schwingungsgleichung und des harmonischen Oszillators illustrieren.
 
-\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_2\string_0.png}
+\par
+In beiden Abbildungen wird die horizontale Auslenkung \(x(t)\) des Federpendels auf der x Achse und der Impuls \(p(t) = m\dot{x}(t)\) auf der y Achse aufgetragen.
+
+\par
+Das in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} dargestellte Phasenportrait illustriert anschaulich, dass im Fall des harmonischen Oszillators ohne Dämpfung die Orbits elliptisch sind und somit jeder Startwert \(x_0 \in U\) periodisch ist.
 
 \begin{figure}[htbp]
 \centering
 
-\caption{Visualisierung für Beispiel \cref{ode/fluesse:ex:oscillations} }\label{\detokenize{ode/fluesse:fig-harmonic-oscillator}}\end{figure}
 
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_3\string_0.png}
+\caption{Visualisierung des Phasenporträts und einiger Orbits für den Phasenfluss des harmonischen Oszillators aus \cref{ode/fluesse:ex:oscillations}  Das Phasenporträt zeigt das charakteristische Verhalten von Lösungen der gedämpften Schwingungsgleichung für reibungsfreie Prozesse, d.h., für eine Dämpfungskonstante \(r = 0\).}\label{\detokenize{ode/fluesse:fig-harmonic-oscillator}}\end{figure}
 
-\section{Hamiltonsche Differentialgleichungen und Phasenportraits}
-\label{\detokenize{ode/hamilton:hamiltonsche-differentialgleichungen-und-phasenportraits}}\label{\detokenize{ode/hamilton::doc}}
 \par
-Ein wichtiges Prinzip für viele physikalischen Anwendungen sind Erhaltungssätze und die dazugehörigen Erhaltungsgrößen. Aus der klassichen Mechanik kennen wir z.B.
-\begin{itemize}
+Betrachten wir nun für eine positive Dämpfungskonstante \(r > 0\) den Fall der allgemeinen gedämpften Schwingungsgleichung, so sieht man am dargestellen Phasenportrait in \hyperref[\detokenize{ode/fluesse:fig-damped-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-damped-oscillator}}}, dass die Trajektorien in den Ursprung konvergieren, der als Orbit in Ruhelage einen Fixpunkt des dynamischen Systems darstellt.
+Dies macht auch physikalisch Sinn, da jedes Federpendel auf Grund der Reibung nach endlicher Zeit zum Stillstand kommt.
+
+\begin{figure}[htbp]
+\centering
+
+
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_6\string_0.png}
+\caption{Visualisierung des Phasenporträts und einiger Orbits für den Phasenfluss der gedämpften Schwingungsgleichung aus \cref{ode/fluesse:ex:oscillations} für eine relativ groß gewählte Dämpfungskonstante \(r > 0\).}\label{\detokenize{ode/fluesse:fig-damped-oscillator}}\end{figure}
+
+
+\section{Hamiltonsche Differentialgleichungen}
+\label{\detokenize{ode/hamilton:hamiltonsche-differentialgleichungen}}\label{\detokenize{ode/hamilton::doc}}
+\par
+Ein wichtiges Prinzip für viele physikalischen Anwendungen und dynamische Systeme sind \emph{Erhaltungssätze} und die dazugehörigen \emph{Erhaltungsgrößen}.
+Aus der klassichen Mechanik kennen wir beispielsweise die \emph{Energieerhaltung} oder die \emph{Impulserhaltung}.
+In \cref{ode/fluesse:s-fluesse}  haben wir Bewegungsgleichungen als System von gewöhnlichen Differentialgleichungen hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der Formulierung des Differentialgleichungssystems abzulesen.
+
+\par
+Hamiltonsche Differentialgleichungen haben in der Physik eine besondere Rolle, insbesondere in der klassischen Mechanik bei Abwesenheit von Reibung.
+Typischerweise tauchen diese bei der Untersuchung von Bewegungen im Phasenraum auf, d.h., bei der Betrachtung von Paaren aus Orts  und Impulswerten.
+Ihre Lösungen liefern uns Trajektorien im Phasenraum für die die Gesamtenergie des Systems erhalten bleibt.
+Dies macht sie für uns besonders interessant.
+
+\par
+Bevor wir die hamiltonschen Differentialgleichungen und ihre Eigenschaften näher diskutieren führen wir zunächst ein wann wir ein Vektorfeld auf dem Phasenraum Hamiltonsch nennen und was eine Hamilton Funktion dieses Vektorfelds ist.
+\label{ode/hamilton:def:hamiltonsch}
+\begin{definition}{}{}
+
+
+
+\par
+Sei \(n \in N\) die \textbf{Anzahl der Freiheitsgrade} des betrachteten dynamischen Systems und sei \(U\subset \R^n \times \R^n\) der zugehörige Phasenraum.
+Wir nennen ein Vektorfeld \(X \colon U \rightarrow \R^{2n}\) mit \(X \in C^1(P;\R^{2n})\) \textbf{Hamiltonsch}, falls eine reellwertige Funktion \(H \colon U \rightarrow \R\) sowie eine Matrix \(J \, \coloneqq \, \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \in \R^{2n \times 2n}\) existiert, so dass sich das Vektorfeld darstellen lässt als
+\begin{align}\label{equation:ode/hamilton:eq:hamilton_Gleichung}
+X(p,q) = J \, \nabla H (p,q) \quad \forall (p,q) \in U.
+\end{align}
+\par
+In diesem Fall nennen wir die Funktion \(H\) eine \textbf{Hamilton Funktion} des Vektorfelds \(X\).
+\end{definition}
+
+\par
+Folgende Bemerkungen zur Hamilton Funktion wollen wir festhalten.
+\label{ode/hamilton:remark-1}
+\begin{emphBox}{}{}{Remark 1.5}
+
+
+\begin{enumerate}
+
 \item {} 
 \par
-Energieerhaltung,
+Die Hamilton Funktion lässt sich auch als Legendre Transformation der Lagrange Funktion des Systems herleiten, was weitere interessante Zusammenhänge in der Physik erklärt.
+In dieser Vorlesung verzichten wir auf diesen Zugang zur Hamilton Funktion und verweisen die interessierten Leser*innen auf Kapitel 2 \cite{Nol11}.
 
 \item {} 
 \par
-Impulserhaltung.
+Im Folgenden werden wir annehmen, dass die Hamilton Funktion \(H\) nicht explizit von der Zeitvariable \(t \in I\) abhängt, was jedoch im Allgemeinen sein kann.
 
-\end{itemize}
+\end{enumerate}
+\end{emphBox}
 
 \par
-In ?? haben wir Bewegungslgleichungen als System von DGLs hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der DGL Formulierung zu erhalten.
-\label{ode/hamilton:example-0}
+Basierend auf der Hamilton Funktion aus \cref{ode/hamilton:def:hamiltonsch} können wir nun die Hamiltonschen Differentialgleichungen definieren.
+\label{ode/hamilton:definition-2}
+\begin{definition}{}{}
+
+
+
+\par
+Sei \(x(t) = (p(t),q(t)) \in U\) eine Bahnkurve des Phasenraums \(U \subset \R^{2n}\).
+Wird das hamiltonsche Vektorfeld auf der linken Seite von \cref{ode/hamilton:equation-eq-hamilton-gleichung} als
+\begin{align*}
+X = \dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix} (t)
+\end{align*}
+\par
+gewählt, so lässt sich die Gleichung für \(J \, \coloneqq \, \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \in \R^{2n \times 2n}\) schreiben als
+\begin{align}\label{equation:ode/hamilton:eq:hamilton_DGL}
+\dot{x}(t) = J \nabla H(x(t)).
+\end{align}
+\par
+In dieser Form wird die entstehende Differentialgleichung in \cref{ode/hamilton:equation-eq-hamilton-dgl} \textbf{Hamiltonsche Differentialgleichung} genannt.
+
+\par
+Äquivalent lässt sich dieses System von gewöhnlichen Differentialgleichungen auch explizit für die \(2n\) unbekannten Orts  und Impulsfunktionen \(q_i, p_i\) für \(1 \leq i \leq n\) schreiben als
+\begin{align*}
+\dot{q_i}(t) = \frac{\partial H}{\partial p_i}(t), \quad \dot{p_i}(t) = -\frac{\partial H}{\partial q_i}(t), \quad i=1,\ldots,n.
+\end{align*}\end{definition}
+
+\par
+Für den einfachen Fall einer zeitunabhängigen Hamilton Funktion \(H\) lässt sich beobachten, dass die Lösungskurven der Hamiltonschen Differentialgleichungen sich nicht schneiden und durch jeden Punkt des Phasenraums eine Lösungskurve verläuft.
+
+\par
+Die Hamilton Funktion \(H\) als Funktion des Phasenraumes kann als die Energie eines Systems von Teilchen aufgefasst werden.
+Wir wollen uns die Rolle der Hamilton Funktion \(H\) an Hand eines physikalischen Beispiels klar machen.
+\label{ode/hamilton:example-3}
 \begin{example}{}{}
 
 
+
+\par
+Im folgenden Beispiel wollen wir die Bewegung eines Teilchens mit Masse \(m>0\) in einem Kraftfeld \(F \colon \R^3 \rightarrow \R^3\)  untersuchen, welches nur vom Ort \(q \in \R^3\) abhängt.
+Nach dem 2. Newtonschen Gesetz erhalten wir die Bewegungsgleichung
+\begin{align}\label{equation:ode/hamilton:eq:newton}
+m\ddot{q}(t) = F(q(t)).
+\end{align}
+\par
+Die gewöhnliche Differentialgleichung 2. Ordnung in \cref{ode/hamilton:equation-eq-newton} lässt sich durch die Definition des Impulses des Teilchens \(p(t) \, \coloneqq \, m \dot{q(t)}\) in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:
+\begin{align*}
+\dot{p}(t) = F(q(t)), \quad \dot{q}(t) = \frac{1}{m}p(t).
+\end{align*}
+\par
+Wir nehmen zur Vereinfachung nun an, dass das gegebene Kraftfeld \(F\) \emph{konservativ} sei, d.h., wir können annehmen, dass \(F = - \nabla V\) gilt für ein Potential \(V \colon \R^3 \rightarrow \R\) (z.B. die Erdanziehungskraft).
+Dann können wir das physikalische Modell als kontinuierliches dynamisches System interpretieren mit dem erweiterten Phasenraum \(I \times U \subset \R^+_0 \times \R^6\).
+Betrachten wir nun einen Punkt \(x = \begin{pmatrix} p \\ q\end{pmatrix} \in U\) im Phasenraum, so lässt sich das autonome gewöhnliche Differentialgleichungssystem kompakt schreiben als
+\begin{align}\label{equation:ode/hamilton:eq:newton_DGL}
+\dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t)
+\end{align}
+\par
+Wählen wir nun die \textbf{Hamilton Funktion} aus \cref{ode/hamilton:def:hamiltonsch} \begin{align*}
+H(p,q) \, \coloneqq \, \frac{||p||^2}{2m} + V(q),
+\end{align*}
+\par
+so erkennen wir, dass diese sich aus \emph{kinetischer} und \emph{potentieller Energie} zusammensetzt.
+Durch diese Hamilton Funktion \(H\) lässt sich \cref{ode/hamilton:equation-eq-newton} als \textbf{Hamiltonsche Differentialgleichung} schreiben mit
+\begin{align*}
+\dot{x}(t) = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t) = \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix}(t) = J \nabla H(p(t),q(t)).
+\end{align*}\end{example}
+
+\par
+Ergänzend wollen wir noch folgendes Beispiel einer Hamilton Funktion nennen.
+\label{ode/hamilton:example-4}
+\begin{example}{}{}
+
+
+
+\par
+Im Fall des eindimensionalen harmonischen Oszillators mit Masse \(m > 0\) aus \cref{ode/fluesse:ex:oscillations} lässt sich ebenfalls eine Hamilton Funktion des dynamischen Systems angeben.
+Sei \((x,p) \in U\) als Punkt des Phasenraums \(U \subset \R^2\) der Ort und Impuls eines Pendels.
+Dann lässt sich die zugehörige Hamilton Funktion \(H \colon U \rightarrow \R\) angeben als:
+\begin{align*}
+H(x,p) = \frac{p^2}{2m} + \frac{m}{2} \omega^2 x^2.
+\end{align*}
+\par
+Hierbei bezeichnet \(\omega = \sqrt{\frac{k}{m}}\) die Eigenfrequenz des Systems und \(k > 0\) die Federkonstante.
 \end{example}
+
+\par
+Bisher haben wir noch nicht den Grund diskutiert, warum die Hamilton Funktion eine besondere Rolle im Kontext dynamischer Systeme spielt.
+Das wollen wir nun im folgenden Satz nachholen.
+\label{ode/hamilton:satz:hamilton_konstant}
+\begin{theorem}{}{}
+
+
+
+\par
+Sei \(n\in \N, U \subseteq \mathbb{R}^{2n}\) ein (offener) Phasenraum und \(J= \begin{pmatrix} 0 & - \mathbf{1} \\ \mathbf{1} & 0 \end{pmatrix} \in \mathbb{R}^{2n \times 2n}\).
+Ist die Hamilton Funktion \(H \in C^2(U; \mathbb{R})\), dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung
+\begin{align*}
+\dot x = J \nabla H(x)
+\end{align*}
+\par
+konstant.
+\end{theorem}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+
+\par
+\cref{ode/hamilton:satz:hamilton_konstant} sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton Funktion verlaufen.
+Dies erlaubt es uns dynamische Systeme auf diese häufig auch \emph{Energieschalen} genannten Niveaumengen \(H^{-1}(E)\) für \(E \in \R\) zu restringieren.
+Diese Energieschalen bilden Untermannigfaltigkeiten des Phasenraums \(U\).
+
+\par
+Für den einfachen Fall eines Freiheitsgrades, d.h., für \(n = 1\), lassen sich für eine gegebene Hamilton Funktion \(H\) die Orbits des dynamischen Systems bestimmen.
+Für einen Punkt \(x \in U\) im Phasenraum \(U \subset \R^2\) unterscheiden wir zwei Fälle:
+\begin{enumerate}
+
+\item {} 
+\par
+Ist \(\nabla H(x) = 0\), so ist der Orbit wegem \cref{ode/hamilton:equation-eq-hamilton-dgl} von der Form \(O(x) = {x}\).
+
+\item {} 
+\par
+Ist \(\nabla H(x) \neq 0\), so ist der Orbit \(O(x)\) gegeben durch die zusammenhängende Menge
+
+\end{enumerate}
+\begin{align*}
+O(x) = \{y \in U | H(y) = H(x), \nabla H(y) \neq 0\}
+\end{align*}
+\par
+Die Orientierung des Orbits erhält man durch die Richtung, die orthogonal zum Gradienten \(\nabla H\) steht, d.h., durch Drehung des Gradienten im Uhrzeigersinn um \(\frac{\pi}{2}\).
+Die Matrix \(J\) entspricht eben einer solchen Drehung.
+\label{ode/hamilton:remark-6}
+\begin{emphBox}{}{}{Remark 1.6}
+
+
+
+\par
+Eine Formulierung der Bewegungsgleichungen eines dynamischen Systems als Hamiltonsche Differentialgleichungen hat den Vorteil, dass sie unter den sogenannten \emph{kanonischen Transformationen} in manchen Fällen in eine einfachere, lösbare Form gebracht werden können.
+\end{emphBox}
+
+
+\chapter{Stabilitätsanalyse für dynamische Systeme}
+\label{\detokenize{ode_stability/stabilitaetsanalyse:stabilitatsanalyse-fur-dynamische-systeme}}\label{\detokenize{ode_stability/stabilitaetsanalyse::doc}}
+\par
+In diesem Abschnitt beschäftigen wir uns mit der Stabilitätstheorie für kontinuierliche dynamische Systeme.
+Hierbei interessieren wir uns für die Frage, wie sich \emph{kleine Störungen} von bestimmten Zuständen des Systems auf die Lösungen der zu Grunde liegenden gewöhnlichen Differentialgleichungen auswirken.
+Der untersuchte Zustand kann beispielsweise ein periodischer Orbit oder eine Ruhelage des dynamischen Systems sein.
+Letztere sind oftmals von besonderes Interesse, da man in vielen technischen und physikalischen Anwendungen daran interessiert ist das System in eine oder nahe einer Gleichgewichtslage zu bringen.
+
+\par
+Im Folgenden werden wir verschiedene Stabilitätsbegriffe für dynamische Systeme einführen und speziell Kriterien für die Stabilität von Ruhelagen diskutieren.
+
+
+\section{Stabilitätsbegriffe}
+\label{\detokenize{ode_stability/stabilitaetsbegriffe:stabilitatsbegriffe}}\label{\detokenize{ode_stability/stabilitaetsbegriffe::doc}}
+\par
+Im Folgenden wollen wir grundlegende Begriffe der Stabilitätsanalyse von Ruhelagen einführen und diskutieren.
+Wie in \cref{ode/fluesse:s-fluesse}  definiert, nennen wir einen Punkt \(x\in U\) im Phasenraum \(U\) \textbf{Ruhelage}, falls für den zugehörigen Phasenfluss \(\Phi \colon I \times U \rightarrow U\) des dynamischen Systems gilt: \(\Phi(t,x) = x, \forall t \in I\), d.h., wenn für alle \(t \in I\) der Zustand \(x \in U\) ein \textbf{Fixpunkt des Flusses} ist.
+
+\par
+Für autonome Differentialgleichungssysteme mit
+\begin{align*}
+\dot{x}(t) = F(x)
+\end{align*}
+\par
+ist \(x \in U\) auch eine Ruhelage, falls \(F(x) = 0\) gilt, d.h., falls \(x\) eine Nullstelle von \(F\) ist.
+Das ist einfach zu verstehen, da die Zeitableitung auf der linken Seite für eine Ruhelage Null ist und somit die Funktion \(F\), die nur vom Ort abhängt, sich nicht ändern kann.
+
+\par
+Anschaulich versteht man unter der Stabilitätsanalyse von Ruhelagen die mathematische Untersuchung, ob benachbarte Lösungen von einer Ruhelage wegstreben oder nicht.
+Dies ist insbesondere in technischen Anwendungen wichtig, da man dort häufig danach strebt ein dynamisches System in eine Gleichgewichtslage zu bringen.
+Da dies nur bis zu einer gewissen Genauigkeit möglich ist, muss man also mit kleinen Störungen rechnen.
+
+\par
+Ist eine Ruhelage stabil, dann bleiben benachbarte Lösungen auch für zukünftige Zeitpunkte \(t \in I\) nahe der Ruhelage.
+Ist sie jedoch nicht stabil, so muss das im Allgemeinen nicht gelten und die Lösungen können dann mit der Zeit von der Ruhelage divergieren.
+Diese Anschauung wollen wir in der folgenden Definition mathematisch formalisieren.
+Hierbei werden wir den Stabilitätsbegriff für allgemeine Lösungen einführen und später Ruhelagen als ein Spezialfall dieser Lösungen interpretieren.
+\label{ode_stability/stabilitaetsbegriffe:def:Stabilitaet}
+\begin{definition}{}{}
+
+
+
+\par
+Sei \(\Phi \colon I \times U \rightarrow U\) der Phasenfluss zu dem Vektorfeld \(F\in C^1(U;\R^n)\) auf \(U\), dass durch die rechte Seite des zugehörigen Differentialgleichungssystems gegeben ist.
+
+\par
+1. Eine Lösung \(t \in [0,\infty) \mapsto \Phi_t(x)\) heißt \textbf{(Lyapunov )stabil}, wenn zu jedem \(\epsilon > 0\) ein \(\delta>0\) existiert mit:
+\begin{align*}
+\|x-y\|<\delta \ \Rightarrow \ \sup_{t\geq0}\|\Phi_t(x)-\Phi_t(y)\|<\epsilon.
+\end{align*}
+\par
+2. Eine Lösung \( t \in [0,\infty) \mapsto \Phi_t(x)\) heißt \textbf{asymptotisch stabil}, wenn ein \(\delta > 0\) existiert mit:
+\begin{align*}
+\|x-y\|<\delta \ \Rightarrow \ \lim_{t\to\infty}\|\Phi_t(x)-\Phi_t(y)\|=0.
+\end{align*}
+\par
+3. Eine Lösung heißt \textbf{instabil}, wenn sie nicht (Lyapunov )stabil ist.
+\end{definition}
+
+\par
+Es ist klar, dass der Begriff der asymptotischen Stabilität \emph{stärker} als der Begriff der Lyapunov Stabilität von Lösungen ist, da jede asymptotisch stabile Lösung auch schon Lyapunov stabil ist.
+Die Umkehrung gilt jedoch im Allgemeinen nicht.
+Dies wird durch das folgende Beispiel nochmal illustriert.
+\label{ode_stability/stabilitaetsbegriffe:example-1}
+\begin{example}{}{}
+
+
+
+\par
+Der Phasenfluss für den harmonischen Oszillator ist, wie wir in \cref{ode/fluesse:ex:oscillations} gesehen haben, gegeben durch
+\begin{align*}
+\Phi(t, (p,x)) = \begin{pmatrix}
+p \cos(\omega t) - m x \sin(\omega t)\\
+\frac{p}{\omega m}\sin(\omega t) + x\cos(\omega t)
+\end{pmatrix}
+\end{align*}
+\par
+Wir suchen nun einen Fixpunkt \((p_r,x_r) \in U\) des Flusses der unabhängig ist vom Zeitpunkt \(t\).
+Man sieht leicht ein, dass eine \textbf{Ruhelage} sich bei \((p_r,x_r) = (0,0)^T \in U\) befindet, da \(\Phi(t,(0,0)) = (0,0)^T\) ist für alle \(t \in I\).
+Die gefundene Ruhelage ist \textbf{Lyapunov stabil}, denn wie wir im Phasenporträt in  gesehen haben, ist jeder Orbit um die Ruhelage \((0,0)\) periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.
+
+\par
+Mathematisch lässt sich diese Eigenschaft wie folgt zeigen.
+Für ein beliebiges \(\epsilon > 0\) sei \((p,y) \in U\) ein Punkt im Phasenraum mit periodischen Orbit \(O(p,y)\) um die Ruhelage \((p_r,x_r) = (0,0)^T \in U\), so dass dessen maximaler Abstand zur Ruhelage kleiner als \(\epsilon\) ist, d.h.
+\begin{align*}
+\sup_{t \geq 0} ||\Phi_t(p_r,x_r) - \Phi_t(p,y)|| < \epsilon
+\end{align*}
+\par
+Auf Grund der ersten Eigenschaft des Phasenflusses \(\Phi_0(p,y) = (p,y)\) gilt dann aber schon
+\begin{align*}
+||(p_r, x_r) - (p,y)|| = ||\Phi_0(p_r, x_r) - \Phi_0(p,y)|| < \epsilon.
+\end{align*}
+\par
+Wählen wir nun \(\delta \coloneqq \epsilon\), so haben wir gezeigt, dass die Ruhelage \((p_r, x_r) = (0,0)^T\) Lyapunov stabil ist.
+Sie ist jedoch auf Grund der Periodizität der Orbits um die Ruhelage \textbf{nicht asymptotisch stabil}, da für beliebige Punkte \((p,y) \in U\) mit \(||(p_r,x_r) - (p,y)|| < \delta\) für ein \(\delta > 0\) gilt
+\begin{align*}
+\lim_{t\to\infty}\|\Phi_t(p_r, x_r)-\Phi_t(p,y)\| \neq 0.
+\end{align*}\end{example}
+
+\par
+Im allgemeinen Fall der gedämpften Schwingungsgleichung in \cref{ode/fluesse:ex:oscillations} hängt die Stabilität der Ruhelage im Ursprung intuitiverweise von der Reibungskonstanten ab, wie folgende Bemerkung festhält.
+\label{ode_stability/stabilitaetsbegriffe:remark-2}
+\begin{emphBox}{}{}{Remark 2.1 (Stabilität bei der gedämpften Schwingungsgleichung)}
+
+
+
+\par
+Für den Fall der gedämpften Schwingungsgleichung in \cref{ode/fluesse:equation-eq-schwingungsgleichung} lässt sich folgendes Stabilitätsverhalten der Ruhelage im Ursprung in Abhängigkeit der Reibungskonstanten \(r \in \R\) beobachten:
+\begin{enumerate}
+
+\item {} 
+\par
+Die Ruhelage ist \textbf{asymptotisch stabil} für den Fall mit positiver Reibung \(r>0\).
+
+\item {} 
+\par
+Die Ruhelage ist \textbf{Lyapunov stabil} für den reibungsfreien Fall \(r=0\).
+
+\item {} 
+\par
+Die Ruhelage ist \textbf{instabil} für den Fall einer negativen Reibung \(r < 0\), d.h. für einen externen Antrieb.
+
+\end{enumerate}
+\end{emphBox}
+
+
+\section{Stabilität von Ruhelagen}
+\label{\detokenize{ode_stability/ruhelagen:stabilitat-von-ruhelagen}}\label{\detokenize{ode_stability/ruhelagen::doc}}
+\par
+Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine \textbf{lineare} Differentialgleichungssysteme untersuchen.
+Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in \cite{Ten21} kennen gelernt.
+
+\par
+Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
+\label{ode_stability/ruhelagen:theorem-0}
+\begin{theorem}{}{}
+
+
+
+\par
+Sei \(A\in \C^{n\times n}\) eine Matrix mit den Eigenwerten \(\lambda_1,\dots, \lambda_n\in \C\).
+Dann beschreibt der zugehörige Phasenfluss \(\Phi\) zum homogenen linearen Differentialgleichungssystem
+\begin{align*}
+\dot{x}(t) = Ax(t)
+\end{align*}
+\par
+eine Ruhelage in \(\vec{0} \in \C^n\).
+Diese ist sogar eindeutig, falls \(\lambda_i\neq 0, i=1,\ldots,n\) gilt.
+
+\par
+Für
+\begin{align*}
+\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)
+\end{align*}
+\par
+kann die Stabilität der Ruhelage wie folgt charakterisiert werden:
+\begin{enumerate}
+
+\item {} 
+\par
+Falls \(\gamma <0\) gilt, ist die Ruhelage \(\vec{0}\) \emph{asymptotisch stabil}
+
+\item {} 
+\par
+Falls \(\gamma >0\) gilt, ist die Ruhelage \(\vec{0}\) \emph{instabil}.
+
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+ Wir wissen, dass für einen beliebigen Startpunkt \(x_0 \in U\) im Phasenraum der Phasenfluss \(\Phi \colon I \times U \rightarrow U\) eine Lösung des Differentialgleichungssystems realisiert.
+Für homogene, lineare Differentialgleichungssysteme haben wir bereits in \cref{ode/repetition:s-lineare-dglsysteme}  Lösungen mittels des \emph{Matrixexponentials} hergeleitet.
+
+\par
+Sei \(J = S^{-1}AS\) die Jordansche Normalform von \(A\) mit Transformationsmatrizen \(S^{-1},S \in \C^{n \times n}\), so erhalten wir die Abschätzung
+\begin{align*}
+\|\Phi_t(x_0)\| &= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx_0\| = \|S^{-1}e^{tD}e^{tN}Sx_0\| \\
+&\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x_0\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
+\end{align*}
+\par
+für eine Konstante \(C_1 > 0\), die unabhängig von \(t\) ist.
+Hierbei haben wir ausgenutzt, dass sich die Jordannormalform \(J\) von \(A\) als Summe einer Diagonalmatrix \(D\) mit den Eigenwerten \(\lambda_i \in \C\), \(i=1,\ldots,n\) von \(A\) und einer nilpotenten Matrix \(N\) schreiben lässt als \(J = D + N\).
+Diese Matrizen kommutieren, d.h., \(D \cdot N = N \cdot D\).
+
+\par
+Wir sehen nun ein, dass \(e^{tN}\) wegen der Nilpotenz von \(N\) eine endliche Reihe bildet der Form
+\begin{align*}
+e^{tN} = \sum_{k=0}^m \frac{(tN)^k}{k!} = \sum_{k=0}^m t^k\frac{N^k}{k!},
+\end{align*}
+\par
+welches ein Polynom vom Grad \(m\) darstellt, wobei \(m \in \N\) der Nilpotenzindex der Matrix \(N\) ist.
+
+\par
+Sei nun \(\epsilon > 0\) beliebig klein gewählt.
+Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten \(C_2 > 0\), die von \(\epsilon\) jedoch nicht von \(t\) abhängt, durch eine gewöhnliche Exponentialfunktion abschätzen mit
+\begin{align*}
+ \|e^{tN}\| = \| \sum_{k=0}^m t^k\frac{N^k}{k!} \| \leq \sum_{k=0}^m t^k \frac{\|N^k\|}{k!} \leq C_2  e^{t \epsilon}.
+\end{align*}
+\par
+Wählen wir nun \(\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)\), so folgt direkt, dass gilt
+\begin{align*}
+||e^{tD}|| \leq C_3 e^{t\gamma}.
+\end{align*}
+\par
+Insgesamt erhalten wir also für die Norm des Phasenflusses
+\begin{align*}
+\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.
+\end{align*}
+\par
+Da \(\epsilon > 0\) beliebig klein ist, können wir \(|\epsilon| < |\gamma|\) wählen.
+Damit hängt das Verhalten der Norm des Flusses nur noch vom Vorzeichen von \(\gamma\) ab.
+Wir unterscheiden daher zwei Fälle:
+
+\par
+1. Wenn \(\gamma >0\) ist, so existiert zum Eigenwert \(\gamma\) von \(A\) ein zugehöriger Eigenvektor \(v\in U\), so dass die Eigenwertgleichung \(A v = \gamma v\) gilt.
+Nach Lemma \cref{ode/repetition:lem:mpotew} ist dann \(e^{t\gamma}\) ein Eigenwert des Matrixexponentials \(e^{tA}\) mit zugehörigem Eigenvektor \(v\).
+Insgesamt erhalten wir also
+\begin{align*}
+||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \text{ für } \ t \to \infty, \quad  \forall \alpha>0.\end{align*}
+\par
+Also enthält jede beliebig kleine Umgebung der Ruhelage \(0\) Punkte, für die die entsprechenden Lösungen divergieren.
+In diesem Fall ist die Ruhelage also \textbf{instabil}.
+
+\par
+2. Falls \(\gamma <0\) gilt, so können wir abschätzen, dass
+\begin{align*}
+0\leq \|\Phi_t(x_0)-0\|\leq C e^{t\epsilon} e^{t \gamma} \to 0 \quad \text{ für } \ t \to \infty.
+\end{align*}
+\par
+Dies liefert uns also \textbf{asymptotische Stabilität} der Ruhelage \(0\).
+\end{proof}
+
+\par
+Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die \(0\) immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.
+
+
+\subsection{Linearisierung um Ruhelage}
+\label{\detokenize{ode_stability/ruhelagen:linearisierung-um-ruhelage}}
+\par
+In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
+Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
+Daher betrachten wir im Folgenden das Anfangswertproblem eines \textbf{allgemeinen Differentialgleichungssystem erster Ordnung} auf dem Phasenraum \(U\in \R^n\), das nicht notwendigerweise linear sein muss und für ein Vektorfeld \(F\in C^1(U;\R^n)\) wie folgt formuliert ist
+\begin{align}\label{equation:ode_stability/ruhelagen:eq:awpallg}
+\dot{x}(t) &= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
+x(0) &= x_0.
+\end{align}
+\par
+Wir nehmen an, dass \(x_F \in U\) eine Ruhelage des dynamischen Systems ist, so dass dementsprechend \(F(x_F) = 0\) gilt.
+Durch einfache Translation der Koordinaten des Systems um \(x_F \in U\), können wir ohne Beschränkung der Allgemeinheit annehmen, dass die Ruhelage sich im Nullpunkt befindet.
+
+\par
+Im Folgenden definieren wir zwei wichtige Werkzeuge zur Untersuchung der Stabilität von Ruhelagen für allgemeine Differentialgleichungssysteme.
+\label{ode_stability/ruhelagen:def:linearisierung}
+\begin{definition}{}{}
+
+
+
+\par
+Sei \(F\in C^1(U;\R^n)\) ein Vektorfeld auf dem Phasenraum \(U \subset \R^n\) und \(0\) eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in \eqref{equation:ode_stability/ruhelagen:eq:awpallg} charakterisiert wird.
+Sei nun \((DF)(x)\) die Jacobi Matrix der Funktion \(F\) im Punkt \(x \in U\) (vgl. Kapitel 6.2 in \cite{Ten21}).
+Dann bezeichnen wir mit \(A := (DF)(0)\) die \textbf{Linearisierung} von \(F\) in der Ruhelage \(0 \in U\).
+Außerdem bezeichnen wir die Funktion \(R \in C^1(U; \R^n)\) mit
+\begin{align*}
+R(x) \ \coloneqq \ F(x) - Ax
+\end{align*}
+\par
+als die \textbf{Abweichung} (auch \textbf{Residuum} genannt) des Vektorfeldes \(F\) von seiner Linearisierung \(A\) in der Ruhelage.
+\end{definition}
+
+\par
+Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des Differentialgleichungssystem in führender Ordnung durch die Linearisierung \(A\) von \(F\) kontrolliert werden, solange wir uns nah genug zur Ruhelage befinden. Dies wird durch das folgende Lemma ausgedrückt.
+\label{ode_stability/ruhelagen:lem:intexpglgn}
+\begin{lemma}{}{}
+
+
+
+\par
+Wir betrachten das Anfangswertproblem aus \eqref{equation:ode_stability/ruhelagen:eq:awpallg} auf dem Phasenraum \(U \subset \R^n\) für ein Vektorfeld \(F\in C^1(U;\R^n)\).
+Außerdem sei \(A \coloneqq (DF)(0)\) die Linearisierung des Vektorfelds in der Ruhelage \(0\) des dynamischen Systems und \(R(x) \coloneqq F(x) - Ax\) die Abweichung von \(F\) von seiner Linearisierung \(A\) im Nullpunkt.
+
+\par
+Dann lassen sich Lösungen des Differentialgleichungssystems mittels der Linearisierung \(A\) und der Abweichung \(R\) explizit angeben als
+\begin{align*}
+x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s, \quad \forall t \in I.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Wir setzen zunächst die unbekannte Lösung \(x(t)\) des Anfangswertproblems \eqref{equation:ode_stability/ruhelagen:eq:awpallg} in der allgemeinen Form
+\begin{align*}
+x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0
+\end{align*}
+\par
+an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion \(c(t)\) mittels \textbf{Variation der Konstanten} (vgl. Kapitel 8.2 in \cite{Ten21}).
+
+\par
+Mittels der Rechenregeln für das Matrixexponentials in \cref{ode/repetition:rem:matrixexponential_regeln} können wir die Ableitung der Funktion \(x\) mittels Produktregel angeben als
+\begin{align*}
+\dot{x}(s) = A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s).
+\end{align*}
+\par
+Aus der Definition des Residuums in \cref{ode_stability/ruhelagen:def:linearisierung} folgt aber auch
+\begin{align*}
+\dot{x}(s) = F(x(s)) = Ax(s) + R(x(s)).
+\end{align*}
+\par
+Vergleichen wir die beiden Gleichungen, so sieht man ein, dass
+\begin{align*}
+e^{As}\dot{c}(s) = R(x(s))
+\end{align*}
+\par
+gelten muss.
+Äquivalent können wir auch folgern, dass \(\dot{c}(s) = e^{-As}R(x(s))\) gilt.
+
+\par
+Nach dem Hauptsatz der Differential  und Integralrechnung (vgl. Theorem 5.3 in \cite{Ten21}) gilt dann für die unbekannte Funktion \(c\) der folgende Zusammenhang
+\begin{align*}
+c(t) = c(0) + \int_0^t \dot{c}(s)\, \mathrm{d}s = x_0+ \int_0^t e^{-As}R(x(s)) \, \mathrm{d}s.
+\end{align*}
+\par
+Setzen wir dies in die erste Gleichung unserer Ansatzfunktion ein und nutzen die Rechenregeln des Matrixexponnentials aus \cref{ode/repetition:rem:matrixexponential_regeln}  so erhalten wir schließlich die Aussage des Lemmas
+\begin{align*}
+x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.
+\end{align*}\end{proof}
+
+\par
+Auf den ersten Blick nützt uns die Identität in \cref{ode_stability/ruhelagen:lem:intexpglgn} nicht viel, denn auch auf der rechten Seite taucht \(x(s)\), also die unbekannte Lösung des Anfangswertproblems \eqref{equation:ode_stability/ruhelagen:eq:awpallg} auf.
+Es stellt sich jedoch heraus, dass wir die \textbf{Gronwall Ungleichung} auf diese Integralgleichung anwenden können.
+Diese wichtige Abschätzung in der Theorie von Differentialgleichungen ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
+\label{ode_stability/ruhelagen:lemma:Gronwall}
+\begin{lemma}{}{}
+
+
+
+\par
+Für zwei stetige Funktionen \(f,g\in C([t_0,t_1]; \R^+)\) gelte für eine Konstante \(a \geq 0\) die Ungleichung
+\begin{align*}
+f(t) \leq a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad \forall t\in [t_0,t_1].
+\end{align*}
+\par
+Dann lässt sich der Wert der Funktion \(f\) durch die Funktion \(g\) wie folgt abschätzen
+\begin{align*}
+f(t) \leq a \exp{ \left(\int_{t_0}^t g(s)\, \mathrm{d}s \right)} \quad \forall t\in [t_0,t_1].
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Wir definieren zunächst eine Hilfsfunktion
+\begin{align*}
+h(t) \ \coloneqq \ a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s
+\end{align*}
+\par
+und bemerken, dass \(0 \leq f(t) \leq h(t)\) nach Voraussetzung gilt für alle \(t \in [t_0, t_1]\).
+Nun führen wir eine einfache Fallunterscheidung durch:
+
+\par
+1. Ist \(h(t)=0\), so folgt mit der Abschätzung \(f(t) \leq h(t)\) schon, dass \(f(t) = 0\) gelten muss, so dass die Behauptung des Lemmas trivialerweise erfüllt ist.
+
+\par
+2. Sei also im Folgenden \(h(t) > 0\).
+Aus dem Haupsatz der Integral  und Differentialrechnung wissen wir, dass \(h'(t) = f(t)g(t)\) gilt.
+Wegen \(f(t) \leq h(t)\) für alle \(t \in [t_0, t_1]\) folgt sofort, dass
+\begin{align*}
+f(t)g(t) \leq h(t)g(t) \quad \forall t \in [t_0,t_1].
+\end{align*}
+\par
+Kombinieren wir diese Abschätzung mit der Identität der Ableitung \(h'(t)\), so erhalten wir durch Umstellen
+\begin{align*}
+\frac{h'(t)}{h(t)} \leq g(t) \quad \forall t \in [t_0, t_1].
+\end{align*}
+\par
+Da wir \(h(t) > 0\) angenommen haben erhalten wir durch Integration beider Seiten die Abschätzung
+\begin{align*}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s \leq \int_{t_0}^t g(s) \, \mathrm{d}s\end{align*}
+\par
+für alle \(t \in [t_0, t_1]\).
+Für die linke Seite können wir das Integral explizit angeben als
+\begin{align*}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s = \ln(h(t)) - \ln(h(t_0)) = \ln(h(t)) - \ln(a) = \ln\left(\frac{h(t)}{a}\right).
+\end{align*}
+\par
+Es gilt also nun
+\begin{align*}
+\ln \left(\frac{h(t)}{a}\right) \leq \int_{t_0}^t g(s)\, \mathrm{d}s.
+\end{align*}
+\par
+Durch Anwenden der Exponentialfunktion auf beiden Seiten erhalten wir schließlich die Behauptung des Lemmas
+\begin{align*}
+ h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].
+\end{align*}\end{proof}
+
+\par
+Wir wollen folgende Bemerkungen zur Gronwall Ungleichung festhalten.
+\label{ode_stability/ruhelagen:remark-4}
+\begin{emphBox}{}{}{Remark 2.2}
+
+
+
+\par
+1. Die in \cref{ode_stability/ruhelagen:lemma:Gronwall} beschriebene Gronwall Ungleichung ist eigentlich ein Spezialfall für eine konstante Funktion \(a(t) \equiv a \geq 0\).
+Die ursprünglich bewiesene Aussage gilt auch für allgemeinere Funktionen.
+
+\par
+2. Man kann sich die Abschätzung in der Gronwall Ungleichung leicht merken wenn man Gleichheit der beiden Seiten annimmt.
+Die Integralgleichung
+\begin{align*}
+f(t) = a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad t\in [t_0,t_1]
+\end{align*}
+\par
+entspricht nämlich dem \textbf{linearen Anfangswertproblem}
+\begin{align*}
+\dot{f}(t) &= f(t)\cdot g(t) \quad \forall t \in [t_0, t_1], \\
+f(t_0) &= a,
+\end{align*}
+\par
+welches für alle \(t \in [t_0, t_1]\) die folgende explizite Lösung besitzt
+\begin{align*}
+f(t) = a \exp{\left( \int_{t_0}^t g(s)\, \mathrm{d}s \right)}.
+\end{align*}\end{emphBox}
+
+\par
+Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwenden, um die Stabilität von Ruhelagen eines allgemeinen dynamischen Systems durch eine Linearisierung zu untersuchen.
+
+
+\subsection{Asymptotische Stabilität von Ruhelagen}
+\label{\detokenize{ode_stability/ruhelagen:asymptotische-stabilitat-von-ruhelagen}}\label{ode_stability/ruhelagen:theorem-5}
+\begin{theorem}{}{}
+
+
+
+\par
+Eine Gleichgewichtslage \(x_s\in  U\subset \R^n\) der DGL
+\begin{align*}
+\dot{x} = F(x), \quad f\in C^1(U,\R^n)
+\end{align*}
+\par
+ist asymptotisch stabil, wenn für die Eigenwerte \(\lambda\) von \(Df(x_s)\) gilt: \(Re(\lambda)<0\).
+\end{theorem}
+
+\begin{proof}
+   Wieder können wir durch eine Verschiebung \(x_s = 0\) erreichen. Da \(U\subseteq\R^n \) offen ist, gehört eine Kugelumgebung vom positiven Radius \(\vec{r}\) zu \(U\).
+\begin{itemize}
+\item {} 
+\par
+Für die Eigenwerte \(\lambda_i\) von \(A:=Df(x_s)\) gelte die Abschätzung \(Re(\lambda_i)< -\Lambda,\ \Lambda>0\) geeignet. Dann gibt es ein \(c>0\), sodass gilt
+
+\end{itemize}
+\begin{align*}
+\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad (t\geq 0).
+\end{align*}
+\par
+Das ersieht man aus der Tatsache, dass die Einträge von \(e^{At}\) Summen von \(\lambda_i\) Quasipolynomen \(e^{\lambda_i t}p_i(t)\) sind und dass wegen \(Re(\lambda_i) + \Lambda <0\)
+\begin{align*}
+\lim_{t\to\infty} \exp((\lambda_i + \Lambda)t)p_i(t) = 0
+\end{align*}
+\par
+ist.
+\begin{itemize}
+\item {} 
+\par
+Nun existiert ein Radius \(r\in (0,\vec{r})\) mit
+
+\end{itemize}
+\begin{align*}
+\|R(x)\|\leq \frac{\Lambda}{2c} \|x\|, \quad \text{falls } \|x\|\leq r,
+\end{align*}
+\par
+denn \(\lim_{x\to 0} \frac{\|Re(x)\|}{\|x\|} = \lim_{x\to}\frac{\|f(x)- Df(0)\cdot x\|}{\|x\|} = 0\).
+\begin{itemize}
+\item {} 
+\par
+Wenn wir nun zeigen können, dass aus
+
+\end{itemize}
+\begin{align}\label{equation:ode_stability/ruhelagen:eq:residuumabsch}
+\|x(0)\|\leq \epsilon <\frac{r}{c}
+\end{align}
+\par
+folgt, dass für \(t\geq 0\) gilt:
+\begin{align*}
+\|x(t)\|\leq c\epsilon e^{-\Lambda t/2},
+\end{align*}
+\par
+dann haben wir den Satz bewiesen, denn für die rechte Seite gilt: \(c\epsilon e^{-\Lambda t/2} \leq c\epsilon<r<\tilde{r}\), und für \(t\to \infty\) strebt sie gegen Null.
+
+\par
+Nun gilt nach Lemma \cref{ode_stability/ruhelagen:lem:intexpglgn}  \(x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds\) woraus mit \eqref{equation:ode_stability/ruhelagen:eq:residuumabsch} die Ungleichung
+\begin{align*}
+\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, ds
+\end{align*}
+\par
+folgt, soweit \(\|x\|\leq r\).
+
+\par
+Setzt man \(F(t):=e^{\Lambda t}\|x(t)\|\), dann gilt
+\begin{align*}
+F(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} F(s)\, ds,
+\end{align*}
+\par
+also nach dem Gronwall Lemma \cref{ode_stability/ruhelagen:lemma:Gronwall} \begin{align*}
+F(t) \leq c \|x_0\| + \exp{\left( \frac{1}{2} \int_0^t \Lambda \, ds \right) }
+\leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}
+\end{align*}
+\par
+oder \(\|x(t)\|\leq re^{-\frac{\Lambda}{2}t}\). Die Lösungskurve bleibt also für alle positiven Zeiten in der Vollkugel \(\{x\in \R^n|\|x\|\leq r\}\) und konvergiert gegen Null.
+\end{proof}
+\label{ode_stability/ruhelagen:remark-6}
+\begin{emphBox}{}{}{Remark 2.3}
+
+
+
+\par
+Der Beweis liefert zusätzlich die Aussage, dass alle \(x\in U\) mit \(\|x\|<\frac{r}{c}\) zu gegen die Gleichgewichtslage konvergierenden Orbits gehören, also in deren Einzugsbereich, dem so genannten \emph{Bassin}, liegen.
+\end{emphBox}
+
+
+\subsection{Lyapunov Stabilität von Ruhelagen}
+\label{\detokenize{ode_stability/ruhelagen:lyapunov-stabilitat-von-ruhelagen}}
+\par
+Während ein hinreichendes Kriterium für das Vorliegen \emph{asymptotischer Stabilität} die strikte Ungleichung \(Re(\lambda_i)<0\) für die Eigenwerte \(\lambda_i\) der Jacobi Matrix war, ist die Situation bezüglich der Lyapunov Stabilität komplizierter.
+\label{ode_stability/ruhelagen:theorem-7}
+\begin{theorem}{}{}
+
+
+
+\par
+Besitzen die Eigenwerte \(\lambda_i\) von \(A\in \R^{n\times n}\) Realteil \(Re(\lambda_i) \leq 0\), und ist im Fall \(Re(\lambda_i)=0\) die geometrische Vielfachheit gleich der algebraischen, dann ist \(0\in \R^n\) Lyapunov stabile Gleichgewichtslage der DGL \(\dot{x} = Ax\).
+\end{theorem}
+
+\begin{proof}
+ Aus der \textbf{Jordan Normalform} \(A=VJV^{-1}\) mit Jordan Matrix \(J\) der Form
+\begin{align*}
+J=
+\begin{pmatrix}
+J_{r_1}(\lambda_1)& & & 0\\
+ & J_{r_2}(\lambda_2) & & \\
+ & & \ddots & \\
+ 0 & & J_{r_k}(\lambda_k)
+\end{pmatrix}, 
+\quad J_r(\lambda_r):=
+\begin{pmatrix}
+\lambda_r & 1 & & 0\\ 
+& \ddots & \ddots & \\
+& & \ddots & 1\\
+0 & & & \lambda_r
+\end{pmatrix} 
+\in \C^{r\times r}
+\end{align*}
+\par
+folgt mit
+\begin{align*}
+\exp{(Jt)} = \begin{pmatrix}
+\exp{(J_{r_1}(\lambda_1)t)} & & 0\\
+ & \ddots & \\
+ 0& & \exp{(J_{r_k}(\lambda_k)t)}
+ \end{pmatrix}
+\end{align*}
+\par
+die Liapunov Stabilität der Gleichgewichtslage aus
+\begin{align*}
+\|\exp{(At)}\|= \|V\exp{(Jt)}V^{-1}\|\leq \|V\|\|V^{-1}\|\|\exp{(Jt)}\|,
+\end{align*}
+\par
+wenn für alle Jordanblöcke \(J_{r_i}(\lambda_i)\) von \(J\) der Ursprung \(0\in \C^{r_i}\) Liapunov stabile Gleichgewichtslage der DGL \(\dot{y} = J_{r_i}(\lambda_i)y\) ist.
+
+\par
+Aus \(Re(\lambda_i)<0\) folgt sogar asymptotische Stabilität.
+
+\par
+Da für einen komplexen Eigenwert \(\lambda\) von \(A\) mit \(Re(\lambda)=0\) die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen ist, sind die ihm zugeordneten Jordanblöcke alle eindimensional: \(J_{r_i}(\lambda_i) = \lambda\). Damit ist in diesem Fall
+\begin{align*}
+\|exp{(J_{r_i}(\lambda_i)t)}\|= |\cos{(Im(\lambda)t)} + i \sin{(Im(\lambda)t)}|=1.
+\end{align*}\end{proof}
+\label{ode_stability/ruhelagen:remark-8}
+\begin{emphBox}{}{}{Remark 2.4}
+
+
+
+\par
+Dass man die Gleichheit von geometrischer und algebraischer Vielfachheit fordern muss, sieht man schon am Beispiel von
+\begin{align*}
+A = \begin{pmatrix} 0&1\\0&0\end{pmatrix} \quad \text{mit} \quad e^{At} = \begin{pmatrix} 0&t\\0&0\end{pmatrix}.
+\end{align*}\end{emphBox}
+
+\par
+Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nicht linearen Fall folgern.
+\label{ode_stability/ruhelagen:example-9}
+\begin{example}{}{}
+
+
+
+\par
+DGL \(\dot{x} = \alpha x+ \beta x^3\) mit Parametern \(\alpha, \beta\in \R\). \textbackslash{}
+Die Null ist Gleichgewichtslage der DGL und ihre Linearisierung \(\dot{y} = \alpha y\).
+
+
+\begin{center}
+\centering
+\begin{tabularx}{\linewidth}[{\linewidth}]{|c|c|c|}\hline
+
+\par
+
+& 
+\par
+linearisierte Gleichung
+& 
+\par
+nicht lineare Gleichung
+\\
+\hline
+\par
+\(\alpha<0\)
+&
+\par
+asymptotisch stabil
+&
+\par
+asymptotisch stabil
+\\
+\hline
+\par
+\(\alpha>0\)
+&
+\par
+instabil
+&
+\par
+instabil
+\\
+\hline
+\par
+\(\alpha=0\)
+&
+\par
+Liapunov stabil
+&
+\par
+asymptotisch stabil für \(\beta<0\)
+\\
+\hline
+\par
+
+&
+\par
+
+&
+\par
+stabil für \(\beta =0 \)
+\\
+\hline
+\par
+
+&
+\par
+
+&
+\par
+instabil \(\beta > 0\)
+\\
+\hline
+\end{tabularx}
+\end{center}
+\end{example}
+\label{ode_stability/ruhelagen:remark-10}
+\begin{emphBox}{}{}{Remark 2.5}
+
+
+
+\par
+Anschaulich gesprochen kann asymptotische Stabilität nur vorliegen, wenn der Fluss in der Nähe der Gleichgewichtslage das Phasenraumvolumen verkleinert. Daher kann man in physikalischen Situationen ohne Reibungseffekte höchstens Liapunov Stabilität erwarten. das hat z.B. zur Folge, dass die Frage der \textbf{Stabilität des Sonnensystems} sehr subtil ist.
+\end{emphBox}
 
 
 \chapter{Bibliography}
@@ -926,10 +1925,13 @@ Andreas Knauf. \emph{Mathematische Physik: Klassische Mechanik}. Springer Berlin
 \bibitem[Kna20]{references:id7}
 \par
 Andreas Knauf. \emph{Skript zur Vorlesung "Mathematik für Physikstudierende 3"}. 2020.
-\bibitem[SB18]{references:id9}
+\bibitem[Nol11]{references:id9}
+\par
+Wolfgang Nolting. \emph{Grundkurs Theoretische Physik 2   Analytische Mechanik}. Springer Berlin Heidelberg, 2011. \href{https://doi.org/10.1007/978-3-642-12950-6}{doi:10.1007/978 3 642 12950 6}.
+\bibitem[SB18]{references:id10}
 \par
 Herman Schulz Baldes. \emph{Skript zur Vorlesung "Mathematik für Physiker 3"}. 2018.
-\bibitem[Ten21]{references:id11}
+\bibitem[Ten21]{references:id12}
 \par
 Daniel Tenbrinck. \emph{Skript zur Vorlesung "Mathematik für Data Science 2"}. 2021. URL: \url{https://fau-ammn.github.io/MathDataScience2}.
 \end{sphinxthebibliography}

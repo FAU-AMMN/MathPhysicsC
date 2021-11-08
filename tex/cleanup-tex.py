@@ -26,7 +26,7 @@ def match_theorems(content):
 def match_proofs(content):
     content = re.sub(r'\\begin\{emphBox\}\{\}\{\}\nProof\.((.|\n)*?)\\end\{emphBox\}', 
                      r'\\begin{proof}\n\1\\end{proof}', content, flags = re.M)
-    content = re.sub(r'\\begin\{emphBox\}\{\}\{\}\n\\par\nProof\.((.|\n)*?)\\end\{emphBox\}', 
+    content = re.sub(r'\\begin\{emphBox\}\{\}\{\}\n\\AtStartPar\nProof\.((.|\n)*?)\\end\{emphBox\}', 
                      r'\\begin{proof}\n\1\\end{proof}', content, flags = re.M)
     return content
 
@@ -97,7 +97,7 @@ with open (path+file_name+extension, 'r' ) as f:
                          r'', content_new, flags = re.M)
     
     # references
-    content_new = re.sub(r'\{\\hyperref\[\\detokenize\{(.*?)\}\]\{\\crossref\{(.*?)\}\}\}( |.)',
+    content_new = re.sub(r'\{\\hyperref\[\\detokenize\{(.*?)\}\]\{\\crossref\{(.*?)\}\}\}(( |.)|\n)',
                          r'\\cref{\1} ', content_new, flags = re.M)
     
     content_new = re.sub(r'\{tabulary\}', r'{tabularx}', content_new, flags = re.M)
@@ -133,6 +133,7 @@ with open (path+file_name+extension, 'r' ) as f:
     content_new = re.sub(r'\\phantomsection', r'', content_new, flags = re.M)
     content_new = re.sub(r'\\styletheadfamily', r'', content_new, flags = re.M)
     content_new = re.sub(r'\\pagestyle\{(.*?)\}', r'', content_new, flags = re.M)
+    content_new = re.sub(r'\\DUrole{xref,myst}{}',r'', content_new, flags = re.M)
     
     # Umlaute
     special = {'ß':'\ss{}', 'ä':'\"a', 'ü':'\"ü', 'ö':'\"ü'}
