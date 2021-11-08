@@ -1,7 +1,7 @@
 # Stabilitätsbegriffe
 
 Im Folgenden wollen wir grundlegende Begriffe der Stabilitätsanalyse von Ruhelagen einführen und diskutieren.
-Wie in [](s:fluesse) definiert, nennen wir einen Punkt $x\in U$ im Phasenraum $U$ **Ruhelage**, falls für den zugehörigen Phasenfluss $\Phi \colon I \times U \rightarrow U$ des dynamischen Systems gilt: $\Phi(t,x) = x, \forall t \in I$, d.h., wenn für alle $t \in I$ der Zustand $x \in U$ ein **Fixpunkt des Flusses** ist. 
+Wie in {ref}`s:fluesse` definiert, nennen wir einen Punkt $x\in U$ im Phasenraum $U$ **Ruhelage**, falls für den zugehörigen Phasenfluss $\Phi \colon I \times U \rightarrow U$ des dynamischen Systems gilt: $\Phi(t,x) = x, \forall t \in I$, d.h., wenn für alle $t \in I$ der Zustand $x \in U$ ein **Fixpunkt des Flusses** ist.
 
 Für autonome Differentialgleichungssysteme mit
 
@@ -9,10 +9,10 @@ Für autonome Differentialgleichungssysteme mit
 \dot{x}(t) = F(x)
 ```
 
-ist $x \in U$ auch eine Ruhelage, falls $F(x) = 0$ gilt, d.h., falls $x$ eine Nullstelle von $F$ ist. 
+ist $x \in U$ auch eine Ruhelage, falls $F(x) = 0$ gilt, d.h., falls $x$ eine Nullstelle von $F$ ist.
 Das ist einfach zu verstehen, da die Zeitableitung auf der linken Seite für eine Ruhelage Null ist und somit die Funktion $F$, die nur vom Ort abhängt, sich nicht ändern kann.
 
-Anschaulich versteht man unter der Stabilitätsanalyse von Ruhelagen die mathematische Untersuchung, ob benachbarte Lösungen von einer Ruhelage wegstreben oder nicht. 
+Anschaulich versteht man unter der Stabilitätsanalyse von Ruhelagen die mathematische Untersuchung, ob benachbarte Lösungen von einer Ruhelage wegstreben oder nicht.
 Dies ist insbesondere in technischen Anwendungen wichtig, da man dort häufig danach strebt ein dynamisches System in eine Gleichgewichtslage zu bringen.
 Da dies nur bis zu einer gewissen Genauigkeit möglich ist, muss man also mit kleinen Störungen rechnen.
 

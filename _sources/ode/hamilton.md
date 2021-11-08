@@ -139,15 +139,17 @@ In der Hausaufgabe zu zeigen.
 ````
 
 {prf:ref}`satz:hamilton_konstant` sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton-Funktion verlaufen.
-Dies erlaubt es uns dynamische Systeme auf diese häufig auch *Energieschalen* genannten Niveaumengen $H^{−1}(E)$ für $E \in \R$ zu restringieren. 
+Dies erlaubt es uns dynamische Systeme auf diese häufig auch *Energieschalen* genannten Niveaumengen $H^{-1}(E)$ für $E \in \R$ zu restringieren.
 Diese Energieschalen bilden Untermannigfaltigkeiten des Phasenraums $U$.
 
 Für den einfachen Fall eines Freiheitsgrades, d.h., für $n = 1$, lassen sich für eine gegebene Hamilton-Funktion $H$ die Orbits des dynamischen Systems bestimmen.
 Für einen Punkt $x \in U$ im Phasenraum $U \subset \R^2$ unterscheiden wir zwei Fälle:
+
 1. Ist $\nabla H(x) = 0$, so ist der Orbit wegem [](eq:hamilton_DGL) von der Form $O(x) = {x}$.
+
 2. Ist $\nabla H(x) \neq 0$, so ist der Orbit $O(x)$ gegeben durch die zusammenhängende Menge
 
-```{math} 
+```{math}
 O(x) = \{y \in U | H(y) = H(x), \nabla H(y) \neq 0\}
 ```
 

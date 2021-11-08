@@ -293,13 +293,11 @@ Diese ist sogar eindeutig, falls <span class="math notranslate nohighlight">\(\l
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Wir wissen, dass für einen beliebigen Startpunkt <span class="math notranslate nohighlight">\(x_0 \in U\)</span> im Phasenraum der Phasenfluss <span class="math notranslate nohighlight">\(\Phi \colon I \times U \rightarrow U\)</span> eine Lösung des Differentialgleichungssystems realisiert.
-Für homogene, lineare Differentialgleichungssysteme haben wir bereits in <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">s:lineare_dglsysteme</span></code> Lösungen mittels des <em>Matrixexponentials</em> hergeleitet.</p>
+Für homogene, lineare Differentialgleichungssysteme haben wir bereits in <a class="reference internal" href="../ode/repetition.html#s-lineare-dglsysteme"><span class="std std-ref">Lösungen von linearen Differentialgleichungssystemen</span></a> Lösungen mittels des <em>Matrixexponentials</em> hergeleitet.</p>
 <p>Sei <span class="math notranslate nohighlight">\(J = S^{-1}AS\)</span> die Jordansche Normalform von <span class="math notranslate nohighlight">\(A\)</span> mit Transformationsmatrizen <span class="math notranslate nohighlight">\(S^{-1},S \in \C^{n \times n}\)</span>, so erhalten wir die Abschätzung</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
-\|\Phi_t(x_0)\| &amp;= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx_0\| = \|S^{-1}e^{tD}e^{tN}Sx_0\| \\
-&amp;\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x_0\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
-\end{align*}\end{split}\]</div>
+\[\begin{split}\|\Phi_t(x_0)\| &amp;= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx_0\| = \|S^{-1}e^{tD}e^{tN}Sx_0\| \\
+&amp;\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x_0\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,\end{split}\]</div>
 <p>für eine Konstante <span class="math notranslate nohighlight">\(C_1 &gt; 0\)</span>, die unabhängig von <span class="math notranslate nohighlight">\(t\)</span> ist.
 Hierbei haben wir ausgenutzt, dass sich die Jordannormalform <span class="math notranslate nohighlight">\(J\)</span> von <span class="math notranslate nohighlight">\(A\)</span> als Summe einer Diagonalmatrix <span class="math notranslate nohighlight">\(D\)</span> mit den Eigenwerten <span class="math notranslate nohighlight">\(\lambda_i \in \C\)</span>, <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> von <span class="math notranslate nohighlight">\(A\)</span> und einer nilpotenten Matrix <span class="math notranslate nohighlight">\(N\)</span> schreiben lässt als <span class="math notranslate nohighlight">\(J = D + N\)</span>.
 Diese Matrizen kommutieren, d.h., <span class="math notranslate nohighlight">\(D \cdot N = N \cdot D\)</span>.</p>
@@ -321,7 +319,7 @@ Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten <s
 Damit hängt das Verhalten der Norm des Flusses nur noch vom Vorzeichen von <span class="math notranslate nohighlight">\(\gamma\)</span> ab.
 Wir unterscheiden daher zwei Fälle:</p>
 <p>1. Wenn <span class="math notranslate nohighlight">\(\gamma &gt;0\)</span> ist, so existiert zum Eigenwert <span class="math notranslate nohighlight">\(\gamma\)</span> von <span class="math notranslate nohighlight">\(A\)</span> ein zugehöriger Eigenvektor <span class="math notranslate nohighlight">\(v\in U\)</span>, so dass die Eigenwertgleichung <span class="math notranslate nohighlight">\(A v = \gamma v\)</span> gilt.
-Nach Lemma <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">lem:matrixexponential_ew</span></code> ist dann <span class="math notranslate nohighlight">\(e^{t\gamma}\)</span> ein Eigenwert des Matrixexponentials <span class="math notranslate nohighlight">\(e^{tA}\)</span> mit zugehörigem Eigenvektor <span class="math notranslate nohighlight">\(v\)</span>.
+Nach Lemma <a class="reference internal" href="../ode/repetition.html#lem:mpotew">Lemma 1.1</a> ist dann <span class="math notranslate nohighlight">\(e^{t\gamma}\)</span> ein Eigenwert des Matrixexponentials <span class="math notranslate nohighlight">\(e^{tA}\)</span> mit zugehörigem Eigenvektor <span class="math notranslate nohighlight">\(v\)</span>.
 Insgesamt erhalten wir also</p>
 <div class="math notranslate nohighlight">
 \[||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \text{ für } \ t \to \infty, \quad  \forall \alpha&gt;0. \]</div>
@@ -338,8 +336,8 @@ In diesem Fall ist die Ruhelage also <strong>instabil</strong>.</p>
 <p>In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
 Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
 Daher betrachten wir im Folgenden das Anfangswertproblem eines <strong>allgemeinen Differentialgleichungssystem erster Ordnung</strong> auf dem Phasenraum <span class="math notranslate nohighlight">\(U\in \R^n\)</span>, das nicht notwendigerweise linear sein muss und für ein Vektorfeld <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> wie folgt formuliert ist</p>
-<div class="math notranslate nohighlight" id="equation-eq-awp-allg">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-awp-allg" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
+<div class="math notranslate nohighlight" id="equation-eq-awpallg">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-awpallg" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
 x(0) &amp;= x_0.\end{split}\]</div>
 <p>Wir nehmen an, dass <span class="math notranslate nohighlight">\(x_F \in U\)</span> eine Ruhelage des dynamischen Systems ist, so dass dementsprechend <span class="math notranslate nohighlight">\(F(x_F) = 0\)</span> gilt.
 Durch einfache Translation der Koordinaten des Systems um <span class="math notranslate nohighlight">\(x_F \in U\)</span>, können wir ohne Beschränkung der Allgemeinheit annehmen, dass die Ruhelage sich im Nullpunkt befindet.</p>
@@ -347,7 +345,7 @@ Durch einfache Translation der Koordinaten des Systems um <span class="math notr
 <div class="proof definition admonition" id="def:linearisierung">
 <p class="admonition-title"><span class="caption-number">Definition 2.2 </span> (Linearisierung und Abweichung)</p>
 <div class="definition-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> ein Vektorfeld auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> und <span class="math notranslate nohighlight">\(0\)</span> eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in <a class="reference internal" href="#equation-eq-awp-allg">(2.1)</a> charakterisiert wird.
+<p>Sei <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> ein Vektorfeld auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> und <span class="math notranslate nohighlight">\(0\)</span> eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in <a class="reference internal" href="#equation-eq-awpallg">(2.1)</a> charakterisiert wird.
 Sei nun <span class="math notranslate nohighlight">\((DF)(x)\)</span> die Jacobi-Matrix der Funktion <span class="math notranslate nohighlight">\(F\)</span> im Punkt <span class="math notranslate nohighlight">\(x \in U\)</span> (vgl. Kapitel 6.2 in <span id="id2">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>).
 Dann bezeichnen wir mit <span class="math notranslate nohighlight">\(A := (DF)(0)\)</span> die <strong>Linearisierung</strong> von <span class="math notranslate nohighlight">\(F\)</span> in der Ruhelage <span class="math notranslate nohighlight">\(0 \in U\)</span>.
 Außerdem bezeichnen wir die Funktion <span class="math notranslate nohighlight">\(R \in C^1(U; \R^n)\)</span> mit</p>
@@ -355,19 +353,18 @@ Außerdem bezeichnen wir die Funktion <span class="math notranslate nohighlight"
 \[R(x) \ \coloneqq \ F(x) - Ax\]</div>
 <p>als die <strong>Abweichung</strong> (auch <strong>Residuum</strong> genannt) des Vektorfeldes <span class="math notranslate nohighlight">\(F\)</span> von seiner Linearisierung <span class="math notranslate nohighlight">\(A\)</span> in der Ruhelage.</p>
 </div>
-</div><p>Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des Differentialgleichungssystem in führender Ordnung durch die Linearisierung <span class="math notranslate nohighlight">\(A\)</span> von <span class="math notranslate nohighlight">\(F\)</span> kontrolliert werden, solange wir uns nah genug zur Ruhelage befinden.
-Dies wird durch das folgende Lemma ausgedrückt.</p>
-<div class="proof lemma admonition" id="lemma:int_exp_glgn">
+</div><p>Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des Differentialgleichungssystem in führender Ordnung durch die Linearisierung <span class="math notranslate nohighlight">\(A\)</span> von <span class="math notranslate nohighlight">\(F\)</span> kontrolliert werden, solange wir uns nah genug zur Ruhelage befinden. Dies wird durch das folgende Lemma ausgedrückt.</p>
+<div class="proof lemma admonition" id="lem:intexpglgn">
 <p class="admonition-title"><span class="caption-number">Lemma 2.1 </span></p>
 <div class="lemma-content section" id="proof-content">
-<p>Wir betrachten das Anfangswertproblem aus <a class="reference internal" href="#equation-eq-awp-allg">(2.1)</a> auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> für ein Vektorfeld <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span>.
+<p>Wir betrachten das Anfangswertproblem aus <a class="reference internal" href="#equation-eq-awpallg">(2.1)</a> auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> für ein Vektorfeld <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span>.
 Außerdem sei <span class="math notranslate nohighlight">\(A \coloneqq (DF)(0)\)</span> die Linearisierung des Vektorfelds in der Ruhelage <span class="math notranslate nohighlight">\(0\)</span> des dynamischen Systems und <span class="math notranslate nohighlight">\(R(x) \coloneqq F(x) - Ax\)</span> die Abweichung von <span class="math notranslate nohighlight">\(F\)</span> von seiner Linearisierung <span class="math notranslate nohighlight">\(A\)</span> im Nullpunkt.</p>
 <p>Dann lassen sich Lösungen des Differentialgleichungssystems mittels der Linearisierung <span class="math notranslate nohighlight">\(A\)</span> und der Abweichung <span class="math notranslate nohighlight">\(R\)</span> explizit angeben als</p>
 <div class="math notranslate nohighlight">
 \[x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s, \quad \forall t \in I.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Wir setzen zunächst die unbekannte Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des Anfangswertproblems <a class="reference internal" href="#equation-eq-awp-allg">(2.1)</a> in der allgemeinen Form</p>
+<p>Proof. Wir setzen zunächst die unbekannte Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des Anfangswertproblems <a class="reference internal" href="#equation-eq-awpallg">(2.1)</a> in der allgemeinen Form</p>
 <div class="math notranslate nohighlight">
 \[x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0\]</div>
 <p>an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion <span class="math notranslate nohighlight">\(c(t)\)</span> mittels <strong>Variation der Konstanten</strong> (vgl. Kapitel 8.2 in <span id="id3">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>).</p>
@@ -389,7 +386,7 @@ Außerdem sei <span class="math notranslate nohighlight">\(A \coloneqq (DF)(0)\)
 <div class="math notranslate nohighlight">
 \[x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.\]</div>
 </div>
-<p>Auf den ersten Blick nützt uns die Identität in <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">int_exp_glgn</span></code> nicht viel, denn auch auf der rechten Seite taucht <span class="math notranslate nohighlight">\(x(s)\)</span>, also die unbekannte Lösung des Anfangswertproblems <a class="reference internal" href="#equation-eq-awp-allg">(2.1)</a> auf.
+<p>Auf den ersten Blick nützt uns die Identität in <a class="reference internal" href="#lem:intexpglgn">Lemma 2.1</a> nicht viel, denn auch auf der rechten Seite taucht <span class="math notranslate nohighlight">\(x(s)\)</span>, also die unbekannte Lösung des Anfangswertproblems <a class="reference internal" href="#equation-eq-awpallg">(2.1)</a> auf.
 Es stellt sich jedoch heraus, dass wir die <strong>Gronwall-Ungleichung</strong> auf diese Integralgleichung anwenden können.
 Diese wichtige Abschätzung in der Theorie von Differentialgleichungen ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.</p>
 <div class="proof lemma admonition" id="lemma:Gronwall">
@@ -487,14 +484,14 @@ f(t_0) &amp;= a,\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\|x(t)\|\leq c\epsilon e^{-\Lambda t/2},\]</div>
 <p>dann haben wir den Satz bewiesen, denn für die rechte Seite gilt: <span class="math notranslate nohighlight">\(c\epsilon e^{-\Lambda t/2} \leq c\epsilon&lt;r&lt;\tilde{r}\)</span>, und für <span class="math notranslate nohighlight">\(t\to \infty\)</span> strebt sie gegen Null.</p>
-<p>Nun gilt nach Lemma \ref{lemma:intexpglgn}: <span class="math notranslate nohighlight">\(x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds\)</span> woraus mit \ref{eq:residuumabsch} die Ungleichung</p>
+<p>Nun gilt nach Lemma <a class="reference internal" href="#lem:intexpglgn">Lemma 2.1</a>: <span class="math notranslate nohighlight">\(x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds\)</span> woraus mit <a class="reference internal" href="#equation-eq-residuumabsch">(2.2)</a> die Ungleichung</p>
 <div class="math notranslate nohighlight">
 \[\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, ds\]</div>
 <p>folgt, soweit <span class="math notranslate nohighlight">\(\|x\|\leq r\)</span>.</p>
 <p>Setzt man <span class="math notranslate nohighlight">\(F(t):=e^{\Lambda t}\|x(t)\|\)</span>, dann gilt</p>
 <div class="math notranslate nohighlight">
 \[F(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} F(s)\, ds,\]</div>
-<p>also nach dem Gronwall-Lemma \ref{lemma:Gronwall}</p>
+<p>also nach dem Gronwall-Lemma <a class="reference internal" href="#lemma:Gronwall">Lemma 2.2</a></p>
 <div class="math notranslate nohighlight">
 \[F(t) \leq c \|x_0\| + \exp{\left( \frac{1}{2} \int_0^t \Lambda \, ds \right) }
 \leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}\]</div>
@@ -508,14 +505,14 @@ f(t_0) &amp;= a,\end{split}\]</div>
 </div></div>
 <div class="section" id="lyapunov-stabilitat-von-ruhelagen">
 <h2><span class="section-number">2.2.3. </span>Lyapunov-Stabilität von Ruhelagen<a class="headerlink" href="#lyapunov-stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h2>
-<p>Während ein hinreichendes Kriterium für das Vorliegen <em>asymptotischer Stabilität</em> die strikte Ungleichung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> der Jacobi-Matrix war, ist die Situation bezüglich der Liapunov-Stabilität komplizierter.</p>
+<p>Während ein hinreichendes Kriterium für das Vorliegen <em>asymptotischer Stabilität</em> die strikte Ungleichung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> der Jacobi-Matrix war, ist die Situation bezüglich der Lyapunov-Stabilität komplizierter.</p>
 <div class="proof theorem admonition" id="theorem-7">
 <p class="admonition-title"><span class="caption-number">Theorem 2.3 </span></p>
 <div class="theorem-content section" id="proof-content">
-<p>Besitzen die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> von <span class="math notranslate nohighlight">\(A\in \R^{n\times n}\)</span> Realteil <span class="math notranslate nohighlight">\(Re(\lambda_i) \leq 0\)</span>, und ist im Fall <span class="math notranslate nohighlight">\(Re(\lambda_i)=0\)</span> die geometrische Vielfachheit gleich der algebraischen, dann ist <span class="math notranslate nohighlight">\(0\in \R^n\)</span> Liapunov-stabile Gleichgewichtslage der DGL <span class="math notranslate nohighlight">\(\dot{x} = Ax\)</span>.</p>
+<p>Besitzen die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> von <span class="math notranslate nohighlight">\(A\in \R^{n\times n}\)</span> Realteil <span class="math notranslate nohighlight">\(Re(\lambda_i) \leq 0\)</span>, und ist im Fall <span class="math notranslate nohighlight">\(Re(\lambda_i)=0\)</span> die geometrische Vielfachheit gleich der algebraischen, dann ist <span class="math notranslate nohighlight">\(0\in \R^n\)</span> Lyapunov-stabile Gleichgewichtslage der DGL <span class="math notranslate nohighlight">\(\dot{x} = Ax\)</span>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. - Aus der <strong>Jordan Normalform</strong> <span class="math notranslate nohighlight">\(A=VJV^{-1}\)</span> mit Jordan-Matrix <span class="math notranslate nohighlight">\(J\)</span> der Form</p>
+<p>Proof. Aus der <strong>Jordan Normalform</strong> <span class="math notranslate nohighlight">\(A=VJV^{-1}\)</span> mit Jordan-Matrix <span class="math notranslate nohighlight">\(J\)</span> der Form</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}J=
 \begin{pmatrix}
@@ -523,12 +520,15 @@ J_{r_1}(\lambda_1)&amp; &amp; &amp; 0\\
  &amp; J_{r_2}(\lambda_2) &amp; &amp; \\
  &amp; &amp; \ddots &amp; \\
  0 &amp; &amp; J_{r_k}(\lambda_k)
-\end{pmatrix}, \quad J_r(\lambda_r):=\begin{pmatrix}
-\lambda_r &amp; 1 &amp; &amp; 0\\
- &amp; \ddots &amp; \ddots &amp; \\
- &amp; &amp; \ddots &amp; 1\\
- 0 &amp; &amp; &amp; \lambda_r
- \end{pmatrix} \in \C^{r\times r}\end{split}\]</div>
+\end{pmatrix}, 
+\quad J_r(\lambda_r):=
+\begin{pmatrix}
+\lambda_r &amp; 1 &amp; &amp; 0\\ 
+&amp; \ddots &amp; \ddots &amp; \\
+&amp; &amp; \ddots &amp; 1\\
+0 &amp; &amp; &amp; \lambda_r
+\end{pmatrix} 
+\in \C^{r\times r}\end{split}\]</div>
 <p>folgt mit</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\exp{(Jt)} = \begin{pmatrix}
@@ -540,21 +540,19 @@ J_{r_1}(\lambda_1)&amp; &amp; &amp; 0\\
 <div class="math notranslate nohighlight">
 \[\|\exp{(At)}\|= \|V\exp{(Jt)}V^{-1}\|\leq \|V\|\|V^{-1}\|\|\exp{(Jt)}\|,\]</div>
 <p>wenn für alle Jordanblöcke <span class="math notranslate nohighlight">\(J_{r_i}(\lambda_i)\)</span> von <span class="math notranslate nohighlight">\(J\)</span> der Ursprung <span class="math notranslate nohighlight">\(0\in \C^{r_i}\)</span> Liapunov-stabile Gleichgewichtslage der DGL <span class="math notranslate nohighlight">\(\dot{y} = J_{r_i}(\lambda_i)y\)</span> ist.</p>
-<ul class="simple">
-<li><p>Aus <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> folgt sogar asymptotische Stabilität.</p></li>
-<li><p>Da für einen komplexen Eigenwert <span class="math notranslate nohighlight">\(\lambda\)</span> von <span class="math notranslate nohighlight">\(A\)</span> mit <span class="math notranslate nohighlight">\(Re(\lambda)=0\)</span> die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen ist, sind die ihm zugeordneten Jordanblöcke alle eindimensional: <span class="math notranslate nohighlight">\(J_{r_i}(\lambda_i) = \lambda\)</span>. Damit ist in diesem Fall</p></li>
-</ul>
+<p>Aus <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> folgt sogar asymptotische Stabilität.</p>
+<p>Da für einen komplexen Eigenwert <span class="math notranslate nohighlight">\(\lambda\)</span> von <span class="math notranslate nohighlight">\(A\)</span> mit <span class="math notranslate nohighlight">\(Re(\lambda)=0\)</span> die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen ist, sind die ihm zugeordneten Jordanblöcke alle eindimensional: <span class="math notranslate nohighlight">\(J_{r_i}(\lambda_i) = \lambda\)</span>. Damit ist in diesem Fall</p>
 <div class="math notranslate nohighlight">
 \[\|exp{(J_{r_i}(\lambda_i)t)}\|= |\cos{(Im(\lambda)t)} + i \sin{(Im(\lambda)t)}|=1.\]</div>
 </div>
 <div class="proof remark admonition" id="remark-8">
 <p class="admonition-title"><span class="caption-number">Remark 2.4 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>Dass man die Gleichheit von geoemtrischer und algebraischer Vielfachheit fordern muss, sieht man schon am Beispiel von</p>
+<p>Dass man die Gleichheit von geometrischer und algebraischer Vielfachheit fordern muss, sieht man schon am Beispiel von</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}A = \begin{pmatrix} 0&amp;1\\0&amp;0\end{pmatrix} \quad \text{mit} \quad e^{At} = \begin{pmatrix} 0&amp;t\\0&amp;0\end{pmatrix}.\end{split}\]</div>
 </div>
-</div><p>Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf dern nicht linearen Fall folgern.</p>
+</div><p>Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nicht linearen Fall folgern.</p>
 <div class="proof example admonition" id="example-9">
 <p class="admonition-title"><span class="caption-number">Example 2.2 </span></p>
 <div class="example-content section" id="proof-content">
@@ -578,7 +576,15 @@ Die Null ist Gleichgewichtslage der DGL und ihre Linearisierung <span class="mat
 </tr>
 <tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(\alpha=0\)</span></p></td>
 <td class="text-align:left"><p>Liapunov-stabil</p></td>
-<td class="text-align:left"><p><table><tbody><tr><td>asymptotisch stabil für</td><td>β &lt; 0</td></tr><tr><td>stabil für</td><td>β =0</td></tr><tr><td> instabil für</td><td>β &gt; 0</td></tr></tbody></table></p></td>
+<td class="text-align:left"><p>asymptotisch stabil für <span class="math notranslate nohighlight">\(\beta&lt;0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>stabil für <span class="math notranslate nohighlight">\(\beta =0 \)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p>instabil <span class="math notranslate nohighlight">\(\beta &gt; 0\)</span></p></td>
 </tr>
 </tbody>
 </table>
