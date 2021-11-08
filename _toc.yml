@@ -13,4 +13,7 @@ chapters:
   sections:
   - file: ode_stability/stabilitaetsbegriffe.md
   - file: ode_stability/ruhelagen.md
+- file: measure_theorie/intro_measure.md
+  sections:
+  - file: measure_theorie/measure.md
 - file: references
