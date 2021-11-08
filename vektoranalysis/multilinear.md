@@ -1,6 +1,6 @@
 # Multilinearformen
 
-In diesem Abschnitt wollen wir Multilinearformen kennenlernen. Für einen Vektorraum $\V$ über einem Körper $\K$ haben Sie bereits den Begriff der Linearform, also einer linearen Abbildung $\varphi:\V\rightarrow\K$ kennengelernt. Die Intuition hinter der Multilinearform ist die einfache Idee, dieses Konzept der Lineratität auf Abbildung $\varphi:\V\times\ldots\V\rightarrow\K$ zu übertragen. Zur Vereinfachung werden wir im folgenden nur den Körper $\K=\R$ betrachten, in den meisten Fällen lassen sich die Konzepte aber direkt auf allgemeine Körper übertragen.
+In diesem Abschnitt wollen wir Multilinearformen kennenlernen. Für einen Vektorraum $\V$ über einem Körper $\K$ haben Sie bereits den Begriff der Linearform, also einer linearen Abbildung $\varphi:\V\rightarrow\K$ kennengelernt. Die Intuition hinter der Multilinearform ist die einfache Idee, dieses Konzept der Lineratität auf Abbildung $\varphi:\V\times\ldots \times\V\rightarrow\K$ zu übertragen. Zur Vereinfachung werden wir im folgenden nur den Körper $\K=\R$ betrachten, in den meisten Fällen lassen sich die Konzepte aber direkt auf allgemeine Körper übertragen.
 
 Wir beginnen zunächst mit einer Wiederolung und betrachten die schon bekannten Linearformen. Insbesondere soll der nächste Abschnitt als Wiederholung zum vorherigen Semester die verschiedenen Begriffe des Dualraums abgrenzen.
 
@@ -64,7 +64,7 @@ Wir verallgeminern nun den Begriff der Linearität in der folgenden Definition.
 ````{prf:definition}
 :label: def:multilinear
 
-Für $i=1,\ldots,k$ seien $\V_i$ endlich-dimensionaler reeller Vektorraum
+Für $i=1,\ldots,k$ seien $\V_i$ endlich-dimensionale reelle Vektorräume.
 Eine Abbildung 
 
 ```{math}
@@ -77,7 +77,7 @@ heißt k-**(multi)linear**, wenn für beliebige $z_i\in\V_i$ und jede Komponente
 x\mapsto \varphi_i(x):= \varphi(z_1,\ldots, z_{i-1}, x, z_{i+1},\ldots,z_k)
 ```
 
-linear ist. Die Menge aller $k$-linearen Abbildungen wird mit $L^k(\V_1\times\ldots\times \V_k,\R)$ bezeichnet.
+linear ist. Die Menge aller $k$-linearen Abbildungen wird mit $L(\V_1\times\ldots\times \V_k,\R)$ bezeichnet.
 ````
 
 ````{prf:remark}
@@ -100,7 +100,7 @@ und
 
 ````
 
-Falls alle Vektorräume übereinstimmen, d.h., $\V_i = \V$ für alle $i=1,\ldots,k$, so schreibt man auch $L^k(\V\times\ldots\times \V,\R) = L^k(\V,\R)$. Als Vereinfachung werden wir im Folgenden überwiegend diese Menge betrachten.
+Falls alle Vektorräume übereinstimmen, d.h., $\V_i = \V$ für alle $i=1,\ldots,k$, so schreibt man auch $L(\V\times\ldots\times \V,\R) = L^k(\V,\R)$. Als Vereinfachung werden wir im Folgenden überwiegend diese Menge betrachten.
 Viele multilineare Abbildungen sind schon aus der Linearen Algebra vertraut. Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
 
 ````{prf:example}
@@ -112,7 +112,7 @@ Wir betrachten Beispiele für verschiedene $k\in\N$.
 
 In diesem Fall haben wir bereits gesehen, dass $L^1(\V,\R) = \V^\ast$.
 
-Es sei $\V = \R^n$ mit Standardbasis $e_1,\ldots, e_n\in\R^n$ und sei $\V^\ast$ der Dualraum
+Es sei $\V = \R^n$ mit Standardbasis $e_1,\ldots, e_n\in\R^n$ und sei $\V^\ast$ der Dualraum.
 
 **$k=2$**:
 
@@ -183,10 +183,6 @@ $\eta_i:\V\rightarrow\R$ für $i=1,\ldots,n$,
 
 bilden einen Basis von $\V^\ast$, die sogenannte **duale Basis** zu $B$. 
 
-````
-
-````{prf:remark}
-Insbesondere zeigt diese Aussage, dass $\dim(\V) = \dim(\V^\ast)$.
 ````
 
 ````{prf:proof}
@@ -334,7 +330,7 @@ In {prf:ref}`ex:multi` haben wir für $k=2$ bereits den Begriff der Antisymmetri
 ````{prf:definition} Äußere Form
 :label: aeussere_Form
 
-Es sei $\V$ ein $n$--dimensionaler $\R$-Vektorraum und $k\in\N$. Dann heißt $\varphi\in L^k(E,\R)$ 
+Es sei $\V$ ein $n$--dimensionaler $\R$-Vektorraum und $k\in\N$. Dann heißt $\varphi\in L^k(V,\R)$ 
 **äußere** $k$**-Form**,wenn sie **antisymmetrisch** ist, d.h., für alle $1\leq i<l\leq k$ und
 $z\in \V^k$ gilt
 
@@ -367,7 +363,7 @@ Die Determinantenform ist bis auf ihre Vielfachen die einzige äußere $n$-Form 
 Wir beweisen zwei kleine Hilfsaussagen zu äußeren Formen
 
 ````{prf:lemma}
-Es sein $\V$ ein reeller Vektorraum und $\varphi\in\Lambda^k(V)$.
+Es sei $\V$ ein reeller Vektorraum und $\varphi\in\Lambda^k(V)$.
 * Für jede Permutation $\pi:\{1,\ldots,k\}\rightarrow\{1,\ldots,k\}$ gilt 
 
 ```{math}
@@ -468,9 +464,9 @@ mit Koeffizienten
 ```
 darstellen. Da
 die Indexmengen $\{i_1,\ldots ,i_k\}$ die $k$--elementigen Teilmengen von$\{1,\ldots,n\}$ durchlaufen, gilt
-für $\dim(E)=n$
+für $\dim(V)=n$
 ```{math}
-\dim\left(\Lambda^k(E)\right) = {n\choose k}.
+\dim\left(\Lambda^k(V)\right) = {n\choose k}.
 ```
 Das  *äußere Produkt*
 Produkt der $k$--Form $\omega$ mit einer $l$--Form
@@ -548,7 +544,7 @@ zugeordnet. Speziell im $\R^3$ finden wir die $2$--Form
 \alpha_1\wedge\alpha_2.
 ```
 * Wir betrachten jetzt speziell den (physikalisch wichtigen) $\R^3$.
-Das äußere Produkt zweier solcher $1$--Formen ergibtauf dem $\R^3$ die $2$--Form
+Das äußere Produkt zweier solcher $1$--Formen ergibt auf dem $\R^3$ die $2$--Form
 ```{math}
 v^*\wedge u^* &=& (v_1\alpha_1+v_2\alpha_2+v_3\alpha_3)
 \wedge(u_1\alpha_1+u_2\alpha_2+u_3\alpha_3)\\
@@ -565,7 +561,7 @@ zweier Vektoren $v,u\in\R^3$ gewonnen.
 ````
 
 ````{prf:theorem}
-Die Vektoren $w_1,\ldots,w_k\in E^*$ sind genau dann linear abhängig, wenn
+Die Vektoren $w_1,\ldots,w_k\in V^*$ sind genau dann linear abhängig, wenn
 ```{math}
 w_1\wedge\ldots\wedge w_k=0.
 ```
@@ -574,58 +570,58 @@ w_1\wedge\ldots\wedge w_k=0.
 ````{prf:proof}
 * Wenn sie linear abhängig sind, können wir einen Index $i\in\{1,\ldots, k\}$ finden, für den $w_i$ eine Linearkombination $w_i=\sum_{\stackrel{l=1}{l\neq i}}^k c_l w_l$ ist. Damit gilt aber 
 ```{math}
-w_1\wedge\ldots\wedge w_k = \sum_{\stackrel{l=1}{l\neq i}}^kc_l\, w_1 \wedge \ldots \wedge w_{i-1}\wedge w_l\wedge w_{i+1 \wedge\ldots\wedge w_k = 0,
+w_1\wedge\ldots\wedge w_k = \sum_{\stackrel{l=1}{l\neq i}}^kc_l\, w_1 \wedge \ldots \wedge w_{i-1}\wedge w_l\wedge w_{i+1} \wedge\ldots\wedge w_k = 0,
 ```
 denn in jedem Summanden kommt $w_l$ doppelt vor.
 * Andernfalls können wir die Vektoren $w_1,\ldots,w_k$ zu einer Basis
 ```{math}
-w_1,\ldots,w_n \text{ mit } n:=\dim(E^*)
+w_1,\ldots,w_n \text{ mit } n:=\dim(V^*)
 ```
 ergänzen, sodass $w_1\wedge\ldots\wedge w_n\neq0$ ist.
 Dann ist aber auch $w_1\wedge\ldots\wedge w_k\neq0$.
 ````
 %
 ````{prf:definition} Grassmannalgebra
-:label: Grassmannalgebra "uber $E$.
-Für einen endlich-dimensionalen $\R$-Vektorraum $E$ heißt der reelle Vektorraum
+:label: Grassmannalgebra "uber $V$.
+Für einen endlich-dimensionalen $\R$-Vektorraum $V$ heißt der reelle Vektorraum
 ```{math}
-\Lambda^*(E) := \bigoplus_{k=0}^{\dim(E)}\Lambda^k(E)
+\Lambda^*(V) := \bigoplus_{k=0}^{\dim(V)}\Lambda^k(V)
 ```
-(mit $\Lambda^0(E):=\R$) mit der durch das Dachprodukt
+(mit $\Lambda^0(V):=\R$) mit der durch das Dachprodukt
 gegebenen Multiplikation die **äußere** oder
 [**Grassmann-Algebra**](https://de.wikipedia.org/wiki/Gra%C3%9Fmann-Algebra)
 ````
 ````{prf:remark}
-* $\dim(\Lambda^*(E)) = 2^{\dim(E)}$, denn $\sum_{k=0}^n{n\choose k} = 2^n$.
-* Für beliebige $k,l\in\N_0$ ist für alle $\omega\in\Lambda^k(E)$ und
-$\varphi\in\Lambda^l(E)$:\\ $\omega\wedge\varphi\in\Lambda^{k+l}(E)$, aber für
-$m>\dim(E)$ ist $\dim(\Lambda^m(E))=0$.
+* $\dim(\Lambda^*(V)) = 2^{\dim(V)}$, denn $\sum_{k=0}^n{n\choose k} = 2^n$.
+* Für beliebige $k,l\in\N_0$ ist für alle $\omega\in\Lambda^k(V)$ und
+$\varphi\in\Lambda^l(V)$:\\ $\omega\wedge\varphi\in\Lambda^{k+l}(V)$, aber für
+$m>\dim(V)$ ist $\dim(\Lambda^m(V))=0$.
 ````
 
 ````{prf:definition}
 :label: pull-back von $\omega$ mit $f$.
-Für eine lineare Abbildung $f:E\to F$ endlichdimensionaler $\R$--Vektorräume und $\omega\in\Lambda^k(F)$ heißt die durch
+Für eine lineare Abbildung $f:V\to F$ endlichdimensionaler $\R$--Vektorräume und $\omega\in\Lambda^k(F)$ heißt die durch
 ```{math}
 f^*(\omega)( v_1,\ldots, v_k) := \omega \big(f( v_1),\ldots,f( v_k)\big)
-\qquad (v_1,\ldots,v_k\in E)
+\qquad (v_1,\ldots,v_k\in V)
 ```
 definierte $k$--Form $f^*(\omega)$ die **Zurückziehung** (engl.
 **pull--back**).
 ````
 %
-Es gilt offensichtlich $f^*(\omega)\in\Lambda^k(E)$, denn $f^*(\omega)$
+Es gilt offensichtlich $f^*(\omega)\in\Lambda^k(V)$, denn $f^*(\omega)$
 ist $k$--linear und antisymmetrisch.
 %
 ````{prf:theorem}
-* Die Abbildung $f^*:\Lambda^*(F)\to\Lambda^*(E)$ ist linear.
+* Die Abbildung $f^*:\Lambda^*(F)\to\Lambda^*(V)$ ist linear.
 * Für $g\in L(F,G)$ ist $(g\circ f)^*=f^*\circ g^*$.
-* Für die identische Abbildung $Id_E:E\to E$ ist $Id_E^* = Id_{\Lambda^*(E)}$.
-* Für eine invertierbare Abbildung $f\in {\rm GL}(E,F)$ ist $(f^*)^{-1}=(f^{-1})^*$.
+* Für die identische Abbildung $Id_V:V\to V$ ist $Id_V^* = Id_{\Lambda^*(V)}$.
+* Für eine invertierbare Abbildung $f\in {\rm GL}(V,F)$ ist $(f^*)^{-1}=(f^{-1})^*$.
 * $f^*(\alpha\wedge\beta) = f^*(\alpha)\wedge f^*(\beta)$.
 ````
 
 ````{prf:proof}
-Für alle Vektoren $v_1,\ldots,v_k\in E$ gilt
+Für alle Vektoren $v_1,\ldots,v_k\in V$ gilt
 * Mit $\alpha, \beta\in\Lambda^k(F)$ und $c_1,c_2\in\R$ ist
 ```{math}
 f^*(c_1\alpha+c_2\beta)(v_1,\ldots,v_k)
@@ -634,7 +630,7 @@ f^*(c_1\alpha+c_2\beta)(v_1,\ldots,v_k)
 &=& c_1f^*\alpha(v_1,\ldots,v_k)+c_2f^*\beta(v_1,\ldots,v_k).
 ```
 * $(g\circ f)^*\alpha( v_1,\ldots, v_k) = \alpha\big(g\circ f( v_1),\ldots, g\circ f( v_k)\big)= g^*\alpha\big(f( v_1),\ldots,f( v_k)\big)\\=  f^*\circ g^*\alpha( v_1,\ldots, v_k)$
-* $Id_E^*(\alpha)(v_1,\ldots,v_k) = \alpha\big(Id_E(v_1),\ldots,Id_E(v_k)\big)
+* $Id_V^*(\alpha)(v_1,\ldots,v_k) = \alpha\big(Id_V(v_1),\ldots,Id_V(v_k)\big)
 = \alpha(v_1,\ldots,v_k)$.
 * Folgt aus 2. und 3.: $(f^{-1})^*f^* = (f\circ f^{-1})^* = Id_F^* =
 Id_{\Lambda^*(F)}$.
