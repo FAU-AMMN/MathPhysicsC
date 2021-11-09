@@ -1,0 +1,65 @@
+# Tensoren und Tensorprodukte
+
+In diesem Kapitel widmen wir uns einem wichtigen aber komplizierten Thema der Vektoranalysis, nämlich Tensoren und Tensorprodukte.
+Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe [Wikipedia](https://de.wikipedia.org/wiki/Tensorprodukt)) weshalb es nicht leicht ist eine Einführung zu geben die gleichzeitig allgemein, aber auch verständlich ist. Da Tensoren aber eine wichtige Rolle in der Physik spielen werden wir uns hier damit beschäftigen
+
+## Tensoren als Linearformen
+
+Als Einleitung in das Thema wollen wir Tensoren zunächst als Linearformen auf $\V_1\times\ldots\times\V_k$
+betrachten wobei für $i=1,\ldots,k$ $\V_i$ reelle endlich dimensionale Vektorräume sind.
+Man schreibt in diesem Fall auch 
+
+```{math}
+\V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k,\R)
+```
+
+wobei $\otimes$ das Tensorprodukt bezeichnet.
+
+Der wichtige Spezialfall ist hier allerdings nun nicht $\V^k$ sondern ein kartesisches Produkt der Form
+
+```{math}
+(V^\ast)^r\times V^s.
+```
+
+````{prf:definition}
+Es sei $\V$ ein reeller endlich-dimensionaler Vektorraum, dann nennt man 
+
+```{math}
+T^r_s(V) := L((V^\ast)^r\times V^s, \R)
+```
+
+Menge der $r$-fach **kontravarianten** und $s$-fach **kovarianten** Tensoren, oder alternativ Tensoren der Stufe $(r,s)$. 
+
+````
+
+Wir wollen diese abstrakte Definition nun mit einfachen Beispielen veranschaulichen zunächst für $r+s=1$.
+
+````{prf:example}
+Tensoren der Stufe $(1,0)$ können mit Elementen des Vektorraums selbst identifiziert werden, denn 
+
+```{math}
+T^1_0(V) = L((V^\ast), \R) = \V^{\ast\ast}\cong \V
+```
+
+mit der Identifikation aus {prf:ref}`lem:doubledual`. Weiterhin sind Tensoren der Stufe $(0,1)$ Elemente des 
+Dualraums, also einfach Linearformen auf $\V$, sogenannte _Kovektoren_.
+
+
+````
+
+Als weiteren Spezialfall erhalten wir Multilinearformen.
+
+````{prf:example}
+Tensoren der Stufe $(0,k)$ sind $k$-Linearformen, da $T^0_k(V) = L^k(V)$. 
+
+
+````
+
+````{prf:example}
+Aus einer linearen Abbildung $A:\V\to\V$ erhält man direkt einen Tensor der Stufe $(1,1)$ über die Abbildung 
+
+```{math}
+\varphi, v \mapsto \varphi(Av).
+```
+
+````

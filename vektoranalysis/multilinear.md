@@ -1,6 +1,6 @@
 # Multilinearformen
 
-In diesem Abschnitt wollen wir Multilinearformen kennenlernen. Für einen Vektorraum $\V$ über einem Körper $\K$ haben Sie bereits den Begriff der Linearform, also einer linearen Abbildung $\varphi:\V\rightarrow\K$ kennengelernt. Die Intuition hinter der Multilinearform ist die einfache Idee, dieses Konzept der Lineratität auf Abbildung $\varphi:\V\times\ldots\V\rightarrow\K$ zu übertragen. Zur Vereinfachung werden wir im folgenden nur den Körper $\K=\R$ betrachten, in den meisten Fällen lassen sich die Konzepte aber direkt auf allgemeine Körper übertragen.
+In diesem Abschnitt wollen wir Multilinearformen kennenlernen. Für Vektorräume $\V, W$ über einem Körper $\K$ haben Sie bereits den Begriff der Linearform, also einer linearen Abbildung $\varphi:\V\rightarrow W$ kennengelernt. Die Idee der Multilinearform ist anstatt einem, gleich $k$-viele Vektorräume $V_1,\ldots,V_k$ über $\K$ zu betrachten und das Konzept der Lineratität auf Abbildung $\varphi:\V_1\times\ldots\V_k\rightarrow W$ zu übertragen. Zur Vereinfachung werden wir im folgenden nur den Körper $\K=\R$ betrachten, in den meisten Fällen lassen sich die Konzepte aber direkt auf allgemeine Körper übertragen.
 
 Wir beginnen zunächst mit einer Wiederolung und betrachten die schon bekannten Linearformen. Insbesondere soll der nächste Abschnitt als Wiederholung zum vorherigen Semester die verschiedenen Begriffe des Dualraums abgrenzen.
 
@@ -64,20 +64,20 @@ Wir verallgeminern nun den Begriff der Linearität in der folgenden Definition.
 ````{prf:definition}
 :label: def:multilinear
 
-Für $i=1,\ldots,k$ seien $\V_i$ endlich-dimensionaler reeller Vektorraum
-Eine Abbildung 
+Für $i=1,\ldots,k$ sei $\V_i$, sowie $W$ ein reeller Vektorraum. Eine Abbildung 
 
 ```{math}
-\varphi:\V_1\times\ldots\times \V_k\ \to\R
+\varphi:\V_1\times\ldots\times \V_k\ \to W
 ``` 
 
 heißt k-**(multi)linear**, wenn für beliebige $z_i\in\V_i$ und jede Komponente $i\in\{1,\ldots,k\}$ die Abbildung 
 
 ```{math}
-x\mapsto \varphi_i(x):= \varphi(z_1,\ldots, z_{i-1}, x, z_{i+1},\ldots,z_k)
+V_i &\to W\\
+x&\mapsto \varphi_i(x):= \varphi(z_1,\ldots, z_{i-1}, x, z_{i+1},\ldots,z_k)
 ```
 
-linear ist. Die Menge aller $k$-linearen Abbildungen wird mit $L^k(\V_1\times\ldots\times \V_k,\R)$ bezeichnet.
+linear ist. Die Menge aller $k$-linearen Abbildungen wird mit $L^k(\V_1\times\ldots\times \V_k, W)$ bezeichnet.
 ````
 
 ````{prf:remark}
@@ -100,7 +100,8 @@ und
 
 ````
 
-Falls alle Vektorräume übereinstimmen, d.h., $\V_i = \V$ für alle $i=1,\ldots,k$, so schreibt man auch $L^k(\V\times\ldots\times \V,\R) = L^k(\V,\R)$. Als Vereinfachung werden wir im Folgenden überwiegend diese Menge betrachten.
+Falls alle Vektorräume übereinstimmen, d.h., $\V_i = \V$ für alle $i=1,\ldots,k$, so schreibt man auch $L^k(\V\times\ldots\times \V,W) = L^k(\V,W)$.
+
 Viele multilineare Abbildungen sind schon aus der Linearen Algebra vertraut. Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
 
 ````{prf:example}
@@ -111,8 +112,6 @@ Wir betrachten Beispiele für verschiedene $k\in\N$.
 **$k=1$**:
 
 In diesem Fall haben wir bereits gesehen, dass $L^1(\V,\R) = \V^\ast$.
-
-Es sei $\V = \R^n$ mit Standardbasis $e_1,\ldots, e_n\in\R^n$ und sei $\V^\ast$ der Dualraum
 
 **$k=2$**:
 
@@ -150,16 +149,16 @@ Die Form gibt das orientierte Volumen des von $z_1,\ldots,z_n$ aufgespannten Par
 
 ## Der Vektorraum der Multilinearformen
 
-Die Definition einer $k$-linearen Abbildung ermöglicht es uns sehr direkt eine Vektorraumstruktur auf $L^k(\V,\R)$ zu definieren.
+Die Definition einer $k$-linearen Abbildung ermöglicht es uns sehr direkt eine Vektorraumstruktur zu definieren.
 
 ````{prf:lemma}
-Es sei $V$ ein $n$-dimensionaler reeller Vektorraum, dann ist die Menge $L^k(\V,\R)$ ein Vektorraum über $\R$ bezüglich der Addition 
+Es seien $\V_1,\ldots,\V_k$ sowie $W$ reelle Vektorräume, dann ist die Menge $L^k(\V_1\times\ldots\V_k,W)$ ein Vektorraum über $\R$ bezüglich der Addition 
 
 ```{math}
 (\varphi_1+\varphi_2)(z_1,\ldots,z_k) := \varphi_1(z_1,\ldots,z_k) +
 \varphi_2(z_1,\ldots,z_k),\quad \varphi_1,\varphi_2\in L^k(\V,\R)
 ```
-und der Multiplikation
+und der Skalarmultiplikation
 
 ```{math}
 (\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V,\R), \lambda\in\R.
