@@ -6,6 +6,7 @@ Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon i
 Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
 
 ````{prf:theorem}
+:label: theorem:stabilität_linear
 
 Sei $A\in \C^{n\times n}$ eine Matrix mit den Eigenwerten $\lambda_1,\dots, \lambda_n\in \C$.
 Dann beschreibt der zugehörige Phasenfluss $\Phi$ zum homogenen linearen Differentialgleichungssystem
@@ -72,6 +73,7 @@ Wählen wir nun $\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)$, s
 Insgesamt erhalten wir also für die Norm des Phasenflusses
 
 ```{math}
+:label: eq:abschaetzung_ew
 \|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.
 ```
 
@@ -102,6 +104,7 @@ Dies liefert uns also **asymptotische Stabilität** der Ruhelage $0$.
 Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die $0$ immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.
 
 ## Linearisierung um Ruhelage
+:label: s:linearisierung_ruhelage
 
 In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
 Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
@@ -295,66 +298,119 @@ Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwende
 
 ## Asymptotische Stabilität von Ruhelagen
 
-````{prf:theorem} Asymptotische stabilität von Ruhelagen
-Eine Gleichgewichtslage $x_s\in  U\subset \R^n$ der DGL
+Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes $F \colon U \rightarrow \R^n$ in {prf:ref}`lemma:int_exp_glgn` und der Gronwall-Ungleichung in {prf:ref}`lemma:Gronwall` sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.
+
+Wir formulieren direkt das Hauptresultat, dass uns ein hinreichendes Kriterium für **asymptotische Stabilität** der Ruhelage basierend auf den Eigenwerten der Linearisierung liefert.
+
+````{prf:theorem} Asymptotische Stabilität von Ruhelagen
+:label: theorem:stabilitaet_asymptotisch_allg
+Sei $F \in C^1(U; \R^n)$ ein Vektorfeld auf dem offenen Phasenraum $U \subset \R^n$.
+Eine Ruhelage $x_F \in  U \subset \R^n$ des dynamischen Systems, das durch das allgemeine Differentialgleichungssystem
+
 ```{math}
-\dot{x} = F(x), \quad f\in C^1(U,\R^n)
+\dot{x} = F(x)
 ```
-ist asymptotisch stabil, wenn für die Eigenwerte $\lambda$ von $Df(x_s)$ gilt: $Re(\lambda)<0$.
+
+charakterisiert wird, ist asymptotisch stabil wenn für die Eigenwerte $\lambda_i, i=1,\ldots,n$ der Linearisierung $A \, \coloneqq \, (Df)(x_F)$ gilt
+
+```{math}
+\mathcal{Re}(\lambda_i)<0, \quad \text{für } i=1,\ldots,n.
+```
+
 ````
 
 ````{prf:proof}
+Wie bereits in {prf:ref}`s:linearisierung_ruhelage` diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit $x_F = 0 \in U$ gilt.
+Da $U\subseteq\R^n$ nach Vorraussetzung offen ist, können wir offene Kugel $B_\vec{r}(0) \coloneqq \{y \in U \colon ||y|| < \vec{r}\}$ mit Radius $\vec{r} > 0$ als Umgebung der Ruhelage $0$ finden, so dass $B_\vec{r}(0) \subset U$ gilt.
 
-- Wieder können wir durch eine Verschiebung $x_s = 0$ erreichen. Da $U\subseteq\R^n $ offen ist, gehört eine Kugelumgebung vom positiven Radius $\vec{r}$ zu $U$.
-
-- Für die Eigenwerte $\lambda_i$ von $A:=Df(x_s)$ gelte die Abschätzung $Re(\lambda_i)< -\Lambda,\ \Lambda>0$ geeignet. Dann gibt es ein $c>0$, sodass gilt
+Wir nehmen im Folgenden an, dass die Eigenwerte $\lambda_i, i=1,\ldots,n$ der Linearisierung $A \, \coloneqq \, Df(0)$ echt negativ sind, d.h., für ein geeignetes $\Lambda > 0$ gilt die Abschätzung 
 
 ```{math}
-\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad (t\geq 0).
+\mathcal{Re}(\lambda_i)< -\Lambda, \quad \text{für } i=1,\ldots,n. 
 ```
-Das ersieht man aus der Tatsache, dass die Einträge von $e^{At}$ Summen von $\lambda_i$-Quasipolynomen $e^{\lambda_i t}p_i(t)$ sind und dass wegen $Re(\lambda_i) + \Lambda <0$
-```{math}
-\lim_{t\to\infty} \exp((\lambda_i + \Lambda)t)p_i(t) = 0
-```
-ist.
 
-- Nun existiert ein Radius $r\in (0,\vec{r})$ mit
-```{math}
-\|R(x)\|\leq \frac{\Lambda}{2c} \|x\|, \quad \text{falls } \|x\|\leq r,
-```
-denn $\lim_{x\to 0} \frac{\|Re(x)\|}{\|x\|} = \lim_{x\to}\frac{\|f(x)- Df(0)\cdot x\|}{\|x\|} = 0$.
+Dann gibt es analog zum Beweis von {prf:ref}`theorem:stabilität_linear` eine Konstante $c>0$, so dass gilt
 
-- Wenn wir nun zeigen können, dass aus
 ```{math}
-:label: eq:residuumabsch
-\|x(0)\|\leq \epsilon <\frac{r}{c}
+:label: eq:abschaetzung_norm_exponential
+\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad \forall t\in \R^+_0.
 ```
-folgt, dass für $t\geq 0$ gilt:
-```{math}
-\|x(t)\|\leq c\epsilon e^{-\Lambda t/2},
-```
-dann haben wir den Satz bewiesen, denn für die rechte Seite gilt: $c\epsilon e^{-\Lambda t/2} \leq c\epsilon<r<\tilde{r}$, und für $t\to \infty$ strebt sie gegen Null.
 
-Nun gilt nach Lemma \ref{lemma:intexpglgn}: $x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds$ woraus mit \ref{eq:residuumabsch} die Ungleichung
-```{math}
-\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, ds
-```
-folgt, soweit $\|x\|\leq r$.
+Hierbei haben wir ausgenutzt, dass wir die Konstante $\epsilon > 0$ in [](eq:abschaetzung_ew) so klein wählen können, dass $\gamma + \epsilon < -\Lambda$ gilt.
 
-Setzt man $F(t):=e^{\Lambda t}\|x(t)\|$, dann gilt
+
+Wir können nun einen Radius $r\in (0,\vec{r})$ bestimmen, so dass die folgende Abschätzung gilt
+
 ```{math}
-F(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} F(s)\, ds,
+:label: eq:abschaetzung_residuum
+\|R(x)\| \leq \frac{\Lambda}{2c} \|x\|, \quad \forall \|x\| \leq r.
 ```
-also nach dem Gronwall-Lemma \ref{lemma:Gronwall}
+
+Dies liegt an der totalen Differenzierbarkeit des Vektorfelds $F$ in der Ruhelage (vgl. Kapitel 6.2 in {cite:p}`tenbrinck_2021`), denn dies bedeutet, dass das Residuum in der Nähe der Ruhelage schnell genug gegen Null konvergiert, so dass gilt
+
 ```{math}
-F(t) \leq c \|x_0\| + \exp{\left( \frac{1}{2} \int_0^t \Lambda \, ds \right) }
-\leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}
+\lim_{x\to 0} \frac{\|R(x)\|}{\|x\|} = \lim_{x\to}\frac{\|F(x)- (DF)(0)\cdot x\|}{\|x\|} = 0.
 ```
-oder $\|x(t)\|\leq re^{-\frac{\Lambda}{2}t}$. Die Lösungskurve bleibt also für alle positiven Zeiten in der Vollkugel $\{x\in \R^n|\|x\|\leq r\}$ und konvergiert gegen Null.
+
+Wir wollen im Folgenden zeigen, dass wenn der Anfangswert unserer unbekannten Lösung des Differentialgleichungssystems beschränkt ist durch
+
+```{math}
+\|x(0)\| \leq \epsilon <\frac{r}{c},
+```
+
+dann soll schon für die Norm der Lösung für beliebiges $t \geq 0$ gelten
+```{math}
+\|x(t)\| \leq c\epsilon e^{-\frac{\Lambda t}{2}}.
+```
+
+Da $c\epsilon e^{-\Lambda t/2} \leq c\epsilon < r <\tilde{r}$ gilt, liegt die Lösung somit noch in der offenen Kugel $B_{\vec{r}}(0) \subset U$ und konvergiert für $t \rightarrow \infty$ gegen 0, was den Satz beweist.
+
+Nehmen wir also an, dass $\|x(0)\| \leq \epsilon <\frac{r}{c}$ gelte.
+Nun können wir nach {prf:ref}`lemma:intexpglgn` die unbekannte Lösung durch ihre Linearisierung darstellen als
+
+```{math}
+x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s.
+```
+
+Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen [](eq:abschaetzung_norm_exponential) und [](eq:abschaetzung_residuum), so erhalten wir 
+
+```{math}
+\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, \mathrm{d}s, \quad \forall \|x\| \leq r.
+```
+
+Multiplizieren wir beide Seiten der Ungleichung mit $e^{\Lambda t}$ und definieren uns eine Hilfsfunktion $F(t):=e^{\Lambda t}\|x(t)\|$, dann erhalten wir
+
+```{math}
+F(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} F(s)\, \mathrm{d}s.
+```
+
+Für diese Form der Ungleichung bietet es sich an das {prf:ref}`lemma:Gronwall` zur Gronwall-Ungleichung anzuwenden, durch das wir schließlich folgendes Resultat bekommen
+```{math}
+F(t) \leq c \|x_0\| \exp{\left( \frac{1}{2} \int_0^t \Lambda \, \mathrm{d}s \right) }
+\leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}.
+```
+
+Durch Multiplikation beider Seiten mit $e^{-\Lambda t} führt dies zur finalen Abschätzung
+
+```{math}
+ \|x(t)\|\leq re^{-\frac{\Lambda}{2}t}, \quad \forall t\in\R^+_0.
+ ```
+ 
+ Wir sehen also ein, dass die unbekannte Lösung für alle nicht-negativen Zeiten in der offenen Kugel $B_r(0) \subset B_{\vec{r}}(0) \subset U$ enthalten ist und offensichtlich gegen Null konvergiert.
+ Damit ist die Ruhelage $0 \in U$ asymptotisch stabil.
 ````
 
-````{prf:remark}
-Der Beweis liefert zusätzlich die Aussage, dass alle $x\in U$ mit $\|x\|<\frac{r}{c}$ zu gegen die Gleichgewichtslage konvergierenden Orbits gehören, also in deren Einzugsbereich, dem so genannten *Bassin*, liegen.
+Folgende Bemerkung geht speziell auf ein Detail des Beweises ein, das eine Aussage zum Konvergenzradius der Lösungen eines dynamisches Systems zulässt.
+
+````{prf:remark} Attraktionsbassin
+Der Beweis von {prf:ref}`theorem:stabilitaet_asymptotisch_allg` liefert zusätzlich die Aussage, dass alle Punkte $x\in U$ im Phasenraum mit 
+
+```{math}
+\|x\| < \frac{r}{c}
+```
+
+ zu Orbits gehören, die gegen die Ruhelage $0 \in U$ konvergieren.
+ Diesen attraktiven Einzugsbereich der Ruhelage nennt man auch das **Attraktionsbassin** der Ruhelage.
 ````
 
 ## Lyapunov-Stabilität von Ruhelagen
