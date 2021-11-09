@@ -4,148 +4,142 @@ In diesem Kapitel werden wir nun [Differentialformen](https://de.wikipedia.org/w
 dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen, speziell betrachten wir eine offene Menge $U\subset\R^n$. Ein weiterer wichtiger Aspekt, ist dass wir im Folgenden mit glatten Funktion arbeiten wollen, d.h., mit dem Raum $C^\infty(U,\R^n)$.
 
 
-Eine\href{}
-{\em Differentialform}
-:label: Differentialform $\omega$ auf$U\subseteq\bR^n$ ist eine von Ortzu Ort variierende "au"sere Form, deren Variation wir als glattvoraussetzen.
+Eine Differentialform $\omega$ auf $U\subseteq\R^n$ ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.
 
-Wir schreiben eine allgemeine {\em $k$--Form} $\omega$ in der {\em Grundform}
-\beq
+Wir schreiben eine allgemeine *$k$--Form* $\omega$ in der *Grundform*
+```{math}
 \omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
 dx_{i_1}\wedge\ldots\wedge dx_{i_k}\in\Omega^k(U),
-\Leq{om:k}
-wobei\begin{enumerate}[$\bullet$]
-*
-die $\omega_{i_1\ldots i_k}\in \Omega^0(U):=C^\infty(U,\bR)$, also
-glatte reelle Funktionen auf $U$ sind,*
-und die $dx_i$ den Koordinatenfunktionen $x_i:\bR^n\to\bR$ zugeordnete
-$1$--Differentialformen sind ($dx_i\in\Omega^1(\bR^n)$).
-*
-Den Raum der $k$--Differentialformen schreiben wir ab jetzt zur
-Unterscheidung vom Raum der "au"seren $k$--Formen
-mit dem Symbol $\Omega$ statt $\Lambda$.
-\end{enumerate}
+```
+wobei
+* die $\omega_{i_1\ldots i_k}\in \Omega^0(U):=C^\infty(U,\R)$, also glatte reelle Funktionen auf $U$ sind,
+
+* und die $dx_i$ den Koordinatenfunktionen $x_i:\R^n\to\R$ zugeordnete $1$--Differentialformen sind ($dx_i\in\Omega^1(\R^n)$).
+
+* Den Raum der $k$--Differentialformen schreiben wir ab jetzt zur Unterscheidung vom Raum der äußeren $k$--Formen mit dem Symbol $\Omega$ statt $\Lambda$.
+
 %
 Die $dx_i$ sind durch ihre Wirkung auf ein Vektorfeld $v:U\to
-\bR^n$ definiert, und $dx_i(v)( y) := v_i( y)$.
-$1$--Differentialformen machen also aus Vektorfeldern Funktionen, undf"ur $k$ Vektorfelder $v^{(l)}:U\to\bR^n$ ist f"ur das $\omega$ aus ({prf:ref}`om:k`)
-\[\omega\l(v^{(1)},\ldots,v^{(k)}\ri) := \sum_{1\leq i_1<\ldots<i_k\leq n}
-\omega_{i_1\ldots i_k}\cdot\det\bsm dx_{i_1}(v^{(1)})&\ldots& dx_{i_k}(v^{(1)})\\
+\R^n$ definiert, und $dx_i(v)( y) := v_i( y)$.
+$1$--Differentialformen machen also aus Vektorfeldern Funktionen, und für $k$ Vektorfelder $v^{(l)}:U\to\R^n$ ist für das $\omega$ aus der Grundform
+```{math}
+\omega\left(v^{(1)},\ldots,v^{(k)}\right) := \sum_{1\leq i_1<\ldots<i_k\leq n}
+\omega_{i_1\ldots i_k}\cdot\det\begin{pmatrix} dx_{i_1}(v^{(1)})&\ldots& dx_{i_k}(v^{(1)})\\
 \vdots&&\vdots\\
-dx_{i_1}(v^{(k)})&\ldots& dx_{i_k}(v^{(k)}) \esm\]
+dx_{i_1}(v^{(k)})&\ldots& dx_{i_k}(v^{(k)}) \end{pmatrix}
+```
 definiert. Das Ergebnis ist also eine reelle Funktion auf $U$.\\
-Die Rechenregeln "ubertragen sich von den "au"seren Formen auf dieDifferentialformen.
+Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformen.
 
-Auf dem $\bR$--Vektorraum\beq
+Auf dem $\R$--Vektorraum
+```{math}
 \Omega^*(U) := \bigoplus_{k=0}^n\Omega^k(U)
-\Leq{om:stern}der Differentialformen betrachten wir jetzt
-den {\em Differentialoperator} $d$, der durch
-\begin{enumerate}[$\bullet$]
-*
-$df := \sum_{i=1}^n\frac{\pa f}{\pa x_i}dx_i$ f"ur Funktionen
-$f\in C^\infty(U,\bR) = \Omega^0(U)$
-*
-und $d\omega := \sum_{1\leq i_1<\ldots<i_k\leq n}d\omega_{i_1\ldots i_k}
-\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k}$ f"ur $k$--Formen\linebreak
+```
+der Differentialformen betrachten wir jetzt
+den *Differentialoperator* $d$, der durch
+
+* $df := \sum_{i=1}^n\frac{\partial f}{\partial x_i}dx_i$ für Funktionen
+$f\in C^\infty(U,\R) = \Omega^0(U)$
+
+* und $d\omega := \sum_{1\leq i_1<\ldots<i_k\leq n}d\omega_{i_1\ldots i_k}
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k}$ für $k$--Formen \linebreak
 $\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
 dx_1\wedge\ldots\wedge dx_{i_k}$
-\end{enumerate}
+
 definiert ist. $d$ verwandelt eine $k$--Form also in eine $(k+1)$--Form.
 %
-\begin{defi}\quad\\
-Die lineare Abbildung$d:\Omega^*(U)\to\Omega^*(U)$ hei"st\href{https://de.wikipedia.org/wiki/%C3%84u%C3%9Fere_Ableitung}
-**äu\ss ere Ableitung**
-:label: aeussere Ableitung.
-\end{defi}
+````{prf:definition}
+:label: aeussere Ableitung
+Die lineare Abbildung $d:\Omega^*(U)\to\Omega^*(U)$ heißt [**äußere Ableitung**](https://de.wikipedia.org/wiki/%C3%84u%C3%9Fere_Ableitung).
+````
 %
 
-````{prf:example} \"Au\ss ere Ableitung
-:label: ex:10.14\quad\\[-6mm]
-\begin{enumerate}[1.]
-*
-F"ur $\omega\in\Omega^0(\bR^3)$ ist $d\omega = \frac{\pa\omega}{\pa x_1}dx_1+
-\frac{\pa\omega}{\pa x_2}dx_2+\frac{\pa\omega}{\pa x_3}dx_3$.
-*
-F"ur $\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\bR^3)$
-ist
-\beqno
+````{prf:example} Äußere Ableitung
+:label: ex:10.14
+1. Für $\omega\in\Omega^0(\R^3)$ ist $d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
+\frac{\partial\omega}{\partial x_2}dx_2+\frac{\partial\omega}{\partial x_3}dx_3$.
+
+2. Für $\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)$ ist
+```{math}
 d\omega &=& (d\omega_1)\wedge dx_1+(d\omega_2)\wedge dx_2+(d\omega_3)\wedge
 dx_3\\
-&=& \l(\frac{\pa\omega_2}{\pa x_1}-\frac{\pa\omega_1}{\pa x_2}\ri)
-dx_1\wedge dx_2+ \l(\frac{\pa\omega_3}{\pa x_2}-\frac{\pa\omega_2}{\pa x_3}\ri)
+&=& \left(\frac{\partial\omega_2}{\partial x_1}-\frac{\partial\omega_1}{\partial x_2}\right)
+dx_1\wedge dx_2+ \left(\frac{\partial\omega_3}{\partial x_2}-\frac{\partial\omega_2}{\partial x_3}\right)
 dx_2\wedge dx_3\\
-&& + \l(\frac{\pa\omega_1}{\pa x_3}-\frac{\pa\omega_3}{\pa x_1}\ri)
+&& + \left(\frac{\partial\omega_1}{\partial x_3}-\frac{\partial\omega_3}{\partial x_1}\right)
 dx_3\wedge dx_1
-\eeqno
-*
-F"ur $\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
-+\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\bR^3)$ ist
-\[d\omega = \l(\frac{\pa\omega_{12}}{\pa x_3} + \frac{\pa\omega_{23}}{\pa x_1}
-+ \frac{\pa\omega_{31}}{\pa x_2}\ri)dx_1\wedge dx_2\wedge dx_3.\]
-*
-F"ur $\omega\in\Omega^3(\bR^3)$ ist $d\omega=0$.
-\hfill $\Diamond$
-\end{enumerate}
+```
+
+3. Für $\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
++\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)$ ist
+```{math}
+d\omega = \left(\frac{\partial\omega_{12}}{\partial x_3} + \frac{\partial\omega_{23}}{\partial x_1}
++ \frac{\partial\omega_{31}}{\partial x_2}\right)dx_1\wedge dx_2\wedge dx_3.
+```
+
+4. Für $\omega\in\Omega^3(\R^3)$ ist $d\omega=0$.
 ````
 
 %
-\begin{theorem}
-$d$ ist eine\href{https://de.wikipedia.org/wiki/Derivation_(Mathematik)#Antiderivationen}
-**Antiderivation**
-:label: Antiderivation, d.h.\ f"ur$\alpha\in\Omega^k(U)$
-und $\beta\in\Omega^l(U)$ ist
-\[d(\alpha\wedge\beta) = (d\alpha)\wedge\beta+(-1)^k\alpha\wedge d\beta.\]
-\end{theorem}
-%
-{\footnotesize**Beweis:**
-Wegen der Linearit"at von $d$ gen"ugt es, diese Gleichung f"ur Monome
-\[\alpha := f\underbrace{dx_{i_1}\wedge\ldots\wedge dx_{i_k}}_{\tilde
-{\alpha}}\qmbox{,}\beta := g\underbrace{dx_{j_1}\wedge\ldots\wedge dx_{j_l}}_
-{\tilde{\beta}},\ f,g\in C^\infty(U,\bR)\]zu beweisen.
-Es gilt\beqno
+````{prf:theorem}
+:label: Antiderivation
+$d$ ist eine [**Antiderivation**](https://de.wikipedia.org/wiki/Derivation_(Mathematik)#Antiderivationen), d.h. für $\alpha\in\Omega^k(U)$ und $\beta\in\Omega^l(U)$ ist
+```{math}
+d(\alpha\wedge\beta) = (d\alpha)\wedge\beta+(-1)^k\alpha\wedge d\beta.
+```
+````
+
+````{prf:proof}
+Wegen der Linearität von $d$ genügt es, diese Gleichung für Monome
+```{math}
+\alpha := f\underbrace{dx_{i_1}\wedge\ldots\wedge dx_{i_k}}_{\tilde
+{\alpha}},\ \beta := g\underbrace{dx_{j_1}\wedge\ldots\wedge dx_{j_l}}_
+{\tilde{\beta}},\ f,g\in C^\infty(U,\R)
+```
+zu beweisen.
+Es gilt
+```{math}
 d(\alpha\wedge\beta) &=& d(f\cdot g)\tilde{\alpha}\wedge
 \tilde{\beta} = \big((df)g+f(dg)\big)\,\tilde{\alpha}\wedge\tilde{\beta}\\
 &=& (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}
-\wedge(dg)\tilde{\beta} = d\alpha\wedge\beta+(-1)^k\alpha\wedge d\beta.
-\eeqno
-\hfill $\Box$}
+```
+````
 %
-\begin{theorem}
+````{prf:theorem}
 :label: thm:dd
-Auf $\Omega^*(U)$ gilt\hspace*{3mm}
-\framebox{$dd=0$}.
-\end{theorem}
-%
-{\footnotesize**Beweis:**
-\begin{enumerate}[1.]
-*
-F"ur $f\in\Omega^0(U)$ ist
-\beqno
-ddf &=& d\l(\sum_{i=1}^n\frac{\pa f}
-{\pa x_i}dx_i\ri) = \sum_{i=1}^n\sum_{l=1}^n\frac{\pa^2f}{\pa x_l\pa x_i}
+Auf $\Omega^*(U)$ gilt
+````
+
+````{prf:proof}
+
+1. Für $f\in\Omega^0(U)$ ist
+```{math}
+ddf &=& d\left(\sum_{i=1}^n\frac{\partial f}
+{\partial x_i}dx_i\right) = \sum_{i=1}^n\sum_{l=1}^n\frac{\partial^2f}{\partial x_l\partial x_i}
 dx_l\wedge dx_i\\
-& =& \sum_{1\leq r< s\leq n}\l(\frac{\pa^2 f}{\pa x_r
-\pa x_s} - \frac{\pa^2f}{\pa x_s\pa x_r}\ri)dx_r\wedge dx_s = 0,
-\eeqno
+& =& \sum_{1\leq r< s\leq n}\left(\frac{\partial^2 f}{\partial x_r
+\partial x_s} - \frac{\partial^2f}{\partial x_s\partial x_r}\right)dx_r\wedge dx_s = 0,
+```
 da wir wegen der Glattheit von $f$ die partiellen Ableitungen vertauschen
-k"onnen.
-*
-F"ur $\omega = \sum\omega_{i_1\ldots i_k}dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+können.
+
+2. Für $\omega = \sum\omega_{i_1\ldots i_k}dx_{i_1}\wedge\ldots\wedge dx_{i_k}
 \in\Omega^k(U)$ ist\
-\[dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
-\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0, \]
-denn gem"a"s Satz {prf:ref}`Antiderivation` wird die "au"sere Ableitung auf die
-1-Formen $d\omega_{i_1\ldots i_k}$ und $dx_{i_l}$ angewandt, und nach Teil 1.\
+```{math}
+dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0,
+```
+denn gemäß Satz {prf:ref}`Antiderivation` wird die äußere Ableitung auf die
+1-Formen $d\omega_{i_1\ldots i_k}$ und $dx_{i_l}$ angewandt, und nach Teil 1.
 ist das Ergebnis Null.
-\hfill $\Box$
-\end{enumerate}}
+````
+
+````{prf:definition}
+:label: geschlossen:exakt
+Eine Differentialform $\vv\in\Omega^*(U)$ heißt
+* **geschlossen**, wenn $d\vv=0$, ***exakt**, wenn $\vv=d\psi$ für ein $\psi\in\Omega^*(U)$ gilt.
+
 %
-\begin{defi}:label: geschlossen:exakt
-Eine Differentialform $\vv\in\Omega^*(U)$ hei"st
-\begin{enumerate}[$\bullet$]
-* **geschlossen**, wenn $d\vv=0$,***exakt**, wenn $\vv=d\psi$ f"ur ein $\psi\in\Omega^*(U)$ gilt.
-\end{enumerate}
-\end{defi}
-%
-Nach Satz {prf:ref}`thm:dd` sind exakte Differentialformen geschlossen.\\F"ur $k$--Formen auf konvexen offenen Teimengen $U\subseteq \bR^n$gilt f"ur $k\ge 1$auch die Umkehrung (sog.\\href{https://de.wikipedia.org/wiki/Poincar%c3%a9-Lemma}
-{\em Poincar\'{e}-Lemma},  siehe Kapitel {prf:ref}`sect:Poinca`).
+Nach Satz {prf:ref}`thm:dd` sind exakte Differentialformen geschlossen.\\ Für $k$--Formen auf konvexen offenen Teimengen $U\subseteq \R^n$ gilt für $k\ge 1$auch die Umkehrung (sog.
+[**Poincaré-Lemma**](https://de.wikipedia.org/wiki/Poincar%c3%a9-Lemma) ),  siehe Kapitel {prf:ref}`sect:Poinca`).
 %
