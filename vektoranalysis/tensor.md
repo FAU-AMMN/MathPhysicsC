@@ -76,7 +76,34 @@ x_n y_1&\ldots& x_n y_m
 \end{pmatrix}.
 ```
 
+Wir werden später sehen, dass man die Idee $\sigma$ über das dyadische Produkt zu definieren abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.
+
 ### Quantenverschränkung
+
+## Das Tensorprodukt
+
+Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es später konkret realisieren.
+
+````{prf:definition} Tensorprodukt
+Es seien $V,W$ zwei reelle Vektorräume. Ein reeler Vektorraum $X$ heißt **Tensorproduktraum** falls eine bilineare Abbildung $\otimes:V\times W\rightarrow X$ existiert, s.d., die folgende **universelle Eigenschaft** gilt:
+
+Für jede Bilinearform $\phi\in L^2(V\times W, Y)$ in einen beliebigen reellen Vektorraum $Y$, existiert eine eindeutige lineare Abbildung 
+$p \in L^1(X, Y)$, s.d. gilt 
+
+```{math}
+\phi(v,w) = p((v\otimes w)) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.
+```
+
+In diesem Fall schreibt man auch $X = V\otimes X$, zusätzlich ist die Schreibweise $\otimes(v,w) v\otimes w$ üblich.
+````
+
+**Was bedeutet das???**
+
+Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. Was ist jetzt also ein Tensorprodukt?
+
+**Das Tensorprodukt ist universell:**
+
+Wir haben benutzten in der Definition oben das kartesische Produkt $\times$ welches eindeutig definiert ist. Im Gegensatz dazu gibt es nicht _ein_ Tensorprodukt $\otimes$ oder _einen_ Tensorproduktraum $V\otimes W$. Wir haben die Freiheit $\otimes$ zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann $V\otimes W$ Tensorproduktraum. Derartige Konzepte nennt man in der Algebra _universell_.
 
 ## Tensoren als Linearformen
 
