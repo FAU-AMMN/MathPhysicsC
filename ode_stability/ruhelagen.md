@@ -493,25 +493,61 @@ e^z = e^{x+iy} = e^xe^iy = e^x(\cos(y) + i\sin(y)), \quad \text{für } z = x+iy 
 
 ````
 
-````{prf:remark}
-Dass man die Gleichheit von geoemtrischer und algebraischer Vielfachheit fordern muss, sieht man schon am Beispiel von
+Das folgende Beispiel illustriert, dass eine Ruhelage instabil werden kann, wenn die geometrische Vielfachheit nicht mit der algebraischen Vielfachheit übereinstimmt für einen Eigenwert $\lambda =0$ der Koeffizientenmatrix $A$.
+````{prf:example}
+Sei $U \subset \R^2$ der Phasenraum und wir betrachten das homogene, lineare Differentialgleichungssystem
+
 ```{math}
-A = \begin{pmatrix} 0&1\\0&0\end{pmatrix} \quad \text{mit} \quad e^{At} = \begin{pmatrix} 0&t\\0&0\end{pmatrix}.
+\dot{x}(t) = A x(t), \quad \forall t \in \R_0^+
 ```
+
+für eine Koeffizientenmatrix
+
+```{math}
+A = \begin{pmatrix} 0&1\\0&0\end{pmatrix}.
+```
+
+Wie man leicht nachrechnet besitzt diese Matrix den Eigenwert $\lambda = 0$ mit algebraischer Vielfachheit $2$ und geometrischer Vielfachheit $1$ zum Eigenvektor $v = (1,0)^T \in \R^2$.
+Die Vielfachheiten des Eigenwert **stimmen** also **nicht überein**.
+
+Aus {prf:ref}`theorem:stabilität_linear` wissen wir, dass eine Ruhelage in $\vec{0} \in \R^2$ existiert.
+Man sieht jedoch leicht ein, dass sogar jeder Punkt $x_0 = (y, 0) \in U$ eine Ruhelage des Systems darstellt, da diese Punkte ein Vielfaches des Eigenvektors zum Eigenwert $\lambda = 0$ darstellen und somit im Kern der Matrix $A$ liegen, d.h., für diese Punkte ist die rechte Seite des Differentialgleichungssystems $\vec{0} \in \R^2$ und somit liegt eine Ruhelage vor.
+
+Wir wollen die Stabilität dieser Ruhelagen im Folgenden untersuchen.
+Hierzu betrachten wir die Norm des Phasenflusses $\Phi \colon I \times U \rightarrow U$, der für einen gegebenen Anfangswert $x_0 = (y,z) \in U$ mit $z \neq 0$ der die Lösung des Differentialgleichungssystems beschreibt mit
+
+```{math}
+\| \Phi_t(x_0) \| &= \| e^{At}x_0 \| = \| \sum_{k=0}^\infty \frac{(At)^k}{k!} x_0\| = \| [\underbrace{(At)^0}_{=I_2} + (At)^1] x_0\| \\
+&= \| \begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix}\begin{pmatrix} y \\ z \end{pmatrix} \| = \| \begin{pmatrix} y + tz \\ z\end{pmatrix} \| \overset{t\to \infty}{\longrightarrow} \infty.
+```
+
+Wir sehen also, dass für jeden Anfangswert $x_0 = (y,z)$ mit $z \neq 0$ die Lösung des Differentialgleichungssystems divergiert und somit ist jede Ruhelage des dynamischen Systems **instabil**.
 ````
 
-Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf dern nicht linearen Fall folgern.
+Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nichtlinearen Fall schließen, wie das folgende Beispiel zeigt.
 ````{prf:example}
-DGL $\dot{x} = \alpha x+ \beta x^3$ mit Parametern $\alpha, \beta\in \R$. \\
-Die Null ist Gleichgewichtslage der DGL und ihre Linearisierung $\dot{y} = \alpha y$.
+Wir betrachten eine gewöhnliche Differentialgleichung 1. Ordnung der Form
 
+```{math}
+\dot{x}(t) = \alpha x(t) + \beta x^3(t), \forall t \in \R^+_0.
+```
+
+mit freien Parametern $\alpha, \beta \in \R$.
+
+Wie man einsieht ist $0$ eine Ruhelage des dynamischen Systems, das durch diese Differentialgleichung charakterisiert wird.
+Wir betrachten die Linearisierung der Differentialgleichung in der Ruhelage mit $A := (DF)(0) = \alpha$ und erhalten
+
+```{math}
+\dot{x}(t) = A x(t) = \alpha x(t), \forall t \in \R^+_0.
+```
+ 
+Folgende Fallunterscheidung zeigt nun das Stabilitätsverhalten der Ruhelage in Abhängigkeit der gewählten Parameter $\alpha, \beta \in \R$:
 |          | linearisierte Gleichung | nicht lineare Gleichung |
 | :------- |:------------------------|:----------------------- |
 | $\alpha<0$ | asymptotisch stabil | asymptotisch stabil |
 | $\alpha>0$ | instabil | instabil |
 | $\alpha=0$ | Liapunov-stabil | <table><tbody><tr><td>asymptotisch stabil für</td><td>&beta; &lt; 0</td></tr><tr><td>stabil für</td><td>&beta; =0</td></tr><tr><td> instabil für</td><td>&beta; &gt; 0</td></tr></tbody></table> |
 
-````
-````{prf:remark}
-Anschaulich gesprochen kann asymptotische Stabilität nur vorliegen, wenn der Fluss in der Nähe der Gleichgewichtslage das Phasenraumvolumen verkleinert. Daher kann man in physikalischen Situationen ohne Reibungseffekte höchstens Liapunov-Stabilität erwarten. das hat z.B. zur Folge, dass die Frage der **Stabilität des Sonnensystems** sehr subtil ist.
+Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter $\alpha$, sondern ebenfalls von $\beta$ ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
+
 ````
