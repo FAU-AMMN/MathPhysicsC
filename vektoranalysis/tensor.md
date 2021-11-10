@@ -1,13 +1,35 @@
 # Tensoren und Tensorprodukte
 
-In diesem Kapitel widmen wir uns einem wichtigen aber komplizierten Thema der Vektoranalysis, nämlich Tensoren und Tensorprodukte.
-Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe [Wikipedia](https://de.wikipedia.org/wiki/Tensorprodukt)) weshalb es nicht leicht ist eine Einführung zu geben die gleichzeitig allgemein, aber auch verständlich ist. Da Tensoren aber eine wichtige Rolle in der Physik spielen werden wir uns hier damit beschäftigen
+In diesem Kapitel widmen wir uns einem wichtigen aber komplizierten Thema der Vektoranalysis, nämlich Tensoren und Tensorprodukten.
+Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe [Wikipedia](https://de.wikipedia.org/wiki/Tensorprodukt)) weshalb es nicht leicht ist eine Einführung zu geben die gleichzeitig allgemein, aber auch verständlich ist. Da Tensoren aber eine wichtige Rolle in der Physik spielen werden wir uns hier damit beschäftigen.
+
+## Motivation
+
+Wir betrachten zwei Beispiele aus der Physik, welche auf Tensoren zurückgreifen.
+
+### Der Cauchy Spannungstensor
+
+```{margin}
+[Augustin-Louis Cauchy](https://de.wikipedia.org/wiki/Augustin-Louis_Cauchy) (Geboren 21. August 1789 in Paris; Gestorben 23. Mai 1857 in Sceaux) war ein französischer Mathematiker.
+```
+
+Der Stresstensor spielt eine wichtige Rolle in der Kontinuumsmechanik, insbesondere bei der Beschreibung von Spannungen und Stress. Hierbei betrachten man zwei Komponenten.
+
+**Normalspannung:**
+Für ein Volumen $V\subset\R^3$ betrachten wir Schnittflächen $A \subset V$ auf welche eine **äußere** Kraft $F$ wirkt mit $A$-orthogonaler Komponente $F_n$.
+_Formal_ ergibt sich die Normalspannung als
+
+```{math}
+\sigma = \lim_{\Delta A\rightarrow 0}\frac{\Delta F_n}{A}.
+```
+
+**Scherspannung**
 
 ## Tensoren als Linearformen
 
 Als Einleitung in das Thema wollen wir Tensoren zunächst als Linearformen auf $\V_1\times\ldots\times\V_k$
 betrachten wobei für $i=1,\ldots,k$ $\V_i$ reelle endlich dimensionale Vektorräume sind.
-Man schreibt in diesem Fall auch 
+Man schreibt in diesem Fall auch
 
 ```{math}
 \V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k,\R)
