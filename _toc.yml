@@ -16,5 +16,6 @@ chapters:
 - file: vektoranalysis/vektoranalysis.md
   sections:
   - file: vektoranalysis/multilinear.md
+  - file: vektoranalysis/tensor.md
   - file: vektoranalysis/diffformen.md
 - file: references
