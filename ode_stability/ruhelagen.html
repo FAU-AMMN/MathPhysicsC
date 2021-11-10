@@ -273,7 +273,7 @@
 <p>Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine <strong>lineare</strong> Differentialgleichungssysteme untersuchen.
 Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> kennen gelernt.</p>
 <p>Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.</p>
-<div class="proof theorem admonition" id="theorem-0">
+<div class="proof theorem admonition" id="theorem:stabilität_linear">
 <p class="admonition-title"><span class="caption-number">Theorem 2.1 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(A\in \C^{n\times n}\)</span> eine Matrix mit den Eigenwerten <span class="math notranslate nohighlight">\(\lambda_1,\dots, \lambda_n\in \C\)</span>.
@@ -313,8 +313,8 @@ Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten <s
 <div class="math notranslate nohighlight">
 \[||e^{tD}|| \leq C_3 e^{t\gamma}.\]</div>
 <p>Insgesamt erhalten wir also für die Norm des Phasenflusses</p>
-<div class="math notranslate nohighlight">
-\[\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-abschaetzung-ew">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-abschaetzung-ew" title="Permalink to this equation">¶</a></span>\[\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.\]</div>
 <p>Da <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> beliebig klein ist, können wir <span class="math notranslate nohighlight">\(|\epsilon| &lt; |\gamma|\)</span> wählen.
 Damit hängt das Verhalten der Norm des Flusses nur noch vom Vorzeichen von <span class="math notranslate nohighlight">\(\gamma\)</span> ab.
 Wir unterscheiden daher zwei Fälle:</p>
@@ -333,11 +333,12 @@ In diesem Fall ist die Ruhelage also <strong>instabil</strong>.</p>
 <p>Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die <span class="math notranslate nohighlight">\(0\)</span> immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.</p>
 <div class="section" id="linearisierung-um-ruhelage">
 <h2><span class="section-number">2.2.1. </span>Linearisierung um Ruhelage<a class="headerlink" href="#linearisierung-um-ruhelage" title="Permalink to this headline">¶</a></h2>
+<p>:label: s:linearisierung_ruhelage</p>
 <p>In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
 Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
 Daher betrachten wir im Folgenden das Anfangswertproblem eines <strong>allgemeinen Differentialgleichungssystem erster Ordnung</strong> auf dem Phasenraum <span class="math notranslate nohighlight">\(U\in \R^n\)</span>, das nicht notwendigerweise linear sein muss und für ein Vektorfeld <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> wie folgt formuliert ist</p>
 <div class="math notranslate nohighlight" id="equation-eq-awpallg">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-awpallg" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-awpallg" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
 x(0) &amp;= x_0.\end{split}\]</div>
 <p>Wir nehmen an, dass <span class="math notranslate nohighlight">\(x_F \in U\)</span> eine Ruhelage des dynamischen Systems ist, so dass dementsprechend <span class="math notranslate nohighlight">\(F(x_F) = 0\)</span> gilt.
 Durch einfache Translation der Koordinaten des Systems um <span class="math notranslate nohighlight">\(x_F \in U\)</span>, können wir ohne Beschränkung der Allgemeinheit annehmen, dass die Ruhelage sich im Nullpunkt befindet.</p>
@@ -345,7 +346,7 @@ Durch einfache Translation der Koordinaten des Systems um <span class="math notr
 <div class="proof definition admonition" id="def:linearisierung">
 <p class="admonition-title"><span class="caption-number">Definition 2.2 </span> (Linearisierung und Abweichung)</p>
 <div class="definition-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> ein Vektorfeld auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> und <span class="math notranslate nohighlight">\(0\)</span> eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in <a class="reference internal" href="#equation-eq-awpallg">(2.1)</a> charakterisiert wird.
+<p>Sei <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> ein Vektorfeld auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> und <span class="math notranslate nohighlight">\(0\)</span> eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in <a class="reference internal" href="#equation-eq-awpallg">(2.2)</a> charakterisiert wird.
 Sei nun <span class="math notranslate nohighlight">\((DF)(x)\)</span> die Jacobi-Matrix der Funktion <span class="math notranslate nohighlight">\(F\)</span> im Punkt <span class="math notranslate nohighlight">\(x \in U\)</span> (vgl. Kapitel 6.2 in <span id="id2">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>).
 Dann bezeichnen wir mit <span class="math notranslate nohighlight">\(A := (DF)(0)\)</span> die <strong>Linearisierung</strong> von <span class="math notranslate nohighlight">\(F\)</span> in der Ruhelage <span class="math notranslate nohighlight">\(0 \in U\)</span>.
 Außerdem bezeichnen wir die Funktion <span class="math notranslate nohighlight">\(R \in C^1(U; \R^n)\)</span> mit</p>
@@ -357,14 +358,14 @@ Außerdem bezeichnen wir die Funktion <span class="math notranslate nohighlight"
 <div class="proof lemma admonition" id="lem:intexpglgn">
 <p class="admonition-title"><span class="caption-number">Lemma 2.1 </span></p>
 <div class="lemma-content section" id="proof-content">
-<p>Wir betrachten das Anfangswertproblem aus <a class="reference internal" href="#equation-eq-awpallg">(2.1)</a> auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> für ein Vektorfeld <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span>.
+<p>Wir betrachten das Anfangswertproblem aus <a class="reference internal" href="#equation-eq-awpallg">(2.2)</a> auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> für ein Vektorfeld <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span>.
 Außerdem sei <span class="math notranslate nohighlight">\(A \coloneqq (DF)(0)\)</span> die Linearisierung des Vektorfelds in der Ruhelage <span class="math notranslate nohighlight">\(0\)</span> des dynamischen Systems und <span class="math notranslate nohighlight">\(R(x) \coloneqq F(x) - Ax\)</span> die Abweichung von <span class="math notranslate nohighlight">\(F\)</span> von seiner Linearisierung <span class="math notranslate nohighlight">\(A\)</span> im Nullpunkt.</p>
 <p>Dann lassen sich Lösungen des Differentialgleichungssystems mittels der Linearisierung <span class="math notranslate nohighlight">\(A\)</span> und der Abweichung <span class="math notranslate nohighlight">\(R\)</span> explizit angeben als</p>
 <div class="math notranslate nohighlight">
 \[x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s, \quad \forall t \in I.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Wir setzen zunächst die unbekannte Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des Anfangswertproblems <a class="reference internal" href="#equation-eq-awpallg">(2.1)</a> in der allgemeinen Form</p>
+<p>Proof. Wir setzen zunächst die unbekannte Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des Anfangswertproblems <a class="reference internal" href="#equation-eq-awpallg">(2.2)</a> in der allgemeinen Form</p>
 <div class="math notranslate nohighlight">
 \[x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0\]</div>
 <p>an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion <span class="math notranslate nohighlight">\(c(t)\)</span> mittels <strong>Variation der Konstanten</strong> (vgl. Kapitel 8.2 in <span id="id3">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>).</p>
@@ -386,7 +387,7 @@ Außerdem sei <span class="math notranslate nohighlight">\(A \coloneqq (DF)(0)\)
 <div class="math notranslate nohighlight">
 \[x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.\]</div>
 </div>
-<p>Auf den ersten Blick nützt uns die Identität in <a class="reference internal" href="#lem:intexpglgn">Lemma 2.1</a> nicht viel, denn auch auf der rechten Seite taucht <span class="math notranslate nohighlight">\(x(s)\)</span>, also die unbekannte Lösung des Anfangswertproblems <a class="reference internal" href="#equation-eq-awpallg">(2.1)</a> auf.
+<p>Auf den ersten Blick nützt uns die Identität in <a class="reference internal" href="#lem:intexpglgn">Lemma 2.1</a> nicht viel, denn auch auf der rechten Seite taucht <span class="math notranslate nohighlight">\(x(s)\)</span>, also die unbekannte Lösung des Anfangswertproblems <a class="reference internal" href="#equation-eq-awpallg">(2.2)</a> auf.
 Es stellt sich jedoch heraus, dass wir die <strong>Gronwall-Ungleichung</strong> auf diese Integralgleichung anwenden können.
 Diese wichtige Abschätzung in der Theorie von Differentialgleichungen ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.</p>
 <div class="proof lemma admonition" id="lemma:Gronwall">
@@ -424,9 +425,9 @@ Für die linke Seite können wir das Integral explizit angeben als</p>
 <p>Es gilt also nun</p>
 <div class="math notranslate nohighlight">
 \[\ln \left(\frac{h(t)}{a}\right) \leq \int_{t_0}^t g(s)\, \mathrm{d}s.\]</div>
-<p>Durch Anwenden der Exponentialfunktion auf beiden Seiten erhalten wir schließlich die Behauptung des Lemmas</p>
+<p>Durch Anwenden der Exponentialfunktion auf beiden Seiten und Ausnutzen der Voraussetzung <span class="math notranslate nohighlight">\(f(t) \leq h(t)\)</span> erhalten wir schließlich die Behauptung des Lemmas</p>
 <div class="math notranslate nohighlight">
-\[ h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].\]</div>
+\[ f(t) \leq h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].\]</div>
 </div>
 <p>Wir wollen folgende Bemerkungen zur Gronwall-Ungleichung festhalten.</p>
 <div class="proof remark admonition" id="remark-4">
@@ -450,114 +451,163 @@ f(t_0) &amp;= a,\end{split}\]</div>
 </div>
 <div class="section" id="asymptotische-stabilitat-von-ruhelagen">
 <h2><span class="section-number">2.2.2. </span>Asymptotische Stabilität von Ruhelagen<a class="headerlink" href="#asymptotische-stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h2>
-<div class="proof theorem admonition" id="theorem-5">
-<p class="admonition-title"><span class="caption-number">Theorem 2.2 </span> (Asymptotische stabilität von Ruhelagen)</p>
+<p>Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes <span class="math notranslate nohighlight">\(F \colon U \rightarrow \R^n\)</span> in <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">lemma:int_exp_glgn</span></code> und der Gronwall-Ungleichung in <a class="reference internal" href="#lemma:Gronwall">Lemma 2.2</a> sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.</p>
+<p>Wir formulieren direkt das Hauptresultat, dass uns ein hinreichendes Kriterium für <strong>asymptotische Stabilität</strong> der Ruhelage basierend auf den Eigenwerten der Linearisierung liefert.</p>
+<div class="proof theorem admonition" id="theorem:stabilitaet_asymptotisch_allg">
+<p class="admonition-title"><span class="caption-number">Theorem 2.2 </span> (Asymptotische Stabilität von Ruhelagen)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Eine Gleichgewichtslage <span class="math notranslate nohighlight">\(x_s\in  U\subset \R^n\)</span> der DGL</p>
+<p>Sei <span class="math notranslate nohighlight">\(F \in C^1(U; \R^n)\)</span> ein Vektorfeld auf dem offenen Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span>.
+Eine Ruhelage <span class="math notranslate nohighlight">\(x_F \in  U \subset \R^n\)</span> des dynamischen Systems, das durch das allgemeine Differentialgleichungssystem</p>
 <div class="math notranslate nohighlight">
-\[\dot{x} = F(x), \quad f\in C^1(U,\R^n)\]</div>
-<p>ist asymptotisch stabil, wenn für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda\)</span> von <span class="math notranslate nohighlight">\(Df(x_s)\)</span> gilt: <span class="math notranslate nohighlight">\(Re(\lambda)&lt;0\)</span>.</p>
+\[\dot{x}(t) = F(x(t)), \quad \forall t \in \R^+_0\]</div>
+<p>charakterisiert wird, ist <strong>asymptotisch stabil</strong> wenn für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i \in \C, i=1,\ldots,n\)</span> der Linearisierung <span class="math notranslate nohighlight">\(A \, \coloneqq \, (Df)(x_F)\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{Re}(\lambda_i)&lt;0, \quad \text{für } i=1,\ldots,n.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. - Wieder können wir durch eine Verschiebung <span class="math notranslate nohighlight">\(x_s = 0\)</span> erreichen. Da <span class="math notranslate nohighlight">\(U\subseteq\R^n \)</span> offen ist, gehört eine Kugelumgebung vom positiven Radius <span class="math notranslate nohighlight">\(\vec{r}\)</span> zu <span class="math notranslate nohighlight">\(U\)</span>.</p>
-<ul class="simple">
-<li><p>Für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> von <span class="math notranslate nohighlight">\(A:=Df(x_s)\)</span> gelte die Abschätzung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt; -\Lambda,\ \Lambda&gt;0\)</span> geeignet. Dann gibt es ein <span class="math notranslate nohighlight">\(c&gt;0\)</span>, sodass gilt</p></li>
-</ul>
+<p>Proof. Wie bereits in <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">s:linearisierung_ruhelage</span></code> diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit <span class="math notranslate nohighlight">\(x_F = 0 \in U\)</span> gilt.
+Da <span class="math notranslate nohighlight">\(U\subseteq\R^n\)</span> nach Vorraussetzung offen ist, können wir eine offene Kugel <span class="math notranslate nohighlight">\(B_\vec{r}(0) \coloneqq \{y \in U \colon ||y|| &lt; \vec{r}\}\)</span> mit Radius <span class="math notranslate nohighlight">\(\vec{r} &gt; 0\)</span> als Umgebung der Ruhelage <span class="math notranslate nohighlight">\(0\)</span> finden, so dass <span class="math notranslate nohighlight">\(B_\vec{r}(0) \subset U\)</span> gilt.</p>
+<p>Wir nehmen im Folgenden an, dass der Realteil der Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i \in \C, i=1,\ldots,n\)</span> der Linearisierung <span class="math notranslate nohighlight">\(A \, \coloneqq \, Df(0)\)</span> echt negativ ist, d.h., für ein geeignetes <span class="math notranslate nohighlight">\(\Lambda &gt; 0\)</span> gilt die Abschätzung</p>
 <div class="math notranslate nohighlight">
-\[\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad (t\geq 0).\]</div>
-<p>Das ersieht man aus der Tatsache, dass die Einträge von <span class="math notranslate nohighlight">\(e^{At}\)</span> Summen von <span class="math notranslate nohighlight">\(\lambda_i\)</span>-Quasipolynomen <span class="math notranslate nohighlight">\(e^{\lambda_i t}p_i(t)\)</span> sind und dass wegen <span class="math notranslate nohighlight">\(Re(\lambda_i) + \Lambda &lt;0\)</span></p>
+\[\mathcal{Re}(\lambda_i)&lt; -\Lambda, \quad \text{für } i=1,\ldots,n. \]</div>
+<p>Dann gibt es analog zum Beweis von <a class="reference internal" href="#theorem:stabilität_linear">Theorem 2.1</a> eine Konstante <span class="math notranslate nohighlight">\(c&gt;0\)</span>, so dass gilt</p>
+<div class="math notranslate nohighlight" id="equation-eq-abschaetzung-norm-exponential">
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-abschaetzung-norm-exponential" title="Permalink to this equation">¶</a></span>\[\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad \forall t\in \R^+_0.\]</div>
+<p>Hierbei haben wir ausgenutzt, dass wir die Konstante <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> in <span class="xref std std-ref">eq:abschaetzung_ew</span> so klein wählen können, dass <span class="math notranslate nohighlight">\(\gamma + \epsilon &lt; -\Lambda\)</span> gilt.</p>
+<p>Wir können nun einen Radius <span class="math notranslate nohighlight">\(r\in (0,\vec{r})\)</span> bestimmen, so dass die folgende Abschätzung gilt</p>
+<div class="math notranslate nohighlight" id="equation-eq-abschaetzung-residuum">
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-abschaetzung-residuum" title="Permalink to this equation">¶</a></span>\[\|R(x)\| \leq \frac{\Lambda}{2c} \|x\|, \quad \forall \|x\| \leq r.\]</div>
+<p>Dies liegt an der totalen Differenzierbarkeit des Vektorfelds <span class="math notranslate nohighlight">\(F\)</span> in der Ruhelage (vgl. Kapitel 6.2 in <span id="id5">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>), denn dies bedeutet, dass das Residuum in der Nähe der Ruhelage schnell genug gegen Null konvergiert, so dass gilt</p>
 <div class="math notranslate nohighlight">
-\[\lim_{t\to\infty} \exp((\lambda_i + \Lambda)t)p_i(t) = 0\]</div>
-<p>ist.</p>
-<ul class="simple">
-<li><p>Nun existiert ein Radius <span class="math notranslate nohighlight">\(r\in (0,\vec{r})\)</span> mit</p></li>
-</ul>
+\[\lim_{x\to 0} \frac{\|R(x)\|}{\|x\|} = \lim_{x\to 0}\frac{\|F(x)- (DF)(0)\cdot x\|}{\|x\|} = 0.\]</div>
+<p>Wir wollen im Folgenden zeigen, dass wenn der Anfangswert unserer unbekannten Lösung des Differentialgleichungssystems beschränkt ist durch</p>
 <div class="math notranslate nohighlight">
-\[\|R(x)\|\leq \frac{\Lambda}{2c} \|x\|, \quad \text{falls } \|x\|\leq r,\]</div>
-<p>denn <span class="math notranslate nohighlight">\(\lim_{x\to 0} \frac{\|Re(x)\|}{\|x\|} = \lim_{x\to}\frac{\|f(x)- Df(0)\cdot x\|}{\|x\|} = 0\)</span>.</p>
-<ul class="simple">
-<li><p>Wenn wir nun zeigen können, dass aus</p></li>
-</ul>
-<div class="math notranslate nohighlight" id="equation-eq-residuumabsch">
-<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-residuumabsch" title="Permalink to this equation">¶</a></span>\[\|x(0)\|\leq \epsilon &lt;\frac{r}{c}\]</div>
-<p>folgt, dass für <span class="math notranslate nohighlight">\(t\geq 0\)</span> gilt:</p>
+\[\|x(0)\| \leq \epsilon &lt;\frac{r}{c},\]</div>
+<p>dann soll schon für die Norm der Lösung für beliebiges <span class="math notranslate nohighlight">\(t \geq 0\)</span> gelten</p>
 <div class="math notranslate nohighlight">
-\[\|x(t)\|\leq c\epsilon e^{-\Lambda t/2},\]</div>
-<p>dann haben wir den Satz bewiesen, denn für die rechte Seite gilt: <span class="math notranslate nohighlight">\(c\epsilon e^{-\Lambda t/2} \leq c\epsilon&lt;r&lt;\tilde{r}\)</span>, und für <span class="math notranslate nohighlight">\(t\to \infty\)</span> strebt sie gegen Null.</p>
-<p>Nun gilt nach Lemma <a class="reference internal" href="#lem:intexpglgn">Lemma 2.1</a>: <span class="math notranslate nohighlight">\(x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, ds\)</span> woraus mit <a class="reference internal" href="#equation-eq-residuumabsch">(2.2)</a> die Ungleichung</p>
+\[\|x(t)\| \leq c\epsilon e^{-\frac{\Lambda t}{2}}.\]</div>
+<p>Da <span class="math notranslate nohighlight">\(c\epsilon e^{- \frac{\Lambda t}{2}} \leq c\epsilon &lt; r &lt;\tilde{r}\)</span> gilt, liegt die Lösung somit noch in der offenen Kugel <span class="math notranslate nohighlight">\(B_{\vec{r}}(0) \subset U\)</span> und konvergiert für <span class="math notranslate nohighlight">\(t \rightarrow \infty\)</span> gegen 0, was den Satz beweist.</p>
+<p>Nehmen wir also an, dass <span class="math notranslate nohighlight">\(\|x(0)\| \leq \epsilon &lt;\frac{r}{c}\)</span> gelte.
+Nun können wir nach <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">lemma:intexpglgn</span></code> die unbekannte Lösung durch ihre Linearisierung darstellen als</p>
 <div class="math notranslate nohighlight">
-\[\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, ds\]</div>
-<p>folgt, soweit <span class="math notranslate nohighlight">\(\|x\|\leq r\)</span>.</p>
-<p>Setzt man <span class="math notranslate nohighlight">\(F(t):=e^{\Lambda t}\|x(t)\|\)</span>, dann gilt</p>
+\[x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s.\]</div>
+<p>Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen <a class="reference internal" href="#equation-eq-abschaetzung-norm-exponential">(2.3)</a> und <a class="reference internal" href="#equation-eq-abschaetzung-residuum">(2.4)</a>, so erhalten wir</p>
 <div class="math notranslate nohighlight">
-\[F(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} F(s)\, ds,\]</div>
-<p>also nach dem Gronwall-Lemma <a class="reference internal" href="#lemma:Gronwall">Lemma 2.2</a></p>
+\[\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, \mathrm{d}s, \quad \forall \|x\| \leq r.\]</div>
+<p>Multiplizieren wir beide Seiten der Ungleichung mit <span class="math notranslate nohighlight">\(e^{\Lambda t}\)</span> und definieren uns eine Hilfsfunktion <span class="math notranslate nohighlight">\(f(t):=e^{\Lambda t}\|x(t)\|\)</span>, dann erhalten wir</p>
 <div class="math notranslate nohighlight">
-\[F(t) \leq c \|x_0\| + \exp{\left( \frac{1}{2} \int_0^t \Lambda \, ds \right) }
-\leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}\]</div>
-<p>oder <span class="math notranslate nohighlight">\(\|x(t)\|\leq re^{-\frac{\Lambda}{2}t}\)</span>. Die Lösungskurve bleibt also für alle positiven Zeiten in der Vollkugel <span class="math notranslate nohighlight">\(\{x\in \R^n|\|x\|\leq r\}\)</span> und konvergiert gegen Null.</p>
+\[f(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} f(s)\, \mathrm{d}s.\]</div>
+<p>Für diese Form der Ungleichung bietet es sich an das <a class="reference internal" href="#lemma:Gronwall">Lemma 2.2</a> zur Gronwall-Ungleichung anzuwenden, durch das wir schließlich folgendes Resultat bekommen</p>
+<div class="math notranslate nohighlight">
+\[f(t) \leq c \|x_0\| \exp{\left( \frac{1}{2} \int_0^t \Lambda \, \mathrm{d}s \right) }
+\leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}.\]</div>
+<p>Durch Multiplikation beider Seiten mit $e^{-\Lambda t} führt dies zur finalen Abschätzung</p>
+<div class="math notranslate nohighlight">
+\[ \|x(t)\|\leq re^{-\frac{\Lambda}{2}t}, \quad \forall t\in\R^+_0.\]</div>
+<p>Wir sehen also ein, dass die unbekannte Lösung für alle nicht-negativen Zeiten in der offenen Kugel <span class="math notranslate nohighlight">\(B_r(0) \subset B_{\vec{r}}(0) \subset U\)</span> enthalten ist und offensichtlich gegen Null konvergiert.
+Damit ist die Ruhelage <span class="math notranslate nohighlight">\(0 \in U\)</span> asymptotisch stabil.</p>
 </div>
+<p>Folgende Bemerkung geht speziell auf ein Detail des Beweises ein, das eine Aussage zum Konvergenzradius der Lösungen eines dynamisches Systems zulässt.</p>
 <div class="proof remark admonition" id="remark-6">
-<p class="admonition-title"><span class="caption-number">Remark 2.3 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 2.3 </span> (Attraktionsbassin)</p>
 <div class="remark-content section" id="proof-content">
-<p>Der Beweis liefert zusätzlich die Aussage, dass alle <span class="math notranslate nohighlight">\(x\in U\)</span> mit <span class="math notranslate nohighlight">\(\|x\|&lt;\frac{r}{c}\)</span> zu gegen die Gleichgewichtslage konvergierenden Orbits gehören, also in deren Einzugsbereich, dem so genannten <em>Bassin</em>, liegen.</p>
+<p>Der Beweis von <a class="reference internal" href="#theorem:stabilitaet_asymptotisch_allg">Theorem 2.2</a> liefert zusätzlich die Aussage, dass alle Punkte <span class="math notranslate nohighlight">\(x\in U\)</span> im Phasenraum mit</p>
+<div class="math notranslate nohighlight">
+\[\|x\| &lt; \frac{r}{c}\]</div>
+<p>zu Orbits gehören, die gegen die Ruhelage <span class="math notranslate nohighlight">\(0 \in U\)</span> konvergieren.
+Diesen attraktiven Einzugsbereich der Ruhelage nennt man auch das <strong>Attraktionsbassin</strong> der Ruhelage.</p>
 </div>
 </div></div>
 <div class="section" id="lyapunov-stabilitat-von-ruhelagen">
 <h2><span class="section-number">2.2.3. </span>Lyapunov-Stabilität von Ruhelagen<a class="headerlink" href="#lyapunov-stabilitat-von-ruhelagen" title="Permalink to this headline">¶</a></h2>
-<p>Während ein hinreichendes Kriterium für das Vorliegen <em>asymptotischer Stabilität</em> die strikte Ungleichung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> der Jacobi-Matrix war, ist die Situation bezüglich der Lyapunov-Stabilität komplizierter.</p>
-<div class="proof theorem admonition" id="theorem-7">
-<p class="admonition-title"><span class="caption-number">Theorem 2.3 </span></p>
+<p>Während ein hinreichendes Kriterium für das Vorliegen <em>asymptotischer Stabilität</em> die strikte Ungleichung <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> für die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> der Jacobi-Matrix war, ist die Situation bezüglich der Liapunov-Stabilität einer Ruhelage <strong>komplizierter</strong>.
+Hierzu wollen wir ein Resultat für den Fall von linearen dynamischen Systemen im Folgenden formulieren.</p>
+<div class="proof theorem admonition" id="theorem:stabilitaet_lyapunov_linear">
+<p class="admonition-title"><span class="caption-number">Theorem 2.3 </span> (Lyapunov-Stabilität von Ruhelagen)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Besitzen die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i\)</span> von <span class="math notranslate nohighlight">\(A\in \R^{n\times n}\)</span> Realteil <span class="math notranslate nohighlight">\(Re(\lambda_i) \leq 0\)</span>, und ist im Fall <span class="math notranslate nohighlight">\(Re(\lambda_i)=0\)</span> die geometrische Vielfachheit gleich der algebraischen, dann ist <span class="math notranslate nohighlight">\(0\in \R^n\)</span> Lyapunov-stabile Gleichgewichtslage der DGL <span class="math notranslate nohighlight">\(\dot{x} = Ax\)</span>.</p>
+<p>Sei <span class="math notranslate nohighlight">\(A\in \R^{n\times n}\)</span> eine Matrix mit den Eigenwerten <span class="math notranslate nohighlight">\(\lambda_1,\dots, \lambda_n\in \C\)</span>.
+Besitzen die Eigenwerte <span class="math notranslate nohighlight">\(\lambda_i \in \C, i=1,\ldots,n\)</span> von <span class="math notranslate nohighlight">\(A\)</span> einen nicht-positiven Realteil <span class="math notranslate nohighlight">\(Re(\lambda_i) \leq 0\)</span>, und ist im Fall <span class="math notranslate nohighlight">\(Re(\lambda_i)=0\)</span> die geometrische Vielfachheit gleich der algebraischen Vielfachheit des Eigenwerts, dann ist <span class="math notranslate nohighlight">\(0\in \R^n\)</span> eine <strong>Liapunov-stabile</strong> Ruhelage des dynamischen Systems, dass durch das lineare Differentialgleichungssystem</p>
+<div class="math notranslate nohighlight">
+\[\dot{x}(t) = Ax(t), \quad  \forall t \in I \subset \R^+_0\]</div>
+<p>charakterisiert wird.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Aus der <strong>Jordan Normalform</strong> <span class="math notranslate nohighlight">\(A=VJV^{-1}\)</span> mit Jordan-Matrix <span class="math notranslate nohighlight">\(J\)</span> der Form</p>
+<p>Proof. Aus <a class="reference internal" href="#theorem:stabilität_linear">Theorem 2.1</a> wissen wir bereits, dass im Fall eines linearen dynamischen Systems <span class="math notranslate nohighlight">\(\vec{0} \in U\)</span> eine Ruhelage im Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> ist.
+Seien <span class="math notranslate nohighlight">\(\lambda_1, \ldots, \lambda_k \in \C\)</span> für <span class="math notranslate nohighlight">\(k \leq n\)</span> die paarweise verschiedenen Eigenwerte der Matrix <span class="math notranslate nohighlight">\(A\)</span>.
+Wir betrachten wieder die Jordansche Normalform <span class="math notranslate nohighlight">\(J = S^{-1}AS\)</span> der Matrix <span class="math notranslate nohighlight">\(A\)</span> für Transformationsmatrizen <span class="math notranslate nohighlight">\(S,S^{-1} \in \C^{n \times n}\)</span> und</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}J=
 \begin{pmatrix}
 J_{r_1}(\lambda_1)&amp; &amp; &amp; 0\\
  &amp; J_{r_2}(\lambda_2) &amp; &amp; \\
  &amp; &amp; \ddots &amp; \\
- 0 &amp; &amp; J_{r_k}(\lambda_k)
-\end{pmatrix}, 
-\quad J_r(\lambda_r):=
-\begin{pmatrix}
-\lambda_r &amp; 1 &amp; &amp; 0\\ 
-&amp; \ddots &amp; \ddots &amp; \\
-&amp; &amp; \ddots &amp; 1\\
-0 &amp; &amp; &amp; \lambda_r
-\end{pmatrix} 
-\in \C^{r\times r}\end{split}\]</div>
-<p>folgt mit</p>
+ 0 &amp; &amp; &amp; J_{r_k}(\lambda_k)
+\end{pmatrix}.\end{split}\]</div>
+<p>Hierbei bezeichnen <span class="math notranslate nohighlight">\(r_i \in \N, i=1,\ldots, k\)</span> die algebraischen Vielfachheiten der zugehörigen Eigenwerte und jeder Jordanblock (vgl. Kapitel 2.7 in <span id="id6">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>)) hat die Gestalt</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\exp{(Jt)} = \begin{pmatrix}
+\[\begin{split} J_r(\lambda) \ \coloneqq \ \begin{pmatrix}
+\lambda &amp; 1 &amp; &amp; 0\\
+ &amp; \ddots &amp; \ddots &amp; \\
+ &amp; &amp; \ddots &amp; 1\\
+ 0 &amp; &amp; &amp; \lambda
+ \end{pmatrix} \in \C^{r\times r}\end{split}\]</div>
+<p>Mit den Rechenregeln für das Matrixexponential aus <a class="reference internal" href="../ode/repetition.html#rem:matrixexponential_regeln">Remark 1.3</a> folgt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}e^{Jt} = \begin{pmatrix}
 \exp{(J_{r_1}(\lambda_1)t)} &amp; &amp; 0\\
  &amp; \ddots &amp; \\
  0&amp; &amp; \exp{(J_{r_k}(\lambda_k)t)}
- \end{pmatrix}\end{split}\]</div>
-<p>die Liapunov-Stabilität der Gleichgewichtslage aus</p>
+ \end{pmatrix}.\end{split}\]</div>
+<p>Betrachten wir nun die Norm der Lösungen des homogenen, linearen Differentialgleichungssystems für einen Startwert <span class="math notranslate nohighlight">\(x_0 \in U\)</span> mit</p>
 <div class="math notranslate nohighlight">
-\[\|\exp{(At)}\|= \|V\exp{(Jt)}V^{-1}\|\leq \|V\|\|V^{-1}\|\|\exp{(Jt)}\|,\]</div>
-<p>wenn für alle Jordanblöcke <span class="math notranslate nohighlight">\(J_{r_i}(\lambda_i)\)</span> von <span class="math notranslate nohighlight">\(J\)</span> der Ursprung <span class="math notranslate nohighlight">\(0\in \C^{r_i}\)</span> Liapunov-stabile Gleichgewichtslage der DGL <span class="math notranslate nohighlight">\(\dot{y} = J_{r_i}(\lambda_i)y\)</span> ist.</p>
-<p>Aus <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> folgt sogar asymptotische Stabilität.</p>
-<p>Da für einen komplexen Eigenwert <span class="math notranslate nohighlight">\(\lambda\)</span> von <span class="math notranslate nohighlight">\(A\)</span> mit <span class="math notranslate nohighlight">\(Re(\lambda)=0\)</span> die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen ist, sind die ihm zugeordneten Jordanblöcke alle eindimensional: <span class="math notranslate nohighlight">\(J_{r_i}(\lambda_i) = \lambda\)</span>. Damit ist in diesem Fall</p>
+\[\| \Phi_t(x_0) \| = \|e^{At}x_0\| = \|S^{-1}e^{Jt}S x_0\| \leq \|S^{-1}\| \|e^{Jt}\| \|S\| \|x_0\|,\]</div>
+<p>so sehen wir ein, dass die Ruhelage <span class="math notranslate nohighlight">\(\vec{0} \in U\)</span> <strong>Lyapunov-stabil</strong> ist wenn für alle Jordanblöcke <span class="math notranslate nohighlight">\(J_{r_i}(\lambda_i), i=1,\ldots,k\)</span> von <span class="math notranslate nohighlight">\(J\)</span> der Ursprung <span class="math notranslate nohighlight">\(0\in \C^{r_i}\)</span> eine Liapunov-stabile Ruhelage des folgenden linearen Differentialgleichungssystems ist</p>
 <div class="math notranslate nohighlight">
-\[\|exp{(J_{r_i}(\lambda_i)t)}\|= |\cos{(Im(\lambda)t)} + i \sin{(Im(\lambda)t)}|=1.\]</div>
+\[ \dot{y}(t) = J_{r_i}(\lambda_i) y(t), \quad t \in I \subset \R^+_0.\]</div>
+<p>Dies ist bereits gegeben falls für einen Eigenwert <span class="math notranslate nohighlight">\(Re(\lambda_i)&lt;0\)</span> gilt, denn damit folgt aus <a class="reference internal" href="#theorem:stabilität_linear">Theorem 2.1</a> sogar schon <strong>asymptotische Stabilität</strong>, welche Lyapunov-Stabilität induziert.</p>
+<p>Betrachten wir also nun einen komplexen Eigenwert <span class="math notranslate nohighlight">\(\lambda_i \in \C\)</span> von <span class="math notranslate nohighlight">\(A\)</span> mit <span class="math notranslate nohighlight">\(Re(\lambda_i)=0\)</span> und für den die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen Vielfachheit ist.
+In diesem Fall ist der ihm zugeordnete Jordanblock eine Diagonalmatrix auf deren Hauptdiagonale der Eigenwert <span class="math notranslate nohighlight">\(\lambda_i \in \C\)</span> steht, da alle Jordankästchen eindimensional sind.
+In diesem Fall sehen wir, dass die Norm des Matrixexponentials beschränkt ist und wir dadurch <strong>Lyapunov-Stabilität</strong> der Ruhelage gezeigt haben, da gilt</p>
+<div class="math notranslate nohighlight">
+\[\|e^{J_{r_i}(\lambda_i)t)}\| = |e^{\lambda_i t}| = |e^0e^{\mathcal{Im}(\lambda_i) t}| = |\cos{(\mathcal{Im}(\lambda_i)t)} + i \sin{(\mathcal{Im}(\lambda_i)t)}| = 1.\]</div>
+<p>Für diese Umformung haben wir die Definition der komplexen Exponentialfunktion genutzt, für die gilt:</p>
+<div class="math notranslate nohighlight">
+\[e^z = e^{x+iy} = e^xe^iy = e^x(\cos(y) + i\sin(y)), \quad \text{für } z = x+iy \in \C.\]</div>
 </div>
-<div class="proof remark admonition" id="remark-8">
-<p class="admonition-title"><span class="caption-number">Remark 2.4 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>Dass man die Gleichheit von geometrischer und algebraischer Vielfachheit fordern muss, sieht man schon am Beispiel von</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}A = \begin{pmatrix} 0&amp;1\\0&amp;0\end{pmatrix} \quad \text{mit} \quad e^{At} = \begin{pmatrix} 0&amp;t\\0&amp;0\end{pmatrix}.\end{split}\]</div>
-</div>
-</div><p>Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nicht linearen Fall folgern.</p>
-<div class="proof example admonition" id="example-9">
+<p>Das folgende Beispiel illustriert, dass eine Ruhelage instabil werden kann, wenn die geometrische Vielfachheit nicht mit der algebraischen Vielfachheit übereinstimmt für einen Eigenwert <span class="math notranslate nohighlight">\(\lambda =0\)</span> der Koeffizientenmatrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="proof example admonition" id="example-8">
 <p class="admonition-title"><span class="caption-number">Example 2.2 </span></p>
 <div class="example-content section" id="proof-content">
-<p>DGL <span class="math notranslate nohighlight">\(\dot{x} = \alpha x+ \beta x^3\)</span> mit Parametern <span class="math notranslate nohighlight">\(\alpha, \beta\in \R\)</span>. \
-Die Null ist Gleichgewichtslage der DGL und ihre Linearisierung <span class="math notranslate nohighlight">\(\dot{y} = \alpha y\)</span>.</p>
+<p>Sei <span class="math notranslate nohighlight">\(U \subset \R^2\)</span> der Phasenraum und wir betrachten das homogene, lineare Differentialgleichungssystem</p>
+<div class="math notranslate nohighlight">
+\[\dot{x}(t) = A x(t), \quad \forall t \in \R_0^+\]</div>
+<p>für eine Koeffizientenmatrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A = \begin{pmatrix} 0&amp;1\\0&amp;0\end{pmatrix}.\end{split}\]</div>
+<p>Wie man leicht nachrechnet besitzt diese Matrix den Eigenwert <span class="math notranslate nohighlight">\(\lambda = 0\)</span> mit algebraischer Vielfachheit <span class="math notranslate nohighlight">\(2\)</span> und geometrischer Vielfachheit <span class="math notranslate nohighlight">\(1\)</span> zum Eigenvektor <span class="math notranslate nohighlight">\(v = (1,0)^T \in \R^2\)</span>.
+Die Vielfachheiten des Eigenwert <strong>stimmen</strong> also <strong>nicht überein</strong>.</p>
+<p>Aus <a class="reference internal" href="#theorem:stabilität_linear">Theorem 2.1</a> wissen wir, dass eine Ruhelage in <span class="math notranslate nohighlight">\(\vec{0} \in \R^2\)</span> existiert.
+Man sieht jedoch leicht ein, dass sogar jeder Punkt <span class="math notranslate nohighlight">\(x_0 = (y, 0) \in U\)</span> eine Ruhelage des Systems darstellt, da diese Punkte ein Vielfaches des Eigenvektors zum Eigenwert <span class="math notranslate nohighlight">\(\lambda = 0\)</span> darstellen und somit im Kern der Matrix <span class="math notranslate nohighlight">\(A\)</span> liegen, d.h., für diese Punkte ist die rechte Seite des Differentialgleichungssystems <span class="math notranslate nohighlight">\(\vec{0} \in \R^2\)</span> und somit liegt eine Ruhelage vor.</p>
+<p>Wir wollen die Stabilität dieser Ruhelagen im Folgenden untersuchen.
+Hierzu betrachten wir die Norm des Phasenflusses <span class="math notranslate nohighlight">\(\Phi \colon I \times U \rightarrow U\)</span>, der für einen gegebenen Anfangswert <span class="math notranslate nohighlight">\(x_0 = (y,z) \in U\)</span> mit <span class="math notranslate nohighlight">\(z \neq 0\)</span> der die Lösung des Differentialgleichungssystems beschreibt mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\| \Phi_t(x_0) \| &amp;= \| e^{At}x_0 \| = \| \sum_{k=0}^\infty \frac{(At)^k}{k!} x_0\| = \| [\underbrace{(At)^0}_{=I_2} + (At)^1] x_0\| \\
+&amp;= \| \begin{pmatrix} 1 &amp; t \\ 0 &amp; 1\end{pmatrix}\begin{pmatrix} y \\ z \end{pmatrix} \| = \| \begin{pmatrix} y + tz \\ z\end{pmatrix} \| \overset{t\to \infty}{\longrightarrow} \infty.\end{split}\]</div>
+<p>Wir sehen also, dass für jeden Anfangswert <span class="math notranslate nohighlight">\(x_0 = (y,z)\)</span> mit <span class="math notranslate nohighlight">\(z \neq 0\)</span> die Lösung des Differentialgleichungssystems divergiert und somit ist jede Ruhelage des dynamischen Systems <strong>instabil</strong>.</p>
+</div>
+</div><p>Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nichtlinearen Fall schließen, wie das folgende Beispiel zeigt.</p>
+<div class="proof example admonition" id="example-9">
+<p class="admonition-title"><span class="caption-number">Example 2.3 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Wir betrachten eine gewöhnliche Differentialgleichung 1. Ordnung der Form</p>
+<div class="math notranslate nohighlight">
+\[\dot{x}(t) = \alpha x(t) + \beta x^3(t), \forall t \in \R^+_0.\]</div>
+<p>mit freien Parametern <span class="math notranslate nohighlight">\(\alpha, \beta \in \R\)</span>.</p>
+<p>Wie man einsieht ist <span class="math notranslate nohighlight">\(0\)</span> eine Ruhelage des dynamischen Systems, das durch diese Differentialgleichung charakterisiert wird.
+Wir betrachten die Linearisierung der Differentialgleichung in der Ruhelage mit <span class="math notranslate nohighlight">\(A := (DF)(0) = \alpha\)</span> und erhalten</p>
+<div class="math notranslate nohighlight">
+\[\dot{x}(t) = A x(t) = \alpha x(t), \quad \forall t \in \R^+_0.\]</div>
+<p>Folgende Fallunterscheidung zeigt nun das Stabilitätsverhalten der Ruhelage in Abhängigkeit der gewählten Parameter <span class="math notranslate nohighlight">\(\alpha, \beta \in \R\)</span>:</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p></p></th>
@@ -588,11 +638,7 @@ Die Null ist Gleichgewichtslage der DGL und ihre Linearisierung <span class="mat
 </tr>
 </tbody>
 </table>
-</div>
-</div><div class="proof remark admonition" id="remark-10">
-<p class="admonition-title"><span class="caption-number">Remark 2.5 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>Anschaulich gesprochen kann asymptotische Stabilität nur vorliegen, wenn der Fluss in der Nähe der Gleichgewichtslage das Phasenraumvolumen verkleinert. Daher kann man in physikalischen Situationen ohne Reibungseffekte höchstens Liapunov-Stabilität erwarten. das hat z.B. zur Folge, dass die Frage der <strong>Stabilität des Sonnensystems</strong> sehr subtil ist.</p>
+<p>Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter <span class="math notranslate nohighlight">\(\alpha\)</span>, sondern ebenfalls von <span class="math notranslate nohighlight">\(\beta\)</span> ab, was eine Stabilitätsanalyse deutlich komplizierter macht.</p>
 </div>
 </div></div>
 </div>
