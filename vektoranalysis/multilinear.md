@@ -244,6 +244,24 @@ und damit ist die Aussage bewiesen.
 
 ````
 
+````{prf:remark}
+Die Aussage lässt sich auf den Fall eines unendlich-dimensionalen Vektorraums übertragen. Hierfür erinnern wir daran, dass für einen Vektorraum $V$ stets eine Basis $B^V = \{b_i^v:i\in I\}\subset V$ existiert wobei $I$ eine (nicht notwendigerweise endliche) Indexmenge ist. Insbesondere bemerken wir, dass wir hier von einer **Hamelbasis** sprechen, d.h., für jedes Element $v\in V$ gibt es eindeutig bestimmte Koeffizienten $\alpha_i, i\in I$ s.d.
+
+```{math}
+v = \sum_{i\in I} \alpha_i b_i.
+```
+
+Der wichtige Punkt ist aber, dass nur **endlich viele** $\alpha_i$ ungleich null sind und die Summation somit keine eigentlich unendliche Reihe beschreibt sondern nur eine endliche Summe. Diese Konzept ist insbesondere verschieden vom Begriff der [Schauderbasis](https://de.wikipedia.org/wiki/Schauderbasis)
+````
+
+```{margin} Georg Hamel
+[Georg Karl Wilhelm Hamel](https://de.wikipedia.org/wiki/Georg_Hamel) (Geboren 12. September 1877 in Düren; Gestorben 4. Oktober 1954 in Landshut) war ein deutscher Mathematiker.
+```
+
+```{margin} Juliusz Schauder
+[Juliusz Paweł Schauder](https://de.wikipedia.org/wiki/Juliusz_Schauder) (Geboren 21. September 1899 in Lemberg; Gestorben September 1943) war ein polnischer Mathematiker.
+```
+
 Wir halten weiterhin fest, dass sich der doppelt duale Raum im endlich-dimensionalen Fall leicht charakterisieren lässt.
 
 ````{prf:lemma}

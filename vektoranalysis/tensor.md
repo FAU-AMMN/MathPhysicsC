@@ -13,7 +13,7 @@ Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingefü
 
 ### Der Cauchy Spannungstensor
 
-```{margin}
+```{margin} Augustin Cauchy
 [Augustin-Louis Cauchy](https://de.wikipedia.org/wiki/Augustin-Louis_Cauchy) (Geboren 21. August 1789 in Paris; Gestorben 23. Mai 1857 in Sceaux) war ein französischer Mathematiker.
 ```
 
@@ -37,7 +37,7 @@ Dieser Teil des Spannungsvektor zeigt in Richtung der normalen $\mathbf{n}$ welc
 
 Dieser Teil des Spannungstensors ist parallel zur Schnittfläche.
 
-Man erkennt nun, dass die Spannung in $V$ nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt $P\in V$ ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein Tensorfeld $\mathbf{\sigma}(x)$ existiert, s.d., 
+Man erkennt nun, dass die Spannung in $V$ nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt $P\in V$ ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein Tensorfeld $\mathbf{\sigma}(x)$ existiert, s.d.,
 
 ```{math}
 T^{\mathbf{n}}(x) = \mathbf{n}\cdot \mathbf{\sigma}(x),
@@ -94,16 +94,132 @@ $p \in L^1(X, Y)$, s.d. gilt
 \phi(v,w) = p((v\otimes w)) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.
 ```
 
-In diesem Fall schreibt man auch $X = V\otimes X$, zusätzlich ist die Schreibweise $\otimes(v,w) v\otimes w$ üblich.
+In diesem Fall schreibt man auch $X = V\otimes X$, $\otimes$ heißt Tensorprodukt und zusätzlich ist die Schreibweise $\otimes(v,w)=:v\otimes w$ üblich.
 ````
 
-**Was bedeutet das???**
+**Was bedeutet das?**
 
 Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. Was ist jetzt also ein Tensorprodukt?
 
 **Das Tensorprodukt ist universell:**
 
 Wir haben benutzten in der Definition oben das kartesische Produkt $\times$ welches eindeutig definiert ist. Im Gegensatz dazu gibt es nicht _ein_ Tensorprodukt $\otimes$ oder _einen_ Tensorproduktraum $V\otimes W$. Wir haben die Freiheit $\otimes$ zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann $V\otimes W$ Tensorproduktraum. Derartige Konzepte nennt man in der Algebra _universell_.
+
+**Was bedeutet die universelle Eigenschaft?**
+
+Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf $V\times W$ und dem Dualraum von $V\otimes W$ her. Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen schon über einfache Linearformen auf $V\otimes W$.
+
+## Existenz und Konstruktion
+
+Wir können ein Tensorprodukt konkret konstruieren indem wir uns auf die Basis der Vektorräume $V$ und $W$ zurückziehen. Diese Tatsache formulieren wir in der folgenden Aussage.
+
+````{prf:theorem}
+Für zwei reelle Vektorräume $V, W$ existiert stets mindestens ein Tensorprodukt $\otimes\in L^2(V\times W, V\otimes W)$.
+````
+
+````{prf:proof}
+Der folgende Beweis ist ein sogenannter konstruktiver Beweis, d.h., wir zeigen die Existenz eines Objekts indem wir es explizit angeben. Es gibt auch nicht-konstruktive Existenzbeweise.
+
+Es sei $B^V = \{b_i^V: i\in I^V\}$ eine Basis von $V$ und analog $B^W = \{b_i^W: i\in I^W\}$  eine Basis von $W$ für Indexmengen $I^V, I^W$. Wir betrachten das kartesische Produkt 
+
+```{math}
+J := I^V \times I^W = \{(i,j): i\in I^V, j\in I^W\}.
+```
+
+Es sei nun $X$ ein Vektorraum dessen Basis sich durch $J$ indizieren lässt, d.h., es existiert eine Menge 
+
+```{math}
+B^X = \{b_{ij}^X: (i,j)\in J\}
+```
+
+s.d. $B^X$ eine Basis von $X$ ist. Ein solcher Vektorraum existiert, da z.B. das kartesische Produkt $V\times W$ diese Eigenschaft erfüllt.
+
+Wir definieren nun eine bilineare Abbildung $\otimes: V\times W\to X$ über 
+
+```{math}
+b_i^V \otimes b_j^W := b_{ij}^X\quad\forall (i,j)\in J.
+```
+
+Beachte, $\otimes$ ist durch die Definition auf $J$ eindeutig festgelegt, da für beliebige $(v,w)\in V\times W$ endlich viele Faktoren 
+$\alpha_{i_1},\ldots,\alpha_{i_m}$ und $\beta_{j_1},\ldots, \beta_{j_n}$ existieren s.d.
+
+```{math}
+\otimes(v,w) 
+&= 
+\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) 
+\\&= 
+\sum_{k=1}^n \sum_{l=1}^m \otimes\left(b_{i_k}^V, b_{j_l}^W\right)
+\\&=
+\sum_{k=1}^n \sum_{l=1}^m b_{i_kj_l}^X.
+```
+
+Wir müssen nun die universelle Eigenschaft zeigen, sei dazu $\phi\in L^2(V\times W, Y)$ eine Bilinearform auf einen reellen Vektorraum $Y$, dann können wir eine Linearform auf $p:X\to Y$ definieren durch (analog reicht es die Definition auf den Basiselementen anzugeben)
+
+```{math}
+p(b_{ij}^X) := \phi(b_i^V, b_j^W).
+```
+
+Dann gilt nämlich, unter Ausnutzung der Linearität von $p$ und obiger Rechnung, dass 
+
+```{math}
+p(\otimes(v,w)) 
+&=
+\sum_{k=1}^n \sum_{l=1}^m p(b_{i_kj_l}^X)
+\\&=
+\sum_{k=1}^n \sum_{l=1}^m \phi\left(b_{i_k}^V, b_{j_l}^W\right)
+\\&
+\phi\big(\sum_{k=1}^n  b_{i_k}^V,\sum_{l=1}^m b_{j_l}^W\big)
+\\&
+\phi(v,w)
+```
+
+und somit gilt die universelle Eigenschaft. Insbesondere, da $p$ durch die obige Definition eindeutig festgelegt ist.
+
+````
+
+Als Korollar erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann. Hieran sieht man qualitativ den Unterschied zwischen $V\otimes W$ und $V\otimes W$.
+
+````{prf:corollary}
+Für zwei reelle Vektorräume $V,W$ mit Basen $B^V = \{b_i^V: i\in I^V\}, B^W = \{b_i^W: i\in I^W\}$ und ein Tensorprodukt $\otimes:V\times W\to V\otimes W$ ist 
+
+```{math}
+\{b_i^V\otimes b_j^W: i\in I^V, j\in I^W\}
+```
+
+eine Basis von $V\otimes W$.
+````
+
+Wir wissen nun, dass mindestens ein Tensorprodukt existiert, es stellt sich also die Frage inwiefern sich verschiedene derartige Abbildungen auf den gleichen Vektorräumen $V,W$ unterschieden. Seien dazu $\otimes_1, \otimes_2$ je zwei Tensorprodukte auf $V\times W$. Wegen der universellen Eigenschaft gibt es lineare Abbildungen $p_1: V\otimes_1 W\to W\otimes_2 V$ und $p_2: V\otimes_2 W\to W\otimes_1 V$, s.d.,
+
+```{math}
+\otimes_2 &= p_1 \circ \otimes_1\\
+\otimes_1 &= p_2 \circ \otimes_2.
+```
+
+und somit
+
+```{math}
+\otimes_2 &= p_1\circ p_2 \circ \otimes_2\\
+\otimes_1 &= p_2\circ p_1 \circ \otimes_1.
+```
+
+Da wir aber die Basis von $V\otimes_2 W$ über Elemente $\otimes_2(b_i^V, b_j^W)$ charakterisieren können, und aus der ersten Gleichung folgt, dass
+
+```{math}
+p_1\circ p_2(\otimes(b_i^V,b_j^W)) = \otimes(b_i^V, b_j^W)
+```
+
+wissen wir dass $p_1\circ p_2 = \mathrm{Id}$. Das folgt da $p_1\circ p_2$ als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist. 
+Analog folgt $p_2\circ p_1 = \mathrm{Id}$ und somit sind $p_1, p_2$ isomorph zueinander. D.h. wir haben insgesamt gezeigt, dass verschiedene Tensorprodukte stets isomorph zueinander sind.
+
+````{prf:lemma}
+Es seien $V,W$ zwei reelle Vektorräume und $\otimes_1,\otimes_2$ zwei Tensorprodukte. Dann existiert genau ein Isomorphismus $p:V\otimes_1 W\to V\otimes_2 W$, s.d.
+
+```{math}
+\otimes_2 = p\circ \otimes_1.
+```
+
+````
 
 ## Tensoren als Linearformen
 
