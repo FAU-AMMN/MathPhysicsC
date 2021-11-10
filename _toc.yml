@@ -13,4 +13,8 @@ chapters:
   sections:
   - file: ode_stability/stabilitaetsbegriffe.md
   - file: ode_stability/ruhelagen.md
+- file: vektoranalysis/vektoranalysis.md
+  sections:
+  - file: vektoranalysis/multilinear.md
+  - file: vektoranalysis/diffformen.md
 - file: references
