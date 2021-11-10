@@ -7,6 +7,10 @@ Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe [Wikipe
 
 Wir betrachten zwei Beispiele aus der Physik, welche auf Tensoren zurückgreifen.
 
+````{prf:remark}
+Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom latinischen _tendere_ (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.
+````
+
 ### Der Cauchy Spannungstensor
 
 ```{margin}
