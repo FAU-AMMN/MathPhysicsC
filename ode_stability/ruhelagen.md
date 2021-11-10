@@ -424,14 +424,14 @@ Sei $A\in \R^{n\times n}$ eine Matrix mit den Eigenwerten $\lambda_1,\dots, \lam
 Besitzen die Eigenwerte $\lambda_i \in \C, i=1,\ldots,n$ von $A$ einen nicht-positiven Realteil $Re(\lambda_i) \leq 0$, und ist im Fall $Re(\lambda_i)=0$ die geometrische Vielfachheit gleich der algebraischen Vielfachheit des Eigenwerts, dann ist $0\in \R^n$ eine **Liapunov-stabile** Ruhelage des dynamischen Systems, dass durch das lineare Differentialgleichungssystem
 
 ```{math}
-\dot{x}(t) = Ax(t), \forall t \in I \subset \R^+_0
+\dot{x}(t) = Ax(t), \quad  \forall t \in I \subset \R^+_0
 ```
 
 charakterisiert wird.
 ````
 ````{prf:proof}
 Aus {prf:ref}`theorem:stabilität_linear` wissen wir bereits, dass im Fall eines linearen dynamischen Systems $\vec{0} \in U$ eine Ruhelage im Phasenraum $U \subset \R^n$ ist.
-Seien $\lambda_1, \ldots, \lambda_k$ für $k \leq n$ die paarweise verschiedenen Eigenwerte der Matrix $A$. 
+Seien $\lambda_1, \ldots, \lambda_k \in \C$ für $k \leq n$ die paarweise verschiedenen Eigenwerte der Matrix $A$. 
 Wir betrachten wieder die Jordansche Normalform $J = S^{-1}AS$ der Matrix $A$ für Transformationsmatrizen $S,S^{-1} \in \C^{n \times n}$ und 
 
 ```{math}
@@ -444,7 +444,7 @@ J_{r_1}(\lambda_1)& & & 0\\
 \end{pmatrix}.
 ```
 
-Hierbei hat jeder Jordanblock (vgl. Kapitel 2.7 in {cite:p}`tenbrinck_2021`)) die Gestalt
+Hierbei bezeichnen $r_i \in \N, i=1,\ldots, k$ die algebraischen Vielfachheiten der zugehörigen Eigenwerte und jeder Jordanblock (vgl. Kapitel 2.7 in {cite:p}`tenbrinck_2021`)) hat die Gestalt
 
 ```{math}
  J_r(\lambda) \ \coloneqq \ \begin{pmatrix}
@@ -468,7 +468,7 @@ e^{Jt} = \begin{pmatrix}
 Betrachten wir nun die Norm der Lösungen des homogenen, linearen Differentialgleichungssystems für einen Startwert $x_0 \in U$ mit
 
 ```{math}
-\| \Phi_t(x_0) \| = \|e^{At}x_0\| = \|S^{-1}e^{Jt}S x_0\| \leq \|S^{-1}\| \|\exp{(Jt)}\| \|S\| \|x_0\|,
+\| \Phi_t(x_0) \| = \|e^{At}x_0\| = \|S^{-1}e^{Jt}S x_0\| \leq \|S^{-1}\| \|e^{Jt}\| \|S\| \|x_0\|,
 ```
 
 so sehen wir ein, dass die Ruhelage $\vec{0} \in U$ **Lyapunov-stabil** ist wenn für alle Jordanblöcke $J_{r_i}(\lambda_i), i=1,\ldots,k$ von $J$ der Ursprung $0\in \C^{r_i}$ eine Liapunov-stabile Ruhelage des folgenden linearen Differentialgleichungssystems ist
@@ -483,7 +483,7 @@ Betrachten wir also nun einen komplexen Eigenwert $\lambda_i \in \C$ von $A$ mit
 In diesem Fall ist der ihm zugeordnete Jordanblock eine Diagonalmatrix auf deren Hauptdiagonale der Eigenwert $\lambda_i \in \C$ steht, da alle Jordankästchen eindimensional sind. 
 In diesem Fall sehen wir, dass die Norm des Matrixexponentials beschränkt ist und wir dadurch **Lyapunov-Stabilität** der Ruhelage gezeigt haben, da gilt
 ```{math}
-\|e^{J_{r_i}(\lambda_i)t)}\| = |e^{\lambda_i t}| = |e^0e^{\mathcal{Im}(\lambda_i) t}| = |\cos{(\mathcal{Im}(\lambda_i)t)} + i \sin{(\mathcal{Im}(\lambda)t)}| = 1.
+\|e^{J_{r_i}(\lambda_i)t)}\| = |e^{\lambda_i t}| = |e^0e^{\mathcal{Im}(\lambda_i) t}| = |\cos{(\mathcal{Im}(\lambda_i)t)} + i \sin{(\mathcal{Im}(\lambda_i)t)}| = 1.
 ```
 Für diese Umformung haben wir die Definition der komplexen Exponentialfunktion genutzt, für die gilt:
 
@@ -538,7 +538,7 @@ Wie man einsieht ist $0$ eine Ruhelage des dynamischen Systems, das durch diese 
 Wir betrachten die Linearisierung der Differentialgleichung in der Ruhelage mit $A := (DF)(0) = \alpha$ und erhalten
 
 ```{math}
-\dot{x}(t) = A x(t) = \alpha x(t), \forall t \in \R^+_0.
+\dot{x}(t) = A x(t) = \alpha x(t), \quad \forall t \in \R^+_0.
 ```
  
 Folgende Fallunterscheidung zeigt nun das Stabilitätsverhalten der Ruhelage in Abhängigkeit der gewählten Parameter $\alpha, \beta \in \R$:
