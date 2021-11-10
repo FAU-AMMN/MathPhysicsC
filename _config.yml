@@ -42,6 +42,7 @@ sphinx:
       TeX:
         Macros:
           "Z"    : "\\mathbb{Z}"
+          "V"    : "V"
           "N"    : "\\mathbb{N}"
           "C"    : "\\mathbb{C}"
           "Q"    : "\\mathbb{Q}"
@@ -73,6 +74,7 @@ sphinx:
           "d"    : "\\mathrm{d}"
           "i"    : "\\mathrm{i}"
           "x"    : "\\mathbf{x}"
+          "sign" : "\\mathrm{sign}"
           "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]
     #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     # tojupyter_target_html: true
