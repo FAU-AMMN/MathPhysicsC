@@ -102,8 +102,8 @@ Dies liefert uns also **asymptotische Stabilität** der Ruhelage $0$.
 
 Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die $0$ immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.
 
+(s:linearisierung_ruhelage)=
 ## Linearisierung um Ruhelage
-:label: s:linearisierung_ruhelage
 
 In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
 Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
@@ -299,7 +299,7 @@ Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwende
 
 ## Asymptotische Stabilität von Ruhelagen
 
-Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes $F \colon U \rightarrow \R^n$ in {prf:ref}`lemma:int_exp_glgn` und der Gronwall-Ungleichung in {prf:ref}`lemma:Gronwall` sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.
+Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes $F \colon U \rightarrow \R^n$ in {prf:ref}`lem:intexpglgn` und der Gronwall-Ungleichung in {prf:ref}`lemma:Gronwall` sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.
 
 Wir formulieren direkt das Hauptresultat, dass uns ein hinreichendes Kriterium für **asymptotische Stabilität** der Ruhelage basierend auf den Eigenwerten der Linearisierung liefert.
 
@@ -321,7 +321,7 @@ charakterisiert wird, ist **asymptotisch stabil** wenn für die Eigenwerte $\lam
 ````
 
 ````{prf:proof}
-Wie bereits in {prf:ref}`s:linearisierung_ruhelage` diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit $x_F = 0 \in U$ gilt.
+Wie bereits in {ref}`s:linearisierung_ruhelage` diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit $x_F = 0 \in U$ gilt.
 Da $U\subseteq\R^n$ nach Vorraussetzung offen ist, können wir eine offene Kugel $B_\vec{r}(0) \coloneqq \{y \in U \colon ||y|| < \vec{r}\}$ mit Radius $\vec{r} > 0$ als Umgebung der Ruhelage $0$ finden, so dass $B_\vec{r}(0) \subset U$ gilt.
 
 Wir nehmen im Folgenden an, dass der Realteil der Eigenwerte $\lambda_i \in \C, i=1,\ldots,n$ der Linearisierung $A \, \coloneqq \, Df(0)$ echt negativ ist, d.h., für ein geeignetes $\Lambda > 0$ gilt die Abschätzung 
@@ -367,13 +367,13 @@ dann soll schon für die Norm der Lösung für beliebiges $t \geq 0$ gelten
 Da $c\epsilon e^{- \frac{\Lambda t}{2}} \leq c\epsilon < r <\tilde{r}$ gilt, liegt die Lösung somit noch in der offenen Kugel $B_{\vec{r}}(0) \subset U$ und konvergiert für $t \rightarrow \infty$ gegen 0, was den Satz beweist.
 
 Nehmen wir also an, dass $\|x(0)\| \leq \epsilon <\frac{r}{c}$ gelte.
-Nun können wir nach {prf:ref}`lemma:intexpglgn` die unbekannte Lösung durch ihre Linearisierung darstellen als
+Nun können wir nach {prf:ref}`lem:intexpglgn` die unbekannte Lösung durch ihre Linearisierung darstellen als
 
 ```{math}
 x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s.
 ```
 
-Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen [](eq:abschaetzung_norm_exponential) und [](eq:abschaetzung_residuum), so erhalten wir 
+Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen {eq}`eq:abschaetzung_norm_exponential` und {eq}`eq:abschaetzung_residuum`, so erhalten wir 
 
 ```{math}
 \|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, \mathrm{d}s, \quad \forall \|x\| \leq r.
