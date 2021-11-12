@@ -125,6 +125,9 @@ with open (path+file_name+extension, 'r' ) as f:
     
     # Par
     content_new = re.sub(r'\\AtStartPar', r'\\par', content_new, flags = re.M)
+
+    # Par
+    content_new = re.sub(r'\\unicode\{(.*?)\}', r'\\symbol{"\1}', content_new, flags = re.M)
     
     
     # get rid of certain commands

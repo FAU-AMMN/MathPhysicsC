@@ -95,5 +95,18 @@ Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten 
 
 Beweisen Sie die folgende Aussage:
 
-Sei $P \subseteq \mathbb{R}^{2m}$ ein (offener) Phasenraum und $\mathbb{J} = \begin{pmatrix} 0 & - \unicode{x1D7D9} \\ \unicode{x1D7D9} & 0 \end{pmatrix} \in Mat(2m, \mathbb{R})$. Ist die Hamilton-Funktion $H \in C^2(P, \mathbb{R})$, dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung $\dot x = \mathbb{J} \nabla H(x)$ konstant.
+Sei $P \subseteq \mathbb{R}^{2m}$ ein (offener) Phasenraum und $\mathbb{J} = \begin{pmatrix} 0 & - 𝟙 \\ 𝟙 & 0 \end{pmatrix} \in Mat(2m, \mathbb{R})$. Ist die Hamilton-Funktion $H \in C^2(P, \mathbb{R})$, dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung $\dot x = \mathbb{J} \nabla H(x)$ konstant.
+````
+
+````{admonition} Aufgabe: Hamilton-Funktion
+:class: hint
+
+Zeigen Sie mathematisch, dass die Hamilton-Funktion eines eindimensionalen harmonischen Oszillators gegeben ist durch:
+
+```{math}
+H(x,p) = \frac{p^2}{2m} + \frac{m}{2} w^2 x^2,
+```
+
+wobei $w = \sqrt{\frac{k}{m}}$ gilt.
+
 ````
