@@ -171,7 +171,7 @@ Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktio
 \end{enumerate}
 
 \par
-Damit lässt sich das gewöhnliche Differentialgleichungssystem aus \cref{ode/repetition:equation-eq-dgl} schreiben als
+Damit lässt sich das gewöhnliche Differentialgleichungssystem aus \eqref{equation:ode/repetition:eq:DGL} schreiben als
 \begin{align}\label{equation:ode/repetition:eq:DGL_time}
 F(z, y(t), \dot{y}(t), \ldots, y{(m)}(t)) = 0 \quad \forall t\in I.
 \end{align}\end{emphBox}
@@ -200,7 +200,7 @@ In Kapitel \{ref\}s:fluesse werden wir spezielle Diagramme basierend auf dem Beg
 
 \par
 Im Fall von \textbf{kontinuierlichen dynamischen Systemen} spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen.
-Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \cref{ode/repetition:equation-eq-dgl-time} nicht explizit von der Zeit abhängt.
+Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \eqref{equation:ode/repetition:eq:DGL_time} nicht explizit von der Zeit abhängt.
 \label{ode/repetition:definition-3}
 \begin{definition}{}{}
 
@@ -1126,6 +1126,101 @@ Die Matrix \(J\) entspricht eben einer solchen Drehung.
 
 \par
 Eine Formulierung der Bewegungsgleichungen eines dynamischen Systems als Hamiltonsche Differentialgleichungen hat den Vorteil, dass sie unter den sogenannten \emph{kanonischen Transformationen} in manchen Fällen in eine einfachere, lösbare Form gebracht werden können.
+\end{emphBox}
+
+
+\section{Aufgaben}
+\label{\detokenize{ode/ex:aufgaben}}\label{\detokenize{ode/ex::doc}}
+\begin{emphBox}{}{}{Aufgabe: DGL höherer Ordnung}
+
+\par
+Gegeben sei folgende gewöhnliche Differentialgleichung 4.\textasciitilde{}Ordnung:
+\begin{align*}
+x^{(4)}(t) = 7 x^{(3)}(t) - \dot x(t) + 5 x(t) + t^2
+\end{align*}
+\par
+Überführen Sie diese in ein System gewöhnlicher Differentialgleichungen 1.Ordnung.
+\end{emphBox}
+
+\begin{emphBox}{}{}{Aufgabe: Autonome gewöhnliche Differentialgleichungen}
+
+\par
+Entscheiden und begründen Sie mathematisch, ob die folgenden gewöhnlichen Differentialgleichungen \textbf{autonom} sind.
+
+\par
+\textbf{a)} Differentialgleichung für harmonischen Oszillator:
+\begin{align*}
+\ddot x(t) + \lambda x(t) = 0
+\end{align*}
+\par
+für eine Konstante \(\lambda \in \mathbb{R}\).
+
+\par
+\textbf{b)} Newtonsche Kraftgleichung:
+\begin{align*}
+m \ddot x(t) = F(t, x(t))
+\end{align*}
+\par
+für eine Konstante \(m > 0\), eine Kraft \(F: \mathbb{R} \times \mathbb{R}^3 \rightarrow \mathbb{R}^3\), welche von der Position im Raum \(x: \mathbb{R} \rightarrow \mathbb{R}^3\) und der Zeit \(t \in \mathbb{R}\) abhängt.
+
+\par
+\textbf{c)} Newtonsche Kraftgleichung:
+\begin{align*}
+m \ddot x(t) = F(t, x(t))
+\end{align*}
+\par
+für eine Konstante \(m > 0\), eine Kraft \(F: \mathbb{R}^3 \rightarrow \mathbb{R}^3\), welche im Gegensatz zur Situation in b) lediglich von der Position im Raum \(x: \mathbb{R} \rightarrow \mathbb{R}^3\) abhängt.
+
+\par
+\textbf{d)} Mathieusche Differentialgleichung:
+\begin{align*}
+\ddot x(t) + [\lambda + \gamma \cos(t)] ~ x(t) = 0
+\end{align*}
+\par
+für Konstanten \(\lambda, \gamma \in \mathbb{R}\).
+\end{emphBox}
+
+\begin{emphBox}{}{}{Flüsse}
+
+\par
+Für \(I = \mathbb{R}^0_+\) und \(U = \mathbb{R}^2\) betrachten wir die Abbildung \(\phi: I \times U \rightarrow U\) mit
+\begin{align*}
+\phi(t, x) = 
+\begin{pmatrix} \frac{x_2}{2} ~ \sin(\omega t) + x_1 ~ \cos(\omega t) \\ x_2 ~ \cos(\omega t) - 2 x_1 ~ \sin(\omega t) \end{pmatrix},\end{align*}
+\par
+wobei \(x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\) gilt.
+Zeigen Sie, dass diese Abbildung die mathematischen Eigenschaften eines Flusses erfüllt.
+\end{emphBox}
+
+\begin{emphBox}{}{}{Phasenporträt gedämpfter Oszillator}
+
+\par
+Wir betrachten die Bewegungsgleichung für den harmonischen Oszillator
+\begin{align*}
+m ~ \ddot x(t) + r ~ \dot x(t) + k ~ x(t) = 0
+\end{align*}
+\par
+mit Masse \(m = 1  ~ kg\), Dämpfungskonstante \(r = 0.5 ~ \frac{kg}{s}\) und Federkonstante \(k = 1.5 ~ \frac{kg}{s^2}\).
+
+\par
+Wie in Beispiel 1.3 im Skript führen wir den Impuls \(p(t) = m ~ \dot x(t)\) ein und erhalten das Differentialgleichungssystem erster Ordnung
+\begin{align*}
+\dot x(t) &= \frac{1}{m} ~ p(t)\\
+\dot p(t) &= -k ~ x(t) - \frac{r}{m} ~ p(t).
+\end{align*}
+\par
+Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten \(x\) und \(p\), indem Sie für die folgenden Punkte \((x,p)\) die durch das Differentialsystem gegebene Steigung berechnen und einzeichnen:
+\begin{align*}
+(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1) \quad (-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)
+\end{align*}\end{emphBox}
+
+\begin{emphBox}{}{}{Aufgabe: Eigenschaften Hamilton Funktion}
+
+\par
+Beweisen Sie die folgende Aussage:
+
+\par
+Sei \(P \subseteq \mathbb{R}^{2m}\) ein (offener) Phasenraum und \(\mathbb{J} = \begin{pmatrix} 0 & - \unicode{x1D7D9} \\ \unicode{x1D7D9} & 0 \end{pmatrix} \in Mat(2m, \mathbb{R})\). Ist die Hamilton Funktion \(H \in C^2(P, \mathbb{R})\), dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung \(\dot x = \mathbb{J} \nabla H(x)\) konstant.
 \end{emphBox}
 
 
