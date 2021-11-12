@@ -590,4 +590,3 @@ f^*(c_1\alpha+c_2\beta)(v_1,\ldots,v_k)
 * Folgt aus 2. und 3.: $(f^{-1})^*f^* = (f\circ f^{-1})^* = Id_F^* =
 Id_{\Lambda^*(F)}$.
 * Hausaufgabe.
-
