@@ -9,8 +9,14 @@ chapters:
   - file: ode/repetition
   - file: ode/fluesse
   - file: ode/hamilton
+  - file: ode/ex
 - file: ode_stability/stabilitaetsanalyse.md
   sections:
   - file: ode_stability/stabilitaetsbegriffe.md
   - file: ode_stability/ruhelagen.md
+- file: vektoranalysis/vektoranalysis.md
+  sections:
+  - file: vektoranalysis/multilinear.md
+  - file: vektoranalysis/tensor.md
+  - file: vektoranalysis/diffformen.md
 - file: references
