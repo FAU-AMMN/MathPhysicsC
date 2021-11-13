@@ -1,0 +1,582 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2. Tensoren und Tensorprodukte &#8212; Mathematik für Physikstudierende C</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.3. Differentialformen" href="diffformen.html" />
+    <link rel="prev" title="3.1. Multilinearformen" href="multilinear.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/FAU-DMM-Logo-rgb-10cm.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Mathematik für Physikstudierende C</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Mathematik für Physikstudierende C
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode/ode.html">
+   1. Gewöhnliche Differentialgleichungen für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/dynamicSystems.html">
+     1.1. Einführung in dynamische Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/repetition.html">
+     1.2. Wiederholung: Gewöhnliche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/fluesse.html">
+     1.3. Phasenflüsse und Phasenportraits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/hamilton.html">
+     1.4. Hamiltonsche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/ex.html">
+     1.5. Aufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode_stability/stabilitaetsanalyse.html">
+   2. Stabilitätsanalyse für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode_stability/stabilitaetsbegriffe.html">
+     2.1. Stabilitätsbegriffe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode_stability/ruhelagen.html">
+     2.2. Stabilität von Ruhelagen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="vektoranalysis.html">
+   3. Vektoranalysis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="multilinear.html">
+     3.1. Multilinearformen
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.2. Tensoren und Tensorprodukte
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="diffformen.html">
+     3.3. Differentialformen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   4. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/vektoranalysis/tensor.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FAU-AMMN/MathPhysicsC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   3.2.1. Motivation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#der-cauchy-spannungstensor">
+     3.2.1.1. Der Cauchy Spannungstensor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantenverschrankung">
+     3.2.1.2. Quantenverschränkung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#das-tensorprodukt">
+   3.2.2. Das Tensorprodukt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#existenz-und-konstruktion">
+   3.2.3. Existenz und Konstruktion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensoren-als-linearformen">
+   3.2.4. Tensoren als Linearformen
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="tensoren-und-tensorprodukte">
+<h1><span class="section-number">3.2. </span>Tensoren und Tensorprodukte<a class="headerlink" href="#tensoren-und-tensorprodukte" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Kapitel widmen wir uns einem wichtigen aber komplizierten Thema der Vektoranalysis, nämlich Tensoren und Tensorprodukten.
+Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe <a class="reference external" href="https://de.wikipedia.org/wiki/Tensorprodukt">Wikipedia</a>) weshalb es nicht leicht ist eine Einführung zu geben die gleichzeitig allgemein, aber auch verständlich ist. Da Tensoren aber eine wichtige Rolle in der Physik spielen werden wir uns hier damit beschäftigen.</p>
+<div class="section" id="motivation">
+<h2><span class="section-number">3.2.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Wir betrachten zwei Beispiele aus der Physik, welche auf Tensoren zurückgreifen.</p>
+<div class="proof remark admonition" id="remark-0">
+<p class="admonition-title"><span class="caption-number">Remark 3.7 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom latinischen <em>tendere</em> (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.</p>
+</div>
+</div><div class="section" id="der-cauchy-spannungstensor">
+<h3><span class="section-number">3.2.1.1. </span>Der Cauchy Spannungstensor<a class="headerlink" href="#der-cauchy-spannungstensor" title="Permalink to this headline">¶</a></h3>
+<div class="margin sidebar">
+<p class="sidebar-title">Augustin Cauchy</p>
+<p><a class="reference external" href="https://de.wikipedia.org/wiki/Augustin-Louis_Cauchy">Augustin-Louis Cauchy</a> (Geboren 21. August 1789 in Paris; Gestorben 23. Mai 1857 in Sceaux) war ein französischer Mathematiker.</p>
+</div>
+<p>Mechanische Spannung beschreibt die innere Beanspruchung und Kräfte in einem Volumen <span class="math notranslate nohighlight">\(V\subset\R^3\)</span> die aufgrund einer äußeren Belastungen auftreten. Die grundlegende Idee ist das <strong>Euler-Cauchy Stress Prinzip</strong>, welches beschreibt, dass auf jede Schnittfläche <span class="math notranslate nohighlight">\(A\subset\R^2\)</span> welche ein Volumen in zwei Teile trennt, von diesen zwei Komponenten eine Spannung auf <span class="math notranslate nohighlight">\(A\)</span> ausgewirkt wird, welche durch den <strong>Spannungsvektor</strong> <span class="math notranslate nohighlight">\(\mathbf{T}^n\)</span> beschrieben wird. Der Spannungsvektor ist hierbei von der Dimension “Kraft pro Fläche”.</p>
+<div class="figure align-default" id="fig-stress">
+<a class="reference internal image-reference" href="../_images/stress_vector.png"><img alt="../_images/stress_vector.png" src="../_images/stress_vector.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Visualisierung für Normal- und Scherspannung an einer Schnittfläche. Quelle: <a class="reference external" href="https://en.wikipedia.org/wiki/Cauchy_stress_tensor">Wikipedia; Cauchy Stress Tensor</a>.</span><a class="headerlink" href="#fig-stress" title="Permalink to this image">¶</a></p>
+</div>
+<p>Wie in <a class="reference internal" href="#fig-stress"><span class="std std-numref">Fig. 3.1</span></a> visualisiert teilt sich die Spannung in zwei Komponenten auf:</p>
+<p><strong>Normalspannung:</strong></p>
+<p>Dieser Teil des Spannungsvektor zeigt in Richtung der normalen <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> welche orthogonal auf der Schnittfläche stehen.</p>
+<p><strong>Scherspannung:</strong></p>
+<p>Dieser Teil des Spannungstensors ist parallel zur Schnittfläche.</p>
+<p>Man erkennt nun, dass die Spannung in <span class="math notranslate nohighlight">\(V\)</span> nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt <span class="math notranslate nohighlight">\(P\in V\)</span> ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein Tensorfeld <span class="math notranslate nohighlight">\(\mathbf{\sigma}(x)\)</span> existiert, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[T^{\mathbf{n}}(x) = \mathbf{n}\cdot \mathbf{\sigma}(x),\]</div>
+<p>d.h. in jedem Punkt <span class="math notranslate nohighlight">\(x\in V\)</span> ist der Stressvektor linear im Normalenvektor <span class="math notranslate nohighlight">\(\mathbf{n}\)</span>.</p>
+<div class="figure align-default" id="fig-stress-comp">
+<a class="reference internal image-reference" href="../_images/stress_tensor_comp.png"><img alt="../_images/stress_tensor_comp.png" src="../_images/stress_tensor_comp.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Quelle: <a class="reference external" href="https://de.wikipedia.org/wiki/Spannungstensor">Wikipedia; Spannungstensor</a>.</span><a class="headerlink" href="#fig-stress-comp" title="Permalink to this image">¶</a></p>
+</div>
+<p>Hierfür betrachtet man einen freigeschnittenen Würfel wie in <a class="reference internal" href="#fig-stress-comp"><span class="std std-numref">Fig. 3.2</span></a> und definiert für die drei verschiedenen Flächen (orthogonal zu den Einheitsvektoren) den Stresstensor</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{T}^{e_i}:= \sum_{j=1}^3 \sigma_{ij} e_j.\]</div>
+<p>So haben wir z.B. für <span class="math notranslate nohighlight">\(\mathbf{T}^{e_1}\)</span> die Normalspannung gegeben durch <span class="math notranslate nohighlight">\(\sigma_{11} e_1\)</span> und die zwei Scherspannungskomponenten <span class="math notranslate nohighlight">\(\sigma_{12} e_2, \sigma_{13} e_3\)</span>. Insgesamt erhält man neun Komponenten <span class="math notranslate nohighlight">\(\sigma_{ij}\)</span> welche über die Definition</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\sigma} := \sum_{i=1}^3 e_i \otimes \mathbf{T}^{e_i} = \sum_{i=1}^3\sum_{j=1}^3 \sigma_{ij} (e_i\otimes e_j)\]</div>
+<p>den Cauchy Stresstensor <span class="math notranslate nohighlight">\(\mathbf{\sigma}\)</span> ergebene. Hierbei bezeichnet <span class="math notranslate nohighlight">\(\otimes\)</span> das <strong>dyadische Produkt</strong> zweier Vektoren. Für <span class="math notranslate nohighlight">\(x\in\R^n,y\in\R^m\)</span> definieren wir</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x \otimes y := 
+\begin{pmatrix}
+x_1y_1 &amp;\ldots &amp;x_1 y_m\\
+\vdots &amp;\ddots &amp; \vdots\\
+x_n y_1&amp;\ldots&amp; x_n y_m
+\end{pmatrix}.\end{split}\]</div>
+<p>Wir werden später sehen, dass man die Idee <span class="math notranslate nohighlight">\(\sigma\)</span> über das dyadische Produkt zu definieren abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.</p>
+</div>
+<div class="section" id="quantenverschrankung">
+<h3><span class="section-number">3.2.1.2. </span>Quantenverschränkung<a class="headerlink" href="#quantenverschrankung" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="das-tensorprodukt">
+<h2><span class="section-number">3.2.2. </span>Das Tensorprodukt<a class="headerlink" href="#das-tensorprodukt" title="Permalink to this headline">¶</a></h2>
+<p>Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es später konkret realisieren.</p>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 3.8 </span> (Tensorprodukt)</p>
+<div class="definition-content section" id="proof-content">
+<p>Es seien <span class="math notranslate nohighlight">\(V,W\)</span> zwei reelle Vektorräume. Ein reeler Vektorraum <span class="math notranslate nohighlight">\(X\)</span> heißt <strong>Tensorproduktraum</strong> falls eine bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes:V\times W\rightarrow X\)</span> existiert, s.d., die folgende <strong>universelle Eigenschaft</strong> gilt:</p>
+<p>Für jede Bilinearform <span class="math notranslate nohighlight">\(\phi\in L^2(V\times W, Y)\)</span> in einen beliebigen reellen Vektorraum <span class="math notranslate nohighlight">\(Y\)</span>, existiert eine eindeutige lineare Abbildung
+<span class="math notranslate nohighlight">\(p \in L^1(X, Y)\)</span>, s.d. gilt</p>
+<div class="math notranslate nohighlight">
+\[\phi(v,w) = p((v\otimes w)) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.\]</div>
+<p>In diesem Fall schreibt man auch <span class="math notranslate nohighlight">\(X = V\otimes X\)</span>, <span class="math notranslate nohighlight">\(\otimes\)</span> heißt Tensorprodukt und zusätzlich ist die Schreibweise <span class="math notranslate nohighlight">\(\otimes(v,w)=:v\otimes w\)</span> üblich.</p>
+</div>
+</div><p><strong>Was bedeutet das?</strong></p>
+<p>Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. Was ist jetzt also ein Tensorprodukt?</p>
+<p><strong>Das Tensorprodukt ist universell:</strong></p>
+<p>Wir haben benutzten in der Definition oben das kartesische Produkt <span class="math notranslate nohighlight">\(\times\)</span> welches eindeutig definiert ist. Im Gegensatz dazu gibt es nicht <em>ein</em> Tensorprodukt <span class="math notranslate nohighlight">\(\otimes\)</span> oder <em>einen</em> Tensorproduktraum <span class="math notranslate nohighlight">\(V\otimes W\)</span>. Wir haben die Freiheit <span class="math notranslate nohighlight">\(\otimes\)</span> zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann <span class="math notranslate nohighlight">\(V\otimes W\)</span> Tensorproduktraum. Derartige Konzepte nennt man in der Algebra <em>universell</em>.</p>
+<p><strong>Was bedeutet die universelle Eigenschaft?</strong></p>
+<p>Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf <span class="math notranslate nohighlight">\(V\times W\)</span> und dem Dualraum von <span class="math notranslate nohighlight">\(V\otimes W\)</span> her. Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen schon über einfache Linearformen auf <span class="math notranslate nohighlight">\(V\otimes W\)</span>.</p>
+</div>
+<div class="section" id="existenz-und-konstruktion">
+<h2><span class="section-number">3.2.3. </span>Existenz und Konstruktion<a class="headerlink" href="#existenz-und-konstruktion" title="Permalink to this headline">¶</a></h2>
+<p>Wir können ein Tensorprodukt konkret konstruieren indem wir uns auf die Basis der Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> zurückziehen. Diese Tatsache formulieren wir in der folgenden Aussage.</p>
+<div class="proof theorem admonition" id="theorem-2">
+<p class="admonition-title"><span class="caption-number">Theorem 3.3 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Für zwei reelle Vektorräume <span class="math notranslate nohighlight">\(V, W\)</span> existiert stets mindestens ein Tensorprodukt <span class="math notranslate nohighlight">\(\otimes\in L^2(V\times W, V\otimes W)\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Der folgende Beweis ist ein sogenannter konstruktiver Beweis, d.h., wir zeigen die Existenz eines Objekts indem wir es explizit angeben. Es gibt auch nicht-konstruktive Existenzbeweise.</p>
+<p>Es sei <span class="math notranslate nohighlight">\(B^V = \{b_i^V: i\in I^V\}\)</span> eine Basis von <span class="math notranslate nohighlight">\(V\)</span> und analog <span class="math notranslate nohighlight">\(B^W = \{b_i^W: i\in I^W\}\)</span>  eine Basis von <span class="math notranslate nohighlight">\(W\)</span> für Indexmengen <span class="math notranslate nohighlight">\(I^V, I^W\)</span>. Wir betrachten das kartesische Produkt</p>
+<div class="math notranslate nohighlight">
+\[J := I^V \times I^W = \{(i,j): i\in I^V, j\in I^W\}.\]</div>
+<p>Es sei nun <span class="math notranslate nohighlight">\(X\)</span> ein Vektorraum dessen Basis sich durch <span class="math notranslate nohighlight">\(J\)</span> indizieren lässt, d.h., es existiert eine Menge</p>
+<div class="math notranslate nohighlight">
+\[B^X = \{b_{ij}^X: (i,j)\in J\}\]</div>
+<p>s.d. <span class="math notranslate nohighlight">\(B^X\)</span> eine Basis von <span class="math notranslate nohighlight">\(X\)</span> ist. Ein solcher Vektorraum existiert, da z.B. das kartesische Produkt <span class="math notranslate nohighlight">\(V\times W\)</span> diese Eigenschaft erfüllt.</p>
+<p>Wir definieren nun eine bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes: V\times W\to X\)</span> über</p>
+<div class="math notranslate nohighlight">
+\[b_i^V \otimes b_j^W := b_{ij}^X\quad\forall (i,j)\in J.\]</div>
+<p>Beachte, <span class="math notranslate nohighlight">\(\otimes\)</span> ist durch die Definition auf <span class="math notranslate nohighlight">\(J\)</span> eindeutig festgelegt, da für beliebige <span class="math notranslate nohighlight">\((v,w)\in V\times W\)</span> endlich viele Faktoren
+<span class="math notranslate nohighlight">\(\alpha_{i_1},\ldots,\alpha_{i_m}\)</span> und <span class="math notranslate nohighlight">\(\beta_{j_1},\ldots, \beta_{j_n}\)</span> existieren s.d.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\otimes(v,w) 
+&amp;= 
+\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) 
+\\&amp;= 
+\sum_{k=1}^n \sum_{l=1}^m \otimes\left(b_{i_k}^V, b_{j_l}^W\right)
+\\&amp;=
+\sum_{k=1}^n \sum_{l=1}^m b_{i_kj_l}^X.\end{split}\]</div>
+<p>Wir müssen nun die universelle Eigenschaft zeigen, sei dazu <span class="math notranslate nohighlight">\(\phi\in L^2(V\times W, Y)\)</span> eine Bilinearform auf einen reellen Vektorraum <span class="math notranslate nohighlight">\(Y\)</span>, dann können wir eine Linearform auf <span class="math notranslate nohighlight">\(p:X\to Y\)</span> definieren durch (analog reicht es die Definition auf den Basiselementen anzugeben)</p>
+<div class="math notranslate nohighlight">
+\[p(b_{ij}^X) := \phi(b_i^V, b_j^W).\]</div>
+<p>Dann gilt nämlich, unter Ausnutzung der Linearität von <span class="math notranslate nohighlight">\(p\)</span> und obiger Rechnung, dass</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(\otimes(v,w)) 
+&amp;=
+\sum_{k=1}^n \sum_{l=1}^m p(b_{i_kj_l}^X)
+\\&amp;=
+\sum_{k=1}^n \sum_{l=1}^m \phi\left(b_{i_k}^V, b_{j_l}^W\right)
+\\&amp;
+\phi\big(\sum_{k=1}^n  b_{i_k}^V,\sum_{l=1}^m b_{j_l}^W\big)
+\\&amp;
+\phi(v,w)\end{split}\]</div>
+<p>und somit gilt die universelle Eigenschaft. Insbesondere, da <span class="math notranslate nohighlight">\(p\)</span> durch die obige Definition eindeutig festgelegt ist.</p>
+</div>
+<p>Als Korollar erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann. Hieran sieht man qualitativ den Unterschied zwischen <span class="math notranslate nohighlight">\(V\otimes W\)</span> und <span class="math notranslate nohighlight">\(V\otimes W\)</span>.</p>
+<div class="proof corollary admonition" id="corollary-3">
+<p class="admonition-title"><span class="caption-number">Corollary 3.1 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>Für zwei reelle Vektorräume <span class="math notranslate nohighlight">\(V,W\)</span> mit Basen <span class="math notranslate nohighlight">\(B^V = \{b_i^V: i\in I^V\}, B^W = \{b_i^W: i\in I^W\}\)</span> und ein Tensorprodukt <span class="math notranslate nohighlight">\(\otimes:V\times W\to V\otimes W\)</span> ist</p>
+<div class="math notranslate nohighlight">
+\[\{b_i^V\otimes b_j^W: i\in I^V, j\in I^W\}\]</div>
+<p>eine Basis von <span class="math notranslate nohighlight">\(V\otimes W\)</span>.</p>
+</div>
+</div><p>Wir wissen nun, dass mindestens ein Tensorprodukt existiert, es stellt sich also die Frage inwiefern sich verschiedene derartige Abbildungen auf den gleichen Vektorräumen <span class="math notranslate nohighlight">\(V,W\)</span> unterschieden. Seien dazu <span class="math notranslate nohighlight">\(\otimes_1, \otimes_2\)</span> je zwei Tensorprodukte auf <span class="math notranslate nohighlight">\(V\times W\)</span>. Wegen der universellen Eigenschaft gibt es lineare Abbildungen <span class="math notranslate nohighlight">\(p_1: V\otimes_1 W\to W\otimes_2 V\)</span> und <span class="math notranslate nohighlight">\(p_2: V\otimes_2 W\to W\otimes_1 V\)</span>, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\otimes_2 &amp;= p_1 \circ \otimes_1\\
+\otimes_1 &amp;= p_2 \circ \otimes_2.\end{split}\]</div>
+<p>und somit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\otimes_2 &amp;= p_1\circ p_2 \circ \otimes_2\\
+\otimes_1 &amp;= p_2\circ p_1 \circ \otimes_1.\end{split}\]</div>
+<p>Da wir aber die Basis von <span class="math notranslate nohighlight">\(V\otimes_2 W\)</span> über Elemente <span class="math notranslate nohighlight">\(\otimes_2(b_i^V, b_j^W)\)</span> charakterisieren können, und aus der ersten Gleichung folgt, dass</p>
+<div class="math notranslate nohighlight">
+\[p_1\circ p_2(\otimes(b_i^V,b_j^W)) = \otimes(b_i^V, b_j^W)\]</div>
+<p>wissen wir dass <span class="math notranslate nohighlight">\(p_1\circ p_2 = \mathrm{Id}\)</span>. Das folgt da <span class="math notranslate nohighlight">\(p_1\circ p_2\)</span> als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist.
+Analog folgt <span class="math notranslate nohighlight">\(p_2\circ p_1 = \mathrm{Id}\)</span> und somit sind <span class="math notranslate nohighlight">\(p_1, p_2\)</span> isomorph zueinander. D.h. wir haben insgesamt gezeigt, dass verschiedene Tensorprodukte stets isomorph zueinander sind.</p>
+<div class="proof lemma admonition" id="lemma-4">
+<p class="admonition-title"><span class="caption-number">Lemma 3.7 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es seien <span class="math notranslate nohighlight">\(V,W\)</span> zwei reelle Vektorräume und <span class="math notranslate nohighlight">\(\otimes_1,\otimes_2\)</span> zwei Tensorprodukte. Dann existiert genau ein Isomorphismus <span class="math notranslate nohighlight">\(p:V\otimes_1 W\to V\otimes_2 W\)</span>, s.d.</p>
+<div class="math notranslate nohighlight">
+\[\otimes_2 = p\circ \otimes_1.\]</div>
+</div>
+</div></div>
+<div class="section" id="tensoren-als-linearformen">
+<h2><span class="section-number">3.2.4. </span>Tensoren als Linearformen<a class="headerlink" href="#tensoren-als-linearformen" title="Permalink to this headline">¶</a></h2>
+<p>Als Einleitung in das Thema wollen wir Tensoren zunächst als Linearformen auf <span class="math notranslate nohighlight">\(\V_1\times\ldots\times\V_k\)</span>
+betrachten wobei für <span class="math notranslate nohighlight">\(i=1,\ldots,k\)</span> <span class="math notranslate nohighlight">\(\V_i\)</span> reelle endlich dimensionale Vektorräume sind.
+Man schreibt in diesem Fall auch</p>
+<div class="math notranslate nohighlight">
+\[\V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k,\R)\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\otimes\)</span> das Tensorprodukt bezeichnet.</p>
+<p>Der wichtige Spezialfall ist hier allerdings nun nicht <span class="math notranslate nohighlight">\(\V^k\)</span> sondern ein kartesisches Produkt der Form</p>
+<div class="math notranslate nohighlight">
+\[(V^\ast)^r\times V^s.\]</div>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 3.9 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\V\)</span> ein reeller endlich-dimensionaler Vektorraum, dann nennt man</p>
+<div class="math notranslate nohighlight">
+\[T^r_s(V) := L((V^\ast)^r\times V^s, \R)\]</div>
+<p>Menge der <span class="math notranslate nohighlight">\(r\)</span>-fach <strong>kontravarianten</strong> und <span class="math notranslate nohighlight">\(s\)</span>-fach <strong>kovarianten</strong> Tensoren, oder alternativ Tensoren der Stufe <span class="math notranslate nohighlight">\((r,s)\)</span>.</p>
+</div>
+</div><p>Wir wollen diese abstrakte Definition nun mit einfachen Beispielen veranschaulichen zunächst für <span class="math notranslate nohighlight">\(r+s=1\)</span>.</p>
+<div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 3.5 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Tensoren der Stufe <span class="math notranslate nohighlight">\((1,0)\)</span> können mit Elementen des Vektorraums selbst identifiziert werden, denn</p>
+<div class="math notranslate nohighlight">
+\[T^1_0(V) = L((V^\ast), \R) = \V^{\ast\ast}\cong \V\]</div>
+<p>mit der Identifikation aus <a class="reference internal" href="multilinear.html#lem:doubledual">Lemma 3.4</a>. Weiterhin sind Tensoren der Stufe <span class="math notranslate nohighlight">\((0,1)\)</span> Elemente des
+Dualraums, also einfach Linearformen auf <span class="math notranslate nohighlight">\(\V\)</span>, sogenannte <em>Kovektoren</em>.</p>
+</div>
+</div><p>Als weiteren Spezialfall erhalten wir Multilinearformen.</p>
+<div class="proof example admonition" id="example-7">
+<p class="admonition-title"><span class="caption-number">Example 3.6 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Tensoren der Stufe <span class="math notranslate nohighlight">\((0,k)\)</span> sind <span class="math notranslate nohighlight">\(k\)</span>-Linearformen, da <span class="math notranslate nohighlight">\(T^0_k(V) = L^k(V)\)</span>.</p>
+</div>
+</div><div class="proof example admonition" id="example-8">
+<p class="admonition-title"><span class="caption-number">Example 3.7 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Aus einer linearen Abbildung <span class="math notranslate nohighlight">\(A:\V\to\V\)</span> erhält man direkt einen Tensor der Stufe <span class="math notranslate nohighlight">\((1,1)\)</span> über die Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\varphi, v \mapsto \varphi(Av).\]</div>
+</div>
+</div></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./vektoranalysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="multilinear.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3.1. </span>Multilinearformen</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="diffformen.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.3. </span>Differentialformen</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By J. Laubmann, T. Roith, D. Tenbrinck<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

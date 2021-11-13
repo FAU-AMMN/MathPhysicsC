@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.3. Differentialformen &#8212; Mathematik für Physikstudierende C</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Bibliography" href="../references.html" />
+    <link rel="prev" title="3.2. Tensoren und Tensorprodukte" href="tensor.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/FAU-DMM-Logo-rgb-10cm.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Mathematik für Physikstudierende C</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Mathematik für Physikstudierende C
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode/ode.html">
+   1. Gewöhnliche Differentialgleichungen für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/dynamicSystems.html">
+     1.1. Einführung in dynamische Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/repetition.html">
+     1.2. Wiederholung: Gewöhnliche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/fluesse.html">
+     1.3. Phasenflüsse und Phasenportraits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/hamilton.html">
+     1.4. Hamiltonsche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/ex.html">
+     1.5. Aufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode_stability/stabilitaetsanalyse.html">
+   2. Stabilitätsanalyse für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode_stability/stabilitaetsbegriffe.html">
+     2.1. Stabilitätsbegriffe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode_stability/ruhelagen.html">
+     2.2. Stabilität von Ruhelagen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="vektoranalysis.html">
+   3. Vektoranalysis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="multilinear.html">
+     3.1. Multilinearformen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tensor.html">
+     3.2. Tensoren und Tensorprodukte
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.3. Differentialformen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   4. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/vektoranalysis/diffformen.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FAU-AMMN/MathPhysicsC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="differentialformen">
+<h1><span class="section-number">3.3. </span>Differentialformen<a class="headerlink" href="#differentialformen" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Kapitel werden wir nun <a class="reference external" href="https://de.wikipedia.org/wiki/Differentialform">Differentialformen</a> einführen. Die entscheidende Neuerung im Vergleich zum vorhergehenden Kapitel, ist
+dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen, speziell betrachten wir eine offene Menge <span class="math notranslate nohighlight">\(U\subset\R^n\)</span>. Ein weiterer wichtiger Aspekt, ist dass wir im Folgenden mit glatten Funktion arbeiten wollen, d.h., mit dem Raum <span class="math notranslate nohighlight">\(C^\infty(U,\R^n)\)</span>.</p>
+<p>Eine Differentialform <span class="math notranslate nohighlight">\(\omega\)</span> auf <span class="math notranslate nohighlight">\(U\subseteq\R^n\)</span> ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.</p>
+<p>Wir schreiben eine allgemeine <em><span class="math notranslate nohighlight">\(k\)</span>–Form</em> <span class="math notranslate nohighlight">\(\omega\)</span> in der <em>Grundform</em></p>
+<div class="math notranslate nohighlight">
+\[\omega = \sum_{1\leq i_1&lt;\ldots&lt;i_k\leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}\in\Omega^k(U),\]</div>
+<p>wobei</p>
+<ul class="simple">
+<li><p>die <span class="math notranslate nohighlight">\(\omega_{i_1\ldots i_k}\in \Omega^0(U):=C^\infty(U,\R)\)</span>, also glatte reelle Funktionen auf <span class="math notranslate nohighlight">\(U\)</span> sind,</p></li>
+<li><p>und die <span class="math notranslate nohighlight">\(dx_i\)</span> den Koordinatenfunktionen <span class="math notranslate nohighlight">\(x_i:\R^n\to\R\)</span> zugeordnete <span class="math notranslate nohighlight">\(1\)</span>–Differentialformen sind (<span class="math notranslate nohighlight">\(dx_i\in\Omega^1(\R^n)\)</span>).</p></li>
+<li><p>Den Raum der <span class="math notranslate nohighlight">\(k\)</span>–Differentialformen schreiben wir ab jetzt zur Unterscheidung vom Raum der äußeren <span class="math notranslate nohighlight">\(k\)</span>–Formen mit dem Symbol <span class="math notranslate nohighlight">\(\Omega\)</span> statt <span class="math notranslate nohighlight">\(\Lambda\)</span>.</p></li>
+</ul>
+<p>Die <span class="math notranslate nohighlight">\(dx_i\)</span> sind durch ihre Wirkung auf ein Vektorfeld <span class="math notranslate nohighlight">\(v:U\to
+\R^n\)</span> definiert, und <span class="math notranslate nohighlight">\(dx_i(v)( y) := v_i( y)\)</span>.
+<span class="math notranslate nohighlight">\(1\)</span>–Differentialformen machen also aus Vektorfeldern Funktionen, und für <span class="math notranslate nohighlight">\(k\)</span> Vektorfelder <span class="math notranslate nohighlight">\(v^{(l)}:U\to\R^n\)</span> ist für das <span class="math notranslate nohighlight">\(\omega\)</span> aus der Grundform</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\omega\left(v^{(1)},\ldots,v^{(k)}\right) := \sum_{1\leq i_1&lt;\ldots&lt;i_k\leq n}
+\omega_{i_1\ldots i_k}\cdot\det\begin{pmatrix} dx_{i_1}(v^{(1)})&amp;\ldots&amp; dx_{i_k}(v^{(1)})\\
+\vdots&amp;&amp;\vdots\\
+dx_{i_1}(v^{(k)})&amp;\ldots&amp; dx_{i_k}(v^{(k)}) \end{pmatrix}\end{split}\]</div>
+<p>definiert. Das Ergebnis ist also eine reelle Funktion auf <span class="math notranslate nohighlight">\(U\)</span>.\
+Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformen.</p>
+<p>Auf dem <span class="math notranslate nohighlight">\(\R\)</span>–Vektorraum</p>
+<div class="math notranslate nohighlight">
+\[\Omega^*(U) := \bigoplus_{k=0}^n\Omega^k(U)\]</div>
+<p>der Differentialformen betrachten wir jetzt
+den <em>Differentialoperator</em> <span class="math notranslate nohighlight">\(d\)</span>, der durch</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(df := \sum_{i=1}^n\frac{\partial f}{\partial x_i}dx_i\)</span> für Funktionen
+<span class="math notranslate nohighlight">\(f\in C^\infty(U,\R) = \Omega^0(U)\)</span></p></li>
+<li><p>und <span class="math notranslate nohighlight">\(d\omega := \sum_{1\leq i_1&lt;\ldots&lt;i_k\leq n}d\omega_{i_1\ldots i_k}
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k}\)</span> für <span class="math notranslate nohighlight">\(k\)</span>–Formen \linebreak
+<span class="math notranslate nohighlight">\(\omega = \sum_{1\leq i_1&lt;\ldots&lt;i_k\leq n}\omega_{i_1\ldots i_k}
+dx_1\wedge\ldots\wedge dx_{i_k}\)</span></p></li>
+</ul>
+<p>definiert ist. <span class="math notranslate nohighlight">\(d\)</span> verwandelt eine <span class="math notranslate nohighlight">\(k\)</span>–Form also in eine <span class="math notranslate nohighlight">\((k+1)\)</span>–Form.</p>
+<div class="proof definition admonition" id="aeussere Ableitung">
+<p class="admonition-title"><span class="caption-number">Definition 3.10 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Die lineare Abbildung <span class="math notranslate nohighlight">\(d:\Omega^*(U)\to\Omega^*(U)\)</span> heißt <a class="reference external" href="https://de.wikipedia.org/wiki/%C3%84u%C3%9Fere_Ableitung"><strong>äußere Ableitung</strong></a>.</p>
+</div>
+</div><div class="proof example admonition" id="ex:10.14">
+<p class="admonition-title"><span class="caption-number">Example 3.8 </span> (Äußere Ableitung)</p>
+<div class="example-content section" id="proof-content">
+<ol class="simple">
+<li><p>Für <span class="math notranslate nohighlight">\(\omega\in\Omega^0(\R^3)\)</span> ist <span class="math notranslate nohighlight">\(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
+\frac{\partial\omega}{\partial x_2}dx_2+\frac{\partial\omega}{\partial x_3}dx_3\)</span>.</p></li>
+<li><p>Für <span class="math notranslate nohighlight">\(\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)\)</span> ist</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}d\omega &amp;=&amp; (d\omega_1)\wedge dx_1+(d\omega_2)\wedge dx_2+(d\omega_3)\wedge
+dx_3\\
+&amp;=&amp; \left(\frac{\partial\omega_2}{\partial x_1}-\frac{\partial\omega_1}{\partial x_2}\right)
+dx_1\wedge dx_2+ \left(\frac{\partial\omega_3}{\partial x_2}-\frac{\partial\omega_2}{\partial x_3}\right)
+dx_2\wedge dx_3\\
+&amp;&amp; + \left(\frac{\partial\omega_1}{\partial x_3}-\frac{\partial\omega_3}{\partial x_1}\right)
+dx_3\wedge dx_1\end{split}\]</div>
+<ol class="simple">
+<li><p>Für <span class="math notranslate nohighlight">\(\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
++\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)\)</span> ist</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[d\omega = \left(\frac{\partial\omega_{12}}{\partial x_3} + \frac{\partial\omega_{23}}{\partial x_1}
++ \frac{\partial\omega_{31}}{\partial x_2}\right)dx_1\wedge dx_2\wedge dx_3.\]</div>
+<ol class="simple">
+<li><p>Für <span class="math notranslate nohighlight">\(\omega\in\Omega^3(\R^3)\)</span> ist <span class="math notranslate nohighlight">\(d\omega=0\)</span>.</p></li>
+</ol>
+</div>
+</div><div class="proof theorem admonition" id="Antiderivation">
+<p class="admonition-title"><span class="caption-number">Theorem 3.4 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p><span class="math notranslate nohighlight">\(d\)</span> ist eine <a class="reference external" href="https://de.wikipedia.org/wiki/Derivation_(Mathematik)#Antiderivationen"><strong>Antiderivation</strong></a>, d.h. für <span class="math notranslate nohighlight">\(\alpha\in\Omega^k(U)\)</span> und <span class="math notranslate nohighlight">\(\beta\in\Omega^l(U)\)</span> ist</p>
+<div class="math notranslate nohighlight">
+\[d(\alpha\wedge\beta) = (d\alpha)\wedge\beta+(-1)^k\alpha\wedge d\beta.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Wegen der Linearität von <span class="math notranslate nohighlight">\(d\)</span> genügt es, diese Gleichung für Monome</p>
+<div class="math notranslate nohighlight">
+\[\alpha := f\underbrace{dx_{i_1}\wedge\ldots\wedge dx_{i_k}}_{\tilde
+{\alpha}},\ \beta := g\underbrace{dx_{j_1}\wedge\ldots\wedge dx_{j_l}}_
+{\tilde{\beta}},\ f,g\in C^\infty(U,\R)\]</div>
+<p>zu beweisen.
+Es gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}d(\alpha\wedge\beta) &amp;=&amp; d(f\cdot g)\tilde{\alpha}\wedge
+\tilde{\beta} = \big((df)g+f(dg)\big)\,\tilde{\alpha}\wedge\tilde{\beta}\\
+&amp;=&amp; (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}\end{split}\]</div>
+</div>
+<div class="proof theorem admonition" id="thm:dd">
+<p class="admonition-title"><span class="caption-number">Theorem 3.5 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Auf <span class="math notranslate nohighlight">\(\Omega^*(U)\)</span> gilt</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. 1. Für <span class="math notranslate nohighlight">\(f\in\Omega^0(U)\)</span> ist</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}ddf &amp;=&amp; d\left(\sum_{i=1}^n\frac{\partial f}
+{\partial x_i}dx_i\right) = \sum_{i=1}^n\sum_{l=1}^n\frac{\partial^2f}{\partial x_l\partial x_i}
+dx_l\wedge dx_i\\
+&amp; =&amp; \sum_{1\leq r&lt; s\leq n}\left(\frac{\partial^2 f}{\partial x_r
+\partial x_s} - \frac{\partial^2f}{\partial x_s\partial x_r}\right)dx_r\wedge dx_s = 0,\end{split}\]</div>
+<p>da wir wegen der Glattheit von <span class="math notranslate nohighlight">\(f\)</span> die partiellen Ableitungen vertauschen
+können.</p>
+<ol class="simple">
+<li><p>Für <span class="math notranslate nohighlight">\(\omega = \sum\omega_{i_1\ldots i_k}dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+\in\Omega^k(U)\)</span> ist\</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0,\]</div>
+<p>denn gemäß Satz <a class="reference internal" href="#Antiderivation">Theorem 3.4</a> wird die äußere Ableitung auf die
+1-Formen <span class="math notranslate nohighlight">\(d\omega_{i_1\ldots i_k}\)</span> und <span class="math notranslate nohighlight">\(dx_{i_l}\)</span> angewandt, und nach Teil 1.
+ist das Ergebnis Null.</p>
+</div>
+<div class="proof definition admonition" id="geschlossen:exakt">
+<p class="admonition-title"><span class="caption-number">Definition 3.11 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Eine Differentialform <span class="math notranslate nohighlight">\(\vv\in\Omega^*(U)\)</span> heißt</p>
+<ul class="simple">
+<li><p><strong>geschlossen</strong>, wenn <span class="math notranslate nohighlight">\(d\vv=0\)</span>, *<strong>exakt</strong>, wenn <span class="math notranslate nohighlight">\(\vv=d\psi\)</span> für ein <span class="math notranslate nohighlight">\(\psi\in\Omega^*(U)\)</span> gilt.</p></li>
+</ul>
+<p>Nach Satz <a class="reference internal" href="#thm:dd">Theorem 3.5</a> sind exakte Differentialformen geschlossen.\ Für <span class="math notranslate nohighlight">\(k\)</span>–Formen auf konvexen offenen Teimengen <span class="math notranslate nohighlight">\(U\subseteq \R^n\)</span> gilt für <span class="math notranslate nohighlight">\(k\ge 1\)</span>auch die Umkehrung (sog.
+<a class="reference external" href="https://de.wikipedia.org/wiki/Poincar%c3%a9-Lemma"><strong>Poincaré-Lemma</strong></a> ),  siehe Kapitel <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">sect:Poinca</span></code>).</p>
+</div>
+</div></div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./vektoranalysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="tensor.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3.2. </span>Tensoren und Tensorprodukte</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../references.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Bibliography</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By J. Laubmann, T. Roith, D. Tenbrinck<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

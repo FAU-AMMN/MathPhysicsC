@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Stabilitätsanalyse für dynamische Systeme &#8212; Mathematik für Physikstudierende C</title>
+    <title>1.5. Aufgaben &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -44,6 +44,8 @@
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,8 +56,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.1. Stabilitätsbegriffe" href="stabilitaetsbegriffe.html" />
-    <link rel="prev" title="1.5. Aufgaben" href="../ode/ex.html" />
+    <link rel="next" title="2. Stabilitätsanalyse für dynamische Systeme" href="../ode_stability/stabilitaetsanalyse.html" />
+    <link rel="prev" title="1.4. Hamiltonsche Differentialgleichungen" href="hamilton.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,60 +102,60 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../ode/ode.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="ode.html">
    1. Gewöhnliche Differentialgleichungen für dynamische Systeme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../ode/dynamicSystems.html">
+    <a class="reference internal" href="dynamicSystems.html">
      1.1. Einführung in dynamische Systeme
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ode/repetition.html">
+    <a class="reference internal" href="repetition.html">
      1.2. Wiederholung: Gewöhnliche Differentialgleichungen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ode/fluesse.html">
+    <a class="reference internal" href="fluesse.html">
      1.3. Phasenflüsse und Phasenportraits
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ode/hamilton.html">
+    <a class="reference internal" href="hamilton.html">
      1.4. Hamiltonsche Differentialgleichungen
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ode/ex.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      1.5. Aufgaben
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode_stability/stabilitaetsanalyse.html">
    2. Stabilitätsanalyse für dynamische Systeme
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="stabilitaetsbegriffe.html">
+    <a class="reference internal" href="../ode_stability/stabilitaetsbegriffe.html">
      2.1. Stabilitätsbegriffe
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="ruhelagen.html">
+    <a class="reference internal" href="../ode_stability/ruhelagen.html">
      2.2. Stabilität von Ruhelagen
     </a>
    </li>
@@ -232,7 +234,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/ode_stability/stabilitaetsanalyse.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/ode/ex.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -278,14 +280,69 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="stabilitatsanalyse-fur-dynamische-systeme">
-<h1><span class="section-number">2. </span>Stabilitätsanalyse für dynamische Systeme<a class="headerlink" href="#stabilitatsanalyse-fur-dynamische-systeme" title="Permalink to this headline">¶</a></h1>
-<p>In diesem Abschnitt beschäftigen wir uns mit der Stabilitätstheorie für kontinuierliche dynamische Systeme.
-Hierbei interessieren wir uns für die Frage, wie sich <em>kleine Störungen</em> von bestimmten Zuständen des Systems auf die Lösungen der zu Grunde liegenden gewöhnlichen Differentialgleichungen auswirken.
-Der untersuchte Zustand kann beispielsweise ein periodischer Orbit oder eine Ruhelage des dynamischen Systems sein.
-Letztere sind oftmals von besonderes Interesse, da man in vielen technischen und physikalischen Anwendungen daran interessiert ist das System in eine oder nahe einer Gleichgewichtslage zu bringen.</p>
-<p>Im Folgenden werden wir verschiedene Stabilitätsbegriffe für dynamische Systeme einführen und speziell Kriterien für die Stabilität von Ruhelagen diskutieren.</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="aufgaben">
+<h1><span class="section-number">1.5. </span>Aufgaben<a class="headerlink" href="#aufgaben" title="Permalink to this headline">¶</a></h1>
+<div class="hint admonition">
+<p class="admonition-title">Aufgabe: DGL höherer Ordnung</p>
+<p>Gegeben sei folgende gewöhnliche Differentialgleichung 4.~Ordnung:</p>
+<div class="math notranslate nohighlight">
+\[x^{(4)}(t) = 7 x^{(3)}(t) - \dot x(t) + 5 x(t) + t^2\]</div>
+<p>Überführen Sie diese in ein System gewöhnlicher Differentialgleichungen 1.Ordnung.</p>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Aufgabe: Autonome gewöhnliche Differentialgleichungen</p>
+<p>Entscheiden und begründen Sie mathematisch, ob die folgenden gewöhnlichen Differentialgleichungen <strong>autonom</strong> sind.</p>
+<p><strong>a)</strong> Differentialgleichung für harmonischen Oszillator:</p>
+<div class="math notranslate nohighlight">
+\[\ddot x(t) + \lambda x(t) = 0\]</div>
+<p>für eine Konstante <span class="math notranslate nohighlight">\(\lambda \in \mathbb{R}\)</span>.</p>
+<p><strong>b)</strong> Newtonsche Kraftgleichung:</p>
+<div class="math notranslate nohighlight">
+\[m \ddot x(t) = F(t, x(t))\]</div>
+<p>für eine Konstante <span class="math notranslate nohighlight">\(m &gt; 0\)</span>, eine Kraft <span class="math notranslate nohighlight">\(F: \mathbb{R} \times \mathbb{R}^3 \rightarrow \mathbb{R}^3\)</span>, welche von der Position im Raum <span class="math notranslate nohighlight">\(x: \mathbb{R} \rightarrow \mathbb{R}^3\)</span> und der Zeit <span class="math notranslate nohighlight">\(t \in \mathbb{R}\)</span> abhängt.</p>
+<p><strong>c)</strong> Newtonsche Kraftgleichung:</p>
+<div class="math notranslate nohighlight">
+\[m \ddot x(t) = F(t, x(t))\]</div>
+<p>für eine Konstante <span class="math notranslate nohighlight">\(m &gt; 0\)</span>, eine Kraft <span class="math notranslate nohighlight">\(F: \mathbb{R}^3 \rightarrow \mathbb{R}^3\)</span>, welche im Gegensatz zur Situation in b) lediglich von der Position im Raum <span class="math notranslate nohighlight">\(x: \mathbb{R} \rightarrow \mathbb{R}^3\)</span> abhängt.</p>
+<p><strong>d)</strong> Mathieusche Differentialgleichung:</p>
+<div class="math notranslate nohighlight">
+\[\ddot x(t) + [\lambda + \gamma \cos(t)] ~ x(t) = 0\]</div>
+<p>für Konstanten <span class="math notranslate nohighlight">\(\lambda, \gamma \in \mathbb{R}\)</span>.</p>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Flüsse</p>
+<p>Für <span class="math notranslate nohighlight">\(I = \mathbb{R}^0_+\)</span> und <span class="math notranslate nohighlight">\(U = \mathbb{R}^2\)</span> betrachten wir die Abbildung <span class="math notranslate nohighlight">\(\phi: I \times U \rightarrow U\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\phi(t, x) = 
+\begin{pmatrix} \frac{x_2}{2} ~ \sin(\omega t) + x_1 ~ \cos(\omega t) \\ x_2 ~ \cos(\omega t) - 2 x_1 ~ \sin(\omega t) \end{pmatrix}, \end{split}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\)</span> gilt.
+Zeigen Sie, dass diese Abbildung die mathematischen Eigenschaften eines Flusses erfüllt.</p>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Phasenporträt gedämpfter Oszillator</p>
+<p>Wir betrachten die Bewegungsgleichung für den harmonischen Oszillator</p>
+<div class="math notranslate nohighlight">
+\[m ~ \ddot x(t) + r ~ \dot x(t) + k ~ x(t) = 0\]</div>
+<p>mit Masse <span class="math notranslate nohighlight">\(m = 1  ~ kg\)</span>, Dämpfungskonstante <span class="math notranslate nohighlight">\(r = 0.5 ~ \frac{kg}{s}\)</span> und Federkonstante <span class="math notranslate nohighlight">\(k = 1.5 ~ \frac{kg}{s^2}\)</span>.</p>
+<p>Wie in Beispiel 1.3 im Skript führen wir den Impuls <span class="math notranslate nohighlight">\(p(t) = m ~ \dot x(t)\)</span> ein und erhalten das Differentialgleichungssystem erster Ordnung</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\dot x(t) &amp;= \frac{1}{m} ~ p(t)\\
+\dot p(t) &amp;= -k ~ x(t) - \frac{r}{m} ~ p(t).\end{split}\]</div>
+<p>Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(p\)</span>, indem Sie für die folgenden Punkte <span class="math notranslate nohighlight">\((x,p)\)</span> die durch das Differentialsystem gegebene Steigung berechnen und einzeichnen:</p>
+<div class="math notranslate nohighlight">
+\[(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1) \quad (-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)\]</div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Aufgabe: Eigenschaften Hamilton-Funktion</p>
+<p>Beweisen Sie die folgende Aussage:</p>
+<p>Sei <span class="math notranslate nohighlight">\(P \subseteq \mathbb{R}^{2m}\)</span> ein (offener) Phasenraum und <span class="math notranslate nohighlight">\(\mathbb{J} = \begin{pmatrix} 0 &amp; - 𝟙 \\ 𝟙 &amp; 0 \end{pmatrix} \in Mat(2m, \mathbb{R})\)</span>. Ist die Hamilton-Funktion <span class="math notranslate nohighlight">\(H \in C^2(P, \mathbb{R})\)</span>, dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung <span class="math notranslate nohighlight">\(\dot x = \mathbb{J} \nabla H(x)\)</span> konstant.</p>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Aufgabe: Hamilton-Funktion</p>
+<p>Zeigen Sie mathematisch, dass die Hamilton-Funktion eines eindimensionalen harmonischen Oszillators gegeben ist durch:</p>
+<div class="math notranslate nohighlight">
+\[H(x,p) = \frac{p^2}{2m} + \frac{m}{2} w^2 x^2,\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(w = \sqrt{\frac{k}{m}}\)</span> gilt.</p>
 </div>
 </div>
 
@@ -302,7 +359,7 @@ Letztere sind oftmals von besonderes Interesse, da man in vielen technischen und
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./ode_stability"
+            path: "./ode"
         },
         predefinedOutput: true
     }
@@ -314,17 +371,17 @@ Letztere sind oftmals von besonderes Interesse, da man in vielen technischen und
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../ode/ex.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="hamilton.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">1.5. </span>Aufgaben</p>
+            <p class="prev-next-title"><span class="section-number">1.4. </span>Hamiltonsche Differentialgleichungen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="stabilitaetsbegriffe.html" title="next page">
+    <a class='right-next' id="next-link" href="../ode_stability/stabilitaetsanalyse.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Stabilitätsbegriffe</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Stabilitätsanalyse für dynamische Systeme</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

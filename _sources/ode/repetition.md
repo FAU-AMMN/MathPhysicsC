@@ -222,6 +222,10 @@ wobei $c \in \R$ eine beliebige Konstante darstellt.
 Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die **(lokale) Lipschitzstetigkeit** der rechten Seite $F \colon I \times U \rightarrow U$.
 Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
 
+```{margin} Rudolf Lipschitz
+[Rudolf Otto Sigismund Lipschitz](https://de.wikipedia.org/wiki/Rudolf_Lipschitz) (Geboren 14. Mai 1832 in Königsberg i. Pr.; Gestorben 7. Oktober 1903 in Bonn) war ein deutscher Mathematiker und Hochschullehrer. Er betreute die Doktorarbeit von [Felix Klein](https://en.wikipedia.org/wiki/Felix_Klein), weswegen der österreichische Mathematiker [Martin Burger](https://www.math.fau.de/angewandte-mathematik-1/mitarbeiter/prof-dr-martin-burger/) in direkter Linie im akademischen Stammbaum von Lipschitz abstammt, siehe [Mathematics Genealogy Project](https://genealogy.math.ndsu.nodak.edu/index.php).
+```
+
 ````{prf:definition} (Lokale) Lipschitzstetigkeit
 Sei $F \colon G \to \R^n$ eine Funktion mit dem erweiterten Phasenraum $G \, \coloneqq \, I \times U \subset \R\times\R^n$.
 Man sagt, dass $F$ in $G$ einer **globalen Lipschitz-Bedingung** genügt (bezüglich der Variablen $y \in U$) mit der Lipschitz-Konstanten $L\geq0$, wenn gilt
@@ -236,7 +240,7 @@ Man sagt, $F$ genüge in $G$ einer **lokalen Lipschitz-Bedingung**, falls jeder 
 
 Für die **(lokale) Existenz von Lösungen** haben wir in Kapitel 8.4 {cite:p}`tenbrinck_2021` den Satz von Picard-Lindelöf formuliert, den wir im Folgenden wiederholen werden.
 
-````{prf:theorem} Lokaler Existenzsatz nach Picard-Lindelöf
+````{prf:theorem} Lokaler Existenzsatz nach Picard--Lindelöf
 :label: satz:picardlindeloef_lokal
 Sei $F\colon G\to\R^n$ eine stetige Funktion mit erweitertem Phasenraum $G \coloneqq I \times U \subset \R\times\R^n$, die lokal Lipschitz-stetig auf $G$ bezüglich der $y$-Variablen ist.
 Dann existiert zu jedem Anfangswert $(t_0,y_0) \in G$ ein $\varepsilon>0$, sowie genau eine Lösung
@@ -253,6 +257,14 @@ der gewöhnlichen Differentialgleichung
 
 unter der Anfangsbedingung $\phi(t_0)=y_0$.
 ````
+
+```{margin} Ernst Lindelöf
+[Ernst Leonard Lindelöf](https://en.wikipedia.org/wiki/Ernst_Leonard_Lindel%C3%B6f) (Geboren 7. März 1870 in Helsingfors (Helsinki), Großfürstentum Finnland; Gestorben 4. Juni 1946 in Helsinki) war ein finnischer Mathematiker.
+```
+
+```{margin} Émile Picard
+[Charles Émile Picard](https://de.wikipedia.org/wiki/%C3%89mile_Picard) (Geboren 24. Juli 1856 in Paris; Gestorben 11. Dezember 1941 ebenda) war ein französischer Mathematiker.
+```
 
 ````{prf:proof}
 Siehe Kapitel 12, Satz 4 Kapitel 8.4 {cite:p}`forster_2017`
