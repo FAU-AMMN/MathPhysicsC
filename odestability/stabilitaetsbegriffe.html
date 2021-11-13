@@ -45,7 +45,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -161,36 +161,9 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../vektoranalysis/vektoranalysis.html">
-   3. Vektoranalysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../vektoranalysis/multilinear.html">
-     3.1. Multilinearformen
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../vektoranalysis/tensor.html">
-     3.2. Tensoren und Tensorprodukte
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../vektoranalysis/diffformen.html">
-     3.3. Differentialformen
-    </a>
-   </li>
-  </ul>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../references.html">
-   4. Bibliography
+   3. Bibliography
   </a>
  </li>
 </ul>
@@ -234,7 +207,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/ode_stability/stabilitaetsbegriffe.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/odestability/stabilitaetsbegriffe.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -326,7 +299,7 @@ p \cos(\omega t) - m x \sin(\omega t)\\
 \end{pmatrix}\end{split}\]</div>
 <p>Wir suchen nun einen Fixpunkt <span class="math notranslate nohighlight">\((p_r,x_r) \in U\)</span> des Flusses der unabhängig ist vom Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span>.
 Man sieht leicht ein, dass eine <strong>Ruhelage</strong> sich bei <span class="math notranslate nohighlight">\((p_r,x_r) = (0,0)^T \in U\)</span> befindet, da <span class="math notranslate nohighlight">\(\Phi(t,(0,0)) = (0,0)^T\)</span> ist für alle <span class="math notranslate nohighlight">\(t \in I\)</span>.
-Die gefundene Ruhelage ist <strong>Lyapunov-stabil</strong>, denn wie wir im Phasenporträt in <span class="xref myst"></span> gesehen haben, ist jeder Orbit um die Ruhelage <span class="math notranslate nohighlight">\((0,0)\)</span> periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.</p>
+Die gefundene Ruhelage ist <strong>Lyapunov-stabil</strong>, denn wie wir im Phasenporträt in <a class="reference internal" href="../ode/fluesse.html#fig-harmonic-oscillator"><span class="std std-numref">Fig. 1.3</span></a> gesehen haben, ist jeder Orbit um die Ruhelage <span class="math notranslate nohighlight">\((0,0)\)</span> periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.</p>
 <p>Mathematisch lässt sich diese Eigenschaft wie folgt zeigen.
 Für ein beliebiges <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> sei <span class="math notranslate nohighlight">\((p,y) \in U\)</span> ein Punkt im Phasenraum mit periodischen Orbit <span class="math notranslate nohighlight">\(O(p,y)\)</span> um die Ruhelage <span class="math notranslate nohighlight">\((p_r,x_r) = (0,0)^T \in U\)</span>, so dass dessen maximaler Abstand zur Ruhelage kleiner als <span class="math notranslate nohighlight">\(\epsilon\)</span> ist, d.h.</p>
 <div class="math notranslate nohighlight">
@@ -365,7 +338,7 @@ Sie ist jedoch auf Grund der Periodizität der Orbits um die Ruhelage <strong>ni
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./ode_stability"
+            path: "./odestability"
         },
         predefinedOutput: true
     }

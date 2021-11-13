@@ -3,7 +3,7 @@
 
 Ein wichtiges Prinzip für viele physikalischen Anwendungen und dynamische Systeme sind *Erhaltungssätze* und die dazugehörigen *Erhaltungsgrößen*. 
 Aus der klassichen Mechanik kennen wir beispielsweise die *Energieerhaltung* oder die *Impulserhaltung*.
-In [](s:fluesse) haben wir Bewegungsgleichungen als System von gewöhnlichen Differentialgleichungen hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der Formulierung des Differentialgleichungssystems abzulesen.
+In {ref}`s:fluesse` haben wir Bewegungsgleichungen als System von gewöhnlichen Differentialgleichungen hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der Formulierung des Differentialgleichungssystems abzulesen.
 
 Hamiltonsche Differentialgleichungen haben in der Physik eine besondere Rolle, insbesondere in der klassischen Mechanik bei Abwesenheit von Reibung.
 Typischerweise tauchen diese bei der Untersuchung von Bewegungen im Phasenraum auf, d.h., bei der Betrachtung von Paaren aus Orts- und Impulswerten.
@@ -39,7 +39,7 @@ Basierend auf der Hamilton-Funktion aus {prf:ref}`def:hamiltonsch` können wir n
 
 ````{prf:definition} Hamiltonsche Differentialgleichung
 Sei $x(t) = (p(t),q(t)) \in U$ eine Bahnkurve des Phasenraums $U \subset \R^{2n}$.
-Wird das hamiltonsche Vektorfeld auf der linken Seite von [](eq:hamilton_Gleichung) als 
+Wird das hamiltonsche Vektorfeld auf der linken Seite von {eq}`eq:hamilton_Gleichung` als 
 
 ```{math}
 X = \dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix} (t)
@@ -52,7 +52,7 @@ gewählt, so lässt sich die Gleichung für $J \, \coloneqq \, \begin{pmatrix}0 
 \dot{x}(t) = J \nabla H(x(t)).
 ```
 
-In dieser Form wird die entstehende Differentialgleichung in [](eq:hamilton_DGL) **Hamiltonsche Differentialgleichung** genannt.
+In dieser Form wird die entstehende Differentialgleichung in {eq}`eq:hamilton_DGL` **Hamiltonsche Differentialgleichung** genannt.
 
 Äquivalent lässt sich dieses System von gewöhnlichen Differentialgleichungen auch explizit für die $2n$ unbekannten Orts- und Impulsfunktionen $q_i, p_i$ für $1 \leq i \leq n$ schreiben als
 
@@ -76,7 +76,7 @@ Nach dem 2. Newtonschen Gesetz erhalten wir die Bewegungsgleichung
 m\ddot{q}(t) = F(q(t)).
 ```
 
-Die gewöhnliche Differentialgleichung 2. Ordnung in [](eq:newton) lässt sich durch die Definition des Impulses des Teilchens $p(t) \, \coloneqq \, m \dot{q(t)}$ in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:
+Die gewöhnliche Differentialgleichung 2. Ordnung in {eq}`eq:newton` lässt sich durch die Definition des Impulses des Teilchens $p(t) \, \coloneqq \, m \dot{q(t)}$ in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:
 
 ```{math}
 \dot{p}(t) = F(q(t)), \quad \dot{q}(t) = \frac{1}{m}p(t).
@@ -98,7 +98,7 @@ H(p,q) \, \coloneqq \, \frac{||p||^2}{2m} + V(q),
 ```
 
 so erkennen wir, dass diese sich aus *kinetischer* und *potentieller Energie* zusammensetzt. 
-Durch diese Hamilton-Funktion $H$ lässt sich [](eq:newton) als **Hamiltonsche Differentialgleichung** schreiben mit
+Durch diese Hamilton-Funktion $H$ lässt sich {eq}`eq:newton` als **Hamiltonsche Differentialgleichung** schreiben mit
 
 ```{math}
 \dot{x}(t) = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t) = \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix}(t) = J \nabla H(p(t),q(t)).
@@ -125,7 +125,7 @@ Bisher haben wir noch nicht den Grund diskutiert, warum die Hamilton-Funktion ei
 Das wollen wir nun im folgenden Satz nachholen.
 
 ````{prf:theorem}
-:label: satz:hamilton_konstant
+:label: thm:hamconst
 Sei $n\in \N, U \subseteq \mathbb{R}^{2n}$ ein (offener) Phasenraum und $J= \begin{pmatrix} 0 & - \mathbf{1} \\ \mathbf{1} & 0 \end{pmatrix} \in \mathbb{R}^{2n \times 2n}$.
 Ist die Hamilton-Funktion $H \in C^2(U; \mathbb{R})$, dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung 
 \begin{equation*}
@@ -138,14 +138,14 @@ konstant.
 In der Hausaufgabe zu zeigen.
 ````
 
-{prf:ref}`satz:hamilton_konstant` sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton-Funktion verlaufen.
+{prf:ref}`thm:hamconst` sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton-Funktion verlaufen.
 Dies erlaubt es uns dynamische Systeme auf diese häufig auch *Energieschalen* genannten Niveaumengen $H^{-1}(E)$ für $E \in \R$ zu restringieren.
 Diese Energieschalen bilden Untermannigfaltigkeiten des Phasenraums $U$.
 
 Für den einfachen Fall eines Freiheitsgrades, d.h., für $n = 1$, lassen sich für eine gegebene Hamilton-Funktion $H$ die Orbits des dynamischen Systems bestimmen.
 Für einen Punkt $x \in U$ im Phasenraum $U \subset \R^2$ unterscheiden wir zwei Fälle:
 
-1. Ist $\nabla H(x) = 0$, so ist der Orbit wegem [](eq:hamilton_DGL) von der Form $O(x) = {x}$.
+1. Ist $\nabla H(x) = 0$, so ist der Orbit wegem {eq}`eq:hamilton_DGL` von der Form $O(x) = {x}$.
 
 2. Ist $\nabla H(x) \neq 0$, so ist der Orbit $O(x)$ gegeben durch die zusammenhängende Menge
 

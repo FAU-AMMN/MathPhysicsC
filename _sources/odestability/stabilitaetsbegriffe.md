@@ -62,7 +62,7 @@ p \cos(\omega t) - m x \sin(\omega t)\\
  
 Wir suchen nun einen Fixpunkt $(p_r,x_r) \in U$ des Flusses der unabhängig ist vom Zeitpunkt $t$. 
 Man sieht leicht ein, dass eine **Ruhelage** sich bei $(p_r,x_r) = (0,0)^T \in U$ befindet, da $\Phi(t,(0,0)) = (0,0)^T$ ist für alle $t \in I$.
-Die gefundene Ruhelage ist **Lyapunov-stabil**, denn wie wir im Phasenporträt in []() gesehen haben, ist jeder Orbit um die Ruhelage $(0,0)$ periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.
+Die gefundene Ruhelage ist **Lyapunov-stabil**, denn wie wir im Phasenporträt in {numref}`fig:harmonic_oscillator` gesehen haben, ist jeder Orbit um die Ruhelage $(0,0)$ periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.
 
 Mathematisch lässt sich diese Eigenschaft wie folgt zeigen.
 Für ein beliebiges $\epsilon > 0$ sei $(p,y) \in U$ ein Punkt im Phasenraum mit periodischen Orbit $O(p,y)$ um die Ruhelage $(p_r,x_r) = (0,0)^T \in U$, so dass dessen maximaler Abstand zur Ruhelage kleiner als $\epsilon$ ist, d.h.
@@ -88,7 +88,7 @@ Sie ist jedoch auf Grund der Periodizität der Orbits um die Ruhelage **nicht as
 Im allgemeinen Fall der gedämpften Schwingungsgleichung in {prf:ref}`ex:oscillations` hängt die Stabilität der Ruhelage im Ursprung intuitiverweise von der Reibungskonstanten ab, wie folgende Bemerkung festhält.
 
 ````{prf:remark} Stabilität bei der gedämpften Schwingungsgleichung
-Für den Fall der gedämpften Schwingungsgleichung in [](eq:schwingungsgleichung) lässt sich folgendes Stabilitätsverhalten der Ruhelage im Ursprung in Abhängigkeit der Reibungskonstanten $r \in \R$ beobachten:
+Für den Fall der gedämpften Schwingungsgleichung in {eq}`eq:schwingungsgleichung` lässt sich folgendes Stabilitätsverhalten der Ruhelage im Ursprung in Abhängigkeit der Reibungskonstanten $r \in \R$ beobachten:
 1. Die Ruhelage ist **asymptotisch stabil** für den Fall mit positiver Reibung $r>0$.
 2. Die Ruhelage ist **Lyapunov-stabil** für den reibungsfreien Fall $r=0$.
 3. Die Ruhelage ist **instabil** für den Fall einer negativen Reibung $r < 0$, d.h. für einen externen Antrieb.
