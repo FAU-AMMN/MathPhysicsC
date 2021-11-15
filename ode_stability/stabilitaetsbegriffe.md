@@ -41,6 +41,10 @@ Sei $\Phi \colon I \times U \rightarrow U$ der Phasenfluss zu dem Vektorfeld $F\
 3\. Eine Lösung heißt **instabil**, wenn sie nicht (Lyapunov-)stabil ist.
 ````
 
+```{margin} Aleksandr Lyapunov
+[Alexander Michailowitsch Ljapunow](https://de.wikipedia.org/wiki/Alexander_Michailowitsch_Ljapunow) (Geboren 6. Juni 1857 in Jaroslawl; Gestorben 3. November 1918 in Odessa) war ein russischer Mathematiker und Physiker.
+```
+
 Es ist klar, dass der Begriff der asymptotischen Stabilität *stärker* als der Begriff der Lyapunov-Stabilität von Lösungen ist, da jede asymptotisch stabile Lösung auch schon Lyapunov-stabil ist.
 Die Umkehrung gilt jedoch im Allgemeinen nicht.
 Dies wird durch das folgende Beispiel nochmal illustriert.
