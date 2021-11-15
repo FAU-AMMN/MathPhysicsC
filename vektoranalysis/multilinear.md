@@ -1,60 +1,102 @@
 # Multilinearformen
 
-In diesem Abschnitt wollen wir Multilinearformen kennenlernen. Für Vektorräume $\V, W$ über einem Körper $\K$ haben Sie bereits den Begriff der Linearform, also einer linearen Abbildung $\varphi:\V\rightarrow W$ kennengelernt. Die Idee der Multilinearform ist anstatt einem, gleich $k$-viele Vektorräume $V_1,\ldots,V_k$ über $\K$ zu betrachten und das Konzept der Lineratität auf Abbildung $\varphi:\V_1\times\ldots\V_k\rightarrow W$ zu übertragen. Zur Vereinfachung werden wir im folgenden nur den Körper $\K=\R$ betrachten, in den meisten Fällen lassen sich die Konzepte aber direkt auf allgemeine Körper übertragen.
+In diesem Abschnitt wollen wir die Definition der sogenannten *Multilinearformen* einführen.
+Für beliebige Vektorräume $\V, W$ über einem Körper $\K$ haben Sie bereits den Begriff der *Linearform*, also einer linearen Abbildung $\varphi:\V\rightarrow W$ kennengelernt.
+Die Idee der Multilinearform ist anstatt nur einem, gleich $k$-viele Vektorräume $V_1,\ldots,V_k$ für $k \in \N$ über $\K$ zu betrachten und das Konzept der Linearität auf eine Abbildung $\varphi:\V_1\times\ldots\V_k\rightarrow W$ zu übertragen. 
 
-Wir beginnen zunächst mit einer Wiederolung und betrachten die schon bekannten Linearformen. Insbesondere soll der nächste Abschnitt als Wiederholung zum vorherigen Semester die verschiedenen Begriffe des Dualraums abgrenzen.
+Zur Vereinfachung werden wir im Folgenden nur den Körper $\K=\R$ betrachten, in den meisten Fällen lassen sich die hier beschriebenen Konzepte aber direkt auf allgemeine Körper übertragen.
+Wir beginnen zunächst mit einer Wiederholung und betrachten die schon bekannten Linearformen. 
+Insbesondere soll der nächste Abschnitt die verschiedenen Begriffe des Dualraums abgrenzen.
 
 ## Dualräume
 
-Für einen reellen Vektorraum $\V$ wollen wir lineare Abbildung $\varphi:V\to\R$ betrachten.
-
+Für einen reellen Vektorraum $\V$ wollen wir lineare Abbildungen $\varphi:V\to\R$ betrachten.
+Diese lassen sich mit Hilfe der folgenden Definition zum algebraischen Dualraum zusammenfassen.
 ````{prf:definition} Algebraischer Dualraum
-Es sei $\V$ ein $\R$-Vektorraum, die Menge 
+:label: def:algebraischerDualraum
+Es sei $\V$ ein beliebiger $\R$-Vektorraum. 
+Dann nennen wir die Menge 
 
 ```{math}
 \V^\ast := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear}\}
 ```
 
-heißt **algebraischer Dualraum**.
+den **algebraischer Dualraum** zu $V$.
 ````
 
-Aus {cite:p}`tenbrinck_2021` ist bereits der Begriff des *topologischen Dualraums* bekannt, welcher allerdings eine etwas restriktivere Definition hat. Sie fordert noch zusätzlich die Stetigkeit der linearen Abbildungen.
-
-```{danger}
-Der algebraische Dualraum ist im allgemeinen nicht gleich dem topologischen. Der Hauptzweck dieses Abschnitts ist es diese Tatsache klar zu machen und die Unterschiede der beiden Definitionen zu verstehen.
-```
+Aus {cite:p}`tenbrinck_2021` ist bereits der Begriff des *topologischen Dualraums* bekannt, welcher allerdings eine etwas restriktivere Definition hat. 
+Sie fordert nämlich noch zusätzlich die Stetigkeit der linearen Abbildungen.
 
 ````{prf:definition} Topologischer Dualraum
-Es sei $\V$ ein normierter $\R$-Vektorraum für einen Körper $\R$, dann heißt die Menge 
+:label: def:topologischerDualraum
+Es sei $\V$ ein normierter $\R$-Vektorraum für einen Körper $\R$. 
+Dann nenne wir die Menge 
 
 ```{math}
 \V^\prime := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear und stetig}\}
 ```
 
-**topologischer Dualraum**.
+den **topologischer Dualraum** zu $V$.
 ````
 
+```{danger}
+Der algebraische Dualraum ist im Allgemeinen nicht gleich dem topologischen Dualraum.
+Der Hauptzweck dieses Abschnitts ist es diese Tatsache klar zu machen und die Unterschiede der beiden Definitionen herauszustellen.
+```
+
+Folgende Bemerkung sagt etwas über die minimale Struktur, die der Vektorraum $V$ haben muss, damit die Definition des topologischen Dualraums sinnvoll ist.
 ````{prf:remark}
-Damit die obige Definition sinnvoll ist, ist es in der Tat nicht notwendig, dass $X$ ein normierter Raum ist. Es reicht anzunehmen, dass $\V$ ein topologischer Vektorraum ist.
+Damit die {prf:ref}`def:topologischerDualraum` sinnvoll ist, ist es in der Tat nicht notwendig, dass $V$ ein normierter Raum ist. Es reicht anzunehmen, dass $\V$ ein *topologischer Vektorraum* ist.
 ````
 
-In unserem Kontext spielt allerdings der Begriff des algebraischen Dualraums eine wichtige Rolle, welcher im Folgenden eingeführt wird. Man erkennt sofort, dass stets $\V^\prime\subset \V^\ast$ gilt. Weiterhin stimmen die beiden Räume im endlich-dimensionalen Fall überein.
-
+ Durch Vergleichen von {prf:ref}`def:algebraischerDualraum` und {prf:ref}`def:topologischerDualraum` erkennt man sofort, dass stets $\V^\prime\subset \V^\ast$ gilt. 
+ Außerdem stellt man fest, dass die beiden Räume im endlich-dimensionalen Fall überein stimmen, wie folgendes Lemma aussagt.
 ````{prf:lemma}
-Für $n\in\N$ sei $\V$ ein $n$-dimensionaler $\R$-Vektorraum, dann gilt 
+Für $n\in\N$ sei $\V$ ein $n$-dimensionaler $\R$-Vektorraum, dessen Norm durch das Standardskalarprodukt induziert ist.
+Dann gilt 
 
 ```{math}
 V^\prime = V^\ast.
 ```
 
 ````
-
-````{prf:remark}
-Die Norm auf $\V$ in der obigen Aussage ist durch das Standardskalarprodukt induziert.
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
 ````
 
-````{prf:proof}
-Siehe Übung.
+Das folgende Beispiel aus der Funktionalanalysis erklärt, dass die Gleichheit von algebraischen und topologischen Dualräumen nicht mehr in unendlich-dimensionalen Räumen gilt.
+````{prf:example} Differentialoperator
+Wir betrachten im Folgenden den *Differentialoperator*
+
+```{math}
+D \colon C^1[0,1] &\rightarrow C^1[0,1] \\
+(Df)(x) &\mapsto f'(x), \quad \forall x \in [0,1]
+```
+
+der auf dem Raum der stetig differenzierbaren Funktionen auf dem Intervall $[0,1]$ definiert ist.
+
+Offensichtlich ist der Differentialoperator $D$ **linear** und ist somit ein Element des algebraischen Dualraums, d.h., $D \in (C^1[0,1])^\ast$.
+Statten wir den Vektorraum $C^1[0,1]$ mit der *Supremumsnorm* 
+
+```{math}
+||f||_\infty := \sup_{x \in [0,1]} |f(x)|
+```
+
+aus und betrachten die Funktionenfolge $f_n(x) := x^n$, dann sehen wir ein, dass die Supremumsnorm der Folge konstant ist mit $||f_n||_\infty \equiv 1$ für alle $n\in\N$, jedoch für den Differentialoperator $D$ gilt
+
+```{math}
+||Df_n||_\infty = \sup_{x \in [0,1]} |(Df_n)(x)| = \sup_{x \in [0,1]} |f_n'(x)| = \sup_{x \in [0,1]} |nx^{n-1}| = n.
+```
+
+Wir sehen also ein, dass 
+
+```{math}
+\frac{||Df_n||_\infty}{||f_n||_\infty} \overset{n\rightarrow \infty}{\longrightarrow} \infty
+```
+
+gilt und somit der der Differentialoperator **nicht stetig** ist und somit kein Element des topologischen Dualraums $(C^1[0,1])'$ sein kann.
+Damit haben wir gezeigt, dass in unendlich-dimensionalen Räumen $(C^1[0,1])' \subsetneq (C^1[0,1])^\ast$ gilt.
+
 ````
 
 ## k-Multilinearformen
@@ -182,6 +224,10 @@ $\eta_i:\V\rightarrow\R$ für $i=1,\ldots,n$,
 
 bilden einen Basis von $\V^\ast$, die sogenannte **duale Basis** zu $B$. 
 
+````
+
+````{prf:example} Duale Basis
+Rn mit Standardbasis ist es Multiplikation von rechts mit Transponierter Standardbasis.
 ````
 
 ````{prf:remark}
