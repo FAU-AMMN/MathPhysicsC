@@ -78,7 +78,11 @@
         
 
 \title{Mathematik für Physikstudierende C}
+<<<<<<< HEAD
+\date{Nov 12, 2021}
+=======
 \date{Nov 13, 2021}
+>>>>>>> main
 \release{}
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -281,8 +285,13 @@ Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktio
 
 \sphinxAtStartPar
 Damit lässt sich das gewöhnliche Differentialgleichungssystem aus \eqref{equation:ode/repetition:eq:DGL} schreiben als
+<<<<<<< HEAD
+\begin{equation}\label{equation:ode/repetition:eq:DGL_time}
+\begin{split}F(z, y(t), \dot{y}(t), \ldots, y{(m)}(t)) = 0 \quad \forall t\in I.\end{split}
+=======
 \begin{equation}\label{equation:ode/repetition:eq:DGLtime}
 \begin{split}F(t, x(t), \dot{x}(t), \ldots, x{(m)}(t)) = 0 \quad \forall t\in I.\end{split}
+>>>>>>> main
 \end{equation}\end{sphinxadmonition}
 
 
@@ -309,7 +318,11 @@ In Kapitel {\hyperref[\detokenize{ode/fluesse:s-fluesse}]{\sphinxcrossref{\DUrol
 
 \sphinxAtStartPar
 Im Fall von \sphinxstylestrong{kontinuierlichen dynamischen Systemen} spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen.
+<<<<<<< HEAD
+Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \eqref{equation:ode/repetition:eq:DGL_time} nicht explizit von der Zeit abhängt.
+=======
 Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \eqref{equation:ode/repetition:eq:DGLtime} nicht explizit von der Zeit abhängt.
+>>>>>>> main
 \label{ode/repetition:definition-3}
 \begin{sphinxadmonition}{note}{Definition 1.2 (Autonome DGL)}
 
@@ -1356,8 +1369,12 @@ Wie in Beispiel 1.3 im Skript führen wir den Impuls \(p(t) = m ~ \dot x(t)\) ei
 \sphinxAtStartPar
 Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten \(x\) und \(p\), indem Sie für die folgenden Punkte \((x,p)\) die durch das Differentialsystem gegebene Steigung berechnen und einzeichnen:
 \begin{equation*}
+<<<<<<< HEAD
+\begin{split}(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1) \quad (-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)\end{split}
+=======
 \begin{split}&(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1)\\
 &(-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)\end{split}
+>>>>>>> main
 \end{equation*}\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}{Aufgabe: Eigenschaften Hamilton\sphinxhyphen{}Funktion}
@@ -1369,6 +1386,8 @@ Beweisen Sie die folgende Aussage:
 Sei \(P \subseteq \mathbb{R}^{2m}\) ein (offener) Phasenraum und \(\mathbb{J} = \begin{pmatrix} 0 & - 𝟙 \\ 𝟙 & 0 \end{pmatrix} \in Mat(2m, \mathbb{R})\). Ist die Hamilton\sphinxhyphen{}Funktion \(H \in C^2(P, \mathbb{R})\), dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung \(\dot x = \mathbb{J} \nabla H(x)\) konstant.
 \end{sphinxadmonition}
 
+<<<<<<< HEAD
+=======
 \begin{sphinxadmonition}{note}{Aufgabe: Hamilton\sphinxhyphen{}Funktion}
 
 \sphinxAtStartPar
@@ -1380,6 +1399,7 @@ Zeigen Sie mathematisch, dass die Hamilton\sphinxhyphen{}Funktion eines eindimen
 wobei \(w = \sqrt{\frac{k}{m}}\) gilt.
 \end{sphinxadmonition}
 
+>>>>>>> main
 
 \chapter{Stabilitätsanalyse für dynamische Systeme}
 \label{\detokenize{odestability/stabilitaetsanalyse:stabilitatsanalyse-fur-dynamische-systeme}}\label{\detokenize{odestability/stabilitaetsanalyse::doc}}
@@ -1522,7 +1542,11 @@ Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon i
 
 \sphinxAtStartPar
 Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
+<<<<<<< HEAD
+\label{ode_stability/ruhelagen:theorem:stabilität_linear}
+=======
 \label{odestability/ruhelagen:thm:stablin}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Theorem 2.1}
 
 
@@ -1594,7 +1618,11 @@ Wählen wir nun \(\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)\),
 \end{equation*}
 \sphinxAtStartPar
 Insgesamt erhalten wir also für die Norm des Phasenflusses
+<<<<<<< HEAD
+\begin{equation}\label{equation:ode_stability/ruhelagen:eq:abschaetzung_ew}
+=======
 \begin{equation}\label{equation:odestability/ruhelagen:eq:abschaetzungew}
+>>>>>>> main
 \begin{split}\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.\end{split}
 \end{equation}
 \sphinxAtStartPar
@@ -1628,6 +1656,9 @@ Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleic
 
 \subsection{Linearisierung um Ruhelage}
 \label{\detokenize{odestability/ruhelagen:linearisierung-um-ruhelage}}\label{\detokenize{odestability/ruhelagen:s-linearisierung-ruhelage}}
+\sphinxAtStartPar
+:label: s:linearisierung\_ruhelage
+
 \sphinxAtStartPar
 In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
 Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
@@ -1823,6 +1854,15 @@ Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwende
 
 
 \subsection{Asymptotische Stabilität von Ruhelagen}
+<<<<<<< HEAD
+\label{\detokenize{ode_stability/ruhelagen:asymptotische-stabilitat-von-ruhelagen}}
+\sphinxAtStartPar
+Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes \(F \colon U \rightarrow \R^n\) in \sphinxcode{\sphinxupquote{lemma:int\_exp\_glgn}} und der Gronwall\sphinxhyphen{}Ungleichung in {\hyperref[\detokenize{ode_stability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.
+
+\sphinxAtStartPar
+Wir formulieren direkt das Hauptresultat, dass uns ein hinreichendes Kriterium für \sphinxstylestrong{asymptotische Stabilität} der Ruhelage basierend auf den Eigenwerten der Linearisierung liefert.
+\label{ode_stability/ruhelagen:theorem:stabilitaet_asymptotisch_allg}
+=======
 \label{\detokenize{odestability/ruhelagen:asymptotische-stabilitat-von-ruhelagen}}
 \sphinxAtStartPar
 Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes \(F \colon U \rightarrow \R^n\) in {\hyperref[\detokenize{odestability/ruhelagen:lem:intexpglgn}]{\sphinxcrossref{Lemma 2.1}}} und der Gronwall\sphinxhyphen{}Ungleichung in {\hyperref[\detokenize{odestability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.
@@ -1830,6 +1870,7 @@ Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungs
 \sphinxAtStartPar
 Wir formulieren direkt das Hauptresultat, dass uns ein hinreichendes Kriterium für \sphinxstylestrong{asymptotische Stabilität} der Ruhelage basierend auf den Eigenwerten der Linearisierung liefert.
 \label{odestability/ruhelagen:thm:stabasymallg}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Theorem 2.2 (Asymptotische Stabilität von Ruhelagen)}
 
 
@@ -1848,8 +1889,13 @@ charakterisiert wird, ist \sphinxstylestrong{asymptotisch stabil} wenn für die 
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Proof. Wie bereits in \sphinxcode{\sphinxupquote{s:linearisierung\_ruhelage}} diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit \(x_F = 0 \in U\) gilt.
+Da \(U\subseteq\R^n\) nach Vorraussetzung offen ist, können wir eine offene Kugel \(B_\vec{r}(0) \coloneqq \{y \in U \colon ||y|| < \vec{r}\}\) mit Radius \(\vec{r} > 0\) als Umgebung der Ruhelage \(0\) finden, so dass \(B_\vec{r}(0) \subset U\) gilt.
+=======
 Proof. Wie bereits in {\hyperref[\detokenize{odestability/ruhelagen:s-linearisierung-ruhelage}]{\sphinxcrossref{\DUrole{std,std-ref}{Linearisierung um Ruhelage}}}} diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit \(x_F = 0 \in U\) gilt.
 Da \(U\subseteq\R^n\) nach Vorraussetzung offen ist, können wir eine offene Kugel \(B_{{r^\ast}}(0) \coloneqq \{y \in U \colon ||y|| < {r^\ast}\}\) mit Radius \({r^\ast} > 0\) als Umgebung der Ruhelage \(0\) finden, so dass \(B_{r^\ast}(0) \subset U\) gilt.
+>>>>>>> main
 
 \sphinxAtStartPar
 Wir nehmen im Folgenden an, dass der Realteil der Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) der Linearisierung \(A \, \coloneqq \, Df(0)\) echt negativ ist, d.h., für ein geeignetes \(\Lambda > 0\) gilt die Abschätzung
@@ -1857,6 +1903,18 @@ Wir nehmen im Folgenden an, dass der Realteil der Eigenwerte \(\lambda_i \in \C,
 \begin{split}\mathcal{Re}(\lambda_i)< -\Lambda, \quad \text{für } i=1,\ldots,n. \end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Dann gibt es analog zum Beweis von {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilit_xe4t_linear}]{\sphinxcrossref{Theorem 2.1}}} eine Konstante \(c>0\), so dass gilt
+\begin{equation}\label{equation:ode_stability/ruhelagen:eq:abschaetzung_norm_exponential}
+\begin{split}\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad \forall t\in \R^+_0.\end{split}
+\end{equation}
+\sphinxAtStartPar
+Hierbei haben wir ausgenutzt, dass wir die Konstante \(\epsilon > 0\) in \DUrole{xref,std,std-ref}{eq:abschaetzung\_ew} so klein wählen können, dass \(\gamma + \epsilon < -\Lambda\) gilt.
+
+\sphinxAtStartPar
+Wir können nun einen Radius \(r\in (0,\vec{r})\) bestimmen, so dass die folgende Abschätzung gilt
+\begin{equation}\label{equation:ode_stability/ruhelagen:eq:abschaetzung_residuum}
+=======
 Dann gibt es analog zum Beweis von {\hyperref[\detokenize{odestability/ruhelagen:thm:stablin}]{\sphinxcrossref{Theorem 2.1}}} eine Konstante \(c>0\), so dass gilt
 \begin{equation}\label{equation:odestability/ruhelagen:eq:normexp}
 \begin{split}\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad \forall t\in \R^+_0.\end{split}
@@ -1867,6 +1925,7 @@ Hierbei haben wir ausgenutzt, dass wir die Konstante \(\epsilon > 0\) in \eqref{
 \sphinxAtStartPar
 Wir können nun einen Radius \(r\in (0,{r^\ast})\) bestimmen, so dass die folgende Abschätzung gilt
 \begin{equation}\label{equation:odestability/ruhelagen:eq:residuum}
+>>>>>>> main
 \begin{split}\|R(x)\| \leq \frac{\Lambda}{2c} \|x\|, \quad \forall \|x\| \leq r.\end{split}
 \end{equation}
 \sphinxAtStartPar
@@ -1885,16 +1944,28 @@ dann soll schon für die Norm der Lösung für beliebiges \(t \geq 0\) gelten
 \begin{split}\|x(t)\| \leq c\epsilon e^{-\frac{\Lambda t}{2}}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Da \(c\epsilon e^{- \frac{\Lambda t}{2}} \leq c\epsilon < r <\tilde{r}\) gilt, liegt die Lösung somit noch in der offenen Kugel \(B_{\vec{r}}(0) \subset U\) und konvergiert für \(t \rightarrow \infty\) gegen 0, was den Satz beweist.
+
+\sphinxAtStartPar
+Nehmen wir also an, dass \(\|x(0)\| \leq \epsilon <\frac{r}{c}\) gelte.
+Nun können wir nach \sphinxcode{\sphinxupquote{lemma:intexpglgn}} die unbekannte Lösung durch ihre Linearisierung darstellen als
+=======
 Da \(c\epsilon e^{- \frac{\Lambda t}{2}} \leq c\epsilon < r <\tilde{r}\) gilt, liegt die Lösung somit noch in der offenen Kugel \(B_{{r^\ast}}(0) \subset U\) und konvergiert für \(t \rightarrow \infty\) gegen 0, was den Satz beweist.
 
 \sphinxAtStartPar
 Nehmen wir also an, dass \(\|x(0)\| \leq \epsilon <\frac{r}{c}\) gelte.
 Nun können wir nach {\hyperref[\detokenize{odestability/ruhelagen:lem:intexpglgn}]{\sphinxcrossref{Lemma 2.1}}} die unbekannte Lösung durch ihre Linearisierung darstellen als
+>>>>>>> main
 \begin{equation*}
 \begin{split}x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen {\hyperref[\detokenize{ode_stability/ruhelagen:equation-eq-abschaetzung-norm-exponential}]{\sphinxcrossref{(2.3)}}} und {\hyperref[\detokenize{ode_stability/ruhelagen:equation-eq-abschaetzung-residuum}]{\sphinxcrossref{(2.4)}}}, so erhalten wir
+=======
 Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen \eqref{equation:odestability/ruhelagen:eq:normexp} und \eqref{equation:odestability/ruhelagen:eq:residuum}, so erhalten wir
+>>>>>>> main
 \begin{equation*}
 \begin{split}\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, \mathrm{d}s, \quad \forall \|x\| \leq r.\end{split}
 \end{equation*}
@@ -1904,30 +1975,50 @@ Multiplizieren wir beide Seiten der Ungleichung mit \(e^{\Lambda t}\) und defini
 \begin{split}f(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} f(s)\, \mathrm{d}s.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Für diese Form der Ungleichung bietet es sich an das {\hyperref[\detokenize{ode_stability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} zur Gronwall\sphinxhyphen{}Ungleichung anzuwenden, durch das wir schließlich folgendes Resultat bekommen
+=======
 Für diese Form der Ungleichung bietet es sich an das {\hyperref[\detokenize{odestability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} zur Gronwall\sphinxhyphen{}Ungleichung anzuwenden, durch das wir schließlich folgendes Resultat bekommen
+>>>>>>> main
 \begin{equation*}
 \begin{split}f(t) \leq c \|x_0\| \exp{\left( \frac{1}{2} \int_0^t \Lambda \, \mathrm{d}s \right) }
 \leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Durch Multiplikation beider Seiten mit \$e\textasciicircum{}\{\sphinxhyphen{}\textbackslash{}Lambda t\} führt dies zur finalen Abschätzung
+=======
 Durch Multiplikation beider Seiten mit \(e^{-\Lambda t}\) führt dies zur finalen Abschätzung
+>>>>>>> main
 \begin{equation*}
 \begin{split} \|x(t)\|\leq re^{-\frac{\Lambda}{2}t}, \quad \forall t\in\R^+_0.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Wir sehen also ein, dass die unbekannte Lösung für alle nicht\sphinxhyphen{}negativen Zeiten in der offenen Kugel \(B_r(0) \subset B_{\vec{r}}(0) \subset U\) enthalten ist und offensichtlich gegen Null konvergiert.
+=======
 Wir sehen also ein, dass die unbekannte Lösung für alle nicht\sphinxhyphen{}negativen Zeiten in der offenen Kugel \(B_r(0) \subset B_{{r^\ast}}(0) \subset U\) enthalten ist und offensichtlich gegen Null konvergiert.
+>>>>>>> main
 Damit ist die Ruhelage \(0 \in U\) asymptotisch stabil.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Folgende Bemerkung geht speziell auf ein Detail des Beweises ein, das eine Aussage zum Konvergenzradius der Lösungen eines dynamisches Systems zulässt.
+<<<<<<< HEAD
+\label{ode_stability/ruhelagen:remark-6}
+=======
 \label{odestability/ruhelagen:remark-6}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Remark 2.3 (Attraktionsbassin)}
 
 
 
 \sphinxAtStartPar
+<<<<<<< HEAD
+Der Beweis von {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilitaet_asymptotisch_allg}]{\sphinxcrossref{Theorem 2.2}}} liefert zusätzlich die Aussage, dass alle Punkte \(x\in U\) im Phasenraum mit
+=======
 Der Beweis von {\hyperref[\detokenize{odestability/ruhelagen:thm:stabasymallg}]{\sphinxcrossref{Theorem 2.2}}} liefert zusätzlich die Aussage, dass alle Punkte \(x\in U\) im Phasenraum mit
+>>>>>>> main
 \begin{equation*}
 \begin{split}\|x\| < \frac{r}{c}\end{split}
 \end{equation*}
@@ -1940,16 +2031,26 @@ Diesen attraktiven Einzugsbereich der Ruhelage nennt man auch das \sphinxstylest
 \subsection{Lyapunov\sphinxhyphen{}Stabilität von Ruhelagen}
 \label{\detokenize{odestability/ruhelagen:lyapunov-stabilitat-von-ruhelagen}}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Während ein hinreichendes Kriterium für das Vorliegen \sphinxstyleemphasis{asymptotischer Stabilität} die strikte Ungleichung \(Re(\lambda_i)<0\) für die Eigenwerte \(\lambda_i\) der Jacobi\sphinxhyphen{}Matrix war, ist die Situation bezüglich der Liapunov\sphinxhyphen{}Stabilität einer Ruhelage \sphinxstylestrong{komplizierter}.
+Hierzu wollen wir ein Resultat für den Fall von linearen dynamischen Systemen im Folgenden formulieren.
+\label{ode_stability/ruhelagen:theorem:stabilitaet_lyapunov_linear}
+=======
 Während ein hinreichendes Kriterium für das Vorliegen \sphinxstyleemphasis{asymptotischer Stabilität} die strikte Ungleichung \(Re(\lambda_i)<0\) für die Eigenwerte \(\lambda_i\) der Jacobi\sphinxhyphen{}Matrix war, ist die Situation bezüglich der Lyapunov\sphinxhyphen{}Stabilität einer Ruhelage \sphinxstylestrong{komplizierter}.
 Hierzu wollen wir ein Resultat für den Fall von linearen dynamischen Systemen im Folgenden formulieren.
 \label{odestability/ruhelagen:thm:stablyaplinear}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Theorem 2.3 (Lyapunov\sphinxhyphen{}Stabilität von Ruhelagen)}
 
 
 
 \sphinxAtStartPar
 Sei \(A\in \R^{n\times n}\) eine Matrix mit den Eigenwerten \(\lambda_1,\dots, \lambda_n\in \C\).
+<<<<<<< HEAD
+Besitzen die Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) von \(A\) einen nicht\sphinxhyphen{}positiven Realteil \(Re(\lambda_i) \leq 0\), und ist im Fall \(Re(\lambda_i)=0\) die geometrische Vielfachheit gleich der algebraischen Vielfachheit des Eigenwerts, dann ist \(0\in \R^n\) eine \sphinxstylestrong{Liapunov\sphinxhyphen{}stabile} Ruhelage des dynamischen Systems, dass durch das lineare Differentialgleichungssystem
+=======
 Besitzen die Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) von \(A\) einen nicht\sphinxhyphen{}positiven Realteil \(Re(\lambda_i) \leq 0\), und ist im Fall \(Re(\lambda_i)=0\) die geometrische Vielfachheit gleich der algebraischen Vielfachheit des Eigenwerts, dann ist \(0\in \R^n\) eine \sphinxstylestrong{Lyapunov\sphinxhyphen{}stabile} Ruhelage des dynamischen Systems, dass durch das lineare Differentialgleichungssystem
+>>>>>>> main
 \begin{equation*}
 \begin{split}\dot{x}(t) = Ax(t), \quad  \forall t \in I \subset \R^+_0\end{split}
 \end{equation*}
@@ -1959,7 +2060,11 @@ charakterisiert wird.
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Proof. Aus {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilit_xe4t_linear}]{\sphinxcrossref{Theorem 2.1}}} wissen wir bereits, dass im Fall eines linearen dynamischen Systems \(\vec{0} \in U\) eine Ruhelage im Phasenraum \(U \subset \R^n\) ist.
+=======
 Proof. Aus {\hyperref[\detokenize{odestability/ruhelagen:thm:stablin}]{\sphinxcrossref{Theorem 2.1}}} wissen wir bereits, dass im Fall eines linearen dynamischen Systems \(\vec{0} \in U\) eine Ruhelage im Phasenraum \(U \subset \R^n\) ist.
+>>>>>>> main
 Seien \(\lambda_1, \ldots, \lambda_k \in \C\) für \(k \leq n\) die paarweise verschiedenen Eigenwerte der Matrix \(A\).
 Wir betrachten wieder die Jordansche Normalform \(J = S^{-1}AS\) der Matrix \(A\) für Transformationsmatrizen \(S,S^{-1} \in \C^{n \times n}\) und
 \begin{equation*}
@@ -1982,7 +2087,11 @@ Hierbei bezeichnen \(r_i \in \N, i=1,\ldots, k\) die algebraischen Vielfachheite
  \end{pmatrix} \in \C^{r\times r}\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Mit den Rechenregeln für das Matrixexponential aus {\hyperref[\detokenize{ode/repetition:rem:matrixexponential_regeln}]{\sphinxcrossref{Remark 1.3}}} folgt
+=======
 Mit den Rechenregeln für das Matrixexponential aus {\hyperref[\detokenize{ode/repetition:rem:matrixexponentialregeln}]{\sphinxcrossref{Remark 1.3}}} folgt
+>>>>>>> main
 \begin{equation*}
 \begin{split}e^{Jt} = \begin{pmatrix}
 \exp{(J_{r_1}(\lambda_1)t)} & & 0\\
@@ -1996,29 +2105,50 @@ Betrachten wir nun die Norm der Lösungen des homogenen, linearen Differentialgl
 \begin{split}\| \Phi_t(x_0) \| = \|e^{At}x_0\| = \|S^{-1}e^{Jt}S x_0\| \leq \|S^{-1}\| \|e^{Jt}\| \|S\| \|x_0\|,\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
+so sehen wir ein, dass die Ruhelage \(\vec{0} \in U\) \sphinxstylestrong{Lyapunov\sphinxhyphen{}stabil} ist wenn für alle Jordanblöcke \(J_{r_i}(\lambda_i), i=1,\ldots,k\) von \(J\) der Ursprung \(0\in \C^{r_i}\) eine Liapunov\sphinxhyphen{}stabile Ruhelage des folgenden linearen Differentialgleichungssystems ist
+=======
 so sehen wir ein, dass die Ruhelage \(\vec{0} \in U\) \sphinxstylestrong{Lyapunov\sphinxhyphen{}stabil} ist wenn für alle Jordanblöcke \(J_{r_i}(\lambda_i), i=1,\ldots,k\) von \(J\) der Ursprung \(0\in \C^{r_i}\) eine Lyapunov\sphinxhyphen{}stabile Ruhelage des folgenden linearen Differentialgleichungssystems ist
+>>>>>>> main
 \begin{equation*}
 \begin{split} \dot{y}(t) = J_{r_i}(\lambda_i) y(t), \quad t \in I \subset \R^+_0.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
+Dies ist bereits gegeben falls für einen Eigenwert \(Re(\lambda_i)<0\) gilt, denn damit folgt aus {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilit_xe4t_linear}]{\sphinxcrossref{Theorem 2.1}}} sogar schon \sphinxstylestrong{asymptotische Stabilität}, welche Lyapunov\sphinxhyphen{}Stabilität induziert.
+=======
 Dies ist bereits gegeben falls für einen Eigenwert \(Re(\lambda_i)<0\) gilt, denn damit folgt aus {\hyperref[\detokenize{odestability/ruhelagen:thm:stablin}]{\sphinxcrossref{Theorem 2.1}}} sogar schon \sphinxstylestrong{asymptotische Stabilität}, welche Lyapunov\sphinxhyphen{}Stabilität induziert.
+>>>>>>> main
 
 \sphinxAtStartPar
 Betrachten wir also nun einen komplexen Eigenwert \(\lambda_i \in \C\) von \(A\) mit \(Re(\lambda_i)=0\) und für den die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen Vielfachheit ist.
 In diesem Fall ist der ihm zugeordnete Jordanblock eine Diagonalmatrix auf deren Hauptdiagonale der Eigenwert \(\lambda_i \in \C\) steht, da alle Jordankästchen eindimensional sind.
 In diesem Fall sehen wir, dass die Norm des Matrixexponentials beschränkt ist und wir dadurch \sphinxstylestrong{Lyapunov\sphinxhyphen{}Stabilität} der Ruhelage gezeigt haben, da gilt
+<<<<<<< HEAD
 \begin{equation*}
 \begin{split}\|e^{J_{r_i}(\lambda_i)t)}\| = |e^{\lambda_i t}| = |e^0e^{\mathcal{Im}(\lambda_i) t}| = |\cos{(\mathcal{Im}(\lambda_i)t)} + i \sin{(\mathcal{Im}(\lambda_i)t)}| = 1.\end{split}
 \end{equation*}
 \sphinxAtStartPar
 Für diese Umformung haben wir die Definition der komplexen Exponentialfunktion genutzt, für die gilt:
 \begin{equation*}
+=======
+\begin{equation*}
+\begin{split}\|e^{J_{r_i}(\lambda_i)t)}\| = |e^{\lambda_i t}| = |e^0e^{\mathcal{Im}(\lambda_i) t}| = |\cos{(\mathcal{Im}(\lambda_i)t)} + i \sin{(\mathcal{Im}(\lambda_i)t)}| = 1.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Für diese Umformung haben wir die Definition der komplexen Exponentialfunktion genutzt, für die gilt:
+\begin{equation*}
+>>>>>>> main
 \begin{split}e^z = e^{x+iy} = e^xe^iy = e^x(\cos(y) + i\sin(y)), \quad \text{für } z = x+iy \in \C.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
 Das folgende Beispiel illustriert, dass eine Ruhelage instabil werden kann, wenn die geometrische Vielfachheit nicht mit der algebraischen Vielfachheit übereinstimmt für einen Eigenwert \(\lambda =0\) der Koeffizientenmatrix \(A\).
+<<<<<<< HEAD
+\label{ode_stability/ruhelagen:example-8}
+=======
 \label{odestability/ruhelagen:example-8}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Example 2.2}
 
 
@@ -2036,6 +2166,27 @@ für eine Koeffizientenmatrix
 \sphinxAtStartPar
 Wie man leicht nachrechnet besitzt diese Matrix den Eigenwert \(\lambda = 0\) mit algebraischer Vielfachheit \(2\) und geometrischer Vielfachheit \(1\) zum Eigenvektor \(v = (1,0)^T \in \R^2\).
 Die Vielfachheiten des Eigenwert \sphinxstylestrong{stimmen} also \sphinxstylestrong{nicht überein}.
+<<<<<<< HEAD
+
+\sphinxAtStartPar
+Aus {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilit_xe4t_linear}]{\sphinxcrossref{Theorem 2.1}}} wissen wir, dass eine Ruhelage in \(\vec{0} \in \R^2\) existiert.
+Man sieht jedoch leicht ein, dass sogar jeder Punkt \(x_0 = (y, 0) \in U\) eine Ruhelage des Systems darstellt, da diese Punkte ein Vielfaches des Eigenvektors zum Eigenwert \(\lambda = 0\) darstellen und somit im Kern der Matrix \(A\) liegen, d.h., für diese Punkte ist die rechte Seite des Differentialgleichungssystems \(\vec{0} \in \R^2\) und somit liegt eine Ruhelage vor.
+
+\sphinxAtStartPar
+Wir wollen die Stabilität dieser Ruhelagen im Folgenden untersuchen.
+Hierzu betrachten wir die Norm des Phasenflusses \(\Phi \colon I \times U \rightarrow U\), der für einen gegebenen Anfangswert \(x_0 = (y,z) \in U\) mit \(z \neq 0\) der die Lösung des Differentialgleichungssystems beschreibt mit
+\begin{equation*}
+\begin{split}\| \Phi_t(x_0) \| &= \| e^{At}x_0 \| = \| \sum_{k=0}^\infty \frac{(At)^k}{k!} x_0\| = \| [\underbrace{(At)^0}_{=I_2} + (At)^1] x_0\| \\
+&= \| \begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix}\begin{pmatrix} y \\ z \end{pmatrix} \| = \| \begin{pmatrix} y + tz \\ z\end{pmatrix} \| \overset{t\to \infty}{\longrightarrow} \infty.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir sehen also, dass für jeden Anfangswert \(x_0 = (y,z)\) mit \(z \neq 0\) die Lösung des Differentialgleichungssystems divergiert und somit ist jede Ruhelage des dynamischen Systems \sphinxstylestrong{instabil}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nichtlinearen Fall schließen, wie das folgende Beispiel zeigt.
+\label{ode_stability/ruhelagen:example-9}
+=======
 
 \sphinxAtStartPar
 Aus {\hyperref[\detokenize{odestability/ruhelagen:thm:stablin}]{\sphinxcrossref{Theorem 2.1}}} wissen wir, dass eine Ruhelage in \(\vec{0} \in \R^2\) existiert.
@@ -2055,6 +2206,7 @@ Wir sehen also, dass für jeden Anfangswert \(x_0 = (y,z)\) mit \(z \neq 0\) die
 \sphinxAtStartPar
 Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nichtlinearen Fall schließen, wie das folgende Beispiel zeigt.
 \label{odestability/ruhelagen:example-9}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Example 2.3}
 
 
@@ -2145,9 +2297,1334 @@ instabil \(\beta > 0\)
 \end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
+<<<<<<< HEAD
 
 \sphinxAtStartPar
 Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter \(\alpha\), sondern ebenfalls von \(\beta\) ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
+\end{sphinxadmonition}
+
+
+\chapter{Vektoranalysis}
+\label{\detokenize{vektoranalysis/vektoranalysis:vektoranalysis}}\label{\detokenize{vektoranalysis/vektoranalysis::doc}}
+\sphinxAtStartPar
+In diesem Kapitel führen wir wichtige Konzepte der \sphinxstyleemphasis{Vektoranalysis} ein. Insbesondere schaffen wir die Grundlagen für eine spezielle Art der Mehrdimensionalen Integration, das Integrieren über sog. \sphinxstyleemphasis{Untermannigfaltigkeiten} des \(\R^n\).
+Um diese Integration durchzuführen, entwickeln wir das Kalkül der \sphinxstyleemphasis{Differentialformen} auf Mannigfaltigkeiten.
+
+\sphinxAtStartPar
+Dieses Kalkül lässt auch den \sphinxstyleemphasis{geometrischen Gehalt} physikalischer
+Theorien wie Elektrodynamik oder Allgemeine Relativitätstheorie klar
+hervortreten. So lassen sich beispielsweise die sog. Maxwellschen Gleichungen der
+Elektrodynamik in Differentialformenkalkül schreiben.
+
+\sphinxAtStartPar
+Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von \sphinxstyleemphasis{Agricola} und \sphinxstyleemphasis{Friedrich}, {[}\hyperlink{cite.references:id13}{AF13}{]}.
+
+
+\section{Multilinearformen}
+\label{\detokenize{vektoranalysis/multilinear:multilinearformen}}\label{\detokenize{vektoranalysis/multilinear::doc}}
+\sphinxAtStartPar
+In diesem Abschnitt wollen wir Multilinearformen kennenlernen. Für Vektorräume \(\V, W\) über einem Körper \(\K\) haben Sie bereits den Begriff der Linearform, also einer linearen Abbildung \(\varphi:\V\rightarrow W\) kennengelernt. Die Idee der Multilinearform ist anstatt einem, gleich \(k\)\sphinxhyphen{}viele Vektorräume \(V_1,\ldots,V_k\) über \(\K\) zu betrachten und das Konzept der Lineratität auf Abbildung \(\varphi:\V_1\times\ldots\V_k\rightarrow W\) zu übertragen. Zur Vereinfachung werden wir im folgenden nur den Körper \(\K=\R\) betrachten, in den meisten Fällen lassen sich die Konzepte aber direkt auf allgemeine Körper übertragen.
+
+\sphinxAtStartPar
+Wir beginnen zunächst mit einer Wiederolung und betrachten die schon bekannten Linearformen. Insbesondere soll der nächste Abschnitt als Wiederholung zum vorherigen Semester die verschiedenen Begriffe des Dualraums abgrenzen.
+
+
+\subsection{Dualräume}
+\label{\detokenize{vektoranalysis/multilinear:dualraume}}
+\sphinxAtStartPar
+Für einen reellen Vektorraum \(\V\) wollen wir lineare Abbildung \(\varphi:V\to\R\) betrachten.
+\label{vektoranalysis/multilinear:definition-0}
+\begin{sphinxadmonition}{note}{Definition 3.1 (Algebraischer Dualraum)}
+
+=======
+>>>>>>> main
+
+
+\sphinxAtStartPar
+Es sei \(\V\) ein \(\R\)\sphinxhyphen{}Vektorraum, die Menge
+\begin{equation*}
+\begin{split}\V^\ast := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear}\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+<<<<<<< HEAD
+heißt \sphinxstylestrong{algebraischer Dualraum}.
+=======
+Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter \(\alpha\), sondern ebenfalls von \(\beta\) ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
+>>>>>>> main
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Aus {[}\hyperlink{cite.references:id12}{Ten21}{]} ist bereits der Begriff des \sphinxstyleemphasis{topologischen Dualraums} bekannt, welcher allerdings eine etwas restriktivere Definition hat. Sie fordert noch zusätzlich die Stetigkeit der linearen Abbildungen.
+
+\begin{sphinxadmonition}{danger}{Danger:}
+\sphinxAtStartPar
+Der algebraische Dualraum ist im allgemeinen nicht gleich dem topologischen. Der Hauptzweck dieses Abschnitts ist es diese Tatsache klar zu machen und die Unterschiede der beiden Definitionen zu verstehen.
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:definition-1}
+\begin{sphinxadmonition}{note}{Definition 3.2 (Topologischer Dualraum)}
+
+
+
+\sphinxAtStartPar
+Es sei \(\V\) ein normierter \(\R\)\sphinxhyphen{}Vektorraum für einen Körper \(\R\), dann heißt die Menge
+\begin{equation*}
+\begin{split}\V^\prime := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear und stetig}\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{topologischer Dualraum}.
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:remark-2}
+\begin{sphinxadmonition}{note}{Remark 3.1}
+
+
+
+\sphinxAtStartPar
+Damit die obige Definition sinnvoll ist, ist es in der Tat nicht notwendig, dass \(X\) ein normierter Raum ist. Es reicht anzunehmen, dass \(\V\) ein topologischer Vektorraum ist.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+In unserem Kontext spielt allerdings der Begriff des algebraischen Dualraums eine wichtige Rolle, welcher im Folgenden eingeführt wird. Man erkennt sofort, dass stets \(\V^\prime\subset \V^\ast\) gilt. Weiterhin stimmen die beiden Räume im endlich\sphinxhyphen{}dimensionalen Fall überein.
+\label{vektoranalysis/multilinear:lemma-3}
+\begin{sphinxadmonition}{note}{Lemma 3.1}
+
+
+
+\sphinxAtStartPar
+Für \(n\in\N\) sei \(\V\) ein \(n\)\sphinxhyphen{}dimensionaler \(\R\)\sphinxhyphen{}Vektorraum, dann gilt
+\begin{equation*}
+\begin{split}V^\prime = V^\ast.\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:remark-4}
+\begin{sphinxadmonition}{note}{Remark 3.2}
+
+
+
+\sphinxAtStartPar
+Die Norm auf \(\V\) in der obigen Aussage ist durch das Standardskalarprodukt induziert.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe Übung.
+\end{sphinxadmonition}
+
+
+\subsection{k\sphinxhyphen{}Multilinearformen}
+\label{\detokenize{vektoranalysis/multilinear:k-multilinearformen}}
+\sphinxAtStartPar
+Wir verallgeminern nun den Begriff der Linearität in der folgenden Definition.
+\label{vektoranalysis/multilinear:def:multilinear}
+\begin{sphinxadmonition}{note}{Definition 3.3}
+
+
+
+\sphinxAtStartPar
+Für \(i=1,\ldots,k\) sei \(\V_i\), sowie \(W\) ein reeller Vektorraum. Eine Abbildung
+\begin{equation*}
+\begin{split}\varphi:\V_1\times\ldots\times \V_k\ \to W\end{split}
+\end{equation*}
+\sphinxAtStartPar
+heißt k\sphinxhyphen{}\sphinxstylestrong{(multi)linear}, wenn für beliebige \(z_i\in\V_i\) und jede Komponente \(i\in\{1,\ldots,k\}\) die Abbildung
+\begin{equation*}
+\begin{split}V_i &\to W\\
+x&\mapsto \varphi_i(x):= \varphi(z_1,\ldots, z_{i-1}, x, z_{i+1},\ldots,z_k)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+linear ist. Die Menge aller \(k\)\sphinxhyphen{}linearen Abbildungen wird mit \(L^k(\V_1\times\ldots\times \V_k, W)\) bezeichnet.
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:remark-6}
+\begin{sphinxadmonition}{note}{Remark 3.3}
+
+<<<<<<< HEAD
+
+
+\sphinxAtStartPar
+Ausgeschrieben bedeutet die Bedingung in der obigen Definition, dass für alle \(z_i\in V_i\), \(\lambda\in\R\),
+und insbesondere für jedes \(i\in\{1,\ldots,k\}\), \(x,y\in \V_i\)  gilt,
+\begin{equation*}
+\begin{split}\varphi(z_1,\ldots,z_{i-1},\lambda x, z_{i+1},\ldots,z_k) = \lambda
+\varphi(z_1,\ldots,z_{i-1}, x, z_{j+1}, \ldots,z_k)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und
+\begin{equation*}
+\begin{split}&\varphi(z_1,\ldots,z_{i-1},x+y,z_{j+1},\ldots,z_k)\\
+= 
+&\varphi(z_1,\ldots,x,\ldots,z_k) + \varphi(z_1,\ldots,y,\ldots,z_k).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ldots,k\), so schreibt man auch \(L^k(\V\times\ldots\times \V,W) = L^k(\V,W)\).
+
+\sphinxAtStartPar
+Viele multilineare Abbildungen sind schon aus der Linearen Algebra vertraut. Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
+\label{vektoranalysis/multilinear:ex:multi}
+\begin{sphinxadmonition}{note}{Example 3.1}
+
+
+
+\sphinxAtStartPar
+Wir betrachten Beispiele für verschiedene \(k\in\N\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{\(k=1\)}:
+
+\sphinxAtStartPar
+In diesem Fall haben wir bereits gesehen, dass \(L^1(\V,\R) = \V^\ast\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{\(k=2\)}:
+
+\sphinxAtStartPar
+Es sei \(\V=\R^n\) mit kanonischem innerem Produkt \(\langle\cdot,\cdot\rangle\). Für \(A\in\R^{n,n}\) ist
+\begin{equation*}
+\begin{split}\varphi:\V\times \V\to\R\\ 
+\varphi(x, y) :=\langle x,A y \rangle\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine \sphinxstylestrong{Bilinearform}. Sie heißt \sphinxstyleemphasis{symmetrisch},
+falls
+\begin{equation*}
+\begin{split}\varphi(x, y) = \varphi( y, x)\qquad (x, y\in \V)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und \sphinxstyleemphasis{antisymmetrisch} falls
+\begin{equation*}
+\begin{split}\varphi(x, y) = -\varphi( y, x)\qquad (x, y\in \V).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{\(k=n\)}:
+
+\sphinxAtStartPar
+Es sei \(\V=\R^n\). Die \(n\)\sphinxhyphen{}lineare Abbildung
+\begin{equation*}
+\begin{split}\varphi(z_1,\ldots,z_n) := \det((z_1,\ldots,z_n))\end{split}
+\end{equation*}
+\sphinxAtStartPar
+heißt \sphinxstylestrong{Determinantenform}. Wir beachten, dass hierbei jedes \(z_i\in\R^n\) ein Vektor und \((z_1,\ldots,z_n)\) eine Matrix ist.
+Die Form gibt das orientierte Volumen des von \(z_1,\ldots,z_n\) aufgespannten Parallelotops an.
+\end{sphinxadmonition}
+
+
+\subsection{Der Vektorraum der Multilinearformen}
+\label{\detokenize{vektoranalysis/multilinear:der-vektorraum-der-multilinearformen}}
+\sphinxAtStartPar
+Die Definition einer \(k\)\sphinxhyphen{}linearen Abbildung ermöglicht es uns sehr direkt eine Vektorraumstruktur zu definieren.
+\label{vektoranalysis/multilinear:lemma-8}
+\begin{sphinxadmonition}{note}{Lemma 3.2}
+
+
+
+\sphinxAtStartPar
+Es seien \(\V_1,\ldots,\V_k\) sowie \(W\) reelle Vektorräume, dann ist die Menge \(L^k(\V_1\times\ldots\V_k,W)\) ein Vektorraum über \(\R\) bezüglich der Addition
+\begin{equation*}
+\begin{split}(\varphi_1+\varphi_2)(z_1,\ldots,z_k) := \varphi_1(z_1,\ldots,z_k) +
+\varphi_2(z_1,\ldots,z_k),\quad \varphi_1,\varphi_2\in L^k(\V,\R)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und der Skalarmultiplikation
+\begin{equation*}
+\begin{split}(\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V,\R), \lambda\in\R.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe Übung.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Als wichtigen Spezialfall erhalten wir für \(k=1\) den Dualraum \(L^1(\V,\R)\). Für diesen Vektorraum können wir eine spezielle Basis charakterisieren, die sogenannte \sphinxstylestrong{duale Basis}.
+\label{vektoranalysis/multilinear:lemma-9}
+\begin{sphinxadmonition}{note}{Lemma 3.3 (Duale Basis)}
+
+
+
+\sphinxAtStartPar
+Es sei \(\V\) ein \(n\)\sphinxhyphen{}dimensionaler \(\R\)\sphinxhyphen{}Vektorraum mit einer Basis \(B = (b_1,\ldots,b_n)\), die Abbildungen
+\(\eta_i:\V\rightarrow\R\) für \(i=1,\ldots,n\),
+\begin{equation*}
+\begin{split}\eta_i(z) = \eta_i\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_i\end{split}
+\end{equation*}
+\sphinxAtStartPar
+bilden einen Basis von \(\V^\ast\), die sogenannte \sphinxstylestrong{duale Basis} zu \(B\).
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:remark-10}
+\begin{sphinxadmonition}{note}{Remark 3.4}
+
+
+
+\sphinxAtStartPar
+Insbesondere zeigt diese Aussage, dass \(\dim(\V) = \dim(\V^\ast)\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Wir zeigen zunächst, dass \(\eta_i\in\V^\ast\). Dazu sei \(x,y\in\V\), dann existieren skalare
+\(\alpha_i^x,\alpha_i^y\in\R\) für \(i=1,\ldots,n\), s.d.,
+\begin{equation*}
+\begin{split}x &= \sum_{i=1}^n \alpha_i^x b_i\\
+y &= \sum_{i=1}^n \alpha_i^y b_i.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Somit haben wir
+\begin{equation*}
+\begin{split}\eta_i(x+y) &= \eta_i\left(\sum_{i=1}^n \alpha_i^x b_i + \alpha_i^y b_i\right) 
+\\&=
+\eta_i\left(\sum_{i=1}^n (\alpha_i^x + \alpha_i^y) b_i\right) 
+\\&=
+\alpha_i^x + \alpha_i^y
+\\&=
+\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i\right)  + \eta_i\left(\sum_{i=1}^n \alpha_i^y b_i\right)
+\\&=
+\eta_i(x) + \eta_i(y).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Weiterhin gilt für \(\lambda\in\R\)
+\begin{equation*}
+\begin{split}\eta_i(\lambda x) &= \eta_i\left(\lambda \sum_{i=1}^n \alpha_i^x b_i\right) 
+\\&=
+\eta_i\left(\sum_{i=1}^n (\lambda \alpha_i^x) b_i\right) 
+\\&=
+\lambda \alpha_i^x
+\\&=
+\lambda \eta_i(x)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und damit ist \(\eta_i\) linear.
+Sei nun \(\phi\in\V^\ast\), dann gilt
+\begin{equation*}
+\begin{split}\phi(x) = \phi\left(\sum_{i=1}^n \alpha_i^x b_i\right) = \sum_{i=1}^n \alpha_i^x \phi(b_i) = 
+\sum_{i=1}^n \eta_i(x) \phi(b_i),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+insbesondere gilt also \(\phi = \sum_{i=1}^n \eta_i \phi(b_i\)).
+
+\sphinxAtStartPar
+Somit bilden die Abbildungen \(\eta_i\) ein Erzeugenden System, da jedes \(\phi\) als Linearkombination dargestellt werden kann.
+Weiterhin seien \(a_i\in\R\) gegeben, s.d., \(0 = \sum_{i=1}^n a_i \eta_i\), damit folgt für jedes \(j=1,\ldots,n\),
+\begin{equation*}
+\begin{split}0 = \left(\sum_{i=1}^n a_i \eta_i\right)(b_j) = \sum_{i=1}^n a_i \eta_i(b_j) = a_j\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und damit ist die Aussage bewiesen.
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:remark-11}
+\begin{sphinxadmonition}{note}{Remark 3.5}
+
+
+
+\sphinxAtStartPar
+Die Aussage lässt sich auf den Fall eines unendlich\sphinxhyphen{}dimensionalen Vektorraums übertragen. Hierfür erinnern wir daran, dass für einen Vektorraum \(V\) stets eine Basis \(B^V = \{b_i^v:i\in I\}\subset V\) existiert wobei \(I\) eine (nicht notwendigerweise endliche) Indexmenge ist. Insbesondere bemerken wir, dass wir hier von einer \sphinxstylestrong{Hamelbasis} sprechen, d.h., für jedes Element \(v\in V\) gibt es eindeutig bestimmte Koeffizienten \(\alpha_i, i\in I\) s.d.
+\begin{equation*}
+\begin{split}v = \sum_{i\in I} \alpha_i b_i.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Der wichtige Punkt ist aber, dass nur \sphinxstylestrong{endlich viele} \(\alpha_i\) ungleich null sind und die Summation somit keine eigentlich unendliche Reihe beschreibt sondern nur eine endliche Summe. Diese Konzept ist insbesondere verschieden vom Begriff der \sphinxhref{https://de.wikipedia.org/wiki/Schauderbasis}{Schauderbasis}
+\end{sphinxadmonition}
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Georg Hamel}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Georg\_Hamel}{Georg Karl Wilhelm Hamel} (Geboren 12. September 1877 in Düren; Gestorben 4. Oktober 1954 in Landshut) war ein deutscher Mathematiker.
+\end{sphinxShadowBox}
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Juliusz Schauder}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Juliusz\_Schauder}{Juliusz Paweł Schauder} (Geboren 21. September 1899 in Lemberg; Gestorben September 1943) war ein polnischer Mathematiker.
+\end{sphinxShadowBox}
+
+\sphinxAtStartPar
+Wir halten weiterhin fest, dass sich der doppelt duale Raum im endlich\sphinxhyphen{}dimensionalen Fall leicht charakterisieren lässt.
+\label{vektoranalysis/multilinear:lem:doubledual}
+\begin{sphinxadmonition}{note}{Lemma 3.4}
+
+
+
+\sphinxAtStartPar
+Es sei \(\V\) ein \(n\)\sphinxhyphen{}dimensionaler reeller Vektorraum, dann gilt, dass die Abbildung
+\begin{equation*}
+\begin{split}\Psi:\V\rightarrow \V^{\ast\ast}
+\Psi(x) := (\varphi\mapsto \varphi(x))\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ein Isomorphismus ist.
+\end{sphinxadmonition}
+
+
+\subsection{Äußere Formen}
+\label{\detokenize{vektoranalysis/multilinear:auszere-formen}}
+\sphinxAtStartPar
+In {\hyperref[\detokenize{vektoranalysis/multilinear:ex:multi}]{\sphinxcrossref{Example 3.1}}} haben wir für \(k=2\) bereits den Begriff der Antisymmetrie kennengelernt. Dieser Fall lässt sich auf beliebige \(k\in\N\) verallgemeinern, was zur Definition der äußeren Form führt.
+\label{vektoranalysis/multilinear:aeussere_Form}
+\begin{sphinxadmonition}{note}{Definition 3.4 (Äußere Form)}
+
+
+
+\sphinxAtStartPar
+Es sei \(\V\) ein \(n\)–dimensionaler \(\R\)\sphinxhyphen{}Vektorraum und \(k\in\N\). Dann heißt \(\varphi\in L^k(E,\R)\)
+\sphinxstylestrong{äußere} \(k\)\sphinxstylestrong{\sphinxhyphen{}Form},wenn sie \sphinxstylestrong{antisymmetrisch} ist, d.h., für alle \(1\leq i<l\leq k\) und
+\(z\in \V^k\) gilt
+\begin{equation*}
+\begin{split}\varphi(z_1,\ldots,z_i,\ldots,z_l,\ldots,z_k) =-\varphi(z_1,\ldots,z_l,\ldots,z_i,\ldots,z_k).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Der Unterraum der äußeren \(k\)\sphinxhyphen{}Formen wird mit \(\Lambda^k(\V)\subset L^k(\V,\R)\) bezeichnet.
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:example-14}
+\begin{sphinxadmonition}{note}{Example 3.2}
+
+
+
+\sphinxAtStartPar
+\(k=1\):
+
+\sphinxAtStartPar
+Hier fallen alle bisherigen Definitionen zusammen, d.h.,
+\begin{equation*}
+\begin{split}\Lambda^1(\V) = L^1(\V,\R)= \V^\ast\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\(k=2\):
+
+\sphinxAtStartPar
+Für \(A\in\R^{2,2}\) definiert die Abbildung \((x,y)\mapsto\langle x,A y\rangle\) eine äußere \(2\)\sphinxhyphen{}Form auf \(\R^n\) genau dann, wenn die Matrix \(A\) antisymmetrisch ist. D.h., falls \(A^T=-A\) gilt.
+
+\sphinxAtStartPar
+\(k=n\):
+
+\sphinxAtStartPar
+Die Determinantenform ist bis auf ihre Vielfachen die einzige äußere \(n\)\sphinxhyphen{}Form auf dem \(\R^n\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir beweisen zwei kleine Hilfsaussagen zu äußeren Formen
+\label{vektoranalysis/multilinear:lemma-15}
+\begin{sphinxadmonition}{note}{Lemma 3.5}
+
+
+
+\sphinxAtStartPar
+Es sein \(\V\) ein reeller Vektorraum und \(\varphi\in\Lambda^k(V)\).
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Für jede Permutation \(\pi:\{1,\ldots,k\}\rightarrow\{1,\ldots,k\}\) gilt
+
+\end{itemize}
+\begin{equation*}
+\begin{split}\varphi(z_{\pi(1)},\ldots,z_{\pi(k)}) = \sign(\pi) \varphi(z_1,\ldots,z_k).\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Sind \(z_1,\ldots, z_k\) linear abhängig, so gilt \(\varphi(z_1,\ldots,z_k) = 0\).
+
+\end{itemize}
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Die erste Behauptung folgt direkt aus der Tatsache, dass sich jede Permutation als Verkettung endlich vieler Transpositionen schreiben lässt.
+Für die zweite Behauptung sehen wir zunächst, dass
+\begin{equation*}
+\begin{split}\varphi(z_1,\ldots,x,\ldots, x,\ldots,z_k) = -\varphi(z_1,\ldots,x,\ldots,x,\ldots,z_k)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und somit \(\varphi(z_1,\ldots,x,\ldots,x,\ldots,z_k)=0\). Sind die \(z_i\) nun linear abhängig, so existieren Skalare \(\alpha_i\), s.d.,
+ein \(j\) existiert mit \(\alpha_j\neq 0\) und
+\begin{equation*}
+\begin{split}\sum_{i=1}^n \alpha_i z_i = 0 \Leftrightarrow z_j = 
+\frac{1}{\alpha_j} \sum_{i\neq j} \alpha_i z_i.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Somit folgt
+\begin{equation*}
+\begin{split}\varphi(z_1,\ldots,z_j,\ldots,z_k) = 
+\sum_{i\neq j} \alpha_i \varphi(z_1,\ldots,z_{j-1},z_i,z_{j+1},\ldots,z_k) = 0.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir werden nun eine Methode kennelernen die es uns erlaubt eine äußere \(k\)\sphinxhyphen{}Form als sogenanntes \sphinxstylestrong{äußeres Produkt} von \(k\) vielen Linearformen zu erhalten.
+\label{vektoranalysis/multilinear:definition-16}
+\begin{sphinxadmonition}{note}{Definition 3.5 (Äußeres Produkt)}
+
+
+
+\sphinxAtStartPar
+Für einen Vektorraum \(\V\) ist das \sphinxstylestrong{äußere Produkt} von \(\omega_1,\ldots,\omega_k\in\Lambda^1(\V)\)
+durch
+\begin{equation*}
+\begin{split}\omega_1\wedge\ldots\wedge\omega_k:V^k&\to\R\\
+(z_1,\ldots,z_k)&\mapsto 
+\det
+\begin{pmatrix}
+\omega_1(z_1)&\ldots&\omega_k(z_1)\\ 
+\vdots&&\vdots\\
+\omega_1(z_k)&\ldots&\omega_k(z_k)
+\end{pmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+definiert.
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:lemma-17}
+\begin{sphinxadmonition}{note}{Lemma 3.6}
+
+
+
+\sphinxAtStartPar
+Für einen Vektorraum \(\V\) ist das äußere Produkt von \(\omega_1,\ldots,\omega_k\in\Lambda^1(\V)\) eine \(k\)\sphinxhyphen{}Linearform.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe Übung.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Insbesondere gilt damit für die Dualbasis \(\eta_1,\ldots,\eta_n\) von \(\V^*\), dass
+\begin{equation*}
+\begin{split}\eta_{i_1}\wedge\ldots\wedge\eta_{i_k}\in\Lambda^k(\V)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für beliebige Indexkombinationen \(i_1,\ldots,i_k \in \{1,\ldots,n \}\). Wegen der Eigenschaften der Determinante gilt
+\begin{equation*}
+\begin{split}\eta_{i_1}\wedge\ldots\wedge\eta_{i_k} = \sign(\pi)\, \eta_{\pi(i_1)}\wedge\ldots\wedge\eta_{\pi(i_k)} \end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei \(\pi:\{i_1,\ldots,i_k\}\rightarrow\{i_1,\ldots,i_k\}\) eine Permutation ist, s.d.,
+\begin{equation*}
+\begin{split}\pi(i_1) <= \ldots <= \pi(i_j) <= \ldots <= \pi(i_k).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Desweiteren gilt auch
+\begin{equation*}
+\begin{split}\eta_{i_1}\wedge\ldots\wedge\eta_{i_k} &\neq 0\\
+&\Leftrightarrow \\
+i_{j}\neq i_l&\text{ für } j\neq l.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir können nun jede \(k\)\sphinxhyphen{}Form \(\omega\in\Lambda^k(E)\) eindeutig als Linearkombination
+\begin{equation*}
+\begin{split}\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
+\alpha_{i_1}\wedge\ldots\wedge\alpha_{i_k}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+mit Koeffizienten
+\begin{equation*}
+\begin{split}\omega_{i_1\ldots i_k} := \omega(e_{i_1},\ldots,e_{i_k})\in\R\end{split}
+\end{equation*}
+\sphinxAtStartPar
+darstellen. Da
+die Indexmengen \(\{i_1,\ldots ,i_k\}\) die \(k\)–elementigen Teilmengen von\(\{1,\ldots,n\}\) durchlaufen, gilt
+für \(\dim(E)=n\)
+\begin{equation*}
+\begin{split}\dim\left(\Lambda^k(E)\right) = {n\choose k}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Das  \sphinxstyleemphasis{äußere Produkt}
+Produkt der \(k\)–Form \(\omega\) mit einer \(l\)–Form
+\begin{equation*}
+\begin{split}\psi := \sum_{1\leq j_1<\ldots<j_{l}\leq n}\psi_{j_1\ldots j_l}\,
+\alpha_{j_1}\wedge\ldots\wedge\alpha_{j_l}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wird nun distributiv als \(\omega\wedge\psi\in\Lambda^{k+l}(E)\),
+\begin{equation*}
+\begin{split}\omega\wedge\psi := \sum_{1\leq i_1<\ldots<i_k\leq n} \sum_{1\leq
+j_1<\ldots<j_l\leq n} \omega_{i_1\ldots i_k} \psi_{j_1\ldots j_l}
+\alpha_{i_1}\wedge\ldots\wedge\alpha_{i_k}\wedge\alpha_{j_1}\wedge
+\ldots\wedge\alpha_{j_l}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+definiert. All diejenigen Summanden, bei denen ein Indexpaar \(i_r=j_s\)vorkommt, sind gleich Null, denn \(\alpha_l\wedge\alpha_l = -\alpha_l\wedge\alpha_l=0\).
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Das äußere Produkt ist \sphinxstyleemphasis{assoziativ}, d.h. für beliebige äußere Formen auf \(E\) gilt
+
+\end{itemize}
+\begin{equation*}
+\begin{split}(\omega\wedge\psi)\wedge\rho = \omega\wedge(\psi\wedge\rho).\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Weiter gilt für eine \(k\)–Form \(\omega\) und eine \(l\)–Form \(\psi\)
+
+\end{itemize}
+\begin{equation*}
+\begin{split}\omega\wedge\psi = (-1)^{k\cdot l}\psi\wedge\omega,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+denn wir müssen \(k\!\cdot\! l\)–mal Eins–Formen kommutieren, um von der einen
+zur anderen Gestalt zu gelangen.
+\label{vektoranalysis/multilinear:symplektische Form auf dem $\R^{2n}$}
+\begin{sphinxadmonition}{note}{Example 3.3 (Wikipedia \sphinxstyleemphasis{Symplektische Form})}
+
+
+\begin{equation*}
+\begin{split}\omega := \sum_{i=1}^n\alpha_i\wedge\alpha_{i+n}\in\Lambda^2(\R^{2n}).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Für \(n=2\) ergibt sich
+\begin{equation*}
+\begin{split}\omega = \alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+also
+\begin{equation*}
+\begin{split}\omega\wedge\omega &=& (\alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4)
+\wedge(\alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4)\\
+&=& \underbrace{\alpha_1\wedge\alpha_3\wedge\alpha_1\wedge\alpha_3}_0 +
+\alpha_2\wedge\alpha_4\wedge\alpha_1\wedge\alpha_3\\
+&& + \alpha_1\wedge\alpha_3\wedge\alpha_2\wedge\alpha_4 + \underbrace
+{\alpha_2\wedge\alpha_4\wedge\alpha_2\wedge\alpha_4}_0\\
+&=& (-1)^3\alpha_1\wedge\alpha_2\wedge\alpha_3\wedge\alpha_4 +
+(-1)^1\alpha_1\wedge\alpha_2\wedge\alpha_3\wedge\alpha_4\\
+&=& -2\alpha_1\wedge\alpha_2\wedge\alpha_3\wedge\alpha_4.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Die symplektische Form \(\omega\) hat eine Schlüsselrolle in der Klassischen Mechanik. Dort bezeichnet man die Koordinaten \(x_1,\ldots,
+x_n\) als Impulskoordinaten, die Koordinaten \(x_{n+1},\ldots, x_{2n}\) als
+Ortskoordinaten.
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:example-19}
+\begin{sphinxadmonition}{note}{Example 3.4 (Vektoren und äußere Formen)}
+
+
+
+\sphinxAtStartPar
+Wir ordnen nun Vektoren
+\(v = \begin{pmatrix} v_1\\ \vdots\\ v_n \end{pmatrix} =\sum_{k=1}^nv_ke_k\in\R^n\) verschiedene äußere Formen zu.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Das kanonische innere Produkt im \(\R^n\) vermittelt einen Isomorphismus
+
+\end{itemize}
+\begin{equation*}
+\begin{split}v\mapsto v^*,\ v^*(u) :=\, < v,u > \qquad(u\in\R^n)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+des \(\R^n\) und seines Dualraumes. Die Eins–Form \(v^*\) besitzt dabei die Gestalt
+\begin{equation*}
+\begin{split}v^* = \sum_{i=1}^nv_i\alpha_i
+\in\Lambda^1(\R^n).\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(v\in\R^n\) wird auch eine \((n-1)\)–Form \(\omega_v\in\Lambda^{n-1}(\R^n)\),
+
+\end{itemize}
+\begin{equation*}
+\begin{split}\omega_v(u_2,\ldots,u_n) := \det(v,u_2,\ldots,u_n) \qquad (u_2,\ldots,u_n\in\R^n)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+zugeordnet. Speziell im \(\R^3\) finden wir die \(2\)–Form
+\begin{equation*}
+\begin{split}\omega_v = v_1\alpha_2\wedge\alpha_3+v_2\alpha_3\wedge\alpha_1+v_3
+\alpha_1\wedge\alpha_2.\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Wir betrachten jetzt speziell den (physikalisch wichtigen) \(\R^3\).
+Das äußere Produkt zweier solcher \(1\)–Formen ergibtauf dem \(\R^3\) die \(2\)–Form
+
+\end{itemize}
+\begin{equation*}
+\begin{split}v^*\wedge u^* &=& (v_1\alpha_1+v_2\alpha_2+v_3\alpha_3)
+\wedge(u_1\alpha_1+u_2\alpha_2+u_3\alpha_3)\\
+&=& (v_1u_2-v_2u_1)\alpha_1\wedge\alpha_2+(v_2u_3-v_3u_2)\alpha_2\wedge
+\alpha_3\\
+&& + (v_3u_1-v_1u_3)\alpha_3\wedge\alpha_1\\
+&=& \omega_{v\times u}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir haben auf diese Weise das \sphinxhref{https://de.wikipedia.org/wiki/Kreuzprodukt}{\sphinxstyleemphasis{Kreuzprodukt}}
+\begin{equation*}
+\begin{split}v\times u=\begin{pmatrix} v_2u_3-v_3u_2\\v_3u_1-v_1u_3 \\ v_1u_2-v_2u_1 \end{pmatrix} \in\R^3\end{split}
+\end{equation*}
+\sphinxAtStartPar
+zweier Vektoren \(v,u\in\R^3\) gewonnen.
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:theorem-20}
+\begin{sphinxadmonition}{note}{Theorem 3.1}
+
+
+
+\sphinxAtStartPar
+Die Vektoren \(w_1,\ldots,w_k\in E^*\) sind genau dann linear abhängig, wenn
+\begin{equation*}
+\begin{split}w_1\wedge\ldots\wedge w_k=0.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. * Wenn sie linear abhängig sind, können wir einen Index \(i\in\{1,\ldots, k\}\) finden, für den \(w_i\) eine Linearkombination \(w_i=\sum_{\stackrel{l=1}{l\neq i}}^k c_l w_l\) ist. Damit gilt aber
+\begin{equation*}
+\begin{split}w_1\wedge\ldots\wedge w_k = \sum_{\stackrel{l=1}{l\neq i}}^kc_l\, w_1 \wedge \ldots \wedge w_{i-1}\wedge w_l\wedge w_{i+1 \wedge\ldots\wedge w_k = 0,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+denn in jedem Summanden kommt \(w_l\) doppelt vor.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Andernfalls können wir die Vektoren \(w_1,\ldots,w_k\) zu einer Basis
+
+\end{itemize}
+\begin{equation*}
+\begin{split}w_1,\ldots,w_n \text{ mit } n:=\dim(E^*)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ergänzen, sodass \(w_1\wedge\ldots\wedge w_n\neq0\) ist.
+Dann ist aber auch \(w_1\wedge\ldots\wedge w_k\neq0\).
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:Grassmannalgebra "uber $E$.}
+\begin{sphinxadmonition}{note}{Definition 3.6 (Grassmannalgebra)}
+
+
+
+\sphinxAtStartPar
+Für einen endlich\sphinxhyphen{}dimensionalen \(\R\)\sphinxhyphen{}Vektorraum \(E\) heißt der reelle Vektorraum
+\begin{equation*}
+\begin{split}\Lambda^*(E) := \bigoplus_{k=0}^{\dim(E)}\Lambda^k(E)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+(mit \(\Lambda^0(E):=\R\)) mit der durch das Dachprodukt
+gegebenen Multiplikation die \sphinxstylestrong{äußere} oder
+\sphinxhref{https://de.wikipedia.org/wiki/Gra\%C3\%9Fmann-Algebra}{\sphinxstylestrong{Grassmann\sphinxhyphen{}Algebra}}
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:remark-22}
+\begin{sphinxadmonition}{note}{Remark 3.6}
+
+
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(\dim(\Lambda^*(E)) = 2^{\dim(E)}\), denn \(\sum_{k=0}^n{n\choose k} = 2^n\).
+
+\item {} 
+\sphinxAtStartPar
+Für beliebige \(k,l\in\N_0\) ist für alle \(\omega\in\Lambda^k(E)\) und
+\(\varphi\in\Lambda^l(E)\):\textbackslash{} \(\omega\wedge\varphi\in\Lambda^{k+l}(E)\), aber für
+\(m>\dim(E)\) ist \(\dim(\Lambda^m(E))=0\).
+
+\end{itemize}
+\end{sphinxadmonition}
+\label{vektoranalysis/multilinear:pull-back von $\omega$ mit $f$.}
+\begin{sphinxadmonition}{note}{Definition 3.7}
+
+
+
+\sphinxAtStartPar
+Für eine lineare Abbildung \(f:E\to F\) endlichdimensionaler \(\R\)–Vektorräume und \(\omega\in\Lambda^k(F)\) heißt die durch
+\begin{equation*}
+\begin{split}f^*(\omega)( v_1,\ldots, v_k) := \omega \big(f( v_1),\ldots,f( v_k)\big)
+\qquad (v_1,\ldots,v_k\in E)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+definierte \(k\)–Form \(f^*(\omega)\) die \sphinxstylestrong{Zurückziehung} (engl.
+\sphinxstylestrong{pull–back}).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Es gilt offensichtlich \(f^*(\omega)\in\Lambda^k(E)\), denn \(f^*(\omega)\)
+ist \(k\)–linear und antisymmetrisch.
+\label{vektoranalysis/multilinear:theorem-24}
+\begin{sphinxadmonition}{note}{Theorem 3.2}
+
+
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Die Abbildung \(f^*:\Lambda^*(F)\to\Lambda^*(E)\) ist linear.
+
+\item {} 
+\sphinxAtStartPar
+Für \(g\in L(F,G)\) ist \((g\circ f)^*=f^*\circ g^*\).
+
+\item {} 
+\sphinxAtStartPar
+Für die identische Abbildung \(Id_E:E\to E\) ist \(Id_E^* = Id_{\Lambda^*(E)}\).
+
+\item {} 
+\sphinxAtStartPar
+Für eine invertierbare Abbildung \(f\in {\rm GL}(E,F)\) ist \((f^*)^{-1}=(f^{-1})^*\).
+
+\item {} 
+\sphinxAtStartPar
+\(f^*(\alpha\wedge\beta) = f^*(\alpha)\wedge f^*(\beta)\).
+
+\end{itemize}
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Für alle Vektoren \(v_1,\ldots,v_k\in E\) gilt
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Mit \(\alpha, \beta\in\Lambda^k(F)\) und \(c_1,c_2\in\R\) ist
+
+\end{itemize}
+\begin{equation*}
+\begin{split}f^*(c_1\alpha+c_2\beta)(v_1,\ldots,v_k)
+ &=& (c_1\alpha+c_2\beta) \big(f(v_1),\ldots,f(v_k)\big)\\
+&=& c_1\alpha\big(f(v_1),\ldots,f(v_k)\big) + c_2\beta\big(f(v_1),\ldots,f(v_k)\big)\\
+&=& c_1f^*\alpha(v_1,\ldots,v_k)+c_2f^*\beta(v_1,\ldots,v_k).\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\((g\circ f)^*\alpha( v_1,\ldots, v_k) = \alpha\big(g\circ f( v_1),\ldots, g\circ f( v_k)\big)= g^*\alpha\big(f( v_1),\ldots,f( v_k)\big)\\=  f^*\circ g^*\alpha( v_1,\ldots, v_k)\)
+
+\item {} 
+\sphinxAtStartPar
+\(Id_E^*(\alpha)(v_1,\ldots,v_k) = \alpha\big(Id_E(v_1),\ldots,Id_E(v_k)\big)
+= \alpha(v_1,\ldots,v_k)\).
+
+\item {} 
+\sphinxAtStartPar
+Folgt aus 2. und 3.: \((f^{-1})^*f^* = (f\circ f^{-1})^* = Id_F^* =
+Id_{\Lambda^*(F)}\).
+
+\item {} 
+\sphinxAtStartPar
+Hausaufgabe.
+
+\end{itemize}
+\end{sphinxadmonition}
+
+
+\section{Tensoren und Tensorprodukte}
+\label{\detokenize{vektoranalysis/tensor:tensoren-und-tensorprodukte}}\label{\detokenize{vektoranalysis/tensor::doc}}
+\sphinxAtStartPar
+In diesem Kapitel widmen wir uns einem wichtigen aber komplizierten Thema der Vektoranalysis, nämlich Tensoren und Tensorprodukten.
+Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe \sphinxhref{https://de.wikipedia.org/wiki/Tensorprodukt}{Wikipedia}) weshalb es nicht leicht ist eine Einführung zu geben die gleichzeitig allgemein, aber auch verständlich ist. Da Tensoren aber eine wichtige Rolle in der Physik spielen werden wir uns hier damit beschäftigen.
+
+
+\subsection{Motivation}
+\label{\detokenize{vektoranalysis/tensor:motivation}}
+\sphinxAtStartPar
+Wir betrachten zwei Beispiele aus der Physik, welche auf Tensoren zurückgreifen.
+\label{vektoranalysis/tensor:remark-0}
+\begin{sphinxadmonition}{note}{Remark 3.7}
+
+
+
+\sphinxAtStartPar
+Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom latinischen \sphinxstyleemphasis{tendere} (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.
+\end{sphinxadmonition}
+
+
+\subsubsection{Der Cauchy Spannungstensor}
+\label{\detokenize{vektoranalysis/tensor:der-cauchy-spannungstensor}}
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Augustin Cauchy}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Augustin-Louis\_Cauchy}{Augustin\sphinxhyphen{}Louis Cauchy} (Geboren 21. August 1789 in Paris; Gestorben 23. Mai 1857 in Sceaux) war ein französischer Mathematiker.
+\end{sphinxShadowBox}
+
+\sphinxAtStartPar
+Mechanische Spannung beschreibt die innere Beanspruchung und Kräfte in einem Volumen \(V\subset\R^3\) die aufgrund einer äußeren Belastungen auftreten. Die grundlegende Idee ist das \sphinxstylestrong{Euler\sphinxhyphen{}Cauchy Stress Prinzip}, welches beschreibt, dass auf jede Schnittfläche \(A\subset\R^2\) welche ein Volumen in zwei Teile trennt, von diesen zwei Komponenten eine Spannung auf \(A\) ausgewirkt wird, welche durch den \sphinxstylestrong{Spannungsvektor} \(\mathbf{T}^n\) beschrieben wird. Der Spannungsvektor ist hierbei von der Dimension “Kraft pro Fläche”.
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[height=250\sphinxpxdimen]{{stress_vector}.png}
+\caption{Visualisierung für Normal\sphinxhyphen{} und Scherspannung an einer Schnittfläche. Quelle: \sphinxhref{https://en.wikipedia.org/wiki/Cauchy\_stress\_tensor}{Wikipedia; Cauchy Stress Tensor}.}\label{\detokenize{vektoranalysis/tensor:fig-stress}}\end{figure}
+
+\sphinxAtStartPar
+Wie in \hyperref[\detokenize{vektoranalysis/tensor:fig-stress}]{Fig.\@ \ref{\detokenize{vektoranalysis/tensor:fig-stress}}} visualisiert teilt sich die Spannung in zwei Komponenten auf:
+
+\sphinxAtStartPar
+\sphinxstylestrong{Normalspannung:}
+
+\sphinxAtStartPar
+Dieser Teil des Spannungsvektor zeigt in Richtung der normalen \(\mathbf{n}\) welche orthogonal auf der Schnittfläche stehen.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Scherspannung:}
+
+\sphinxAtStartPar
+Dieser Teil des Spannungstensors ist parallel zur Schnittfläche.
+
+\sphinxAtStartPar
+Man erkennt nun, dass die Spannung in \(V\) nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt \(P\in V\) ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein Tensorfeld \(\mathbf{\sigma}(x)\) existiert, s.d.,
+\begin{equation*}
+\begin{split}T^{\mathbf{n}}(x) = \mathbf{n}\cdot \mathbf{\sigma}(x),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+d.h. in jedem Punkt \(x\in V\) ist der Stressvektor linear im Normalenvektor \(\mathbf{n}\).
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[height=250\sphinxpxdimen]{{stress_tensor_comp}.png}
+\caption{Quelle: \sphinxhref{https://de.wikipedia.org/wiki/Spannungstensor}{Wikipedia; Spannungstensor}.}\label{\detokenize{vektoranalysis/tensor:fig-stress-comp}}\end{figure}
+
+\sphinxAtStartPar
+Hierfür betrachtet man einen freigeschnittenen Würfel wie in \hyperref[\detokenize{vektoranalysis/tensor:fig-stress-comp}]{Fig.\@ \ref{\detokenize{vektoranalysis/tensor:fig-stress-comp}}} und definiert für die drei verschiedenen Flächen (orthogonal zu den Einheitsvektoren) den Stresstensor
+\begin{equation*}
+\begin{split}\mathbf{T}^{e_i}:= \sum_{j=1}^3 \sigma_{ij} e_j.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+So haben wir z.B. für \(\mathbf{T}^{e_1}\) die Normalspannung gegeben durch \(\sigma_{11} e_1\) und die zwei Scherspannungskomponenten \(\sigma_{12} e_2, \sigma_{13} e_3\). Insgesamt erhält man neun Komponenten \(\sigma_{ij}\) welche über die Definition
+\begin{equation*}
+\begin{split}\mathbf{\sigma} := \sum_{i=1}^3 e_i \otimes \mathbf{T}^{e_i} = \sum_{i=1}^3\sum_{j=1}^3 \sigma_{ij} (e_i\otimes e_j)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+den Cauchy Stresstensor \(\mathbf{\sigma}\) ergebene. Hierbei bezeichnet \(\otimes\) das \sphinxstylestrong{dyadische Produkt} zweier Vektoren. Für \(x\in\R^n,y\in\R^m\) definieren wir
+\begin{equation*}
+\begin{split}x \otimes y := 
+\begin{pmatrix}
+x_1y_1 &\ldots &x_1 y_m\\
+\vdots &\ddots & \vdots\\
+x_n y_1&\ldots& x_n y_m
+\end{pmatrix}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir werden später sehen, dass man die Idee \(\sigma\) über das dyadische Produkt zu definieren abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.
+
+
+\subsubsection{Quantenverschränkung}
+\label{\detokenize{vektoranalysis/tensor:quantenverschrankung}}
+
+\subsection{Das Tensorprodukt}
+\label{\detokenize{vektoranalysis/tensor:das-tensorprodukt}}
+\sphinxAtStartPar
+Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es später konkret realisieren.
+\label{vektoranalysis/tensor:definition-1}
+\begin{sphinxadmonition}{note}{Definition 3.8 (Tensorprodukt)}
+
+
+
+\sphinxAtStartPar
+Es seien \(V,W\) zwei reelle Vektorräume. Ein reeler Vektorraum \(X\) heißt \sphinxstylestrong{Tensorproduktraum} falls eine bilineare Abbildung \(\otimes:V\times W\rightarrow X\) existiert, s.d., die folgende \sphinxstylestrong{universelle Eigenschaft} gilt:
+
+\sphinxAtStartPar
+Für jede Bilinearform \(\phi\in L^2(V\times W, Y)\) in einen beliebigen reellen Vektorraum \(Y\), existiert eine eindeutige lineare Abbildung
+\(p \in L^1(X, Y)\), s.d. gilt
+\begin{equation*}
+\begin{split}\phi(v,w) = p((v\otimes w)) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In diesem Fall schreibt man auch \(X = V\otimes X\), \(\otimes\) heißt Tensorprodukt und zusätzlich ist die Schreibweise \(\otimes(v,w)=:v\otimes w\) üblich.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Was bedeutet das?}
+
+\sphinxAtStartPar
+Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. Was ist jetzt also ein Tensorprodukt?
+
+\sphinxAtStartPar
+\sphinxstylestrong{Das Tensorprodukt ist universell:}
+
+\sphinxAtStartPar
+Wir haben benutzten in der Definition oben das kartesische Produkt \(\times\) welches eindeutig definiert ist. Im Gegensatz dazu gibt es nicht \sphinxstyleemphasis{ein} Tensorprodukt \(\otimes\) oder \sphinxstyleemphasis{einen} Tensorproduktraum \(V\otimes W\). Wir haben die Freiheit \(\otimes\) zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann \(V\otimes W\) Tensorproduktraum. Derartige Konzepte nennt man in der Algebra \sphinxstyleemphasis{universell}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Was bedeutet die universelle Eigenschaft?}
+
+\sphinxAtStartPar
+Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf \(V\times W\) und dem Dualraum von \(V\otimes W\) her. Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen schon über einfache Linearformen auf \(V\otimes W\).
+
+
+\subsection{Existenz und Konstruktion}
+\label{\detokenize{vektoranalysis/tensor:existenz-und-konstruktion}}
+\sphinxAtStartPar
+Wir können ein Tensorprodukt konkret konstruieren indem wir uns auf die Basis der Vektorräume \(V\) und \(W\) zurückziehen. Diese Tatsache formulieren wir in der folgenden Aussage.
+\label{vektoranalysis/tensor:theorem-2}
+\begin{sphinxadmonition}{note}{Theorem 3.3}
+
+
+
+\sphinxAtStartPar
+Für zwei reelle Vektorräume \(V, W\) existiert stets mindestens ein Tensorprodukt \(\otimes\in L^2(V\times W, V\otimes W)\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Der folgende Beweis ist ein sogenannter konstruktiver Beweis, d.h., wir zeigen die Existenz eines Objekts indem wir es explizit angeben. Es gibt auch nicht\sphinxhyphen{}konstruktive Existenzbeweise.
+
+\sphinxAtStartPar
+Es sei \(B^V = \{b_i^V: i\in I^V\}\) eine Basis von \(V\) und analog \(B^W = \{b_i^W: i\in I^W\}\)  eine Basis von \(W\) für Indexmengen \(I^V, I^W\). Wir betrachten das kartesische Produkt
+\begin{equation*}
+\begin{split}J := I^V \times I^W = \{(i,j): i\in I^V, j\in I^W\}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Es sei nun \(X\) ein Vektorraum dessen Basis sich durch \(J\) indizieren lässt, d.h., es existiert eine Menge
+\begin{equation*}
+\begin{split}B^X = \{b_{ij}^X: (i,j)\in J\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+s.d. \(B^X\) eine Basis von \(X\) ist. Ein solcher Vektorraum existiert, da z.B. das kartesische Produkt \(V\times W\) diese Eigenschaft erfüllt.
+
+\sphinxAtStartPar
+Wir definieren nun eine bilineare Abbildung \(\otimes: V\times W\to X\) über
+\begin{equation*}
+\begin{split}b_i^V \otimes b_j^W := b_{ij}^X\quad\forall (i,j)\in J.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Beachte, \(\otimes\) ist durch die Definition auf \(J\) eindeutig festgelegt, da für beliebige \((v,w)\in V\times W\) endlich viele Faktoren
+\(\alpha_{i_1},\ldots,\alpha_{i_m}\) und \(\beta_{j_1},\ldots, \beta_{j_n}\) existieren s.d.
+\begin{equation*}
+\begin{split}\otimes(v,w) 
+&= 
+\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) 
+\\&= 
+\sum_{k=1}^n \sum_{l=1}^m \otimes\left(b_{i_k}^V, b_{j_l}^W\right)
+\\&=
+\sum_{k=1}^n \sum_{l=1}^m b_{i_kj_l}^X.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir müssen nun die universelle Eigenschaft zeigen, sei dazu \(\phi\in L^2(V\times W, Y)\) eine Bilinearform auf einen reellen Vektorraum \(Y\), dann können wir eine Linearform auf \(p:X\to Y\) definieren durch (analog reicht es die Definition auf den Basiselementen anzugeben)
+\begin{equation*}
+\begin{split}p(b_{ij}^X) := \phi(b_i^V, b_j^W).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Dann gilt nämlich, unter Ausnutzung der Linearität von \(p\) und obiger Rechnung, dass
+\begin{equation*}
+\begin{split}p(\otimes(v,w)) 
+&=
+\sum_{k=1}^n \sum_{l=1}^m p(b_{i_kj_l}^X)
+\\&=
+\sum_{k=1}^n \sum_{l=1}^m \phi\left(b_{i_k}^V, b_{j_l}^W\right)
+\\&
+\phi\big(\sum_{k=1}^n  b_{i_k}^V,\sum_{l=1}^m b_{j_l}^W\big)
+\\&
+\phi(v,w)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und somit gilt die universelle Eigenschaft. Insbesondere, da \(p\) durch die obige Definition eindeutig festgelegt ist.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Als Korollar erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann. Hieran sieht man qualitativ den Unterschied zwischen \(V\otimes W\) und \(V\otimes W\).
+\label{vektoranalysis/tensor:corollary-3}
+\begin{sphinxadmonition}{note}{Corollary 3.1}
+
+
+
+\sphinxAtStartPar
+Für zwei reelle Vektorräume \(V,W\) mit Basen \(B^V = \{b_i^V: i\in I^V\}, B^W = \{b_i^W: i\in I^W\}\) und ein Tensorprodukt \(\otimes:V\times W\to V\otimes W\) ist
+\begin{equation*}
+\begin{split}\{b_i^V\otimes b_j^W: i\in I^V, j\in I^W\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine Basis von \(V\otimes W\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir wissen nun, dass mindestens ein Tensorprodukt existiert, es stellt sich also die Frage inwiefern sich verschiedene derartige Abbildungen auf den gleichen Vektorräumen \(V,W\) unterschieden. Seien dazu \(\otimes_1, \otimes_2\) je zwei Tensorprodukte auf \(V\times W\). Wegen der universellen Eigenschaft gibt es lineare Abbildungen \(p_1: V\otimes_1 W\to W\otimes_2 V\) und \(p_2: V\otimes_2 W\to W\otimes_1 V\), s.d.,
+\begin{equation*}
+\begin{split}\otimes_2 &= p_1 \circ \otimes_1\\
+\otimes_1 &= p_2 \circ \otimes_2.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und somit
+\begin{equation*}
+\begin{split}\otimes_2 &= p_1\circ p_2 \circ \otimes_2\\
+\otimes_1 &= p_2\circ p_1 \circ \otimes_1.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Da wir aber die Basis von \(V\otimes_2 W\) über Elemente \(\otimes_2(b_i^V, b_j^W)\) charakterisieren können, und aus der ersten Gleichung folgt, dass
+\begin{equation*}
+\begin{split}p_1\circ p_2(\otimes(b_i^V,b_j^W)) = \otimes(b_i^V, b_j^W)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wissen wir dass \(p_1\circ p_2 = \mathrm{Id}\). Das folgt da \(p_1\circ p_2\) als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist.
+Analog folgt \(p_2\circ p_1 = \mathrm{Id}\) und somit sind \(p_1, p_2\) isomorph zueinander. D.h. wir haben insgesamt gezeigt, dass verschiedene Tensorprodukte stets isomorph zueinander sind.
+\label{vektoranalysis/tensor:lemma-4}
+\begin{sphinxadmonition}{note}{Lemma 3.7}
+
+
+
+\sphinxAtStartPar
+Es seien \(V,W\) zwei reelle Vektorräume und \(\otimes_1,\otimes_2\) zwei Tensorprodukte. Dann existiert genau ein Isomorphismus \(p:V\otimes_1 W\to V\otimes_2 W\), s.d.
+\begin{equation*}
+\begin{split}\otimes_2 = p\circ \otimes_1.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+
+\subsection{Tensoren als Linearformen}
+\label{\detokenize{vektoranalysis/tensor:tensoren-als-linearformen}}
+\sphinxAtStartPar
+Als Einleitung in das Thema wollen wir Tensoren zunächst als Linearformen auf \(\V_1\times\ldots\times\V_k\)
+betrachten wobei für \(i=1,\ldots,k\) \(\V_i\) reelle endlich dimensionale Vektorräume sind.
+Man schreibt in diesem Fall auch
+\begin{equation*}
+\begin{split}\V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k,\R)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei \(\otimes\) das Tensorprodukt bezeichnet.
+
+\sphinxAtStartPar
+Der wichtige Spezialfall ist hier allerdings nun nicht \(\V^k\) sondern ein kartesisches Produkt der Form
+\begin{equation*}
+\begin{split}(V^\ast)^r\times V^s.\end{split}
+\end{equation*}\label{vektoranalysis/tensor:definition-5}
+\begin{sphinxadmonition}{note}{Definition 3.9}
+
+
+
+\sphinxAtStartPar
+Es sei \(\V\) ein reeller endlich\sphinxhyphen{}dimensionaler Vektorraum, dann nennt man
+\begin{equation*}
+\begin{split}T^r_s(V) := L((V^\ast)^r\times V^s, \R)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Menge der \(r\)\sphinxhyphen{}fach \sphinxstylestrong{kontravarianten} und \(s\)\sphinxhyphen{}fach \sphinxstylestrong{kovarianten} Tensoren, oder alternativ Tensoren der Stufe \((r,s)\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir wollen diese abstrakte Definition nun mit einfachen Beispielen veranschaulichen zunächst für \(r+s=1\).
+\label{vektoranalysis/tensor:example-6}
+\begin{sphinxadmonition}{note}{Example 3.5}
+
+
+
+\sphinxAtStartPar
+Tensoren der Stufe \((1,0)\) können mit Elementen des Vektorraums selbst identifiziert werden, denn
+\begin{equation*}
+\begin{split}T^1_0(V) = L((V^\ast), \R) = \V^{\ast\ast}\cong \V\end{split}
+\end{equation*}
+\sphinxAtStartPar
+mit der Identifikation aus {\hyperref[\detokenize{vektoranalysis/multilinear:lem:doubledual}]{\sphinxcrossref{Lemma 3.4}}}. Weiterhin sind Tensoren der Stufe \((0,1)\) Elemente des
+Dualraums, also einfach Linearformen auf \(\V\), sogenannte \sphinxstyleemphasis{Kovektoren}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Als weiteren Spezialfall erhalten wir Multilinearformen.
+\label{vektoranalysis/tensor:example-7}
+\begin{sphinxadmonition}{note}{Example 3.6}
+
+
+
+\sphinxAtStartPar
+Tensoren der Stufe \((0,k)\) sind \(k\)\sphinxhyphen{}Linearformen, da \(T^0_k(V) = L^k(V)\).
+\end{sphinxadmonition}
+\label{vektoranalysis/tensor:example-8}
+\begin{sphinxadmonition}{note}{Example 3.7}
+
+
+
+\sphinxAtStartPar
+Aus einer linearen Abbildung \(A:\V\to\V\) erhält man direkt einen Tensor der Stufe \((1,1)\) über die Abbildung
+\begin{equation*}
+\begin{split}\varphi, v \mapsto \varphi(Av).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+
+\section{Differentialformen}
+\label{\detokenize{vektoranalysis/diffformen:differentialformen}}\label{\detokenize{vektoranalysis/diffformen::doc}}
+\sphinxAtStartPar
+In diesem Kapitel werden wir nun \sphinxhref{https://de.wikipedia.org/wiki/Differentialform}{Differentialformen} einführen. Die entscheidende Neuerung im Vergleich zum vorhergehenden Kapitel, ist
+dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen, speziell betrachten wir eine offene Menge \(U\subset\R^n\). Ein weiterer wichtiger Aspekt, ist dass wir im Folgenden mit glatten Funktion arbeiten wollen, d.h., mit dem Raum \(C^\infty(U,\R^n)\).
+
+\sphinxAtStartPar
+Eine Differentialform \(\omega\) auf \(U\subseteq\R^n\) ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.
+
+\sphinxAtStartPar
+Wir schreiben eine allgemeine \sphinxstyleemphasis{\(k\)–Form} \(\omega\) in der \sphinxstyleemphasis{Grundform}
+\begin{equation*}
+\begin{split}\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}\in\Omega^k(U),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+die \(\omega_{i_1\ldots i_k}\in \Omega^0(U):=C^\infty(U,\R)\), also glatte reelle Funktionen auf \(U\) sind,
+
+\item {} 
+\sphinxAtStartPar
+und die \(dx_i\) den Koordinatenfunktionen \(x_i:\R^n\to\R\) zugeordnete \(1\)–Differentialformen sind (\(dx_i\in\Omega^1(\R^n)\)).
+
+\item {} 
+\sphinxAtStartPar
+Den Raum der \(k\)–Differentialformen schreiben wir ab jetzt zur Unterscheidung vom Raum der äußeren \(k\)–Formen mit dem Symbol \(\Omega\) statt \(\Lambda\).
+
+\end{itemize}
+
+\sphinxAtStartPar
+Die \(dx_i\) sind durch ihre Wirkung auf ein Vektorfeld \(v:U\to
+\R^n\) definiert, und \(dx_i(v)( y) := v_i( y)\).
+\(1\)–Differentialformen machen also aus Vektorfeldern Funktionen, und für \(k\) Vektorfelder \(v^{(l)}:U\to\R^n\) ist für das \(\omega\) aus der Grundform
+\begin{equation*}
+\begin{split}\omega\left(v^{(1)},\ldots,v^{(k)}\right) := \sum_{1\leq i_1<\ldots<i_k\leq n}
+\omega_{i_1\ldots i_k}\cdot\det\begin{pmatrix} dx_{i_1}(v^{(1)})&\ldots& dx_{i_k}(v^{(1)})\\
+\vdots&&\vdots\\
+dx_{i_1}(v^{(k)})&\ldots& dx_{i_k}(v^{(k)}) \end{pmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+definiert. Das Ergebnis ist also eine reelle Funktion auf \(U\).\textbackslash{}
+Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformen.
+
+\sphinxAtStartPar
+Auf dem \(\R\)–Vektorraum
+\begin{equation*}
+\begin{split}\Omega^*(U) := \bigoplus_{k=0}^n\Omega^k(U)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+der Differentialformen betrachten wir jetzt
+den \sphinxstyleemphasis{Differentialoperator} \(d\), der durch
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(df := \sum_{i=1}^n\frac{\partial f}{\partial x_i}dx_i\) für Funktionen
+\(f\in C^\infty(U,\R) = \Omega^0(U)\)
+
+\item {} 
+\sphinxAtStartPar
+und \(d\omega := \sum_{1\leq i_1<\ldots<i_k\leq n}d\omega_{i_1\ldots i_k}
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k}\) für \(k\)–Formen \textbackslash{}linebreak
+\(\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
+dx_1\wedge\ldots\wedge dx_{i_k}\)
+
+\end{itemize}
+
+\sphinxAtStartPar
+definiert ist. \(d\) verwandelt eine \(k\)–Form also in eine \((k+1)\)–Form.
+\label{vektoranalysis/diffformen:aeussere Ableitung}
+\begin{sphinxadmonition}{note}{Definition 3.10}
+
+
+
+\sphinxAtStartPar
+Die lineare Abbildung \(d:\Omega^*(U)\to\Omega^*(U)\) heißt \sphinxhref{https://de.wikipedia.org/wiki/\%C3\%84u\%C3\%9Fere\_Ableitung}{\sphinxstylestrong{äußere Ableitung}}.
+\end{sphinxadmonition}
+\label{vektoranalysis/diffformen:ex:10.14}
+\begin{sphinxadmonition}{note}{Example 3.8 (Äußere Ableitung)}
+
+
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Für \(\omega\in\Omega^0(\R^3)\) ist \(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
+\frac{\partial\omega}{\partial x_2}dx_2+\frac{\partial\omega}{\partial x_3}dx_3\).
+
+\item {} 
+\sphinxAtStartPar
+Für \(\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)\) ist
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}d\omega &=& (d\omega_1)\wedge dx_1+(d\omega_2)\wedge dx_2+(d\omega_3)\wedge
+dx_3\\
+&=& \left(\frac{\partial\omega_2}{\partial x_1}-\frac{\partial\omega_1}{\partial x_2}\right)
+dx_1\wedge dx_2+ \left(\frac{\partial\omega_3}{\partial x_2}-\frac{\partial\omega_2}{\partial x_3}\right)
+dx_2\wedge dx_3\\
+&& + \left(\frac{\partial\omega_1}{\partial x_3}-\frac{\partial\omega_3}{\partial x_1}\right)
+dx_3\wedge dx_1\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Für \(\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
++\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)\) ist
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}d\omega = \left(\frac{\partial\omega_{12}}{\partial x_3} + \frac{\partial\omega_{23}}{\partial x_1}
++ \frac{\partial\omega_{31}}{\partial x_2}\right)dx_1\wedge dx_2\wedge dx_3.\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Für \(\omega\in\Omega^3(\R^3)\) ist \(d\omega=0\).
+
+\end{enumerate}
+\end{sphinxadmonition}
+\label{vektoranalysis/diffformen:Antiderivation}
+\begin{sphinxadmonition}{note}{Theorem 3.4}
+
+
+
+\sphinxAtStartPar
+\(d\) ist eine \sphinxhref{https://de.wikipedia.org/wiki/Derivation\_(Mathematik)\#Antiderivationen}{\sphinxstylestrong{Antiderivation}}, d.h. für \(\alpha\in\Omega^k(U)\) und \(\beta\in\Omega^l(U)\) ist
+\begin{equation*}
+\begin{split}d(\alpha\wedge\beta) = (d\alpha)\wedge\beta+(-1)^k\alpha\wedge d\beta.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Wegen der Linearität von \(d\) genügt es, diese Gleichung für Monome
+\begin{equation*}
+\begin{split}\alpha := f\underbrace{dx_{i_1}\wedge\ldots\wedge dx_{i_k}}_{\tilde
+{\alpha}},\ \beta := g\underbrace{dx_{j_1}\wedge\ldots\wedge dx_{j_l}}_
+{\tilde{\beta}},\ f,g\in C^\infty(U,\R)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+zu beweisen.
+Es gilt
+\begin{equation*}
+\begin{split}d(\alpha\wedge\beta) &=& d(f\cdot g)\tilde{\alpha}\wedge
+\tilde{\beta} = \big((df)g+f(dg)\big)\,\tilde{\alpha}\wedge\tilde{\beta}\\
+&=& (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{vektoranalysis/diffformen:thm:dd}
+\begin{sphinxadmonition}{note}{Theorem 3.5}
+
+
+
+\sphinxAtStartPar
+Auf \(\Omega^*(U)\) gilt
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. 1. Für \(f\in\Omega^0(U)\) ist
+\begin{equation*}
+\begin{split}ddf &=& d\left(\sum_{i=1}^n\frac{\partial f}
+{\partial x_i}dx_i\right) = \sum_{i=1}^n\sum_{l=1}^n\frac{\partial^2f}{\partial x_l\partial x_i}
+dx_l\wedge dx_i\\
+& =& \sum_{1\leq r< s\leq n}\left(\frac{\partial^2 f}{\partial x_r
+\partial x_s} - \frac{\partial^2f}{\partial x_s\partial x_r}\right)dx_r\wedge dx_s = 0,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+da wir wegen der Glattheit von \(f\) die partiellen Ableitungen vertauschen
+können.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Für \(\omega = \sum\omega_{i_1\ldots i_k}dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+\in\Omega^k(U)\) ist\textbackslash{}
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+denn gemäß Satz {\hyperref[\detokenize{vektoranalysis/diffformen:Antiderivation}]{\sphinxcrossref{Theorem 3.4}}} wird die äußere Ableitung auf die
+1\sphinxhyphen{}Formen \(d\omega_{i_1\ldots i_k}\) und \(dx_{i_l}\) angewandt, und nach Teil 1.
+ist das Ergebnis Null.
+\end{sphinxadmonition}
+\label{vektoranalysis/diffformen:geschlossen:exakt}
+\begin{sphinxadmonition}{note}{Definition 3.11}
+
+
+
+\sphinxAtStartPar
+Eine Differentialform \(\vv\in\Omega^*(U)\) heißt
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{geschlossen}, wenn \(d\vv=0\), *\sphinxstylestrong{exakt}, wenn \(\vv=d\psi\) für ein \(\psi\in\Omega^*(U)\) gilt.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Nach Satz {\hyperref[\detokenize{vektoranalysis/diffformen:thm:dd}]{\sphinxcrossref{Theorem 3.5}}} sind exakte Differentialformen geschlossen.\textbackslash{} Für \(k\)–Formen auf konvexen offenen Teimengen \(U\subseteq \R^n\) gilt für \(k\ge 1\)auch die Umkehrung (sog.
+\sphinxhref{https://de.wikipedia.org/wiki/Poincar\%c3\%a9-Lemma}{\sphinxstylestrong{Poincaré\sphinxhyphen{}Lemma}} ),  siehe Kapitel \sphinxcode{\sphinxupquote{sect:Poinca}}).
 \end{sphinxadmonition}
 
 
@@ -2157,6 +3634,9 @@ Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Paramet
 
 
 \begin{sphinxthebibliography}{For17}
+\bibitem[AF13]{references:id13}
+\sphinxAtStartPar
+Ilka Agricola and Thomas Friedrich. \sphinxstyleemphasis{Globale Analysis \sphinxhyphen{} Differentialformen in Analysis, Geometrie und Physik}. Springer\sphinxhyphen{}Verlag, Berlin Heidelberg New York, edition, 2013. ISBN 978\sphinxhyphen{}3\sphinxhyphen{}322\sphinxhyphen{}92903\sphinxhyphen{}7.
 \bibitem[For17]{references:id4}
 \sphinxAtStartPar
 Otto Forster. \sphinxstyleemphasis{Analysis 2}. Springer, 2017.
@@ -2188,8 +3668,30 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \renewcommand{\indexname}{Proof Index}
 \begin{sphinxtheindex}
 \let\bigletter\sphinxstyleindexlettergroup
+\bigletter{Antiderivation}
+\item\relax\sphinxstyleindexentry{Antiderivation}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{Antiderivation}}
+\indexspace
+\bigletter{Grassmannalgebra "uber \$E\$.}
+\item\relax\sphinxstyleindexentry{Grassmannalgebra "uber \$E\$.}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{Grassmannalgebra "uber _E_.}}
+\indexspace
+\bigletter{aeussere Ableitung}
+\item\relax\sphinxstyleindexentry{aeussere Ableitung}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{aeussere Ableitung}}
+\indexspace
+\bigletter{aeussere\_Form}
+\item\relax\sphinxstyleindexentry{aeussere\_Form}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{aeussere_Form}}
+\indexspace
+\bigletter{cor:eindeutigkeit\_linear}
+\item\relax\sphinxstyleindexentry{cor:eindeutigkeit\_linear}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{cor:eindeutigkeit_linear}}
+\indexspace
+\bigletter{corollary\sphinxhyphen{}3}
+\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}3}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{corollary-3}}
+=======
+\renewcommand{\indexname}{Proof Index}
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
 \bigletter{cor:eindeutigkeitlinear}
 \item\relax\sphinxstyleindexentry{cor:eindeutigkeitlinear}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{cor:eindeutigkeitlinear}}
+>>>>>>> main
 \indexspace
 \bigletter{def:DGL}
 \item\relax\sphinxstyleindexentry{def:DGL}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:DGL}}
@@ -2201,7 +3703,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{def:LokFluss}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{def:LokFluss}}
 \indexspace
 \bigletter{def:Stabilitaet}
+<<<<<<< HEAD
+\item\relax\sphinxstyleindexentry{def:Stabilitaet}\sphinxstyleindexextra{ode\_stability/stabilitaetsbegriffe}\sphinxstyleindexpageref{ode_stability/stabilitaetsbegriffe:\detokenize{def:Stabilitaet}}
+=======
 \item\relax\sphinxstyleindexentry{def:Stabilitaet}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{def:Stabilitaet}}
+>>>>>>> main
 \indexspace
 \bigletter{def:anfangswertproblem}
 \item\relax\sphinxstyleindexentry{def:anfangswertproblem}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:anfangswertproblem}}
@@ -2210,11 +3716,30 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{def:hamiltonsch}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{def:hamiltonsch}}
 \indexspace
 \bigletter{def:linearisierung}
+<<<<<<< HEAD
+\item\relax\sphinxstyleindexentry{def:linearisierung}\sphinxstyleindexextra{ode\_stability/ruhelagen}\sphinxstyleindexpageref{ode_stability/ruhelagen:\detokenize{def:linearisierung}}
+\indexspace
+\bigletter{def:multilinear}
+\item\relax\sphinxstyleindexentry{def:multilinear}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{def:multilinear}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}0}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{definition-0}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}1}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{definition-1}}
+=======
 \item\relax\sphinxstyleindexentry{def:linearisierung}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{def:linearisierung}}
+>>>>>>> main
 \indexspace
 \bigletter{definition\sphinxhyphen{}12}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}12}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-12}}
 \indexspace
+<<<<<<< HEAD
+\bigletter{definition\sphinxhyphen{}16}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}16}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{definition-16}}
+\indexspace
+=======
+>>>>>>> main
 \bigletter{definition\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{definition-2}}
 \indexspace
@@ -2224,20 +3749,41 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{definition\sphinxhyphen{}4}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{definition-4}}
 \indexspace
+<<<<<<< HEAD
+\bigletter{definition\sphinxhyphen{}5}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{definition-5}}
+\indexspace
 \bigletter{definition\sphinxhyphen{}8}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-8}}
 \indexspace
+\bigletter{ex:10.14}
+\item\relax\sphinxstyleindexentry{ex:10.14}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{ex:10.14}}
+\indexspace
+=======
+\bigletter{definition\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-8}}
+\indexspace
+>>>>>>> main
 \bigletter{ex:bacteria}
 \item\relax\sphinxstyleindexentry{ex:bacteria}\sphinxstyleindexextra{ode/dynamicSystems}\sphinxstyleindexpageref{ode/dynamicSystems:\detokenize{ex:bacteria}}
 \indexspace
 \bigletter{ex:freefall}
 \item\relax\sphinxstyleindexentry{ex:freefall}\sphinxstyleindexextra{ode/dynamicSystems}\sphinxstyleindexpageref{ode/dynamicSystems:\detokenize{ex:freefall}}
 \indexspace
+\bigletter{ex:multi}
+\item\relax\sphinxstyleindexentry{ex:multi}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{ex:multi}}
+\indexspace
 \bigletter{ex:oscillations}
 \item\relax\sphinxstyleindexentry{ex:oscillations}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{ex:oscillations}}
 \indexspace
 \bigletter{example\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{example-1}}
+\indexspace
+\bigletter{example\sphinxhyphen{}14}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}14}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-14}}
+\indexspace
+\bigletter{example\sphinxhyphen{}19}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}19}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-19}}
 \indexspace
 \bigletter{example\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{example-3}}
@@ -2246,16 +3792,25 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{example-4}}
 \indexspace
 \bigletter{example\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{example-6}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-6}}
 \indexspace
 \bigletter{example\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{example-7}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-7}}
+\indexspace
+\bigletter{example\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-8}}
 \indexspace
 \bigletter{example\sphinxhyphen{}8}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{example-8}}
 \indexspace
 \bigletter{example\sphinxhyphen{}9}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{example-9}}
+\indexspace
+\bigletter{geschlossen:exakt}
+\item\relax\sphinxstyleindexentry{geschlossen:exakt}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{geschlossen:exakt}}
+\indexspace
+\bigletter{lem:doubledual}
+\item\relax\sphinxstyleindexentry{lem:doubledual}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lem:doubledual}}
 \indexspace
 \bigletter{lem:intexpglgn}
 \item\relax\sphinxstyleindexentry{lem:intexpglgn}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lem:intexpglgn}}
@@ -2264,24 +3819,72 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{lem:mpotew}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{lem:mpotew}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}15}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}15}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{lemma-15}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}15}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-15}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}17}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}17}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-17}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}3}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{lemma-3}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}3}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-3}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}4}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}4}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lemma-4}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}8}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-8}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}9}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-9}}
 \indexspace
 \bigletter{lemma:Gronwall}
 \item\relax\sphinxstyleindexentry{lemma:Gronwall}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lemma:Gronwall}}
 \indexspace
+<<<<<<< HEAD
+\bigletter{pull\sphinxhyphen{}back von \$\textbackslash{}omega\$ mit \$f\$.}
+\item\relax\sphinxstyleindexentry{pull\sphinxhyphen{}back von \$\textbackslash{}omega\$ mit \$f\$.}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{pull-back von __omega_ mit _f_.}}
+\indexspace
+\bigletter{rem:matrixexponential\_regeln}
+\item\relax\sphinxstyleindexentry{rem:matrixexponential\_regeln}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{rem:matrixexponential_regeln}}
+=======
 \bigletter{rem:matrixexponentialregeln}
 \item\relax\sphinxstyleindexentry{rem:matrixexponentialregeln}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{rem:matrixexponentialregeln}}
+>>>>>>> main
+\indexspace
+\bigletter{remark\sphinxhyphen{}0}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}0}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-0}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}1}
+<<<<<<< HEAD
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-1}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}10}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}10}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-10}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}11}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}11}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-11}}
+=======
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{remark-1}}
+>>>>>>> main
 \indexspace
 \bigletter{remark\sphinxhyphen{}16}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}16}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-16}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}2}
+<<<<<<< HEAD
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-2}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}22}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}22}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-22}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}4}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}4}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-4}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}6}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-6}}
+\indexspace
+\bigletter{satz:hamilton\_konstant}
+\item\relax\sphinxstyleindexentry{satz:hamilton\_konstant}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{satz:hamilton_konstant}}
+=======
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{remark-2}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}4}
@@ -2289,6 +3892,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{remark\sphinxhyphen{}6}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-6}}
+>>>>>>> main
 \indexspace
 \bigletter{satz:picardlindeloef}
 \item\relax\sphinxstyleindexentry{satz:picardlindeloef}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef}}
@@ -2299,6 +3903,31 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{thm:piclindlokal}
 \item\relax\sphinxstyleindexentry{thm:piclindlokal}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{thm:piclindlokal}}
 \indexspace
+<<<<<<< HEAD
+\bigletter{symplektische Form auf dem \$\textbackslash{}R\textasciicircum{}\{2n\}\$}
+\item\relax\sphinxstyleindexentry{symplektische Form auf dem \$\textbackslash{}R\textasciicircum{}\{2n\}\$}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{symplektische Form auf dem __R__2n__}}
+\indexspace
+\bigletter{theorem\sphinxhyphen{}2}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}2}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{theorem-2}}
+\indexspace
+\bigletter{theorem\sphinxhyphen{}20}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}20}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{theorem-20}}
+\indexspace
+\bigletter{theorem\sphinxhyphen{}24}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}24}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{theorem-24}}
+\indexspace
+\bigletter{theorem:stabilitaet\_asymptotisch\_allg}
+\item\relax\sphinxstyleindexentry{theorem:stabilitaet\_asymptotisch\_allg}\sphinxstyleindexextra{ode\_stability/ruhelagen}\sphinxstyleindexpageref{ode_stability/ruhelagen:\detokenize{theorem:stabilitaet_asymptotisch_allg}}
+\indexspace
+\bigletter{theorem:stabilitaet\_lyapunov\_linear}
+\item\relax\sphinxstyleindexentry{theorem:stabilitaet\_lyapunov\_linear}\sphinxstyleindexextra{ode\_stability/ruhelagen}\sphinxstyleindexpageref{ode_stability/ruhelagen:\detokenize{theorem:stabilitaet_lyapunov_linear}}
+\indexspace
+\bigletter{theorem:stabilität\_linear}
+\item\relax\sphinxstyleindexentry{theorem:stabilität\_linear}\sphinxstyleindexextra{ode\_stability/ruhelagen}\sphinxstyleindexpageref{ode_stability/ruhelagen:\detokenize{theorem:stabilit_xe4t_linear}}
+\indexspace
+\bigletter{thm:dd}
+\item\relax\sphinxstyleindexentry{thm:dd}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{thm:dd}}
+=======
 \bigletter{thm:stabasymallg}
 \item\relax\sphinxstyleindexentry{thm:stabasymallg}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{thm:stabasymallg}}
 \indexspace
@@ -2307,6 +3936,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{thm:stablyaplinear}
 \item\relax\sphinxstyleindexentry{thm:stablyaplinear}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{thm:stablyaplinear}}
+>>>>>>> main
 \end{sphinxtheindex}
 
 \renewcommand{\indexname}{Index}
