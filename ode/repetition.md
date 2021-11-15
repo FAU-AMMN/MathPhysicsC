@@ -241,16 +241,10 @@ Man sagt, $F$ genüge in $G$ einer **lokalen Lipschitz-Bedingung**, falls jeder 
 Für die **(lokale) Existenz von Lösungen** haben wir in Kapitel 8.4 {cite:p}`tenbrinck_2021` den Satz von Picard-Lindelöf formuliert, den wir im Folgenden wiederholen werden.
 
 ````{prf:theorem} Lokaler Existenzsatz nach Picard--Lindelöf
-<<<<<<< HEAD
-:label: satz:picardlindeloef_lokal
-Sei $F\colon G\to\R^n$ eine stetige Funktion mit erweitertem Phasenraum $G \coloneqq I \times U \subset \R\times\R^n$, die lokal Lipschitz-stetig auf $G$ bezüglich der $y$-Variablen ist.
-Dann existiert zu jedem Anfangswert $(t_0,y_0) \in G$ ein $\varepsilon>0$, sowie genau eine Lösung
-=======
 :label: thm:piclindlokal
 
 Sei $F\colon G\to\R^n$ eine stetige Funktion mit erweitertem Phasenraum $G \coloneqq I \times U \subset \R\times\R^n$, die lokal Lipschitz-stetig auf $G$ bezüglich der $x$-Variablen ist.
 Dann existiert zu jedem Anfangswert $(t_0,x_0) \in G$ ein $\varepsilon>0$, sowie genau eine Lösung
->>>>>>> main
 
 ```{math}
 \phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n

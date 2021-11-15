@@ -10,10 +10,10 @@ chapters:
   - file: ode/fluesse
   - file: ode/hamilton
   - file: ode/ex
-- file: ode_stability/stabilitaetsanalyse.md
+- file: odestability/stabilitaetsanalyse.md
   sections:
-  - file: ode_stability/stabilitaetsbegriffe.md
-  - file: ode_stability/ruhelagen.md
+  - file: odestability/stabilitaetsbegriffe.md
+  - file: odestability/ruhelagen.md
 - file: vektoranalysis/vektoranalysis.md
   sections:
   - file: vektoranalysis/multilinear.md

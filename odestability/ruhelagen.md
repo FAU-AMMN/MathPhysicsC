@@ -328,11 +328,7 @@ charakterisiert wird, ist **asymptotisch stabil** wenn für die Eigenwerte $\lam
 
 ````{prf:proof}
 Wie bereits in {ref}`s:linearisierung_ruhelage` diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit $x_F = 0 \in U$ gilt.
-<<<<<<< HEAD:ode_stability/ruhelagen.md
-Da $U\subseteq\R^n$ nach Vorraussetzung offen ist, können wir eine offene Kugel $B_\vec{r}(0) \coloneqq \{y \in U \colon ||y|| < \vec{r}\}$ mit Radius $\vec{r} > 0$ als Umgebung der Ruhelage $0$ finden, so dass $B_\vec{r}(0) \subset U$ gilt.
-=======
 Da $U\subseteq\R^n$ nach Vorraussetzung offen ist, können wir eine offene Kugel $B_{{r^\ast}}(0) \coloneqq \{y \in U \colon ||y|| < {r^\ast}\}$ mit Radius ${r^\ast} > 0$ als Umgebung der Ruhelage $0$ finden, so dass $B_{r^\ast}(0) \subset U$ gilt.
->>>>>>> main:odestability/ruhelagen.md
 
 Wir nehmen im Folgenden an, dass der Realteil der Eigenwerte $\lambda_i \in \C, i=1,\ldots,n$ der Linearisierung $A \, \coloneqq \, Df(0)$ echt negativ ist, d.h., für ein geeignetes $\Lambda > 0$ gilt die Abschätzung 
 
@@ -385,11 +381,7 @@ Nun können wir nach {prf:ref}`lem:intexpglgn` die unbekannte Lösung durch ihre
 x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s.
 ```
 
-<<<<<<< HEAD:ode_stability/ruhelagen.md
-Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen {eq}`eq:abschaetzung_norm_exponential` und {eq}`eq:abschaetzung_residuum`, so erhalten wir 
-=======
 Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen {eq}`eq:normexp` und {eq}`eq:residuum`, so erhalten wir 
->>>>>>> main:odestability/ruhelagen.md
 
 ```{math}
 \|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, \mathrm{d}s, \quad \forall \|x\| \leq r.
