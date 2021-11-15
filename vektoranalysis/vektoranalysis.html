@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.5. Aufgaben &#8212; Mathematik für Physikstudierende C</title>
+    <title>3. Vektoranalysis &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Stabilitätsanalyse für dynamische Systeme" href="../odestability/stabilitaetsanalyse.html" />
-    <link rel="prev" title="1.4. Hamiltonsche Differentialgleichungen" href="hamilton.html" />
+    <link rel="next" title="3.1. Multilinearformen" href="multilinear.html" />
+    <link rel="prev" title="2.2. Stabilität von Ruhelagen" href="../odestability/ruhelagen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -99,38 +99,38 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="ode.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode/ode.html">
    1. Gewöhnliche Differentialgleichungen für dynamische Systeme
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="dynamicSystems.html">
+    <a class="reference internal" href="../ode/dynamicSystems.html">
      1.1. Einführung in dynamische Systeme
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="repetition.html">
+    <a class="reference internal" href="../ode/repetition.html">
      1.2. Wiederholung: Gewöhnliche Differentialgleichungen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="fluesse.html">
+    <a class="reference internal" href="../ode/fluesse.html">
      1.3. Phasenflüsse und Phasenportraits
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="hamilton.html">
+    <a class="reference internal" href="../ode/hamilton.html">
      1.4. Hamiltonsche Differentialgleichungen
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/ex.html">
      1.5. Aufgaben
     </a>
    </li>
@@ -158,28 +158,28 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../vektoranalysis/vektoranalysis.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    3. Vektoranalysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vektoranalysis/multilinear.html">
+    <a class="reference internal" href="multilinear.html">
      3.1. Multilinearformen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vektoranalysis/tensor.html">
+    <a class="reference internal" href="tensor.html">
      3.2. Tensoren und Tensorprodukte
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../vektoranalysis/diffformen.html">
+    <a class="reference internal" href="diffformen.html">
      3.3. Differentialformen
     </a>
    </li>
@@ -231,7 +231,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/ode/ex.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/vektoranalysis/vektoranalysis.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -277,70 +277,15 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="aufgaben">
-<h1><span class="section-number">1.5. </span>Aufgaben<a class="headerlink" href="#aufgaben" title="Permalink to this headline">¶</a></h1>
-<div class="hint admonition">
-<p class="admonition-title">Aufgabe: DGL höherer Ordnung</p>
-<p>Gegeben sei folgende gewöhnliche Differentialgleichung 4.~Ordnung:</p>
-<div class="math notranslate nohighlight">
-\[x^{(4)}(t) = 7 x^{(3)}(t) - \dot x(t) + 5 x(t) + t^2\]</div>
-<p>Überführen Sie diese in ein System gewöhnlicher Differentialgleichungen 1.Ordnung.</p>
-</div>
-<div class="hint admonition">
-<p class="admonition-title">Aufgabe: Autonome gewöhnliche Differentialgleichungen</p>
-<p>Entscheiden und begründen Sie mathematisch, ob die folgenden gewöhnlichen Differentialgleichungen <strong>autonom</strong> sind.</p>
-<p><strong>a)</strong> Differentialgleichung für harmonischen Oszillator:</p>
-<div class="math notranslate nohighlight">
-\[\ddot x(t) + \lambda x(t) = 0\]</div>
-<p>für eine Konstante <span class="math notranslate nohighlight">\(\lambda \in \mathbb{R}\)</span>.</p>
-<p><strong>b)</strong> Newtonsche Kraftgleichung:</p>
-<div class="math notranslate nohighlight">
-\[m \ddot x(t) = F(t, x(t))\]</div>
-<p>für eine Konstante <span class="math notranslate nohighlight">\(m &gt; 0\)</span>, eine Kraft <span class="math notranslate nohighlight">\(F: \mathbb{R} \times \mathbb{R}^3 \rightarrow \mathbb{R}^3\)</span>, welche von der Position im Raum <span class="math notranslate nohighlight">\(x: \mathbb{R} \rightarrow \mathbb{R}^3\)</span> und der Zeit <span class="math notranslate nohighlight">\(t \in \mathbb{R}\)</span> abhängt.</p>
-<p><strong>c)</strong> Newtonsche Kraftgleichung:</p>
-<div class="math notranslate nohighlight">
-\[m \ddot x(t) = F(t, x(t))\]</div>
-<p>für eine Konstante <span class="math notranslate nohighlight">\(m &gt; 0\)</span>, eine Kraft <span class="math notranslate nohighlight">\(F: \mathbb{R}^3 \rightarrow \mathbb{R}^3\)</span>, welche im Gegensatz zur Situation in b) lediglich von der Position im Raum <span class="math notranslate nohighlight">\(x: \mathbb{R} \rightarrow \mathbb{R}^3\)</span> abhängt.</p>
-<p><strong>d)</strong> Mathieusche Differentialgleichung:</p>
-<div class="math notranslate nohighlight">
-\[\ddot x(t) + [\lambda + \gamma \cos(t)] ~ x(t) = 0\]</div>
-<p>für Konstanten <span class="math notranslate nohighlight">\(\lambda, \gamma \in \mathbb{R}\)</span>.</p>
-</div>
-<div class="hint admonition">
-<p class="admonition-title">Flüsse</p>
-<p>Für <span class="math notranslate nohighlight">\(I = \mathbb{R}^0_+\)</span> und <span class="math notranslate nohighlight">\(U = \mathbb{R}^2\)</span> betrachten wir die Abbildung <span class="math notranslate nohighlight">\(\phi: I \times U \rightarrow U\)</span> mit</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\phi(t, x) = 
-\begin{pmatrix} \frac{x_2}{2} ~ \sin(\omega t) + x_1 ~ \cos(\omega t) \\ x_2 ~ \cos(\omega t) - 2 x_1 ~ \sin(\omega t) \end{pmatrix}, \end{split}\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\)</span> gilt.
-Zeigen Sie, dass diese Abbildung die mathematischen Eigenschaften eines Flusses erfüllt.</p>
-</div>
-<div class="hint admonition">
-<p class="admonition-title">Phasenporträt gedämpfter Oszillator</p>
-<p>Wir betrachten die Bewegungsgleichung für den harmonischen Oszillator</p>
-<div class="math notranslate nohighlight">
-\[m ~ \ddot x(t) + r ~ \dot x(t) + k ~ x(t) = 0\]</div>
-<p>mit Masse <span class="math notranslate nohighlight">\(m = 1  ~ kg\)</span>, Dämpfungskonstante <span class="math notranslate nohighlight">\(r = 0.5 ~ \frac{kg}{s}\)</span> und Federkonstante <span class="math notranslate nohighlight">\(k = 1.5 ~ \frac{kg}{s^2}\)</span>.</p>
-<p>Wie in Beispiel 1.3 im Skript führen wir den Impuls <span class="math notranslate nohighlight">\(p(t) = m ~ \dot x(t)\)</span> ein und erhalten das Differentialgleichungssystem erster Ordnung</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\dot x(t) &amp;= \frac{1}{m} ~ p(t)\\
-\dot p(t) &amp;= -k ~ x(t) - \frac{r}{m} ~ p(t).\end{split}\]</div>
-<p>Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(p\)</span>, indem Sie für die folgenden Punkte <span class="math notranslate nohighlight">\((x,p)\)</span> die durch das Differentialsystem gegebene Steigung berechnen und einzeichnen:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}&amp;(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1)\\
-&amp;(-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)\end{split}\]</div>
-</div>
-<div class="hint admonition">
-<p class="admonition-title">Aufgabe: Eigenschaften Hamilton-Funktion</p>
-<p>Beweisen Sie die folgende Aussage:</p>
-<p>Sei <span class="math notranslate nohighlight">\(P \subseteq \mathbb{R}^{2m}\)</span> ein (offener) Phasenraum und <span class="math notranslate nohighlight">\(\mathbb{J} = \begin{pmatrix} 0 &amp; - 𝟙 \\ 𝟙 &amp; 0 \end{pmatrix} \in Mat(2m, \mathbb{R})\)</span>. Ist die Hamilton-Funktion <span class="math notranslate nohighlight">\(H \in C^2(P, \mathbb{R})\)</span>, dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung <span class="math notranslate nohighlight">\(\dot x = \mathbb{J} \nabla H(x)\)</span> konstant.</p>
-</div>
-<div class="hint admonition">
-<p class="admonition-title">Aufgabe: Hamilton-Funktion</p>
-<p>Zeigen Sie mathematisch, dass die Hamilton-Funktion eines eindimensionalen harmonischen Oszillators gegeben ist durch:</p>
-<div class="math notranslate nohighlight">
-\[H(x,p) = \frac{p^2}{2m} + \frac{m}{2} w^2 x^2,\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(w = \sqrt{\frac{k}{m}}\)</span> gilt.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="vektoranalysis">
+<h1><span class="section-number">3. </span>Vektoranalysis<a class="headerlink" href="#vektoranalysis" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Kapitel der Vorlesung führen wir wichtige Konzepte der <em>Vektoranalysis</em> ein.
+Insbesondere schaffen wir die mathematischen Grundlagen für eine spezielle Art der mehrdimensionalen Integration, das Integrieren über sogenannte <em>Untermannigfaltigkeiten</em> des <span class="math notranslate nohighlight">\(\R^n\)</span>.
+Um diese Integration durchführen zu können, entwickeln wir das Kalkül der <em>Differentialformen</em> auf Mannigfaltigkeiten.</p>
+<p>Dieses Kalkül lässt auch den geometrischen Gehalt physikalischer Theorien wie Elektrodynamik oder Allgemeine Relativitätstheorie klar hervortreten.
+So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mit Hilfe des Differentialformenkalkül elegant beschreiben.</p>
+<p>Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von Agricola und Friedrich <span id="id1">[<a class="reference internal" href="../references.html#id13">AF13</a>]</span>.</p>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -357,7 +302,7 @@ Zeigen Sie, dass diese Abbildung die mathematischen Eigenschaften eines Flusses 
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./ode"
+            path: "./vektoranalysis"
         },
         predefinedOutput: true
     }
@@ -374,19 +319,19 @@ Zeigen Sie, dass diese Abbildung die mathematischen Eigenschaften eines Flusses 
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="hamilton.html" title="previous page">
+        <a class="left-prev" href="../odestability/ruhelagen.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">1.4. </span>Hamiltonsche Differentialgleichungen</p>
+                <p class="prevnext-title"><span class="section-number">2.2. </span>Stabilität von Ruhelagen</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../odestability/stabilitaetsanalyse.html" title="next page">
+        <a class="right-next" href="multilinear.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">2. </span>Stabilitätsanalyse für dynamische Systeme</p>
+                <p class="prevnext-title"><span class="section-number">3.1. </span>Multilinearformen</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
