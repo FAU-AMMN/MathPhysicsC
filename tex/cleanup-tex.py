@@ -5,15 +5,24 @@ file_name = "skript"
 extension = ".tex"
 
 def match_theorems(content):
-    keys = {'Example': 'example', 'Definition':'definition', 'Theorem':'theorem', 
+    keys = {'Example': 'example', 'Definition':'definition', 'Theorem':'theorem', 'Remark':'remark', 
             'note': 'emphBox', 'Lemma': 'lemma'}
     token_init = r'\\begin\{sphinxadmonition\}\{note\}\{'
     token_end = r'\\end\{sphinxadmonition\}'
     
     
     for key in keys:
+        # case 1: theorem has title text
+        content = re.sub(token_init + key + r' .\.. ([^\}]*?)\}((.|\n)*?)' + token_end, 
+                             r'\\begin{' + keys[key] + r'}{}{\1}\2\\end{'+keys[key]+'}', content, flags = re.M)
+    	# case 2: no title text
         content = re.sub(token_init + key + r' (.*?)\}((.|\n)*?)' + token_end, 
                              r'\\begin{' + keys[key] + r'}{}{}\2\\end{'+keys[key]+'}', content, flags = re.M)
+
+    # add all labels in a second run
+    for key in keys:
+        content = re.sub(r'\\label\{(.*?)\}\n\\begin\{'+ keys[key] + r'\}\{(.*?)\}\{(.*?)\}', 
+                             r'\\begin{' + keys[key] + r'}{\3}{\1}', content, flags = re.M)
     
     # note boxes
     content = re.sub(r'\\begin\{sphinxadmonition\}\{note\}((.|\n)*?)' + token_end, 

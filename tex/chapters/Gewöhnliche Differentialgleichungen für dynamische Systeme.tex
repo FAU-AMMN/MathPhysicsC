@@ -27,8 +27,7 @@ Wir wollen im Folgenden zwei Beispiele zur Illustration des Unterschieds in der 
 \label{\detokenize{ode/dynamicSystems:diskrete-dynamische-systeme}}
 \par
 Zur Veranschaulichung von diskreten dynamischen System wollen wir uns im Folgenden mit einem Beispiel aus der Biologie beschäftigen.
-\label{ode/dynamicSystems:ex:bacteria}
-\begin{example}{}{}
+\begin{example}{(Wachstum von Bakterien)}{ode/dynamicSystems:ex:bacteria}
 
 
 
@@ -72,8 +71,7 @@ Diskrete dynamische Systeme tauchen auch in anderen spannenden Anwendungen auf, 
 \par
 Im Unterschied zu diskreten dynamischen Systemen wird die Zeit bei kontinuierlichen dynamischen Systemen nicht an abzählbar vielen Punkten modelliert, sondern als Kontinuum.
 Im Folgenden beschreiben wir das physikalische Experiment des freien Falls als Spezialfall eines kontinuierlichen dynamischen Systems.
-\label{ode/dynamicSystems:ex:freefall}
-\begin{example}{}{}
+\begin{example}{(Freier Fall)}{ode/dynamicSystems:ex:freefall}
 
 
 
@@ -117,8 +115,7 @@ In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse 
 \label{\detokenize{ode/repetition:gewohnliche-differentialgleichungen}}
 \par
 Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgleichungssystems \(m\) ter Ordnung als Grundlage für unsere weiteren Betrachtungen.
-\label{ode/repetition:def:DGL}
-\begin{definition}{}{}
+\begin{definition}{(Gewöhnliches Differentialgleichungssystem)}{ode/repetition:def:DGL}
 
 
 
@@ -127,7 +124,7 @@ Seien \(n,m \in \N\).
 Wir betrachten im Folgenden eine offene Teilmenge \(U\subset (\R^n)^{m+1}\) und ein offenes Intervall \(I\subset\R\).
 Es sei außerdem \(F:I\times U\rightarrow\R^n\) eine stetige Funktion, dann nennen wir
 \begin{align}\label{equation:ode/repetition:eq:DGL}
-F(x,y(x),y'(x),\ldots,y^{(m)}(x)) = 0
+F(t,x(t),x'(t),\ldots,x^{(m)}(t)) = 0
 \end{align}
 \par
 ein \textbf{gewöhnliches Differentialgleichungssystem (DGL)} \(m\) ter Ordnung von \(n\) Gleichungen.
@@ -136,12 +133,12 @@ Gilt \(n=1\), das heißt die Funktion \(F\) ist skalarwertig, so sprechen wir vo
 \par
 Eine Funktion \(\phi\in C^m(I;\R^n)\) heißt \textbf{Lösung des Differentialgleichungssystems}, falls gilt,
 \begin{align*}
-F(x, \phi(x), \phi'(x), \ldots, \phi^{(m)}(x)) = 0 \quad \forall x\in I.
+F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}(t)) = 0 \quad \forall t\in I.
 \end{align*}
 \par
 Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat
 \begin{align*}
-y^{(m)}(x) = F(x,y(x),y'(x),\ldots,y^{(m-1)}(x)),
+x^{(m)}(t) = F(t,x(t),x'(t),\ldots,x^{(m-1)}(t)),
 \end{align*}
 \par
 so nennen wir die DGL \textbf{explizit}, ansonsten wird sie \textbf{implizit} genannt.
@@ -149,40 +146,38 @@ so nennen wir die DGL \textbf{explizit}, ansonsten wird sie \textbf{implizit} ge
 
 \par
 Folgende Bemerkung beschreibt eine alternative Notation von gewöhnlichen Differentialgleichungen 1. und 2. Ordnung, die häufig in der Literatur im Kontext dynamischer Systeme auftaucht.
-\label{ode/repetition:remark-1}
-\begin{emphBox}{}{}{Remark 1.1 (Zeitableitungen bei gewöhnlichen Differentialgleichungen)}
+\begin{remark}{(Zeitableitungen bei gewöhnlichen Differentialgleichungen)}{ode/repetition:remark-1}
 
 
 
 \par
 Viele physikalische Phänomene können durch zeitabhängige gewöhnliche Differentialgleichungen 1. und 2. Ordnung beschrieben werden.
 In diesen Fällen verwendet man häufig die Variable \(t \in \R^+_0\) als unabhängige Variable anstatt einer Variable \(x \in \R\).
-Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion \(y\), so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
+Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion \(x\), so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
 \begin{enumerate}
 
 \item {} 
 \par
-\(y'(x) \ \ \hat{=} \ \ \dot{y}(t)\),
+\(x'(t) \ \ \hat{=} \ \ \dot{x}(t)\),
 
 \item {} 
 \par
-\(y''(x) \ \ \hat{=} \ \ \ddot{y}(t)\).
+\(x''(t) \ \ \hat{=} \ \ \ddot{x}(t)\).
 
 \end{enumerate}
 
 \par
 Damit lässt sich das gewöhnliche Differentialgleichungssystem aus \eqref{equation:ode/repetition:eq:DGL} schreiben als
-\begin{align}\label{equation:ode/repetition:eq:DGL_time}
-F(z, y(t), \dot{y}(t), \ldots, y{(m)}(t)) = 0 \quad \forall t\in I.
-\end{align}\end{emphBox}
+\begin{align}\label{equation:ode/repetition:eq:DGLtime}
+F(t, x(t), \dot{x}(t), \ldots, x{(m)}(t)) = 0 \quad \forall t\in I.
+\end{align}\end{remark}
 
 
 \subsection{Autonome Differentialgleichungen}
 \label{\detokenize{ode/repetition:autonome-differentialgleichungen}}
 \par
 Im Fall von dynamischen Systemen erhält der Definitionsbereich der Funktion \(F\) einer gewöhnlichen Differentialgleichung einen besonderen Namen, wie die folgende Bemerkung erklärt.
-\label{ode/repetition:remark-2}
-\begin{emphBox}{}{}{Remark 1.2 ((Erweiterter) Phasenraum)}
+\begin{remark}{((Erweiterter) Phasenraum)}{ode/repetition:remark-2}
 
 
 
@@ -195,21 +190,20 @@ Der Phasenraum beschreibt die Menge aller möglichen Zustände des dynamischen S
 Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zugeordnet.
 
 \par
-In Kapitel \{ref\}s:fluesse werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
-\end{emphBox}
+In Kapitel \cref{ode/fluesse:s-fluesse}  werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
+\end{remark}
 
 \par
 Im Fall von \textbf{kontinuierlichen dynamischen Systemen} spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen.
-Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \eqref{equation:ode/repetition:eq:DGL_time} nicht explizit von der Zeit abhängt.
-\label{ode/repetition:definition-3}
-\begin{definition}{}{}
+Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \eqref{equation:ode/repetition:eq:DGLtime} nicht explizit von der Zeit abhängt.
+\begin{definition}{(Autonome DGL)}{ode/repetition:definition-3}
 
 
 
 \par
 Hängt die Funktion \(F\) in \cref{ode/repetition:def:DGL} nicht explizit von der Zeit ab, d.h., wir haben \(F:U\rightarrow\R^n\) dann heißt die Gleichung
-\begin{align}\label{equation:ode/repetition:eq:autonome_DGL}
-F(y(x), y'(x), \ldots, y^{(m)}(x)) = 0 \quad \forall t\in I
+\begin{align}\label{equation:ode/repetition:eq:autonomeDGL}
+F(x(t), x'(t), \ldots, x^{(m)}(t)) = 0 \quad \forall t\in I
 \end{align}
 \par
 \textbf{autonome DGL}.
@@ -217,8 +211,7 @@ F(y(x), y'(x), \ldots, y^{(m)}(x)) = 0 \quad \forall t\in I
 
 \par
 Im folgenden Beispiel wollen wir unterschiedliche gewöhnliche Differentialgleichungen darauf prüfen, ob sie autonom sind.
-\label{ode/repetition:example-4}
-\begin{example}{}{}
+\begin{example}{(Autonome Differentialgleichungen)}{ode/repetition:example-4}
 
 
 
@@ -230,32 +223,32 @@ Sei hierzu  im Folgenden \(I \subset \R\) ein offenes Intervall.
 \par
 1. Die gewöhnliche Differentialgleichung
 \begin{align*}
-2y'(x) = y(x)\cdot x \quad \forall x \in I
+2x'(t) = x(t)\cdot t \quad \forall t \in I
 \end{align*}
 \par
 ist \textbf{nicht autonom}, da die rechte Seite der Gleichung durch die Funktion
 \begin{align*}
-F(x,y(x)) = y(x) \cdot x
+F(t,x(t)) = x(t) \cdot x
 \end{align*}
 \par
-beschrieben wird und diese Funktion explizit vom Funktionsargument \(x \in I\) abhängt.
+beschrieben wird und diese Funktion explizit vom Funktionsargument \(t \in I\) abhängt.
 
 
 
 \par
 2. Die gewöhnliche Differentialgleichung
 \begin{align*}
-2t\cdot \dot{y}(t) = y(t)\cdot t \quad \forall t \in I
+2t\cdot \dot{x}(t) = x(t)\cdot t \quad \forall t \in I
 \end{align*}
 \par
 ist hingegen \textbf{autonom}, da die Gleichung in folgende explizite Form überführt werden kann
 \begin{align*}
-\dot{y}(t) = \frac{1}{2} y(t) \quad \forall t \in I
+\dot{x}(t) = \frac{1}{2} x(t) \quad \forall t \in I
 \end{align*}
 \par
 und somit die rechte Seite der Gleichung durch die Funktion
 \begin{align*}
-F(t,y(t)) = \frac{1}{2}y(t)
+F(t,x(t)) = \frac{1}{2}x(t)
 \end{align*}
 \par
 beschrieben wird, welche nicht explizit vom Funktionsargument \(t \in I\) abhängt.
@@ -265,7 +258,7 @@ beschrieben wird, welche nicht explizit vom Funktionsargument \(t \in I\) abhän
 \par
 3. Im Fall der gewöhnlichen Differentialgleichung
 \begin{align*}
-2y'(x) = y(x)\cdot \sin(g(x)) \quad \forall x \in I
+2x'(t) = x(t)\cdot \sin(g(t)) \quad \forall t \in I
 \end{align*}
 \par
 können wir für beliebige Funktionen \(g \colon I \rightarrow \R\) \textbf{nicht entscheiden}, ob sie autonom ist wenn keine konkrete Form der Funktion \(g\) gegeben ist.
@@ -276,22 +269,21 @@ können wir für beliebige Funktionen \(g \colon I \rightarrow \R\) \textbf{nich
 \label{\detokenize{ode/repetition:anfangswertprobleme}}
 \par
 Um gewöhnliche Differentialgleichungen zu lösen, betrachtet man in der Regel sogenannte Anfangswertprobleme.
-Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\), an welchem man die Lösung explizit durch einen Anfangswert \(y_0\in U\) vorgibt.
+Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\), an welchem man die Lösung explizit durch einen Anfangswert \(x_0\in U\) vorgibt.
 Dieses Vorgehen wird in der folgenden Definition nochmal kurz wiederholt.
-\label{ode/repetition:def:anfangswertproblem}
-\begin{definition}{}{}
+\begin{definition}{}{ode/repetition:def:anfangswertproblem}
 
 
 
 \par
 Sei ein gewöhnliches Differentialgleichungssystem 1. Ordnung wie in \cref{ode/repetition:def:DGL} gegeben, wobei \(I \times U \subset \R_0^+ \times \R^n\) den erweiterten Phasenraum des Systems bezeichnet.
-Sei außerdem \(t_0 \in I\) ein Anfangszeitpunkt und \(y_0 \in U\) der zugehörige Anfangszustand.
+Sei außerdem \(t_0 \in I\) ein Anfangszeitpunkt und \(x_0 \in U\) der zugehörige Anfangszustand.
 
 \par
 Dann nennen wir das Gleichungssystem
 \begin{align}\label{equation:ode/repetition:eq:AWP}
-\dot{y}(t) &= F(t, y(t))\quad\forall t\in I, \\
-y(t_0) &= y_0
+\dot{x}(t) &= F(t, x(t))\quad\forall t\in I, \\
+x(t_0) &= x_0
 \end{align}
 \par
 \textbf{Anfangswertproblem} des gewöhnlichen Differentialgleichungssystems.
@@ -302,30 +294,29 @@ Sofern nicht explizit angegeben werden wir im Folgenden annehmen, dass ohne Besc
 Die explizite Wahl des Anfangszeitpunkts und  zustands erlaubt es erst eine gewöhnliche Differentialgleichung eindeutig zu lösen.
 Ohne diese zusätzlichen Informationen könnte man lediglich Funktionenscharen als Lösungsmenge angeben.
 Dies wird durch das folgende Beispiel nochmal dargestellt.
-\label{ode/repetition:example-6}
-\begin{example}{}{}
+\begin{example}{}{ode/repetition:example-6}
 
 
 
 \par
 Wir betrachten eine sehr einfache gewöhnliche Differentialgleichung erster Ordnung, die sich explizit in folgender Form schreiben lässt:
 \begin{align*}
-y'(x) = y(x) \quad \forall x \in \R.
+x'(t) = x(t) \quad \forall t \in \R.
 \end{align*}
 \par
-Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen \(y \colon \R \rightarrow \R\) von der Form
+Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen \(x \colon \R \rightarrow \R\) von der Form
 \begin{align*}
-y(x) = c\cdot e^x
+x(t) = c\cdot e^t
 \end{align*}
 \par
 für eine beliebige Konstante \(c \in \R\) sein müssen.
 Um diese Funktionenschar weiter einzuschränken und eine eindeutige Lösung zu erhalten, müssen wir noch Anfangswertbedindungen hinzunehmen.
-Hierzu reicht es eine ausgewiesene Stelle \(x_0 \in \R\) und einen Funktionswert \(y_0 = y(x_0)\) festzulegen.
+Hierzu reicht es eine ausgewiesene Stelle \(t_0 \in \R\) und einen Funktionswert \(x_0 = x(t_0)\) festzulegen.
 
 \par
-Wählen wir beispielsweise \(x_0 = 0\) und \(y_0 = y(0) = 2\), so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
+Wählen wir beispielsweise \(t_0 = 0\) und \(x_0 = x(0) = 2\), so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
 \begin{align*}
-y(x) = 2\cdot e^x.
+x(t) = 2\cdot e^t.
 \end{align*}
 \par
 Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konstante \(c \in \R\) als \(c=2\) eindeutig bestimmt wurde.
@@ -336,8 +327,7 @@ Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konsta
 \label{\detokenize{ode/repetition:existenz-und-eindeutigkeit-einer-losung}}
 \par
 Nicht jede gewöhnliche Differentialgleichung ist im Allgemeinen lösbar oder besitzt eindeutige Lösungen, wie das folgende Beispiel belegt.
-\label{ode/repetition:example-7}
-\begin{example}{}{}
+\begin{example}{}{ode/repetition:example-7}
 
 
 
@@ -347,7 +337,7 @@ Wir wollen im folgenden zwei Beispiele von autonomen, gewöhnlichen Differential
 \par
 1. Die gewöhnliche Differentialgleichung
 \begin{align*}
-e^{y'(x)} \equiv 0 \quad \forall x \in \R
+e^{x'(t)} \equiv 0 \quad \forall t \in \R
 \end{align*}
 \par
 besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somit keine Funktion \(y \colon \R \rightarrow \R\) gibt, so dass die obige Gleichung erfüllt werden kann.
@@ -355,12 +345,12 @@ besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somi
 \par
 2. Die gewöhnliche Differentialgleichung
 \begin{align*}
-y'(x)(1-y'(x)) \equiv 0 \quad \forall x \in \R
+x'(t)(1-x'(t)) \equiv 0 \quad \forall t \in \R
 \end{align*}
 \par
 besitzt auf Grund ihrer Symmetrieeigenschaften zwei unterschiedliche Funktionenscharen als Lösung, nämlich
 \begin{align*}
-y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,
+x_1(t) = c \quad \text{ und } \quad x_2(t) = t + c \quad \forall t \in \R,
 \end{align*}
 \par
 wobei \(c \in \R\) eine beliebige Konstante darstellt.
@@ -369,42 +359,58 @@ wobei \(c \in \R\) eine beliebige Konstante darstellt.
 \par
 Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die \textbf{(lokale) Lipschitzstetigkeit} der rechten Seite \(F \colon I \times U \rightarrow U\).
 Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
-\label{ode/repetition:definition-8}
-\begin{definition}{}{}
+
+\begin{emphBox}{Rudolf Lipschitz}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Rudolf\_Lipschitz}{Rudolf Otto Sigismund Lipschitz} (Geboren 14. Mai 1832 in Königsberg i. Pr.; Gestorben 7. Oktober 1903 in Bonn) war ein deutscher Mathematiker und Hochschullehrer. Er betreute die Doktorarbeit von \href{https://en.wikipedia.org/wiki/Felix\_Klein}{Felix Klein}, weswegen der österreichische Mathematiker \href{https://www.math.fau.de/angewandte-mathematik-1/mitarbeiter/prof-dr-martin-burger/}{Martin Burger} in direkter Linie im akademischen Stammbaum von Lipschitz abstammt, siehe \href{https://genealogy.math.ndsu.nodak.edu/index.php}{Mathematics Genealogy Project}.
+\end{emphBox}
+\begin{definition}{((Lokale) Lipschitzstetigkeit)}{ode/repetition:definition-8}
 
 
 
 \par
 Sei \(F \colon G \to \R^n\) eine Funktion mit dem erweiterten Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\).
-Man sagt, dass \(F\) in \(G\) einer \textbf{globalen Lipschitz Bedingung} genügt (bezüglich der Variablen \(y \in U\)) mit der Lipschitz Konstanten \(L\geq0\), wenn gilt
+Man sagt, dass \(F\) in \(G\) einer \textbf{globalen Lipschitz Bedingung} genügt (bezüglich der Variablen \(x \in U\)) mit der Lipschitz Konstanten \(L\geq0\), wenn gilt
 \begin{align*}
-\Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.
+\Vert F(t,x) - F(t,\widetilde{x}) \Vert \leq L \Vert x-\widetilde{x}\Vert\quad\text{ für alle }(t,x), (t,\widetilde{x})\in G\,.
 \end{align*}
 \par
-Man sagt, \(F\) genüge in \(G\) einer \textbf{lokalen Lipschitz Bedingung}, falls jeder Punkt \((a,b)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_0^+\) genügt.
+Man sagt, \(F\) genüge in \(G\) einer \textbf{lokalen Lipschitz Bedingung}, falls jeder Punkt \((t,x)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_0^+\) genügt.
 \end{definition}
 
 \par
 Für die \textbf{(lokale) Existenz von Lösungen} haben wir in Kapitel 8.4 \cite{Ten21} den Satz von Picard Lindelöf formuliert, den wir im Folgenden wiederholen werden.
-\label{ode/repetition:satz:picardlindeloef_lokal}
-\begin{theorem}{}{}
+\begin{theorem}{(Lokaler Existenzsatz nach Picard–Lindelöf)}{ode/repetition:thm:piclindlokal}
 
 
 
 \par
-Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \coloneqq I \times U \subset \R\times\R^n\), die lokal Lipschitz stetig auf \(G\) bezüglich der \(y\) Variablen ist.
-Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) ein \(\varepsilon>0\), sowie genau eine Lösung
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \coloneqq I \times U \subset \R\times\R^n\), die lokal Lipschitz stetig auf \(G\) bezüglich der \(x\) Variablen ist.
+Dann existiert zu jedem Anfangswert \((t_0,x_0) \in G\) ein \(\varepsilon>0\), sowie genau eine Lösung
 \begin{align*}
 \phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n
 \end{align*}
 \par
 der gewöhnlichen Differentialgleichung
 \begin{align*}
-\dot{y}(t) \ = \ F(t,y(t))
+\dot{x}(t) \ = \ F(t,x(t))
 \end{align*}
 \par
-unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+unter der Anfangsbedingung \(\phi(t_0)=x_0\).
 \end{theorem}
+
+\begin{emphBox}{Ernst Lindelöf}{}
+
+\par
+\href{https://en.wikipedia.org/wiki/Ernst\_Leonard\_Lindel\%C3\%B6f}{Ernst Leonard Lindelöf} (Geboren 7. März 1870 in Helsingfors (Helsinki), Großfürstentum Finnland; Gestorben 4. Juni 1946 in Helsinki) war ein finnischer Mathematiker.
+\end{emphBox}
+
+\begin{emphBox}{Émile Picard}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/\%C3\%89mile\_Picard}{Charles Émile Picard} (Geboren 24. Juli 1856 in Paris; Gestorben 11. Dezember 1941 ebenda) war ein französischer Mathematiker.
+\end{emphBox}
 
 \begin{proof}
  Siehe Kapitel 12, Satz 4 Kapitel 8.4 \cite{For17}
@@ -413,31 +419,30 @@ unter der Anfangsbedingung \(\phi(t_0)=y_0\).
 \par
 Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
 Unter den strengeren Voraussetzungen einer rechten Seite \(F\) der gewöhnlichen Differentialgleichung, die einer globalen Lipschitzbedingung genügt, lässt sich jedoch eine \textbf{globale Existenzaussage} formulieren, die besonders für konkrete Anwendungen sehr praktisch ist.
-\label{ode/repetition:satz:picardlindeloef}
-\begin{theorem}{}{}
+\begin{theorem}{(Globaler Existenzsatz nach Picard Lindelöf)}{ode/repetition:satz:picardlindeloef}
 
 
 
 \par
-Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\), die eine globale Lipschitzbedingung auf \(G\) bezüglich der \(y\) Variablen erfüllt.
-Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) eine globale Lösung
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\), die eine globale Lipschitzbedingung auf \(G\) bezüglich der \(x\) Variablen erfüllt.
+Dann existiert zu jedem Anfangswert \((t_0,x_0) \in G\) eine globale Lösung
 \begin{align*}
 \phi \colon I \to \R^n
 \end{align*}
 \par
 der gewöhnlichen Differentialgleichung
 \begin{align*}
-\dot{y}(t) \ = \ F(t,y(t))
+\dot{x}(t) \ = \ F(t,x(t))
 \end{align*}
 \par
-unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+unter der Anfangsbedingung \(\phi(t_0)=x_0\).
 Es existieren außerdem keine weiteren (lokalen) Lösungen.
 \end{theorem}
 
 \begin{proof}
  Siehe Kapitel 2.3 \cite{Kna13}
 \end{proof}
-\label{ode/repetition:cor:eindeutigkeit_linear}
+\label{ode/repetition:cor:eindeutigkeitlinear}
 \begin{emphBox}{}{}{Corollary 1.1}
 
 
@@ -455,7 +460,7 @@ Das Anfangswertproblem jedes \textbf{linearen} gewöhnlichen Differentialgleichu
 \label{\detokenize{ode/repetition:losungen-von-linearen-differentialgleichungssystemen}}\label{\detokenize{ode/repetition:s-lineare-dglsysteme}}
 \par
 Analog zu Kapitel 8 in \cite{Ten21} wollen wir uns mit Lösungen für \textbf{homogene lineare Differentialgleichungen} beschäftigen, jedoch dieses Mal nicht im skalaren Fall \(n=1\), sondern für ein Anfangswertproblem von der Form
-\begin{align}\label{equation:ode/repetition:eq:lin_hom_dglsystem}
+\begin{align}\label{equation:ode/repetition:eq:linhomdglsystem}
 \dot{x}(t) &= A x(t), \quad \forall t \in I \subset \R^+_0, \\
 x(t_0) &= x_0 \in U \subset \R^n.
 \end{align}
@@ -463,9 +468,8 @@ x(t_0) &= x_0 \in U \subset \R^n.
 Wir bemerken hierbei, dass im Gegensatz zum skalaren Fall hier die Koeffizientenmatrix \(A \in \C^{n\times n}\) nicht von der Zeit abhängt, wir also ein autonomes Differentialgleichungssystem betrachten.
 
 \par
-Bevor wir Lösungen von \cref{ode/repetition:equation-eq-lin-hom-dglsystem} angeben, wollen wir ein hilfreiches Funktionalkalkül einführen, dass die Notation im Fall von Differentialgleichungssystemen erleichtert.
-\label{ode/repetition:definition-12}
-\begin{definition}{}{}
+Bevor wir Lösungen von \eqref{equation:ode/repetition:eq:linhomdglsystem} angeben, wollen wir ein hilfreiches Funktionalkalkül einführen, dass die Notation im Fall von Differentialgleichungssystemen erleichtert.
+\begin{definition}{(Matrixexponential)}{ode/repetition:definition-12}
 
 
 
@@ -479,8 +483,7 @@ e^A \equiv \exp(A) \ \coloneqq \ \sum_{k=0}^\infty \frac{A^k}{k!} = I_n + A + \f
 Analog zur gewöhnlichen Exponentialfunktion konvergiert die Reihe für alle \(A \in \C^{n \times n}\), woraus die Wohldefiniertheit der Definition folgt.
 Für den Spezialfall \(n=1\) entspricht das Matrixexponential der gewöhnlichen Exponentialfunktion.
 \end{definition}
-\label{ode/repetition:rem:matrixexponential_regeln}
-\begin{emphBox}{}{}{Remark 1.3 (Rechenregeln für das Matrixexponential)}
+\begin{remark}{(Rechenregeln für das Matrixexponential)}{ode/repetition:rem:matrixexponentialregeln}
 
 
 
@@ -500,12 +503,11 @@ Für das Matrixexponential gelten die gleichen Rechenregeln wie für die gewöhn
 \( e^{D} = \operatorname{diag}(e^{a_1}, \ldots, e^{a_n})\) ist Diagonalmatrix für eine Diagonalmatrix \(D = \operatorname{diag}(a_1, \ldots, a_n)\).
 
 \end{itemize}
-\end{emphBox}
+\end{remark}
 
 \par
 Folgendes Lemma stellt einen interessanten Zusammenhang des Matrixexponentials zur Spektraltheorie her.
-\label{ode/repetition:lem:mpotew}
-\begin{lemma}{}{}
+\begin{lemma}{(Eigenwerte des Matrixexponentials)}{ode/repetition:lem:mpotew}
 
 
 
@@ -520,15 +522,14 @@ Dann ist der Vektor \(v\) auch Eigenvektor des Matrixexponentials \(e^A\) zum zu
 \end{proof}
 
 \par
-Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems \cref{ode/repetition:equation-eq-lin-hom-dglsystem} kompakt angeben, wie uns folgendes Lemma zeigt.
-\label{ode/repetition:lemma-15}
-\begin{lemma}{}{}
+Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems \eqref{equation:ode/repetition:eq:linhomdglsystem} kompakt angeben, wie uns folgendes Lemma zeigt.
+\begin{lemma}{}{ode/repetition:lemma-15}
 
 
 
 \par
 Sei \(n\in \N\), \(I \subset \R^+_0\) und \(A \in \C^{n\times n}\) eine beliebige quadratische Matrix.
-Das Anfangswertproblem \cref{ode/repetition:equation-eq-lin-hom-dglsystem} hat die eindeutige Lösung
+Das Anfangswertproblem \eqref{equation:ode/repetition:eq:linhomdglsystem} hat die eindeutige Lösung
 \begin{align*}
 x(t) = e^{A(t-t_0)}x_0, \quad \forall t \in I.
 \end{align*}\end{lemma}
@@ -539,7 +540,7 @@ x(t) = e^{A(t-t_0)}x_0, \quad \forall t \in I.
 x(t_0) = e^{A(t_0-t_0)}x_0 = e^0x_0 = I_n x_0.
 \end{align*}
 \par
-Um zu zeigen, dass \(x(t)\) das lineare homogene Differentialgleichungssystem \cref{ode/repetition:equation-eq-lin-hom-dglsystem} löst, berechnen wir die entsprechende Zeitableitung als
+Um zu zeigen, dass \(x(t)\) das lineare homogene Differentialgleichungssystem \eqref{equation:ode/repetition:eq:linhomdglsystem} löst, berechnen wir die entsprechende Zeitableitung als
 \begin{align*}
 \dot{x}(t) = \frac{d}{dt}(e^{A(t-t_0)}x_0) = A \cdot e^{A(t-t_0)}x_0 = A x(t), \quad \forall t \in I.
 \end{align*}
@@ -547,41 +548,43 @@ Um zu zeigen, dass \(x(t)\) das lineare homogene Differentialgleichungssystem \c
 Vergleichen wir die linke und rechte Seite dieser Gleichung so erkennen wir, dass \(x(t)\) in der Tat eine Lösung des Differentialgleichungssystems ist.
 
 \par
-Nach \cref{ode/repetition:cor:eindeutigkeit_linear} ist die Lösung eindeutig, da es sich um ein lineares Differentialgleichungssystem 1. Ordnung handelt.
+Nach \cref{ode/repetition:cor:eindeutigkeitlinear} ist die Lösung eindeutig, da es sich um ein lineares Differentialgleichungssystem 1. Ordnung handelt.
 \end{proof}
 
 \par
-Im Allgemeinen kann man bei linearen Differentialgleichungssystemen nicht davon ausgehen, dass diese in der einfachsten Form wie in \cref{ode/repetition:equation-eq-lin-hom-dglsystem} vorliegen.
+Im Allgemeinen kann man bei linearen Differentialgleichungssystemen nicht davon ausgehen, dass diese in der einfachsten Form wie in \eqref{equation:ode/repetition:eq:linhomdglsystem} vorliegen.
 Außerdem ist die konkrete Berechnung des Matrixexponentials zur Bestimmung einer Lösungsfunktion \(x(t)\) in der Regel ungeeignet.
 Hierzu wollen wir die abschließende Bemerkung machen.
-\label{ode/repetition:remark-16}
-\begin{emphBox}{}{}{Remark 1.4}
+\begin{remark}{}{ode/repetition:remark-16}
 
 
 
 \par
-1. Zur Berechnung einer konkreten Lösung \(x(t)\) des linearen homogenen Differentialgleichungssystems \cref{ode/repetition:equation-eq-lin-hom-dglsystem} bietet es sich an, die \textbf{Jordansche Normalform} \(J = SAS^{-1}\) von \(A\) aus Kapitel 2.7 in \cite{Ten21} auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
+1. Zur Berechnung einer konkreten Lösung \(x(t)\) des linearen homogenen Differentialgleichungssystems \eqref{equation:ode/repetition:eq:linhomdglsystem} bietet es sich an, die \textbf{Jordansche Normalform} \(J = SAS^{-1}\) von \(A\) aus Kapitel 2.7 in \cite{Ten21} auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
 \begin{align*}
-e^{tA} =  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} = S^{-1} \sum_{k=0}^\infty \frac{(tJ)^k}{k!} S = S^{-1} e^{tJ}S = S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S
+e^{tA} &=  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} 
+\\&= 
+S^{-1} \sum_{k=0}^\infty \frac{(tJ)^k}{k!} S = S^{-1} e^{tJ}S 
+\\&= S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S
 \end{align*}
 \par
 für eine Transformationsmatrix \(S \in \C^{n \times n}\), eine Diagonalmatrix \(D \in \C^{n \times n}\) mit den Eigenwerten von \(A\) und einer nilpotenten Matrix \(N \in \C^{n \times n}\), für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von \(N\)) abbricht.
 
 \par
 2. Ist das vorliegende lineare Differentialgleichungssystem \textbf{inhomogen}, das heißt für eine stetige Störfunktion \(b \colon I \rightarrow \R^n\) von der Form
-\begin{align}\label{equation:ode/repetition:eq:lin_inhom_dglsystem}
+\begin{align}\label{equation:ode/repetition:eq:lininhomdglsystem}
 \dot{x}(t) &= A x(t) + b(t), \quad \forall t \in I \subset \R^+_0, \\
 x(t_0) &= x_0 \in U \subset \R^n,
 \end{align}
 \par
-so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in \cite{Ten21} eine eindeutige Lösung des Anfangswertproblems \cref{ode/repetition:equation-eq-lin-inhom-dglsystem} angeben als
+so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in \cite{Ten21} eine eindeutige Lösung des Anfangswertproblems \eqref{equation:ode/repetition:eq:lininhomdglsystem} angeben als
 \begin{align*}
 x(t) = e^{tA}x_0 + \int_0^t e^{(t-s)A}b(s) \, \mathrm{d}s.
 \end{align*}
 \par
 3. Im Falle eines homogenen, linearen Differentialgleichungssystems, das \textbf{nicht autonom} ist, das heißt die Koeffizientenmatrix \(A = A(t)\) ist zeitabhängig, können wir nicht mehr die Spektraltheorie zur konkreten Berechnung von Lösungen nutzen.
 Formal lassen sich dennoch Lösungen als sogenanntes \textbf{zeitgeordnetes Produkt} angeben, was jedoch den Rahmen dieser Vorlesung sprengen würde.
-\end{emphBox}
+\end{remark}
 
 
 \section{Phasenflüsse und Phasenportraits}
@@ -595,8 +598,7 @@ In diesem Abschnitt führen wir die grundlegende mathematischen Konzepte zur Ana
 \par
 Wir beginnen zunächst damit eine Klasse von Funktionen einzuführen, welche die Beschreibung zeitabhängiger Systeme vereinfacht.
 Die folgende Definition ist zunächst sehr allgemein für beliebige dynamische Systreme gehalten und wird später im Kontext von konkreten Anwendungsbeispielen spezieller diskutiert.
-\label{ode/fluesse:def:Fluss}
-\begin{definition}{}{}
+\begin{definition}{(Fluss und dynamisches System)}{ode/fluesse:def:Fluss}
 
 
 
@@ -638,8 +640,7 @@ Hierbei soll das zweite Argument des Flusses jeweils den Anfangswert \(x_0\in U\
 \par
 So werden durch den Phasenfluss die Lösungen des dynamischen Systems in Abhängigkeit vom Anfangszustand angegeben.
 Im folgenden Beispiel betrachten wir den \textbf{Fluss eines Vektorfeldes}, das die rechte Seite eines gewöhnlichen Differentialgleichungssystems beschreibt.
-\label{ode/fluesse:example-1}
-\begin{example}{}{}
+\begin{example}{}{ode/fluesse:example-1}
 
 
 
@@ -681,8 +682,11 @@ Das die Funktion \(\Phi \colon I \times \R^2 \rightarrow \R^2\) ein Fluss ist, l
 Nun verfizieren wir noch, dass der Fluss tatsächlich Lösungen des gewöhnlichen Differentialgleichungssystems realisiert.
 Es gilt
 \begin{align*}
-\dot{\Phi}(t, (x,y)) &= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) \\
-&= (-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) = F(\Phi(t,(x,y)), \quad \forall t \in I, (x,y) \in U.
+\dot{\Phi}(t, (x,y)) &= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) 
+\\&=
+(-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) 
+\\&= 
+F(\Phi(t,(x,y)), \quad \forall t \in I, (x,y) \in U.
 \end{align*}
 \par
 Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lösung des gewöhnlichen Differentialgleichungssystems.
@@ -692,14 +696,13 @@ Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lös
 \subsection{Lokale Flüsse}
 \label{\detokenize{ode/fluesse:lokale-flusse}}
 \par
-Nach dem Satz von Picard Lindelöf \cref{ode/repetition:satz:picardlindeloef_lokal} wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es lokal eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt, falls die rechte Seite \(F\) lokal Lipschitzstetig bezüglich der \(y\) Variablen ist.
+Nach dem Satz von Picard Lindelöf \cref{ode/repetition:thm:piclindlokal} wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es lokal eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt, falls die rechte Seite \(F\) lokal Lipschitzstetig bezüglich der \(y\) Variablen ist.
 In diesem Fall müssen wir das Zeitintervall \(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\) wählen und können also nicht wie in \cref{ode/fluesse:def:Fluss} auf ganz \(I = \R^+_0\) als Zeitintervall arbeiten.
 Stattdessen können wir nur Tupel der Form \((t, x_0) \in I(x_0) \times \{x_0\}\) betrachten, wobei \(x_0\in U\) fixiert ist und \(t\) aus dem lokalen Existenzintervall \(I(x_0)\) gewählt werden kann.
 
 \par
 Diese Einschränkung führt uns auf den Begriff des \textbf{lokalen Phasenflusses}.
-\label{ode/fluesse:def:LokFluss}
-\begin{definition}{}{}
+\begin{definition}{(Lokaler Fluss)}{ode/fluesse:def:LokFluss}
 
 
 
@@ -729,8 +732,7 @@ Dann heißt eine Abbildung \(\Phi: G\rightarrow U\) \textbf{lokaler (Phasen )Flu
 \par
 Im nächsten Lemma werden wir sehen, dass die Lösung eines autonomen gewöhnlichen Differentialgleichungssystems tatsächlich als solch ein lokaler Fluss interpretiert werden kann.
 In diesem Fall spircht man auch vom \textbf{Fluss einer Differentialgleichung}.
-\label{ode/fluesse:lemma-3}
-\begin{lemma}{}{}
+\begin{lemma}{}{ode/fluesse:lemma-3}
 
 
 
@@ -756,7 +758,7 @@ eine Funktion \(\Phi \colon G\rightarrow \R^n\) gibt, mit folgenden Eigenschafte
 \end{lemma}
 
 \begin{proof}
- Da die rechte Seite \(F\) des autonomen gewöhnlichen Differentialgleichungssystems nach Voraussetzung lokal Lipschitzstetig ist, existiert nach dem Satz von Picard Lindelöf \cref{ode/repetition:satz:picardlindeloef_lokal} für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\), so dass eine Lösung des Differentialgleichungssystems \(\Phi_{x_0} \colon [-\epsilon(x_0),\epsilon(x_0)] \rightarrow U\) mit dem Anfangswert \(x_0\) existiert, d.h.,
+ Da die rechte Seite \(F\) des autonomen gewöhnlichen Differentialgleichungssystems nach Voraussetzung lokal Lipschitzstetig ist, existiert nach dem Satz von Picard Lindelöf \cref{ode/repetition:thm:piclindlokal} für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\), so dass eine Lösung des Differentialgleichungssystems \(\Phi_{x_0} \colon [-\epsilon(x_0),\epsilon(x_0)] \rightarrow U\) mit dem Anfangswert \(x_0\) existiert, d.h.,
 \begin{align*}
 \dot{\Phi}_{x_0}(t) &= F(\Phi_{x_0}(t)) \quad \forall t \in [-\epsilon(x_0),\epsilon(x_0)],\\
 \Phi_{x_0}(0) &= x_0.
@@ -811,8 +813,7 @@ für jedes \(\tau\in [t, \epsilon(x_0)]\), was die zweite Flusseigenschaft aus \
 \par
 Die teilweise abstrakten Konzepte und Eigenschaften von Phasenflüssen aus den vorangegangenen Abschnitten werden wir im Folgenden mit einfachen geometrischen Anschauungen illustrieren.
 Dafür benötigen wir zunächst die folgenden Definitionen.
-\label{ode/fluesse:definition-4}
-\begin{definition}{}{}
+\begin{definition}{(Phasenporträt)}{ode/fluesse:definition-4}
 
 
 
@@ -850,8 +851,7 @@ Aus dem gleichen Grund beschränkt man sich in der Regel außerdem auf ein  und 
 
 \par
 Ein klassisches Beispiel aus der Mechanik ist besonders gut geeignet, um die eben eingeführten Konzepte näher zu diskutieren   die gedämpfte Schwingungsgleichung.
-\label{ode/fluesse:ex:oscillations}
-\begin{example}{}{}
+\begin{example}{(Gedämpfte Schwingungsgleichung)}{ode/fluesse:ex:oscillations}
 
 
 
@@ -952,8 +952,7 @@ Dies macht sie für uns besonders interessant.
 
 \par
 Bevor wir die hamiltonschen Differentialgleichungen und ihre Eigenschaften näher diskutieren führen wir zunächst ein wann wir ein Vektorfeld auf dem Phasenraum Hamiltonsch nennen und was eine Hamilton Funktion dieses Vektorfelds ist.
-\label{ode/hamilton:def:hamiltonsch}
-\begin{definition}{}{}
+\begin{definition}{(Hamilton Funktion)}{ode/hamilton:def:hamiltonsch}
 
 
 
@@ -969,8 +968,7 @@ In diesem Fall nennen wir die Funktion \(H\) eine \textbf{Hamilton Funktion} des
 
 \par
 Folgende Bemerkungen zur Hamilton Funktion wollen wir festhalten.
-\label{ode/hamilton:remark-1}
-\begin{emphBox}{}{}{Remark 1.5}
+\begin{remark}{}{ode/hamilton:remark-1}
 
 
 \begin{enumerate}
@@ -985,18 +983,17 @@ In dieser Vorlesung verzichten wir auf diesen Zugang zur Hamilton Funktion und v
 Im Folgenden werden wir annehmen, dass die Hamilton Funktion \(H\) nicht explizit von der Zeitvariable \(t \in I\) abhängt, was jedoch im Allgemeinen sein kann.
 
 \end{enumerate}
-\end{emphBox}
+\end{remark}
 
 \par
 Basierend auf der Hamilton Funktion aus \cref{ode/hamilton:def:hamiltonsch} können wir nun die Hamiltonschen Differentialgleichungen definieren.
-\label{ode/hamilton:definition-2}
-\begin{definition}{}{}
+\begin{definition}{}{ode/hamilton:definition-2}
 
 
 
 \par
 Sei \(x(t) = (p(t),q(t)) \in U\) eine Bahnkurve des Phasenraums \(U \subset \R^{2n}\).
-Wird das hamiltonsche Vektorfeld auf der linken Seite von \cref{ode/hamilton:equation-eq-hamilton-gleichung} als
+Wird das hamiltonsche Vektorfeld auf der linken Seite von \eqref{equation:ode/hamilton:eq:hamilton_Gleichung} als
 \begin{align*}
 X = \dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix} (t)
 \end{align*}
@@ -1006,7 +1003,7 @@ gewählt, so lässt sich die Gleichung für \(J \, \coloneqq \, \begin{pmatrix}0
 \dot{x}(t) = J \nabla H(x(t)).
 \end{align}
 \par
-In dieser Form wird die entstehende Differentialgleichung in \cref{ode/hamilton:equation-eq-hamilton-dgl} \textbf{Hamiltonsche Differentialgleichung} genannt.
+In dieser Form wird die entstehende Differentialgleichung in \eqref{equation:ode/hamilton:eq:hamilton_DGL} \textbf{Hamiltonsche Differentialgleichung} genannt.
 
 \par
 Äquivalent lässt sich dieses System von gewöhnlichen Differentialgleichungen auch explizit für die \(2n\) unbekannten Orts  und Impulsfunktionen \(q_i, p_i\) für \(1 \leq i \leq n\) schreiben als
@@ -1020,8 +1017,7 @@ Für den einfachen Fall einer zeitunabhängigen Hamilton Funktion \(H\) lässt s
 \par
 Die Hamilton Funktion \(H\) als Funktion des Phasenraumes kann als die Energie eines Systems von Teilchen aufgefasst werden.
 Wir wollen uns die Rolle der Hamilton Funktion \(H\) an Hand eines physikalischen Beispiels klar machen.
-\label{ode/hamilton:example-3}
-\begin{example}{}{}
+\begin{example}{(Newtonsche Kraftgleichung)}{ode/hamilton:example-3}
 
 
 
@@ -1032,7 +1028,7 @@ Nach dem 2. Newtonschen Gesetz erhalten wir die Bewegungsgleichung
 m\ddot{q}(t) = F(q(t)).
 \end{align}
 \par
-Die gewöhnliche Differentialgleichung 2. Ordnung in \cref{ode/hamilton:equation-eq-newton} lässt sich durch die Definition des Impulses des Teilchens \(p(t) \, \coloneqq \, m \dot{q(t)}\) in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:
+Die gewöhnliche Differentialgleichung 2. Ordnung in \eqref{equation:ode/hamilton:eq:newton} lässt sich durch die Definition des Impulses des Teilchens \(p(t) \, \coloneqq \, m \dot{q(t)}\) in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:
 \begin{align*}
 \dot{p}(t) = F(q(t)), \quad \dot{q}(t) = \frac{1}{m}p(t).
 \end{align*}
@@ -1049,15 +1045,14 @@ H(p,q) \, \coloneqq \, \frac{||p||^2}{2m} + V(q),
 \end{align*}
 \par
 so erkennen wir, dass diese sich aus \emph{kinetischer} und \emph{potentieller Energie} zusammensetzt.
-Durch diese Hamilton Funktion \(H\) lässt sich \cref{ode/hamilton:equation-eq-newton} als \textbf{Hamiltonsche Differentialgleichung} schreiben mit
+Durch diese Hamilton Funktion \(H\) lässt sich \eqref{equation:ode/hamilton:eq:newton} als \textbf{Hamiltonsche Differentialgleichung} schreiben mit
 \begin{align*}
 \dot{x}(t) = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t) = \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix}(t) = J \nabla H(p(t),q(t)).
 \end{align*}\end{example}
 
 \par
 Ergänzend wollen wir noch folgendes Beispiel einer Hamilton Funktion nennen.
-\label{ode/hamilton:example-4}
-\begin{example}{}{}
+\begin{example}{}{ode/hamilton:example-4}
 
 
 
@@ -1075,8 +1070,7 @@ Hierbei bezeichnet \(\omega = \sqrt{\frac{k}{m}}\) die Eigenfrequenz des Systems
 \par
 Bisher haben wir noch nicht den Grund diskutiert, warum die Hamilton Funktion eine besondere Rolle im Kontext dynamischer Systeme spielt.
 Das wollen wir nun im folgenden Satz nachholen.
-\label{ode/hamilton:satz:hamilton_konstant}
-\begin{theorem}{}{}
+\begin{theorem}{}{ode/hamilton:thm:hamconst}
 
 
 
@@ -1095,7 +1089,7 @@ konstant.
 \end{proof}
 
 \par
-\cref{ode/hamilton:satz:hamilton_konstant} sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton Funktion verlaufen.
+\cref{ode/hamilton:thm:hamconst} sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton Funktion verlaufen.
 Dies erlaubt es uns dynamische Systeme auf diese häufig auch \emph{Energieschalen} genannten Niveaumengen \(H^{-1}(E)\) für \(E \in \R\) zu restringieren.
 Diese Energieschalen bilden Untermannigfaltigkeiten des Phasenraums \(U\).
 
@@ -1106,7 +1100,7 @@ Für einen Punkt \(x \in U\) im Phasenraum \(U \subset \R^2\) unterscheiden wir 
 
 \item {} 
 \par
-Ist \(\nabla H(x) = 0\), so ist der Orbit wegem \cref{ode/hamilton:equation-eq-hamilton-dgl} von der Form \(O(x) = {x}\).
+Ist \(\nabla H(x) = 0\), so ist der Orbit wegem \eqref{equation:ode/hamilton:eq:hamilton_DGL} von der Form \(O(x) = {x}\).
 
 \item {} 
 \par
@@ -1119,13 +1113,119 @@ O(x) = \{y \in U | H(y) = H(x), \nabla H(y) \neq 0\}
 \par
 Die Orientierung des Orbits erhält man durch die Richtung, die orthogonal zum Gradienten \(\nabla H\) steht, d.h., durch Drehung des Gradienten im Uhrzeigersinn um \(\frac{\pi}{2}\).
 Die Matrix \(J\) entspricht eben einer solchen Drehung.
-\label{ode/hamilton:remark-6}
-\begin{emphBox}{}{}{Remark 1.6}
+\begin{remark}{}{ode/hamilton:remark-6}
 
 
 
 \par
 Eine Formulierung der Bewegungsgleichungen eines dynamischen Systems als Hamiltonsche Differentialgleichungen hat den Vorteil, dass sie unter den sogenannten \emph{kanonischen Transformationen} in manchen Fällen in eine einfachere, lösbare Form gebracht werden können.
+\end{remark}
+
+
+\section{Aufgaben}
+\label{\detokenize{ode/ex:aufgaben}}\label{\detokenize{ode/ex::doc}}
+\begin{emphBox}{}{}{Aufgabe: DGL höherer Ordnung}
+
+\par
+Gegeben sei folgende gewöhnliche Differentialgleichung 4.\textasciitilde{}Ordnung:
+\begin{align*}
+x^{(4)}(t) = 7 x^{(3)}(t) - \dot x(t) + 5 x(t) + t^2
+\end{align*}
+\par
+Überführen Sie diese in ein System gewöhnlicher Differentialgleichungen 1.Ordnung.
+\end{emphBox}
+
+\begin{emphBox}{}{}{Aufgabe: Autonome gewöhnliche Differentialgleichungen}
+
+\par
+Entscheiden und begründen Sie mathematisch, ob die folgenden gewöhnlichen Differentialgleichungen \textbf{autonom} sind.
+
+\par
+\textbf{a)} Differentialgleichung für harmonischen Oszillator:
+\begin{align*}
+\ddot x(t) + \lambda x(t) = 0
+\end{align*}
+\par
+für eine Konstante \(\lambda \in \mathbb{R}\).
+
+\par
+\textbf{b)} Newtonsche Kraftgleichung:
+\begin{align*}
+m \ddot x(t) = F(t, x(t))
+\end{align*}
+\par
+für eine Konstante \(m > 0\), eine Kraft \(F: \mathbb{R} \times \mathbb{R}^3 \rightarrow \mathbb{R}^3\), welche von der Position im Raum \(x: \mathbb{R} \rightarrow \mathbb{R}^3\) und der Zeit \(t \in \mathbb{R}\) abhängt.
+
+\par
+\textbf{c)} Newtonsche Kraftgleichung:
+\begin{align*}
+m \ddot x(t) = F(t, x(t))
+\end{align*}
+\par
+für eine Konstante \(m > 0\), eine Kraft \(F: \mathbb{R}^3 \rightarrow \mathbb{R}^3\), welche im Gegensatz zur Situation in b) lediglich von der Position im Raum \(x: \mathbb{R} \rightarrow \mathbb{R}^3\) abhängt.
+
+\par
+\textbf{d)} Mathieusche Differentialgleichung:
+\begin{align*}
+\ddot x(t) + [\lambda + \gamma \cos(t)] ~ x(t) = 0
+\end{align*}
+\par
+für Konstanten \(\lambda, \gamma \in \mathbb{R}\).
+\end{emphBox}
+
+\begin{emphBox}{}{}{Flüsse}
+
+\par
+Für \(I = \mathbb{R}^0_+\) und \(U = \mathbb{R}^2\) betrachten wir die Abbildung \(\phi: I \times U \rightarrow U\) mit
+\begin{align*}
+\phi(t, x) = 
+\begin{pmatrix} \frac{x_2}{2} ~ \sin(\omega t) + x_1 ~ \cos(\omega t) \\ x_2 ~ \cos(\omega t) - 2 x_1 ~ \sin(\omega t) \end{pmatrix},\end{align*}
+\par
+wobei \(x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\) gilt.
+Zeigen Sie, dass diese Abbildung die mathematischen Eigenschaften eines Flusses erfüllt.
+\end{emphBox}
+
+\begin{emphBox}{}{}{Phasenporträt gedämpfter Oszillator}
+
+\par
+Wir betrachten die Bewegungsgleichung für den harmonischen Oszillator
+\begin{align*}
+m ~ \ddot x(t) + r ~ \dot x(t) + k ~ x(t) = 0
+\end{align*}
+\par
+mit Masse \(m = 1  ~ kg\), Dämpfungskonstante \(r = 0.5 ~ \frac{kg}{s}\) und Federkonstante \(k = 1.5 ~ \frac{kg}{s^2}\).
+
+\par
+Wie in Beispiel 1.3 im Skript führen wir den Impuls \(p(t) = m ~ \dot x(t)\) ein und erhalten das Differentialgleichungssystem erster Ordnung
+\begin{align*}
+\dot x(t) &= \frac{1}{m} ~ p(t)\\
+\dot p(t) &= -k ~ x(t) - \frac{r}{m} ~ p(t).
+\end{align*}
+\par
+Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten \(x\) und \(p\), indem Sie für die folgenden Punkte \((x,p)\) die durch das Differentialsystem gegebene Steigung berechnen und einzeichnen:
+\begin{align*}
+&(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1)\\
+&(-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)
+\end{align*}\end{emphBox}
+
+\begin{emphBox}{}{}{Aufgabe: Eigenschaften Hamilton Funktion}
+
+\par
+Beweisen Sie die folgende Aussage:
+
+\par
+Sei \(P \subseteq \mathbb{R}^{2m}\) ein (offener) Phasenraum und \(\mathbb{J} = \begin{pmatrix} 0 & - 𝟙 \\ 𝟙 & 0 \end{pmatrix} \in Mat(2m, \mathbb{R})\). Ist die Hamilton Funktion \(H \in C^2(P, \mathbb{R})\), dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung \(\dot x = \mathbb{J} \nabla H(x)\) konstant.
+\end{emphBox}
+
+\begin{emphBox}{}{}{Aufgabe: Hamilton Funktion}
+
+\par
+Zeigen Sie mathematisch, dass die Hamilton Funktion eines eindimensionalen harmonischen Oszillators gegeben ist durch:
+\begin{align*}
+H(x,p) = \frac{p^2}{2m} + \frac{m}{2} w^2 x^2,
+\end{align*}
+\par
+wobei \(w = \sqrt{\frac{k}{m}}\) gilt.
 \end{emphBox}
 
 

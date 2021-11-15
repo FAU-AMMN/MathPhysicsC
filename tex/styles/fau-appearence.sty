@@ -145,7 +145,7 @@
 % cleveref packag for cross referencing
 % ----------------------------------------------------------------------------------------
 \usepackage[most]{tcolorbox}
-\usepackage[nameinlink, capitalise]{cleveref}
+\usepackage[nameinlink, capitalise, german]{cleveref}
 % ----------------------------------------------------------------------------------------	
 % default definition and theorem style
 % ----------------------------------------------------------------------------------------	
@@ -162,7 +162,9 @@
 	attach title to upper={~  }, % Theorem 1.2 (Euler). Text will start in this line.
 	size = minimal, % spacing of the box around the theorem
 	boxsep=0mm
-}}
+    },
+    label separator={}
+}
 % ----------------------------------------------------------------------------------------	
 % This style is inspired by an answer given on stackexchange: 
 %https://tex.stackexchange.com/questions/369430/theorems-and-definitions-boxes-numbering-should-be-chapter-wise
@@ -189,7 +191,8 @@
     colback=\colmain,
     colframe=\colmainlight,
   },
-  terminator sign={.}
+  terminator sign={.},
+  label separator={}
 }}
 % ----------------------------------------------------------------------------------------
 % Kinda FAU corporate
@@ -229,15 +232,15 @@
 % ----------------------------------------------------------------------------------------	
 \def\tstyle@styleA{
 \FAU@thmplainfalse
-\newtcbtheorem[number within=chapter]{theorem}{THEOREM}{\thmstyle, label type=theorem}{thm}
-\newtcbtheorem[use counter from=theorem]{definition}{DEFINITION}{\thmstyle, label type=definition}{def}
-\newtcbtheorem[use counter from=theorem]{corollary}{COROLLARY}{\thmstyle, label type=corollary}{cor}
-\newtcbtheorem[use counter from=theorem]{lemma}{LEMMA}{\thmstyle, label type=lemma}{lem}
-\newtcbtheorem[use counter from=theorem]{remark}{REMARK}{thmstyle_plain, 
+\newtcbtheorem[number within=chapter]{theorem}{THEOREM}{\thmstyle, label type=theorem}{}
+\newtcbtheorem[use counter from=theorem]{definition}{DEFINITION}{\thmstyle, label type=definition}{}
+\newtcbtheorem[use counter from=theorem]{corollary}{KOROLLAR}{\thmstyle, label type=corollary}{}
+\newtcbtheorem[use counter from=theorem]{lemma}{LEMMA}{\thmstyle, label type=lemma}{}
+\newtcbtheorem[use counter from=theorem]{remark}{BEMERKUNG}{thmstyle_plain, 
 														 after upper={\hfill$\triangle$},
-														 label type=remark}{rem}
-\newtcbtheorem[use counter from=theorem]{example}{EXAMPLE}{\thmstyle, 
-	fontupper=\upshape, label type=example}{ex}		
+														 label type=remark}{}
+\newtcbtheorem[use counter from=theorem]{example}{BEISPIEL}{\thmstyle, 
+	fontupper=\upshape, label type=example}{}		
 }
 % ----------------------------------------------------------------------------------------	
 \def\tstyle@styleB{\tstyle@styleA}

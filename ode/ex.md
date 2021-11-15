@@ -85,7 +85,8 @@ Wie in Beispiel 1.3 im Skript führen wir den Impuls $p(t) = m ~ \dot x(t)$ ein 
 Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten $x$ und $p$, indem Sie für die folgenden Punkte $(x,p)$ die durch das Differentialsystem gegebene Steigung berechnen und einzeichnen:
 
 ```{math}
-(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1) \quad (-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)
+&(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1)\\
+&(-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)
 ```
 
 ````

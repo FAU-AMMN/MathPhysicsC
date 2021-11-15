@@ -78,7 +78,11 @@
         
 
 \title{Mathematik für Physikstudierende C}
+<<<<<<< HEAD
 \date{Nov 12, 2021}
+=======
+\date{Nov 13, 2021}
+>>>>>>> main
 \release{}
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -236,7 +240,7 @@ Seien \(n,m \in \N\).
 Wir betrachten im Folgenden eine offene Teilmenge \(U\subset (\R^n)^{m+1}\) und ein offenes Intervall \(I\subset\R\).
 Es sei außerdem \(F:I\times U\rightarrow\R^n\) eine stetige Funktion, dann nennen wir
 \begin{equation}\label{equation:ode/repetition:eq:DGL}
-\begin{split}F(x,y(x),y'(x),\ldots,y^{(m)}(x)) = 0\end{split}
+\begin{split}F(t,x(t),x'(t),\ldots,x^{(m)}(t)) = 0\end{split}
 \end{equation}
 \sphinxAtStartPar
 ein \sphinxstylestrong{gewöhnliches Differentialgleichungssystem (DGL)} \(m\)\sphinxhyphen{}ter Ordnung von \(n\) Gleichungen.
@@ -245,12 +249,12 @@ Gilt \(n=1\), das heißt die Funktion \(F\) ist skalarwertig, so sprechen wir vo
 \sphinxAtStartPar
 Eine Funktion \(\phi\in C^m(I;\R^n)\) heißt \sphinxstylestrong{Lösung des Differentialgleichungssystems}, falls gilt,
 \begin{equation*}
-\begin{split}F(x, \phi(x), \phi'(x), \ldots, \phi^{(m)}(x)) = 0 \quad \forall x\in I.\end{split}
+\begin{split}F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}(t)) = 0 \quad \forall t\in I.\end{split}
 \end{equation*}
 \sphinxAtStartPar
 Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat
 \begin{equation*}
-\begin{split}y^{(m)}(x) = F(x,y(x),y'(x),\ldots,y^{(m-1)}(x)),\end{split}
+\begin{split}x^{(m)}(t) = F(t,x(t),x'(t),\ldots,x^{(m-1)}(t)),\end{split}
 \end{equation*}
 \sphinxAtStartPar
 so nennen wir die DGL \sphinxstylestrong{explizit}, ansonsten wird sie \sphinxstylestrong{implizit} genannt.
@@ -266,23 +270,28 @@ Folgende Bemerkung beschreibt eine alternative Notation von gewöhnlichen Differ
 \sphinxAtStartPar
 Viele physikalische Phänomene können durch zeitabhängige gewöhnliche Differentialgleichungen 1. und 2. Ordnung beschrieben werden.
 In diesen Fällen verwendet man häufig die Variable \(t \in \R^+_0\) als unabhängige Variable anstatt einer Variable \(x \in \R\).
-Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion \(y\), so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
+Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion \(x\), so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
 \sphinxAtStartPar
-\(y'(x) \ \ \hat{=} \ \ \dot{y}(t)\),
+\(x'(t) \ \ \hat{=} \ \ \dot{x}(t)\),
 
 \item {} 
 \sphinxAtStartPar
-\(y''(x) \ \ \hat{=} \ \ \ddot{y}(t)\).
+\(x''(t) \ \ \hat{=} \ \ \ddot{x}(t)\).
 
 \end{enumerate}
 
 \sphinxAtStartPar
 Damit lässt sich das gewöhnliche Differentialgleichungssystem aus \eqref{equation:ode/repetition:eq:DGL} schreiben als
+<<<<<<< HEAD
 \begin{equation}\label{equation:ode/repetition:eq:DGL_time}
 \begin{split}F(z, y(t), \dot{y}(t), \ldots, y{(m)}(t)) = 0 \quad \forall t\in I.\end{split}
+=======
+\begin{equation}\label{equation:ode/repetition:eq:DGLtime}
+\begin{split}F(t, x(t), \dot{x}(t), \ldots, x{(m)}(t)) = 0 \quad \forall t\in I.\end{split}
+>>>>>>> main
 \end{equation}\end{sphinxadmonition}
 
 
@@ -304,12 +313,16 @@ Der Phasenraum beschreibt die Menge aller möglichen Zustände des dynamischen S
 Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zugeordnet.
 
 \sphinxAtStartPar
-In Kapitel \{ref\}s:fluesse werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
+In Kapitel {\hyperref[\detokenize{ode/fluesse:s-fluesse}]{\sphinxcrossref{\DUrole{std,std-ref}{Phasenflüsse und Phasenportraits}}}} werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Im Fall von \sphinxstylestrong{kontinuierlichen dynamischen Systemen} spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen.
+<<<<<<< HEAD
 Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \eqref{equation:ode/repetition:eq:DGL_time} nicht explizit von der Zeit abhängt.
+=======
+Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \eqref{equation:ode/repetition:eq:DGLtime} nicht explizit von der Zeit abhängt.
+>>>>>>> main
 \label{ode/repetition:definition-3}
 \begin{sphinxadmonition}{note}{Definition 1.2 (Autonome DGL)}
 
@@ -317,8 +330,8 @@ Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \eqref{equation:ode/
 
 \sphinxAtStartPar
 Hängt die Funktion \(F\) in {\hyperref[\detokenize{ode/repetition:def:DGL}]{\sphinxcrossref{Definition 1.1}}} nicht explizit von der Zeit ab, d.h., wir haben \(F:U\rightarrow\R^n\) dann heißt die Gleichung
-\begin{equation}\label{equation:ode/repetition:eq:autonome_DGL}
-\begin{split}F(y(x), y'(x), \ldots, y^{(m)}(x)) = 0 \quad \forall t\in I\end{split}
+\begin{equation}\label{equation:ode/repetition:eq:autonomeDGL}
+\begin{split}F(x(t), x'(t), \ldots, x^{(m)}(t)) = 0 \quad \forall t\in I\end{split}
 \end{equation}
 \sphinxAtStartPar
 \sphinxstylestrong{autonome DGL}.
@@ -339,32 +352,32 @@ Sei hierzu  im Folgenden \(I \subset \R\) ein offenes Intervall.
 \sphinxAtStartPar
 1. Die gewöhnliche Differentialgleichung
 \begin{equation*}
-\begin{split}2y'(x) = y(x)\cdot x \quad \forall x \in I\end{split}
+\begin{split}2x'(t) = x(t)\cdot t \quad \forall t \in I\end{split}
 \end{equation*}
 \sphinxAtStartPar
 ist \sphinxstylestrong{nicht autonom}, da die rechte Seite der Gleichung durch die Funktion
 \begin{equation*}
-\begin{split}F(x,y(x)) = y(x) \cdot x\end{split}
+\begin{split}F(t,x(t)) = x(t) \cdot x\end{split}
 \end{equation*}
 \sphinxAtStartPar
-beschrieben wird und diese Funktion explizit vom Funktionsargument \(x \in I\) abhängt.
+beschrieben wird und diese Funktion explizit vom Funktionsargument \(t \in I\) abhängt.
 
 
 
 \sphinxAtStartPar
 2. Die gewöhnliche Differentialgleichung
 \begin{equation*}
-\begin{split}2t\cdot \dot{y}(t) = y(t)\cdot t \quad \forall t \in I\end{split}
+\begin{split}2t\cdot \dot{x}(t) = x(t)\cdot t \quad \forall t \in I\end{split}
 \end{equation*}
 \sphinxAtStartPar
 ist hingegen \sphinxstylestrong{autonom}, da die Gleichung in folgende explizite Form überführt werden kann
 \begin{equation*}
-\begin{split}\dot{y}(t) = \frac{1}{2} y(t) \quad \forall t \in I\end{split}
+\begin{split}\dot{x}(t) = \frac{1}{2} x(t) \quad \forall t \in I\end{split}
 \end{equation*}
 \sphinxAtStartPar
 und somit die rechte Seite der Gleichung durch die Funktion
 \begin{equation*}
-\begin{split}F(t,y(t)) = \frac{1}{2}y(t)\end{split}
+\begin{split}F(t,x(t)) = \frac{1}{2}x(t)\end{split}
 \end{equation*}
 \sphinxAtStartPar
 beschrieben wird, welche nicht explizit vom Funktionsargument \(t \in I\) abhängt.
@@ -374,7 +387,7 @@ beschrieben wird, welche nicht explizit vom Funktionsargument \(t \in I\) abhän
 \sphinxAtStartPar
 3. Im Fall der gewöhnlichen Differentialgleichung
 \begin{equation*}
-\begin{split}2y'(x) = y(x)\cdot \sin(g(x)) \quad \forall x \in I\end{split}
+\begin{split}2x'(t) = x(t)\cdot \sin(g(t)) \quad \forall t \in I\end{split}
 \end{equation*}
 \sphinxAtStartPar
 können wir für beliebige Funktionen \(g \colon I \rightarrow \R\) \sphinxstylestrong{nicht entscheiden}, ob sie autonom ist wenn keine konkrete Form der Funktion \(g\) gegeben ist.
@@ -385,7 +398,7 @@ können wir für beliebige Funktionen \(g \colon I \rightarrow \R\) \sphinxstyle
 \label{\detokenize{ode/repetition:anfangswertprobleme}}
 \sphinxAtStartPar
 Um gewöhnliche Differentialgleichungen zu lösen, betrachtet man in der Regel sogenannte Anfangswertprobleme.
-Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\), an welchem man die Lösung explizit durch einen Anfangswert \(y_0\in U\) vorgibt.
+Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\), an welchem man die Lösung explizit durch einen Anfangswert \(x_0\in U\) vorgibt.
 Dieses Vorgehen wird in der folgenden Definition nochmal kurz wiederholt.
 \label{ode/repetition:def:anfangswertproblem}
 \begin{sphinxadmonition}{note}{Definition 1.3}
@@ -394,13 +407,13 @@ Dieses Vorgehen wird in der folgenden Definition nochmal kurz wiederholt.
 
 \sphinxAtStartPar
 Sei ein gewöhnliches Differentialgleichungssystem 1. Ordnung wie in {\hyperref[\detokenize{ode/repetition:def:DGL}]{\sphinxcrossref{Definition 1.1}}} gegeben, wobei \(I \times U \subset \R_0^+ \times \R^n\) den erweiterten Phasenraum des Systems bezeichnet.
-Sei außerdem \(t_0 \in I\) ein Anfangszeitpunkt und \(y_0 \in U\) der zugehörige Anfangszustand.
+Sei außerdem \(t_0 \in I\) ein Anfangszeitpunkt und \(x_0 \in U\) der zugehörige Anfangszustand.
 
 \sphinxAtStartPar
 Dann nennen wir das Gleichungssystem
 \begin{equation}\label{equation:ode/repetition:eq:AWP}
-\begin{split}\dot{y}(t) &= F(t, y(t))\quad\forall t\in I, \\
-y(t_0) &= y_0\end{split}
+\begin{split}\dot{x}(t) &= F(t, x(t))\quad\forall t\in I, \\
+x(t_0) &= x_0\end{split}
 \end{equation}
 \sphinxAtStartPar
 \sphinxstylestrong{Anfangswertproblem} des gewöhnlichen Differentialgleichungssystems.
@@ -419,22 +432,22 @@ Dies wird durch das folgende Beispiel nochmal dargestellt.
 \sphinxAtStartPar
 Wir betrachten eine sehr einfache gewöhnliche Differentialgleichung erster Ordnung, die sich explizit in folgender Form schreiben lässt:
 \begin{equation*}
-\begin{split}y'(x) = y(x) \quad \forall x \in \R.\end{split}
+\begin{split}x'(t) = x(t) \quad \forall t \in \R.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen \(y \colon \R \rightarrow \R\) von der Form
+Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen \(x \colon \R \rightarrow \R\) von der Form
 \begin{equation*}
-\begin{split}y(x) = c\cdot e^x\end{split}
+\begin{split}x(t) = c\cdot e^t\end{split}
 \end{equation*}
 \sphinxAtStartPar
 für eine beliebige Konstante \(c \in \R\) sein müssen.
 Um diese Funktionenschar weiter einzuschränken und eine eindeutige Lösung zu erhalten, müssen wir noch Anfangswertbedindungen hinzunehmen.
-Hierzu reicht es eine ausgewiesene Stelle \(x_0 \in \R\) und einen Funktionswert \(y_0 = y(x_0)\) festzulegen.
+Hierzu reicht es eine ausgewiesene Stelle \(t_0 \in \R\) und einen Funktionswert \(x_0 = x(t_0)\) festzulegen.
 
 \sphinxAtStartPar
-Wählen wir beispielsweise \(x_0 = 0\) und \(y_0 = y(0) = 2\), so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
+Wählen wir beispielsweise \(t_0 = 0\) und \(x_0 = x(0) = 2\), so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
 \begin{equation*}
-\begin{split}y(x) = 2\cdot e^x.\end{split}
+\begin{split}x(t) = 2\cdot e^t.\end{split}
 \end{equation*}
 \sphinxAtStartPar
 Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konstante \(c \in \R\) als \(c=2\) eindeutig bestimmt wurde.
@@ -456,7 +469,7 @@ Wir wollen im folgenden zwei Beispiele von autonomen, gewöhnlichen Differential
 \sphinxAtStartPar
 1. Die gewöhnliche Differentialgleichung
 \begin{equation*}
-\begin{split}e^{y'(x)} \equiv 0 \quad \forall x \in \R\end{split}
+\begin{split}e^{x'(t)} \equiv 0 \quad \forall t \in \R\end{split}
 \end{equation*}
 \sphinxAtStartPar
 besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somit keine Funktion \(y \colon \R \rightarrow \R\) gibt, so dass die obige Gleichung erfüllt werden kann.
@@ -464,12 +477,12 @@ besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somi
 \sphinxAtStartPar
 2. Die gewöhnliche Differentialgleichung
 \begin{equation*}
-\begin{split}y'(x)(1-y'(x)) \equiv 0 \quad \forall x \in \R\end{split}
+\begin{split}x'(t)(1-x'(t)) \equiv 0 \quad \forall t \in \R\end{split}
 \end{equation*}
 \sphinxAtStartPar
 besitzt auf Grund ihrer Symmetrieeigenschaften zwei unterschiedliche Funktionenscharen als Lösung, nämlich
 \begin{equation*}
-\begin{split}y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,\end{split}
+\begin{split}x_1(t) = c \quad \text{ und } \quad x_2(t) = t + c \quad \forall t \in \R,\end{split}
 \end{equation*}
 \sphinxAtStartPar
 wobei \(c \in \R\) eine beliebige Konstante darstellt.
@@ -478,6 +491,13 @@ wobei \(c \in \R\) eine beliebige Konstante darstellt.
 \sphinxAtStartPar
 Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die \sphinxstylestrong{(lokale) Lipschitzstetigkeit} der rechten Seite \(F \colon I \times U \rightarrow U\).
 Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Rudolf Lipschitz}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Rudolf\_Lipschitz}{Rudolf Otto Sigismund Lipschitz} (Geboren 14. Mai 1832 in Königsberg i. Pr.; Gestorben 7. Oktober 1903 in Bonn) war ein deutscher Mathematiker und Hochschullehrer. Er betreute die Doktorarbeit von \sphinxhref{https://en.wikipedia.org/wiki/Felix\_Klein}{Felix Klein}, weswegen der österreichische Mathematiker \sphinxhref{https://www.math.fau.de/angewandte-mathematik-1/mitarbeiter/prof-dr-martin-burger/}{Martin Burger} in direkter Linie im akademischen Stammbaum von Lipschitz abstammt, siehe \sphinxhref{https://genealogy.math.ndsu.nodak.edu/index.php}{Mathematics Genealogy Project}.
+\end{sphinxShadowBox}
 \label{ode/repetition:definition-8}
 \begin{sphinxadmonition}{note}{Definition 1.4 ((Lokale) Lipschitzstetigkeit)}
 
@@ -485,35 +505,49 @@ Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
 
 \sphinxAtStartPar
 Sei \(F \colon G \to \R^n\) eine Funktion mit dem erweiterten Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\).
-Man sagt, dass \(F\) in \(G\) einer \sphinxstylestrong{globalen Lipschitz\sphinxhyphen{}Bedingung} genügt (bezüglich der Variablen \(y \in U\)) mit der Lipschitz\sphinxhyphen{}Konstanten \(L\geq0\), wenn gilt
+Man sagt, dass \(F\) in \(G\) einer \sphinxstylestrong{globalen Lipschitz\sphinxhyphen{}Bedingung} genügt (bezüglich der Variablen \(x \in U\)) mit der Lipschitz\sphinxhyphen{}Konstanten \(L\geq0\), wenn gilt
 \begin{equation*}
-\begin{split}\Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.\end{split}
+\begin{split}\Vert F(t,x) - F(t,\widetilde{x}) \Vert \leq L \Vert x-\widetilde{x}\Vert\quad\text{ für alle }(t,x), (t,\widetilde{x})\in G\,.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Man sagt, \(F\) genüge in \(G\) einer \sphinxstylestrong{lokalen Lipschitz\sphinxhyphen{}Bedingung}, falls jeder Punkt \((a,b)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_0^+\) genügt.
+Man sagt, \(F\) genüge in \(G\) einer \sphinxstylestrong{lokalen Lipschitz\sphinxhyphen{}Bedingung}, falls jeder Punkt \((t,x)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_0^+\) genügt.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Für die \sphinxstylestrong{(lokale) Existenz von Lösungen} haben wir in Kapitel 8.4 {[}\hyperlink{cite.references:id12}{Ten21}{]} den Satz von Picard\sphinxhyphen{}Lindelöf formuliert, den wir im Folgenden wiederholen werden.
-\label{ode/repetition:satz:picardlindeloef_lokal}
-\begin{sphinxadmonition}{note}{Theorem 1.1 (Lokaler Existenzsatz nach Picard\sphinxhyphen{}Lindelöf)}
+\label{ode/repetition:thm:piclindlokal}
+\begin{sphinxadmonition}{note}{Theorem 1.1 (Lokaler Existenzsatz nach Picard–Lindelöf)}
 
 
 
 \sphinxAtStartPar
-Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \coloneqq I \times U \subset \R\times\R^n\), die lokal Lipschitz\sphinxhyphen{}stetig auf \(G\) bezüglich der \(y\)\sphinxhyphen{}Variablen ist.
-Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) ein \(\varepsilon>0\), sowie genau eine Lösung
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \coloneqq I \times U \subset \R\times\R^n\), die lokal Lipschitz\sphinxhyphen{}stetig auf \(G\) bezüglich der \(x\)\sphinxhyphen{}Variablen ist.
+Dann existiert zu jedem Anfangswert \((t_0,x_0) \in G\) ein \(\varepsilon>0\), sowie genau eine Lösung
 \begin{equation*}
 \begin{split}\phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n\end{split}
 \end{equation*}
 \sphinxAtStartPar
 der gewöhnlichen Differentialgleichung
 \begin{equation*}
-\begin{split}\dot{y}(t) \ = \ F(t,y(t))\end{split}
+\begin{split}\dot{x}(t) \ = \ F(t,x(t))\end{split}
 \end{equation*}
 \sphinxAtStartPar
-unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+unter der Anfangsbedingung \(\phi(t_0)=x_0\).
 \end{sphinxadmonition}
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Ernst Lindelöf}
+
+\sphinxAtStartPar
+\sphinxhref{https://en.wikipedia.org/wiki/Ernst\_Leonard\_Lindel\%C3\%B6f}{Ernst Leonard Lindelöf} (Geboren 7. März 1870 in Helsingfors (Helsinki), Großfürstentum Finnland; Gestorben 4. Juni 1946 in Helsinki) war ein finnischer Mathematiker.
+\end{sphinxShadowBox}
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Émile Picard}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/\%C3\%89mile\_Picard}{Charles Émile Picard} (Geboren 24. Juli 1856 in Paris; Gestorben 11. Dezember 1941 ebenda) war ein französischer Mathematiker.
+\end{sphinxShadowBox}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
@@ -529,18 +563,18 @@ Unter den strengeren Voraussetzungen einer rechten Seite \(F\) der gewöhnlichen
 
 
 \sphinxAtStartPar
-Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\), die eine globale Lipschitzbedingung auf \(G\) bezüglich der \(y\)\sphinxhyphen{}Variablen erfüllt.
-Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) eine globale Lösung
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\), die eine globale Lipschitzbedingung auf \(G\) bezüglich der \(x\)\sphinxhyphen{}Variablen erfüllt.
+Dann existiert zu jedem Anfangswert \((t_0,x_0) \in G\) eine globale Lösung
 \begin{equation*}
 \begin{split}\phi \colon I \to \R^n\end{split}
 \end{equation*}
 \sphinxAtStartPar
 der gewöhnlichen Differentialgleichung
 \begin{equation*}
-\begin{split}\dot{y}(t) \ = \ F(t,y(t))\end{split}
+\begin{split}\dot{x}(t) \ = \ F(t,x(t))\end{split}
 \end{equation*}
 \sphinxAtStartPar
-unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+unter der Anfangsbedingung \(\phi(t_0)=x_0\).
 Es existieren außerdem keine weiteren (lokalen) Lösungen.
 \end{sphinxadmonition}
 
@@ -548,7 +582,7 @@ Es existieren außerdem keine weiteren (lokalen) Lösungen.
 \sphinxAtStartPar
 Proof. Siehe Kapitel 2.3 {[}\hyperlink{cite.references:id5}{Kna13}{]}
 \end{sphinxadmonition}
-\label{ode/repetition:cor:eindeutigkeit_linear}
+\label{ode/repetition:cor:eindeutigkeitlinear}
 \begin{sphinxadmonition}{note}{Corollary 1.1}
 
 
@@ -567,7 +601,7 @@ Proof. Siehe Theorem 2.25, Kapitel 2.3 {[}\hyperlink{cite.references:id5}{Kna13}
 \label{\detokenize{ode/repetition:losungen-von-linearen-differentialgleichungssystemen}}\label{\detokenize{ode/repetition:s-lineare-dglsysteme}}
 \sphinxAtStartPar
 Analog zu Kapitel 8 in {[}\hyperlink{cite.references:id12}{Ten21}{]} wollen wir uns mit Lösungen für \sphinxstylestrong{homogene lineare Differentialgleichungen} beschäftigen, jedoch dieses Mal nicht im skalaren Fall \(n=1\), sondern für ein Anfangswertproblem von der Form
-\begin{equation}\label{equation:ode/repetition:eq:lin_hom_dglsystem}
+\begin{equation}\label{equation:ode/repetition:eq:linhomdglsystem}
 \begin{split}\dot{x}(t) &= A x(t), \quad \forall t \in I \subset \R^+_0, \\
 x(t_0) &= x_0 \in U \subset \R^n.\end{split}
 \end{equation}
@@ -575,7 +609,7 @@ x(t_0) &= x_0 \in U \subset \R^n.\end{split}
 Wir bemerken hierbei, dass im Gegensatz zum skalaren Fall hier die Koeffizientenmatrix \(A \in \C^{n\times n}\) nicht von der Zeit abhängt, wir also ein autonomes Differentialgleichungssystem betrachten.
 
 \sphinxAtStartPar
-Bevor wir Lösungen von {\hyperref[\detokenize{ode/repetition:equation-eq-lin-hom-dglsystem}]{\sphinxcrossref{(1.5)}}} angeben, wollen wir ein hilfreiches Funktionalkalkül einführen, dass die Notation im Fall von Differentialgleichungssystemen erleichtert.
+Bevor wir Lösungen von \eqref{equation:ode/repetition:eq:linhomdglsystem} angeben, wollen wir ein hilfreiches Funktionalkalkül einführen, dass die Notation im Fall von Differentialgleichungssystemen erleichtert.
 \label{ode/repetition:definition-12}
 \begin{sphinxadmonition}{note}{Definition 1.5 (Matrixexponential)}
 
@@ -591,7 +625,7 @@ Das \sphinxstylestrong{Matrixexponential} \(e^A\) von \(A\), ist diejenige \(n\t
 Analog zur gewöhnlichen Exponentialfunktion konvergiert die Reihe für alle \(A \in \C^{n \times n}\), woraus die Wohldefiniertheit der Definition folgt.
 Für den Spezialfall \(n=1\) entspricht das Matrixexponential der gewöhnlichen Exponentialfunktion.
 \end{sphinxadmonition}
-\label{ode/repetition:rem:matrixexponential_regeln}
+\label{ode/repetition:rem:matrixexponentialregeln}
 \begin{sphinxadmonition}{note}{Remark 1.3 (Rechenregeln für das Matrixexponential)}
 
 
@@ -633,7 +667,7 @@ Proof. In der Hausaufgabe zu zeigen.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems {\hyperref[\detokenize{ode/repetition:equation-eq-lin-hom-dglsystem}]{\sphinxcrossref{(1.5)}}} kompakt angeben, wie uns folgendes Lemma zeigt.
+Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems \eqref{equation:ode/repetition:eq:linhomdglsystem} kompakt angeben, wie uns folgendes Lemma zeigt.
 \label{ode/repetition:lemma-15}
 \begin{sphinxadmonition}{note}{Lemma 1.2}
 
@@ -641,7 +675,7 @@ Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen 
 
 \sphinxAtStartPar
 Sei \(n\in \N\), \(I \subset \R^+_0\) und \(A \in \C^{n\times n}\) eine beliebige quadratische Matrix.
-Das Anfangswertproblem {\hyperref[\detokenize{ode/repetition:equation-eq-lin-hom-dglsystem}]{\sphinxcrossref{(1.5)}}} hat die eindeutige Lösung
+Das Anfangswertproblem \eqref{equation:ode/repetition:eq:linhomdglsystem} hat die eindeutige Lösung
 \begin{equation*}
 \begin{split}x(t) = e^{A(t-t_0)}x_0, \quad \forall t \in I.\end{split}
 \end{equation*}\end{sphinxadmonition}
@@ -653,7 +687,7 @@ Proof. Wir zeigen zunächst, dass die Lösung \(x(t)\) die Anfangswertbedingung 
 \begin{split}x(t_0) = e^{A(t_0-t_0)}x_0 = e^0x_0 = I_n x_0.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Um zu zeigen, dass \(x(t)\) das lineare homogene Differentialgleichungssystem {\hyperref[\detokenize{ode/repetition:equation-eq-lin-hom-dglsystem}]{\sphinxcrossref{(1.5)}}} löst, berechnen wir die entsprechende Zeitableitung als
+Um zu zeigen, dass \(x(t)\) das lineare homogene Differentialgleichungssystem \eqref{equation:ode/repetition:eq:linhomdglsystem} löst, berechnen wir die entsprechende Zeitableitung als
 \begin{equation*}
 \begin{split}\dot{x}(t) = \frac{d}{dt}(e^{A(t-t_0)}x_0) = A \cdot e^{A(t-t_0)}x_0 = A x(t), \quad \forall t \in I.\end{split}
 \end{equation*}
@@ -661,11 +695,11 @@ Um zu zeigen, dass \(x(t)\) das lineare homogene Differentialgleichungssystem {\
 Vergleichen wir die linke und rechte Seite dieser Gleichung so erkennen wir, dass \(x(t)\) in der Tat eine Lösung des Differentialgleichungssystems ist.
 
 \sphinxAtStartPar
-Nach {\hyperref[\detokenize{ode/repetition:cor:eindeutigkeit_linear}]{\sphinxcrossref{Corollary 1.1}}} ist die Lösung eindeutig, da es sich um ein lineares Differentialgleichungssystem 1. Ordnung handelt.
+Nach {\hyperref[\detokenize{ode/repetition:cor:eindeutigkeitlinear}]{\sphinxcrossref{Corollary 1.1}}} ist die Lösung eindeutig, da es sich um ein lineares Differentialgleichungssystem 1. Ordnung handelt.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Im Allgemeinen kann man bei linearen Differentialgleichungssystemen nicht davon ausgehen, dass diese in der einfachsten Form wie in {\hyperref[\detokenize{ode/repetition:equation-eq-lin-hom-dglsystem}]{\sphinxcrossref{(1.5)}}} vorliegen.
+Im Allgemeinen kann man bei linearen Differentialgleichungssystemen nicht davon ausgehen, dass diese in der einfachsten Form wie in \eqref{equation:ode/repetition:eq:linhomdglsystem} vorliegen.
 Außerdem ist die konkrete Berechnung des Matrixexponentials zur Bestimmung einer Lösungsfunktion \(x(t)\) in der Regel ungeeignet.
 Hierzu wollen wir die abschließende Bemerkung machen.
 \label{ode/repetition:remark-16}
@@ -674,21 +708,24 @@ Hierzu wollen wir die abschließende Bemerkung machen.
 
 
 \sphinxAtStartPar
-1. Zur Berechnung einer konkreten Lösung \(x(t)\) des linearen homogenen Differentialgleichungssystems {\hyperref[\detokenize{ode/repetition:equation-eq-lin-hom-dglsystem}]{\sphinxcrossref{(1.5)}}} bietet es sich an, die \sphinxstylestrong{Jordansche Normalform} \(J = SAS^{-1}\) von \(A\) aus Kapitel 2.7 in {[}\hyperlink{cite.references:id12}{Ten21}{]} auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
+1. Zur Berechnung einer konkreten Lösung \(x(t)\) des linearen homogenen Differentialgleichungssystems \eqref{equation:ode/repetition:eq:linhomdglsystem} bietet es sich an, die \sphinxstylestrong{Jordansche Normalform} \(J = SAS^{-1}\) von \(A\) aus Kapitel 2.7 in {[}\hyperlink{cite.references:id12}{Ten21}{]} auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
 \begin{equation*}
-\begin{split}e^{tA} =  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} = S^{-1} \sum_{k=0}^\infty \frac{(tJ)^k}{k!} S = S^{-1} e^{tJ}S = S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S\end{split}
+\begin{split}e^{tA} &=  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} 
+\\&= 
+S^{-1} \sum_{k=0}^\infty \frac{(tJ)^k}{k!} S = S^{-1} e^{tJ}S 
+\\&= S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S\end{split}
 \end{equation*}
 \sphinxAtStartPar
 für eine Transformationsmatrix \(S \in \C^{n \times n}\), eine Diagonalmatrix \(D \in \C^{n \times n}\) mit den Eigenwerten von \(A\) und einer nilpotenten Matrix \(N \in \C^{n \times n}\), für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von \(N\)) abbricht.
 
 \sphinxAtStartPar
 2. Ist das vorliegende lineare Differentialgleichungssystem \sphinxstylestrong{inhomogen}, das heißt für eine stetige Störfunktion \(b \colon I \rightarrow \R^n\) von der Form
-\begin{equation}\label{equation:ode/repetition:eq:lin_inhom_dglsystem}
+\begin{equation}\label{equation:ode/repetition:eq:lininhomdglsystem}
 \begin{split}\dot{x}(t) &= A x(t) + b(t), \quad \forall t \in I \subset \R^+_0, \\
 x(t_0) &= x_0 \in U \subset \R^n,\end{split}
 \end{equation}
 \sphinxAtStartPar
-so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in {[}\hyperlink{cite.references:id12}{Ten21}{]} eine eindeutige Lösung des Anfangswertproblems {\hyperref[\detokenize{ode/repetition:equation-eq-lin-inhom-dglsystem}]{\sphinxcrossref{(1.6)}}} angeben als
+so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in {[}\hyperlink{cite.references:id12}{Ten21}{]} eine eindeutige Lösung des Anfangswertproblems \eqref{equation:ode/repetition:eq:lininhomdglsystem} angeben als
 \begin{equation*}
 \begin{split}x(t) = e^{tA}x_0 + \int_0^t e^{(t-s)A}b(s) \, \mathrm{d}s.\end{split}
 \end{equation*}
@@ -795,8 +832,11 @@ Das die Funktion \(\Phi \colon I \times \R^2 \rightarrow \R^2\) ein Fluss ist, l
 Nun verfizieren wir noch, dass der Fluss tatsächlich Lösungen des gewöhnlichen Differentialgleichungssystems realisiert.
 Es gilt
 \begin{equation*}
-\begin{split}\dot{\Phi}(t, (x,y)) &= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) \\
-&= (-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) = F(\Phi(t,(x,y)), \quad \forall t \in I, (x,y) \in U.\end{split}
+\begin{split}\dot{\Phi}(t, (x,y)) &= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) 
+\\&=
+(-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) 
+\\&= 
+F(\Phi(t,(x,y)), \quad \forall t \in I, (x,y) \in U.\end{split}
 \end{equation*}
 \sphinxAtStartPar
 Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lösung des gewöhnlichen Differentialgleichungssystems.
@@ -806,7 +846,7 @@ Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lös
 \subsection{Lokale Flüsse}
 \label{\detokenize{ode/fluesse:lokale-flusse}}
 \sphinxAtStartPar
-Nach dem Satz von Picard\sphinxhyphen{}Lindelöf {\hyperref[\detokenize{ode/repetition:satz:picardlindeloef_lokal}]{\sphinxcrossref{Theorem 1.1}}} wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es lokal eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt, falls die rechte Seite \(F\) lokal Lipschitzstetig bezüglich der \(y\)\sphinxhyphen{}Variablen ist.
+Nach dem Satz von Picard\sphinxhyphen{}Lindelöf {\hyperref[\detokenize{ode/repetition:thm:piclindlokal}]{\sphinxcrossref{Theorem 1.1}}} wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es lokal eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt, falls die rechte Seite \(F\) lokal Lipschitzstetig bezüglich der \(y\)\sphinxhyphen{}Variablen ist.
 In diesem Fall müssen wir das Zeitintervall \(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\) wählen und können also nicht wie in {\hyperref[\detokenize{ode/fluesse:def:Fluss}]{\sphinxcrossref{Definition 1.6}}} auf ganz \(I = \R^+_0\) als Zeitintervall arbeiten.
 Stattdessen können wir nur Tupel der Form \((t, x_0) \in I(x_0) \times \{x_0\}\) betrachten, wobei \(x_0\in U\) fixiert ist und \(t\) aus dem lokalen Existenzintervall \(I(x_0)\) gewählt werden kann.
 
@@ -871,7 +911,7 @@ eine Funktion \(\Phi \colon G\rightarrow \R^n\) gibt, mit folgenden Eigenschafte
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Da die rechte Seite \(F\) des autonomen gewöhnlichen Differentialgleichungssystems nach Voraussetzung lokal Lipschitzstetig ist, existiert nach dem Satz von Picard\sphinxhyphen{}Lindelöf {\hyperref[\detokenize{ode/repetition:satz:picardlindeloef_lokal}]{\sphinxcrossref{Theorem 1.1}}} für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\), so dass eine Lösung des Differentialgleichungssystems \(\Phi_{x_0} \colon [-\epsilon(x_0),\epsilon(x_0)] \rightarrow U\) mit dem Anfangswert \(x_0\) existiert, d.h.,
+Proof. Da die rechte Seite \(F\) des autonomen gewöhnlichen Differentialgleichungssystems nach Voraussetzung lokal Lipschitzstetig ist, existiert nach dem Satz von Picard\sphinxhyphen{}Lindelöf {\hyperref[\detokenize{ode/repetition:thm:piclindlokal}]{\sphinxcrossref{Theorem 1.1}}} für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\), so dass eine Lösung des Differentialgleichungssystems \(\Phi_{x_0} \colon [-\epsilon(x_0),\epsilon(x_0)] \rightarrow U\) mit dem Anfangswert \(x_0\) existiert, d.h.,
 \begin{equation*}
 \begin{split}\dot{\Phi}_{x_0}(t) &= F(\Phi_{x_0}(t)) \quad \forall t \in [-\epsilon(x_0),\epsilon(x_0)],\\
 \Phi_{x_0}(0) &= x_0.\end{split}
@@ -1111,7 +1151,7 @@ Basierend auf der Hamilton\sphinxhyphen{}Funktion aus {\hyperref[\detokenize{ode
 
 \sphinxAtStartPar
 Sei \(x(t) = (p(t),q(t)) \in U\) eine Bahnkurve des Phasenraums \(U \subset \R^{2n}\).
-Wird das hamiltonsche Vektorfeld auf der linken Seite von {\hyperref[\detokenize{ode/hamilton:equation-eq-hamilton-gleichung}]{\sphinxcrossref{(1.8)}}} als
+Wird das hamiltonsche Vektorfeld auf der linken Seite von \eqref{equation:ode/hamilton:eq:hamilton_Gleichung} als
 \begin{equation*}
 \begin{split}X = \dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix} (t)\end{split}
 \end{equation*}
@@ -1121,7 +1161,7 @@ gewählt, so lässt sich die Gleichung für \(J \, \coloneqq \, \begin{pmatrix}0
 \begin{split}\dot{x}(t) = J \nabla H(x(t)).\end{split}
 \end{equation}
 \sphinxAtStartPar
-In dieser Form wird die entstehende Differentialgleichung in {\hyperref[\detokenize{ode/hamilton:equation-eq-hamilton-dgl}]{\sphinxcrossref{(1.9)}}} \sphinxstylestrong{Hamiltonsche Differentialgleichung} genannt.
+In dieser Form wird die entstehende Differentialgleichung in \eqref{equation:ode/hamilton:eq:hamilton_DGL} \sphinxstylestrong{Hamiltonsche Differentialgleichung} genannt.
 
 \sphinxAtStartPar
 Äquivalent lässt sich dieses System von gewöhnlichen Differentialgleichungen auch explizit für die \(2n\) unbekannten Orts\sphinxhyphen{} und Impulsfunktionen \(q_i, p_i\) für \(1 \leq i \leq n\) schreiben als
@@ -1147,7 +1187,7 @@ Nach dem 2. Newtonschen Gesetz erhalten wir die Bewegungsgleichung
 \begin{split}m\ddot{q}(t) = F(q(t)).\end{split}
 \end{equation}
 \sphinxAtStartPar
-Die gewöhnliche Differentialgleichung 2. Ordnung in {\hyperref[\detokenize{ode/hamilton:equation-eq-newton}]{\sphinxcrossref{(1.10)}}} lässt sich durch die Definition des Impulses des Teilchens \(p(t) \, \coloneqq \, m \dot{q(t)}\) in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:
+Die gewöhnliche Differentialgleichung 2. Ordnung in \eqref{equation:ode/hamilton:eq:newton} lässt sich durch die Definition des Impulses des Teilchens \(p(t) \, \coloneqq \, m \dot{q(t)}\) in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:
 \begin{equation*}
 \begin{split}\dot{p}(t) = F(q(t)), \quad \dot{q}(t) = \frac{1}{m}p(t).\end{split}
 \end{equation*}
@@ -1165,7 +1205,7 @@ Wählen wir nun die \sphinxstylestrong{Hamilton\sphinxhyphen{}Funktion} aus {\hy
 \end{equation*}
 \sphinxAtStartPar
 so erkennen wir, dass diese sich aus \sphinxstyleemphasis{kinetischer} und \sphinxstyleemphasis{potentieller Energie} zusammensetzt.
-Durch diese Hamilton\sphinxhyphen{}Funktion \(H\) lässt sich {\hyperref[\detokenize{ode/hamilton:equation-eq-newton}]{\sphinxcrossref{(1.10)}}} als \sphinxstylestrong{Hamiltonsche Differentialgleichung} schreiben mit
+Durch diese Hamilton\sphinxhyphen{}Funktion \(H\) lässt sich \eqref{equation:ode/hamilton:eq:newton} als \sphinxstylestrong{Hamiltonsche Differentialgleichung} schreiben mit
 \begin{equation*}
 \begin{split}\dot{x}(t) = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t) = \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix}(t) = J \nabla H(p(t),q(t)).\end{split}
 \end{equation*}\end{sphinxadmonition}
@@ -1191,7 +1231,7 @@ Hierbei bezeichnet \(\omega = \sqrt{\frac{k}{m}}\) die Eigenfrequenz des Systems
 \sphinxAtStartPar
 Bisher haben wir noch nicht den Grund diskutiert, warum die Hamilton\sphinxhyphen{}Funktion eine besondere Rolle im Kontext dynamischer Systeme spielt.
 Das wollen wir nun im folgenden Satz nachholen.
-\label{ode/hamilton:satz:hamilton_konstant}
+\label{ode/hamilton:thm:hamconst}
 \begin{sphinxadmonition}{note}{Theorem 1.3}
 
 
@@ -1212,7 +1252,7 @@ Proof. In der Hausaufgabe zu zeigen.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ode/hamilton:satz:hamilton_konstant}]{\sphinxcrossref{Theorem 1.3}}} sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton\sphinxhyphen{}Funktion verlaufen.
+{\hyperref[\detokenize{ode/hamilton:thm:hamconst}]{\sphinxcrossref{Theorem 1.3}}} sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton\sphinxhyphen{}Funktion verlaufen.
 Dies erlaubt es uns dynamische Systeme auf diese häufig auch \sphinxstyleemphasis{Energieschalen} genannten Niveaumengen \(H^{-1}(E)\) für \(E \in \R\) zu restringieren.
 Diese Energieschalen bilden Untermannigfaltigkeiten des Phasenraums \(U\).
 
@@ -1223,7 +1263,7 @@ Für einen Punkt \(x \in U\) im Phasenraum \(U \subset \R^2\) unterscheiden wir 
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
 \sphinxAtStartPar
-Ist \(\nabla H(x) = 0\), so ist der Orbit wegem {\hyperref[\detokenize{ode/hamilton:equation-eq-hamilton-dgl}]{\sphinxcrossref{(1.9)}}} von der Form \(O(x) = {x}\).
+Ist \(\nabla H(x) = 0\), so ist der Orbit wegem \eqref{equation:ode/hamilton:eq:hamilton_DGL} von der Form \(O(x) = {x}\).
 
 \item {} 
 \sphinxAtStartPar
@@ -1329,7 +1369,12 @@ Wie in Beispiel 1.3 im Skript führen wir den Impuls \(p(t) = m ~ \dot x(t)\) ei
 \sphinxAtStartPar
 Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten \(x\) und \(p\), indem Sie für die folgenden Punkte \((x,p)\) die durch das Differentialsystem gegebene Steigung berechnen und einzeichnen:
 \begin{equation*}
+<<<<<<< HEAD
 \begin{split}(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1) \quad (-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)\end{split}
+=======
+\begin{split}&(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1)\\
+&(-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)\end{split}
+>>>>>>> main
 \end{equation*}\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}{Aufgabe: Eigenschaften Hamilton\sphinxhyphen{}Funktion}
@@ -1341,9 +1386,23 @@ Beweisen Sie die folgende Aussage:
 Sei \(P \subseteq \mathbb{R}^{2m}\) ein (offener) Phasenraum und \(\mathbb{J} = \begin{pmatrix} 0 & - 𝟙 \\ 𝟙 & 0 \end{pmatrix} \in Mat(2m, \mathbb{R})\). Ist die Hamilton\sphinxhyphen{}Funktion \(H \in C^2(P, \mathbb{R})\), dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung \(\dot x = \mathbb{J} \nabla H(x)\) konstant.
 \end{sphinxadmonition}
 
+<<<<<<< HEAD
+=======
+\begin{sphinxadmonition}{note}{Aufgabe: Hamilton\sphinxhyphen{}Funktion}
+
+\sphinxAtStartPar
+Zeigen Sie mathematisch, dass die Hamilton\sphinxhyphen{}Funktion eines eindimensionalen harmonischen Oszillators gegeben ist durch:
+\begin{equation*}
+\begin{split}H(x,p) = \frac{p^2}{2m} + \frac{m}{2} w^2 x^2,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei \(w = \sqrt{\frac{k}{m}}\) gilt.
+\end{sphinxadmonition}
+
+>>>>>>> main
 
 \chapter{Stabilitätsanalyse für dynamische Systeme}
-\label{\detokenize{ode_stability/stabilitaetsanalyse:stabilitatsanalyse-fur-dynamische-systeme}}\label{\detokenize{ode_stability/stabilitaetsanalyse::doc}}
+\label{\detokenize{odestability/stabilitaetsanalyse:stabilitatsanalyse-fur-dynamische-systeme}}\label{\detokenize{odestability/stabilitaetsanalyse::doc}}
 \sphinxAtStartPar
 In diesem Abschnitt beschäftigen wir uns mit der Stabilitätstheorie für kontinuierliche dynamische Systeme.
 Hierbei interessieren wir uns für die Frage, wie sich \sphinxstyleemphasis{kleine Störungen} von bestimmten Zuständen des Systems auf die Lösungen der zu Grunde liegenden gewöhnlichen Differentialgleichungen auswirken.
@@ -1355,7 +1414,7 @@ Im Folgenden werden wir verschiedene Stabilitätsbegriffe für dynamische System
 
 
 \section{Stabilitätsbegriffe}
-\label{\detokenize{ode_stability/stabilitaetsbegriffe:stabilitatsbegriffe}}\label{\detokenize{ode_stability/stabilitaetsbegriffe::doc}}
+\label{\detokenize{odestability/stabilitaetsbegriffe:stabilitatsbegriffe}}\label{\detokenize{odestability/stabilitaetsbegriffe::doc}}
 \sphinxAtStartPar
 Im Folgenden wollen wir grundlegende Begriffe der Stabilitätsanalyse von Ruhelagen einführen und diskutieren.
 Wie in {\hyperref[\detokenize{ode/fluesse:s-fluesse}]{\sphinxcrossref{\DUrole{std,std-ref}{Phasenflüsse und Phasenportraits}}}} definiert, nennen wir einen Punkt \(x\in U\) im Phasenraum \(U\) \sphinxstylestrong{Ruhelage}, falls für den zugehörigen Phasenfluss \(\Phi \colon I \times U \rightarrow U\) des dynamischen Systems gilt: \(\Phi(t,x) = x, \forall t \in I\), d.h., wenn für alle \(t \in I\) der Zustand \(x \in U\) ein \sphinxstylestrong{Fixpunkt des Flusses} ist.
@@ -1379,7 +1438,7 @@ Ist eine Ruhelage stabil, dann bleiben benachbarte Lösungen auch für zukünfti
 Ist sie jedoch nicht stabil, so muss das im Allgemeinen nicht gelten und die Lösungen können dann mit der Zeit von der Ruhelage divergieren.
 Diese Anschauung wollen wir in der folgenden Definition mathematisch formalisieren.
 Hierbei werden wir den Stabilitätsbegriff für allgemeine Lösungen einführen und später Ruhelagen als ein Spezialfall dieser Lösungen interpretieren.
-\label{ode_stability/stabilitaetsbegriffe:def:Stabilitaet}
+\label{odestability/stabilitaetsbegriffe:def:Stabilitaet}
 \begin{sphinxadmonition}{note}{Definition 2.1 (Stabilität von Lösungen)}
 
 
@@ -1401,11 +1460,18 @@ Sei \(\Phi \colon I \times U \rightarrow U\) der Phasenfluss zu dem Vektorfeld \
 3. Eine Lösung heißt \sphinxstylestrong{instabil}, wenn sie nicht (Lyapunov\sphinxhyphen{})stabil ist.
 \end{sphinxadmonition}
 
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Aleksandr Lyapunov}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Alexander\_Michailowitsch\_Ljapunow}{Alexander Michailowitsch Ljapunow} (Geboren 6. Juni 1857 in Jaroslawl; Gestorben 3. November 1918 in Odessa) war ein russischer Mathematiker und Physiker.
+\end{sphinxShadowBox}
+
 \sphinxAtStartPar
 Es ist klar, dass der Begriff der asymptotischen Stabilität \sphinxstyleemphasis{stärker} als der Begriff der Lyapunov\sphinxhyphen{}Stabilität von Lösungen ist, da jede asymptotisch stabile Lösung auch schon Lyapunov\sphinxhyphen{}stabil ist.
 Die Umkehrung gilt jedoch im Allgemeinen nicht.
 Dies wird durch das folgende Beispiel nochmal illustriert.
-\label{ode_stability/stabilitaetsbegriffe:example-1}
+\label{odestability/stabilitaetsbegriffe:example-1}
 \begin{sphinxadmonition}{note}{Example 2.1 (Stabilitätsanalyse für den harmonischer Oszillator)}
 
 
@@ -1421,7 +1487,7 @@ p \cos(\omega t) - m x \sin(\omega t)\\
 \sphinxAtStartPar
 Wir suchen nun einen Fixpunkt \((p_r,x_r) \in U\) des Flusses der unabhängig ist vom Zeitpunkt \(t\).
 Man sieht leicht ein, dass eine \sphinxstylestrong{Ruhelage} sich bei \((p_r,x_r) = (0,0)^T \in U\) befindet, da \(\Phi(t,(0,0)) = (0,0)^T\) ist für alle \(t \in I\).
-Die gefundene Ruhelage ist \sphinxstylestrong{Lyapunov\sphinxhyphen{}stabil}, denn wie wir im Phasenporträt in \DUrole{xref,myst}{} gesehen haben, ist jeder Orbit um die Ruhelage \((0,0)\) periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.
+Die gefundene Ruhelage ist \sphinxstylestrong{Lyapunov\sphinxhyphen{}stabil}, denn wie wir im Phasenporträt in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} gesehen haben, ist jeder Orbit um die Ruhelage \((0,0)\) periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.
 
 \sphinxAtStartPar
 Mathematisch lässt sich diese Eigenschaft wie folgt zeigen.
@@ -1443,13 +1509,13 @@ Sie ist jedoch auf Grund der Periodizität der Orbits um die Ruhelage \sphinxsty
 
 \sphinxAtStartPar
 Im allgemeinen Fall der gedämpften Schwingungsgleichung in {\hyperref[\detokenize{ode/fluesse:ex:oscillations}]{\sphinxcrossref{Example 1.7}}} hängt die Stabilität der Ruhelage im Ursprung intuitiverweise von der Reibungskonstanten ab, wie folgende Bemerkung festhält.
-\label{ode_stability/stabilitaetsbegriffe:remark-2}
+\label{odestability/stabilitaetsbegriffe:remark-2}
 \begin{sphinxadmonition}{note}{Remark 2.1 (Stabilität bei der gedämpften Schwingungsgleichung)}
 
 
 
 \sphinxAtStartPar
-Für den Fall der gedämpften Schwingungsgleichung in {\hyperref[\detokenize{ode/fluesse:equation-eq-schwingungsgleichung}]{\sphinxcrossref{(1.7)}}} lässt sich folgendes Stabilitätsverhalten der Ruhelage im Ursprung in Abhängigkeit der Reibungskonstanten \(r \in \R\) beobachten:
+Für den Fall der gedämpften Schwingungsgleichung in \eqref{equation:ode/fluesse:eq:schwingungsgleichung} lässt sich folgendes Stabilitätsverhalten der Ruhelage im Ursprung in Abhängigkeit der Reibungskonstanten \(r \in \R\) beobachten:
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
@@ -1469,14 +1535,18 @@ Die Ruhelage ist \sphinxstylestrong{instabil} für den Fall einer negativen Reib
 
 
 \section{Stabilität von Ruhelagen}
-\label{\detokenize{ode_stability/ruhelagen:stabilitat-von-ruhelagen}}\label{\detokenize{ode_stability/ruhelagen::doc}}
+\label{\detokenize{odestability/ruhelagen:stabilitat-von-ruhelagen}}\label{\detokenize{odestability/ruhelagen::doc}}
 \sphinxAtStartPar
 Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine \sphinxstylestrong{lineare} Differentialgleichungssysteme untersuchen.
 Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in {[}\hyperlink{cite.references:id12}{Ten21}{]} kennen gelernt.
 
 \sphinxAtStartPar
 Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
+<<<<<<< HEAD
 \label{ode_stability/ruhelagen:theorem:stabilität_linear}
+=======
+\label{odestability/ruhelagen:thm:stablin}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Theorem 2.1}
 
 
@@ -1488,7 +1558,7 @@ Dann beschreibt der zugehörige Phasenfluss \(\Phi\) zum homogenen linearen Diff
 \begin{split}\dot{x}(t) = Ax(t)\end{split}
 \end{equation*}
 \sphinxAtStartPar
-eine Ruhelage in \(\vec{0} \in \C^n\).
+eine Ruhelage in \(\mathbf{0} \in \C^n\).
 Diese ist sogar eindeutig, falls \(\lambda_i\neq 0, i=1,\ldots,n\) gilt.
 
 \sphinxAtStartPar
@@ -1502,11 +1572,11 @@ kann die Stabilität der Ruhelage wie folgt charakterisiert werden:
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
 \sphinxAtStartPar
-Falls \(\gamma <0\) gilt, ist die Ruhelage \(\vec{0}\) \sphinxstyleemphasis{asymptotisch stabil}
+Falls \(\gamma <0\) gilt, ist die Ruhelage \(\mathbf{0}\) \sphinxstyleemphasis{asymptotisch stabil}
 
 \item {} 
 \sphinxAtStartPar
-Falls \(\gamma >0\) gilt, ist die Ruhelage \(\vec{0}\) \sphinxstyleemphasis{instabil}.
+Falls \(\gamma >0\) gilt, ist die Ruhelage \(\mathbf{0}\) \sphinxstyleemphasis{instabil}.
 
 \end{enumerate}
 \end{sphinxadmonition}
@@ -1548,7 +1618,11 @@ Wählen wir nun \(\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)\),
 \end{equation*}
 \sphinxAtStartPar
 Insgesamt erhalten wir also für die Norm des Phasenflusses
+<<<<<<< HEAD
 \begin{equation}\label{equation:ode_stability/ruhelagen:eq:abschaetzung_ew}
+=======
+\begin{equation}\label{equation:odestability/ruhelagen:eq:abschaetzungew}
+>>>>>>> main
 \begin{split}\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.\end{split}
 \end{equation}
 \sphinxAtStartPar
@@ -1558,7 +1632,7 @@ Wir unterscheiden daher zwei Fälle:
 
 \sphinxAtStartPar
 1. Wenn \(\gamma >0\) ist, so existiert zum Eigenwert \(\gamma\) von \(A\) ein zugehöriger Eigenvektor \(v\in U\), so dass die Eigenwertgleichung \(A v = \gamma v\) gilt.
-Nach Lemma {\hyperref[\detokenize{ode/repetition:lem:mpotew}]{\sphinxcrossref{Lemma 1.1}}} ist dann \(e^{t\gamma}\) ein Eigenwert des Matrixexponentials \(e^{tA}\) mit zugehörigem Eigenvektor \(v\).
+Nach {\hyperref[\detokenize{ode/repetition:lem:mpotew}]{\sphinxcrossref{Lemma 1.1}}} ist dann \(e^{t\gamma}\) ein Eigenwert des Matrixexponentials \(e^{tA}\) mit zugehörigem Eigenvektor \(v\).
 Insgesamt erhalten wir also
 \begin{equation*}
 \begin{split}||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \text{ für } \ t \to \infty, \quad  \forall \alpha>0. \end{split}
@@ -1568,20 +1642,20 @@ Also enthält jede beliebig kleine Umgebung der Ruhelage \(0\) Punkte, für die 
 In diesem Fall ist die Ruhelage also \sphinxstylestrong{instabil}.
 
 \sphinxAtStartPar
-2. Falls \(\gamma <0\) gilt, so können wir abschätzen, dass
+2. Falls \(\gamma <0\) gilt, so gilt auch \(\gamma + \epsilon <0\) und wir können abschätzen,
 \begin{equation*}
-\begin{split}0\leq \|\Phi_t(x_0)-0\|\leq C e^{t\epsilon} e^{t \gamma} \to 0 \quad \text{ für } \ t \to \infty.\end{split}
+\begin{split}0\leq \|\Phi_t(x_0)-0\|\leq C e^{t (\gamma + \epsilon)} \to 0 \quad \text{ für } \ t \to \infty.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Dies liefert uns also \sphinxstylestrong{asymptotische Stabilität} der Ruhelage \(0\).
+Dies liefert uns also \sphinxstylestrong{asymptotische Stabilität} der Ruhelage \(\mathbf{0}\).
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die \(0\) immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.
+Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die \(\mathbf{0}\) immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.
 
 
 \subsection{Linearisierung um Ruhelage}
-\label{\detokenize{ode_stability/ruhelagen:linearisierung-um-ruhelage}}
+\label{\detokenize{odestability/ruhelagen:linearisierung-um-ruhelage}}\label{\detokenize{odestability/ruhelagen:s-linearisierung-ruhelage}}
 \sphinxAtStartPar
 :label: s:linearisierung\_ruhelage
 
@@ -1589,7 +1663,7 @@ Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleic
 In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
 Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
 Daher betrachten wir im Folgenden das Anfangswertproblem eines \sphinxstylestrong{allgemeinen Differentialgleichungssystem erster Ordnung} auf dem Phasenraum \(U\in \R^n\), das nicht notwendigerweise linear sein muss und für ein Vektorfeld \(F\in C^1(U;\R^n)\) wie folgt formuliert ist
-\begin{equation}\label{equation:ode_stability/ruhelagen:eq:awpallg}
+\begin{equation}\label{equation:odestability/ruhelagen:eq:awpallg}
 \begin{split}\dot{x}(t) &= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
 x(0) &= x_0.\end{split}
 \end{equation}
@@ -1599,13 +1673,13 @@ Durch einfache Translation der Koordinaten des Systems um \(x_F \in U\), können
 
 \sphinxAtStartPar
 Im Folgenden definieren wir zwei wichtige Werkzeuge zur Untersuchung der Stabilität von Ruhelagen für allgemeine Differentialgleichungssysteme.
-\label{ode_stability/ruhelagen:def:linearisierung}
+\label{odestability/ruhelagen:def:linearisierung}
 \begin{sphinxadmonition}{note}{Definition 2.2 (Linearisierung und Abweichung)}
 
 
 
 \sphinxAtStartPar
-Sei \(F\in C^1(U;\R^n)\) ein Vektorfeld auf dem Phasenraum \(U \subset \R^n\) und \(0\) eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in \eqref{equation:ode_stability/ruhelagen:eq:awpallg} charakterisiert wird.
+Sei \(F\in C^1(U;\R^n)\) ein Vektorfeld auf dem Phasenraum \(U \subset \R^n\) und \(0\) eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in \eqref{equation:odestability/ruhelagen:eq:awpallg} charakterisiert wird.
 Sei nun \((DF)(x)\) die Jacobi\sphinxhyphen{}Matrix der Funktion \(F\) im Punkt \(x \in U\) (vgl. Kapitel 6.2 in {[}\hyperlink{cite.references:id12}{Ten21}{]}).
 Dann bezeichnen wir mit \(A := (DF)(0)\) die \sphinxstylestrong{Linearisierung} von \(F\) in der Ruhelage \(0 \in U\).
 Außerdem bezeichnen wir die Funktion \(R \in C^1(U; \R^n)\) mit
@@ -1618,13 +1692,13 @@ als die \sphinxstylestrong{Abweichung} (auch \sphinxstylestrong{Residuum} genann
 
 \sphinxAtStartPar
 Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des Differentialgleichungssystem in führender Ordnung durch die Linearisierung \(A\) von \(F\) kontrolliert werden, solange wir uns nah genug zur Ruhelage befinden. Dies wird durch das folgende Lemma ausgedrückt.
-\label{ode_stability/ruhelagen:lem:intexpglgn}
+\label{odestability/ruhelagen:lem:intexpglgn}
 \begin{sphinxadmonition}{note}{Lemma 2.1}
 
 
 
 \sphinxAtStartPar
-Wir betrachten das Anfangswertproblem aus \eqref{equation:ode_stability/ruhelagen:eq:awpallg} auf dem Phasenraum \(U \subset \R^n\) für ein Vektorfeld \(F\in C^1(U;\R^n)\).
+Wir betrachten das Anfangswertproblem aus \eqref{equation:odestability/ruhelagen:eq:awpallg} auf dem Phasenraum \(U \subset \R^n\) für ein Vektorfeld \(F\in C^1(U;\R^n)\).
 Außerdem sei \(A \coloneqq (DF)(0)\) die Linearisierung des Vektorfelds in der Ruhelage \(0\) des dynamischen Systems und \(R(x) \coloneqq F(x) - Ax\) die Abweichung von \(F\) von seiner Linearisierung \(A\) im Nullpunkt.
 
 \sphinxAtStartPar
@@ -1635,7 +1709,7 @@ Dann lassen sich Lösungen des Differentialgleichungssystems mittels der Lineari
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Wir setzen zunächst die unbekannte Lösung \(x(t)\) des Anfangswertproblems \eqref{equation:ode_stability/ruhelagen:eq:awpallg} in der allgemeinen Form
+Proof. Wir setzen zunächst die unbekannte Lösung \(x(t)\) des Anfangswertproblems \eqref{equation:odestability/ruhelagen:eq:awpallg} in der allgemeinen Form
 \begin{equation*}
 \begin{split}x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0\end{split}
 \end{equation*}
@@ -1643,12 +1717,12 @@ Proof. Wir setzen zunächst die unbekannte Lösung \(x(t)\) des Anfangswertprobl
 an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion \(c(t)\) mittels \sphinxstylestrong{Variation der Konstanten} (vgl. Kapitel 8.2 in {[}\hyperlink{cite.references:id12}{Ten21}{]}).
 
 \sphinxAtStartPar
-Mittels der Rechenregeln für das Matrixexponentials in {\hyperref[\detokenize{ode/repetition:rem:matrixexponential_regeln}]{\sphinxcrossref{Remark 1.3}}} können wir die Ableitung der Funktion \(x\) mittels Produktregel angeben als
+Mittels der Rechenregeln für das Matrixexponentials in {\hyperref[\detokenize{ode/repetition:rem:matrixexponentialregeln}]{\sphinxcrossref{Remark 1.3}}} können wir die Ableitung der Funktion \(x\) mittels Produktregel angeben als
 \begin{equation*}
 \begin{split}\dot{x}(s) = A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s).\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Aus der Definition des Residuums in {\hyperref[\detokenize{ode_stability/ruhelagen:def:linearisierung}]{\sphinxcrossref{Definition 2.2}}} folgt aber auch
+Aus der Definition des Residuums in {\hyperref[\detokenize{odestability/ruhelagen:def:linearisierung}]{\sphinxcrossref{Definition 2.2}}} folgt aber auch
 \begin{equation*}
 \begin{split}\dot{x}(s) = F(x(s)) = Ax(s) + R(x(s)).\end{split}
 \end{equation*}
@@ -1667,16 +1741,23 @@ Nach dem Hauptsatz der Differential\sphinxhyphen{} und Integralrechnung (vgl. Th
 \begin{split}c(t) = c(0) + \int_0^t \dot{c}(s)\, \mathrm{d}s = x_0+ \int_0^t e^{-As}R(x(s)) \, \mathrm{d}s.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Setzen wir dies in die erste Gleichung unserer Ansatzfunktion ein und nutzen die Rechenregeln des Matrixexponnentials aus {\hyperref[\detokenize{ode/repetition:rem:matrixexponential_regeln}]{\sphinxcrossref{Remark 1.3}}}, so erhalten wir schließlich die Aussage des Lemmas
+Setzen wir dies in die erste Gleichung unserer Ansatzfunktion ein und nutzen die Rechenregeln des Matrixexponnentials aus {\hyperref[\detokenize{ode/repetition:rem:matrixexponentialregeln}]{\sphinxcrossref{Remark 1.3}}}, so erhalten wir schließlich die Aussage des Lemmas
 \begin{equation*}
 \begin{split}x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Auf den ersten Blick nützt uns die Identität in {\hyperref[\detokenize{ode_stability/ruhelagen:lem:intexpglgn}]{\sphinxcrossref{Lemma 2.1}}} nicht viel, denn auch auf der rechten Seite taucht \(x(s)\), also die unbekannte Lösung des Anfangswertproblems \eqref{equation:ode_stability/ruhelagen:eq:awpallg} auf.
+Auf den ersten Blick nützt uns die Identität in {\hyperref[\detokenize{odestability/ruhelagen:lem:intexpglgn}]{\sphinxcrossref{Lemma 2.1}}} nicht viel, denn auch auf der rechten Seite taucht \(x(s)\), also die unbekannte Lösung des Anfangswertproblems \eqref{equation:odestability/ruhelagen:eq:awpallg} auf.
 Es stellt sich jedoch heraus, dass wir die \sphinxstylestrong{Gronwall\sphinxhyphen{}Ungleichung} auf diese Integralgleichung anwenden können.
 Diese wichtige Abschätzung in der Theorie von Differentialgleichungen ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
-\label{ode_stability/ruhelagen:lemma:Gronwall}
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Thomas Gronwall}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Thomas\_Hakon\_Gr\%C3\%B6nwall}{Thomas Hakon Gronwall} (Geboren 16. Januar 1877 in Dylta Bruk bei Axberg/Gemeinde Örebro; Gestorben 9. Mai 1932 in New York, NY) war ein schwedischer Mathematiker.
+\end{sphinxShadowBox}
+\label{odestability/ruhelagen:lemma:Gronwall}
 \begin{sphinxadmonition}{note}{Lemma 2.2 (Gronwall\sphinxhyphen{}Ungleichung)}
 
 
@@ -1741,13 +1822,13 @@ Durch Anwenden der Exponentialfunktion auf beiden Seiten und Ausnutzen der Vorau
 
 \sphinxAtStartPar
 Wir wollen folgende Bemerkungen zur Gronwall\sphinxhyphen{}Ungleichung festhalten.
-\label{ode_stability/ruhelagen:remark-4}
+\label{odestability/ruhelagen:remark-4}
 \begin{sphinxadmonition}{note}{Remark 2.2}
 
 
 
 \sphinxAtStartPar
-1. Die in {\hyperref[\detokenize{ode_stability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} beschriebene Gronwall\sphinxhyphen{}Ungleichung ist eigentlich ein Spezialfall für eine konstante Funktion \(a(t) \equiv a \geq 0\).
+1. Die in {\hyperref[\detokenize{odestability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} beschriebene Gronwall\sphinxhyphen{}Ungleichung ist eigentlich ein Spezialfall für eine konstante Funktion \(a(t) \equiv a \geq 0\).
 Die ursprünglich bewiesene Aussage gilt auch für allgemeinere Funktionen.
 
 \sphinxAtStartPar
@@ -1773,6 +1854,7 @@ Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwende
 
 
 \subsection{Asymptotische Stabilität von Ruhelagen}
+<<<<<<< HEAD
 \label{\detokenize{ode_stability/ruhelagen:asymptotische-stabilitat-von-ruhelagen}}
 \sphinxAtStartPar
 Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes \(F \colon U \rightarrow \R^n\) in \sphinxcode{\sphinxupquote{lemma:int\_exp\_glgn}} und der Gronwall\sphinxhyphen{}Ungleichung in {\hyperref[\detokenize{ode_stability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.
@@ -1780,6 +1862,15 @@ Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungs
 \sphinxAtStartPar
 Wir formulieren direkt das Hauptresultat, dass uns ein hinreichendes Kriterium für \sphinxstylestrong{asymptotische Stabilität} der Ruhelage basierend auf den Eigenwerten der Linearisierung liefert.
 \label{ode_stability/ruhelagen:theorem:stabilitaet_asymptotisch_allg}
+=======
+\label{\detokenize{odestability/ruhelagen:asymptotische-stabilitat-von-ruhelagen}}
+\sphinxAtStartPar
+Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes \(F \colon U \rightarrow \R^n\) in {\hyperref[\detokenize{odestability/ruhelagen:lem:intexpglgn}]{\sphinxcrossref{Lemma 2.1}}} und der Gronwall\sphinxhyphen{}Ungleichung in {\hyperref[\detokenize{odestability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.
+
+\sphinxAtStartPar
+Wir formulieren direkt das Hauptresultat, dass uns ein hinreichendes Kriterium für \sphinxstylestrong{asymptotische Stabilität} der Ruhelage basierend auf den Eigenwerten der Linearisierung liefert.
+\label{odestability/ruhelagen:thm:stabasymallg}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Theorem 2.2 (Asymptotische Stabilität von Ruhelagen)}
 
 
@@ -1798,8 +1889,13 @@ charakterisiert wird, ist \sphinxstylestrong{asymptotisch stabil} wenn für die 
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Proof. Wie bereits in \sphinxcode{\sphinxupquote{s:linearisierung\_ruhelage}} diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit \(x_F = 0 \in U\) gilt.
 Da \(U\subseteq\R^n\) nach Vorraussetzung offen ist, können wir eine offene Kugel \(B_\vec{r}(0) \coloneqq \{y \in U \colon ||y|| < \vec{r}\}\) mit Radius \(\vec{r} > 0\) als Umgebung der Ruhelage \(0\) finden, so dass \(B_\vec{r}(0) \subset U\) gilt.
+=======
+Proof. Wie bereits in {\hyperref[\detokenize{odestability/ruhelagen:s-linearisierung-ruhelage}]{\sphinxcrossref{\DUrole{std,std-ref}{Linearisierung um Ruhelage}}}} diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit \(x_F = 0 \in U\) gilt.
+Da \(U\subseteq\R^n\) nach Vorraussetzung offen ist, können wir eine offene Kugel \(B_{{r^\ast}}(0) \coloneqq \{y \in U \colon ||y|| < {r^\ast}\}\) mit Radius \({r^\ast} > 0\) als Umgebung der Ruhelage \(0\) finden, so dass \(B_{r^\ast}(0) \subset U\) gilt.
+>>>>>>> main
 
 \sphinxAtStartPar
 Wir nehmen im Folgenden an, dass der Realteil der Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) der Linearisierung \(A \, \coloneqq \, Df(0)\) echt negativ ist, d.h., für ein geeignetes \(\Lambda > 0\) gilt die Abschätzung
@@ -1807,6 +1903,7 @@ Wir nehmen im Folgenden an, dass der Realteil der Eigenwerte \(\lambda_i \in \C,
 \begin{split}\mathcal{Re}(\lambda_i)< -\Lambda, \quad \text{für } i=1,\ldots,n. \end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Dann gibt es analog zum Beweis von {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilit_xe4t_linear}]{\sphinxcrossref{Theorem 2.1}}} eine Konstante \(c>0\), so dass gilt
 \begin{equation}\label{equation:ode_stability/ruhelagen:eq:abschaetzung_norm_exponential}
 \begin{split}\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad \forall t\in \R^+_0.\end{split}
@@ -1817,6 +1914,18 @@ Hierbei haben wir ausgenutzt, dass wir die Konstante \(\epsilon > 0\) in \DUrole
 \sphinxAtStartPar
 Wir können nun einen Radius \(r\in (0,\vec{r})\) bestimmen, so dass die folgende Abschätzung gilt
 \begin{equation}\label{equation:ode_stability/ruhelagen:eq:abschaetzung_residuum}
+=======
+Dann gibt es analog zum Beweis von {\hyperref[\detokenize{odestability/ruhelagen:thm:stablin}]{\sphinxcrossref{Theorem 2.1}}} eine Konstante \(c>0\), so dass gilt
+\begin{equation}\label{equation:odestability/ruhelagen:eq:normexp}
+\begin{split}\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad \forall t\in \R^+_0.\end{split}
+\end{equation}
+\sphinxAtStartPar
+Hierbei haben wir ausgenutzt, dass wir die Konstante \(\epsilon > 0\) in \eqref{equation:odestability/ruhelagen:eq:abschaetzungew} so klein wählen können, dass \(\gamma + \epsilon < -\Lambda\) gilt.
+
+\sphinxAtStartPar
+Wir können nun einen Radius \(r\in (0,{r^\ast})\) bestimmen, so dass die folgende Abschätzung gilt
+\begin{equation}\label{equation:odestability/ruhelagen:eq:residuum}
+>>>>>>> main
 \begin{split}\|R(x)\| \leq \frac{\Lambda}{2c} \|x\|, \quad \forall \|x\| \leq r.\end{split}
 \end{equation}
 \sphinxAtStartPar
@@ -1835,16 +1944,28 @@ dann soll schon für die Norm der Lösung für beliebiges \(t \geq 0\) gelten
 \begin{split}\|x(t)\| \leq c\epsilon e^{-\frac{\Lambda t}{2}}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Da \(c\epsilon e^{- \frac{\Lambda t}{2}} \leq c\epsilon < r <\tilde{r}\) gilt, liegt die Lösung somit noch in der offenen Kugel \(B_{\vec{r}}(0) \subset U\) und konvergiert für \(t \rightarrow \infty\) gegen 0, was den Satz beweist.
 
 \sphinxAtStartPar
 Nehmen wir also an, dass \(\|x(0)\| \leq \epsilon <\frac{r}{c}\) gelte.
 Nun können wir nach \sphinxcode{\sphinxupquote{lemma:intexpglgn}} die unbekannte Lösung durch ihre Linearisierung darstellen als
+=======
+Da \(c\epsilon e^{- \frac{\Lambda t}{2}} \leq c\epsilon < r <\tilde{r}\) gilt, liegt die Lösung somit noch in der offenen Kugel \(B_{{r^\ast}}(0) \subset U\) und konvergiert für \(t \rightarrow \infty\) gegen 0, was den Satz beweist.
+
+\sphinxAtStartPar
+Nehmen wir also an, dass \(\|x(0)\| \leq \epsilon <\frac{r}{c}\) gelte.
+Nun können wir nach {\hyperref[\detokenize{odestability/ruhelagen:lem:intexpglgn}]{\sphinxcrossref{Lemma 2.1}}} die unbekannte Lösung durch ihre Linearisierung darstellen als
+>>>>>>> main
 \begin{equation*}
 \begin{split}x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen {\hyperref[\detokenize{ode_stability/ruhelagen:equation-eq-abschaetzung-norm-exponential}]{\sphinxcrossref{(2.3)}}} und {\hyperref[\detokenize{ode_stability/ruhelagen:equation-eq-abschaetzung-residuum}]{\sphinxcrossref{(2.4)}}}, so erhalten wir
+=======
+Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen \eqref{equation:odestability/ruhelagen:eq:normexp} und \eqref{equation:odestability/ruhelagen:eq:residuum}, so erhalten wir
+>>>>>>> main
 \begin{equation*}
 \begin{split}\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, \mathrm{d}s, \quad \forall \|x\| \leq r.\end{split}
 \end{equation*}
@@ -1854,30 +1975,50 @@ Multiplizieren wir beide Seiten der Ungleichung mit \(e^{\Lambda t}\) und defini
 \begin{split}f(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} f(s)\, \mathrm{d}s.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Für diese Form der Ungleichung bietet es sich an das {\hyperref[\detokenize{ode_stability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} zur Gronwall\sphinxhyphen{}Ungleichung anzuwenden, durch das wir schließlich folgendes Resultat bekommen
+=======
+Für diese Form der Ungleichung bietet es sich an das {\hyperref[\detokenize{odestability/ruhelagen:lemma:Gronwall}]{\sphinxcrossref{Lemma 2.2}}} zur Gronwall\sphinxhyphen{}Ungleichung anzuwenden, durch das wir schließlich folgendes Resultat bekommen
+>>>>>>> main
 \begin{equation*}
 \begin{split}f(t) \leq c \|x_0\| \exp{\left( \frac{1}{2} \int_0^t \Lambda \, \mathrm{d}s \right) }
 \leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Durch Multiplikation beider Seiten mit \$e\textasciicircum{}\{\sphinxhyphen{}\textbackslash{}Lambda t\} führt dies zur finalen Abschätzung
+=======
+Durch Multiplikation beider Seiten mit \(e^{-\Lambda t}\) führt dies zur finalen Abschätzung
+>>>>>>> main
 \begin{equation*}
 \begin{split} \|x(t)\|\leq re^{-\frac{\Lambda}{2}t}, \quad \forall t\in\R^+_0.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Wir sehen also ein, dass die unbekannte Lösung für alle nicht\sphinxhyphen{}negativen Zeiten in der offenen Kugel \(B_r(0) \subset B_{\vec{r}}(0) \subset U\) enthalten ist und offensichtlich gegen Null konvergiert.
+=======
+Wir sehen also ein, dass die unbekannte Lösung für alle nicht\sphinxhyphen{}negativen Zeiten in der offenen Kugel \(B_r(0) \subset B_{{r^\ast}}(0) \subset U\) enthalten ist und offensichtlich gegen Null konvergiert.
+>>>>>>> main
 Damit ist die Ruhelage \(0 \in U\) asymptotisch stabil.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Folgende Bemerkung geht speziell auf ein Detail des Beweises ein, das eine Aussage zum Konvergenzradius der Lösungen eines dynamisches Systems zulässt.
+<<<<<<< HEAD
 \label{ode_stability/ruhelagen:remark-6}
+=======
+\label{odestability/ruhelagen:remark-6}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Remark 2.3 (Attraktionsbassin)}
 
 
 
 \sphinxAtStartPar
+<<<<<<< HEAD
 Der Beweis von {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilitaet_asymptotisch_allg}]{\sphinxcrossref{Theorem 2.2}}} liefert zusätzlich die Aussage, dass alle Punkte \(x\in U\) im Phasenraum mit
+=======
+Der Beweis von {\hyperref[\detokenize{odestability/ruhelagen:thm:stabasymallg}]{\sphinxcrossref{Theorem 2.2}}} liefert zusätzlich die Aussage, dass alle Punkte \(x\in U\) im Phasenraum mit
+>>>>>>> main
 \begin{equation*}
 \begin{split}\|x\| < \frac{r}{c}\end{split}
 \end{equation*}
@@ -1888,18 +2029,28 @@ Diesen attraktiven Einzugsbereich der Ruhelage nennt man auch das \sphinxstylest
 
 
 \subsection{Lyapunov\sphinxhyphen{}Stabilität von Ruhelagen}
-\label{\detokenize{ode_stability/ruhelagen:lyapunov-stabilitat-von-ruhelagen}}
+\label{\detokenize{odestability/ruhelagen:lyapunov-stabilitat-von-ruhelagen}}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Während ein hinreichendes Kriterium für das Vorliegen \sphinxstyleemphasis{asymptotischer Stabilität} die strikte Ungleichung \(Re(\lambda_i)<0\) für die Eigenwerte \(\lambda_i\) der Jacobi\sphinxhyphen{}Matrix war, ist die Situation bezüglich der Liapunov\sphinxhyphen{}Stabilität einer Ruhelage \sphinxstylestrong{komplizierter}.
 Hierzu wollen wir ein Resultat für den Fall von linearen dynamischen Systemen im Folgenden formulieren.
 \label{ode_stability/ruhelagen:theorem:stabilitaet_lyapunov_linear}
+=======
+Während ein hinreichendes Kriterium für das Vorliegen \sphinxstyleemphasis{asymptotischer Stabilität} die strikte Ungleichung \(Re(\lambda_i)<0\) für die Eigenwerte \(\lambda_i\) der Jacobi\sphinxhyphen{}Matrix war, ist die Situation bezüglich der Lyapunov\sphinxhyphen{}Stabilität einer Ruhelage \sphinxstylestrong{komplizierter}.
+Hierzu wollen wir ein Resultat für den Fall von linearen dynamischen Systemen im Folgenden formulieren.
+\label{odestability/ruhelagen:thm:stablyaplinear}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Theorem 2.3 (Lyapunov\sphinxhyphen{}Stabilität von Ruhelagen)}
 
 
 
 \sphinxAtStartPar
 Sei \(A\in \R^{n\times n}\) eine Matrix mit den Eigenwerten \(\lambda_1,\dots, \lambda_n\in \C\).
+<<<<<<< HEAD
 Besitzen die Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) von \(A\) einen nicht\sphinxhyphen{}positiven Realteil \(Re(\lambda_i) \leq 0\), und ist im Fall \(Re(\lambda_i)=0\) die geometrische Vielfachheit gleich der algebraischen Vielfachheit des Eigenwerts, dann ist \(0\in \R^n\) eine \sphinxstylestrong{Liapunov\sphinxhyphen{}stabile} Ruhelage des dynamischen Systems, dass durch das lineare Differentialgleichungssystem
+=======
+Besitzen die Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) von \(A\) einen nicht\sphinxhyphen{}positiven Realteil \(Re(\lambda_i) \leq 0\), und ist im Fall \(Re(\lambda_i)=0\) die geometrische Vielfachheit gleich der algebraischen Vielfachheit des Eigenwerts, dann ist \(0\in \R^n\) eine \sphinxstylestrong{Lyapunov\sphinxhyphen{}stabile} Ruhelage des dynamischen Systems, dass durch das lineare Differentialgleichungssystem
+>>>>>>> main
 \begin{equation*}
 \begin{split}\dot{x}(t) = Ax(t), \quad  \forall t \in I \subset \R^+_0\end{split}
 \end{equation*}
@@ -1909,7 +2060,11 @@ charakterisiert wird.
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Proof. Aus {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilit_xe4t_linear}]{\sphinxcrossref{Theorem 2.1}}} wissen wir bereits, dass im Fall eines linearen dynamischen Systems \(\vec{0} \in U\) eine Ruhelage im Phasenraum \(U \subset \R^n\) ist.
+=======
+Proof. Aus {\hyperref[\detokenize{odestability/ruhelagen:thm:stablin}]{\sphinxcrossref{Theorem 2.1}}} wissen wir bereits, dass im Fall eines linearen dynamischen Systems \(\vec{0} \in U\) eine Ruhelage im Phasenraum \(U \subset \R^n\) ist.
+>>>>>>> main
 Seien \(\lambda_1, \ldots, \lambda_k \in \C\) für \(k \leq n\) die paarweise verschiedenen Eigenwerte der Matrix \(A\).
 Wir betrachten wieder die Jordansche Normalform \(J = S^{-1}AS\) der Matrix \(A\) für Transformationsmatrizen \(S,S^{-1} \in \C^{n \times n}\) und
 \begin{equation*}
@@ -1932,7 +2087,11 @@ Hierbei bezeichnen \(r_i \in \N, i=1,\ldots, k\) die algebraischen Vielfachheite
  \end{pmatrix} \in \C^{r\times r}\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Mit den Rechenregeln für das Matrixexponential aus {\hyperref[\detokenize{ode/repetition:rem:matrixexponential_regeln}]{\sphinxcrossref{Remark 1.3}}} folgt
+=======
+Mit den Rechenregeln für das Matrixexponential aus {\hyperref[\detokenize{ode/repetition:rem:matrixexponentialregeln}]{\sphinxcrossref{Remark 1.3}}} folgt
+>>>>>>> main
 \begin{equation*}
 \begin{split}e^{Jt} = \begin{pmatrix}
 \exp{(J_{r_1}(\lambda_1)t)} & & 0\\
@@ -1946,29 +2105,50 @@ Betrachten wir nun die Norm der Lösungen des homogenen, linearen Differentialgl
 \begin{split}\| \Phi_t(x_0) \| = \|e^{At}x_0\| = \|S^{-1}e^{Jt}S x_0\| \leq \|S^{-1}\| \|e^{Jt}\| \|S\| \|x_0\|,\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 so sehen wir ein, dass die Ruhelage \(\vec{0} \in U\) \sphinxstylestrong{Lyapunov\sphinxhyphen{}stabil} ist wenn für alle Jordanblöcke \(J_{r_i}(\lambda_i), i=1,\ldots,k\) von \(J\) der Ursprung \(0\in \C^{r_i}\) eine Liapunov\sphinxhyphen{}stabile Ruhelage des folgenden linearen Differentialgleichungssystems ist
+=======
+so sehen wir ein, dass die Ruhelage \(\vec{0} \in U\) \sphinxstylestrong{Lyapunov\sphinxhyphen{}stabil} ist wenn für alle Jordanblöcke \(J_{r_i}(\lambda_i), i=1,\ldots,k\) von \(J\) der Ursprung \(0\in \C^{r_i}\) eine Lyapunov\sphinxhyphen{}stabile Ruhelage des folgenden linearen Differentialgleichungssystems ist
+>>>>>>> main
 \begin{equation*}
 \begin{split} \dot{y}(t) = J_{r_i}(\lambda_i) y(t), \quad t \in I \subset \R^+_0.\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 Dies ist bereits gegeben falls für einen Eigenwert \(Re(\lambda_i)<0\) gilt, denn damit folgt aus {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilit_xe4t_linear}]{\sphinxcrossref{Theorem 2.1}}} sogar schon \sphinxstylestrong{asymptotische Stabilität}, welche Lyapunov\sphinxhyphen{}Stabilität induziert.
+=======
+Dies ist bereits gegeben falls für einen Eigenwert \(Re(\lambda_i)<0\) gilt, denn damit folgt aus {\hyperref[\detokenize{odestability/ruhelagen:thm:stablin}]{\sphinxcrossref{Theorem 2.1}}} sogar schon \sphinxstylestrong{asymptotische Stabilität}, welche Lyapunov\sphinxhyphen{}Stabilität induziert.
+>>>>>>> main
 
 \sphinxAtStartPar
 Betrachten wir also nun einen komplexen Eigenwert \(\lambda_i \in \C\) von \(A\) mit \(Re(\lambda_i)=0\) und für den die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen Vielfachheit ist.
 In diesem Fall ist der ihm zugeordnete Jordanblock eine Diagonalmatrix auf deren Hauptdiagonale der Eigenwert \(\lambda_i \in \C\) steht, da alle Jordankästchen eindimensional sind.
 In diesem Fall sehen wir, dass die Norm des Matrixexponentials beschränkt ist und wir dadurch \sphinxstylestrong{Lyapunov\sphinxhyphen{}Stabilität} der Ruhelage gezeigt haben, da gilt
+<<<<<<< HEAD
 \begin{equation*}
 \begin{split}\|e^{J_{r_i}(\lambda_i)t)}\| = |e^{\lambda_i t}| = |e^0e^{\mathcal{Im}(\lambda_i) t}| = |\cos{(\mathcal{Im}(\lambda_i)t)} + i \sin{(\mathcal{Im}(\lambda_i)t)}| = 1.\end{split}
 \end{equation*}
 \sphinxAtStartPar
 Für diese Umformung haben wir die Definition der komplexen Exponentialfunktion genutzt, für die gilt:
 \begin{equation*}
+=======
+\begin{equation*}
+\begin{split}\|e^{J_{r_i}(\lambda_i)t)}\| = |e^{\lambda_i t}| = |e^0e^{\mathcal{Im}(\lambda_i) t}| = |\cos{(\mathcal{Im}(\lambda_i)t)} + i \sin{(\mathcal{Im}(\lambda_i)t)}| = 1.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Für diese Umformung haben wir die Definition der komplexen Exponentialfunktion genutzt, für die gilt:
+\begin{equation*}
+>>>>>>> main
 \begin{split}e^z = e^{x+iy} = e^xe^iy = e^x(\cos(y) + i\sin(y)), \quad \text{für } z = x+iy \in \C.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
 Das folgende Beispiel illustriert, dass eine Ruhelage instabil werden kann, wenn die geometrische Vielfachheit nicht mit der algebraischen Vielfachheit übereinstimmt für einen Eigenwert \(\lambda =0\) der Koeffizientenmatrix \(A\).
+<<<<<<< HEAD
 \label{ode_stability/ruhelagen:example-8}
+=======
+\label{odestability/ruhelagen:example-8}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Example 2.2}
 
 
@@ -1986,6 +2166,7 @@ für eine Koeffizientenmatrix
 \sphinxAtStartPar
 Wie man leicht nachrechnet besitzt diese Matrix den Eigenwert \(\lambda = 0\) mit algebraischer Vielfachheit \(2\) und geometrischer Vielfachheit \(1\) zum Eigenvektor \(v = (1,0)^T \in \R^2\).
 Die Vielfachheiten des Eigenwert \sphinxstylestrong{stimmen} also \sphinxstylestrong{nicht überein}.
+<<<<<<< HEAD
 
 \sphinxAtStartPar
 Aus {\hyperref[\detokenize{ode_stability/ruhelagen:theorem:stabilit_xe4t_linear}]{\sphinxcrossref{Theorem 2.1}}} wissen wir, dass eine Ruhelage in \(\vec{0} \in \R^2\) existiert.
@@ -2005,6 +2186,27 @@ Wir sehen also, dass für jeden Anfangswert \(x_0 = (y,z)\) mit \(z \neq 0\) die
 \sphinxAtStartPar
 Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nichtlinearen Fall schließen, wie das folgende Beispiel zeigt.
 \label{ode_stability/ruhelagen:example-9}
+=======
+
+\sphinxAtStartPar
+Aus {\hyperref[\detokenize{odestability/ruhelagen:thm:stablin}]{\sphinxcrossref{Theorem 2.1}}} wissen wir, dass eine Ruhelage in \(\vec{0} \in \R^2\) existiert.
+Man sieht jedoch leicht ein, dass sogar jeder Punkt \(x_0 = (y, 0) \in U\) eine Ruhelage des Systems darstellt, da diese Punkte ein Vielfaches des Eigenvektors zum Eigenwert \(\lambda = 0\) darstellen und somit im Kern der Matrix \(A\) liegen, d.h., für diese Punkte ist die rechte Seite des Differentialgleichungssystems \(\vec{0} \in \R^2\) und somit liegt eine Ruhelage vor.
+
+\sphinxAtStartPar
+Wir wollen die Stabilität dieser Ruhelagen im Folgenden untersuchen.
+Hierzu betrachten wir die Norm des Phasenflusses \(\Phi \colon I \times U \rightarrow U\), der für einen gegebenen Anfangswert \(x_0 = (y,z) \in U\) mit \(z \neq 0\) der die Lösung des Differentialgleichungssystems beschreibt mit
+\begin{equation*}
+\begin{split}\| \Phi_t(x_0) \| &= \| e^{At}x_0 \| = \| \sum_{k=0}^\infty \frac{(At)^k}{k!} x_0\| = \| [\underbrace{(At)^0}_{=I_2} + (At)^1] x_0\| \\
+&= \| \begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix}\begin{pmatrix} y \\ z \end{pmatrix} \| = \| \begin{pmatrix} y + tz \\ z\end{pmatrix} \| \overset{t\to \infty}{\longrightarrow} \infty.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir sehen also, dass für jeden Anfangswert \(x_0 = (y,z)\) mit \(z \neq 0\) die Lösung des Differentialgleichungssystems divergiert und somit ist jede Ruhelage des dynamischen Systems \sphinxstylestrong{instabil}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nichtlinearen Fall schließen, wie das folgende Beispiel zeigt.
+\label{odestability/ruhelagen:example-9}
+>>>>>>> main
 \begin{sphinxadmonition}{note}{Example 2.3}
 
 
@@ -2066,7 +2268,7 @@ instabil
 \(\alpha=0\)
 &
 \sphinxAtStartPar
-Liapunov\sphinxhyphen{}stabil
+Lyapunov\sphinxhyphen{}stabil
 &
 \sphinxAtStartPar
 asymptotisch stabil für \(\beta<0\)
@@ -2095,6 +2297,7 @@ instabil \(\beta > 0\)
 \end{tabulary}
 \par
 \sphinxattableend\end{savenotes}
+<<<<<<< HEAD
 
 \sphinxAtStartPar
 Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter \(\alpha\), sondern ebenfalls von \(\beta\) ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
@@ -2133,6 +2336,8 @@ Für einen reellen Vektorraum \(\V\) wollen wir lineare Abbildung \(\varphi:V\to
 \label{vektoranalysis/multilinear:definition-0}
 \begin{sphinxadmonition}{note}{Definition 3.1 (Algebraischer Dualraum)}
 
+=======
+>>>>>>> main
 
 
 \sphinxAtStartPar
@@ -2141,7 +2346,11 @@ Es sei \(\V\) ein \(\R\)\sphinxhyphen{}Vektorraum, die Menge
 \begin{split}\V^\ast := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear}\}\end{split}
 \end{equation*}
 \sphinxAtStartPar
+<<<<<<< HEAD
 heißt \sphinxstylestrong{algebraischer Dualraum}.
+=======
+Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter \(\alpha\), sondern ebenfalls von \(\beta\) ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
+>>>>>>> main
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -2226,6 +2435,7 @@ linear ist. Die Menge aller \(k\)\sphinxhyphen{}linearen Abbildungen wird mit \(
 \label{vektoranalysis/multilinear:remark-6}
 \begin{sphinxadmonition}{note}{Remark 3.3}
 
+<<<<<<< HEAD
 
 
 \sphinxAtStartPar
@@ -3475,6 +3685,13 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{corollary\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}3}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{corollary-3}}
+=======
+\renewcommand{\indexname}{Proof Index}
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\bigletter{cor:eindeutigkeitlinear}
+\item\relax\sphinxstyleindexentry{cor:eindeutigkeitlinear}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{cor:eindeutigkeitlinear}}
+>>>>>>> main
 \indexspace
 \bigletter{def:DGL}
 \item\relax\sphinxstyleindexentry{def:DGL}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:DGL}}
@@ -3486,7 +3703,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{def:LokFluss}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{def:LokFluss}}
 \indexspace
 \bigletter{def:Stabilitaet}
+<<<<<<< HEAD
 \item\relax\sphinxstyleindexentry{def:Stabilitaet}\sphinxstyleindexextra{ode\_stability/stabilitaetsbegriffe}\sphinxstyleindexpageref{ode_stability/stabilitaetsbegriffe:\detokenize{def:Stabilitaet}}
+=======
+\item\relax\sphinxstyleindexentry{def:Stabilitaet}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{def:Stabilitaet}}
+>>>>>>> main
 \indexspace
 \bigletter{def:anfangswertproblem}
 \item\relax\sphinxstyleindexentry{def:anfangswertproblem}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:anfangswertproblem}}
@@ -3495,6 +3716,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{def:hamiltonsch}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{def:hamiltonsch}}
 \indexspace
 \bigletter{def:linearisierung}
+<<<<<<< HEAD
 \item\relax\sphinxstyleindexentry{def:linearisierung}\sphinxstyleindexextra{ode\_stability/ruhelagen}\sphinxstyleindexpageref{ode_stability/ruhelagen:\detokenize{def:linearisierung}}
 \indexspace
 \bigletter{def:multilinear}
@@ -3505,13 +3727,19 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{definition\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{definition-1}}
+=======
+\item\relax\sphinxstyleindexentry{def:linearisierung}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{def:linearisierung}}
+>>>>>>> main
 \indexspace
 \bigletter{definition\sphinxhyphen{}12}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}12}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-12}}
 \indexspace
+<<<<<<< HEAD
 \bigletter{definition\sphinxhyphen{}16}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}16}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{definition-16}}
 \indexspace
+=======
+>>>>>>> main
 \bigletter{definition\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{definition-2}}
 \indexspace
@@ -3521,6 +3749,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{definition\sphinxhyphen{}4}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{definition-4}}
 \indexspace
+<<<<<<< HEAD
 \bigletter{definition\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{definition-5}}
 \indexspace
@@ -3530,6 +3759,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{ex:10.14}
 \item\relax\sphinxstyleindexentry{ex:10.14}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{ex:10.14}}
 \indexspace
+=======
+\bigletter{definition\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-8}}
+\indexspace
+>>>>>>> main
 \bigletter{ex:bacteria}
 \item\relax\sphinxstyleindexentry{ex:bacteria}\sphinxstyleindexextra{ode/dynamicSystems}\sphinxstyleindexpageref{ode/dynamicSystems:\detokenize{ex:bacteria}}
 \indexspace
@@ -3543,7 +3777,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{ex:oscillations}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{ex:oscillations}}
 \indexspace
 \bigletter{example\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ode\_stability/stabilitaetsbegriffe}\sphinxstyleindexpageref{ode_stability/stabilitaetsbegriffe:\detokenize{example-1}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{example-1}}
 \indexspace
 \bigletter{example\sphinxhyphen{}14}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}14}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-14}}
@@ -3555,7 +3789,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{example-3}}
 \indexspace
 \bigletter{example\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{example-4}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{example-4}}
 \indexspace
 \bigletter{example\sphinxhyphen{}6}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-6}}
@@ -3566,8 +3800,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{example\sphinxhyphen{}8}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-8}}
 \indexspace
+\bigletter{example\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{example-8}}
+\indexspace
 \bigletter{example\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{ode\_stability/ruhelagen}\sphinxstyleindexpageref{ode_stability/ruhelagen:\detokenize{example-9}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{example-9}}
 \indexspace
 \bigletter{geschlossen:exakt}
 \item\relax\sphinxstyleindexentry{geschlossen:exakt}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{geschlossen:exakt}}
@@ -3576,7 +3813,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{lem:doubledual}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lem:doubledual}}
 \indexspace
 \bigletter{lem:intexpglgn}
-\item\relax\sphinxstyleindexentry{lem:intexpglgn}\sphinxstyleindexextra{ode\_stability/ruhelagen}\sphinxstyleindexpageref{ode_stability/ruhelagen:\detokenize{lem:intexpglgn}}
+\item\relax\sphinxstyleindexentry{lem:intexpglgn}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lem:intexpglgn}}
 \indexspace
 \bigletter{lem:mpotew}
 \item\relax\sphinxstyleindexentry{lem:mpotew}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{lem:mpotew}}
@@ -3600,18 +3837,24 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-9}}
 \indexspace
 \bigletter{lemma:Gronwall}
-\item\relax\sphinxstyleindexentry{lemma:Gronwall}\sphinxstyleindexextra{ode\_stability/ruhelagen}\sphinxstyleindexpageref{ode_stability/ruhelagen:\detokenize{lemma:Gronwall}}
+\item\relax\sphinxstyleindexentry{lemma:Gronwall}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lemma:Gronwall}}
 \indexspace
+<<<<<<< HEAD
 \bigletter{pull\sphinxhyphen{}back von \$\textbackslash{}omega\$ mit \$f\$.}
 \item\relax\sphinxstyleindexentry{pull\sphinxhyphen{}back von \$\textbackslash{}omega\$ mit \$f\$.}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{pull-back von __omega_ mit _f_.}}
 \indexspace
 \bigletter{rem:matrixexponential\_regeln}
 \item\relax\sphinxstyleindexentry{rem:matrixexponential\_regeln}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{rem:matrixexponential_regeln}}
+=======
+\bigletter{rem:matrixexponentialregeln}
+\item\relax\sphinxstyleindexentry{rem:matrixexponentialregeln}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{rem:matrixexponentialregeln}}
+>>>>>>> main
 \indexspace
 \bigletter{remark\sphinxhyphen{}0}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}0}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-0}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}1}
+<<<<<<< HEAD
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-1}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}10}
@@ -3619,11 +3862,15 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{remark\sphinxhyphen{}11}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}11}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-11}}
+=======
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{remark-1}}
+>>>>>>> main
 \indexspace
 \bigletter{remark\sphinxhyphen{}16}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}16}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-16}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}2}
+<<<<<<< HEAD
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-2}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}22}
@@ -3637,13 +3884,26 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{satz:hamilton\_konstant}
 \item\relax\sphinxstyleindexentry{satz:hamilton\_konstant}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{satz:hamilton_konstant}}
+=======
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{remark-2}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}4}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}4}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-4}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}6}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-6}}
+>>>>>>> main
 \indexspace
 \bigletter{satz:picardlindeloef}
 \item\relax\sphinxstyleindexentry{satz:picardlindeloef}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef}}
 \indexspace
-\bigletter{satz:picardlindeloef\_lokal}
-\item\relax\sphinxstyleindexentry{satz:picardlindeloef\_lokal}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef_lokal}}
+\bigletter{thm:hamconst}
+\item\relax\sphinxstyleindexentry{thm:hamconst}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{thm:hamconst}}
 \indexspace
+\bigletter{thm:piclindlokal}
+\item\relax\sphinxstyleindexentry{thm:piclindlokal}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{thm:piclindlokal}}
+\indexspace
+<<<<<<< HEAD
 \bigletter{symplektische Form auf dem \$\textbackslash{}R\textasciicircum{}\{2n\}\$}
 \item\relax\sphinxstyleindexentry{symplektische Form auf dem \$\textbackslash{}R\textasciicircum{}\{2n\}\$}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{symplektische Form auf dem __R__2n__}}
 \indexspace
@@ -3667,6 +3927,16 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{thm:dd}
 \item\relax\sphinxstyleindexentry{thm:dd}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{thm:dd}}
+=======
+\bigletter{thm:stabasymallg}
+\item\relax\sphinxstyleindexentry{thm:stabasymallg}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{thm:stabasymallg}}
+\indexspace
+\bigletter{thm:stablin}
+\item\relax\sphinxstyleindexentry{thm:stablin}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{thm:stablin}}
+\indexspace
+\bigletter{thm:stablyaplinear}
+\item\relax\sphinxstyleindexentry{thm:stablyaplinear}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{thm:stablyaplinear}}
+>>>>>>> main
 \end{sphinxtheindex}
 
 \renewcommand{\indexname}{Index}
