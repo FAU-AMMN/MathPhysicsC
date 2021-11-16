@@ -327,7 +327,7 @@ Sie fordert nämlich noch zusätzlich die Stetigkeit der linearen Abbildungen.</
 <p class="admonition-title"><span class="caption-number">Definition 3.2 </span> (Topologischer Dualraum)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\V\)</span> ein normierter <span class="math notranslate nohighlight">\(\R\)</span>-Vektorraum für einen Körper <span class="math notranslate nohighlight">\(\R\)</span>.
-Dann nenne wir die Menge</p>
+Dann nennen wir die Menge</p>
 <div class="math notranslate nohighlight">
 \[\V^\prime := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear und stetig}\}\]</div>
 <p>den <strong>topologischer Dualraum</strong> zu <span class="math notranslate nohighlight">\(V\)</span>.</p>
@@ -337,15 +337,25 @@ Dann nenne wir die Menge</p>
 <p>Der algebraische Dualraum ist im Allgemeinen nicht gleich dem topologischen Dualraum.
 Der Hauptzweck dieses Abschnitts ist es diese Tatsache klar zu machen und die Unterschiede der beiden Definitionen herauszustellen.</p>
 </div>
-<p>Folgende Bemerkung sagt etwas über die minimale Struktur, die der Vektorraum <span class="math notranslate nohighlight">\(V\)</span> haben muss, damit die Definition des topologischen Dualraums sinnvoll ist.</p>
-<div class="proof remark admonition" id="remark-2">
+<p>Der Integraloperator ist ein typisches Beispiel für einen linearen stetigen Operator.</p>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 3.1 </span> (Integraloperator)</p>
+<div class="example-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\V := C([0,1])\)</span> der Funktionenraum der stetigen Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([0,1] \subset \R\)</span>.
+Dann ist der durch <span class="math notranslate nohighlight">\(T \colon C([0,1]) \rightarrow \R\)</span> definierte Integraloperator mit</p>
+<div class="math notranslate nohighlight">
+\[T(f) := \int_0^1 f(x) \, \mathrm{d}x\]</div>
+<p>ein Element des <em>topologischen Dualraums</em>, d.h. <span class="math notranslate nohighlight">\(T \in \V^\prime\)</span>, da man zeigen kann, dass er linear und stetig ist.</p>
+</div>
+</div><p>Folgende Bemerkung sagt etwas über die minimale Struktur, die der Vektorraum <span class="math notranslate nohighlight">\(V\)</span> haben muss, damit die Definition des topologischen Dualraums sinnvoll ist.</p>
+<div class="proof remark admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 3.1 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Damit die <a class="reference internal" href="#def:topologischerDualraum">Definition 3.2</a> sinnvoll ist, ist es in der Tat nicht notwendig, dass <span class="math notranslate nohighlight">\(V\)</span> ein normierter Raum ist. Es reicht anzunehmen, dass <span class="math notranslate nohighlight">\(\V\)</span> ein <em>topologischer Vektorraum</em> ist.</p>
 </div>
 </div><p>Durch Vergleichen von <a class="reference internal" href="#def:algebraischerDualraum">Definition 3.1</a> und <a class="reference internal" href="#def:topologischerDualraum">Definition 3.2</a> erkennt man sofort, dass stets <span class="math notranslate nohighlight">\(\V^\prime\subset \V^\ast\)</span> gilt.
 Außerdem stellt man fest, dass die beiden Räume im endlich-dimensionalen Fall überein stimmen, wie folgendes Lemma aussagt.</p>
-<div class="proof lemma admonition" id="lemma-3">
+<div class="proof lemma admonition" id="lemma-4">
 <p class="admonition-title"><span class="caption-number">Lemma 3.1 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Für <span class="math notranslate nohighlight">\(n\in\N\)</span> sei <span class="math notranslate nohighlight">\(\V\)</span> ein <span class="math notranslate nohighlight">\(n\)</span>-dimensionaler <span class="math notranslate nohighlight">\(\R\)</span>-Vektorraum, dessen Norm durch das Standardskalarprodukt induziert ist.
@@ -357,89 +367,104 @@ Dann gilt</p>
 <p>Proof. In der Hausaufgabe zu zeigen.</p>
 </div>
 <p>Das folgende Beispiel aus der Funktionalanalysis erklärt, dass die Gleichheit von algebraischen und topologischen Dualräumen nicht mehr in unendlich-dimensionalen Räumen gilt.</p>
-<div class="proof example admonition" id="example-4">
-<p class="admonition-title"><span class="caption-number">Example 3.1 </span> (Differentialoperator)</p>
+<div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 3.2 </span> (Differentialoperator)</p>
 <div class="example-content section" id="proof-content">
-<p>Wir betrachten im Folgenden den <em>Differentialoperator</em></p>
+<p>Sei <span class="math notranslate nohighlight">\(\V := C^1([0,1])\)</span> der Vektorraum der stetig differenzierbaren Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([0,1] \subset \R\)</span>.
+Wir betrachten im Folgenden den <em>Differentialoperator</em></p>
 <div class="math notranslate nohighlight">
-\[\begin{split}D \colon C^1[0,1] &amp;\rightarrow C^1[0,1] \\
-(Df)(x) &amp;\mapsto f'(x), \quad \forall x \in [0,1]\end{split}\]</div>
-<p>der auf dem Raum der stetig differenzierbaren Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([0,1]\)</span> definiert ist.</p>
-<p>Offensichtlich ist der Differentialoperator <span class="math notranslate nohighlight">\(D\)</span> <strong>linear</strong> und ist somit ein Element des algebraischen Dualraums, d.h., <span class="math notranslate nohighlight">\(D \in (C^1[0,1])^\ast\)</span>.
-Statten wir den Vektorraum <span class="math notranslate nohighlight">\(C^1[0,1]\)</span> mit der <em>Supremumsnorm</em></p>
+\[\begin{split}D \colon V &amp;\rightarrow \R \\
+(Df)(x) &amp;\mapsto f'(x), \quad \forall x \in [0,1].\end{split}\]</div>
+<p>Bekanntermaßen ist der Differentialoperator <span class="math notranslate nohighlight">\(D\)</span> <strong>linear</strong> und ist somit ein Element des algebraischen Dualraums, d.h., <span class="math notranslate nohighlight">\(D \in V^\ast\)</span>.
+Statten wir den Vektorraum <span class="math notranslate nohighlight">\(C^1([0,1])\)</span> mit der <em>Supremumsnorm</em></p>
 <div class="math notranslate nohighlight">
 \[||f||_\infty := \sup_{x \in [0,1]} |f(x)|\]</div>
-<p>aus und betrachten die Funktionenfolge <span class="math notranslate nohighlight">\(f_n(x) := x^n\)</span>, dann sehen wir ein, dass die Supremumsnorm der Folge konstant ist mit <span class="math notranslate nohighlight">\(||f_n||_\infty \equiv 1\)</span> für alle <span class="math notranslate nohighlight">\(n\in\N\)</span>, jedoch für den Differentialoperator <span class="math notranslate nohighlight">\(D\)</span> gilt</p>
+<p>aus und betrachten die Funktionenfolge <span class="math notranslate nohighlight">\(f_n(x) := x^n\)</span>, dann sehen wir ein, dass die Supremumsnorm der Folge konstant ist mit <span class="math notranslate nohighlight">\(||f_n||_\infty \equiv 1\)</span> für alle <span class="math notranslate nohighlight">\(n\in\N\)</span>.
+Für den Differentialoperator <span class="math notranslate nohighlight">\(D\)</span> gilt jedoch</p>
 <div class="math notranslate nohighlight">
 \[||Df_n||_\infty = \sup_{x \in [0,1]} |(Df_n)(x)| = \sup_{x \in [0,1]} |f_n'(x)| = \sup_{x \in [0,1]} |nx^{n-1}| = n.\]</div>
-<p>Wir sehen also ein, dass</p>
+<p>Um die <em>Stetigkeit</em> des Differentialoperators zu untersuchen betrachten wir die konstante Nullfunktion <span class="math notranslate nohighlight">\(F_0 \in V\)</span> mit <span class="math notranslate nohighlight">\(F_0(x) \equiv 0\)</span> für alle <span class="math notranslate nohighlight">\(x \in [0,1]\)</span>.
+Vergleichen wir nun den Abstand der konstanten Nullfunktionen zum ersten Folgenglied <span class="math notranslate nohighlight">\(f_1\)</span> unserer Funktionenfolge, so erhalten wir erwartungsgemäß</p>
 <div class="math notranslate nohighlight">
-\[\frac{||Df_n||_\infty}{||f_n||_\infty} \overset{n\rightarrow \infty}{\longrightarrow} \infty\]</div>
-<p>gilt und somit der der Differentialoperator <strong>nicht stetig</strong> ist und somit kein Element des topologischen Dualraums <span class="math notranslate nohighlight">\((C^1[0,1])'\)</span> sein kann.
-Damit haben wir gezeigt, dass in unendlich-dimensionalen Räumen <span class="math notranslate nohighlight">\((C^1[0,1])' \subsetneq (C^1[0,1])^\ast\)</span> gilt.</p>
+\[||f_1 - F_0||_\infty = ||f_1||_\infty = ||x^1||_\infty = 1 &lt; \frac{3}{2} =: \delta.\]</div>
+<p>Für den Differenzialoperator erhalten wir analog</p>
+<div class="math notranslate nohighlight">
+\[||Df_1 - DF_0||_\infty = ||Df_1||_\infty = ||1||\infty &lt; \frac{3}{2} =: \epsilon.\]</div>
+<p>Wäre der Differenzialoperator <span class="math notranslate nohighlight">\(D\)</span> stetig, so müsste nach dem <span class="math notranslate nohighlight">\(\epsilon-\delta\)</span>-Kriterium nun für jedes Folgenglied <span class="math notranslate nohighlight">\(f_n\)</span> unserer Funktionenfolge <span class="math notranslate nohighlight">\(||Df_n - DF_0|| &lt; \epsilon\)</span> gelten, da der Abstand kleiner <span class="math notranslate nohighlight">\(\delta\)</span> ist wegen</p>
+<div class="math notranslate nohighlight">
+\[||f_n - F_0||_\infty = ||f_n||_\infty = ||x^n||_\infty = 1 &lt; \delta.\]</div>
+<p>Jedoch sehen wir, dass die Folge der Ableitungen divergiert, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[||Df_n - DF_0||_\infty = ||Df_n||_\infty = ||nx^{n-1}||_\infty = n &gt; \epsilon \quad \text{für } n\geq 2.\]</div>
+<p>Wir sehen also ein, dass der Differentialoperator <strong>nicht stetig</strong> ist und somit kein Element des topologischen Dualraums <span class="math notranslate nohighlight">\(V'\)</span> sein kann.
+Damit haben wir gezeigt, dass in unendlich-dimensionalen Räumen <span class="math notranslate nohighlight">\(V' \subsetneq V^\ast\)</span> gilt.</p>
 </div>
 </div></div>
 <div class="section" id="k-multilinearformen">
 <h2><span class="section-number">3.1.2. </span>k-Multilinearformen<a class="headerlink" href="#k-multilinearformen" title="Permalink to this headline">¶</a></h2>
-<p>Wir verallgeminern nun den Begriff der Linearität in der folgenden Definition.</p>
+<p>Nachdem wir uns den Begriff der Linearität ins Gedächtnis zurückgerufen haben und Dualräume erklärt haben, wollen wir was Konzept linearer Abbildungen in der folgenden Definition verallgemeinern.</p>
 <div class="proof definition admonition" id="def:multilinear">
-<p class="admonition-title"><span class="caption-number">Definition 3.3 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.3 </span> (k-Multilinearität)</p>
 <div class="definition-content section" id="proof-content">
-<p>Für <span class="math notranslate nohighlight">\(i=1,\ldots,k\)</span> sei <span class="math notranslate nohighlight">\(\V_i\)</span>, sowie <span class="math notranslate nohighlight">\(W\)</span> ein reeller Vektorraum. Eine Abbildung</p>
+<p>Sei <span class="math notranslate nohighlight">\(k \in \N\)</span> und es seien <span class="math notranslate nohighlight">\(\V_i, i=1,\ldots,k\)</span>, sowie <span class="math notranslate nohighlight">\(W\)</span> reelle Vektorräume.</p>
+<p>Wir nennen eine Abbildung</p>
 <div class="math notranslate nohighlight">
-\[\varphi:\V_1\times\ldots\times \V_k\ \to W\]</div>
-<p>heißt k-<strong>(multi)linear</strong>, wenn für beliebige <span class="math notranslate nohighlight">\(z_i\in\V_i\)</span> und jede Komponente <span class="math notranslate nohighlight">\(i\in\{1,\ldots,k\}\)</span> die Abbildung</p>
+\[\varphi : \V_1\times\ldots\times \V_k\ \to W\]</div>
+<p><strong>k-(multi)linear</strong>, falls alle zugehörigen partiellen Abbildungen <span class="math notranslate nohighlight">\(\varphi_i\)</span> für <span class="math notranslate nohighlight">\(i\in\{1,\ldots,k\}\)</span> mit</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}V_i &amp;\to W\\
+\[\begin{split}\varphi_i \colon V_i &amp;\to W\\
 x&amp;\mapsto \varphi_i(x):= \varphi(z_1,\ldots, z_{i-1}, x, z_{i+1},\ldots,z_k)\end{split}\]</div>
-<p>linear ist. Die Menge aller <span class="math notranslate nohighlight">\(k\)</span>-linearen Abbildungen wird mit <span class="math notranslate nohighlight">\(L^k(\V_1\times\ldots\times \V_k, W)\)</span> bezeichnet.</p>
+<p><em>linear</em> sind.</p>
+<p>Die Menge aller <span class="math notranslate nohighlight">\(k\)</span>-linearen Abbildungen wird mit <span class="math notranslate nohighlight">\(L^k(\V_1\times\ldots\times \V_k; W)\)</span> bezeichnet.
+Falls alle Vektorräume übereinstimmen, d.h., <span class="math notranslate nohighlight">\(\V_i = \V\)</span> für alle <span class="math notranslate nohighlight">\(i=1,\ldots,k\)</span> gilt, so schreibt man auch <span class="math notranslate nohighlight">\(L^k(\V\times\ldots\times \V; W) =: L^k(\V; W)\)</span>.</p>
 </div>
-</div><div class="proof remark admonition" id="remark-6">
+</div><div class="proof remark admonition" id="remark-7">
 <p class="admonition-title"><span class="caption-number">Remark 3.2 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>Ausgeschrieben bedeutet die Bedingung in der obigen Definition, dass für alle <span class="math notranslate nohighlight">\(z_i\in V_i\)</span>, <span class="math notranslate nohighlight">\(\lambda\in\R\)</span>,
-und insbesondere für jedes <span class="math notranslate nohighlight">\(i\in\{1,\ldots,k\}\)</span>, <span class="math notranslate nohighlight">\(x,y\in \V_i\)</span>  gilt,</p>
+<p>Ausgeschrieben bedeutet die Bedingung in der obigen Definition, dass für beliebige Vektoren <span class="math notranslate nohighlight">\(x,y\in \V_i\)</span> und Skalare <span class="math notranslate nohighlight">\(\lambda \in \R\)</span> gilt</p>
 <div class="math notranslate nohighlight">
-\[\varphi(z_1,\ldots,z_{i-1},\lambda x, z_{i+1},\ldots,z_k) = \lambda
-\varphi(z_1,\ldots,z_{i-1}, x, z_{j+1}, \ldots,z_k)\]</div>
+\[\varphi(z_1,\ldots,z_{i-1},\lambda \cdot x, z_{i+1},\ldots,z_k) = \lambda \cdot \varphi(z_1,\ldots,z_{i-1}, x, z_{i+1}, \ldots,z_k)\]</div>
 <p>und</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}&amp;\varphi(z_1,\ldots,z_{i-1},x+y,z_{j+1},\ldots,z_k)\\
-= 
-&amp;\varphi(z_1,\ldots,x,\ldots,z_k) + \varphi(z_1,\ldots,y,\ldots,z_k).\end{split}\]</div>
+\[\varphi(z_1,\ldots,z_{i-1},x+y,z_{i+1},\ldots,z_k) = \varphi(z_1,\ldots,x,\ldots,z_k) + \varphi(z_1,\ldots,y,\ldots,z_k).\]</div>
+<p>für jedes Argument <span class="math notranslate nohighlight">\(i = 1,\ldots,k\)</span> der Abbildung <span class="math notranslate nohighlight">\(\varphi \colon V_1 \times \ldots \times \V_k \rightarrow W\)</span>.</p>
 </div>
-</div><p>Falls alle Vektorräume übereinstimmen, d.h., <span class="math notranslate nohighlight">\(\V_i = \V\)</span> für alle <span class="math notranslate nohighlight">\(i=1,\ldots,k\)</span>, so schreibt man auch <span class="math notranslate nohighlight">\(L^k(\V\times\ldots\times \V,W) = L^k(\V,W)\)</span>.</p>
-<p>Viele multilineare Abbildungen sind schon aus der Linearen Algebra vertraut. Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.</p>
+</div><p>Viele multilineare Abbildungen kennen wir bereits aus der Linearen Algebra ohne sie bisher so bezeichnet zu haben.
+Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.</p>
 <div class="proof example admonition" id="ex:multi">
-<p class="admonition-title"><span class="caption-number">Example 3.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 3.3 </span></p>
 <div class="example-content section" id="proof-content">
-<p>Wir betrachten Beispiele für verschiedene <span class="math notranslate nohighlight">\(k\in\N\)</span>.</p>
-<p><strong><span class="math notranslate nohighlight">\(k=1\)</span></strong>:</p>
-<p>In diesem Fall haben wir bereits gesehen, dass <span class="math notranslate nohighlight">\(L^1(\V,\R) = \V^\ast\)</span>.</p>
-<p><strong><span class="math notranslate nohighlight">\(k=2\)</span></strong>:</p>
-<p>Es sei <span class="math notranslate nohighlight">\(\V=\R^n\)</span> mit kanonischem innerem Produkt <span class="math notranslate nohighlight">\(\langle\cdot,\cdot\rangle\)</span>. Für <span class="math notranslate nohighlight">\(A\in\R^{n,n}\)</span> ist</p>
+<p>Wir betrachten im Folgenden Beispiele für <span class="math notranslate nohighlight">\(k\)</span>-lineare Abbildungen mit verschiedenen <span class="math notranslate nohighlight">\(k\in\N\)</span>.</p>
+<p><strong><span class="math notranslate nohighlight">\(k=1\)</span></strong>: In diesem einfachen Fall sind alle Linearformen <span class="math notranslate nohighlight">\(1\)</span>-linear.
+Daher ist der Raum der <span class="math notranslate nohighlight">\(1\)</span>-Linearformen gerade der algebraische Dualraum aus <a class="reference internal" href="#def:algebraischerDualraum">Definition 3.1</a>, d.h. es gilt <span class="math notranslate nohighlight">\(L^1(\V; \R) = \V^\ast\)</span>.</p>
+<p><br/><br/>
+<strong><span class="math notranslate nohighlight">\(k=2\)</span></strong>: Es sei <span class="math notranslate nohighlight">\(\V=\R^n\)</span> der Euklidische Vektorraum mit kanonischem innerem Produkt <span class="math notranslate nohighlight">\(\langle\cdot,\cdot\rangle\)</span>.
+Für <span class="math notranslate nohighlight">\(A\in\R^{n,n}\)</span> ist</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\varphi:\V\times \V\to\R\\ 
-\varphi(x, y) :=\langle x,A y \rangle\end{split}\]</div>
-<p>eine <strong>Bilinearform</strong>. Sie heißt <em>symmetrisch</em>,
-falls</p>
+\[\begin{split}\varphi:\V\times \V &amp;\to\R\\ 
+(x,y) &amp;\mapsto \varphi(x, y) :=\langle x,A y \rangle\end{split}\]</div>
+<p>eine <strong>Bilinearform</strong> bzw. eine <span class="math notranslate nohighlight">\(2\)</span>-Linearform nach <a class="reference internal" href="#def:multilinear">Definition 3.3</a>.
+Sie heißt <em>symmetrisch</em>, falls</p>
 <div class="math notranslate nohighlight">
-\[\varphi(x, y) = \varphi( y, x)\qquad (x, y\in \V)\]</div>
+\[\varphi(x, y) = \varphi(y, x), \quad \forall x, y\in \V\]</div>
 <p>und <em>antisymmetrisch</em> falls</p>
 <div class="math notranslate nohighlight">
-\[\varphi(x, y) = -\varphi( y, x)\qquad (x, y\in \V).\]</div>
-<p><strong><span class="math notranslate nohighlight">\(k=n\)</span></strong>:</p>
-<p>Es sei <span class="math notranslate nohighlight">\(\V=\R^n\)</span>. Die <span class="math notranslate nohighlight">\(n\)</span>-lineare Abbildung</p>
+\[\varphi(x, y) = -\varphi(y, x), \quad \forall x, y\in \V.\]</div>
+<p><br/><br/>
+<strong><span class="math notranslate nohighlight">\(k=n\)</span></strong>: Es sei <span class="math notranslate nohighlight">\(n\in \N\)</span> und <span class="math notranslate nohighlight">\(\V=\R^n\)</span> der Euklidische Vektorraum.
+Die <span class="math notranslate nohighlight">\(n\)</span>-lineare Abbildung</p>
 <div class="math notranslate nohighlight">
-\[\varphi(z_1,\ldots,z_n) := \det((z_1,\ldots,z_n))\]</div>
-<p>heißt <strong>Determinantenform</strong>. Wir beachten, dass hierbei jedes <span class="math notranslate nohighlight">\(z_i\in\R^n\)</span> ein Vektor und <span class="math notranslate nohighlight">\((z_1,\ldots,z_n)\)</span> eine Matrix ist.
-Die Form gibt das orientierte Volumen des von <span class="math notranslate nohighlight">\(z_1,\ldots,z_n\)</span> aufgespannten Parallelotops an.</p>
+\[\begin{split}\varphi :\V \times \ldots \times \V &amp;\to\R\\ 
+(z_1, \ldots, z_n) &amp;\mapsto \varphi(z_1,\ldots,z_n) := \det([z_1,\ldots,z_n])\end{split}\]</div>
+<p>heißt <strong>Determinantenform</strong>.
+Wir beachten, dass hierbei jedes <span class="math notranslate nohighlight">\(z_i \in \R^n\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> ein Vektor ist und es sich bei <span class="math notranslate nohighlight">\([z_1,\ldots,z_n] \in \R^{n\times n}\)</span> um eine Matrix handelt.
+Die Determinantenform gibt das orientierte Volumen des von den Vektoren <span class="math notranslate nohighlight">\(z_1,\ldots,z_n\)</span> aufgespannten Parallelotops an.</p>
 </div>
 </div></div>
 <div class="section" id="der-vektorraum-der-multilinearformen">
 <h2><span class="section-number">3.1.3. </span>Der Vektorraum der Multilinearformen<a class="headerlink" href="#der-vektorraum-der-multilinearformen" title="Permalink to this headline">¶</a></h2>
 <p>Die Definition einer <span class="math notranslate nohighlight">\(k\)</span>-linearen Abbildung ermöglicht es uns sehr direkt eine Vektorraumstruktur zu definieren.</p>
-<div class="proof lemma admonition" id="lemma-8">
+<div class="proof lemma admonition" id="lemma-9">
 <p class="admonition-title"><span class="caption-number">Lemma 3.2 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es seien <span class="math notranslate nohighlight">\(\V_1,\ldots,\V_k\)</span> sowie <span class="math notranslate nohighlight">\(W\)</span> reelle Vektorräume, dann ist die Menge <span class="math notranslate nohighlight">\(L^k(\V_1\times\ldots\V_k,W)\)</span> ein Vektorraum über <span class="math notranslate nohighlight">\(\R\)</span> bezüglich der Addition</p>
@@ -454,7 +479,7 @@ Die Form gibt das orientierte Volumen des von <span class="math notranslate nohi
 <p>Proof. Siehe Übung.</p>
 </div>
 <p>Als wichtigen Spezialfall erhalten wir für <span class="math notranslate nohighlight">\(k=1\)</span> den Dualraum <span class="math notranslate nohighlight">\(L^1(\V,\R)\)</span>. Für diesen Vektorraum können wir eine spezielle Basis charakterisieren, die sogenannte <strong>duale Basis</strong>.</p>
-<div class="proof lemma admonition" id="lemma-9">
+<div class="proof lemma admonition" id="lemma-10">
 <p class="admonition-title"><span class="caption-number">Lemma 3.3 </span> (Duale Basis)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\V\)</span> ein <span class="math notranslate nohighlight">\(n\)</span>-dimensionaler <span class="math notranslate nohighlight">\(\R\)</span>-Vektorraum mit einer Basis <span class="math notranslate nohighlight">\(B = (b_1,\ldots,b_n)\)</span>, die Abbildungen
@@ -463,12 +488,12 @@ Die Form gibt das orientierte Volumen des von <span class="math notranslate nohi
 \[\eta_i(z) = \eta_i\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_i\]</div>
 <p>bilden einen Basis von <span class="math notranslate nohighlight">\(\V^\ast\)</span>, die sogenannte <strong>duale Basis</strong> zu <span class="math notranslate nohighlight">\(B\)</span>.</p>
 </div>
-</div><div class="proof example admonition" id="example-10">
-<p class="admonition-title"><span class="caption-number">Example 3.3 </span> (Duale Basis)</p>
+</div><div class="proof example admonition" id="example-11">
+<p class="admonition-title"><span class="caption-number">Example 3.4 </span> (Duale Basis)</p>
 <div class="example-content section" id="proof-content">
 <p>Rn mit Standardbasis ist es Multiplikation von rechts mit Transponierter Standardbasis.</p>
 </div>
-</div><div class="proof remark admonition" id="remark-11">
+</div><div class="proof remark admonition" id="remark-12">
 <p class="admonition-title"><span class="caption-number">Remark 3.3 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Insbesondere zeigt diese Aussage, dass <span class="math notranslate nohighlight">\(\dim(\V) = \dim(\V^\ast)\)</span>.</p>
@@ -511,7 +536,7 @@ Weiterhin seien <span class="math notranslate nohighlight">\(a_i\in\R\)</span> g
 \[0 = \left(\sum_{i=1}^n a_i \eta_i\right)(b_j) = \sum_{i=1}^n a_i \eta_i(b_j) = a_j\]</div>
 <p>und damit ist die Aussage bewiesen.</p>
 </div>
-<div class="proof remark admonition" id="remark-12">
+<div class="proof remark admonition" id="remark-13">
 <p class="admonition-title"><span class="caption-number">Remark 3.4 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Die Aussage lässt sich auf den Fall eines unendlich-dimensionalen Vektorraums übertragen. Hierfür erinnern wir daran, dass für einen Vektorraum <span class="math notranslate nohighlight">\(V\)</span> stets eine Basis <span class="math notranslate nohighlight">\(B^V = \{b_i^v:i\in I\}\subset V\)</span> existiert wobei <span class="math notranslate nohighlight">\(I\)</span> eine (nicht notwendigerweise endliche) Indexmenge ist. Insbesondere bemerken wir, dass wir hier von einer <strong>Hamelbasis</strong> sprechen, d.h., für jedes Element <span class="math notranslate nohighlight">\(v\in V\)</span> gibt es eindeutig bestimmte Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i, i\in I\)</span> s.d.</p>
