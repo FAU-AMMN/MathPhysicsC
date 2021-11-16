@@ -31,7 +31,7 @@ Sie fordert nämlich noch zusätzlich die Stetigkeit der linearen Abbildungen.
 ````{prf:definition} Topologischer Dualraum
 :label: def:topologischerDualraum
 Es sei $\V$ ein normierter $\R$-Vektorraum für einen Körper $\R$. 
-Dann nenne wir die Menge 
+Dann nennen wir die Menge 
 
 ```{math}
 \V^\prime := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear und stetig}\}
@@ -44,6 +44,19 @@ den **topologischer Dualraum** zu $V$.
 Der algebraische Dualraum ist im Allgemeinen nicht gleich dem topologischen Dualraum.
 Der Hauptzweck dieses Abschnitts ist es diese Tatsache klar zu machen und die Unterschiede der beiden Definitionen herauszustellen.
 ```
+
+Der Integraloperator ist ein typisches Beispiel für einen linearen stetigen Operator.
+````{prf:example} Integraloperator
+Es sei $\V := C([0,1])$ der Funktionenraum der stetigen Funktionen auf dem Intervall $[0,1] \subset \R$.
+Dann ist der durch $T \colon C([0,1]) \rightarrow \R$ definierte Integraloperator mit
+
+```{math}
+T(f) := \int_0^1 f(x) \, \mathrm{d}x
+```
+
+ein Element des *topologischen Dualraums*, d.h. $T \in \V^\prime$, da man zeigen kann, dass er linear und stetig ist.
+
+````
 
 Folgende Bemerkung sagt etwas über die minimale Struktur, die der Vektorraum $V$ haben muss, damit die Definition des topologischen Dualraums sinnvoll ist.
 
@@ -71,127 +84,146 @@ In der Hausaufgabe zu zeigen.
 Das folgende Beispiel aus der Funktionalanalysis erklärt, dass die Gleichheit von algebraischen und topologischen Dualräumen nicht mehr in unendlich-dimensionalen Räumen gilt.
 
 ````{prf:example} Differentialoperator
+Sei $\V := C^1([0,1])$ der Vektorraum der stetig differenzierbaren Funktionen auf dem Intervall $[0,1] \subset \R$.
 Wir betrachten im Folgenden den *Differentialoperator*
 
 ```{math}
-D \colon C^1[0,1] &\rightarrow C^1[0,1] \\
-(Df)(x) &\mapsto f'(x), \quad \forall x \in [0,1]
+D \colon V &\rightarrow \R \\
+(Df)(x) &\mapsto f'(x), \quad \forall x \in [0,1].
 ```
 
-der auf dem Raum der stetig differenzierbaren Funktionen auf dem Intervall $[0,1]$ definiert ist.
-
-Offensichtlich ist der Differentialoperator $D$ **linear** und ist somit ein Element des algebraischen Dualraums, d.h., $D \in (C^1[0,1])^\ast$.
-Statten wir den Vektorraum $C^1[0,1]$ mit der *Supremumsnorm* 
+Bekanntermaßen ist der Differentialoperator $D$ **linear** und ist somit ein Element des algebraischen Dualraums, d.h., $D \in V^\ast$.
+Statten wir den Vektorraum $C^1([0,1])$ mit der *Supremumsnorm* 
 
 ```{math}
 ||f||_\infty := \sup_{x \in [0,1]} |f(x)|
 ```
 
-aus und betrachten die Funktionenfolge $f_n(x) := x^n$, dann sehen wir ein, dass die Supremumsnorm der Folge konstant ist mit $||f_n||_\infty \equiv 1$ für alle $n\in\N$, jedoch für den Differentialoperator $D$ gilt
+aus und betrachten die Funktionenfolge $f_n(x) := x^n$, dann sehen wir ein, dass die Supremumsnorm der Folge konstant ist mit $||f_n||_\infty \equiv 1$ für alle $n\in\N$.
+Für den Differentialoperator $D$ gilt jedoch
 
 ```{math}
 ||Df_n||_\infty = \sup_{x \in [0,1]} |(Df_n)(x)| = \sup_{x \in [0,1]} |f_n'(x)| = \sup_{x \in [0,1]} |nx^{n-1}| = n.
 ```
 
-Wir sehen also ein, dass 
+Um die *Stetigkeit* des Differentialoperators zu untersuchen betrachten wir die konstante Nullfunktion $F_0 \in V$ mit $F_0(x) \equiv 0$ für alle $x \in [0,1]$.
+Vergleichen wir nun den Abstand der konstanten Nullfunktionen zum ersten Folgenglied $f_1$ unserer Funktionenfolge, so erhalten wir erwartungsgemäß
 
 ```{math}
-\frac{||Df_n||_\infty}{||f_n||_\infty} \overset{n\rightarrow \infty}{\longrightarrow} \infty
+||f_1 - F_0||_\infty = ||f_1||_\infty = ||x^1||_\infty = 1 < \frac{3}{2} =: \delta.
 ```
 
-gilt und somit der der Differentialoperator **nicht stetig** ist und somit kein Element des topologischen Dualraums $(C^1[0,1])'$ sein kann.
-Damit haben wir gezeigt, dass in unendlich-dimensionalen Räumen $(C^1[0,1])' \subsetneq (C^1[0,1])^\ast$ gilt.
+Für den Differenzialoperator erhalten wir analog
+```{math}
+||Df_1 - DF_0||_\infty = ||Df_1||_\infty = ||1||\infty < \frac{3}{2} =: \epsilon.
+```
 
+Wäre der Differenzialoperator $D$ stetig, so müsste nach dem $\epsilon-\delta$-Kriterium nun für jedes Folgenglied $f_n$ unserer Funktionenfolge $||Df_n - DF_0|| < \epsilon$ gelten, da der Abstand kleiner $\delta$ ist wegen
+
+```{math}
+||f_n - F_0||_\infty = ||f_n||_\infty = ||x^n||_\infty = 1 < \delta.
+```
+
+Jedoch sehen wir, dass die Folge der Ableitungen divergiert, d.h.,
+
+```{math}
+||Df_n - DF_0||_\infty = ||Df_n||_\infty = ||nx^{n-1}||_\infty = n > \epsilon \quad \text{für } n\geq 2.
+```
+
+Wir sehen also ein, dass der Differentialoperator **nicht stetig** ist und somit kein Element des topologischen Dualraums $V'$ sein kann.
+Damit haben wir gezeigt, dass in unendlich-dimensionalen Räumen $V' \subsetneq V^\ast$ gilt.
 ````
 
 ## k-Multilinearformen
 
-Wir verallgeminern nun den Begriff der Linearität in der folgenden Definition.
+Nachdem wir uns den Begriff der Linearität ins Gedächtnis zurückgerufen haben und Dualräume erklärt haben, wollen wir was Konzept linearer Abbildungen in der folgenden Definition verallgemeinern.
 
-````{prf:definition}
+````{prf:definition} k-Multilinearität
 :label: def:multilinear
 
-Für $i=1,\ldots,k$ sei $\V_i$, sowie $W$ ein reeller Vektorraum. Eine Abbildung 
+Sei $k \in \N$ und es seien $\V_i, i=1,\ldots,k$, sowie $W$ reelle Vektorräume. 
+
+Wir nennen eine Abbildung 
 
 ```{math}
-\varphi:\V_1\times\ldots\times \V_k\ \to W
+\varphi : \V_1\times\ldots\times \V_k\ \to W
 ``` 
 
-heißt k-**(multi)linear**, wenn für beliebige $z_i\in\V_i$ und jede Komponente $i\in\{1,\ldots,k\}$ die Abbildung 
+**k-(multi)linear**, falls alle zugehörigen partiellen Abbildungen $\varphi_i$ für $i\in\{1,\ldots,k\}$ mit
 
 ```{math}
-V_i &\to W\\
+\varphi_i \colon V_i &\to W\\
 x&\mapsto \varphi_i(x):= \varphi(z_1,\ldots, z_{i-1}, x, z_{i+1},\ldots,z_k)
 ```
 
-linear ist. Die Menge aller $k$-linearen Abbildungen wird mit $L^k(\V_1\times\ldots\times \V_k, W)$ bezeichnet.
+*linear* sind.
+
+Die Menge aller $k$-linearen Abbildungen wird mit $L^k(\V_1\times\ldots\times \V_k; W)$ bezeichnet.
+Falls alle Vektorräume übereinstimmen, d.h., $\V_i = \V$ für alle $i=1,\ldots,k$ gilt, so schreibt man auch $L^k(\V\times\ldots\times \V; W) =: L^k(\V; W)$.
 ````
 
 ````{prf:remark}
-Ausgeschrieben bedeutet die Bedingung in der obigen Definition, dass für alle $z_i\in V_i$, $\lambda\in\R$, 
-und insbesondere für jedes $i\in\{1,\ldots,k\}$, $x,y\in \V_i$  gilt,
+Ausgeschrieben bedeutet die Bedingung in der obigen Definition, dass für beliebige Vektoren $x,y\in \V_i$ und Skalare $\lambda \in \R$ gilt
 
 ```{math}
-\varphi(z_1,\ldots,z_{i-1},\lambda x, z_{i+1},\ldots,z_k) = \lambda
-\varphi(z_1,\ldots,z_{i-1}, x, z_{j+1}, \ldots,z_k)
+\varphi(z_1,\ldots,z_{i-1},\lambda \cdot x, z_{i+1},\ldots,z_k) = \lambda \cdot \varphi(z_1,\ldots,z_{i-1}, x, z_{i+1}, \ldots,z_k)
 ```
 
 und
 
-
 ```{math}
-&\varphi(z_1,\ldots,z_{i-1},x+y,z_{j+1},\ldots,z_k)\\
-= 
-&\varphi(z_1,\ldots,x,\ldots,z_k) + \varphi(z_1,\ldots,y,\ldots,z_k).
+\varphi(z_1,\ldots,z_{i-1},x+y,z_{i+1},\ldots,z_k) = \varphi(z_1,\ldots,x,\ldots,z_k) + \varphi(z_1,\ldots,y,\ldots,z_k).
 ```
+
+für jedes Argument $i = 1,\ldots,k$ der Abbildung $\varphi \colon V_1 \times \ldots \times \V_k \rightarrow W$.
 
 ````
 
-Falls alle Vektorräume übereinstimmen, d.h., $\V_i = \V$ für alle $i=1,\ldots,k$, so schreibt man auch $L^k(\V\times\ldots\times \V,W) = L^k(\V,W)$.
-
-Viele multilineare Abbildungen sind schon aus der Linearen Algebra vertraut. Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
+Viele multilineare Abbildungen kennen wir bereits aus der Linearen Algebra ohne sie bisher so bezeichnet zu haben.
+Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
 
 ````{prf:example}
 :label: ex:multi
 
-Wir betrachten Beispiele für verschiedene $k\in\N$.
+Wir betrachten im Folgenden Beispiele für $k$-lineare Abbildungen mit verschiedenen $k\in\N$.
 
-**$k=1$**:
+**$k=1$**: In diesem einfachen Fall sind alle Linearformen $1$-linear.
+Daher ist der Raum der $1$-Linearformen gerade der algebraische Dualraum aus {prf:ref}`def:algebraischerDualraum`, d.h. es gilt $L^1(\V; \R) = \V^\ast$.
 
-In diesem Fall haben wir bereits gesehen, dass $L^1(\V,\R) = \V^\ast$.
-
-**$k=2$**:
-
-Es sei $\V=\R^n$ mit kanonischem innerem Produkt $\langle\cdot,\cdot\rangle$. Für $A\in\R^{n,n}$ ist 
+<br/><br/>
+**$k=2$**: Es sei $\V=\R^n$ der Euklidische Vektorraum mit kanonischem innerem Produkt $\langle\cdot,\cdot\rangle$. 
+Für $A\in\R^{n,n}$ ist 
 
 ```{math}
-\varphi:\V\times \V\to\R\\ 
-\varphi(x, y) :=\langle x,A y \rangle
+\varphi:\V\times \V &\to\R\\ 
+(x,y) &\mapsto \varphi(x, y) :=\langle x,A y \rangle
 ```
 
-eine **Bilinearform**. Sie heißt _symmetrisch_,
-falls
+eine **Bilinearform** bzw. eine $2$-Linearform nach {prf:ref}`def:multilinear`. 
+Sie heißt _symmetrisch_, falls
 
 ```{math}
-\varphi(x, y) = \varphi( y, x)\qquad (x, y\in \V)
+\varphi(x, y) = \varphi(y, x), \quad \forall x, y\in \V
 ```
 
 und _antisymmetrisch_ falls
 
 ```{math}
-\varphi(x, y) = -\varphi( y, x)\qquad (x, y\in \V).
+\varphi(x, y) = -\varphi(y, x), \quad \forall x, y\in \V.
 ```
 
-**$k=n$**:
-
-Es sei $\V=\R^n$. Die $n$-lineare Abbildung
+<br/><br/>
+**$k=n$**: Es sei $n\in \N$ und $\V=\R^n$ der Euklidische Vektorraum.
+Die $n$-lineare Abbildung
 
 ```{math}
-\varphi(z_1,\ldots,z_n) := \det((z_1,\ldots,z_n))
+\varphi :\V \times \ldots \times \V &\to\R\\ 
+(z_1, \ldots, z_n) &\mapsto \varphi(z_1,\ldots,z_n) := \det([z_1,\ldots,z_n])
 ```
 
-heißt **Determinantenform**. Wir beachten, dass hierbei jedes $z_i\in\R^n$ ein Vektor und $(z_1,\ldots,z_n)$ eine Matrix ist.
-Die Form gibt das orientierte Volumen des von $z_1,\ldots,z_n$ aufgespannten Parallelotops an.
+heißt **Determinantenform**.
+Wir beachten, dass hierbei jedes $z_i \in \R^n$ für $i=1,\ldots,n$ ein Vektor ist und es sich bei $[z_1,\ldots,z_n] \in \R^{n\times n}$ um eine Matrix handelt.
+Die Determinantenform gibt das orientierte Volumen des von den Vektoren $z_1,\ldots,z_n$ aufgespannten Parallelotops an.
 ````
 
 ## Der Vektorraum der Multilinearformen
