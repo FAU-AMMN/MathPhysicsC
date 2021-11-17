@@ -311,7 +311,7 @@ insbesondere gilt also $\phi = \sum_{i=1}^n \phi(b_i) \eta_i$.
 
 Somit bilden die Abbildungen $\eta_i$ ein Erzeugendensystem von $V^\ast$, da jede lineare Abbildung $\phi \in V^\ast$ als Linearkombination dargestellt werden kann. 
 
-Um zu zeigen, dass es sogar um eine Basis des algebraischen Dualraums handelt, müssen wir noch zeigen, dass das Nullelement des Vektorraums eine eindeutige Darstellung besitzt.
+Um zu zeigen, dass es sogar um eine Basis des algebraischen Dualraums handelt, müssen wir noch zeigen, dass das Nullelement des Vektorraums eine eindeutige Darstellung besitzt, da dies impliziert, dass die Elemente des Erzeugendensystems linear unabhängig sind.
 Seien also Koeffizienten $a_i\in\R$ gegeben, so dass $0 = \sum_{i=1}^n a_i \eta_i$ die Nullabbildung realisiert.
 Dann folgt schon für jedes $j=1,\ldots,n$
 
@@ -323,12 +323,12 @@ Offensichtlich kann die Nullabbildung nur erzeugt werden, wenn für alle Koeffiz
 
 ````
 
-Durch obiges Lemma bemerken wir, dass der algebraische Dualraum isomorph zum zu Grund liegenden Vektorraum ist.
+Folgende Bemerkungen wollen wir zum gerade diskutierten Lemma festhalten.
 ````{prf:remark}
-Die Aussage aus {prf:ref}`lem:dualeBasis` zeigt insbesondere, dass im **endlich-dimensionalen** Fall $\dim(\V) = \dim(\V^\ast)$.
+1\. Die Aussage aus {prf:ref}`lem:dualeBasis` zeigt insbesondere, dass im **endlich-dimensionalen** Fall $\dim(\V) = \dim(\V^\ast)$.
 Die Vektorräume sind also isomorph zueinander.
 
-Die Aussage lässt sich ebenfalls auf den Fall eines **unendlich-dimensionalen** Vektorraums übertragen.
+2\. Die Aussage des {prf:ref}`lem:dualeBasis` zur dualen Basis lässt sich ebenfalls auf den Fall eines **unendlich-dimensionalen** Vektorraums übertragen.
 Hierfür erinnern wir daran, dass für einen Vektorraum $V$ stets eine Basis $B^V = \{b_i^v:i\in I\}\subset V$ existiert, wobei $I$ eine (nicht notwendigerweise endliche) Indexmenge ist.
 Insbesondere bemerken wir, dass wir hier von einer **Hamelbasis** sprechen, d.h., für jedes Element $v\in V$ gibt es eindeutig bestimmte Koeffizienten $\alpha_i, i\in I$, so dass gilt
 
@@ -348,7 +348,7 @@ Diese Konzept ist insbesondere verschieden vom Begriff der [Schauderbasis](https
 [Juliusz Paweł Schauder](https://de.wikipedia.org/wiki/Juliusz_Schauder) (Geboren 21. September 1899 in Lemberg; Gestorben September 1943) war ein polnischer Mathematiker.
 ```
 
-Wir wollen uns das Konzept der dualen Basis mit Hilfe des Euklidischen Vektorraums klar machen im Folgenden.
+Wir wollen uns das Konzept der dualen Basis im Falle des Euklidischen Vektorraums klar machen im Folgenden.
 ````{prf:example} Duale Basis
 Sei $V = \R^n$ der Euklidische Vektorraum ausgestattet mit der Standard Einheitsbasis $B = (e_i)_{i=1,\ldots,n}$.
 Dann lässt sich jeder Vektor $x \in V$ eindeutig als Linearkombination der Einheitsvektoren schreiben mit
