@@ -431,7 +431,7 @@ Falls alle Vektorräume übereinstimmen, d.h., <span class="math notranslate noh
 </div>
 </div><p>Viele multilineare Abbildungen kennen wir bereits aus der Linearen Algebra ohne sie bisher so bezeichnet zu haben.
 Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.</p>
-<div class="proof example admonition" id="ex:multi">
+<div class="proof example admonition" id="ex:multilinear">
 <p class="admonition-title"><span class="caption-number">Example 3.3 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Wir betrachten im Folgenden Beispiele für <span class="math notranslate nohighlight">\(k\)</span>-lineare Abbildungen mit verschiedenen <span class="math notranslate nohighlight">\(k\in\N\)</span>.</p>
@@ -463,86 +463,83 @@ Die Determinantenform gibt das orientierte Volumen des von den Vektoren <span cl
 </div></div>
 <div class="section" id="der-vektorraum-der-multilinearformen">
 <h2><span class="section-number">3.1.3. </span>Der Vektorraum der Multilinearformen<a class="headerlink" href="#der-vektorraum-der-multilinearformen" title="Permalink to this headline">¶</a></h2>
-<p>Die Definition einer <span class="math notranslate nohighlight">\(k\)</span>-linearen Abbildung ermöglicht es uns sehr direkt eine Vektorraumstruktur zu definieren.</p>
+<p>Die Menge der <span class="math notranslate nohighlight">\(k\)</span>-linearen Abbildung <span class="math notranslate nohighlight">\(L^k(V_1,\ldots,V_k; W)\)</span> für <span class="math notranslate nohighlight">\(\R\)</span>-Vektorräume <span class="math notranslate nohighlight">\(V_1,\ldots,V_k\)</span> und <span class="math notranslate nohighlight">\(W\)</span> besitzt mehr Struktur als wir ihr bisher angesehen haben.
+Mit den entsprechenden Verknüpfungen handelt es sich ebenfalls um einen Vektorraum, wie das folgende Lemma zeigt.</p>
 <div class="proof lemma admonition" id="lemma-9">
 <p class="admonition-title"><span class="caption-number">Lemma 3.2 </span></p>
 <div class="lemma-content section" id="proof-content">
-<p>Es seien <span class="math notranslate nohighlight">\(\V_1,\ldots,\V_k\)</span> sowie <span class="math notranslate nohighlight">\(W\)</span> reelle Vektorräume, dann ist die Menge <span class="math notranslate nohighlight">\(L^k(\V_1\times\ldots\V_k,W)\)</span> ein Vektorraum über <span class="math notranslate nohighlight">\(\R\)</span> bezüglich der Addition</p>
+<p>Sei <span class="math notranslate nohighlight">\(k \in \N\)</span> und es seien <span class="math notranslate nohighlight">\(\V_1,\ldots,\V_k\)</span> sowie <span class="math notranslate nohighlight">\(W\)</span> reelle Vektorräume.
+Dann ist die Menge <span class="math notranslate nohighlight">\(L^k(\V_1\times\ldots\V_k; W)\)</span> ein Vektorraum über <span class="math notranslate nohighlight">\(\R\)</span> bezüglich der Addition</p>
 <div class="math notranslate nohighlight">
 \[(\varphi_1+\varphi_2)(z_1,\ldots,z_k) := \varphi_1(z_1,\ldots,z_k) +
-\varphi_2(z_1,\ldots,z_k),\quad \varphi_1,\varphi_2\in L^k(\V,\R)\]</div>
-<p>und der Skalarmultiplikation</p>
+\varphi_2(z_1,\ldots,z_k),\]</div>
+<p>für <span class="math notranslate nohighlight">\(k\)</span>-lineare Abbildungen <span class="math notranslate nohighlight">\(\varphi_1,\varphi_2\in L^k(\V_1, \ldots, V_k;W)\)</span> und der Multiplikation mit Skalaren <span class="math notranslate nohighlight">\(\lambda \in \R\)</span></p>
 <div class="math notranslate nohighlight">
-\[(\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V,\R), \lambda\in\R.\]</div>
+\[(\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V_1, \ldots, V_k;W).\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe Übung.</p>
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
 </div>
-<p>Als wichtigen Spezialfall erhalten wir für <span class="math notranslate nohighlight">\(k=1\)</span> den Dualraum <span class="math notranslate nohighlight">\(L^1(\V,\R)\)</span>. Für diesen Vektorraum können wir eine spezielle Basis charakterisieren, die sogenannte <strong>duale Basis</strong>.</p>
-<div class="proof lemma admonition" id="lemma-10">
+<p>Wir wir bereits in <a class="reference internal" href="#ex:multilinear">Example 3.3</a> gesehen haben erhalten wir einen wichtigen Spezialfall für <span class="math notranslate nohighlight">\(k=1\)</span>, nämlich den algebraischen Dualraum <span class="math notranslate nohighlight">\(V^\ast = L^1(\V;\R)\)</span>.
+Für diesen Vektorraum können wir eine spezielle Basis angeben, wie das folgende Lemma zeigt.</p>
+<div class="proof lemma admonition" id="lem:dualeBasis">
 <p class="admonition-title"><span class="caption-number">Lemma 3.3 </span> (Duale Basis)</p>
 <div class="lemma-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\V\)</span> ein <span class="math notranslate nohighlight">\(n\)</span>-dimensionaler <span class="math notranslate nohighlight">\(\R\)</span>-Vektorraum mit einer Basis <span class="math notranslate nohighlight">\(B = (b_1,\ldots,b_n)\)</span>, die Abbildungen
-<span class="math notranslate nohighlight">\(\eta_i:\V\rightarrow\R\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>,</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\V\)</span> ein <span class="math notranslate nohighlight">\(n\)</span>-dimensionaler <span class="math notranslate nohighlight">\(\R\)</span>-Vektorraum mit einer endlichen Basis <span class="math notranslate nohighlight">\(B = (b_1,\ldots,b_n)\)</span>.
+Für beliebige Vektoren <span class="math notranslate nohighlight">\(z \in V\)</span> bilden die Abbildungen <span class="math notranslate nohighlight">\(\eta_i:\V\rightarrow\R\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> mit</p>
 <div class="math notranslate nohighlight">
-\[\eta_i(z) = \eta_i\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_i\]</div>
-<p>bilden einen Basis von <span class="math notranslate nohighlight">\(\V^\ast\)</span>, die sogenannte <strong>duale Basis</strong> zu <span class="math notranslate nohighlight">\(B\)</span>.</p>
-</div>
-</div><div class="proof example admonition" id="example-11">
-<p class="admonition-title"><span class="caption-number">Example 3.4 </span> (Duale Basis)</p>
-<div class="example-content section" id="proof-content">
-<p>Rn mit Standardbasis ist es Multiplikation von rechts mit Transponierter Standardbasis.</p>
-</div>
-</div><div class="proof remark admonition" id="remark-12">
-<p class="admonition-title"><span class="caption-number">Remark 3.3 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>Insbesondere zeigt diese Aussage, dass <span class="math notranslate nohighlight">\(\dim(\V) = \dim(\V^\ast)\)</span>.</p>
+\[\eta_i(z) := \eta_i\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_i\]</div>
+<p>eine Basis des algebraischen Dualraums <span class="math notranslate nohighlight">\(\V^\ast\)</span>.
+Diese spezielle Basis wird auch die <strong>duale Basis</strong> zur Basis <span class="math notranslate nohighlight">\(B\)</span> genannt.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Wir zeigen zunächst, dass <span class="math notranslate nohighlight">\(\eta_i\in\V^\ast\)</span>. Dazu sei <span class="math notranslate nohighlight">\(x,y\in\V\)</span>, dann existieren skalare
-<span class="math notranslate nohighlight">\(\alpha_i^x,\alpha_i^y\in\R\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>, s.d.,</p>
+<p>Proof. Wir zeigen zunächst, dass <span class="math notranslate nohighlight">\(\eta_i\in\V^\ast\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>.
+Dazu seien <span class="math notranslate nohighlight">\(x,y\in\V\)</span> beliebige Vektoren.
+Dann existieren Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i^x,\alpha_i^y \in \R\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>, so dass es eine eindeutige Darstellung als Linearkombination der Basisvektoren gibt mit</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}x &amp;= \sum_{i=1}^n \alpha_i^x b_i\\
-y &amp;= \sum_{i=1}^n \alpha_i^y b_i.\end{split}\]</div>
-<p>Somit haben wir</p>
+\[x = \sum_{i=1}^n \alpha_i^x b_i, \qquad y = \sum_{i=1}^n \alpha_i^y b_i.\]</div>
+<p>Somit haben wir also für die Summe der Vektoren</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\eta_i(x+y) &amp;= \eta_i\left(\sum_{i=1}^n \alpha_i^x b_i + \alpha_i^y b_i\right) 
-\\&amp;=
+\[\begin{split}\eta_i(x+y) &amp;= 
+\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i + \sum_{i=1}^n \alpha_i^y b_i\right) = 
+\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i + \alpha_i^y b_i\right) = 
 \eta_i\left(\sum_{i=1}^n (\alpha_i^x + \alpha_i^y) b_i\right) 
-\\&amp;=
-\alpha_i^x + \alpha_i^y
-\\&amp;=
-\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i\right)  + \eta_i\left(\sum_{i=1}^n \alpha_i^y b_i\right)
-\\&amp;=
+\\&amp;= \alpha_i^x + \alpha_i^y = 
+\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i\right)  + \eta_i\left(\sum_{i=1}^n \alpha_i^y b_i\right) = 
 \eta_i(x) + \eta_i(y).\end{split}\]</div>
-<p>Weiterhin gilt für <span class="math notranslate nohighlight">\(\lambda\in\R\)</span></p>
+<p>Weiterhin gilt für beliebige Skalare <span class="math notranslate nohighlight">\(\lambda\in\R\)</span></p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\eta_i(\lambda x) &amp;= \eta_i\left(\lambda \sum_{i=1}^n \alpha_i^x b_i\right) 
-\\&amp;=
-\eta_i\left(\sum_{i=1}^n (\lambda \alpha_i^x) b_i\right) 
-\\&amp;=
-\lambda \alpha_i^x
-\\&amp;=
-\lambda \eta_i(x)\end{split}\]</div>
-<p>und damit ist <span class="math notranslate nohighlight">\(\eta_i\)</span> linear.
-Sei nun <span class="math notranslate nohighlight">\(\phi\in\V^\ast\)</span>, dann gilt</p>
+\[\eta_i(\lambda x) = \eta_i\left(\lambda \sum_{i=1}^n \alpha_i^x b_i\right) = 
+\eta_i\left(\sum_{i=1}^n (\lambda \alpha_i^x) b_i\right) =
+\lambda \alpha_i^x =
+\lambda \eta_i(x).\]</div>
+<p>Damit haben wir also gezeigt, dass die Elemente der dualen Basis <span class="math notranslate nohighlight">\(\eta_i\)</span> linear sind und somit gilt <span class="math notranslate nohighlight">\(\eta_i \in V^\ast\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>.</p>
+<p>Sei nun <span class="math notranslate nohighlight">\(\phi\in \V^\ast\)</span>, dann gilt</p>
 <div class="math notranslate nohighlight">
 \[\phi(x) = \phi\left(\sum_{i=1}^n \alpha_i^x b_i\right) = \sum_{i=1}^n \alpha_i^x \phi(b_i) = 
 \sum_{i=1}^n \eta_i(x) \phi(b_i),\]</div>
-<p>insbesondere gilt also <span class="math notranslate nohighlight">\(\phi = \sum_{i=1}^n \eta_i \phi(b_i\)</span>).</p>
-<p>Somit bilden die Abbildungen <span class="math notranslate nohighlight">\(\eta_i\)</span> ein Erzeugenden System, da jedes <span class="math notranslate nohighlight">\(\phi\)</span> als Linearkombination dargestellt werden kann.
-Weiterhin seien <span class="math notranslate nohighlight">\(a_i\in\R\)</span> gegeben, s.d., <span class="math notranslate nohighlight">\(0 = \sum_{i=1}^n a_i \eta_i\)</span>, damit folgt für jedes <span class="math notranslate nohighlight">\(j=1,\ldots,n\)</span>,</p>
+<p>insbesondere gilt also <span class="math notranslate nohighlight">\(\phi = \sum_{i=1}^n \phi(b_i) \eta_i\)</span>.</p>
+<p>Somit bilden die Abbildungen <span class="math notranslate nohighlight">\(\eta_i\)</span> ein Erzeugendensystem von <span class="math notranslate nohighlight">\(V^\ast\)</span>, da jede lineare Abbildung <span class="math notranslate nohighlight">\(\phi \in V^\ast\)</span> als Linearkombination dargestellt werden kann.</p>
+<p>Um zu zeigen, dass es sogar um eine Basis des algebraischen Dualraums handelt, müssen wir noch zeigen, dass das Nullelement des Vektorraums eine eindeutige Darstellung besitzt, da dies impliziert, dass die Elemente des Erzeugendensystems linear unabhängig sind.
+Seien also Koeffizienten <span class="math notranslate nohighlight">\(a_i\in\R\)</span> gegeben, so dass <span class="math notranslate nohighlight">\(0 = \sum_{i=1}^n a_i \eta_i\)</span> die Nullabbildung realisiert.
+Dann folgt schon für jedes <span class="math notranslate nohighlight">\(j=1,\ldots,n\)</span></p>
 <div class="math notranslate nohighlight">
-\[0 = \left(\sum_{i=1}^n a_i \eta_i\right)(b_j) = \sum_{i=1}^n a_i \eta_i(b_j) = a_j\]</div>
-<p>und damit ist die Aussage bewiesen.</p>
+\[0 = \left(\sum_{i=1}^n a_i \eta_i\right)(b_j) = \sum_{i=1}^n a_i \underbrace{\eta_i(b_j)}_{=\delta_{ij}} = a_j.\]</div>
+<p>Offensichtlich kann die Nullabbildung nur erzeugt werden, wenn für alle Koeffizienten <span class="math notranslate nohighlight">\(a_i=0\)</span> gilt für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> und damit ist die Aussage bewiesen.</p>
 </div>
-<div class="proof remark admonition" id="remark-13">
-<p class="admonition-title"><span class="caption-number">Remark 3.4 </span></p>
+<p>Folgende Bemerkungen wollen wir zum gerade diskutierten Lemma festhalten.</p>
+<div class="proof remark admonition" id="remark-11">
+<p class="admonition-title"><span class="caption-number">Remark 3.3 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>Die Aussage lässt sich auf den Fall eines unendlich-dimensionalen Vektorraums übertragen. Hierfür erinnern wir daran, dass für einen Vektorraum <span class="math notranslate nohighlight">\(V\)</span> stets eine Basis <span class="math notranslate nohighlight">\(B^V = \{b_i^v:i\in I\}\subset V\)</span> existiert wobei <span class="math notranslate nohighlight">\(I\)</span> eine (nicht notwendigerweise endliche) Indexmenge ist. Insbesondere bemerken wir, dass wir hier von einer <strong>Hamelbasis</strong> sprechen, d.h., für jedes Element <span class="math notranslate nohighlight">\(v\in V\)</span> gibt es eindeutig bestimmte Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i, i\in I\)</span> s.d.</p>
+<p>1. Die Aussage aus <a class="reference internal" href="#lem:dualeBasis">Lemma 3.3</a> zeigt insbesondere, dass im <strong>endlich-dimensionalen</strong> Fall <span class="math notranslate nohighlight">\(\dim(\V) = \dim(\V^\ast)\)</span>.
+Die Vektorräume sind also isomorph zueinander.</p>
+<p>2. Die Aussage des <a class="reference internal" href="#lem:dualeBasis">Lemma 3.3</a> zur dualen Basis lässt sich ebenfalls auf den Fall eines <strong>unendlich-dimensionalen</strong> Vektorraums übertragen.
+Hierfür erinnern wir daran, dass für einen Vektorraum <span class="math notranslate nohighlight">\(V\)</span> stets eine Basis <span class="math notranslate nohighlight">\(B^V = \{b_i^v:i\in I\}\subset V\)</span> existiert, wobei <span class="math notranslate nohighlight">\(I\)</span> eine (nicht notwendigerweise endliche) Indexmenge ist.
+Insbesondere bemerken wir, dass wir hier von einer <strong>Hamelbasis</strong> sprechen, d.h., für jedes Element <span class="math notranslate nohighlight">\(v\in V\)</span> gibt es eindeutig bestimmte Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i, i\in I\)</span>, so dass gilt</p>
 <div class="math notranslate nohighlight">
 \[v = \sum_{i\in I} \alpha_i b_i.\]</div>
-<p>Der wichtige Punkt ist aber, dass nur <strong>endlich viele</strong> <span class="math notranslate nohighlight">\(\alpha_i\)</span> ungleich null sind und die Summation somit keine eigentlich unendliche Reihe beschreibt sondern nur eine endliche Summe. Diese Konzept ist insbesondere verschieden vom Begriff der <a class="reference external" href="https://de.wikipedia.org/wiki/Schauderbasis">Schauderbasis</a></p>
+<p>Der wichtige Punkt hierbei ist, dass nur <strong>endlich viele</strong> Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i\)</span> ungleich null sind und die Summation somit keine eigentlich unendliche Reihe beschreibt, sondern nur eine endliche Summe.
+Diese Konzept ist insbesondere verschieden vom Begriff der <a class="reference external" href="https://de.wikipedia.org/wiki/Schauderbasis">Schauderbasis</a></p>
 </div>
 </div><div class="margin sidebar">
 <p class="sidebar-title">Georg Hamel</p>
@@ -552,14 +549,32 @@ Weiterhin seien <span class="math notranslate nohighlight">\(a_i\in\R\)</span> g
 <p class="sidebar-title">Juliusz Schauder</p>
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/Juliusz_Schauder">Juliusz Paweł Schauder</a> (Geboren 21. September 1899 in Lemberg; Gestorben September 1943) war ein polnischer Mathematiker.</p>
 </div>
-<p>Wir halten weiterhin fest, dass sich der doppelt duale Raum im endlich-dimensionalen Fall leicht charakterisieren lässt.</p>
-<div class="proof lemma admonition" id="lem:doubledual">
-<p class="admonition-title"><span class="caption-number">Lemma 3.4 </span></p>
-<div class="lemma-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\V\)</span> ein <span class="math notranslate nohighlight">\(n\)</span>-dimensionaler reeller Vektorraum, dann gilt, dass die Abbildung</p>
+<p>Wir wollen uns das Konzept der dualen Basis im Falle des Euklidischen Vektorraums klar machen im Folgenden.</p>
+<div class="proof example admonition" id="example-12">
+<p class="admonition-title"><span class="caption-number">Example 3.4 </span> (Duale Basis)</p>
+<div class="example-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V = \R^n\)</span> der Euklidische Vektorraum ausgestattet mit der Standard Einheitsbasis <span class="math notranslate nohighlight">\(B = (e_i)_{i=1,\ldots,n}\)</span>.
+Dann lässt sich jeder Vektor <span class="math notranslate nohighlight">\(x \in V\)</span> eindeutig als Linearkombination der Einheitsvektoren schreiben mit</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\Psi&amp;:\V\rightarrow \V^{\ast\ast}\\
-\Psi(x)&amp;:= (\varphi\mapsto \varphi(x))\end{split}\]</div>
+\[x = \sum_{i=1} \alpha_i^x e_i = \sum_{i=1} x_i e_i.\]</div>
+<p>Wir sehen also ein, dass die Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i^x\)</span> gerade die Einträge des Vektors <span class="math notranslate nohighlight">\(x\)</span> selbst sind.
+Da die duale Basis des algebraischen Dualraums <span class="math notranslate nohighlight">\(V^\ast\)</span> zur Basis <span class="math notranslate nohighlight">\(B\)</span> nach <a class="reference internal" href="#lem:dualeBasis">Lemma 3.3</a> gerade die Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i^x\)</span> liefern soll, ist klar, dass die entsprechenden linearen Abbildungen durch eine <strong>Linksmultiplikation mit den transponierten Einheitsvektoren</strong> gegeben sind, d.h., <span class="math notranslate nohighlight">\(\eta_j(x) := e_j^T x = \langle e_j, x \rangle\)</span>, denn es gilt</p>
+<div class="math notranslate nohighlight">
+\[\eta_j(x) = 
+\eta_j \left( \sum_{i=1} \alpha_i^x e_i \right) = 
+\langle e_j, \sum_{i=1} x_i e_i\rangle =
+\sum_{i=1} x_i \underbrace{\langle e_j, e_i\rangle}_{= \delta_{ij}} =  
+x_j = \alpha_j^x, \quad \forall j=1,\ldots,n.\]</div>
+</div>
+</div><p>Wir halten abschließend fest, dass sich der <strong>Bidualraum</strong> <span class="math notranslate nohighlight">\((V^\ast)^\ast\)</span>, d.h., der duale Raum des Dualraums <span class="math notranslate nohighlight">\(V^\ast\)</span>, im endlich-dimensionalen Fall leicht charakterisieren lässt.</p>
+<div class="proof remark admonition" id="rem:doubledual">
+<p class="admonition-title"><span class="caption-number">Remark 3.4 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Für <span class="math notranslate nohighlight">\(n \in \N\)</span> sei <span class="math notranslate nohighlight">\(\V\)</span> ein <span class="math notranslate nohighlight">\(n\)</span>-dimensionaler reeller Vektorraum.
+Dann gilt, dass die Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Psi :\V &amp;\rightarrow \V^{\ast\ast}\\
+x &amp;\mapsto \Psi_x \quad \text{ mit } \quad \Psi_x(\varphi) := \varphi(x).\end{split}\]</div>
 <p>ein Isomorphismus ist.</p>
 </div>
 </div></div>
@@ -636,11 +651,11 @@ Weiterhin seien <span class="math notranslate nohighlight">\(a_i\in\R\)</span> g
   <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
   
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YCTWVBGEWR"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z9NNSYF13N"></script>
 <script>
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){ dataLayer.push(arguments); }
-                    gtag('config', 'G-YCTWVBGEWR');
+                    gtag('config', 'G-Z9NNSYF13N');
                 </script>
 
   </body>

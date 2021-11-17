@@ -183,7 +183,7 @@ Viele multilineare Abbildungen kennen wir bereits aus der Linearen Algebra ohne 
 Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
 
 ````{prf:example}
-:label: ex:multi
+:label: ex:multilinear
 
 Wir betrachten im Folgenden Beispiele für $k$-lineare Abbildungen mit verschiedenen $k\in\N$.
 
@@ -228,113 +228,116 @@ Die Determinantenform gibt das orientierte Volumen des von den Vektoren $z_1,\ld
 
 ## Der Vektorraum der Multilinearformen
 
-Die Definition einer $k$-linearen Abbildung ermöglicht es uns sehr direkt eine Vektorraumstruktur zu definieren.
+Die Menge der $k$-linearen Abbildung $L^k(V_1,\ldots,V_k; W)$ für $\R$-Vektorräume $V_1,\ldots,V_k$ und $W$ besitzt mehr Struktur als wir ihr bisher angesehen haben.
+Mit den entsprechenden Verknüpfungen handelt es sich ebenfalls um einen Vektorraum, wie das folgende Lemma zeigt.
 
 ````{prf:lemma}
-Es seien $\V_1,\ldots,\V_k$ sowie $W$ reelle Vektorräume, dann ist die Menge $L^k(\V_1\times\ldots\V_k,W)$ ein Vektorraum über $\R$ bezüglich der Addition 
+Sei $k \in \N$ und es seien $\V_1,\ldots,\V_k$ sowie $W$ reelle Vektorräume.
+Dann ist die Menge $L^k(\V_1\times\ldots\V_k; W)$ ein Vektorraum über $\R$ bezüglich der Addition 
 
 ```{math}
 (\varphi_1+\varphi_2)(z_1,\ldots,z_k) := \varphi_1(z_1,\ldots,z_k) +
-\varphi_2(z_1,\ldots,z_k),\quad \varphi_1,\varphi_2\in L^k(\V,\R)
+\varphi_2(z_1,\ldots,z_k),
 ```
-und der Skalarmultiplikation
+für $k$-lineare Abbildungen $\varphi_1,\varphi_2\in L^k(\V_1, \ldots, V_k;W)$ und der Multiplikation mit Skalaren $\lambda \in \R$
 
 ```{math}
-(\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V,\R), \lambda\in\R.
+(\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V_1, \ldots, V_k;W).
 ```
 
 ````
 
 ````{prf:proof}
-Siehe Übung.
+In der Hausaufgabe zu zeigen.
 ````
 
-Als wichtigen Spezialfall erhalten wir für $k=1$ den Dualraum $L^1(\V,\R)$. Für diesen Vektorraum können wir eine spezielle Basis charakterisieren, die sogenannte **duale Basis**.
+Wir wir bereits in {prf:ref}`ex:multilinear` gesehen haben erhalten wir einen wichtigen Spezialfall für $k=1$, nämlich den algebraischen Dualraum $V^\ast = L^1(\V;\R)$. 
+Für diesen Vektorraum können wir eine spezielle Basis angeben, wie das folgende Lemma zeigt.
 
 ````{prf:lemma} Duale Basis
-Es sei $\V$ ein $n$-dimensionaler $\R$-Vektorraum mit einer Basis $B = (b_1,\ldots,b_n)$, die Abbildungen 
-$\eta_i:\V\rightarrow\R$ für $i=1,\ldots,n$,
+:label: lem:dualeBasis
+Es sei $\V$ ein $n$-dimensionaler $\R$-Vektorraum mit einer endlichen Basis $B = (b_1,\ldots,b_n)$.
+Für beliebige Vektoren $z \in V$ bilden die Abbildungen $\eta_i:\V\rightarrow\R$ für $i=1,\ldots,n$ mit
 
 ```{math}
-\eta_i(z) = \eta_i\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_i
+\eta_i(z) := \eta_i\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_i
 ```
 
-bilden einen Basis von $\V^\ast$, die sogenannte **duale Basis** zu $B$. 
+eine Basis des algebraischen Dualraums $\V^\ast$.
+Diese spezielle Basis wird auch die **duale Basis** zur Basis $B$ genannt. 
 
-````
-
-````{prf:example} Duale Basis
-Rn mit Standardbasis ist es Multiplikation von rechts mit Transponierter Standardbasis.
-````
-
-````{prf:remark}
-Insbesondere zeigt diese Aussage, dass $\dim(\V) = \dim(\V^\ast)$.
 ````
 
 ````{prf:proof}
-Wir zeigen zunächst, dass $\eta_i\in\V^\ast$. Dazu sei $x,y\in\V$, dann existieren skalare 
-$\alpha_i^x,\alpha_i^y\in\R$ für $i=1,\ldots,n$, s.d., 
+Wir zeigen zunächst, dass $\eta_i\in\V^\ast$ für $i=1,\ldots,n$. 
+Dazu seien $x,y\in\V$ beliebige Vektoren.
+Dann existieren Koeffizienten $\alpha_i^x,\alpha_i^y \in \R$ für $i=1,\ldots,n$, so dass es eine eindeutige Darstellung als Linearkombination der Basisvektoren gibt mit
 
 ```{math}
-x &= \sum_{i=1}^n \alpha_i^x b_i\\
-y &= \sum_{i=1}^n \alpha_i^y b_i.
+x = \sum_{i=1}^n \alpha_i^x b_i, \qquad y = \sum_{i=1}^n \alpha_i^y b_i.
 ```
 
-Somit haben wir 
+Somit haben wir also für die Summe der Vektoren
 
 ```{math}
-\eta_i(x+y) &= \eta_i\left(\sum_{i=1}^n \alpha_i^x b_i + \alpha_i^y b_i\right) 
-\\&=
+\eta_i(x+y) &= 
+\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i + \sum_{i=1}^n \alpha_i^y b_i\right) = 
+\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i + \alpha_i^y b_i\right) = 
 \eta_i\left(\sum_{i=1}^n (\alpha_i^x + \alpha_i^y) b_i\right) 
-\\&=
-\alpha_i^x + \alpha_i^y
-\\&=
-\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i\right)  + \eta_i\left(\sum_{i=1}^n \alpha_i^y b_i\right)
-\\&=
+\\&= \alpha_i^x + \alpha_i^y = 
+\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i\right)  + \eta_i\left(\sum_{i=1}^n \alpha_i^y b_i\right) = 
 \eta_i(x) + \eta_i(y).
 ```
 
-Weiterhin gilt für $\lambda\in\R$ 
+Weiterhin gilt für beliebige Skalare $\lambda\in\R$ 
 
 ```{math}
-\eta_i(\lambda x) &= \eta_i\left(\lambda \sum_{i=1}^n \alpha_i^x b_i\right) 
-\\&=
-\eta_i\left(\sum_{i=1}^n (\lambda \alpha_i^x) b_i\right) 
-\\&=
-\lambda \alpha_i^x
-\\&=
-\lambda \eta_i(x)
+\eta_i(\lambda x) = \eta_i\left(\lambda \sum_{i=1}^n \alpha_i^x b_i\right) = 
+\eta_i\left(\sum_{i=1}^n (\lambda \alpha_i^x) b_i\right) =
+\lambda \alpha_i^x =
+\lambda \eta_i(x).
 ```
 
-und damit ist $\eta_i$ linear. 
-Sei nun $\phi\in\V^\ast$, dann gilt 
+Damit haben wir also gezeigt, dass die Elemente der dualen Basis $\eta_i$ linear sind und somit gilt $\eta_i \in V^\ast$ für $i=1,\ldots,n$. 
+
+Sei nun $\phi\in \V^\ast$, dann gilt 
 
 ```{math}
 \phi(x) = \phi\left(\sum_{i=1}^n \alpha_i^x b_i\right) = \sum_{i=1}^n \alpha_i^x \phi(b_i) = 
 \sum_{i=1}^n \eta_i(x) \phi(b_i),
 ```
 
-insbesondere gilt also $\phi = \sum_{i=1}^n \eta_i \phi(b_i$).
+insbesondere gilt also $\phi = \sum_{i=1}^n \phi(b_i) \eta_i$.
 
-Somit bilden die Abbildungen $\eta_i$ ein Erzeugenden System, da jedes $\phi$ als Linearkombination dargestellt werden kann. 
-Weiterhin seien $a_i\in\R$ gegeben, s.d., $0 = \sum_{i=1}^n a_i \eta_i$, damit folgt für jedes $j=1,\ldots,n$,  
+Somit bilden die Abbildungen $\eta_i$ ein Erzeugendensystem von $V^\ast$, da jede lineare Abbildung $\phi \in V^\ast$ als Linearkombination dargestellt werden kann. 
+
+Um zu zeigen, dass es sogar um eine Basis des algebraischen Dualraums handelt, müssen wir noch zeigen, dass das Nullelement des Vektorraums eine eindeutige Darstellung besitzt, da dies impliziert, dass die Elemente des Erzeugendensystems linear unabhängig sind.
+Seien also Koeffizienten $a_i\in\R$ gegeben, so dass $0 = \sum_{i=1}^n a_i \eta_i$ die Nullabbildung realisiert.
+Dann folgt schon für jedes $j=1,\ldots,n$
 
 ```{math}
-0 = \left(\sum_{i=1}^n a_i \eta_i\right)(b_j) = \sum_{i=1}^n a_i \eta_i(b_j) = a_j
+0 = \left(\sum_{i=1}^n a_i \eta_i\right)(b_j) = \sum_{i=1}^n a_i \underbrace{\eta_i(b_j)}_{=\delta_{ij}} = a_j.
 ```
 
-und damit ist die Aussage bewiesen.
+Offensichtlich kann die Nullabbildung nur erzeugt werden, wenn für alle Koeffizienten $a_i=0$ gilt für $i=1,\ldots,n$ und damit ist die Aussage bewiesen.
 
 ````
 
+Folgende Bemerkungen wollen wir zum gerade diskutierten Lemma festhalten.
 ````{prf:remark}
-Die Aussage lässt sich auf den Fall eines unendlich-dimensionalen Vektorraums übertragen. Hierfür erinnern wir daran, dass für einen Vektorraum $V$ stets eine Basis $B^V = \{b_i^v:i\in I\}\subset V$ existiert wobei $I$ eine (nicht notwendigerweise endliche) Indexmenge ist. Insbesondere bemerken wir, dass wir hier von einer **Hamelbasis** sprechen, d.h., für jedes Element $v\in V$ gibt es eindeutig bestimmte Koeffizienten $\alpha_i, i\in I$ s.d.
+1\. Die Aussage aus {prf:ref}`lem:dualeBasis` zeigt insbesondere, dass im **endlich-dimensionalen** Fall $\dim(\V) = \dim(\V^\ast)$.
+Die Vektorräume sind also isomorph zueinander.
+
+2\. Die Aussage des {prf:ref}`lem:dualeBasis` zur dualen Basis lässt sich ebenfalls auf den Fall eines **unendlich-dimensionalen** Vektorraums übertragen.
+Hierfür erinnern wir daran, dass für einen Vektorraum $V$ stets eine Basis $B^V = \{b_i^v:i\in I\}\subset V$ existiert, wobei $I$ eine (nicht notwendigerweise endliche) Indexmenge ist.
+Insbesondere bemerken wir, dass wir hier von einer **Hamelbasis** sprechen, d.h., für jedes Element $v\in V$ gibt es eindeutig bestimmte Koeffizienten $\alpha_i, i\in I$, so dass gilt
 
 ```{math}
 v = \sum_{i\in I} \alpha_i b_i.
 ```
 
-Der wichtige Punkt ist aber, dass nur **endlich viele** $\alpha_i$ ungleich null sind und die Summation somit keine eigentlich unendliche Reihe beschreibt sondern nur eine endliche Summe. Diese Konzept ist insbesondere verschieden vom Begriff der [Schauderbasis](https://de.wikipedia.org/wiki/Schauderbasis)
+Der wichtige Punkt hierbei ist, dass nur **endlich viele** Koeffizienten $\alpha_i$ ungleich null sind und die Summation somit keine eigentlich unendliche Reihe beschreibt, sondern nur eine endliche Summe.
+Diese Konzept ist insbesondere verschieden vom Begriff der [Schauderbasis](https://de.wikipedia.org/wiki/Schauderbasis)
 ````
 
 ```{margin} Georg Hamel
@@ -345,16 +348,39 @@ Der wichtige Punkt ist aber, dass nur **endlich viele** $\alpha_i$ ungleich null
 [Juliusz Paweł Schauder](https://de.wikipedia.org/wiki/Juliusz_Schauder) (Geboren 21. September 1899 in Lemberg; Gestorben September 1943) war ein polnischer Mathematiker.
 ```
 
-Wir halten weiterhin fest, dass sich der doppelt duale Raum im endlich-dimensionalen Fall leicht charakterisieren lässt.
-
-````{prf:lemma}
-:label: lem:doubledual
-
-Es sei $\V$ ein $n$-dimensionaler reeller Vektorraum, dann gilt, dass die Abbildung 
+Wir wollen uns das Konzept der dualen Basis im Falle des Euklidischen Vektorraums klar machen im Folgenden.
+````{prf:example} Duale Basis
+Sei $V = \R^n$ der Euklidische Vektorraum ausgestattet mit der Standard Einheitsbasis $B = (e_i)_{i=1,\ldots,n}$.
+Dann lässt sich jeder Vektor $x \in V$ eindeutig als Linearkombination der Einheitsvektoren schreiben mit
 
 ```{math}
-\Psi&:\V\rightarrow \V^{\ast\ast}\\
-\Psi(x)&:= (\varphi\mapsto \varphi(x))
+x = \sum_{i=1} \alpha_i^x e_i = \sum_{i=1} x_i e_i.
+```
+
+Wir sehen also ein, dass die Koeffizienten $\alpha_i^x$ gerade die Einträge des Vektors $x$ selbst sind.
+Da die duale Basis des algebraischen Dualraums $V^\ast$ zur Basis $B$ nach {prf:ref}`lem:dualeBasis` gerade die Koeffizienten $\alpha_i^x$ liefern soll, ist klar, dass die entsprechenden linearen Abbildungen durch eine **Linksmultiplikation mit den transponierten Einheitsvektoren** gegeben sind, d.h., $\eta_j(x) := e_j^T x = \langle e_j, x \rangle$, denn es gilt
+
+```{math}
+\eta_j(x) = 
+\eta_j \left( \sum_{i=1} \alpha_i^x e_i \right) = 
+\langle e_j, \sum_{i=1} x_i e_i\rangle =
+\sum_{i=1} x_i \underbrace{\langle e_j, e_i\rangle}_{= \delta_{ij}} =  
+x_j = \alpha_j^x, \quad \forall j=1,\ldots,n.
+```
+
+````
+
+Wir halten abschließend fest, dass sich der **Bidualraum** $(V^\ast)^\ast$, d.h., der duale Raum des Dualraums $V^\ast$, im endlich-dimensionalen Fall leicht charakterisieren lässt.
+
+````{prf:remark}
+:label: rem:doubledual
+
+Für $n \in \N$ sei $\V$ ein $n$-dimensionaler reeller Vektorraum.
+Dann gilt, dass die Abbildung 
+
+```{math}
+\Psi :\V &\rightarrow \V^{\ast\ast}\\
+x &\mapsto \Psi_x \quad \text{ mit } \quad \Psi_x(\varphi) := \varphi(x).
 ```
 
 ein Isomorphismus ist.
