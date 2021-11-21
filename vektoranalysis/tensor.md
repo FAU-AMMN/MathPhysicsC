@@ -40,7 +40,7 @@ Dieser Teil des Spannungstensors ist parallel zur Schnittfläche.
 Man erkennt nun, dass die Spannung in $V$ nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt $P\in V$ ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein Tensorfeld $\mathbf{\sigma}(x)$ existiert, s.d.,
 
 ```{math}
-T^{\mathbf{n}}(x) = \mathbf{n}\cdot \mathbf{\sigma}(x),
+\mathbf{T}^{\mathbf{n}}(x) = \mathbf{n}\cdot \mathbf{\sigma}(x),
 ```
 
 d.h. in jedem Punkt $x\in V$ ist der Stressvektor linear im Normalenvektor $\mathbf{n}$.
@@ -114,6 +114,8 @@ Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eig
 Wir können ein Tensorprodukt konkret konstruieren indem wir uns auf die Basis der Vektorräume $V$ und $W$ zurückziehen. Diese Tatsache formulieren wir in der folgenden Aussage.
 
 ````{prf:theorem}
+:label: thm:tensorexist
+
 Für zwei reelle Vektorräume $V, W$ existiert stets mindestens ein Tensorprodukt $\otimes\in L^2(V\times W, V\otimes W)$.
 ````
 
@@ -146,11 +148,11 @@ $\alpha_{i_1},\ldots,\alpha_{i_m}$ und $\beta_{j_1},\ldots, \beta_{j_n}$ existie
 ```{math}
 \otimes(v,w) 
 &= 
-\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) 
+\otimes\big(\sum_{k=1}^n \alpha_{i_k}\,b_{i_k}^V, \sum_{l=1}^m  \beta_{j_l}\,b_{j_l}^W\big) 
 \\&= 
-\sum_{k=1}^n \sum_{l=1}^m \otimes\left(b_{i_k}^V, b_{j_l}^W\right)
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k}\,\beta_{j_l}\, \otimes\left(b_{i_k}^V, b_{j_l}^W\right)
 \\&=
-\sum_{k=1}^n \sum_{l=1}^m b_{i_kj_l}^X.
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k}\,\beta_{j_l}\, b_{i_kj_l}^X.
 ```
 
 Wir müssen nun die universelle Eigenschaft zeigen, sei dazu $\phi\in L^2(V\times W, Y)$ eine Bilinearform auf einen reellen Vektorraum $Y$, dann können wir eine Linearform auf $p:X\to Y$ definieren durch (analog reicht es die Definition auf den Basiselementen anzugeben)
@@ -218,6 +220,38 @@ Es seien $V,W$ zwei reelle Vektorräume und $\otimes_1,\otimes_2$ zwei Tensorpro
 ```{math}
 \otimes_2 = p\circ \otimes_1.
 ```
+
+````
+
+**Das Tensorprodukt?**
+
+Die letzte Aussage zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf Vektorräumen $V,W$ zu definieren, diese stets isomorph zueinander sind. Deshalb spricht man auch von **dem** Tensorprodukt $V\otimes W$ was so klingt als gäbe es nur ein einziges. In der Tat gibt es zwar mehrere Tensorprodukte aber man kann sie alle miteinander identifizieren.
+
+Weiterhin haben wir in {prf:ref}`tensorexist` eine kanonische Art und Weise gesehen ein Tensorprodukt über die Basen der Vektorräume
+$V$ und $W$ zu konstruieren. Falls es nicht genauer spezifiziert ist, werden wir im folgendem auch von **dem** Tensorprodukt sprechen, wobei Sie sich die durch
+
+```{math}
+b_i^V \otimes b_j^W := b_{ij}^X\quad\forall (i,j)\in J.
+```
+
+definierte Abbildung vorstellen können.
+
+### Natürliche Isomorphismen
+
+Die Definition über die universelle Eigenschaft erlaubt es uns relativ direkt folgende Isomorphismen zu erhalten.
+
+````{prf:lemma} Isomorphismen
+
+Es seien $V_1,V_2,V_3$ reelle Vektorräume, dann haben wir folgende Isomorphismen.
+
+1. $V_1\otimes V_2 \cong V_2\otimes V_1$,
+
+2. $(V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \times V_3),
+
+3. $\R \otimes V_1 \cong V_1$,
+
+4. \mathrm{Hom}(V_1, \mathrm{Hom}(V_2, V_3))\cong \mathrm{Hom}(V_1\otimes V_2, V_3).
+
 
 ````
 
