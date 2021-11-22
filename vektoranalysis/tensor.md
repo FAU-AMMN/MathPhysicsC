@@ -211,7 +211,7 @@ Da wir aber die Basis von $V\otimes_2 W$ über Elemente $\otimes_2(b_i^V, b_j^W)
 p_1\circ p_2(\otimes(b_i^V,b_j^W)) = \otimes(b_i^V, b_j^W)
 ```
 
-wissen wir dass $p_1\circ p_2 = \mathrm{Id}$. Das folgt da $p_1\circ p_2$ als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist. 
+wissen wir dass $p_1\circ p_2 = \mathrm{Id}$. Das folgt da $p_1\circ p_2$ als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist.
 Analog folgt $p_2\circ p_1 = \mathrm{Id}$ und somit sind $p_1, p_2$ isomorph zueinander. D.h. wir haben insgesamt gezeigt, dass verschiedene Tensorprodukte stets isomorph zueinander sind.
 
 ````{prf:lemma}
@@ -227,16 +227,9 @@ Es seien $V,W$ zwei reelle Vektorräume und $\otimes_1,\otimes_2$ zwei Tensorpro
 
 Die letzte Aussage zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf Vektorräumen $V,W$ zu definieren, diese stets isomorph zueinander sind. Deshalb spricht man auch von **dem** Tensorprodukt $V\otimes W$ was so klingt als gäbe es nur ein einziges. In der Tat gibt es zwar mehrere Tensorprodukte aber man kann sie alle miteinander identifizieren.
 
-Weiterhin haben wir in {prf:ref}`tensorexist` eine kanonische Art und Weise gesehen ein Tensorprodukt über die Basen der Vektorräume
-$V$ und $W$ zu konstruieren. Falls es nicht genauer spezifiziert ist, werden wir im folgendem auch von **dem** Tensorprodukt sprechen, wobei Sie sich die durch
+Deshalb werden wir im folgendem auch von **dem** Tensorprodukt sprechen.
 
-```{math}
-b_i^V \otimes b_j^W := b_{ij}^X\quad\forall (i,j)\in J.
-```
-
-definierte Abbildung vorstellen können.
-
-### Natürliche Isomorphismen
+### Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
 
 Die Definition über die universelle Eigenschaft erlaubt es uns relativ direkt folgende Isomorphismen zu erhalten.
 
@@ -246,12 +239,34 @@ Es seien $V_1,V_2,V_3$ reelle Vektorräume, dann haben wir folgende Isomorphisme
 
 1. $V_1\otimes V_2 \cong V_2\otimes V_1$,
 
-2. $(V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \times V_3),
+2. $(V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3)$,
 
 3. $\R \otimes V_1 \cong V_1$,
 
-4. \mathrm{Hom}(V_1, \mathrm{Hom}(V_2, V_3))\cong \mathrm{Hom}(V_1\otimes V_2, V_3).
+4. $L(V_1, L(V_2, V_3))\cong L(V_1\otimes V_2, V_3)$.
 
+````
+
+````{prf:proof}
+Siehe Übung.
+````
+
+Die erste 
+
+Die letzte Eigenschaft wird insbesondere wichtig um Tensorprodukte von Dualräumen zu charakterisieren. Dafür benötigen wir zusätzlich folgendes Prinzip, was man in der Algebra unter [Funktoren](https://de.wikipedia.org/wiki/Funktor_(Mathematik)) kennt. Konkret wollen wir nun für reelle Vektorräume $V_1,V_2, W_1, W_2$ das Tensorprodukt
+
+```{math}
+\mathrm{Hom}(V_1, W_1) \otimes \mathrm{Hom}(V_2, W_2)
+```
+
+untersuchen.
+
+````{prf:lemma}
+Es seinen $V_1,V_2, W_1,W_2$ reelle Vektorräume und $\phi_1\in \mathrm{Hom}(V_1, W_1), \phi_2 \in \mathrm{Hom}(V_2, W_2)$, dann existiert **genau ein** Tensorprodukt, s.d., 
+
+```{math}
+(\phi_1 \otimes \phi_2)
+```
 
 ````
 
