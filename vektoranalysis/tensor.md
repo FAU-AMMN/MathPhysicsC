@@ -85,6 +85,8 @@ Wir werden später sehen, dass man die Idee $\sigma$ über das dyadische Produkt
 Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es später konkret realisieren.
 
 ````{prf:definition} Tensorprodukt
+:label: def:tensor
+
 Es seien $V,W$ zwei reelle Vektorräume. Ein reeler Vektorraum $X$ heißt **Tensorproduktraum** falls eine bilineare Abbildung $\otimes:V\times W\rightarrow X$ existiert, s.d., die folgende **universelle Eigenschaft** gilt:
 
 Für jede Bilinearform $\phi\in L^2(V\times W, Y)$ in einen beliebigen reellen Vektorraum $Y$, existiert eine eindeutige lineare Abbildung 
@@ -251,7 +253,14 @@ Es seien $V_1,V_2,V_3$ reelle Vektorräume, dann haben wir folgende Isomorphisme
 Siehe Übung.
 ````
 
-Die erste 
+Die zweite Eigenschaft erlaubt es uns das Tensorprodukt über $k$-viele reelle Vektorräume $V_1,\ldots, V_k$ zu bilden, wir notieren
+
+```{math}
+\bigotimes_{i=1}^k=V_1\otimes\ldots\otimes V_k
+```
+
+und sehen, dass diese Objekt wohldefiniert ist. Insbesondere ist äquivalent das Tensorprodukt über $k$-Vektorräume mithilfe einer
+$k$-Multilinearform zu definieren anstatt der Bilinearform in {prf:ref}`def:tensor`.
 
 Die letzte Eigenschaft wird insbesondere wichtig um Tensorprodukte von Dualräumen zu charakterisieren. Dafür benötigen wir zusätzlich folgendes Prinzip, was man in der Algebra unter [Funktoren](https://de.wikipedia.org/wiki/Funktor_(Mathematik)) kennt. Konkret wollen wir nun für reelle Vektorräume $V_1,V_2, W_1, W_2$ das Tensorprodukt
 
