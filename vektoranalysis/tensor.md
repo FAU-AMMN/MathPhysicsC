@@ -304,18 +304,23 @@ Ein solcher Vektorraum existiert immer, da zum Beispiel das kartesische Produkt 
 Wir definieren nun eine bilineare Abbildung $\otimes: V\times W \to X$ über 
 
 ```{math}
-b_i^V \otimes b_j^W := b_{ij}^X \quad \forall (i,j)\in J.
+\otimes (b_i^V, b_j^W) = b_i^V \otimes b_j^W := b_{ij}^X \quad \forall (i,j)\in J.
 ```
 
 Es sei darauf hingewiesen, dass $\otimes$ durch die Definition auf $J$ eindeutig festgelegt ist, da für beliebige $(v,w)\in V\times W$ endlich viele Koeffizienten 
-$\alpha_{i_1},\ldots,\alpha_{i_m}$ und $\beta_{j_1},\ldots, \beta_{j_n}$ existieren, so dass
+$\alpha_{i_1},\ldots,\alpha_{i_n}$ und $\beta_{j_1},\ldots, \beta_{j_m}$ existieren, so dass wir für zwei Vektoren $v\in V$ und $w \in W$ die folgende Darstellung erhalten
 
+```{math}
+v = \sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \quad w = \sum_{l=1}^m \beta_{j_l} b_{j_l}^W.
+```
+
+Durch diese Darstellung erhalten wir für die bilineare Abbildung nun
 ```{math}
 \otimes(v,w) 
 = 
 \otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) = 
-\sum_{k=1}^n \sum_{l=1}^m \otimes\left(b_{i_k}^V, b_{j_l}^W\right) =
-\sum_{k=1}^n \sum_{l=1}^m b_{i_kj_l}^X.
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} \otimes\left(b_{i_k}^V, b_{j_l}^W\right) =
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} b_{i_kj_l}^X.
 ```
 
 Wir müssen nun die universelle Eigenschaft zeigen, sei dazu $\phi\in L^2(V\times W, Y)$ eine Bilinearform auf einen reellen Vektorraum $Y$, dann können wir eine Linearform auf $p:X\to Y$ definieren durch (analog reicht es die Definition auf den Basiselementen anzugeben)
