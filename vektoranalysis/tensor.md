@@ -145,6 +145,7 @@ $p \in L^1(X; Y)$, so dass gilt
 \phi(v,w) = p(v\otimes w) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.
 ```
 
+Das bedeutet, dass die Vektorräume $L^2(V \times W; Y)$ und $L^1(X; Y)$ isomorph zueinander sind.
 In diesem Fall schreibt man auch $X = V \otimes W$.
 Wir nennen die bilineare Abbildung $\otimes$ **Tensorprodukt** und verwenden häufig für sie die Infix-Schreibweise $\otimes(v,w)=:v\otimes w$.
 ````
@@ -189,8 +190,9 @@ x_2y_2 & x_2y_1
 
 **Was bedeutet die universelle Eigenschaft?**
 
-Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf $V\times W$ und dem Dualraum von $X = V\otimes W$ für ein Tensorprodukt $\otimes$ her. 
-Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen schon über einfache Linearformen auf $V\otimes W$.
+Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf $V\times W$ und dem Raum der linearen Abbildungen von $X = V\otimes W$ nach $Y$ für ein Tensorprodukt $\otimes$ her. 
+Für den Spezialfall $Y = \R$ ist letzterer gerade der algebraische Dualraum des Tensorproduktraums.
+Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen also schon über einfache Linearformen auf $V\otimes W$.
 
 Das folgende einfache Beispiel soll uns helfen diese Beziehung besser zu verstehen.
 
@@ -200,7 +202,7 @@ Im Folgenden betrachten wir wieder den Euklidischen Vektorraum $V=W=\R^2$ und zw
 Wie wir in {prf:ref}`ex:tensorproduktVarianten` festgestellt haben realisiert das dyadische Produkt 
 
 ```{math}
-\otimes \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes \R^2 = \R^{2 \times 2} =: X$
+\otimes \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes \R^2 = \R^{2 \times 2} =: X
 ```
 
 mit
@@ -272,45 +274,47 @@ Dafür hätten wir die Äquivalenz für **alle möglichen** Bilinearformen $\Phi
 
 ## Existenz und Konstruktion
 
-Wir können ein Tensorprodukt konkret konstruieren indem wir uns auf die Basis der Vektorräume $V$ und $W$ zurückziehen. Diese Tatsache formulieren wir in der folgenden Aussage.
+Wir stellen fest, dass es für zwei beliebige $\R$-Vektorräume $V$ und $W$ immer ein Tensorprodukt gibt, und dass wir dieses Tensorprodukt konkret konstruieren können indem wir uns auf die Basis der Vektorräume $V$ und $W$ zurückziehen. 
+Diese Tatsache formulieren wir in der folgenden Aussage.
 
 ````{prf:theorem}
-Für zwei reelle Vektorräume $V, W$ existiert stets mindestens ein Tensorprodukt $\otimes\in L^2(V\times W, V\otimes W)$.
+Für zwei reelle Vektorräume $V, W$ existiert stets mindestens ein Tensorprodukt $\otimes\in L^2(V\times W; V\otimes W)$.
 ````
 
 ````{prf:proof}
-Der folgende Beweis ist ein sogenannter konstruktiver Beweis, d.h., wir zeigen die Existenz eines Objekts indem wir es explizit angeben. Es gibt auch nicht-konstruktive Existenzbeweise.
+Der folgende Beweis ist ein sogenannter *konstruktiver Beweis*, d.h., wir zeigen die Existenz eines Objekts indem wir es explizit angeben. 
+Im Gegensatz hierzu gibt es auch nicht-konstruktive Existenzbeweise.
 
-Es sei $B^V = \{b_i^V: i\in I^V\}$ eine Basis von $V$ und analog $B^W = \{b_i^W: i\in I^W\}$  eine Basis von $W$ für Indexmengen $I^V, I^W$. Wir betrachten das kartesische Produkt 
+Es sei $B^V = \{b_i^V: i\in I^V\}$ eine Basis von $V$ und es sei analog $B^W = \{b_i^W: i\in I^W\}$ eine Basis von $W$ für zwei Indexmengen $I^V$ und $I^W$.
+Wir betrachten zunächst das kartesische Produkt der beiden Indexmengen
 
 ```{math}
 J := I^V \times I^W = \{(i,j): i\in I^V, j\in I^W\}.
 ```
 
-Es sei nun $X$ ein Vektorraum dessen Basis sich durch $J$ indizieren lässt, d.h., es existiert eine Menge 
+Es sei nun $X$ ein reeller Vektorraum dessen Basis sich durch $J$ indizieren lässt, das heißt es existiert eine Menge 
 
 ```{math}
-B^X = \{b_{ij}^X: (i,j)\in J\}
+B^X = \{b_{ij}^X: (i,j)\in J\},
 ```
 
-s.d. $B^X$ eine Basis von $X$ ist. Ein solcher Vektorraum existiert, da z.B. das kartesische Produkt $V\times W$ diese Eigenschaft erfüllt.
+so dass $B^X$ eine Hamel-Basis von $X$ ist.
+Ein solcher Vektorraum existiert immer, da zum Beispiel das kartesische Produkt $V\times W$ der beiden Vektorräume $V$ und $W$ diese Eigenschaft schon erfüllt.
 
-Wir definieren nun eine bilineare Abbildung $\otimes: V\times W\to X$ über 
+Wir definieren nun eine bilineare Abbildung $\otimes: V\times W \to X$ über 
 
 ```{math}
-b_i^V \otimes b_j^W := b_{ij}^X\quad\forall (i,j)\in J.
+b_i^V \otimes b_j^W := b_{ij}^X \quad \forall (i,j)\in J.
 ```
 
-Beachte, $\otimes$ ist durch die Definition auf $J$ eindeutig festgelegt, da für beliebige $(v,w)\in V\times W$ endlich viele Faktoren 
-$\alpha_{i_1},\ldots,\alpha_{i_m}$ und $\beta_{j_1},\ldots, \beta_{j_n}$ existieren s.d.
+Es sei darauf hingewiesen, dass $\otimes$ durch die Definition auf $J$ eindeutig festgelegt ist, da für beliebige $(v,w)\in V\times W$ endlich viele Koeffizienten 
+$\alpha_{i_1},\ldots,\alpha_{i_m}$ und $\beta_{j_1},\ldots, \beta_{j_n}$ existieren, so dass
 
 ```{math}
 \otimes(v,w) 
-&= 
-\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) 
-\\&= 
-\sum_{k=1}^n \sum_{l=1}^m \otimes\left(b_{i_k}^V, b_{j_l}^W\right)
-\\&=
+= 
+\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) = 
+\sum_{k=1}^n \sum_{l=1}^m \otimes\left(b_{i_k}^V, b_{j_l}^W\right) =
 \sum_{k=1}^n \sum_{l=1}^m b_{i_kj_l}^X.
 ```
 
