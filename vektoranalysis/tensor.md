@@ -132,7 +132,7 @@ Hierbei wollen wir uns zunächst auf einen Spezialfall einschränken, der ledigl
 Es ist wichtig zu verstehen, dass die folgenden Definitionen sich mit dem Konzept der $k$-Multilinearität in {ref}`s:multilinearformen` auf $k \in \N$ verschiedene $\R$-Vektorräume direkt verallgemeinern lassen.
 
 ````{prf:definition} Tensorprodukt
-:label: def:tensorprodukt
+:label: def:tensor
 
 Es seien $V$ und $W$ zwei reelle Vektorräume.
 Ein reeller Vektorraum $X$ heißt **Tensorproduktraum** falls eine bilineare Abbildung $\otimes:V\times W\rightarrow X$ existiert, so dass die folgende **universelle Eigenschaft** gilt:
@@ -154,7 +154,7 @@ Was ist jetzt also genau ein Tensorprodukt?
 
 **Das Tensorprodukt ist universell:**
 
-Wir haben in der {prf:ref}`def:tensorprodukt` das kartesische Produkt $\times$ benutzt welches eindeutig definiert ist. 
+Wir haben in der {prf:ref}`def:tensor` das kartesische Produkt $\times$ benutzt welches eindeutig definiert ist. 
 Im Gegensatz dazu gibt es jedoch nicht _ein_ Tensorprodukt $\otimes$ oder _einen_ Tensorproduktraum $V\otimes W$. 
 Wir haben die Freiheit $\otimes$ zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann $X = V\otimes W$ Tensorproduktraum.
 Derartige Konzepte nennt man in der Algebra _universell_.
@@ -378,6 +378,60 @@ Es seien $V,W$ zwei reelle Vektorräume und $\otimes_1,\otimes_2$ zwei Tensorpro
 
 ```{math}
 \otimes_2 = p\circ \otimes_1.
+```
+
+````
+
+**Das Tensorprodukt?**
+
+Die letzte Aussage zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf Vektorräumen $V,W$ zu definieren, diese stets isomorph zueinander sind. Deshalb spricht man auch von **dem** Tensorprodukt $V\otimes W$ was so klingt als gäbe es nur ein einziges. In der Tat gibt es zwar mehrere Tensorprodukte aber man kann sie alle miteinander identifizieren.
+
+Deshalb werden wir im folgendem auch von **dem** Tensorprodukt sprechen.
+
+### Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
+
+Die Definition über die universelle Eigenschaft erlaubt es uns relativ direkt folgende Isomorphismen zu erhalten.
+
+````{prf:lemma} Isomorphismen
+
+Es seien $V_1,V_2,V_3$ reelle Vektorräume, dann haben wir folgende Isomorphismen.
+
+1. $V_1\otimes V_2 \cong V_2\otimes V_1$,
+
+2. $(V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3)$,
+
+3. $\R \otimes V_1 \cong V_1$,
+
+4. $L(V_1, L(V_2, V_3))\cong L(V_1\otimes V_2, V_3)$.
+
+````
+
+````{prf:proof}
+Siehe Übung.
+````
+
+Die zweite Eigenschaft erlaubt es uns das Tensorprodukt über $k$-viele reelle Vektorräume $V_1,\ldots, V_k$ zu bilden, wir notieren
+
+```{math}
+\bigotimes_{i=1}^k=V_1\otimes\ldots\otimes V_k
+```
+
+und sehen, dass diese Objekt wohldefiniert ist. Insbesondere ist äquivalent das Tensorprodukt über $k$-Vektorräume mithilfe einer
+$k$-Multilinearform zu definieren anstatt der Bilinearform in {prf:ref}`def:tensor`.
+
+Die letzte Eigenschaft wird insbesondere wichtig um Tensorprodukte von Dualräumen zu charakterisieren. Dafür benötigen wir zusätzlich folgendes Prinzip, was man in der Algebra unter [Funktoren](https://de.wikipedia.org/wiki/Funktor_(Mathematik)) kennt. Konkret wollen wir nun für reelle Vektorräume $V_1,V_2, W_1, W_2$ das Tensorprodukt
+
+```{math}
+\mathrm{Hom}(V_1, W_1) \otimes \mathrm{Hom}(V_2, W_2)
+```
+
+untersuchen.
+
+````{prf:lemma}
+Es seinen $V_1,V_2, W_1,W_2$ reelle Vektorräume und $\phi_1\in \mathrm{Hom}(V_1, W_1), \phi_2 \in \mathrm{Hom}(V_2, W_2)$, dann existiert **genau ein** Tensorprodukt, s.d., 
+
+```{math}
+(\phi_1 \otimes \phi_2)
 ```
 
 ````
