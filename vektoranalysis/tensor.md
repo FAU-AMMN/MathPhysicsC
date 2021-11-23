@@ -1,23 +1,24 @@
 # Tensoren und Tensorprodukte
 
-In diesem Kapitel widmen wir uns einem wichtigen aber komplizierten Thema der Vektoranalysis, nämlich Tensoren und Tensorprodukten.
+In diesem Kapitel widmen wir uns einem für die Physik sehr wichtigen aber relativ abstrakten Thema der Vektoranalysis, nämlich *Tensoren* und *Tensorprodukten*.
 Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe [Wikipedia](https://de.wikipedia.org/wiki/Tensorprodukt)) weshalb es nicht leicht ist eine Einführung zu geben die gleichzeitig allgemein, aber auch verständlich ist. Da Tensoren aber eine wichtige Rolle in der Physik spielen werden wir uns hier damit beschäftigen.
 
 ## Motivation
 
-Wir betrachten zwei Beispiele aus der Physik, welche auf Tensoren zurückgreifen.
+Wir betrachten zunächst ein konkretes Anwendungsbeispiel aus der Physik, welches auf Tensoren zurückgreift.
+Hier wird der sogenannte *Cauchy Spannungstensor* verwendet.
 
-````{prf:remark}
-Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom latinischen _tendere_ (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.
+````{prf:remark} Begriffsherkunft
+Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom lateinischen _tendere_ (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.
 ````
-
-### Der Cauchy Spannungstensor
 
 ```{margin} Augustin Cauchy
 [Augustin-Louis Cauchy](https://de.wikipedia.org/wiki/Augustin-Louis_Cauchy) (Geboren 21. August 1789 in Paris; Gestorben 23. Mai 1857 in Sceaux) war ein französischer Mathematiker.
 ```
 
-Mechanische Spannung beschreibt die innere Beanspruchung und Kräfte in einem Volumen $V\subset\R^3$ die aufgrund einer äußeren Belastungen auftreten. Die grundlegende Idee ist das **Euler-Cauchy Stress Prinzip**, welches beschreibt, dass auf jede Schnittfläche $A\subset\R^2$ welche ein Volumen in zwei Teile trennt, von diesen zwei Komponenten eine Spannung auf $A$ ausgewirkt wird, welche durch den **Spannungsvektor** $\mathbf{T}^n$ beschrieben wird. Der Spannungsvektor ist hierbei von der Dimension "Kraft pro Fläche".
+Mechanische Spannung ist eine physikalische Größe, die die innere Beanspruchung und Kräfte in einem Volumen $V\subset\R^3$ angibt, welche aufgrund einer äußeren Belastungen auftreten.
+Die grundlegende Idee ist das **Euler-Cauchy Spannungsprinzip**, welches beschreibt, dass auf jede Schnittfläche $A\subset\R^2$, die ein Volumen in zwei Teile trennt, von diesen zwei Volumenteilen eine Spannung auf $A$ ausgeübt wird, welche durch einen sogenannten **Spannungsvektor** $\mathbf{T}^n$ beschrieben wird. 
+Der Komponenten des Spannungsvektors haben hierbei die Dimension "Kraft pro Fläche".
 
 ```{figure} ../img/stress_vector.png
 ---
@@ -31,16 +32,16 @@ Wie in {numref}`fig:stress` visualisiert teilt sich die Spannung in zwei Kompone
 
 **Normalspannung:**
 
-Dieser Teil des Spannungsvektor zeigt in Richtung der normalen $\mathbf{n}$ welche orthogonal auf der Schnittfläche stehen.
+Die Normalspannung $\sigma_n$ ist der Teil des Spannungsvektors, der in Richtung der Normalen $\mathbf{n}$ zeigt, welche orthogonal auf der Schnittfläche steht.
 
 **Scherspannung:**
 
-Dieser Teil des Spannungstensors ist parallel zur Schnittfläche.
+Die Scherspannung $\tau_n$ ist der Teil des Spannungstensors, der parallel zur Schnittfläche liegt.
 
-Man erkennt nun, dass die Spannung in $V$ nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt $P\in V$ ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein Tensorfeld $\mathbf{\sigma}(x)$ existiert, s.d.,
+Man erkennt nun, dass die Spannung in $V$ nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt $P\in V$ ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein linearer Operator $\mathbf{\sigma}(x)$ existiert, so dass
 
 ```{math}
-\mathbf{T}^{\mathbf{n}}(x) = \mathbf{n}\cdot \mathbf{\sigma}(x),
+T^{\mathbf{n}}(x) = \mathbf{n} \cdot \mathbf{\sigma}(x),
 ```
 
 d.h. in jedem Punkt $x\in V$ ist der Stressvektor linear im Normalenvektor $\mathbf{n}$.
@@ -53,19 +54,20 @@ name: "fig:stress-comp"
 Quelle: [Wikipedia; Spannungstensor](https://de.wikipedia.org/wiki/Spannungstensor).
 ```
 
-Hierfür betrachtet man einen freigeschnittenen Würfel wie in {numref}`fig:stress-comp` und definiert für die drei verschiedenen Flächen (orthogonal zu den Einheitsvektoren) den Stresstensor
+Der lineare Operator $\mathbf{\sigma}$ wird auch **Cauchy Spannungstensor** genannt.
+Um diesen besser zu verstehen betrachtet man für einen fixen Punkt $x$ des Volumens einen infinitesimal kleinen, freigeschnittenen Würfel wie in {numref}`fig:stress-comp`.
+Nun definieren wir für die drei verschiedenen Flächen (orthogonal zu den Einheitsvektoren $e_1, e_2$ und $e_3$) die Spannungsvektoren
 
 ```{math}
-\mathbf{T}^{e_i}:= \sum_{j=1}^3 \sigma_{ij} e_j.
+\mathbf{T}^{e_i}:= \sum_{j=1}^3 \sigma_{ij} e_j, \quad i \in \lbrace 1,2,3 \rbrace.
 ```
 
-So haben wir z.B. für $\mathbf{T}^{e_1}$ die Normalspannung gegeben durch $\sigma_{11} e_1$ und die zwei Scherspannungskomponenten $\sigma_{12} e_2, \sigma_{13} e_3$. Insgesamt erhält man neun Komponenten $\sigma_{ij}$ welche über die Definition
+So setzt sich beispielsweise der Spannungsvektor $\mathbf{T}^{e_1}$ zusammen aus der Summe der Normalspannung $\sigma_{11} e_1$ und den zwei Scherspannungskomponenten $\sigma_{12} e_2$ und $\sigma_{13} e_3$.
 
-```{math}
-\mathbf{\sigma} := \sum_{i=1}^3 e_i \otimes \mathbf{T}^{e_i} = \sum_{i=1}^3\sum_{j=1}^3 \sigma_{ij} (e_i\otimes e_j)
-```
+Insgesamt erhält man neun Spannungskomponenten $\sigma_{ij}$ für $i,j=1,2,3$ welche insgesamt den Spannungszustand im Punkt $x$ als Spannungsvektoren in Richtung der Einheitsvektoren vollständig beschreiben.
+Dies liegt daran, dass wir jeden Spannungsvektor in $x$ als Linearkombination der drei Spannungsvektoren $\mathbf{T}^{e_i}, i=1,2,3$ darstellen können.
 
-den Cauchy Stresstensor $\mathbf{\sigma}$ ergebene. Hierbei bezeichnet $\otimes$ das **dyadische Produkt** zweier Vektoren. Für $x\in\R^n,y\in\R^m$ definieren wir
+Wir führen nun eine *multilineare Abbildung* $\otimes \colon \R^n \times \R^m \rightarrow \R^{n \times m}$ für zwei beliebige Vektoren $x\in\R^n$ und $y\in\R^m$ ein, die das **dyadische Produkt** der Vektoren genannt wird und wie folgt definiert ist
 
 ```{math}
 x \otimes y := 
@@ -76,9 +78,50 @@ x_n y_1&\ldots& x_n y_m
 \end{pmatrix}.
 ```
 
-Wir werden später sehen, dass man die Idee $\sigma$ über das dyadische Produkt zu definieren abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.
+Fassen wir nun zeilenweise die Spannungsvektoren $\mathbf{T}^{e_i}, i=1,2,3$ in einer Matrix zusammen, so erhalten wir den Cauchy Spannungstensor $\mathbf{\sigma}$ für den Punkt $x$ des Volumens als
 
-### Quantenverschränkung
+```{math}
+:label: eq:cauchySpannungstensor
+\mathbf{\sigma} := 
+\begin{pmatrix}
+\sigma_{11} & \sigma_{12} & \sigma_{13} \\
+\sigma_{21} & \sigma_{22} & \sigma_{23} \\
+\sigma_{31} & \sigma_{32} & \sigma_{33}
+\end{pmatrix} 
+&= 
+\begin{pmatrix}
+\mathbf{T}^{e_1} \\
+\mathbf{T}^{e_2} \\
+\mathbf{T}^{e_3}
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\mathbf{T}^{e_1} \\
+0 \\
+0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\
+\mathbf{T}^{e_2} \\
+0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\
+0 \\
+\mathbf{T}^{e_3} \\
+\end{pmatrix}\\
+&=
+\sum_{i=1}^3 e_i \otimes \mathbf{T}^{e_i} = \sum_{i=1}^3 e_i\otimes ( \sum_{j=1}^3 \sigma_{ij} e_j) =
+\sum_{i=1}^3\sum_{j=1}^3 \sigma_{ij} (e_i\otimes e_j).
+```
+
+Wir werden später sehen, dass man die Idee, den Operator $\sigma$ über das dyadische Produkt zu definieren, abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.
+
+````{prf:remark}
+In der Tat handelt es sich bei dem Operator $\sigma \colon \R^3 \rightarrow \R^3$ in [](eq:cauchySpannungstensor) nicht nur um einen Tensor, sondern genauer um ein **Tensorfeld**, dass jedem Punkt $x$ des Volumens einen Spannungstensor zuordnet.
+````
 
 ## Das Tensorprodukt
 
@@ -116,8 +159,6 @@ Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eig
 Wir können ein Tensorprodukt konkret konstruieren indem wir uns auf die Basis der Vektorräume $V$ und $W$ zurückziehen. Diese Tatsache formulieren wir in der folgenden Aussage.
 
 ````{prf:theorem}
-:label: thm:tensorexist
-
 Für zwei reelle Vektorräume $V, W$ existiert stets mindestens ein Tensorprodukt $\otimes\in L^2(V\times W, V\otimes W)$.
 ````
 
@@ -150,11 +191,11 @@ $\alpha_{i_1},\ldots,\alpha_{i_m}$ und $\beta_{j_1},\ldots, \beta_{j_n}$ existie
 ```{math}
 \otimes(v,w) 
 &= 
-\otimes\big(\sum_{k=1}^n \alpha_{i_k}\,b_{i_k}^V, \sum_{l=1}^m  \beta_{j_l}\,b_{j_l}^W\big) 
+\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) 
 \\&= 
-\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k}\,\beta_{j_l}\, \otimes\left(b_{i_k}^V, b_{j_l}^W\right)
+\sum_{k=1}^n \sum_{l=1}^m \otimes\left(b_{i_k}^V, b_{j_l}^W\right)
 \\&=
-\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k}\,\beta_{j_l}\, b_{i_kj_l}^X.
+\sum_{k=1}^n \sum_{l=1}^m b_{i_kj_l}^X.
 ```
 
 Wir müssen nun die universelle Eigenschaft zeigen, sei dazu $\phi\in L^2(V\times W, Y)$ eine Bilinearform auf einen reellen Vektorraum $Y$, dann können wir eine Linearform auf $p:X\to Y$ definieren durch (analog reicht es die Definition auf den Basiselementen anzugeben)
@@ -213,7 +254,7 @@ Da wir aber die Basis von $V\otimes_2 W$ über Elemente $\otimes_2(b_i^V, b_j^W)
 p_1\circ p_2(\otimes(b_i^V,b_j^W)) = \otimes(b_i^V, b_j^W)
 ```
 
-wissen wir dass $p_1\circ p_2 = \mathrm{Id}$. Das folgt da $p_1\circ p_2$ als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist.
+wissen wir dass $p_1\circ p_2 = \mathrm{Id}$. Das folgt da $p_1\circ p_2$ als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist. 
 Analog folgt $p_2\circ p_1 = \mathrm{Id}$ und somit sind $p_1, p_2$ isomorph zueinander. D.h. wir haben insgesamt gezeigt, dass verschiedene Tensorprodukte stets isomorph zueinander sind.
 
 ````{prf:lemma}
