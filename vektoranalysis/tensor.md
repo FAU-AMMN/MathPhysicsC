@@ -277,7 +277,9 @@ Dafür hätten wir die Äquivalenz für **alle möglichen** Bilinearformen $\Phi
 Wir stellen fest, dass es für zwei beliebige $\R$-Vektorräume $V$ und $W$ immer ein Tensorprodukt gibt, und dass wir dieses Tensorprodukt konkret konstruieren können indem wir uns auf die Basis der Vektorräume $V$ und $W$ zurückziehen. 
 Diese Tatsache formulieren wir in der folgenden Aussage.
 
-````{prf:theorem}
+````{prf:theorem} Existenz des Tensorprodukts
+:label: thm:existenzTensorprodukt
+
 Für zwei reelle Vektorräume $V, W$ existiert stets mindestens ein Tensorprodukt $\otimes\in L^2(V\times W; V\otimes W)$.
 ````
 
@@ -307,14 +309,14 @@ Wir definieren nun eine bilineare Abbildung $\otimes: V\times W \to X$ über
 \otimes (b_i^V, b_j^W) = b_i^V \otimes b_j^W := b_{ij}^X \quad \forall (i,j)\in J.
 ```
 
-Es sei darauf hingewiesen, dass $\otimes$ durch die Definition auf $J$ eindeutig festgelegt ist, da für beliebige $(v,w)\in V\times W$ endlich viele Koeffizienten 
-$\alpha_{i_1},\ldots,\alpha_{i_n}$ und $\beta_{j_1},\ldots, \beta_{j_m}$ existieren, so dass wir für zwei Vektoren $v\in V$ und $w \in W$ die folgende Darstellung erhalten
+Es sei darauf hingewiesen, dass die bilineare Abbildung $\otimes$ durch eine Definition über die Indexmenge $J$ eindeutig festgelegt ist.
+Dies liegt daran, dass für beliebige Paare $(v,w)\in V\times W$ endlich viele Koeffizienten $\alpha_{i_1},\ldots,\alpha_{i_n}$ und $\beta_{j_1},\ldots, \beta_{j_m}$ existieren, so dass für die Vektoren $v \in V$ und $w \in W$ eine Darstellung in den jeweiligen Hamel-Basen existiert mit
 
 ```{math}
 v = \sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \quad w = \sum_{l=1}^m \beta_{j_l} b_{j_l}^W.
 ```
 
-Durch diese Darstellung erhalten wir für die bilineare Abbildung nun
+Durch diese Darstellung erhalten wir für die bilineare Abbildung $\otimes: V\times W \to X$ nun eine **explizite Vorschrift** als
 ```{math}
 \otimes(v,w) 
 = 
@@ -323,40 +325,46 @@ Durch diese Darstellung erhalten wir für die bilineare Abbildung nun
 \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} b_{i_kj_l}^X.
 ```
 
-Wir müssen nun die universelle Eigenschaft zeigen, sei dazu $\phi\in L^2(V\times W, Y)$ eine Bilinearform auf einen reellen Vektorraum $Y$, dann können wir eine Linearform auf $p:X\to Y$ definieren durch (analog reicht es die Definition auf den Basiselementen anzugeben)
+Wir müssen nun noch die **universelle Eigenschaft** der bilinearen Abbildung $\otimes$ nachweisen, um zu zeigen, dass es sich um ein Tensorprodukt handelt.
+Sei dazu $\phi\in L^2(V\times W; Y)$ eine Bilinearform auf einen beliebigen reellen Vektorraum $Y$.
+Dann können wir eine Linearform auf $p: X\to Y$ explizit definieren durch Angabe ihrer Wirkung auf die Basiselemente mit
 
 ```{math}
-p(b_{ij}^X) := \phi(b_i^V, b_j^W).
+p(b_{ij}^X) := \phi(b_i^V, b_j^W) \quad \forall (i,j) \in J.
 ```
 
-Dann gilt nämlich, unter Ausnutzung der Linearität von $p$ und obiger Rechnung, dass 
+Dann gilt nämlich, unter Ausnutzung der Linearität von $p$ und der obigen Rechnung, dass gilt
 
 ```{math}
-p(\otimes(v,w)) 
-&=
-\sum_{k=1}^n \sum_{l=1}^m p(b_{i_kj_l}^X)
-\\&=
-\sum_{k=1}^n \sum_{l=1}^m \phi\left(b_{i_k}^V, b_{j_l}^W\right)
-\\&
-\phi\big(\sum_{k=1}^n  b_{i_k}^V,\sum_{l=1}^m b_{j_l}^W\big)
-\\&
-\phi(v,w)
+p(\otimes(v,w))
+&= p \left( \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} b_{i_kj_l}^X \right)
+= \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} p(b_{i_kj_l}^X) \\
+&= \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} \phi\left(b_{i_k}^V, b_{j_l}^W\right)
+= \phi\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V,\sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big)
+= \phi(v,w)
 ```
 
-und somit gilt die universelle Eigenschaft. Insbesondere, da $p$ durch die obige Definition eindeutig festgelegt ist.
+Wir sehen also, dass $\otimes$ die universelle Eigenschaft erfüllt und zwar insbesondere dadurch, dass die Linearform $p$ durch die obige Definition eindeutig festgelegt ist.
 
 ````
 
-Als Korollar erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann. Hieran sieht man qualitativ den Unterschied zwischen $V\otimes W$ und $V\otimes W$.
+Als Korollar aus {prf:ref}`thm:existenzTensorprodukt` erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann. 
+Hieran sieht man den qualitativen Unterschied zwischen $V \times W$ und $V\otimes W$.
 
 ````{prf:corollary}
-Für zwei reelle Vektorräume $V,W$ mit Basen $B^V = \{b_i^V: i\in I^V\}, B^W = \{b_i^W: i\in I^W\}$ und ein Tensorprodukt $\otimes:V\times W\to V\otimes W$ ist 
+Für zwei reelle Vektorräume $V$ und $W$ mit zugehörigen Basen 
 
 ```{math}
-\{b_i^V\otimes b_j^W: i\in I^V, j\in I^W\}
+B^V = \{b_i^V: i\in I^V\}, \quad B^W = \{b_i^W: i\in I^W\},
 ```
 
-eine Basis von $V\otimes W$.
+ und einem Tensorprodukt $\otimes:V\times W \to V\otimes W$ ist 
+
+```{math}
+B^X \, \coloneqq \, \{b_i^V \otimes b_j^W: i\in I^V, j\in I^W\}
+```
+
+eine Basis von $X = V\otimes W$.
 ````
 
 Wir wissen nun, dass mindestens ein Tensorprodukt existiert, es stellt sich also die Frage inwiefern sich verschiedene derartige Abbildungen auf den gleichen Vektorräumen $V,W$ unterschieden. Seien dazu $\otimes_1, \otimes_2$ je zwei Tensorprodukte auf $V\times W$. Wegen der universellen Eigenschaft gibt es lineare Abbildungen $p_1: V\otimes_1 W\to W\otimes_2 V$ und $p_2: V\otimes_2 W\to W\otimes_1 V$, s.d.,
@@ -397,7 +405,7 @@ Die letzte Aussage zeigt also, dass obwohl es verschiedene Arten gibt Tensorprod
 
 Deshalb werden wir im folgendem auch von **dem** Tensorprodukt sprechen.
 
-### Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
+## Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
 
 Die Definition über die universelle Eigenschaft erlaubt es uns relativ direkt folgende Isomorphismen zu erhalten.
 
