@@ -257,10 +257,10 @@ Für diesen Vektorraum können wir eine spezielle Basis angeben, wie das folgend
 ````{prf:lemma} Duale Basis
 :label: lem:dualeBasis
 Es sei $\V$ ein $n$-dimensionaler $\R$-Vektorraum mit einer endlichen Basis $B = (b_1,\ldots,b_n)$.
-Für beliebige Vektoren $z \in V$ bilden die Abbildungen $\eta_i:\V\rightarrow\R$ für $i=1,\ldots,n$ mit
+Für beliebige Vektoren $z \in V$ bilden die Abbildungen $\eta_j:\V\rightarrow\R$ für $j=1,\ldots,n$ mit
 
 ```{math}
-\eta_i(z) := \eta_i\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_i
+\eta_j(z) := \eta_j\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_j
 ```
 
 eine Basis des algebraischen Dualraums $\V^\ast$.
@@ -269,7 +269,7 @@ Diese spezielle Basis wird auch die **duale Basis** zur Basis $B$ genannt.
 ````
 
 ````{prf:proof}
-Wir zeigen zunächst, dass $\eta_i\in\V^\ast$ für $i=1,\ldots,n$. 
+Wir zeigen zunächst, dass $\eta_j\in\V^\ast$ für $j=1,\ldots,n$. 
 Dazu seien $x,y\in\V$ beliebige Vektoren.
 Dann existieren Koeffizienten $\alpha_i^x,\alpha_i^y \in \R$ für $i=1,\ldots,n$, so dass es eine eindeutige Darstellung als Linearkombination der Basisvektoren gibt mit
 
@@ -280,25 +280,25 @@ x = \sum_{i=1}^n \alpha_i^x b_i, \qquad y = \sum_{i=1}^n \alpha_i^y b_i.
 Somit haben wir also für die Summe der Vektoren
 
 ```{math}
-\eta_i(x+y) &= 
-\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i + \sum_{i=1}^n \alpha_i^y b_i\right) = 
-\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i + \alpha_i^y b_i\right) = 
-\eta_i\left(\sum_{i=1}^n (\alpha_i^x + \alpha_i^y) b_i\right) 
+\eta_j(x+y) &= 
+\eta_j\left(\sum_{i=1}^n \alpha_i^x b_i + \sum_{i=1}^n \alpha_i^y b_i\right) = 
+\eta_j\left(\sum_{i=1}^n \alpha_i^x b_i + \alpha_i^y b_i\right) = 
+\eta_j\left(\sum_{i=1}^n (\alpha_i^x + \alpha_i^y) b_i\right) 
 \\&= \alpha_i^x + \alpha_i^y = 
-\eta_i\left(\sum_{i=1}^n \alpha_i^x b_i\right)  + \eta_i\left(\sum_{i=1}^n \alpha_i^y b_i\right) = 
-\eta_i(x) + \eta_i(y).
+\eta_j\left(\sum_{i=1}^n \alpha_i^x b_i\right)  + \eta_j\left(\sum_{i=1}^n \alpha_i^y b_i\right) = 
+\eta_j(x) + \eta_j(y).
 ```
 
 Weiterhin gilt für beliebige Skalare $\lambda\in\R$ 
 
 ```{math}
-\eta_i(\lambda x) = \eta_i\left(\lambda \sum_{i=1}^n \alpha_i^x b_i\right) = 
-\eta_i\left(\sum_{i=1}^n (\lambda \alpha_i^x) b_i\right) =
+\eta_j(\lambda x) = \eta_j\left(\lambda \sum_{i=1}^n \alpha_i^x b_i\right) = 
+\eta_j\left(\sum_{i=1}^n (\lambda \alpha_i^x) b_i\right) =
 \lambda \alpha_i^x =
-\lambda \eta_i(x).
+\lambda \eta_j(x).
 ```
 
-Damit haben wir also gezeigt, dass die Elemente der dualen Basis $\eta_i$ linear sind und somit gilt $\eta_i \in V^\ast$ für $i=1,\ldots,n$. 
+Damit haben wir also gezeigt, dass die Elemente der dualen Basis linear sind und somit gilt $\eta_j \in V^\ast$ für $j=1,\ldots,n$. 
 
 Sei nun $\phi\in \V^\ast$, dann gilt 
 
@@ -309,7 +309,7 @@ Sei nun $\phi\in \V^\ast$, dann gilt
 
 insbesondere gilt also $\phi = \sum_{i=1}^n \phi(b_i) \eta_i$.
 
-Somit bilden die Abbildungen $\eta_i$ ein Erzeugendensystem von $V^\ast$, da jede lineare Abbildung $\phi \in V^\ast$ als Linearkombination dargestellt werden kann. 
+Somit bilden die Abbildungen $\eta_j, j=1,\ldots, n$ ein Erzeugendensystem von $V^\ast$, da jede lineare Abbildung $\phi \in V^\ast$ als Linearkombination dargestellt werden kann. 
 
 Um zu zeigen, dass es sogar um eine Basis des algebraischen Dualraums handelt, müssen wir noch zeigen, dass das Nullelement des Vektorraums eine eindeutige Darstellung besitzt, da dies impliziert, dass die Elemente des Erzeugendensystems linear unabhängig sind.
 Seien also Koeffizienten $a_i\in\R$ gegeben, so dass $0 = \sum_{i=1}^n a_i \eta_i$ die Nullabbildung realisiert.
@@ -329,7 +329,7 @@ Folgende Bemerkungen wollen wir zum gerade diskutierten Lemma festhalten.
 Die Vektorräume sind also isomorph zueinander.
 
 2\. Die Aussage des {prf:ref}`lem:dualeBasis` zur dualen Basis lässt sich ebenfalls auf den Fall eines **unendlich-dimensionalen** Vektorraums übertragen.
-Hierfür erinnern wir daran, dass für einen Vektorraum $V$ stets eine Basis $B^V = \{b_i^v:i\in I\}\subset V$ existiert, wobei $I$ eine (nicht notwendigerweise endliche) Indexmenge ist.
+Hierfür erinnern wir daran, dass für einen Vektorraum $V$ stets eine Basis $B = \{b_i:i\in I\}\subset V$ existiert, wobei $I$ eine (nicht notwendigerweise endliche) Indexmenge ist.
 Insbesondere bemerken wir, dass wir hier von einer **Hamelbasis** sprechen, d.h., für jedes Element $v\in V$ gibt es eindeutig bestimmte Koeffizienten $\alpha_i, i\in I$, so dass gilt
 
 ```{math}
@@ -354,7 +354,7 @@ Sei $V = \R^n$ der Euklidische Vektorraum ausgestattet mit der Standard Einheits
 Dann lässt sich jeder Vektor $x \in V$ eindeutig als Linearkombination der Einheitsvektoren schreiben mit
 
 ```{math}
-x = \sum_{i=1} \alpha_i^x e_i = \sum_{i=1} x_i e_i.
+x = \sum_{i=1}^n \alpha_i^x e_i = \sum_{i=1}^n x_i e_i.
 ```
 
 Wir sehen also ein, dass die Koeffizienten $\alpha_i^x$ gerade die Einträge des Vektors $x$ selbst sind.
@@ -362,15 +362,15 @@ Da die duale Basis des algebraischen Dualraums $V^\ast$ zur Basis $B$ nach {prf:
 
 ```{math}
 \eta_j(x) = 
-\eta_j \left( \sum_{i=1} \alpha_i^x e_i \right) = 
-\langle e_j, \sum_{i=1} x_i e_i\rangle =
-\sum_{i=1} x_i \underbrace{\langle e_j, e_i\rangle}_{= \delta_{ij}} =  
+\eta_j \left( \sum_{i=1}^n \alpha_i^x e_i \right) = 
+\langle e_j, \sum_{i=1}^n x_i e_i\rangle =
+\sum_{i=1}^n x_i \underbrace{\langle e_j, e_i\rangle}_{= \delta_{ij}} =  
 x_j = \alpha_j^x, \quad \forall j=1,\ldots,n.
 ```
 
 ````
 
-Wir halten abschließend fest, dass sich der **Bidualraum** $(V^\ast)^\ast$, d.h., der duale Raum des Dualraums $V^\ast$, im endlich-dimensionalen Fall leicht charakterisieren lässt.
+Wir halten abschließend fest, dass sich der **Bidualraum** $V^{\ast\ast} := (V^\ast)^\ast$, d.h., der duale Raum des Dualraums $V^\ast$, im endlich-dimensionalen Fall leicht charakterisieren lässt.
 
 ````{prf:remark}
 :label: rem:doubledual
