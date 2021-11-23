@@ -1,3 +1,4 @@
+(s:multilinearformen)=
 # Multilinearformen
 
 In diesem Abschnitt wollen wir die Definition der sogenannten *Multilinearformen* einführen.

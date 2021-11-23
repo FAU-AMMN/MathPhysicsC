@@ -17,7 +17,7 @@ Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingefü
 ```
 
 Mechanische Spannung ist eine physikalische Größe, die die innere Beanspruchung und Kräfte in einem Volumen $V\subset\R^3$ angibt, welche aufgrund einer äußeren Belastungen auftreten.
-Die grundlegende Idee ist das **Euler-Cauchy Spannungsprinzip**, welches beschreibt, dass auf jede Schnittfläche $A\subset\R^2$, die ein Volumen in zwei Teile trennt, von diesen zwei Volumenteilen eine Spannung auf $A$ ausgeübt wird, welche durch einen sogenannten **Spannungsvektor** $\mathbf{T}^n$ beschrieben wird. 
+Die grundlegende Idee ist das **Euler-Cauchy Spannungsprinzip**, welches beschreibt, dass auf jede Schnittfläche $A\subset\R^2$, die ein Volumen in zwei Teile trennt, von diesen zwei Volumenteilen eine Spannung auf $A$ ausgeübt wird, welche durch einen sogenannten **Spannungsvektor** $\mathbf{T}^{(n)}$ beschrieben wird. 
 Der Komponenten des Spannungsvektors haben hierbei die Dimension "Kraft pro Fläche".
 
 ```{figure} ../img/stress_vector.png
@@ -38,13 +38,13 @@ Die Normalspannung $\sigma_n$ ist der Teil des Spannungsvektors, der in Richtung
 
 Die Scherspannung $\tau_n$ ist der Teil des Spannungstensors, der parallel zur Schnittfläche liegt.
 
-Man erkennt nun, dass die Spannung in $V$ nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt $P\in V$ ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein linearer Operator $\mathbf{\sigma}(x)$ existiert, so dass
+Man erkennt nun, dass die Spannung in $V$ nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt $x\in V$ ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein linearer Operator $\mathbf{\sigma}(x)$ existiert, so dass
 
 ```{math}
-T^{\mathbf{n}}(x) = \mathbf{n} \cdot \mathbf{\sigma}(x),
+\mathbf{T}^{(n)}(x) = \mathbf{\sigma}(x) \cdot n,
 ```
 
-d.h. in jedem Punkt $x\in V$ ist der Stressvektor linear im Normalenvektor $\mathbf{n}$.
+d.h. in jedem Punkt $x\in V$ ist der Stressvektor linear im Normalenvektor $n$.
 
 ```{figure} ../img/stress_tensor_comp.png
 ---
@@ -59,13 +59,13 @@ Um diesen besser zu verstehen betrachtet man für einen fixen Punkt $x$ des Volu
 Nun definieren wir für die drei verschiedenen Flächen (orthogonal zu den Einheitsvektoren $e_1, e_2$ und $e_3$) die Spannungsvektoren
 
 ```{math}
-\mathbf{T}^{e_i}:= \sum_{j=1}^3 \sigma_{ij} e_j, \quad i \in \lbrace 1,2,3 \rbrace.
+\mathbf{T}^{(e_i)}:= \sum_{j=1}^3 \sigma_{ij} e_j, \quad i \in \lbrace 1,2,3 \rbrace.
 ```
 
-So setzt sich beispielsweise der Spannungsvektor $\mathbf{T}^{e_1}$ zusammen aus der Summe der Normalspannung $\sigma_{11} e_1$ und den zwei Scherspannungskomponenten $\sigma_{12} e_2$ und $\sigma_{13} e_3$.
+So setzt sich beispielsweise der Spannungsvektor $\mathbf{T}^{(e_1)}$ zusammen aus der Summe der Normalspannung $\sigma_{11} e_1$ und den zwei Scherspannungskomponenten $\sigma_{12} e_2$ und $\sigma_{13} e_3$.
 
 Insgesamt erhält man neun Spannungskomponenten $\sigma_{ij}$ für $i,j=1,2,3$ welche insgesamt den Spannungszustand im Punkt $x$ als Spannungsvektoren in Richtung der Einheitsvektoren vollständig beschreiben.
-Dies liegt daran, dass wir jeden Spannungsvektor in $x$ als Linearkombination der drei Spannungsvektoren $\mathbf{T}^{e_i}, i=1,2,3$ darstellen können.
+Dies liegt daran, dass wir jeden Spannungsvektor in $x$ als Linearkombination der drei Spannungsvektoren $\mathbf{T}^{(e_i)}, i=1,2,3$ darstellen können.
 
 Wir führen nun eine *multilineare Abbildung* $\otimes \colon \R^n \times \R^m \rightarrow \R^{n \times m}$ für zwei beliebige Vektoren $x\in\R^n$ und $y\in\R^m$ ein, die das **dyadische Produkt** der Vektoren genannt wird und wie folgt definiert ist
 
@@ -78,10 +78,11 @@ x_n y_1&\ldots& x_n y_m
 \end{pmatrix}.
 ```
 
-Fassen wir nun zeilenweise die Spannungsvektoren $\mathbf{T}^{e_i}, i=1,2,3$ in einer Matrix zusammen, so erhalten wir den Cauchy Spannungstensor $\mathbf{\sigma}$ für den Punkt $x$ des Volumens als
+Fassen wir nun zeilenweise die Spannungsvektoren $\mathbf{T}^{(e_i)}, i=1,2,3$ in einer Matrix zusammen, so erhalten wir den Cauchy Spannungstensor $\mathbf{\sigma}$ für den Punkt $x$ des Volumens als
 
 ```{math}
 :label: eq:cauchySpannungstensor
+
 \mathbf{\sigma} := 
 \begin{pmatrix}
 \sigma_{11} & \sigma_{12} & \sigma_{13} \\
@@ -90,67 +91,184 @@ Fassen wir nun zeilenweise die Spannungsvektoren $\mathbf{T}^{e_i}, i=1,2,3$ in 
 \end{pmatrix} 
 &= 
 \begin{pmatrix}
-\mathbf{T}^{e_1} \\
-\mathbf{T}^{e_2} \\
-\mathbf{T}^{e_3}
+\mathbf{T}^{(e_1)} \\
+\mathbf{T}^{(e_2)} \\
+\mathbf{T}^{(e_3)}
 \end{pmatrix}
 = 
 \begin{pmatrix}
-\mathbf{T}^{e_1} \\
+\mathbf{T}^{(e_1)} \\
 0 \\
 0
 \end{pmatrix}
 +
 \begin{pmatrix}
 0 \\
-\mathbf{T}^{e_2} \\
+\mathbf{T}^{(e_2)} \\
 0
 \end{pmatrix}
 +
 \begin{pmatrix}
 0 \\
 0 \\
-\mathbf{T}^{e_3} \\
+\mathbf{T}^{(e_3)} \\
 \end{pmatrix}\\
 &=
-\sum_{i=1}^3 e_i \otimes \mathbf{T}^{e_i} = \sum_{i=1}^3 e_i\otimes ( \sum_{j=1}^3 \sigma_{ij} e_j) =
+\sum_{i=1}^3 e_i \otimes \mathbf{T}^{(e_i)} = \sum_{i=1}^3 e_i\otimes ( \sum_{j=1}^3 \sigma_{ij} e_j) =
 \sum_{i=1}^3\sum_{j=1}^3 \sigma_{ij} (e_i\otimes e_j).
+
 ```
 
 Wir werden später sehen, dass man die Idee, den Operator $\sigma$ über das dyadische Produkt zu definieren, abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.
 
 ````{prf:remark}
-In der Tat handelt es sich bei dem Operator $\sigma \colon \R^3 \rightarrow \R^3$ in [](eq:cauchySpannungstensor) nicht nur um einen Tensor, sondern genauer um ein **Tensorfeld**, dass jedem Punkt $x$ des Volumens einen Spannungstensor zuordnet.
+In der Tat handelt es sich bei dem Operator $\sigma \colon \R^3 \rightarrow \R^3$ in {eq}`eq:cauchySpannungstensor` nicht nur um einen Tensor, sondern genauer um ein **Tensorfeld**, dass jedem Punkt $x$ des Volumens einen Spannungstensor zuordnet.
 ````
 
 ## Das Tensorprodukt
 
-Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es später konkret realisieren.
+Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es an späterer Stelle für konkrete Realisierungen diskutieren.
+Hierbei wollen wir uns zunächst auf einen Spezialfall einschränken, der lediglich *zwei Vektorräume* berücksichtigt, um die zu Grunde liegenden wichtigen Konzepte klarer herauszustellen.
+Es ist wichtig zu verstehen, dass die folgenden Definitionen sich mit dem Konzept der $k$-Multilinearität in {ref}`s:multilinearformen` auf $k \in \N$ verschiedene $\R$-Vektorräume direkt verallgemeinern lassen.
 
 ````{prf:definition} Tensorprodukt
-Es seien $V,W$ zwei reelle Vektorräume. Ein reeler Vektorraum $X$ heißt **Tensorproduktraum** falls eine bilineare Abbildung $\otimes:V\times W\rightarrow X$ existiert, s.d., die folgende **universelle Eigenschaft** gilt:
+:label: def:tensorprodukt
 
-Für jede Bilinearform $\phi\in L^2(V\times W, Y)$ in einen beliebigen reellen Vektorraum $Y$, existiert eine eindeutige lineare Abbildung 
-$p \in L^1(X, Y)$, s.d. gilt 
+Es seien $V$ und $W$ zwei reelle Vektorräume.
+Ein reeller Vektorraum $X$ heißt **Tensorproduktraum** falls eine bilineare Abbildung $\otimes:V\times W\rightarrow X$ existiert, so dass die folgende **universelle Eigenschaft** gilt:
+
+Für jede Bilinearform $\phi\in L^2(V\times W; Y)$ in einen beliebigen reellen Vektorraum $Y$, existiert eine eindeutige lineare Abbildung 
+$p \in L^1(X; Y)$, so dass gilt 
 
 ```{math}
-\phi(v,w) = p((v\otimes w)) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.
+:label: eq:universell
+\phi(v,w) = p(v\otimes w) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.
 ```
 
-In diesem Fall schreibt man auch $X = V\otimes X$, $\otimes$ heißt Tensorprodukt und zusätzlich ist die Schreibweise $\otimes(v,w)=:v\otimes w$ üblich.
+In diesem Fall schreibt man auch $X = V \otimes W$.
+Wir nennen die bilineare Abbildung $\otimes$ **Tensorprodukt** und verwenden häufig für sie die Infix-Schreibweise $\otimes(v,w)=:v\otimes w$.
 ````
 
-**Was bedeutet das?**
-
-Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. Was ist jetzt also ein Tensorprodukt?
+Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. 
+Was ist jetzt also genau ein Tensorprodukt?
 
 **Das Tensorprodukt ist universell:**
 
-Wir haben benutzten in der Definition oben das kartesische Produkt $\times$ welches eindeutig definiert ist. Im Gegensatz dazu gibt es nicht _ein_ Tensorprodukt $\otimes$ oder _einen_ Tensorproduktraum $V\otimes W$. Wir haben die Freiheit $\otimes$ zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann $V\otimes W$ Tensorproduktraum. Derartige Konzepte nennt man in der Algebra _universell_.
+Wir haben in der {prf:ref}`def:tensorprodukt` das kartesische Produkt $\times$ benutzt welches eindeutig definiert ist. 
+Im Gegensatz dazu gibt es jedoch nicht _ein_ Tensorprodukt $\otimes$ oder _einen_ Tensorproduktraum $V\otimes W$. 
+Wir haben die Freiheit $\otimes$ zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann $X = V\otimes W$ Tensorproduktraum.
+Derartige Konzepte nennt man in der Algebra _universell_.
+Betrachten wir hierzu ein kurzes Beispiel für unterschiedliche Realisierungen eines Tensorproduktes.
+
+````{prf:example} Varianten eines Tensorprodukts
+:label: ex:tensorproduktVarianten
+
+Wir betrachten in diesem Beispiel den Euklidischen Vektorraum $V=W=\R^2$ und zwei Vektoren $x, y \in \R^2$.
+Nehmen wir zunächst das Tensorprodukt, dass durch das **dyadische Produkt** $\otimes : \R^2 \times \R^2 \rightarrow \R^{2 \times 2}$ gegeben ist mit
+
+```{math}
+x \otimes y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}.
+```
+
+Man sieht ein, dass der zugehörige *Tensorproduktraum* also $\R^{2 \times 2} = \R^2 \otimes \R^2$ sein muss.
+Anderseits erhält man den gleichen Tensorproduktraum, wenn man ein **alternatives Tensorprodukt** $\otimes^*$ zum dyadischen Produkt definiert, welches lediglich die Reihenfolge der Komponenten von $y$ vertauscht mit
+
+```{math}
+x \otimes^* y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_2 & x_1y_1 \\
+x_2y_2 & x_2y_1
+\end{pmatrix}.
+```
+
+````
 
 **Was bedeutet die universelle Eigenschaft?**
 
-Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf $V\times W$ und dem Dualraum von $V\otimes W$ her. Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen schon über einfache Linearformen auf $V\otimes W$.
+Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf $V\times W$ und dem Dualraum von $X = V\otimes W$ für ein Tensorprodukt $\otimes$ her. 
+Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen schon über einfache Linearformen auf $V\otimes W$.
+
+Das folgende einfache Beispiel soll uns helfen diese Beziehung besser zu verstehen.
+
+````{prf:example} Universelle Eigenschaft
+:label: ex:universelleEigenschaft
+Im Folgenden betrachten wir wieder den Euklidischen Vektorraum $V=W=\R^2$ und zwei Vektoren $x, y \in \R^2$.
+Wie wir in {prf:ref}`ex:tensorproduktVarianten` festgestellt haben realisiert das dyadische Produkt 
+
+```{math}
+\otimes \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes \R^2 = \R^{2 \times 2} =: X$
+```
+
+mit
+
+```{math}
+x \otimes y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}.
+```
+
+ein *Tensorprodukt* der Vektorräume $V=W=\R^2$.
+Wegen der *universellen Eigenschaft* muss nun gelten, dass für jede Bilinearform $\Phi \in L^2(V \times W; Y)$ für beliebige $\R$-Vektorräume $Y$ eine eindeutige lineare Abbildung $p \in L^1(X; Y)$ existiert, die äquivalent im Sinne von {eq}`eq:universell` ist.
+
+Nehmen wir also beispielsweise das Skalarprodukt $\langle \cdot, \cdot \rangle \colon V \times W \rightarrow \R$ als eine mögliche Bilinearform $\Phi \in L^2(V \times W; Y)$ mit
+
+```{math}
+\langle x, y \rangle = x^T \cdot y = x_1y_1 + x_2y_2.
+```
+
+Wir müssen nun einen linearen Operator $p \in L^1(X; Y)$ finden, der eine äquivalente Berechnung wie das Skalarprodukt auf dem Tensorproduktraum $X = \R^{2 \times 2}$, der durch das dyadische Produkt induziert wird, durchführt.
+Hierzu wählen wir die Spur $p(A) \coloneqq \operatorname{Spur}(A)$ einer Matrix $A \in \R^{2 \times 2}$, denn diese ist **linear** und es gilt:
+
+```{math}
+\operatorname{Spur}
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{pmatrix}
+= a_{11} + a_{22}.
+```
+
+Überprüfen wir mit dieser Wahl nun die **universelle Eigenschaft des dyadischen Produkts**, so erhalten wir
+
+```{math}
+\Phi(x,y) = \langle x, y \rangle = x_1y_1 + x_2y_2 = \operatorname{Spur}
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}
+ = \operatorname{Spur}(x \otimes y) = p(x \otimes y).
+```
+
+Es sei angemerkt, dass wir nicht gezeigt haben, dass der Spur-Operator der *einzige* lineare Operator ist, der diese Äquivalenz erfüllt.
+Betrachten wir statt dessen die alternative Variante $\otimes^*$ des dyadischen Produkts aus {prf:ref}`ex:tensorproduktVarianten`, so bleibt der Tensorproduktraum gleich, jedoch ändert sich der eindeutig bestimmte, lineare Operator $p \in L^1(X; Y)$.
+Durch die Vertauschung der Elemente der Matrix $x \otimes^* y$ nimmt man nicht mehr die Summe der Hauptdiagonalelemente realisiert durch den Operator $\operatorname{Spur}(A) = a_{11} + a_{22}$, sondern die **Summe der Gegendiagonalelemente** realisiert durch einen linearen Operator $\operatorname{Spur}^*(A) \coloneqq a_{21} + a_{12}$, d.h., die Diagonale von links unten nach rechts oben in der Matrix.
+In diesem Fall erhält man nämlich analog
+
+```{math}
+\Phi(x,y) = \langle x, y \rangle = x_1y_1 + x_2y_2 = \operatorname{Spur}^*
+\begin{pmatrix}
+x_1y_2 & x_1y_1 \\
+x_2y_2 & x_2y_1
+\end{pmatrix}
+ = \operatorname{Spur}^*(x \otimes^* y) = p(x \otimes^* y).
+```
+
+Dies Veranschaulicht die Beziehung der involvierten Vektorräume und die zu Grunde liegende universelle Eigenschaft des Tensorprodukts.
+
+````
+
+```{danger}
+Wir haben in {prf:ref}`ex:universelleEigenschaft` lediglich die universelle Eigenschaft zur Veranschaulichung überprüft für ein konkretes Beispiel.
+Wir haben jedoch **nicht** gezeigt, dass das dyadische Produkt die *universelle Eigenschaft* erfüllt.
+Dafür hätten wir die Äquivalenz für **alle möglichen** Bilinearformen $\Phi \in L^2(V \times W; Y)$ für **beliebige Vektorräume** $Y$ beweisen müssen.
+```
+
 
 ## Existenz und Konstruktion
 
