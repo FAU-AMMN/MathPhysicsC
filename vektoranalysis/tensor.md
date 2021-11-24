@@ -147,7 +147,7 @@ $p \in L^1(X; Y)$, so dass gilt
 
 Das bedeutet, dass die Vektorräume $L^2(V \times W; Y)$ und $L^1(X; Y)$ isomorph zueinander sind.
 In diesem Fall schreibt man auch $X = V \otimes W$.
-Wir nennen die bilineare Abbildung $\otimes$ **Tensorprodukt** und verwenden häufig für sie die Infix-Schreibweise $\otimes(v,w)=:v\otimes w$.
+Wir nennen die bilineare Abbildung $\otimes$ **Tensorprodukt** und verwenden häufig für sie die Infix-Schreibweise $v\otimes w := \otimes(v,w)$.
 ````
 
 Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. 
@@ -272,7 +272,7 @@ Dafür hätten wir die Äquivalenz für **alle möglichen** Bilinearformen $\Phi
 ```
 
 
-## Existenz und Konstruktion
+## Existenz und Konstruktion des Tensorprodukts
 
 Wir stellen fest, dass es für zwei beliebige $\R$-Vektorräume $V$ und $W$ immer ein Tensorprodukt gibt, und dass wir dieses Tensorprodukt konkret konstruieren können indem wir uns auf die Basis der Vektorräume $V$ und $W$ zurückziehen. 
 Diese Tatsache formulieren wir in der folgenden Aussage.
@@ -352,13 +352,13 @@ Als Korollar aus {prf:ref}`thm:existenzTensorprodukt` erhalten wir somit, dass e
 Hieran sieht man den qualitativen Unterschied zwischen $V \times W$ und $V\otimes W$.
 
 ````{prf:corollary}
-Für zwei reelle Vektorräume $V$ und $W$ mit zugehörigen Basen 
+Für zwei reelle Vektorräume $V$ und $W$ mit zugehörigen Hamel-Basen 
 
 ```{math}
 B^V = \{b_i^V: i\in I^V\}, \quad B^W = \{b_i^W: i\in I^W\},
 ```
 
- und einem Tensorprodukt $\otimes:V\times W \to V\otimes W$ ist 
+und einem Tensorprodukt $\otimes:V\times W \to V\otimes W$ ist 
 
 ```{math}
 B^X \, \coloneqq \, \{b_i^V \otimes b_j^W: i\in I^V, j\in I^W\}
@@ -367,43 +367,134 @@ B^X \, \coloneqq \, \{b_i^V \otimes b_j^W: i\in I^V, j\in I^W\}
 eine Basis von $X = V\otimes W$.
 ````
 
-Wir wissen nun, dass mindestens ein Tensorprodukt existiert, es stellt sich also die Frage inwiefern sich verschiedene derartige Abbildungen auf den gleichen Vektorräumen $V,W$ unterschieden. Seien dazu $\otimes_1, \otimes_2$ je zwei Tensorprodukte auf $V\times W$. Wegen der universellen Eigenschaft gibt es lineare Abbildungen $p_1: V\otimes_1 W\to W\otimes_2 V$ und $p_2: V\otimes_2 W\to W\otimes_1 V$, s.d.,
+Wir wissen nun aus {prf:ref}`thm:existenzTensorprodukt`, dass immer mindestens ein Tensorprodukt existiert.
+Es stellt sich also die Frage inwiefern sich verschiedene Tensorprodukte auf den gleichen Vektorräumen $V$ und $W$ unterscheiden. 
+Hierzu liefert das folgende Lemma eine klare Einsicht.
+
+````{prf:lemma} Isomorphismus von Tensorprodukträumen
+:label: lem:isomorphismusTensorproduktraum
+
+Es seien $V$ und $W$ zwei reelle Vektorräume und es seien
 
 ```{math}
-\otimes_2 &= p_1 \circ \otimes_1\\
-\otimes_1 &= p_2 \circ \otimes_2.
+\otimes_1 &\colon V \times W \rightarrow V \otimes_1 W,\\
+\otimes_2 &\colon V \times W \rightarrow V \otimes_2 W
 ```
 
-und somit
+zwei Tensorprodukte.
+Dann existiert genau ein Isomorphismus 
 
 ```{math}
-\otimes_2 &= p_1\circ p_2 \circ \otimes_2\\
-\otimes_1 &= p_2\circ p_1 \circ \otimes_1.
+p: V\otimes_1 W \to V\otimes_2 W,
 ```
-
-Da wir aber die Basis von $V\otimes_2 W$ über Elemente $\otimes_2(b_i^V, b_j^W)$ charakterisieren können, und aus der ersten Gleichung folgt, dass
-
-```{math}
-p_1\circ p_2(\otimes(b_i^V,b_j^W)) = \otimes(b_i^V, b_j^W)
-```
-
-wissen wir dass $p_1\circ p_2 = \mathrm{Id}$. Das folgt da $p_1\circ p_2$ als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist. 
-Analog folgt $p_2\circ p_1 = \mathrm{Id}$ und somit sind $p_1, p_2$ isomorph zueinander. D.h. wir haben insgesamt gezeigt, dass verschiedene Tensorprodukte stets isomorph zueinander sind.
-
-````{prf:lemma}
-Es seien $V,W$ zwei reelle Vektorräume und $\otimes_1,\otimes_2$ zwei Tensorprodukte. Dann existiert genau ein Isomorphismus $p:V\otimes_1 W\to V\otimes_2 W$, s.d.
-
-```{math}
-\otimes_2 = p\circ \otimes_1.
-```
+so dass gilt $\otimes_2 = p\circ \otimes_1$.
 
 ````
 
+````{prf:proof}
+Seien also zunächst zwei Tensorprodukte $\otimes_1, \otimes_2$ auf $V\times W$ gegeben.
+Wegen der *universellen Eigenschaft* des Tensorprodukts wissen wir, dass es lineare Abbildungen 
+
+```{math}
+p_1&: V\otimes_1 W\to Y_1 \ \coloneqq \ W\otimes_2 V,\\
+p_2&: V\otimes_2 W\to Y_2 \ \coloneqq \ W\otimes_1 V
+```
+
+gibt, so dass gilt
+
+```{math}
+\otimes_2 &= p_1 \circ \otimes_1,\\
+\otimes_1 &= p_2 \circ \otimes_2.
+```
+
+Durch Einsetzen der Gleichungen ineinander somit
+
+```{math}
+\otimes_2 &= p_1\circ p_2 \circ \otimes_2,\\
+\otimes_1 &= p_2\circ p_1 \circ \otimes_1.
+```
+
+Aus dem Beweis von {prf:ref}`thm:existenzTensorprodukt` wissen wir, dass wir die Basis von $V\otimes_2 W$ über die Abbildung $\otimes_2(b_i^V, b_j^W)$ der Basiselemente von $V$ und $W$ charakterisieren können.
+Setzen wir also das Tensorprodukt dieser Basiselemente in die erste Gleichung ein, so erhalten wir
+
+```{math}
+\otimes_2(b_i^V, b_j^W) = p_1\circ p_2(\otimes_2(b_i^V,b_j^W)).
+```
+
+Das zeigt also, dass $p_1\circ p_2 = \mathrm{Id}_{Y_2}$ die Identitätsabbildung auf dem Tensorproduktraum $Y_2 = V \otimes_2 W$ sein muss. 
+Dies folgt, weil $p_1\circ p_2$ als lineare Abbildung schon ganz durch seine Wirkung auf den Basiselementen festgelegt ist. 
+Analog kann man nun folgern, dass $p_2\circ p_1 = \mathrm{Id}{Y_1}$ die Identitätsabbildung im Tensorproduktraum $Y_1 = V \otimes_1 W$ ist und somit sind die Linearformen $p_1$ und $p_2$ **Isomorphismen** und gerade die jeweiligen Umkehrfunktionen zueinander. 
+
+Insgesamt haben wir also gezeigt, dass Tensorprodukträume, die durch verschiedene Tensorprodukte auf dem gleiche kartesischen Produkraum stets isomorph zueinander sind.
+````
+
+Das folgende Beispiel soll noch einmal die Isomorphie zwischen verschiedenen Tensorprodukträumen illustrieren.
+
+````{prf:example} Dyadisches Produkt vs. Kronecker-Produkt
+
+Im Folgenden betrachten wir wieder den Euklidischen Vektorraum $V=W=\R^2$ und zwei Vektoren $x, y \in \R^2$.
+Wie wir in {prf:ref}`ex:tensorproduktVarianten` und {prf:ref}`ex:universelleEigenschaft` festgestellt haben realisiert das **dyadische Produkt**
+
+```{math}
+\otimes_d \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_d \R^2 = \R^{2 \times 2} =: X_d
+```
+
+mit
+
+```{math}
+x \otimes_d y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}.
+```
+
+ein *Tensorprodukt* der Vektorräume $V=W=\R^2$.
+
+Betrachten wir nun ein weiteres Tensorprodukt auf dem kartesischen Produktraum $V \times W$, nämlich das **Kronecker-Produkt** $\otimes_K$.
+Das Kronecker-Produkt realisiert eine Abbildung
+
+```{math}
+\otimes_K \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_K \R^2 = \R^{4} =: X_K,
+```
+
+mit
+
+```{math}
+x \otimes_K y =
+\begin{pmatrix}
+x_1 \\ x_2
+\end{pmatrix} \otimes_K 
+\begin{pmatrix}
+y_1 \\ y_2
+\end{pmatrix}
+\, = \, 
+\begin{pmatrix}
+x_1 \cdot \begin{pmatrix} y_1 \\ y_2 \end{pmatrix} \\ 
+x_2 \cdot \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
+\end{pmatrix}
+= 
+\begin{pmatrix}
+x_1y_1\\
+x_1y_2\\
+x_2y_1\\
+x_2y_2
+\end{pmatrix}.
+```
+
+Es wird nun klar, dass die Räume $X_d = \R^{2 \times 2}$ und $X_K = \R^4$ isomorph zueinander sind, d.h., es gilt $X_d \cong X_K$.
+Außerdem kann man Tensoren in den jeweiligen Tensorprodukträumen durch spaltenweises Ablesen bzw. Eintragen in eine Matrix eindeutig ineinander überführen.
+````
+
+
 **Das Tensorprodukt?**
 
-Die letzte Aussage zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf Vektorräumen $V,W$ zu definieren, diese stets isomorph zueinander sind. Deshalb spricht man auch von **dem** Tensorprodukt $V\otimes W$ was so klingt als gäbe es nur ein einziges. In der Tat gibt es zwar mehrere Tensorprodukte aber man kann sie alle miteinander identifizieren.
+Die Aussage aus {prf:ref}`lem:isomorphismusTensorproduktraum` zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf dem kartesischen Produktraum $V \times W$ zu definieren, die resultierenden Tensorprodukträume stets isomorph zueinander sind. 
+Deshalb spricht man auch von **dem** Tensorprodukt $\otimes$ und **dem** Tensorproduktraum $V \otimes W$, was so klingt als gäbe es jeweils nur ein einziges Exemplar.
+In der Tat gibt es zwar mehrere Tensorprodukte aber man kann diese problemlos ineinander umrechnen und die resultierenden Tensorprodukträume alle miteinander identifizieren.
 
-Deshalb werden wir im folgendem auch von **dem** Tensorprodukt sprechen.
+Deshalb werden wir im Folgendem auch häufig von **dem** Tensorprodukt sprechen.
+
 
 ## Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
 
