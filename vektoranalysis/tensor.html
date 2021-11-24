@@ -278,18 +278,6 @@
   <a class="reference internal nav-link" href="#motivation">
    3.2.1. Motivation
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#der-cauchy-spannungstensor">
-     3.2.1.1. Der Cauchy Spannungstensor
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quantenverschrankung">
-     3.2.1.2. Quantenverschränkung
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#das-tensorprodukt">
@@ -302,13 +290,18 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naturliche-isomorphismen-und-eigenschaften-des-tensorprodukts">
+   3.2.4. Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tensoren-als-linearformen">
-   3.2.4. Tensoren als Linearformen
+   3.2.5. Tensoren als Linearformen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#auszere-formen">
-   3.2.5. Äußere Formen
+   3.2.6. Äußere Formen
   </a>
  </li>
 </ul>
@@ -324,47 +317,50 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="tensoren-und-tensorprodukte">
 <h1><span class="section-number">3.2. </span>Tensoren und Tensorprodukte<a class="headerlink" href="#tensoren-und-tensorprodukte" title="Permalink to this headline">¶</a></h1>
-<p>In diesem Kapitel widmen wir uns einem wichtigen aber komplizierten Thema der Vektoranalysis, nämlich Tensoren und Tensorprodukten.
+<p>In diesem Kapitel widmen wir uns einem für die Physik sehr wichtigen aber relativ abstrakten Thema der Vektoranalysis, nämlich <em>Tensoren</em> und <em>Tensorprodukten</em>.
 Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe <a class="reference external" href="https://de.wikipedia.org/wiki/Tensorprodukt">Wikipedia</a>) weshalb es nicht leicht ist eine Einführung zu geben die gleichzeitig allgemein, aber auch verständlich ist. Da Tensoren aber eine wichtige Rolle in der Physik spielen werden wir uns hier damit beschäftigen.</p>
 <div class="section" id="motivation">
 <h2><span class="section-number">3.2.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
-<p>Wir betrachten zwei Beispiele aus der Physik, welche auf Tensoren zurückgreifen.</p>
+<p>Wir betrachten zunächst ein konkretes Anwendungsbeispiel aus der Physik, welches auf Tensoren zurückgreift.
+Hier wird der sogenannte <em>Cauchy Spannungstensor</em> verwendet.</p>
 <div class="proof remark admonition" id="remark-0">
-<p class="admonition-title"><span class="caption-number">Remark 3.5 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 3.5 </span> (Begriffsherkunft)</p>
 <div class="remark-content section" id="proof-content">
-<p>Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom latinischen <em>tendere</em> (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.</p>
+<p>Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom lateinischen <em>tendere</em> (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.</p>
 </div>
-</div><div class="section" id="der-cauchy-spannungstensor">
-<h3><span class="section-number">3.2.1.1. </span>Der Cauchy Spannungstensor<a class="headerlink" href="#der-cauchy-spannungstensor" title="Permalink to this headline">¶</a></h3>
-<div class="margin sidebar">
+</div><div class="margin sidebar">
 <p class="sidebar-title">Augustin Cauchy</p>
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/Augustin-Louis_Cauchy">Augustin-Louis Cauchy</a> (Geboren 21. August 1789 in Paris; Gestorben 23. Mai 1857 in Sceaux) war ein französischer Mathematiker.</p>
 </div>
-<p>Mechanische Spannung beschreibt die innere Beanspruchung und Kräfte in einem Volumen <span class="math notranslate nohighlight">\(V\subset\R^3\)</span> die aufgrund einer äußeren Belastungen auftreten. Die grundlegende Idee ist das <strong>Euler-Cauchy Stress Prinzip</strong>, welches beschreibt, dass auf jede Schnittfläche <span class="math notranslate nohighlight">\(A\subset\R^2\)</span> welche ein Volumen in zwei Teile trennt, von diesen zwei Komponenten eine Spannung auf <span class="math notranslate nohighlight">\(A\)</span> ausgewirkt wird, welche durch den <strong>Spannungsvektor</strong> <span class="math notranslate nohighlight">\(\mathbf{T}^n\)</span> beschrieben wird. Der Spannungsvektor ist hierbei von der Dimension “Kraft pro Fläche”.</p>
+<p>Mechanische Spannung ist eine physikalische Größe, die die innere Beanspruchung und Kräfte in einem Volumen <span class="math notranslate nohighlight">\(V\subset\R^3\)</span> angibt, welche aufgrund einer äußeren Belastungen auftreten.
+Die grundlegende Idee ist das <strong>Euler-Cauchy Spannungsprinzip</strong>, welches beschreibt, dass auf jede Schnittfläche <span class="math notranslate nohighlight">\(A\subset\R^2\)</span>, die ein Volumen in zwei Teile trennt, von diesen zwei Volumenteilen eine Spannung auf <span class="math notranslate nohighlight">\(A\)</span> ausgeübt wird, welche durch einen sogenannten <strong>Spannungsvektor</strong> <span class="math notranslate nohighlight">\(\mathbf{T}^{(n)}\)</span> beschrieben wird.
+Der Komponenten des Spannungsvektors haben hierbei die Dimension “Kraft pro Fläche”.</p>
 <div class="figure align-default" id="fig-stress">
 <a class="reference internal image-reference" href="../_images/stress_vector.png"><img alt="../_images/stress_vector.png" src="../_images/stress_vector.png" style="height: 250px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Visualisierung für Normal- und Scherspannung an einer Schnittfläche. Quelle: <a class="reference external" href="https://en.wikipedia.org/wiki/Cauchy_stress_tensor">Wikipedia; Cauchy Stress Tensor</a>.</span><a class="headerlink" href="#fig-stress" title="Permalink to this image">¶</a></p>
 </div>
 <p>Wie in <a class="reference internal" href="#fig-stress"><span class="std std-numref">Fig. 3.1</span></a> visualisiert teilt sich die Spannung in zwei Komponenten auf:</p>
 <p><strong>Normalspannung:</strong></p>
-<p>Dieser Teil des Spannungsvektor zeigt in Richtung der normalen <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> welche orthogonal auf der Schnittfläche stehen.</p>
+<p>Die Normalspannung <span class="math notranslate nohighlight">\(\sigma_n\)</span> ist der Teil des Spannungsvektors, der in Richtung der Normalen <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> zeigt, welche orthogonal auf der Schnittfläche steht.</p>
 <p><strong>Scherspannung:</strong></p>
-<p>Dieser Teil des Spannungstensors ist parallel zur Schnittfläche.</p>
-<p>Man erkennt nun, dass die Spannung in <span class="math notranslate nohighlight">\(V\)</span> nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt <span class="math notranslate nohighlight">\(P\in V\)</span> ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein Tensorfeld <span class="math notranslate nohighlight">\(\mathbf{\sigma}(x)\)</span> existiert, s.d.,</p>
+<p>Die Scherspannung <span class="math notranslate nohighlight">\(\tau_n\)</span> ist der Teil des Spannungstensors, der parallel zur Schnittfläche liegt.</p>
+<p>Man erkennt nun, dass die Spannung in <span class="math notranslate nohighlight">\(V\)</span> nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt <span class="math notranslate nohighlight">\(x\in V\)</span> ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein linearer Operator <span class="math notranslate nohighlight">\(\mathbf{\sigma}(x)\)</span> existiert, so dass</p>
 <div class="math notranslate nohighlight">
-\[T^{\mathbf{n}}(x) = \mathbf{n}\cdot \mathbf{\sigma}(x),\]</div>
-<p>d.h. in jedem Punkt <span class="math notranslate nohighlight">\(x\in V\)</span> ist der Stressvektor linear im Normalenvektor <span class="math notranslate nohighlight">\(\mathbf{n}\)</span>.</p>
+\[\mathbf{T}^{(n)}(x) = \mathbf{\sigma}(x) \cdot n,\]</div>
+<p>d.h. in jedem Punkt <span class="math notranslate nohighlight">\(x\in V\)</span> ist der Stressvektor linear im Normalenvektor <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <div class="figure align-default" id="fig-stress-comp">
 <a class="reference internal image-reference" href="../_images/stress_tensor_comp.png"><img alt="../_images/stress_tensor_comp.png" src="../_images/stress_tensor_comp.png" style="height: 250px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Quelle: <a class="reference external" href="https://de.wikipedia.org/wiki/Spannungstensor">Wikipedia; Spannungstensor</a>.</span><a class="headerlink" href="#fig-stress-comp" title="Permalink to this image">¶</a></p>
 </div>
-<p>Hierfür betrachtet man einen freigeschnittenen Würfel wie in <a class="reference internal" href="#fig-stress-comp"><span class="std std-numref">Fig. 3.2</span></a> und definiert für die drei verschiedenen Flächen (orthogonal zu den Einheitsvektoren) den Stresstensor</p>
+<p>Der lineare Operator <span class="math notranslate nohighlight">\(\mathbf{\sigma}\)</span> wird auch <strong>Cauchy Spannungstensor</strong> genannt.
+Um diesen besser zu verstehen betrachtet man für einen fixen Punkt <span class="math notranslate nohighlight">\(x\)</span> des Volumens einen infinitesimal kleinen, freigeschnittenen Würfel wie in <a class="reference internal" href="#fig-stress-comp"><span class="std std-numref">Fig. 3.2</span></a>.
+Nun definieren wir für die drei verschiedenen Flächen (orthogonal zu den Einheitsvektoren <span class="math notranslate nohighlight">\(e_1, e_2\)</span> und <span class="math notranslate nohighlight">\(e_3\)</span>) die Spannungsvektoren</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{T}^{e_i}:= \sum_{j=1}^3 \sigma_{ij} e_j.\]</div>
-<p>So haben wir z.B. für <span class="math notranslate nohighlight">\(\mathbf{T}^{e_1}\)</span> die Normalspannung gegeben durch <span class="math notranslate nohighlight">\(\sigma_{11} e_1\)</span> und die zwei Scherspannungskomponenten <span class="math notranslate nohighlight">\(\sigma_{12} e_2, \sigma_{13} e_3\)</span>. Insgesamt erhält man neun Komponenten <span class="math notranslate nohighlight">\(\sigma_{ij}\)</span> welche über die Definition</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{\sigma} := \sum_{i=1}^3 e_i \otimes \mathbf{T}^{e_i} = \sum_{i=1}^3\sum_{j=1}^3 \sigma_{ij} (e_i\otimes e_j)\]</div>
-<p>den Cauchy Stresstensor <span class="math notranslate nohighlight">\(\mathbf{\sigma}\)</span> ergebene. Hierbei bezeichnet <span class="math notranslate nohighlight">\(\otimes\)</span> das <strong>dyadische Produkt</strong> zweier Vektoren. Für <span class="math notranslate nohighlight">\(x\in\R^n,y\in\R^m\)</span> definieren wir</p>
+\[\mathbf{T}^{(e_i)}:= \sum_{j=1}^3 \sigma_{ij} e_j, \quad i \in \lbrace 1,2,3 \rbrace.\]</div>
+<p>So setzt sich beispielsweise der Spannungsvektor <span class="math notranslate nohighlight">\(\mathbf{T}^{(e_1)}\)</span> zusammen aus der Summe der Normalspannung <span class="math notranslate nohighlight">\(\sigma_{11} e_1\)</span> und den zwei Scherspannungskomponenten <span class="math notranslate nohighlight">\(\sigma_{12} e_2\)</span> und <span class="math notranslate nohighlight">\(\sigma_{13} e_3\)</span>.</p>
+<p>Insgesamt erhält man neun Spannungskomponenten <span class="math notranslate nohighlight">\(\sigma_{ij}\)</span> für <span class="math notranslate nohighlight">\(i,j=1,2,3\)</span> welche insgesamt den Spannungszustand im Punkt <span class="math notranslate nohighlight">\(x\)</span> als Spannungsvektoren in Richtung der Einheitsvektoren vollständig beschreiben.
+Dies liegt daran, dass wir jeden Spannungsvektor in <span class="math notranslate nohighlight">\(x\)</span> als Linearkombination der drei Spannungsvektoren <span class="math notranslate nohighlight">\(\mathbf{T}^{(e_i)}, i=1,2,3\)</span> darstellen können.</p>
+<p>Wir führen nun eine <em>multilineare Abbildung</em> <span class="math notranslate nohighlight">\(\otimes \colon \R^n \times \R^m \rightarrow \R^{n \times m}\)</span> für zwei beliebige Vektoren <span class="math notranslate nohighlight">\(x\in\R^n\)</span> und <span class="math notranslate nohighlight">\(y\in\R^m\)</span> ein, die das <strong>dyadische Produkt</strong> der Vektoren genannt wird und wie folgt definiert ist</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}x \otimes y := 
 \begin{pmatrix}
@@ -372,86 +368,217 @@ x_1y_1 &amp;\ldots &amp;x_1 y_m\\
 \vdots &amp;\ddots &amp; \vdots\\
 x_n y_1&amp;\ldots&amp; x_n y_m
 \end{pmatrix}.\end{split}\]</div>
-<p>Wir werden später sehen, dass man die Idee <span class="math notranslate nohighlight">\(\sigma\)</span> über das dyadische Produkt zu definieren abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.</p>
+<p>Fassen wir nun zeilenweise die Spannungsvektoren <span class="math notranslate nohighlight">\(\mathbf{T}^{(e_i)}, i=1,2,3\)</span> in einer Matrix zusammen, so erhalten wir den Cauchy Spannungstensor <span class="math notranslate nohighlight">\(\mathbf{\sigma}\)</span> für den Punkt <span class="math notranslate nohighlight">\(x\)</span> des Volumens als</p>
+<div class="math notranslate nohighlight" id="equation-eq-cauchyspannungstensor">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-eq-cauchyspannungstensor" title="Permalink to this equation">¶</a></span>\[\begin{split}\mathbf{\sigma} := 
+\begin{pmatrix}
+\sigma_{11} &amp; \sigma_{12} &amp; \sigma_{13} \\
+\sigma_{21} &amp; \sigma_{22} &amp; \sigma_{23} \\
+\sigma_{31} &amp; \sigma_{32} &amp; \sigma_{33}
+\end{pmatrix} 
+&amp;= 
+\begin{pmatrix}
+\mathbf{T}^{(e_1)} \\
+\mathbf{T}^{(e_2)} \\
+\mathbf{T}^{(e_3)}
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\mathbf{T}^{(e_1)} \\
+0 \\
+0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\
+\mathbf{T}^{(e_2)} \\
+0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\
+0 \\
+\mathbf{T}^{(e_3)} \\
+\end{pmatrix}\\
+&amp;=
+\sum_{i=1}^3 e_i \otimes \mathbf{T}^{(e_i)} = \sum_{i=1}^3 e_i\otimes ( \sum_{j=1}^3 \sigma_{ij} e_j) =
+\sum_{i=1}^3\sum_{j=1}^3 \sigma_{ij} (e_i\otimes e_j).\end{split}\]</div>
+<p>Wir werden später sehen, dass man die Idee, den Operator <span class="math notranslate nohighlight">\(\sigma\)</span> über das dyadische Produkt zu definieren, abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.</p>
+<div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 3.6 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>In der Tat handelt es sich bei dem Operator <span class="math notranslate nohighlight">\(\sigma \colon \R^3 \rightarrow \R^3\)</span> in <a class="reference internal" href="#equation-eq-cauchyspannungstensor">(3.1)</a> nicht nur um einen Tensor, sondern genauer um ein <strong>Tensorfeld</strong>, dass jedem Punkt <span class="math notranslate nohighlight">\(x\)</span> des Volumens einen Spannungstensor zuordnet.</p>
 </div>
-<div class="section" id="quantenverschrankung">
-<h3><span class="section-number">3.2.1.2. </span>Quantenverschränkung<a class="headerlink" href="#quantenverschrankung" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
+</div></div>
 <div class="section" id="das-tensorprodukt">
 <h2><span class="section-number">3.2.2. </span>Das Tensorprodukt<a class="headerlink" href="#das-tensorprodukt" title="Permalink to this headline">¶</a></h2>
-<p>Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es später konkret realisieren.</p>
-<div class="proof definition admonition" id="definition-1">
+<p>Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es an späterer Stelle für konkrete Realisierungen diskutieren.
+Hierbei wollen wir uns zunächst auf einen Spezialfall einschränken, der lediglich <em>zwei Vektorräume</em> berücksichtigt, um die zu Grunde liegenden wichtigen Konzepte klarer herauszustellen.
+Es ist wichtig zu verstehen, dass die folgenden Definitionen sich mit dem Konzept der <span class="math notranslate nohighlight">\(k\)</span>-Multilinearität in <a class="reference internal" href="multilinear.html#s-multilinearformen"><span class="std std-ref">Multilinearformen</span></a> auf <span class="math notranslate nohighlight">\(k \in \N\)</span> verschiedene <span class="math notranslate nohighlight">\(\R\)</span>-Vektorräume direkt verallgemeinern lassen.</p>
+<div class="proof definition admonition" id="def:tensor">
 <p class="admonition-title"><span class="caption-number">Definition 3.4 </span> (Tensorprodukt)</p>
 <div class="definition-content section" id="proof-content">
-<p>Es seien <span class="math notranslate nohighlight">\(V,W\)</span> zwei reelle Vektorräume. Ein reeler Vektorraum <span class="math notranslate nohighlight">\(X\)</span> heißt <strong>Tensorproduktraum</strong> falls eine bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes:V\times W\rightarrow X\)</span> existiert, s.d., die folgende <strong>universelle Eigenschaft</strong> gilt:</p>
-<p>Für jede Bilinearform <span class="math notranslate nohighlight">\(\phi\in L^2(V\times W, Y)\)</span> in einen beliebigen reellen Vektorraum <span class="math notranslate nohighlight">\(Y\)</span>, existiert eine eindeutige lineare Abbildung
-<span class="math notranslate nohighlight">\(p \in L^1(X, Y)\)</span>, s.d. gilt</p>
-<div class="math notranslate nohighlight">
-\[\phi(v,w) = p((v\otimes w)) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.\]</div>
-<p>In diesem Fall schreibt man auch <span class="math notranslate nohighlight">\(X = V\otimes X\)</span>, <span class="math notranslate nohighlight">\(\otimes\)</span> heißt Tensorprodukt und zusätzlich ist die Schreibweise <span class="math notranslate nohighlight">\(\otimes(v,w)=:v\otimes w\)</span> üblich.</p>
+<p>Es seien <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> zwei reelle Vektorräume.
+Ein reeller Vektorraum <span class="math notranslate nohighlight">\(X\)</span> heißt <strong>Tensorproduktraum</strong> falls eine bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes:V\times W\rightarrow X\)</span> existiert, so dass die folgende <strong>universelle Eigenschaft</strong> gilt:</p>
+<p>Für jede Bilinearform <span class="math notranslate nohighlight">\(\phi\in L^2(V\times W; Y)\)</span> in einen beliebigen reellen Vektorraum <span class="math notranslate nohighlight">\(Y\)</span>, existiert eine eindeutige lineare Abbildung
+<span class="math notranslate nohighlight">\(p \in L^1(X; Y)\)</span>, so dass gilt</p>
+<div class="math notranslate nohighlight" id="equation-eq-universell">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-eq-universell" title="Permalink to this equation">¶</a></span>\[\phi(v,w) = p(v\otimes w) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.\]</div>
+<p>Das bedeutet, dass die Vektorräume <span class="math notranslate nohighlight">\(L^2(V \times W; Y)\)</span> und <span class="math notranslate nohighlight">\(L^1(X; Y)\)</span> isomorph zueinander sind.
+In diesem Fall schreibt man auch <span class="math notranslate nohighlight">\(X = V \otimes W\)</span>.
+Wir nennen die bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes\)</span> <strong>Tensorprodukt</strong> und verwenden häufig für sie die Infix-Schreibweise <span class="math notranslate nohighlight">\(\otimes(v,w)=:v\otimes w\)</span>.</p>
 </div>
-</div><p><strong>Was bedeutet das?</strong></p>
-<p>Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. Was ist jetzt also ein Tensorprodukt?</p>
+</div><p>Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich.
+Was ist jetzt also genau ein Tensorprodukt?</p>
 <p><strong>Das Tensorprodukt ist universell:</strong></p>
-<p>Wir haben benutzten in der Definition oben das kartesische Produkt <span class="math notranslate nohighlight">\(\times\)</span> welches eindeutig definiert ist. Im Gegensatz dazu gibt es nicht <em>ein</em> Tensorprodukt <span class="math notranslate nohighlight">\(\otimes\)</span> oder <em>einen</em> Tensorproduktraum <span class="math notranslate nohighlight">\(V\otimes W\)</span>. Wir haben die Freiheit <span class="math notranslate nohighlight">\(\otimes\)</span> zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann <span class="math notranslate nohighlight">\(V\otimes W\)</span> Tensorproduktraum. Derartige Konzepte nennt man in der Algebra <em>universell</em>.</p>
-<p><strong>Was bedeutet die universelle Eigenschaft?</strong></p>
-<p>Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf <span class="math notranslate nohighlight">\(V\times W\)</span> und dem Dualraum von <span class="math notranslate nohighlight">\(V\otimes W\)</span> her. Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen schon über einfache Linearformen auf <span class="math notranslate nohighlight">\(V\otimes W\)</span>.</p>
+<p>Wir haben in der <a class="reference internal" href="#def:tensor">Definition 3.4</a> das kartesische Produkt <span class="math notranslate nohighlight">\(\times\)</span> benutzt welches eindeutig definiert ist.
+Im Gegensatz dazu gibt es jedoch nicht <em>ein</em> Tensorprodukt <span class="math notranslate nohighlight">\(\otimes\)</span> oder <em>einen</em> Tensorproduktraum <span class="math notranslate nohighlight">\(V\otimes W\)</span>.
+Wir haben die Freiheit <span class="math notranslate nohighlight">\(\otimes\)</span> zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann <span class="math notranslate nohighlight">\(X = V\otimes W\)</span> Tensorproduktraum.
+Derartige Konzepte nennt man in der Algebra <em>universell</em>.
+Betrachten wir hierzu ein kurzes Beispiel für unterschiedliche Realisierungen eines Tensorproduktes.</p>
+<div class="proof example admonition" id="ex:tensorproduktVarianten">
+<p class="admonition-title"><span class="caption-number">Example 3.5 </span> (Varianten eines Tensorprodukts)</p>
+<div class="example-content section" id="proof-content">
+<p>Wir betrachten in diesem Beispiel den Euklidischen Vektorraum <span class="math notranslate nohighlight">\(V=W=\R^2\)</span> und zwei Vektoren <span class="math notranslate nohighlight">\(x, y \in \R^2\)</span>.
+Nehmen wir zunächst das Tensorprodukt, dass durch das <strong>dyadische Produkt</strong> <span class="math notranslate nohighlight">\(\otimes : \R^2 \times \R^2 \rightarrow \R^{2 \times 2}\)</span> gegeben ist mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x \otimes y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 &amp; x_1y_2 \\
+x_2y_1 &amp; x_2y_2
+\end{pmatrix}.\end{split}\]</div>
+<p>Man sieht ein, dass der zugehörige <em>Tensorproduktraum</em> also <span class="math notranslate nohighlight">\(\R^{2 \times 2} = \R^2 \otimes \R^2\)</span> sein muss.
+Anderseits erhält man den gleichen Tensorproduktraum, wenn man ein <strong>alternatives Tensorprodukt</strong> <span class="math notranslate nohighlight">\(\otimes^*\)</span> zum dyadischen Produkt definiert, welches lediglich die Reihenfolge der Komponenten von <span class="math notranslate nohighlight">\(y\)</span> vertauscht mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x \otimes^* y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_2 &amp; x_1y_1 \\
+x_2y_2 &amp; x_2y_1
+\end{pmatrix}.\end{split}\]</div>
+</div>
+</div><p><strong>Was bedeutet die universelle Eigenschaft?</strong></p>
+<p>Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf <span class="math notranslate nohighlight">\(V\times W\)</span> und dem Raum der linearen Abbildungen von <span class="math notranslate nohighlight">\(X = V\otimes W\)</span> nach <span class="math notranslate nohighlight">\(Y\)</span> für ein Tensorprodukt <span class="math notranslate nohighlight">\(\otimes\)</span> her.
+Für den Spezialfall <span class="math notranslate nohighlight">\(Y = \R\)</span> ist letzterer gerade der algebraische Dualraum des Tensorproduktraums.
+Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen also schon über einfache Linearformen auf <span class="math notranslate nohighlight">\(V\otimes W\)</span>.</p>
+<p>Das folgende einfache Beispiel soll uns helfen diese Beziehung besser zu verstehen.</p>
+<div class="proof example admonition" id="ex:universelleEigenschaft">
+<p class="admonition-title"><span class="caption-number">Example 3.6 </span> (Universelle Eigenschaft)</p>
+<div class="example-content section" id="proof-content">
+<p>Im Folgenden betrachten wir wieder den Euklidischen Vektorraum <span class="math notranslate nohighlight">\(V=W=\R^2\)</span> und zwei Vektoren <span class="math notranslate nohighlight">\(x, y \in \R^2\)</span>.
+Wie wir in <a class="reference internal" href="#ex:tensorproduktVarianten">Example 3.5</a> festgestellt haben realisiert das dyadische Produkt</p>
+<div class="math notranslate nohighlight">
+\[\otimes \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes \R^2 = \R^{2 \times 2} =: X\]</div>
+<p>mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x \otimes y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 &amp; x_1y_2 \\
+x_2y_1 &amp; x_2y_2
+\end{pmatrix}.\end{split}\]</div>
+<p>ein <em>Tensorprodukt</em> der Vektorräume <span class="math notranslate nohighlight">\(V=W=\R^2\)</span>.
+Wegen der <em>universellen Eigenschaft</em> muss nun gelten, dass für jede Bilinearform <span class="math notranslate nohighlight">\(\Phi \in L^2(V \times W; Y)\)</span> für beliebige <span class="math notranslate nohighlight">\(\R\)</span>-Vektorräume <span class="math notranslate nohighlight">\(Y\)</span> eine eindeutige lineare Abbildung <span class="math notranslate nohighlight">\(p \in L^1(X; Y)\)</span> existiert, die äquivalent im Sinne von <a class="reference internal" href="#equation-eq-universell">(3.2)</a> ist.</p>
+<p>Nehmen wir also beispielsweise das Skalarprodukt <span class="math notranslate nohighlight">\(\langle \cdot, \cdot \rangle \colon V \times W \rightarrow \R\)</span> als eine mögliche Bilinearform <span class="math notranslate nohighlight">\(\Phi \in L^2(V \times W; Y)\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[\langle x, y \rangle = x^T \cdot y = x_1y_1 + x_2y_2.\]</div>
+<p>Wir müssen nun einen linearen Operator <span class="math notranslate nohighlight">\(p \in L^1(X; Y)\)</span> finden, der eine äquivalente Berechnung wie das Skalarprodukt auf dem Tensorproduktraum <span class="math notranslate nohighlight">\(X = \R^{2 \times 2}\)</span>, der durch das dyadische Produkt induziert wird, durchführt.
+Hierzu wählen wir die Spur <span class="math notranslate nohighlight">\(p(A) \coloneqq \operatorname{Spur}(A)\)</span> einer Matrix <span class="math notranslate nohighlight">\(A \in \R^{2 \times 2}\)</span>, denn diese ist <strong>linear</strong> und es gilt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\operatorname{Spur}
+\begin{pmatrix}
+a_{11} &amp; a_{12} \\
+a_{21} &amp; a_{22}
+\end{pmatrix}
+= a_{11} + a_{22}.\end{split}\]</div>
+<p>Überprüfen wir mit dieser Wahl nun die <strong>universelle Eigenschaft des dyadischen Produkts</strong>, so erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Phi(x,y) = \langle x, y \rangle = x_1y_1 + x_2y_2 = \operatorname{Spur}
+\begin{pmatrix}
+x_1y_1 &amp; x_1y_2 \\
+x_2y_1 &amp; x_2y_2
+\end{pmatrix}
+ = \operatorname{Spur}(x \otimes y) = p(x \otimes y).\end{split}\]</div>
+<p>Es sei angemerkt, dass wir nicht gezeigt haben, dass der Spur-Operator der <em>einzige</em> lineare Operator ist, der diese Äquivalenz erfüllt.
+Betrachten wir statt dessen die alternative Variante <span class="math notranslate nohighlight">\(\otimes^*\)</span> des dyadischen Produkts aus <a class="reference internal" href="#ex:tensorproduktVarianten">Example 3.5</a>, so bleibt der Tensorproduktraum gleich, jedoch ändert sich der eindeutig bestimmte, lineare Operator <span class="math notranslate nohighlight">\(p \in L^1(X; Y)\)</span>.
+Durch die Vertauschung der Elemente der Matrix <span class="math notranslate nohighlight">\(x \otimes^* y\)</span> nimmt man nicht mehr die Summe der Hauptdiagonalelemente realisiert durch den Operator <span class="math notranslate nohighlight">\(\operatorname{Spur}(A) = a_{11} + a_{22}\)</span>, sondern die <strong>Summe der Gegendiagonalelemente</strong> realisiert durch einen linearen Operator <span class="math notranslate nohighlight">\(\operatorname{Spur}^*(A) \coloneqq a_{21} + a_{12}\)</span>, d.h., die Diagonale von links unten nach rechts oben in der Matrix.
+In diesem Fall erhält man nämlich analog</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Phi(x,y) = \langle x, y \rangle = x_1y_1 + x_2y_2 = \operatorname{Spur}^*
+\begin{pmatrix}
+x_1y_2 &amp; x_1y_1 \\
+x_2y_2 &amp; x_2y_1
+\end{pmatrix}
+ = \operatorname{Spur}^*(x \otimes^* y) = p(x \otimes^* y).\end{split}\]</div>
+<p>Dies Veranschaulicht die Beziehung der involvierten Vektorräume und die zu Grunde liegende universelle Eigenschaft des Tensorprodukts.</p>
+</div>
+</div><div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Wir haben in <a class="reference internal" href="#ex:universelleEigenschaft">Example 3.6</a> lediglich die universelle Eigenschaft zur Veranschaulichung überprüft für ein konkretes Beispiel.
+Wir haben jedoch <strong>nicht</strong> gezeigt, dass das dyadische Produkt die <em>universelle Eigenschaft</em> erfüllt.
+Dafür hätten wir die Äquivalenz für <strong>alle möglichen</strong> Bilinearformen <span class="math notranslate nohighlight">\(\Phi \in L^2(V \times W; Y)\)</span> für <strong>beliebige Vektorräume</strong> <span class="math notranslate nohighlight">\(Y\)</span> beweisen müssen.</p>
+</div>
 </div>
 <div class="section" id="existenz-und-konstruktion">
 <h2><span class="section-number">3.2.3. </span>Existenz und Konstruktion<a class="headerlink" href="#existenz-und-konstruktion" title="Permalink to this headline">¶</a></h2>
-<p>Wir können ein Tensorprodukt konkret konstruieren indem wir uns auf die Basis der Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> zurückziehen. Diese Tatsache formulieren wir in der folgenden Aussage.</p>
-<div class="proof theorem admonition" id="theorem-2">
-<p class="admonition-title"><span class="caption-number">Theorem 3.1 </span></p>
+<p>Wir stellen fest, dass es für zwei beliebige <span class="math notranslate nohighlight">\(\R\)</span>-Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> immer ein Tensorprodukt gibt, und dass wir dieses Tensorprodukt konkret konstruieren können indem wir uns auf die Basis der Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> zurückziehen.
+Diese Tatsache formulieren wir in der folgenden Aussage.</p>
+<div class="proof theorem admonition" id="thm:existenzTensorprodukt">
+<p class="admonition-title"><span class="caption-number">Theorem 3.1 </span> (Existenz des Tensorprodukts)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Für zwei reelle Vektorräume <span class="math notranslate nohighlight">\(V, W\)</span> existiert stets mindestens ein Tensorprodukt <span class="math notranslate nohighlight">\(\otimes\in L^2(V\times W, V\otimes W)\)</span>.</p>
+<p>Für zwei reelle Vektorräume <span class="math notranslate nohighlight">\(V, W\)</span> existiert stets mindestens ein Tensorprodukt <span class="math notranslate nohighlight">\(\otimes\in L^2(V\times W; V\otimes W)\)</span>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Der folgende Beweis ist ein sogenannter konstruktiver Beweis, d.h., wir zeigen die Existenz eines Objekts indem wir es explizit angeben. Es gibt auch nicht-konstruktive Existenzbeweise.</p>
-<p>Es sei <span class="math notranslate nohighlight">\(B^V = \{b_i^V: i\in I^V\}\)</span> eine Basis von <span class="math notranslate nohighlight">\(V\)</span> und analog <span class="math notranslate nohighlight">\(B^W = \{b_i^W: i\in I^W\}\)</span>  eine Basis von <span class="math notranslate nohighlight">\(W\)</span> für Indexmengen <span class="math notranslate nohighlight">\(I^V, I^W\)</span>. Wir betrachten das kartesische Produkt</p>
+<p>Proof. Der folgende Beweis ist ein sogenannter <em>konstruktiver Beweis</em>, d.h., wir zeigen die Existenz eines Objekts indem wir es explizit angeben.
+Im Gegensatz hierzu gibt es auch nicht-konstruktive Existenzbeweise.</p>
+<p>Es sei <span class="math notranslate nohighlight">\(B^V = \{b_i^V: i\in I^V\}\)</span> eine Basis von <span class="math notranslate nohighlight">\(V\)</span> und es sei analog <span class="math notranslate nohighlight">\(B^W = \{b_i^W: i\in I^W\}\)</span> eine Basis von <span class="math notranslate nohighlight">\(W\)</span> für zwei Indexmengen <span class="math notranslate nohighlight">\(I^V\)</span> und <span class="math notranslate nohighlight">\(I^W\)</span>.
+Wir betrachten zunächst das kartesische Produkt der beiden Indexmengen</p>
 <div class="math notranslate nohighlight">
 \[J := I^V \times I^W = \{(i,j): i\in I^V, j\in I^W\}.\]</div>
-<p>Es sei nun <span class="math notranslate nohighlight">\(X\)</span> ein Vektorraum dessen Basis sich durch <span class="math notranslate nohighlight">\(J\)</span> indizieren lässt, d.h., es existiert eine Menge</p>
+<p>Es sei nun <span class="math notranslate nohighlight">\(X\)</span> ein reeller Vektorraum dessen Basis sich durch <span class="math notranslate nohighlight">\(J\)</span> indizieren lässt, das heißt es existiert eine Menge</p>
 <div class="math notranslate nohighlight">
-\[B^X = \{b_{ij}^X: (i,j)\in J\}\]</div>
-<p>s.d. <span class="math notranslate nohighlight">\(B^X\)</span> eine Basis von <span class="math notranslate nohighlight">\(X\)</span> ist. Ein solcher Vektorraum existiert, da z.B. das kartesische Produkt <span class="math notranslate nohighlight">\(V\times W\)</span> diese Eigenschaft erfüllt.</p>
-<p>Wir definieren nun eine bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes: V\times W\to X\)</span> über</p>
+\[B^X = \{b_{ij}^X: (i,j)\in J\},\]</div>
+<p>so dass <span class="math notranslate nohighlight">\(B^X\)</span> eine Hamel-Basis von <span class="math notranslate nohighlight">\(X\)</span> ist.
+Ein solcher Vektorraum existiert immer, da zum Beispiel das kartesische Produkt <span class="math notranslate nohighlight">\(V\times W\)</span> der beiden Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> diese Eigenschaft schon erfüllt.</p>
+<p>Wir definieren nun eine bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes: V\times W \to X\)</span> über</p>
 <div class="math notranslate nohighlight">
-\[b_i^V \otimes b_j^W := b_{ij}^X\quad\forall (i,j)\in J.\]</div>
-<p>Beachte, <span class="math notranslate nohighlight">\(\otimes\)</span> ist durch die Definition auf <span class="math notranslate nohighlight">\(J\)</span> eindeutig festgelegt, da für beliebige <span class="math notranslate nohighlight">\((v,w)\in V\times W\)</span> endlich viele Faktoren
-<span class="math notranslate nohighlight">\(\alpha_{i_1},\ldots,\alpha_{i_m}\)</span> und <span class="math notranslate nohighlight">\(\beta_{j_1},\ldots, \beta_{j_n}\)</span> existieren s.d.</p>
+\[\otimes (b_i^V, b_j^W) = b_i^V \otimes b_j^W := b_{ij}^X \quad \forall (i,j)\in J.\]</div>
+<p>Es sei darauf hingewiesen, dass die bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes\)</span> durch eine Definition über die Indexmenge <span class="math notranslate nohighlight">\(J\)</span> eindeutig festgelegt ist.
+Dies liegt daran, dass für beliebige Paare <span class="math notranslate nohighlight">\((v,w)\in V\times W\)</span> endlich viele Koeffizienten <span class="math notranslate nohighlight">\(\alpha_{i_1},\ldots,\alpha_{i_n}\)</span> und <span class="math notranslate nohighlight">\(\beta_{j_1},\ldots, \beta_{j_m}\)</span> existieren, so dass für die Vektoren <span class="math notranslate nohighlight">\(v \in V\)</span> und <span class="math notranslate nohighlight">\(w \in W\)</span> eine Darstellung in den jeweiligen Hamel-Basen existiert mit</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\otimes(v,w) 
-&amp;= 
-\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) 
-\\&amp;= 
-\sum_{k=1}^n \sum_{l=1}^m \otimes\left(b_{i_k}^V, b_{j_l}^W\right)
-\\&amp;=
-\sum_{k=1}^n \sum_{l=1}^m b_{i_kj_l}^X.\end{split}\]</div>
-<p>Wir müssen nun die universelle Eigenschaft zeigen, sei dazu <span class="math notranslate nohighlight">\(\phi\in L^2(V\times W, Y)\)</span> eine Bilinearform auf einen reellen Vektorraum <span class="math notranslate nohighlight">\(Y\)</span>, dann können wir eine Linearform auf <span class="math notranslate nohighlight">\(p:X\to Y\)</span> definieren durch (analog reicht es die Definition auf den Basiselementen anzugeben)</p>
+\[v = \sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \quad w = \sum_{l=1}^m \beta_{j_l} b_{j_l}^W.\]</div>
+<p>Durch diese Darstellung erhalten wir für die bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes: V\times W \to X\)</span> nun eine <strong>explizite Vorschrift</strong> als</p>
 <div class="math notranslate nohighlight">
-\[p(b_{ij}^X) := \phi(b_i^V, b_j^W).\]</div>
-<p>Dann gilt nämlich, unter Ausnutzung der Linearität von <span class="math notranslate nohighlight">\(p\)</span> und obiger Rechnung, dass</p>
+\[\otimes(v,w) 
+= 
+\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) = 
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} \otimes\left(b_{i_k}^V, b_{j_l}^W\right) =
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} b_{i_kj_l}^X.\]</div>
+<p>Wir müssen nun noch die <strong>universelle Eigenschaft</strong> der bilinearen Abbildung <span class="math notranslate nohighlight">\(\otimes\)</span> nachweisen, um zu zeigen, dass es sich um ein Tensorprodukt handelt.
+Sei dazu <span class="math notranslate nohighlight">\(\phi\in L^2(V\times W; Y)\)</span> eine Bilinearform auf einen beliebigen reellen Vektorraum <span class="math notranslate nohighlight">\(Y\)</span>.
+Dann können wir eine Linearform auf <span class="math notranslate nohighlight">\(p: X\to Y\)</span> explizit definieren durch Angabe ihrer Wirkung auf die Basiselemente mit</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}p(\otimes(v,w)) 
-&amp;=
-\sum_{k=1}^n \sum_{l=1}^m p(b_{i_kj_l}^X)
-\\&amp;=
-\sum_{k=1}^n \sum_{l=1}^m \phi\left(b_{i_k}^V, b_{j_l}^W\right)
-\\&amp;
-\phi\big(\sum_{k=1}^n  b_{i_k}^V,\sum_{l=1}^m b_{j_l}^W\big)
-\\&amp;
-\phi(v,w)\end{split}\]</div>
-<p>und somit gilt die universelle Eigenschaft. Insbesondere, da <span class="math notranslate nohighlight">\(p\)</span> durch die obige Definition eindeutig festgelegt ist.</p>
+\[p(b_{ij}^X) := \phi(b_i^V, b_j^W) \quad \forall (i,j) \in J.\]</div>
+<p>Dann gilt nämlich, unter Ausnutzung der Linearität von <span class="math notranslate nohighlight">\(p\)</span> und der obigen Rechnung, dass gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p(\otimes(v,w))
+&amp;= p \left( \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} b_{i_kj_l}^X \right)
+= \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} p(b_{i_kj_l}^X) \\
+&amp;= \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} \phi\left(b_{i_k}^V, b_{j_l}^W\right)
+= \phi\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V,\sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big)
+= \phi(v,w)\end{split}\]</div>
+<p>Wir sehen also, dass <span class="math notranslate nohighlight">\(\otimes\)</span> die universelle Eigenschaft erfüllt und zwar insbesondere dadurch, dass die Linearform <span class="math notranslate nohighlight">\(p\)</span> durch die obige Definition eindeutig festgelegt ist.</p>
 </div>
-<p>Als Korollar erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann. Hieran sieht man qualitativ den Unterschied zwischen <span class="math notranslate nohighlight">\(V\otimes W\)</span> und <span class="math notranslate nohighlight">\(V\otimes W\)</span>.</p>
-<div class="proof corollary admonition" id="corollary-3">
+<p>Als Korollar aus <a class="reference internal" href="#thm:existenzTensorprodukt">Theorem 3.1</a> erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann.
+Hieran sieht man den qualitativen Unterschied zwischen <span class="math notranslate nohighlight">\(V \times W\)</span> und <span class="math notranslate nohighlight">\(V\otimes W\)</span>.</p>
+<div class="proof corollary admonition" id="corollary-6">
 <p class="admonition-title"><span class="caption-number">Corollary 3.1 </span></p>
 <div class="corollary-content section" id="proof-content">
-<p>Für zwei reelle Vektorräume <span class="math notranslate nohighlight">\(V,W\)</span> mit Basen <span class="math notranslate nohighlight">\(B^V = \{b_i^V: i\in I^V\}, B^W = \{b_i^W: i\in I^W\}\)</span> und ein Tensorprodukt <span class="math notranslate nohighlight">\(\otimes:V\times W\to V\otimes W\)</span> ist</p>
+<p>Für zwei reelle Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> mit zugehörigen Basen</p>
 <div class="math notranslate nohighlight">
-\[\{b_i^V\otimes b_j^W: i\in I^V, j\in I^W\}\]</div>
-<p>eine Basis von <span class="math notranslate nohighlight">\(V\otimes W\)</span>.</p>
+\[B^V = \{b_i^V: i\in I^V\}, \quad B^W = \{b_i^W: i\in I^W\},\]</div>
+<p>und einem Tensorprodukt <span class="math notranslate nohighlight">\(\otimes:V\times W \to V\otimes W\)</span> ist</p>
+<div class="math notranslate nohighlight">
+\[B^X \, \coloneqq \, \{b_i^V \otimes b_j^W: i\in I^V, j\in I^W\}\]</div>
+<p>eine Basis von <span class="math notranslate nohighlight">\(X = V\otimes W\)</span>.</p>
 </div>
 </div><p>Wir wissen nun, dass mindestens ein Tensorprodukt existiert, es stellt sich also die Frage inwiefern sich verschiedene derartige Abbildungen auf den gleichen Vektorräumen <span class="math notranslate nohighlight">\(V,W\)</span> unterschieden. Seien dazu <span class="math notranslate nohighlight">\(\otimes_1, \otimes_2\)</span> je zwei Tensorprodukte auf <span class="math notranslate nohighlight">\(V\times W\)</span>. Wegen der universellen Eigenschaft gibt es lineare Abbildungen <span class="math notranslate nohighlight">\(p_1: V\otimes_1 W\to W\otimes_2 V\)</span> und <span class="math notranslate nohighlight">\(p_2: V\otimes_2 W\to W\otimes_1 V\)</span>, s.d.,</p>
 <div class="math notranslate nohighlight">
@@ -466,16 +593,53 @@ x_n y_1&amp;\ldots&amp; x_n y_m
 \[p_1\circ p_2(\otimes(b_i^V,b_j^W)) = \otimes(b_i^V, b_j^W)\]</div>
 <p>wissen wir dass <span class="math notranslate nohighlight">\(p_1\circ p_2 = \mathrm{Id}\)</span>. Das folgt da <span class="math notranslate nohighlight">\(p_1\circ p_2\)</span> als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist.
 Analog folgt <span class="math notranslate nohighlight">\(p_2\circ p_1 = \mathrm{Id}\)</span> und somit sind <span class="math notranslate nohighlight">\(p_1, p_2\)</span> isomorph zueinander. D.h. wir haben insgesamt gezeigt, dass verschiedene Tensorprodukte stets isomorph zueinander sind.</p>
-<div class="proof lemma admonition" id="lemma-4">
+<div class="proof lemma admonition" id="lemma-7">
 <p class="admonition-title"><span class="caption-number">Lemma 3.4 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es seien <span class="math notranslate nohighlight">\(V,W\)</span> zwei reelle Vektorräume und <span class="math notranslate nohighlight">\(\otimes_1,\otimes_2\)</span> zwei Tensorprodukte. Dann existiert genau ein Isomorphismus <span class="math notranslate nohighlight">\(p:V\otimes_1 W\to V\otimes_2 W\)</span>, s.d.</p>
 <div class="math notranslate nohighlight">
 \[\otimes_2 = p\circ \otimes_1.\]</div>
 </div>
+</div><p><strong>Das Tensorprodukt?</strong></p>
+<p>Die letzte Aussage zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf Vektorräumen <span class="math notranslate nohighlight">\(V,W\)</span> zu definieren, diese stets isomorph zueinander sind. Deshalb spricht man auch von <strong>dem</strong> Tensorprodukt <span class="math notranslate nohighlight">\(V\otimes W\)</span> was so klingt als gäbe es nur ein einziges. In der Tat gibt es zwar mehrere Tensorprodukte aber man kann sie alle miteinander identifizieren.</p>
+<p>Deshalb werden wir im folgendem auch von <strong>dem</strong> Tensorprodukt sprechen.</p>
+</div>
+<div class="section" id="naturliche-isomorphismen-und-eigenschaften-des-tensorprodukts">
+<h2><span class="section-number">3.2.4. </span>Natürliche Isomorphismen und Eigenschaften des Tensorprodukts<a class="headerlink" href="#naturliche-isomorphismen-und-eigenschaften-des-tensorprodukts" title="Permalink to this headline">¶</a></h2>
+<p>Die Definition über die universelle Eigenschaft erlaubt es uns relativ direkt folgende Isomorphismen zu erhalten.</p>
+<div class="proof lemma admonition" id="lemma-8">
+<p class="admonition-title"><span class="caption-number">Lemma 3.5 </span> (Isomorphismen)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Es seien <span class="math notranslate nohighlight">\(V_1,V_2,V_3\)</span> reelle Vektorräume, dann haben wir folgende Isomorphismen.</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_1\otimes V_2 \cong V_2\otimes V_1\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\((V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3)\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\R \otimes V_1 \cong V_1\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(L(V_1, L(V_2, V_3))\cong L(V_1\otimes V_2, V_3)\)</span>.</p></li>
+</ol>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe Übung.</p>
+</div>
+<p>Die zweite Eigenschaft erlaubt es uns das Tensorprodukt über <span class="math notranslate nohighlight">\(k\)</span>-viele reelle Vektorräume <span class="math notranslate nohighlight">\(V_1,\ldots, V_k\)</span> zu bilden, wir notieren</p>
+<div class="math notranslate nohighlight">
+\[\bigotimes_{i=1}^k=V_1\otimes\ldots\otimes V_k\]</div>
+<p>und sehen, dass diese Objekt wohldefiniert ist. Insbesondere ist äquivalent das Tensorprodukt über <span class="math notranslate nohighlight">\(k\)</span>-Vektorräume mithilfe einer
+<span class="math notranslate nohighlight">\(k\)</span>-Multilinearform zu definieren anstatt der Bilinearform in <a class="reference internal" href="#def:tensor">Definition 3.4</a>.</p>
+<p>Die letzte Eigenschaft wird insbesondere wichtig um Tensorprodukte von Dualräumen zu charakterisieren. Dafür benötigen wir zusätzlich folgendes Prinzip, was man in der Algebra unter <a class="reference external" href="https://de.wikipedia.org/wiki/Funktor_(Mathematik)">Funktoren</a> kennt. Konkret wollen wir nun für reelle Vektorräume <span class="math notranslate nohighlight">\(V_1,V_2, W_1, W_2\)</span> das Tensorprodukt</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Hom}(V_1, W_1) \otimes \mathrm{Hom}(V_2, W_2)\]</div>
+<p>untersuchen.</p>
+<div class="proof lemma admonition" id="lemma-9">
+<p class="admonition-title"><span class="caption-number">Lemma 3.6 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es seinen <span class="math notranslate nohighlight">\(V_1,V_2, W_1,W_2\)</span> reelle Vektorräume und <span class="math notranslate nohighlight">\(\phi_1\in \mathrm{Hom}(V_1, W_1), \phi_2 \in \mathrm{Hom}(V_2, W_2)\)</span>, dann existiert <strong>genau ein</strong> Tensorprodukt, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[(\phi_1 \otimes \phi_2)\]</div>
+</div>
 </div></div>
 <div class="section" id="tensoren-als-linearformen">
-<h2><span class="section-number">3.2.4. </span>Tensoren als Linearformen<a class="headerlink" href="#tensoren-als-linearformen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2.5. </span>Tensoren als Linearformen<a class="headerlink" href="#tensoren-als-linearformen" title="Permalink to this headline">¶</a></h2>
 <p>Als Einleitung in das Thema wollen wir Tensoren zunächst als Linearformen auf <span class="math notranslate nohighlight">\(\V_1\times\ldots\times\V_k\)</span>
 betrachten wobei für <span class="math notranslate nohighlight">\(i=1,\ldots,k\)</span> <span class="math notranslate nohighlight">\(\V_i\)</span> reelle endlich dimensionale Vektorräume sind.
 Man schreibt in diesem Fall auch</p>
@@ -485,7 +649,7 @@ Man schreibt in diesem Fall auch</p>
 <p>Der wichtige Spezialfall ist hier allerdings nun nicht <span class="math notranslate nohighlight">\(\V^k\)</span> sondern ein kartesisches Produkt der Form</p>
 <div class="math notranslate nohighlight">
 \[(V^\ast)^r\times V^s.\]</div>
-<div class="proof definition admonition" id="definition-5">
+<div class="proof definition admonition" id="definition-10">
 <p class="admonition-title"><span class="caption-number">Definition 3.5 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\V\)</span> ein reeller endlich-dimensionaler Vektorraum, dann nennt man</p>
@@ -494,8 +658,8 @@ Man schreibt in diesem Fall auch</p>
 <p>Menge der <span class="math notranslate nohighlight">\(r\)</span>-fach <strong>kontravarianten</strong> und <span class="math notranslate nohighlight">\(s\)</span>-fach <strong>kovarianten</strong> Tensoren, oder alternativ Tensoren der Stufe <span class="math notranslate nohighlight">\((r,s)\)</span>.</p>
 </div>
 </div><p>Wir wollen diese abstrakte Definition nun mit einfachen Beispielen veranschaulichen zunächst für <span class="math notranslate nohighlight">\(r+s=1\)</span>.</p>
-<div class="proof example admonition" id="example-6">
-<p class="admonition-title"><span class="caption-number">Example 3.5 </span></p>
+<div class="proof example admonition" id="example-11">
+<p class="admonition-title"><span class="caption-number">Example 3.7 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Tensoren der Stufe <span class="math notranslate nohighlight">\((1,0)\)</span> können mit Elementen des Vektorraums selbst identifiziert werden, denn</p>
 <div class="math notranslate nohighlight">
@@ -504,13 +668,13 @@ Man schreibt in diesem Fall auch</p>
 Dualraums, also einfach Linearformen auf <span class="math notranslate nohighlight">\(\V\)</span>, sogenannte <em>Kovektoren</em>.</p>
 </div>
 </div><p>Als weiteren Spezialfall erhalten wir Multilinearformen.</p>
-<div class="proof example admonition" id="example-7">
-<p class="admonition-title"><span class="caption-number">Example 3.6 </span></p>
+<div class="proof example admonition" id="example-12">
+<p class="admonition-title"><span class="caption-number">Example 3.8 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Tensoren der Stufe <span class="math notranslate nohighlight">\((0,k)\)</span> sind <span class="math notranslate nohighlight">\(k\)</span>-Linearformen, da <span class="math notranslate nohighlight">\(T^0_k(V) = L^k(V)\)</span>.</p>
 </div>
-</div><div class="proof example admonition" id="example-8">
-<p class="admonition-title"><span class="caption-number">Example 3.7 </span></p>
+</div><div class="proof example admonition" id="example-13">
+<p class="admonition-title"><span class="caption-number">Example 3.9 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Aus einer linearen Abbildung <span class="math notranslate nohighlight">\(A:\V\to\V\)</span> erhält man direkt einen Tensor der Stufe <span class="math notranslate nohighlight">\((1,1)\)</span> über die Abbildung</p>
 <div class="math notranslate nohighlight">
@@ -518,7 +682,7 @@ Dualraums, also einfach Linearformen auf <span class="math notranslate nohighlig
 </div>
 </div></div>
 <div class="section" id="auszere-formen">
-<h2><span class="section-number">3.2.5. </span>Äußere Formen<a class="headerlink" href="#auszere-formen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2.6. </span>Äußere Formen<a class="headerlink" href="#auszere-formen" title="Permalink to this headline">¶</a></h2>
 <p>In <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">ex:multi</span></code> haben wir für <span class="math notranslate nohighlight">\(k=2\)</span> bereits den Begriff der Antisymmetrie kennengelernt. Dieser Fall lässt sich auf beliebige <span class="math notranslate nohighlight">\(k\in\N\)</span> verallgemeinern, was zur Definition der äußeren Form führt.</p>
 <div class="proof definition admonition" id="aeussere_Form">
 <p class="admonition-title"><span class="caption-number">Definition 3.6 </span> (Äußere Form)</p>
@@ -530,8 +694,8 @@ Dualraums, also einfach Linearformen auf <span class="math notranslate nohighlig
 \[\varphi(z_1,\ldots,z_i,\ldots,z_l,\ldots,z_k) =-\varphi(z_1,\ldots,z_l,\ldots,z_i,\ldots,z_k).\]</div>
 <p>Der Unterraum der äußeren <span class="math notranslate nohighlight">\(k\)</span>-Formen wird mit <span class="math notranslate nohighlight">\(\Lambda^k(\V)\subset L^k(\V,\R)\)</span> bezeichnet.</p>
 </div>
-</div><div class="proof example admonition" id="example-10">
-<p class="admonition-title"><span class="caption-number">Example 3.8 </span></p>
+</div><div class="proof example admonition" id="example-15">
+<p class="admonition-title"><span class="caption-number">Example 3.10 </span></p>
 <div class="example-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(k=1\)</span>:</p>
 <p>Hier fallen alle bisherigen Definitionen zusammen, d.h.,</p>
@@ -543,8 +707,8 @@ Dualraums, also einfach Linearformen auf <span class="math notranslate nohighlig
 <p>Die Determinantenform ist bis auf ihre Vielfachen die einzige äußere <span class="math notranslate nohighlight">\(n\)</span>-Form auf dem <span class="math notranslate nohighlight">\(\R^n\)</span>.</p>
 </div>
 </div><p>Wir beweisen zwei kleine Hilfsaussagen zu äußeren Formen</p>
-<div class="proof lemma admonition" id="lemma-11">
-<p class="admonition-title"><span class="caption-number">Lemma 3.5 </span></p>
+<div class="proof lemma admonition" id="lemma-16">
+<p class="admonition-title"><span class="caption-number">Lemma 3.7 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sein <span class="math notranslate nohighlight">\(\V\)</span> ein reeller Vektorraum und <span class="math notranslate nohighlight">\(\varphi\in\Lambda^k(V)\)</span>.</p>
 <ul class="simple">
@@ -572,7 +736,7 @@ ein <span class="math notranslate nohighlight">\(j\)</span> existiert mit <span 
 \sum_{i\neq j} \alpha_i \varphi(z_1,\ldots,z_{j-1},z_i,z_{j+1},\ldots,z_k) = 0.\]</div>
 </div>
 <p>Wir werden nun eine Methode kennelernen die es uns erlaubt eine äußere <span class="math notranslate nohighlight">\(k\)</span>-Form als sogenanntes <strong>äußeres Produkt</strong> von <span class="math notranslate nohighlight">\(k\)</span> vielen Linearformen zu erhalten.</p>
-<div class="proof definition admonition" id="definition-12">
+<div class="proof definition admonition" id="definition-17">
 <p class="admonition-title"><span class="caption-number">Definition 3.7 </span> (Äußeres Produkt)</p>
 <div class="definition-content section" id="proof-content">
 <p>Für einen Vektorraum <span class="math notranslate nohighlight">\(\V\)</span> ist das <strong>äußere Produkt</strong> von <span class="math notranslate nohighlight">\(\omega_1,\ldots,\omega_k\in\Lambda^1(\V)\)</span>
@@ -588,8 +752,8 @@ durch</p>
 \end{pmatrix}\end{split}\]</div>
 <p>definiert.</p>
 </div>
-</div><div class="proof lemma admonition" id="lemma-13">
-<p class="admonition-title"><span class="caption-number">Lemma 3.6 </span></p>
+</div><div class="proof lemma admonition" id="lemma-18">
+<p class="admonition-title"><span class="caption-number">Lemma 3.8 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Für einen Vektorraum <span class="math notranslate nohighlight">\(\V\)</span> ist das äußere Produkt von <span class="math notranslate nohighlight">\(\omega_1,\ldots,\omega_k\in\Lambda^1(\V)\)</span> eine <span class="math notranslate nohighlight">\(k\)</span>-Linearform.</p>
 </div>
@@ -647,7 +811,7 @@ j_1&lt;\ldots&lt;j_l\leq n} \omega_{i_1\ldots i_k} \psi_{j_1\ldots j_l}
 <p>denn wir müssen <span class="math notranslate nohighlight">\(k\!\cdot\! l\)</span>–mal Eins–Formen kommutieren, um von der einen
 zur anderen Gestalt zu gelangen.</p>
 <div class="proof example admonition" id="symplektische Form auf dem $\R^{2n}$">
-<p class="admonition-title"><span class="caption-number">Example 3.9 </span> (<a class="reference external" href="https://de.wikipedia.org/wiki/Symplektischer_Vektorraum">Wikipedia</a> <em>Symplektische Form</em>)</p>
+<p class="admonition-title"><span class="caption-number">Example 3.11 </span> (<a class="reference external" href="https://de.wikipedia.org/wiki/Symplektischer_Vektorraum">Wikipedia</a> <em>Symplektische Form</em>)</p>
 <div class="example-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[\omega := \sum_{i=1}^n\alpha_i\wedge\alpha_{i+n}\in\Lambda^2(\R^{2n}).\]</div>
@@ -669,8 +833,8 @@ zur anderen Gestalt zu gelangen.</p>
 x_n\)</span> als Impulskoordinaten, die Koordinaten <span class="math notranslate nohighlight">\(x_{n+1},\ldots, x_{2n}\)</span> als
 Ortskoordinaten.</p>
 </div>
-</div><div class="proof example admonition" id="example-15">
-<p class="admonition-title"><span class="caption-number">Example 3.10 </span> (Vektoren und äußere Formen)</p>
+</div><div class="proof example admonition" id="example-20">
+<p class="admonition-title"><span class="caption-number">Example 3.12 </span> (Vektoren und äußere Formen)</p>
 <div class="example-content section" id="proof-content">
 <p>Wir ordnen nun Vektoren
 <span class="math notranslate nohighlight">\(v = \begin{pmatrix} v_1\\ \vdots\\ v_n \end{pmatrix} =\sum_{k=1}^nv_ke_k\in\R^n\)</span> verschiedene äußere Formen zu.</p>
@@ -708,7 +872,7 @@ Das äußere Produkt zweier solcher <span class="math notranslate nohighlight">\
 \[\begin{split}v\times u=\begin{pmatrix} v_2u_3-v_3u_2\\v_3u_1-v_1u_3 \\ v_1u_2-v_2u_1 \end{pmatrix} \in\R^3\end{split}\]</div>
 <p>zweier Vektoren <span class="math notranslate nohighlight">\(v,u\in\R^3\)</span> gewonnen.</p>
 </div>
-</div><div class="proof theorem admonition" id="theorem-16">
+</div><div class="proof theorem admonition" id="theorem-21">
 <p class="admonition-title"><span class="caption-number">Theorem 3.2 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Die Vektoren <span class="math notranslate nohighlight">\(w_1,\ldots,w_k\in E^*\)</span> sind genau dann linear abhängig, wenn</p>
@@ -738,8 +902,8 @@ Dann ist aber auch <span class="math notranslate nohighlight">\(w_1\wedge\ldots\
 gegebenen Multiplikation die <strong>äußere</strong> oder
 <a class="reference external" href="https://de.wikipedia.org/wiki/Gra%C3%9Fmann-Algebra"><strong>Grassmann-Algebra</strong></a></p>
 </div>
-</div><div class="proof remark admonition" id="remark-18">
-<p class="admonition-title"><span class="caption-number">Remark 3.6 </span></p>
+</div><div class="proof remark admonition" id="remark-23">
+<p class="admonition-title"><span class="caption-number">Remark 3.7 </span></p>
 <div class="remark-content section" id="proof-content">
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\dim(\Lambda^*(E)) = 2^{\dim(E)}\)</span>, denn <span class="math notranslate nohighlight">\(\sum_{k=0}^n{n\choose k} = 2^n\)</span>.</p></li>
@@ -760,7 +924,7 @@ gegebenen Multiplikation die <strong>äußere</strong> oder
 </div>
 </div><p>Es gilt offensichtlich <span class="math notranslate nohighlight">\(f^*(\omega)\in\Lambda^k(E)\)</span>, denn <span class="math notranslate nohighlight">\(f^*(\omega)\)</span>
 ist <span class="math notranslate nohighlight">\(k\)</span>–linear und antisymmetrisch.</p>
-<div class="proof theorem admonition" id="theorem-20">
+<div class="proof theorem admonition" id="theorem-25">
 <p class="admonition-title"><span class="caption-number">Theorem 3.3 </span></p>
 <div class="theorem-content section" id="proof-content">
 <ul class="simple">
