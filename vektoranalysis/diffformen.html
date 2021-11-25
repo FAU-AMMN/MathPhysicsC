@@ -317,12 +317,12 @@ dx_1\wedge\ldots\wedge dx_{i_k}\)</span></p></li>
 </ul>
 <p>definiert ist. <span class="math notranslate nohighlight">\(d\)</span> verwandelt eine <span class="math notranslate nohighlight">\(k\)</span>–Form also in eine <span class="math notranslate nohighlight">\((k+1)\)</span>–Form.</p>
 <div class="proof definition admonition" id="aeussere Ableitung">
-<p class="admonition-title"><span class="caption-number">Definition 3.10 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.6 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Die lineare Abbildung <span class="math notranslate nohighlight">\(d:\Omega^*(U)\to\Omega^*(U)\)</span> heißt <a class="reference external" href="https://de.wikipedia.org/wiki/%C3%84u%C3%9Fere_Ableitung"><strong>äußere Ableitung</strong></a>.</p>
 </div>
 </div><div class="proof example admonition" id="ex:10.14">
-<p class="admonition-title"><span class="caption-number">Example 3.13 </span> (Äußere Ableitung)</p>
+<p class="admonition-title"><span class="caption-number">Example 3.10 </span> (Äußere Ableitung)</p>
 <div class="example-content section" id="proof-content">
 <ol class="simple">
 <li><p>Für <span class="math notranslate nohighlight">\(\omega\in\Omega^0(\R^3)\)</span> ist <span class="math notranslate nohighlight">\(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
@@ -349,7 +349,7 @@ dx_3\wedge dx_1\end{split}\]</div>
 </ol>
 </div>
 </div><div class="proof theorem admonition" id="Antiderivation">
-<p class="admonition-title"><span class="caption-number">Theorem 3.4 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 3.2 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(d\)</span> ist eine <a class="reference external" href="https://de.wikipedia.org/wiki/Derivation_(Mathematik)#Antiderivationen"><strong>Antiderivation</strong></a>, d.h. für <span class="math notranslate nohighlight">\(\alpha\in\Omega^k(U)\)</span> und <span class="math notranslate nohighlight">\(\beta\in\Omega^l(U)\)</span> ist</p>
 <div class="math notranslate nohighlight">
@@ -369,7 +369,7 @@ Es gilt</p>
 &amp;=&amp; (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}\end{split}\]</div>
 </div>
 <div class="proof theorem admonition" id="thm:dd">
-<p class="admonition-title"><span class="caption-number">Theorem 3.5 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 3.3 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Auf <span class="math notranslate nohighlight">\(\Omega^*(U)\)</span> gilt</p>
 </div>
@@ -390,18 +390,18 @@ können.</p>
 <div class="math notranslate nohighlight">
 \[dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
 \wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0,\]</div>
-<p>denn gemäß Satz <a class="reference internal" href="#Antiderivation">Theorem 3.4</a> wird die äußere Ableitung auf die
+<p>denn gemäß Satz <a class="reference internal" href="#Antiderivation">Theorem 3.2</a> wird die äußere Ableitung auf die
 1-Formen <span class="math notranslate nohighlight">\(d\omega_{i_1\ldots i_k}\)</span> und <span class="math notranslate nohighlight">\(dx_{i_l}\)</span> angewandt, und nach Teil 1.
 ist das Ergebnis Null.</p>
 </div>
 <div class="proof definition admonition" id="geschlossen:exakt">
-<p class="admonition-title"><span class="caption-number">Definition 3.11 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.7 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Eine Differentialform <span class="math notranslate nohighlight">\(\vv\in\Omega^*(U)\)</span> heißt</p>
 <ul class="simple">
 <li><p><strong>geschlossen</strong>, wenn <span class="math notranslate nohighlight">\(d\vv=0\)</span>, *<strong>exakt</strong>, wenn <span class="math notranslate nohighlight">\(\vv=d\psi\)</span> für ein <span class="math notranslate nohighlight">\(\psi\in\Omega^*(U)\)</span> gilt.</p></li>
 </ul>
-<p>Nach Satz <a class="reference internal" href="#thm:dd">Theorem 3.5</a> sind exakte Differentialformen geschlossen.\ Für <span class="math notranslate nohighlight">\(k\)</span>–Formen auf konvexen offenen Teimengen <span class="math notranslate nohighlight">\(U\subseteq \R^n\)</span> gilt für <span class="math notranslate nohighlight">\(k\ge 1\)</span>auch die Umkehrung (sog.
+<p>Nach Satz <a class="reference internal" href="#thm:dd">Theorem 3.3</a> sind exakte Differentialformen geschlossen.\ Für <span class="math notranslate nohighlight">\(k\)</span>–Formen auf konvexen offenen Teimengen <span class="math notranslate nohighlight">\(U\subseteq \R^n\)</span> gilt für <span class="math notranslate nohighlight">\(k\ge 1\)</span>auch die Umkehrung (sog.
 <a class="reference external" href="https://de.wikipedia.org/wiki/Poincar%c3%a9-Lemma"><strong>Poincaré-Lemma</strong></a> ),  siehe Kapitel <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">sect:Poinca</span></code>).</p>
 </div>
 </div></div>
