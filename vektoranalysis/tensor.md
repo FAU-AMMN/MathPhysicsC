@@ -17,7 +17,7 @@ Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingefü
 ```
 
 Mechanische Spannung ist eine physikalische Größe, die die innere Beanspruchung und Kräfte in einem Volumen $V\subset\R^3$ angibt, welche aufgrund einer äußeren Belastungen auftreten.
-Die grundlegende Idee ist das **Euler-Cauchy Spannungsprinzip**, welches beschreibt, dass auf jede Schnittfläche $A\subset\R^2$, die ein Volumen in zwei Teile trennt, von diesen zwei Volumenteilen eine Spannung auf $A$ ausgeübt wird, welche durch einen sogenannten **Spannungsvektor** $\mathbf{T}^{(n)}$ beschrieben wird. 
+Die grundlegende Idee ist das **Euler-Cauchy Spannungsprinzip**, welches beschreibt, dass auf jede Schnittfläche $A\subset\R^2$, die ein Volumen in zwei Teile trennt, von diesen zwei Volumenteilen eine Spannung auf $A$ ausgeübt wird, welche durch einen sogenannten **Spannungsvektor** $\mathbf{T}^{(n)}$ beschrieben wird.
 Der Komponenten des Spannungsvektors haben hierbei die Dimension "Kraft pro Fläche".
 
 ```{figure} ../img/stress_vector.png
@@ -151,13 +151,13 @@ Wir nennen die bilineare Abbildung $\otimes$ **Tensorprodukt** und verwenden hä
 Elemente $x \in X$ des Tensorproduktraums $X = V \otimes W$ nennen wir **Tensoren**.
 ````
 
-Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. 
+Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich.
 Was ist jetzt also genau ein Tensorprodukt?
 
 **Das Tensorprodukt ist universell:**
 
-Wir haben in der {prf:ref}`def:tensor` das kartesische Produkt $\times$ benutzt welches eindeutig definiert ist. 
-Im Gegensatz dazu gibt es jedoch nicht _ein_ Tensorprodukt $\otimes$ oder _einen_ Tensorproduktraum $V\otimes W$. 
+Wir haben in der {prf:ref}`def:tensor` das kartesische Produkt $\times$ benutzt welches eindeutig definiert ist.
+Im Gegensatz dazu gibt es jedoch nicht _ein_ Tensorprodukt $\otimes$ oder _einen_ Tensorproduktraum $V\otimes W$.
 Wir haben die Freiheit $\otimes$ zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann $X = V\otimes W$ Tensorproduktraum.
 Derartige Konzepte nennt man in der Algebra _universell_.
 Betrachten wir hierzu ein kurzes Beispiel für unterschiedliche Realisierungen eines Tensorproduktes.
@@ -191,7 +191,7 @@ x_2y_2 & x_2y_1
 
 **Was bedeutet die universelle Eigenschaft?**
 
-Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf $V\times W$ und dem Raum der linearen Abbildungen von $X = V\otimes W$ nach $Y$ für ein Tensorprodukt $\otimes$ her. 
+Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf $V\times W$ und dem Raum der linearen Abbildungen von $X = V\otimes W$ nach $Y$ für ein Tensorprodukt $\otimes$ her.
 Für den Spezialfall $Y = \R$ ist letzterer gerade der *algebraische Dualraum* des Tensorproduktraums.
 Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen also schon über einfache Linearformen auf $V\otimes W$.
 
@@ -272,10 +272,9 @@ Wir haben jedoch **nicht** gezeigt, dass das dyadische Produkt die *universelle 
 Dafür hätten wir die Äquivalenz für **alle möglichen** Bilinearformen $\Phi \in L^2(V \times W; Y)$ für **beliebige Vektorräume** $Y$ beweisen müssen.
 ```
 
-
 ## Existenz und Konstruktion des Tensorprodukts
 
-Wir stellen fest, dass es für zwei beliebige $\R$-Vektorräume $V$ und $W$ immer ein Tensorprodukt gibt, und dass wir dieses Tensorprodukt konkret konstruieren können indem wir uns auf die Basis der Vektorräume $V$ und $W$ zurückziehen. 
+Wir stellen fest, dass es für zwei beliebige $\R$-Vektorräume $V$ und $W$ immer ein Tensorprodukt gibt, und dass wir dieses Tensorprodukt konkret konstruieren können indem wir uns auf die Basis der Vektorräume $V$ und $W$ zurückziehen.
 Diese Tatsache formulieren wir in der folgenden Aussage.
 
 ````{prf:theorem} Existenz des Tensorprodukts
@@ -349,7 +348,7 @@ Wir sehen also, dass $\otimes$ die universelle Eigenschaft erfüllt und zwar ins
 
 ````
 
-Als Korollar aus {prf:ref}`thm:existenzTensorprodukt` erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann. 
+Als Korollar aus {prf:ref}`thm:existenzTensorprodukt` erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann.
 Hieran sieht man den qualitativen Unterschied zwischen $V \times W$ und $V\otimes W$.
 
 ````{prf:corollary}
@@ -369,7 +368,7 @@ eine Basis von $X = V\otimes W$.
 ````
 
 Wir wissen nun aus {prf:ref}`thm:existenzTensorprodukt`, dass immer mindestens ein Tensorprodukt existiert.
-Es stellt sich also die Frage inwiefern sich verschiedene Tensorprodukte auf den gleichen Vektorräumen $V$ und $W$ unterscheiden. 
+Es stellt sich also die Frage inwiefern sich verschiedene Tensorprodukte auf den gleichen Vektorräumen $V$ und $W$ unterscheiden.
 Hierzu liefert das folgende Lemma eine klare Einsicht.
 
 ````{prf:lemma} Isomorphie von Tensorprodukträumen
@@ -430,6 +429,7 @@ Insgesamt haben wir also gezeigt, dass Tensorprodukträume, die durch verschiede
 ````
 
 Im endlich-dimensionalen Fall können wir uns also immer auf den $\R^{n \cdot m}$ zurückziehen, wie das folgende Korrolar festhält.
+
 ````{prf:corollary}
 Betrachten wir ein Tensorprodukt $\otimes \in L^2(V \times W; V \otimes W)$ zweier **endlich-dimensionaler** $\R$-Vektorräume $V$ und $W$ mit $\operatorname{dim}(V)=n \in \N$ und $\operatorname{dim}(W)=m \in \N$, so existiert stets die folgende Isormorphie
 
@@ -503,31 +503,27 @@ Es wird nun klar, dass die Räume $X_d = \R^{2 \times 2}$ und $X_K = \R^4$ isomo
 Außerdem kann man Tensoren in den jeweiligen Tensorprodukträumen durch zeilenweises Ablesen bzw. Eintragen in eine Matrix eindeutig ineinander überführen.
 ````
 
-
 **Das Tensorprodukt?**
 
-Die Aussage aus {prf:ref}`lem:isomorphismusTensorproduktraum` zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf dem kartesischen Produktraum $V \times W$ zu definieren, die resultierenden Tensorprodukträume stets isomorph zueinander sind. 
+Die Aussage aus {prf:ref}`lem:isomorphismusTensorproduktraum` zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf dem kartesischen Produktraum $V \times W$ zu definieren, die resultierenden Tensorprodukträume stets isomorph zueinander sind.
 Deshalb spricht man auch von **dem** Tensorprodukt $\otimes$ und **dem** Tensorproduktraum $V \otimes W$, was so klingt als gäbe es jeweils nur ein einziges Exemplar.
 In der Tat gibt es zwar mehrere Tensorprodukte aber man kann diese problemlos ineinander umrechnen und die resultierenden Tensorprodukträume alle miteinander identifizieren.
 
 Deshalb werden wir im Folgendem auch häufig von **dem** Tensorprodukt sprechen.
 
-
 ## Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
 
-Die Definition über die universelle Eigenschaft erlaubt es uns relativ direkt folgende Isomorphismen zu erhalten.
+Von vielen Operationen kennen wir bereits Eigenschaften wie Kommutativität und Assoziativität. Derartige Eigenschaften gelten nicht direkt für das Tensorprodukt, allerdings erhalten wir Isomorphismen, welche bekannte Rechenregeln nachbilden. Diese Isomorphismen nennt auch **natürlich** oder **kanonisch**, weil Sie jeweils auf die naheliegendste Art und Weise definiert sind.
 
-````{prf:lemma} Isomorphismen
+````{prf:lemma} Natürliche Isomorphismen
 
 Es seien $V_1,V_2,V_3$ reelle Vektorräume, dann haben wir folgende Isomorphismen.
 
-1. $V_1\otimes V_2 \cong V_2\otimes V_1$,
+1. **Kommutativität:** $V_1\otimes V_2 \cong V_2\otimes V_1, \quad v_1\otimes v_2 \mapsto v_2\otimes v_1$, 
 
-2. $(V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3)$,
+2. **Assoziativität:** $(V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3),\quad (v_1\otimes v_2)\otimes v_3 \mapsto v_1 \otimes (v_2\otimes v_3)$,
 
-3. $\R \otimes V_1 \cong V_1$,
-
-4. $L(V_1, L(V_2, V_3))\cong L(V_1\otimes V_2, V_3)$.
+3. **Produkt mit Skalaren:** $\R \otimes V_1 \cong V_1,\quad a\otimes v_1 \mapsto av_1$.
 
 ````
 
@@ -543,6 +539,12 @@ Die zweite Eigenschaft erlaubt es uns das Tensorprodukt über $k$-viele reelle V
 
 und sehen, dass diese Objekt wohldefiniert ist. Insbesondere ist äquivalent das Tensorprodukt über $k$-Vektorräume mithilfe einer
 $k$-Multilinearform zu definieren anstatt der Bilinearform in {prf:ref}`def:tensor`.
+
+
+
+
+
+ $L(V_1, L(V_2, V_3))\cong L(V_1\otimes V_2, V_3)$.
 
 Die letzte Eigenschaft wird insbesondere wichtig um Tensorprodukte von Dualräumen zu charakterisieren. Dafür benötigen wir zusätzlich folgendes Prinzip, was man in der Algebra unter [Funktoren](https://de.wikipedia.org/wiki/Funktor_(Mathematik)) kennt. Konkret wollen wir nun für reelle Vektorräume $V_1,V_2, W_1, W_2$ das Tensorprodukt
 
