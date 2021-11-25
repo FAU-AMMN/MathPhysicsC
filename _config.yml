@@ -13,7 +13,7 @@ html:
   comments:
     hypothesis: true
   use_repository_button: true
-  google_analytics_id: G-YCTWVBGEWR
+  google_analytics_id: G-Z9NNSYF13N
 
 parse:
   myst_enable_extensions:
