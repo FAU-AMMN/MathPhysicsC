@@ -148,6 +148,7 @@ $p \in L^1(X; Y)$, so dass gilt
 Das bedeutet, dass die Vektorräume $L^2(V \times W; Y)$ und $L^1(X; Y)$ isomorph zueinander sind.
 In diesem Fall schreibt man auch $X = V \otimes W$.
 Wir nennen die bilineare Abbildung $\otimes$ **Tensorprodukt** und verwenden häufig für sie die Infix-Schreibweise $v\otimes w := \otimes(v,w)$.
+Elemente $x \in X$ des Tensorproduktraums $X = V \otimes W$ nennen wir **Tensoren**.
 ````
 
 Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich. 
@@ -191,7 +192,7 @@ x_2y_2 & x_2y_1
 **Was bedeutet die universelle Eigenschaft?**
 
 Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf $V\times W$ und dem Raum der linearen Abbildungen von $X = V\otimes W$ nach $Y$ für ein Tensorprodukt $\otimes$ her. 
-Für den Spezialfall $Y = \R$ ist letzterer gerade der algebraische Dualraum des Tensorproduktraums.
+Für den Spezialfall $Y = \R$ ist letzterer gerade der *algebraische Dualraum* des Tensorproduktraums.
 Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen also schon über einfache Linearformen auf $V\otimes W$.
 
 Das folgende einfache Beispiel soll uns helfen diese Beziehung besser zu verstehen.
@@ -301,7 +302,7 @@ B^X = \{b_{ij}^X: (i,j)\in J\},
 ```
 
 so dass $B^X$ eine Hamel-Basis von $X$ ist.
-Ein solcher Vektorraum existiert immer, da zum Beispiel das kartesische Produkt $V\times W$ der beiden Vektorräume $V$ und $W$ diese Eigenschaft schon erfüllt.
+Man kann zeigen, dass ein solcher Vektorraum immer existiert.
 
 Wir definieren nun eine bilineare Abbildung $\otimes: V\times W \to X$ über 
 
@@ -371,7 +372,7 @@ Wir wissen nun aus {prf:ref}`thm:existenzTensorprodukt`, dass immer mindestens e
 Es stellt sich also die Frage inwiefern sich verschiedene Tensorprodukte auf den gleichen Vektorräumen $V$ und $W$ unterscheiden. 
 Hierzu liefert das folgende Lemma eine klare Einsicht.
 
-````{prf:lemma} Isomorphismus von Tensorprodukträumen
+````{prf:lemma} Isomorphie von Tensorprodukträumen
 :label: lem:isomorphismusTensorproduktraum
 
 Es seien $V$ und $W$ zwei reelle Vektorräume und es seien
@@ -396,8 +397,8 @@ Seien also zunächst zwei Tensorprodukte $\otimes_1, \otimes_2$ auf $V\times W$ 
 Wegen der *universellen Eigenschaft* des Tensorprodukts wissen wir, dass es lineare Abbildungen 
 
 ```{math}
-p_1&: V\otimes_1 W\to Y_1 \ \coloneqq \ W\otimes_2 V,\\
-p_2&: V\otimes_2 W\to Y_2 \ \coloneqq \ W\otimes_1 V
+p_1&: V\otimes_1 W\to Y_1 \ \coloneqq \ V\otimes_2 W,\\
+p_2&: V\otimes_2 W\to Y_2 \ \coloneqq \ V\otimes_1 W
 ```
 
 gibt, so dass gilt
@@ -421,11 +422,27 @@ Setzen wir also das Tensorprodukt dieser Basiselemente in die erste Gleichung ei
 \otimes_2(b_i^V, b_j^W) = p_1\circ p_2(\otimes_2(b_i^V,b_j^W)).
 ```
 
-Das zeigt also, dass $p_1\circ p_2 = \mathrm{Id}_{Y_2}$ die Identitätsabbildung auf dem Tensorproduktraum $Y_2 = V \otimes_2 W$ sein muss. 
+Das zeigt also, dass $p_1\circ p_2 = \mathrm{Id}_{Y_1}$ die Identitätsabbildung auf dem Tensorproduktraum $Y_1 = V \otimes_2 W$ sein muss. 
 Dies folgt, weil $p_1\circ p_2$ als lineare Abbildung schon ganz durch seine Wirkung auf den Basiselementen festgelegt ist. 
-Analog kann man nun folgern, dass $p_2\circ p_1 = \mathrm{Id}{Y_1}$ die Identitätsabbildung im Tensorproduktraum $Y_1 = V \otimes_1 W$ ist und somit sind die Linearformen $p_1$ und $p_2$ **Isomorphismen** und gerade die jeweiligen Umkehrfunktionen zueinander. 
+Analog kann man nun folgern, dass $p_2\circ p_1 = \mathrm{Id}_{Y_2}$ die Identitätsabbildung im Tensorproduktraum $Y_2 = V \otimes_1 W$ ist und somit sind die Linearformen $p_1$ und $p_2$ **Isomorphismen** und gerade die jeweiligen Umkehrfunktionen zueinander. 
 
 Insgesamt haben wir also gezeigt, dass Tensorprodukträume, die durch verschiedene Tensorprodukte auf dem gleiche kartesischen Produkraum stets isomorph zueinander sind.
+````
+
+Im endlich-dimensionalen Fall können wir uns also immer auf den $\R^{n \cdot m}$ zurückziehen, wie das folgende Korrolar festhält.
+````{prf:corollary}
+Betrachten wir ein Tensorprodukt $\otimes \in L^2(V \times W; V \otimes W)$ zweier **endlich-dimensionaler** $\R$-Vektorräume $V$ und $W$ mit $\operatorname{dim}(V)=n \in \N$ und $\operatorname{dim}(W)=m \in \N$, so existiert stets die folgende Isormorphie
+
+```{math}
+V \otimes W \cong \R^{n \cdot m}.
+```
+
+Das heißt für die Dimension des Tensorproduktraums $V \otimes W$ gilt offensichtlich 
+
+```{math}
+\operatorname{dim}(V \otimes W) = n\cdot m.
+```
+
 ````
 
 Das folgende Beispiel soll noch einmal die Isomorphie zwischen verschiedenen Tensorprodukträumen illustrieren.
@@ -449,7 +466,7 @@ x_2y_1 & x_2y_2
 \end{pmatrix}.
 ```
 
-ein *Tensorprodukt* der Vektorräume $V=W=\R^2$.
+ein Tensorprodukt der Vektorräume $V=W=\R^2$.
 
 Betrachten wir nun ein weiteres Tensorprodukt auf dem kartesischen Produktraum $V \times W$, nämlich das **Kronecker-Produkt** $\otimes_K$.
 Das Kronecker-Produkt realisiert eine Abbildung
@@ -483,7 +500,7 @@ x_2y_2
 ```
 
 Es wird nun klar, dass die Räume $X_d = \R^{2 \times 2}$ und $X_K = \R^4$ isomorph zueinander sind, d.h., es gilt $X_d \cong X_K$.
-Außerdem kann man Tensoren in den jeweiligen Tensorprodukträumen durch spaltenweises Ablesen bzw. Eintragen in eine Matrix eindeutig ineinander überführen.
+Außerdem kann man Tensoren in den jeweiligen Tensorprodukträumen durch zeilenweises Ablesen bzw. Eintragen in eine Matrix eindeutig ineinander überführen.
 ````
 
 
