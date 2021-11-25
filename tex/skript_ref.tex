@@ -78,7 +78,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{Nov 13, 2021}
+\date{Nov 25, 2021}
 
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 
@@ -1336,101 +1336,6 @@ wobei \(w = \sqrt{\frac{k}{m}}\) gilt.
 \end{emphBox}
 
 
-\section{Aufgaben}
-\label{\detokenize{ode/ex:aufgaben}}\label{\detokenize{ode/ex::doc}}
-\begin{emphBox}{}{}{Aufgabe: DGL höherer Ordnung}
-
-\par
-Gegeben sei folgende gewöhnliche Differentialgleichung 4.\textasciitilde{}Ordnung:
-\begin{align*}
-x^{(4)}(t) = 7 x^{(3)}(t) - \dot x(t) + 5 x(t) + t^2
-\end{align*}
-\par
-Überführen Sie diese in ein System gewöhnlicher Differentialgleichungen 1.Ordnung.
-\end{emphBox}
-
-\begin{emphBox}{}{}{Aufgabe: Autonome gewöhnliche Differentialgleichungen}
-
-\par
-Entscheiden und begründen Sie mathematisch, ob die folgenden gewöhnlichen Differentialgleichungen \textbf{autonom} sind.
-
-\par
-\textbf{a)} Differentialgleichung für harmonischen Oszillator:
-\begin{align*}
-\ddot x(t) + \lambda x(t) = 0
-\end{align*}
-\par
-für eine Konstante \(\lambda \in \mathbb{R}\).
-
-\par
-\textbf{b)} Newtonsche Kraftgleichung:
-\begin{align*}
-m \ddot x(t) = F(t, x(t))
-\end{align*}
-\par
-für eine Konstante \(m > 0\), eine Kraft \(F: \mathbb{R} \times \mathbb{R}^3 \rightarrow \mathbb{R}^3\), welche von der Position im Raum \(x: \mathbb{R} \rightarrow \mathbb{R}^3\) und der Zeit \(t \in \mathbb{R}\) abhängt.
-
-\par
-\textbf{c)} Newtonsche Kraftgleichung:
-\begin{align*}
-m \ddot x(t) = F(t, x(t))
-\end{align*}
-\par
-für eine Konstante \(m > 0\), eine Kraft \(F: \mathbb{R}^3 \rightarrow \mathbb{R}^3\), welche im Gegensatz zur Situation in b) lediglich von der Position im Raum \(x: \mathbb{R} \rightarrow \mathbb{R}^3\) abhängt.
-
-\par
-\textbf{d)} Mathieusche Differentialgleichung:
-\begin{align*}
-\ddot x(t) + [\lambda + \gamma \cos(t)] ~ x(t) = 0
-\end{align*}
-\par
-für Konstanten \(\lambda, \gamma \in \mathbb{R}\).
-\end{emphBox}
-
-\begin{emphBox}{}{}{Flüsse}
-
-\par
-Für \(I = \mathbb{R}^0_+\) und \(U = \mathbb{R}^2\) betrachten wir die Abbildung \(\phi: I \times U \rightarrow U\) mit
-\begin{align*}
-\phi(t, x) = 
-\begin{pmatrix} \frac{x_2}{2} ~ \sin(\omega t) + x_1 ~ \cos(\omega t) \\ x_2 ~ \cos(\omega t) - 2 x_1 ~ \sin(\omega t) \end{pmatrix},\end{align*}
-\par
-wobei \(x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\) gilt.
-Zeigen Sie, dass diese Abbildung die mathematischen Eigenschaften eines Flusses erfüllt.
-\end{emphBox}
-
-\begin{emphBox}{}{}{Phasenporträt gedämpfter Oszillator}
-
-\par
-Wir betrachten die Bewegungsgleichung für den harmonischen Oszillator
-\begin{align*}
-m ~ \ddot x(t) + r ~ \dot x(t) + k ~ x(t) = 0
-\end{align*}
-\par
-mit Masse \(m = 1  ~ kg\), Dämpfungskonstante \(r = 0.5 ~ \frac{kg}{s}\) und Federkonstante \(k = 1.5 ~ \frac{kg}{s^2}\).
-
-\par
-Wie in Beispiel 1.3 im Skript führen wir den Impuls \(p(t) = m ~ \dot x(t)\) ein und erhalten das Differentialgleichungssystem erster Ordnung
-\begin{align*}
-\dot x(t) &= \frac{1}{m} ~ p(t)\\
-\dot p(t) &= -k ~ x(t) - \frac{r}{m} ~ p(t).
-\end{align*}
-\par
-Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten \(x\) und \(p\), indem Sie für die folgenden Punkte \((x,p)\) die durch das Differentialsystem gegebene Steigung berechnen und einzeichnen:
-\begin{align*}
-(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1) \quad (-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)
-\end{align*}\end{emphBox}
-
-\begin{emphBox}{}{}{Aufgabe: Eigenschaften Hamilton Funktion}
-
-\par
-Beweisen Sie die folgende Aussage:
-
-\par
-Sei \(P \subseteq \mathbb{R}^{2m}\) ein (offener) Phasenraum und \(\mathbb{J} = \begin{pmatrix} 0 & - 𝟙 \\ 𝟙 & 0 \end{pmatrix} \in Mat(2m, \mathbb{R})\). Ist die Hamilton Funktion \(H \in C^2(P, \mathbb{R})\), dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung \(\dot x = \mathbb{J} \nabla H(x)\) konstant.
-\end{emphBox}
-
-
 \chapter{Stabilitätsanalyse für dynamische Systeme}
 \label{\detokenize{odestability/stabilitaetsanalyse:stabilitatsanalyse-fur-dynamische-systeme}}\label{\detokenize{odestability/stabilitaetsanalyse::doc}}
 \par
@@ -1671,9 +1576,6 @@ Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleic
 
 \subsection{Linearisierung um Ruhelage}
 \label{\detokenize{odestability/ruhelagen:linearisierung-um-ruhelage}}\label{\detokenize{odestability/ruhelagen:s-linearisierung-ruhelage}}
-\par
-:label: s:linearisierung\_ruhelage
-
 \par
 In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
 Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
@@ -2178,125 +2080,265 @@ instabil \(\beta > 0\)
 Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter \(\alpha\), sondern ebenfalls von \(\beta\) ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
 \end{example}
 
+
+\chapter{Vektoranalysis}
+\label{\detokenize{vektoranalysis/vektoranalysis:vektoranalysis}}\label{\detokenize{vektoranalysis/vektoranalysis::doc}}
 \par
-In unserem Kontext spielt allerdings der Begriff des algebraischen Dualraums eine wichtige Rolle, welcher im Folgenden eingeführt wird. Man erkennt sofort, dass stets \(\V^\prime\subset \V^\ast\) gilt. Weiterhin stimmen die beiden Räume im endlich dimensionalen Fall überein.
-\label{vektoranalysis/multilinear:lemma-3}
-\begin{lemma}{}{}
+In diesem Kapitel der Vorlesung führen wir wichtige Konzepte der \emph{Vektoranalysis} ein.
+Insbesondere schaffen wir die mathematischen Grundlagen für eine spezielle Art der mehrdimensionalen Integration, das Integrieren über sogenannte \emph{Untermannigfaltigkeiten} des \(\R^n\).
+Um diese Integration durchführen zu können, entwickeln wir das Kalkül der \emph{Differentialformen} auf Mannigfaltigkeiten.
+
+\par
+Dieses Kalkül lässt auch den geometrischen Gehalt physikalischer Theorien wie Elektrodynamik oder Allgemeine Relativitätstheorie klar hervortreten.
+So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mit Hilfe des Differentialformenkalkül elegant beschreiben.
+
+\par
+Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von Agricola und Friedrich \cite{AF13}.
+
+
+\section{Multilinearformen}
+\label{\detokenize{vektoranalysis/multilinear:multilinearformen}}\label{\detokenize{vektoranalysis/multilinear::doc}}
+\par
+In diesem Abschnitt wollen wir die Definition der sogenannten \emph{Multilinearformen} einführen.
+Für beliebige Vektorräume \(\V, W\) über einem Körper \(\K\) haben Sie bereits den Begriff der \emph{Linearform}, also einer linearen Abbildung \(\varphi:\V\rightarrow W\) kennengelernt.
+Die Idee der Multilinearform ist anstatt nur einem, gleich \(k\) viele Vektorräume \(V_1,\ldots,V_k\) für \(k \in \N\) über \(\K\) zu betrachten und das Konzept der Linearität auf eine Abbildung \(\varphi:\V_1\times\ldots\V_k\rightarrow W\) zu übertragen.
+
+\par
+Zur Vereinfachung werden wir im Folgenden nur den Körper \(\K=\R\) betrachten, in den meisten Fällen lassen sich die hier beschriebenen Konzepte aber direkt auf allgemeine Körper übertragen.
+Wir beginnen zunächst mit einer Wiederholung und betrachten die schon bekannten Linearformen.
+Insbesondere soll der nächste Abschnitt die verschiedenen Begriffe des Dualraums abgrenzen.
+
+
+\subsection{Dualräume}
+\label{\detokenize{vektoranalysis/multilinear:dualraume}}
+\par
+Für einen reellen Vektorraum \(\V\) wollen wir lineare Abbildungen \(\varphi:V\to\R\) betrachten.
+Diese lassen sich mit Hilfe der folgenden Definition zum algebraischen Dualraum zusammenfassen.
+\begin{definition}{(Algebraischer Dualraum)}{vektoranalysis/multilinear:def:algebraischerDualraum}
 
 
 
 \par
-Für \(n\in\N\) sei \(\V\) ein \(n\) dimensionaler \(\R\) Vektorraum, dann gilt
+Es sei \(\V\) ein beliebiger \(\R\) Vektorraum.
+Dann nennen wir die Menge
+\begin{align*}
+\V^\ast := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear}\}
+\end{align*}
+\par
+den \textbf{algebraischer Dualraum} zu \(V\).
+\end{definition}
+
+\par
+Aus \cite{Ten21} ist bereits der Begriff des \emph{topologischen Dualraums} bekannt, welcher allerdings eine etwas restriktivere Definition hat.
+Sie fordert nämlich noch zusätzlich die Stetigkeit der linearen Abbildungen.
+\begin{definition}{(Topologischer Dualraum)}{vektoranalysis/multilinear:def:topologischerDualraum}
+
+
+
+\par
+Es sei \(\V\) ein normierter \(\R\) Vektorraum für einen Körper \(\R\).
+Dann nennen wir die Menge
+\begin{align*}
+\V^\prime := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear und stetig}\}
+\end{align*}
+\par
+den \textbf{topologischer Dualraum} zu \(V\).
+\end{definition}
+
+\begin{emphBox}{}{}
+\par
+Der algebraische Dualraum ist im Allgemeinen nicht gleich dem topologischen Dualraum.
+Der Hauptzweck dieses Abschnitts ist es diese Tatsache klar zu machen und die Unterschiede der beiden Definitionen herauszustellen.
+\end{emphBox}
+
+\par
+Der Integraloperator ist ein typisches Beispiel für einen linearen stetigen Operator.
+\begin{example}{(Integraloperator)}{vektoranalysis/multilinear:example-2}
+
+
+
+\par
+Es sei \(\V := C([0,1])\) der Funktionenraum der stetigen Funktionen auf dem Intervall \([0,1] \subset \R\).
+Dann ist der durch \(T \colon C([0,1]) \rightarrow \R\) definierte Integraloperator mit
+\begin{align*}
+T(f) := \int_0^1 f(x) \, \mathrm{d}x
+\end{align*}
+\par
+ein Element des \emph{topologischen Dualraums}, d.h. \(T \in \V^\prime\), da man zeigen kann, dass er linear und stetig ist.
+\end{example}
+
+\par
+Folgende Bemerkung sagt etwas über die minimale Struktur, die der Vektorraum \(V\) haben muss, damit die Definition des topologischen Dualraums sinnvoll ist.
+\begin{remark}{}{vektoranalysis/multilinear:remark-3}
+
+
+
+\par
+Damit die \cref{vektoranalysis/multilinear:def:topologischerDualraum} sinnvoll ist, ist es in der Tat nicht notwendig, dass \(V\) ein normierter Raum ist. Es reicht anzunehmen, dass \(\V\) ein \emph{topologischer Vektorraum} ist.
+\end{remark}
+
+\par
+Durch Vergleichen von \cref{vektoranalysis/multilinear:def:algebraischerDualraum} und \cref{vektoranalysis/multilinear:def:topologischerDualraum} erkennt man sofort, dass stets \(\V^\prime\subset \V^\ast\) gilt.
+Außerdem stellt man fest, dass die beiden Räume im endlich dimensionalen Fall überein stimmen, wie folgendes Lemma aussagt.
+\begin{lemma}{}{vektoranalysis/multilinear:lemma-4}
+
+
+
+\par
+Für \(n\in\N\) sei \(\V\) ein \(n\) dimensionaler \(\R\) Vektorraum, dessen Norm durch das Standardskalarprodukt induziert ist.
+Dann gilt
 \begin{align*}
 V^\prime = V^\ast.
 \end{align*}\end{lemma}
-\label{vektoranalysis/multilinear:remark-4}
-\begin{emphBox}{}{}{Remark 3.2}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+
+\par
+Das folgende Beispiel aus der Funktionalanalysis erklärt, dass die Gleichheit von algebraischen und topologischen Dualräumen nicht mehr in unendlich dimensionalen Räumen gilt.
+\begin{example}{(Differentialoperator)}{vektoranalysis/multilinear:example-5}
 
 
 
 \par
-Die Norm auf \(\V\) in der obigen Aussage ist durch das Standardskalarprodukt induziert.
-\end{emphBox}
-
-\begin{proof}
- Siehe Übung.
-\end{proof}
+Sei \(\V := C^1([0,1])\) der Vektorraum der stetig differenzierbaren Funktionen auf dem Intervall \([0,1] \subset \R\).
+Wir betrachten im Folgenden den \emph{Differentialoperator}
+\begin{align*}
+D \colon V &\rightarrow \R \\
+(Df)(x) &\mapsto f'(x), \quad \forall x \in [0,1].
+\end{align*}
+\par
+Bekanntermaßen ist der Differentialoperator \(D\) \textbf{linear} und ist somit ein Element des algebraischen Dualraums, d.h., \(D \in V^\ast\).
+Statten wir den Vektorraum \(C^1([0,1])\) mit der \emph{Supremumsnorm}
+\begin{align*}
+||f||_\infty := \sup_{x \in [0,1]} |f(x)|
+\end{align*}
+\par
+aus und betrachten die Funktionenfolge \(f_n(x) := x^n\), dann sehen wir ein, dass die Supremumsnorm der Folge konstant ist mit \(||f_n||_\infty \equiv 1\) für alle \(n\in\N\).
+Für den Differentialoperator \(D\) gilt jedoch
+\begin{align*}
+||Df_n||_\infty = \sup_{x \in [0,1]} |(Df_n)(x)| = \sup_{x \in [0,1]} |f_n'(x)| = \sup_{x \in [0,1]} |nx^{n-1}| = n.
+\end{align*}
+\par
+Um die \emph{Stetigkeit} des Differentialoperators zu untersuchen betrachten wir die konstante Nullfunktion \(F_0 \in V\) mit \(F_0(x) \equiv 0\) für alle \(x \in [0,1]\).
+Vergleichen wir nun den Abstand der konstanten Nullfunktionen zum ersten Folgenglied \(f_1\) unserer Funktionenfolge, so erhalten wir erwartungsgemäß
+\begin{align*}
+||f_1 - F_0||_\infty = ||f_1||_\infty = ||x^1||_\infty = 1 < \frac{3}{2} =: \delta.
+\end{align*}
+\par
+Für den Differenzialoperator erhalten wir analog
+\begin{align*}
+||Df_1 - DF_0||_\infty = ||Df_1||_\infty = ||1||\infty < \frac{3}{2} =: \epsilon.
+\end{align*}
+\par
+Wäre der Differenzialoperator \(D\) stetig, so müsste nach dem \(\epsilon-\delta\) Kriterium nun für jedes Folgenglied \(f_n\) unserer Funktionenfolge \(||Df_n - DF_0|| < \epsilon\) gelten, da der Abstand kleiner \(\delta\) ist wegen
+\begin{align*}
+||f_n - F_0||_\infty = ||f_n||_\infty = ||x^n||_\infty = 1 < \delta.
+\end{align*}
+\par
+Jedoch sehen wir, dass die Folge der Ableitungen divergiert, d.h.,
+\begin{align*}
+||Df_n - DF_0||_\infty = ||Df_n||_\infty = ||nx^{n-1}||_\infty = n > \epsilon \quad \text{für } n\geq 2.
+\end{align*}
+\par
+Wir sehen also ein, dass der Differentialoperator \textbf{nicht stetig} ist und somit kein Element des topologischen Dualraums \(V'\) sein kann.
+Damit haben wir gezeigt, dass in unendlich dimensionalen Räumen \(V' \subsetneq V^\ast\) gilt.
+\end{example}
 
 
 \subsection{k Multilinearformen}
 \label{\detokenize{vektoranalysis/multilinear:k-multilinearformen}}
 \par
-Wir verallgeminern nun den Begriff der Linearität in der folgenden Definition.
-\label{vektoranalysis/multilinear:def:multilinear}
-\begin{definition}{}{}
+Nachdem wir uns den Begriff der Linearität ins Gedächtnis zurückgerufen haben und Dualräume erklärt haben, wollen wir was Konzept linearer Abbildungen in der folgenden Definition verallgemeinern.
+\begin{definition}{(k Multilinearität)}{vektoranalysis/multilinear:def:multilinear}
 
 
 
 \par
-Für \(i=1,\ldots,k\) sei \(\V_i\), sowie \(W\) ein reeller Vektorraum. Eine Abbildung
+Sei \(k \in \N\) und es seien \(\V_i, i=1,\ldots,k\), sowie \(W\) reelle Vektorräume.
+
+\par
+Wir nennen eine Abbildung
 \begin{align*}
-\varphi:\V_1\times\ldots\times \V_k\ \to W
+\varphi : \V_1\times\ldots\times \V_k\ \to W
 \end{align*}
 \par
-heißt k \textbf{(multi)linear}, wenn für beliebige \(z_i\in\V_i\) und jede Komponente \(i\in\{1,\ldots,k\}\) die Abbildung
+\textbf{k (multi)linear}, falls alle zugehörigen partiellen Abbildungen \(\varphi_i\) für \(i\in\{1,\ldots,k\}\) mit
 \begin{align*}
-V_i &\to W\\
+\varphi_i \colon V_i &\to W\\
 x&\mapsto \varphi_i(x):= \varphi(z_1,\ldots, z_{i-1}, x, z_{i+1},\ldots,z_k)
 \end{align*}
 \par
-linear ist. Die Menge aller \(k\) linearen Abbildungen wird mit \(L^k(\V_1\times\ldots\times \V_k, W)\) bezeichnet.
+\emph{linear} sind.
+
+\par
+Die Menge aller \(k\) linearen Abbildungen wird mit \(L^k(\V_1\times\ldots\times \V_k; W)\) bezeichnet.
+Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ldots,k\) gilt, so schreibt man auch \(L^k(\V\times\ldots\times \V; W) =: L^k(\V; W)\).
 \end{definition}
-\label{vektoranalysis/multilinear:remark-6}
-\begin{emphBox}{}{}{Remark 3.3}
+\begin{remark}{}{vektoranalysis/multilinear:remark-7}
 
 
 
 \par
-Ausgeschrieben bedeutet die Bedingung in der obigen Definition, dass für alle \(z_i\in V_i\), \(\lambda\in\R\),
-und insbesondere für jedes \(i\in\{1,\ldots,k\}\), \(x,y\in \V_i\)  gilt,
+Ausgeschrieben bedeutet die Bedingung in der obigen Definition, dass für beliebige Vektoren \(x,y\in \V_i\) und Skalare \(\lambda \in \R\) gilt
 \begin{align*}
-\varphi(z_1,\ldots,z_{i-1},\lambda x, z_{i+1},\ldots,z_k) = \lambda
-\varphi(z_1,\ldots,z_{i-1}, x, z_{j+1}, \ldots,z_k)
+\varphi(z_1,\ldots,z_{i-1},\lambda \cdot x, z_{i+1},\ldots,z_k) = \lambda \cdot \varphi(z_1,\ldots,z_{i-1}, x, z_{i+1}, \ldots,z_k)
 \end{align*}
 \par
 und
 \begin{align*}
-&\varphi(z_1,\ldots,z_{i-1},x+y,z_{j+1},\ldots,z_k)\\
-= 
-&\varphi(z_1,\ldots,x,\ldots,z_k) + \varphi(z_1,\ldots,y,\ldots,z_k).
-\end{align*}\end{emphBox}
-
-\par
-Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ldots,k\), so schreibt man auch \(L^k(\V\times\ldots\times \V,W) = L^k(\V,W)\).
-
-\par
-Viele multilineare Abbildungen sind schon aus der Linearen Algebra vertraut. Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
-\label{vektoranalysis/multilinear:ex:multi}
-\begin{example}{}{}
-
-
-
-\par
-Wir betrachten Beispiele für verschiedene \(k\in\N\).
-
-\par
-\textbf{\(k=1\)}:
-
-\par
-In diesem Fall haben wir bereits gesehen, dass \(L^1(\V,\R) = \V^\ast\).
-
-\par
-\textbf{\(k=2\)}:
-
-\par
-Es sei \(\V=\R^n\) mit kanonischem innerem Produkt \(\langle\cdot,\cdot\rangle\). Für \(A\in\R^{n,n}\) ist
-\begin{align*}
-\varphi:\V\times \V\to\R\\ 
-\varphi(x, y) :=\langle x,A y \rangle
+\varphi(z_1,\ldots,z_{i-1},x+y,z_{i+1},\ldots,z_k) = \varphi(z_1,\ldots,x,\ldots,z_k) + \varphi(z_1,\ldots,y,\ldots,z_k).
 \end{align*}
 \par
-eine \textbf{Bilinearform}. Sie heißt \emph{symmetrisch},
-falls
+für jedes Argument \(i = 1,\ldots,k\) der Abbildung \(\varphi \colon V_1 \times \ldots \times \V_k \rightarrow W\).
+\end{remark}
+
+\par
+Viele multilineare Abbildungen kennen wir bereits aus der Linearen Algebra ohne sie bisher so bezeichnet zu haben.
+Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
+\begin{example}{}{vektoranalysis/multilinear:ex:multi}
+
+
+
+\par
+Wir betrachten im Folgenden Beispiele für \(k\) lineare Abbildungen mit verschiedenen \(k\in\N\).
+
+\par
+\textbf{\(k=1\)}: In diesem einfachen Fall sind alle Linearformen \(1\) linear.
+Daher ist der Raum der \(1\) Linearformen gerade der algebraische Dualraum aus \cref{vektoranalysis/multilinear:def:algebraischerDualraum}  d.h. es gilt \(L^1(\V; \R) = \V^\ast\).
+
+\par
+
+\textbf{\(k=2\)}: Es sei \(\V=\R^n\) der Euklidische Vektorraum mit kanonischem innerem Produkt \(\langle\cdot,\cdot\rangle\).
+Für \(A\in\R^{n,n}\) ist
 \begin{align*}
-\varphi(x, y) = \varphi( y, x)\qquad (x, y\in \V)
+\varphi:\V\times \V &\to\R\\ 
+(x,y) &\mapsto \varphi(x, y) :=\langle x,A y \rangle
+\end{align*}
+\par
+eine \textbf{Bilinearform} bzw. eine \(2\) Linearform nach \cref{vektoranalysis/multilinear:def:multilinear} 
+Sie heißt \emph{symmetrisch}, falls
+\begin{align*}
+\varphi(x, y) = \varphi(y, x), \quad \forall x, y\in \V
 \end{align*}
 \par
 und \emph{antisymmetrisch} falls
 \begin{align*}
-\varphi(x, y) = -\varphi( y, x)\qquad (x, y\in \V).
+\varphi(x, y) = -\varphi(y, x), \quad \forall x, y\in \V.
 \end{align*}
 \par
-\textbf{\(k=n\)}:
 
-\par
-Es sei \(\V=\R^n\). Die \(n\) lineare Abbildung
+\textbf{\(k=n\)}: Es sei \(n\in \N\) und \(\V=\R^n\) der Euklidische Vektorraum.
+Die \(n\) lineare Abbildung
 \begin{align*}
-\varphi(z_1,\ldots,z_n) := \det((z_1,\ldots,z_n))
+\varphi :\V \times \ldots \times \V &\to\R\\ 
+(z_1, \ldots, z_n) &\mapsto \varphi(z_1,\ldots,z_n) := \det([z_1,\ldots,z_n])
 \end{align*}
 \par
-heißt \textbf{Determinantenform}. Wir beachten, dass hierbei jedes \(z_i\in\R^n\) ein Vektor und \((z_1,\ldots,z_n)\) eine Matrix ist.
-Die Form gibt das orientierte Volumen des von \(z_1,\ldots,z_n\) aufgespannten Parallelotops an.
+heißt \textbf{Determinantenform}.
+Wir beachten, dass hierbei jedes \(z_i \in \R^n\) für \(i=1,\ldots,n\) ein Vektor ist und es sich bei \([z_1,\ldots,z_n] \in \R^{n\times n}\) um eine Matrix handelt.
+Die Determinantenform gibt das orientierte Volumen des von den Vektoren \(z_1,\ldots,z_n\) aufgespannten Parallelotops an.
 \end{example}
 
 
@@ -2304,8 +2346,7 @@ Die Form gibt das orientierte Volumen des von \(z_1,\ldots,z_n\) aufgespannten P
 \label{\detokenize{vektoranalysis/multilinear:der-vektorraum-der-multilinearformen}}
 \par
 Die Definition einer \(k\) linearen Abbildung ermöglicht es uns sehr direkt eine Vektorraumstruktur zu definieren.
-\label{vektoranalysis/multilinear:lemma-8}
-\begin{lemma}{}{}
+\begin{lemma}{}{vektoranalysis/multilinear:lemma-9}
 
 
 
@@ -2327,8 +2368,7 @@ und der Skalarmultiplikation
 
 \par
 Als wichtigen Spezialfall erhalten wir für \(k=1\) den Dualraum \(L^1(\V,\R)\). Für diesen Vektorraum können wir eine spezielle Basis charakterisieren, die sogenannte \textbf{duale Basis}.
-\label{vektoranalysis/multilinear:lemma-9}
-\begin{lemma}{}{}
+\begin{lemma}{(Duale Basis)}{vektoranalysis/multilinear:lemma-10}
 
 
 
@@ -2341,14 +2381,20 @@ Es sei \(\V\) ein \(n\) dimensionaler \(\R\) Vektorraum mit einer Basis \(B = (b
 \par
 bilden einen Basis von \(\V^\ast\), die sogenannte \textbf{duale Basis} zu \(B\).
 \end{lemma}
-\label{vektoranalysis/multilinear:remark-10}
-\begin{emphBox}{}{}{Remark 3.4}
+\begin{example}{(Duale Basis)}{vektoranalysis/multilinear:example-11}
+
+
+
+\par
+Rn mit Standardbasis ist es Multiplikation von rechts mit Transponierter Standardbasis.
+\end{example}
+\begin{remark}{}{vektoranalysis/multilinear:remark-12}
 
 
 
 \par
 Insbesondere zeigt diese Aussage, dass \(\dim(\V) = \dim(\V^\ast)\).
-\end{emphBox}
+\end{remark}
 
 \begin{proof}
  Wir zeigen zunächst, dass \(\eta_i\in\V^\ast\). Dazu sei \(x,y\in\V\), dann existieren skalare
@@ -2400,8 +2446,7 @@ Weiterhin seien \(a_i\in\R\) gegeben, s.d., \(0 = \sum_{i=1}^n a_i \eta_i\), dam
 \par
 und damit ist die Aussage bewiesen.
 \end{proof}
-\label{vektoranalysis/multilinear:remark-11}
-\begin{emphBox}{}{}{Remark 3.5}
+\begin{remark}{}{vektoranalysis/multilinear:remark-13}
 
 
 
@@ -2412,7 +2457,7 @@ v = \sum_{i\in I} \alpha_i b_i.
 \end{align*}
 \par
 Der wichtige Punkt ist aber, dass nur \textbf{endlich viele} \(\alpha_i\) ungleich null sind und die Summation somit keine eigentlich unendliche Reihe beschreibt sondern nur eine endliche Summe. Diese Konzept ist insbesondere verschieden vom Begriff der \href{https://de.wikipedia.org/wiki/Schauderbasis}{Schauderbasis}
-\end{emphBox}
+\end{remark}
 
 \begin{emphBox}{Georg Hamel}{}
 
@@ -2428,457 +2473,19 @@ Der wichtige Punkt ist aber, dass nur \textbf{endlich viele} \(\alpha_i\) unglei
 
 \par
 Wir halten weiterhin fest, dass sich der doppelt duale Raum im endlich dimensionalen Fall leicht charakterisieren lässt.
-\label{vektoranalysis/multilinear:lem:doubledual}
-\begin{lemma}{}{}
+\begin{lemma}{}{vektoranalysis/multilinear:lem:doubledual}
 
 
 
 \par
 Es sei \(\V\) ein \(n\) dimensionaler reeller Vektorraum, dann gilt, dass die Abbildung
 \begin{align*}
-\Psi:\V\rightarrow \V^{\ast\ast}
-\Psi(x) := (\varphi\mapsto \varphi(x))
+\Psi&:\V\rightarrow \V^{\ast\ast}\\
+\Psi(x)&:= (\varphi\mapsto \varphi(x))
 \end{align*}
 \par
 ein Isomorphismus ist.
 \end{lemma}
-
-
-\subsection{Äußere Formen}
-\label{\detokenize{vektoranalysis/multilinear:auszere-formen}}
-\par
-In \cref{vektoranalysis/multilinear:ex:multi} haben wir für \(k=2\) bereits den Begriff der Antisymmetrie kennengelernt. Dieser Fall lässt sich auf beliebige \(k\in\N\) verallgemeinern, was zur Definition der äußeren Form führt.
-\label{vektoranalysis/multilinear:aeussere_Form}
-\begin{definition}{}{}
-
-
-
-\par
-Es sei \(\V\) ein \(n\)–dimensionaler \(\R\) Vektorraum und \(k\in\N\). Dann heißt \(\varphi\in L^k(E,\R)\)
-\textbf{äußere} \(k\)\textbf{ Form},wenn sie \textbf{antisymmetrisch} ist, d.h., für alle \(1\leq i<l\leq k\) und
-\(z\in \V^k\) gilt
-\begin{align*}
-\varphi(z_1,\ldots,z_i,\ldots,z_l,\ldots,z_k) =-\varphi(z_1,\ldots,z_l,\ldots,z_i,\ldots,z_k).
-\end{align*}
-\par
-Der Unterraum der äußeren \(k\) Formen wird mit \(\Lambda^k(\V)\subset L^k(\V,\R)\) bezeichnet.
-\end{definition}
-\label{vektoranalysis/multilinear:example-14}
-\begin{example}{}{}
-
-
-
-\par
-\(k=1\):
-
-\par
-Hier fallen alle bisherigen Definitionen zusammen, d.h.,
-\begin{align*}
-\Lambda^1(\V) = L^1(\V,\R)= \V^\ast
-\end{align*}
-\par
-\(k=2\):
-
-\par
-Für \(A\in\R^{2,2}\) definiert die Abbildung \((x,y)\mapsto\langle x,A y\rangle\) eine äußere \(2\) Form auf \(\R^n\) genau dann, wenn die Matrix \(A\) antisymmetrisch ist. D.h., falls \(A^T=-A\) gilt.
-
-\par
-\(k=n\):
-
-\par
-Die Determinantenform ist bis auf ihre Vielfachen die einzige äußere \(n\) Form auf dem \(\R^n\).
-\end{example}
-
-\par
-Wir beweisen zwei kleine Hilfsaussagen zu äußeren Formen
-\label{vektoranalysis/multilinear:lemma-15}
-\begin{lemma}{}{}
-
-
-
-\par
-Es sein \(\V\) ein reeller Vektorraum und \(\varphi\in\Lambda^k(V)\).
-\begin{itemize}
-\item {} 
-\par
-Für jede Permutation \(\pi:\{1,\ldots,k\}\rightarrow\{1,\ldots,k\}\) gilt
-
-\end{itemize}
-\begin{align*}
-\varphi(z_{\pi(1)},\ldots,z_{\pi(k)}) = \sign(\pi) \varphi(z_1,\ldots,z_k).
-\end{align*}\begin{itemize}
-\item {} 
-\par
-Sind \(z_1,\ldots, z_k\) linear abhängig, so gilt \(\varphi(z_1,\ldots,z_k) = 0\).
-
-\end{itemize}
-\end{lemma}
-
-\begin{proof}
- Die erste Behauptung folgt direkt aus der Tatsache, dass sich jede Permutation als Verkettung endlich vieler Transpositionen schreiben lässt.
-Für die zweite Behauptung sehen wir zunächst, dass
-\begin{align*}
-\varphi(z_1,\ldots,x,\ldots, x,\ldots,z_k) = -\varphi(z_1,\ldots,x,\ldots,x,\ldots,z_k)
-\end{align*}
-\par
-und somit \(\varphi(z_1,\ldots,x,\ldots,x,\ldots,z_k)=0\). Sind die \(z_i\) nun linear abhängig, so existieren Skalare \(\alpha_i\), s.d.,
-ein \(j\) existiert mit \(\alpha_j\neq 0\) und
-\begin{align*}
-\sum_{i=1}^n \alpha_i z_i = 0 \Leftrightarrow z_j = 
-\frac{1}{\alpha_j} \sum_{i\neq j} \alpha_i z_i.
-\end{align*}
-\par
-Somit folgt
-\begin{align*}
-\varphi(z_1,\ldots,z_j,\ldots,z_k) = 
-\sum_{i\neq j} \alpha_i \varphi(z_1,\ldots,z_{j-1},z_i,z_{j+1},\ldots,z_k) = 0.
-\end{align*}\end{proof}
-
-\par
-Wir werden nun eine Methode kennelernen die es uns erlaubt eine äußere \(k\) Form als sogenanntes \textbf{äußeres Produkt} von \(k\) vielen Linearformen zu erhalten.
-\label{vektoranalysis/multilinear:definition-16}
-\begin{definition}{}{}
-
-
-
-\par
-Für einen Vektorraum \(\V\) ist das \textbf{äußere Produkt} von \(\omega_1,\ldots,\omega_k\in\Lambda^1(\V)\)
-durch
-\begin{align*}
-\omega_1\wedge\ldots\wedge\omega_k:V^k&\to\R\\
-(z_1,\ldots,z_k)&\mapsto 
-\det
-\begin{pmatrix}
-\omega_1(z_1)&\ldots&\omega_k(z_1)\\ 
-\vdots&&\vdots\\
-\omega_1(z_k)&\ldots&\omega_k(z_k)
-\end{pmatrix}
-\end{align*}
-\par
-definiert.
-\end{definition}
-\label{vektoranalysis/multilinear:lemma-17}
-\begin{lemma}{}{}
-
-
-
-\par
-Für einen Vektorraum \(\V\) ist das äußere Produkt von \(\omega_1,\ldots,\omega_k\in\Lambda^1(\V)\) eine \(k\) Linearform.
-\end{lemma}
-
-\begin{proof}
- Siehe Übung.
-\end{proof}
-
-\par
-Insbesondere gilt damit für die Dualbasis \(\eta_1,\ldots,\eta_n\) von \(\V^*\), dass
-\begin{align*}
-\eta_{i_1}\wedge\ldots\wedge\eta_{i_k}\in\Lambda^k(\V)
-\end{align*}
-\par
-für beliebige Indexkombinationen \(i_1,\ldots,i_k \in \{1,\ldots,n \}\). Wegen der Eigenschaften der Determinante gilt
-\begin{align*}
-\eta_{i_1}\wedge\ldots\wedge\eta_{i_k} = \sign(\pi)\, \eta_{\pi(i_1)}\wedge\ldots\wedge\eta_{\pi(i_k)}\end{align*}
-\par
-wobei \(\pi:\{i_1,\ldots,i_k\}\rightarrow\{i_1,\ldots,i_k\}\) eine Permutation ist, s.d.,
-\begin{align*}
-\pi(i_1) <= \ldots <= \pi(i_j) <= \ldots <= \pi(i_k).
-\end{align*}
-\par
-Desweiteren gilt auch
-\begin{align*}
-\eta_{i_1}\wedge\ldots\wedge\eta_{i_k} &\neq 0\\
-&\Leftrightarrow \\
-i_{j}\neq i_l&\text{ für } j\neq l.
-\end{align*}
-\par
-Wir können nun jede \(k\) Form \(\omega\in\Lambda^k(E)\) eindeutig als Linearkombination
-\begin{align*}
-\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
-\alpha_{i_1}\wedge\ldots\wedge\alpha_{i_k}
-\end{align*}
-\par
-mit Koeffizienten
-\begin{align*}
-\omega_{i_1\ldots i_k} := \omega(e_{i_1},\ldots,e_{i_k})\in\R
-\end{align*}
-\par
-darstellen. Da
-die Indexmengen \(\{i_1,\ldots ,i_k\}\) die \(k\)–elementigen Teilmengen von\(\{1,\ldots,n\}\) durchlaufen, gilt
-für \(\dim(E)=n\)
-\begin{align*}
-\dim\left(\Lambda^k(E)\right) = {n\choose k}.
-\end{align*}
-\par
-Das  \emph{äußere Produkt}
-Produkt der \(k\)–Form \(\omega\) mit einer \(l\)–Form
-\begin{align*}
-\psi := \sum_{1\leq j_1<\ldots<j_{l}\leq n}\psi_{j_1\ldots j_l}\,
-\alpha_{j_1}\wedge\ldots\wedge\alpha_{j_l}
-\end{align*}
-\par
-wird nun distributiv als \(\omega\wedge\psi\in\Lambda^{k+l}(E)\),
-\begin{align*}
-\omega\wedge\psi := \sum_{1\leq i_1<\ldots<i_k\leq n} \sum_{1\leq
-j_1<\ldots<j_l\leq n} \omega_{i_1\ldots i_k} \psi_{j_1\ldots j_l}
-\alpha_{i_1}\wedge\ldots\wedge\alpha_{i_k}\wedge\alpha_{j_1}\wedge
-\ldots\wedge\alpha_{j_l}
-\end{align*}
-\par
-definiert. All diejenigen Summanden, bei denen ein Indexpaar \(i_r=j_s\)vorkommt, sind gleich Null, denn \(\alpha_l\wedge\alpha_l = -\alpha_l\wedge\alpha_l=0\).
-\begin{itemize}
-\item {} 
-\par
-Das äußere Produkt ist \emph{assoziativ}, d.h. für beliebige äußere Formen auf \(E\) gilt
-
-\end{itemize}
-\begin{align*}
-(\omega\wedge\psi)\wedge\rho = \omega\wedge(\psi\wedge\rho).
-\end{align*}\begin{itemize}
-\item {} 
-\par
-Weiter gilt für eine \(k\)–Form \(\omega\) und eine \(l\)–Form \(\psi\)
-
-\end{itemize}
-\begin{align*}
-\omega\wedge\psi = (-1)^{k\cdot l}\psi\wedge\omega,
-\end{align*}
-\par
-denn wir müssen \(k\!\cdot\! l\)–mal Eins–Formen kommutieren, um von der einen
-zur anderen Gestalt zu gelangen.
-\label{vektoranalysis/multilinear:symplektische Form auf dem $\R^{2n}$}
-\begin{example}{}{})}
-
-
-\begin{align*}
-\omega := \sum_{i=1}^n\alpha_i\wedge\alpha_{i+n}\in\Lambda^2(\R^{2n}).
-\end{align*}
-\par
-Für \(n=2\) ergibt sich
-\begin{align*}
-\omega = \alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4,
-\end{align*}
-\par
-also
-\begin{align*}
-\omega\wedge\omega &=& (\alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4)
-\wedge(\alpha_1\wedge\alpha_3+\alpha_2\wedge\alpha_4)\\
-&=& \underbrace{\alpha_1\wedge\alpha_3\wedge\alpha_1\wedge\alpha_3}_0 +
-\alpha_2\wedge\alpha_4\wedge\alpha_1\wedge\alpha_3\\
-&& + \alpha_1\wedge\alpha_3\wedge\alpha_2\wedge\alpha_4 + \underbrace
-{\alpha_2\wedge\alpha_4\wedge\alpha_2\wedge\alpha_4}_0\\
-&=& (-1)^3\alpha_1\wedge\alpha_2\wedge\alpha_3\wedge\alpha_4 +
-(-1)^1\alpha_1\wedge\alpha_2\wedge\alpha_3\wedge\alpha_4\\
-&=& -2\alpha_1\wedge\alpha_2\wedge\alpha_3\wedge\alpha_4.
-\end{align*}
-\par
-Die symplektische Form \(\omega\) hat eine Schlüsselrolle in der Klassischen Mechanik. Dort bezeichnet man die Koordinaten \(x_1,\ldots,
-x_n\) als Impulskoordinaten, die Koordinaten \(x_{n+1},\ldots, x_{2n}\) als
-Ortskoordinaten.
-\end{example}
-\label{vektoranalysis/multilinear:example-19}
-\begin{example}{}{}
-
-
-
-\par
-Wir ordnen nun Vektoren
-\(v = \begin{pmatrix} v_1\\ \vdots\\ v_n \end{pmatrix} =\sum_{k=1}^nv_ke_k\in\R^n\) verschiedene äußere Formen zu.
-\begin{itemize}
-\item {} 
-\par
-Das kanonische innere Produkt im \(\R^n\) vermittelt einen Isomorphismus
-
-\end{itemize}
-\begin{align*}
-v\mapsto v^*,\ v^*(u) :=\, < v,u > \qquad(u\in\R^n)
-\end{align*}
-\par
-des \(\R^n\) und seines Dualraumes. Die Eins–Form \(v^*\) besitzt dabei die Gestalt
-\begin{align*}
-v^* = \sum_{i=1}^nv_i\alpha_i
-\in\Lambda^1(\R^n).
-\end{align*}\begin{itemize}
-\item {} 
-\par
-\(v\in\R^n\) wird auch eine \((n-1)\)–Form \(\omega_v\in\Lambda^{n-1}(\R^n)\),
-
-\end{itemize}
-\begin{align*}
-\omega_v(u_2,\ldots,u_n) := \det(v,u_2,\ldots,u_n) \qquad (u_2,\ldots,u_n\in\R^n)
-\end{align*}
-\par
-zugeordnet. Speziell im \(\R^3\) finden wir die \(2\)–Form
-\begin{align*}
-\omega_v = v_1\alpha_2\wedge\alpha_3+v_2\alpha_3\wedge\alpha_1+v_3
-\alpha_1\wedge\alpha_2.
-\end{align*}\begin{itemize}
-\item {} 
-\par
-Wir betrachten jetzt speziell den (physikalisch wichtigen) \(\R^3\).
-Das äußere Produkt zweier solcher \(1\)–Formen ergibtauf dem \(\R^3\) die \(2\)–Form
-
-\end{itemize}
-\begin{align*}
-v^*\wedge u^* &=& (v_1\alpha_1+v_2\alpha_2+v_3\alpha_3)
-\wedge(u_1\alpha_1+u_2\alpha_2+u_3\alpha_3)\\
-&=& (v_1u_2-v_2u_1)\alpha_1\wedge\alpha_2+(v_2u_3-v_3u_2)\alpha_2\wedge
-\alpha_3\\
-&& + (v_3u_1-v_1u_3)\alpha_3\wedge\alpha_1\\
-&=& \omega_{v\times u}.
-\end{align*}
-\par
-Wir haben auf diese Weise das \href{https://de.wikipedia.org/wiki/Kreuzprodukt}{\emph{Kreuzprodukt}}
-\begin{align*}
-v\times u=\begin{pmatrix} v_2u_3-v_3u_2\\v_3u_1-v_1u_3 \\ v_1u_2-v_2u_1 \end{pmatrix} \in\R^3
-\end{align*}
-\par
-zweier Vektoren \(v,u\in\R^3\) gewonnen.
-\end{example}
-\label{vektoranalysis/multilinear:theorem-20}
-\begin{theorem}{}{}
-
-
-
-\par
-Die Vektoren \(w_1,\ldots,w_k\in E^*\) sind genau dann linear abhängig, wenn
-\begin{align*}
-w_1\wedge\ldots\wedge w_k=0.
-\end{align*}\end{theorem}
-
-\begin{proof}
- * Wenn sie linear abhängig sind, können wir einen Index \(i\in\{1,\ldots, k\}\) finden, für den \(w_i\) eine Linearkombination \(w_i=\sum_{\stackrel{l=1}{l\neq i}}^k c_l w_l\) ist. Damit gilt aber
-\begin{align*}
-w_1\wedge\ldots\wedge w_k = \sum_{\stackrel{l=1}{l\neq i}}^kc_l\, w_1 \wedge \ldots \wedge w_{i-1}\wedge w_l\wedge w_{i+1 \wedge\ldots\wedge w_k = 0,
-\end{align*}
-\par
-denn in jedem Summanden kommt \(w_l\) doppelt vor.
-\begin{itemize}
-\item {} 
-\par
-Andernfalls können wir die Vektoren \(w_1,\ldots,w_k\) zu einer Basis
-
-\end{itemize}
-\begin{align*}
-w_1,\ldots,w_n \text{ mit } n:=\dim(E^*)
-\end{align*}
-\par
-ergänzen, sodass \(w_1\wedge\ldots\wedge w_n\neq0\) ist.
-Dann ist aber auch \(w_1\wedge\ldots\wedge w_k\neq0\).
-\end{proof}
-\label{vektoranalysis/multilinear:Grassmannalgebra "uber $E$.}
-\begin{definition}{}{}
-
-
-
-\par
-Für einen endlich dimensionalen \(\R\) Vektorraum \(E\) heißt der reelle Vektorraum
-\begin{align*}
-\Lambda^*(E) := \bigoplus_{k=0}^{\dim(E)}\Lambda^k(E)
-\end{align*}
-\par
-(mit \(\Lambda^0(E):=\R\)) mit der durch das Dachprodukt
-gegebenen Multiplikation die \textbf{äußere} oder
-\href{https://de.wikipedia.org/wiki/Gra\%C3\%9Fmann-Algebra}{\textbf{Grassmann Algebra}}
-\end{definition}
-\label{vektoranalysis/multilinear:remark-22}
-\begin{emphBox}{}{}{Remark 3.6}
-
-
-\begin{itemize}
-\item {} 
-\par
-\(\dim(\Lambda^*(E)) = 2^{\dim(E)}\), denn \(\sum_{k=0}^n{n\choose k} = 2^n\).
-
-\item {} 
-\par
-Für beliebige \(k,l\in\N_0\) ist für alle \(\omega\in\Lambda^k(E)\) und
-\(\varphi\in\Lambda^l(E)\):\textbackslash{} \(\omega\wedge\varphi\in\Lambda^{k+l}(E)\), aber für
-\(m>\dim(E)\) ist \(\dim(\Lambda^m(E))=0\).
-
-\end{itemize}
-\end{emphBox}
-\label{vektoranalysis/multilinear:pull-back von $\omega$ mit $f$.}
-\begin{definition}{}{}
-
-
-
-\par
-Für eine lineare Abbildung \(f:E\to F\) endlichdimensionaler \(\R\)–Vektorräume und \(\omega\in\Lambda^k(F)\) heißt die durch
-\begin{align*}
-f^*(\omega)( v_1,\ldots, v_k) := \omega \big(f( v_1),\ldots,f( v_k)\big)
-\qquad (v_1,\ldots,v_k\in E)
-\end{align*}
-\par
-definierte \(k\)–Form \(f^*(\omega)\) die \textbf{Zurückziehung} (engl.
-\textbf{pull–back}).
-\end{definition}
-
-\par
-Es gilt offensichtlich \(f^*(\omega)\in\Lambda^k(E)\), denn \(f^*(\omega)\)
-ist \(k\)–linear und antisymmetrisch.
-\label{vektoranalysis/multilinear:theorem-24}
-\begin{theorem}{}{}
-
-
-\begin{itemize}
-\item {} 
-\par
-Die Abbildung \(f^*:\Lambda^*(F)\to\Lambda^*(E)\) ist linear.
-
-\item {} 
-\par
-Für \(g\in L(F,G)\) ist \((g\circ f)^*=f^*\circ g^*\).
-
-\item {} 
-\par
-Für die identische Abbildung \(Id_E:E\to E\) ist \(Id_E^* = Id_{\Lambda^*(E)}\).
-
-\item {} 
-\par
-Für eine invertierbare Abbildung \(f\in {\rm GL}(E,F)\) ist \((f^*)^{-1}=(f^{-1})^*\).
-
-\item {} 
-\par
-\(f^*(\alpha\wedge\beta) = f^*(\alpha)\wedge f^*(\beta)\).
-
-\end{itemize}
-\end{theorem}
-
-\begin{proof}
- Für alle Vektoren \(v_1,\ldots,v_k\in E\) gilt
-\begin{itemize}
-\item {} 
-\par
-Mit \(\alpha, \beta\in\Lambda^k(F)\) und \(c_1,c_2\in\R\) ist
-
-\end{itemize}
-\begin{align*}
-f^*(c_1\alpha+c_2\beta)(v_1,\ldots,v_k)
- &=& (c_1\alpha+c_2\beta) \big(f(v_1),\ldots,f(v_k)\big)\\
-&=& c_1\alpha\big(f(v_1),\ldots,f(v_k)\big) + c_2\beta\big(f(v_1),\ldots,f(v_k)\big)\\
-&=& c_1f^*\alpha(v_1,\ldots,v_k)+c_2f^*\beta(v_1,\ldots,v_k).
-\end{align*}\begin{itemize}
-\item {} 
-\par
-\((g\circ f)^*\alpha( v_1,\ldots, v_k) = \alpha\big(g\circ f( v_1),\ldots, g\circ f( v_k)\big)= g^*\alpha\big(f( v_1),\ldots,f( v_k)\big)\\=  f^*\circ g^*\alpha( v_1,\ldots, v_k)\)
-
-\item {} 
-\par
-\(Id_E^*(\alpha)(v_1,\ldots,v_k) = \alpha\big(Id_E(v_1),\ldots,Id_E(v_k)\big)
-= \alpha(v_1,\ldots,v_k)\).
-
-\item {} 
-\par
-Folgt aus 2. und 3.: \((f^{-1})^*f^* = (f\circ f^{-1})^* = Id_F^* =
-Id_{\Lambda^*(F)}\).
-
-\item {} 
-\par
-Hausaufgabe.
-
-\end{itemize}
-\end{proof}
 
 
 \section{Tensoren und Tensorprodukte}
@@ -2892,14 +2499,13 @@ Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe \href{h
 \label{\detokenize{vektoranalysis/tensor:motivation}}
 \par
 Wir betrachten zwei Beispiele aus der Physik, welche auf Tensoren zurückgreifen.
-\label{vektoranalysis/tensor:remark-0}
-\begin{emphBox}{}{}{Remark 3.7}
+\begin{remark}{}{vektoranalysis/tensor:remark-0}
 
 
 
 \par
 Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom latinischen \emph{tendere} (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.
-\end{emphBox}
+\end{remark}
 
 
 \subsubsection{Der Cauchy Spannungstensor}
@@ -2981,8 +2587,7 @@ Wir werden später sehen, dass man die Idee \(\sigma\) über das dyadische Produ
 \label{\detokenize{vektoranalysis/tensor:das-tensorprodukt}}
 \par
 Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es später konkret realisieren.
-\label{vektoranalysis/tensor:definition-1}
-\begin{definition}{}{}
+\begin{definition}{(Tensorprodukt)}{vektoranalysis/tensor:definition-1}
 
 
 
@@ -3022,8 +2627,7 @@ Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eig
 \label{\detokenize{vektoranalysis/tensor:existenz-und-konstruktion}}
 \par
 Wir können ein Tensorprodukt konkret konstruieren indem wir uns auf die Basis der Vektorräume \(V\) und \(W\) zurückziehen. Diese Tatsache formulieren wir in der folgenden Aussage.
-\label{vektoranalysis/tensor:theorem-2}
-\begin{theorem}{}{}
+\begin{theorem}{}{vektoranalysis/tensor:theorem-2}
 
 
 
@@ -3122,8 +2726,7 @@ p_1\circ p_2(\otimes(b_i^V,b_j^W)) = \otimes(b_i^V, b_j^W)
 \par
 wissen wir dass \(p_1\circ p_2 = \mathrm{Id}\). Das folgt da \(p_1\circ p_2\) als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist.
 Analog folgt \(p_2\circ p_1 = \mathrm{Id}\) und somit sind \(p_1, p_2\) isomorph zueinander. D.h. wir haben insgesamt gezeigt, dass verschiedene Tensorprodukte stets isomorph zueinander sind.
-\label{vektoranalysis/tensor:lemma-4}
-\begin{lemma}{}{}
+\begin{lemma}{}{vektoranalysis/tensor:lemma-4}
 
 
 
@@ -3150,8 +2753,7 @@ wobei \(\otimes\) das Tensorprodukt bezeichnet.
 Der wichtige Spezialfall ist hier allerdings nun nicht \(\V^k\) sondern ein kartesisches Produkt der Form
 \begin{align*}
 (V^\ast)^r\times V^s.
-\end{align*}\label{vektoranalysis/tensor:definition-5}
-\begin{definition}{}{}
+\end{align*}\begin{definition}{}{vektoranalysis/tensor:definition-5}
 
 
 
@@ -3166,8 +2768,7 @@ Menge der \(r\) fach \textbf{kontravarianten} und \(s\) fach \textbf{kovarianten
 
 \par
 Wir wollen diese abstrakte Definition nun mit einfachen Beispielen veranschaulichen zunächst für \(r+s=1\).
-\label{vektoranalysis/tensor:example-6}
-\begin{example}{}{}
+\begin{example}{}{vektoranalysis/tensor:example-6}
 
 
 
@@ -3183,16 +2784,14 @@ Dualraums, also einfach Linearformen auf \(\V\), sogenannte \emph{Kovektoren}.
 
 \par
 Als weiteren Spezialfall erhalten wir Multilinearformen.
-\label{vektoranalysis/tensor:example-7}
-\begin{example}{}{}
+\begin{example}{}{vektoranalysis/tensor:example-7}
 
 
 
 \par
 Tensoren der Stufe \((0,k)\) sind \(k\) Linearformen, da \(T^0_k(V) = L^k(V)\).
 \end{example}
-\label{vektoranalysis/tensor:example-8}
-\begin{example}{}{}
+\begin{example}{}{vektoranalysis/tensor:example-8}
 
 
 
@@ -3274,16 +2873,14 @@ dx_1\wedge\ldots\wedge dx_{i_k}\)
 
 \par
 definiert ist. \(d\) verwandelt eine \(k\)–Form also in eine \((k+1)\)–Form.
-\label{vektoranalysis/diffformen:aeussere Ableitung}
-\begin{definition}{}{}
+\begin{definition}{}{vektoranalysis/diffformen:aeussere Ableitung}
 
 
 
 \par
 Die lineare Abbildung \(d:\Omega^*(U)\to\Omega^*(U)\) heißt \href{https://de.wikipedia.org/wiki/\%C3\%84u\%C3\%9Fere\_Ableitung}{\textbf{äußere Ableitung}}.
 \end{definition}
-\label{vektoranalysis/diffformen:ex:10.14}
-\begin{example}{}{}
+\begin{example}{(Äußere Ableitung)}{vektoranalysis/diffformen:ex:10.14}
 
 
 \begin{enumerate}
@@ -3325,8 +2922,7 @@ Für \(\omega\in\Omega^3(\R^3)\) ist \(d\omega=0\).
 
 \end{enumerate}
 \end{example}
-\label{vektoranalysis/diffformen:Antiderivation}
-\begin{theorem}{}{}
+\begin{theorem}{}{vektoranalysis/diffformen:Antiderivation}
 
 
 
@@ -3351,8 +2947,7 @@ d(\alpha\wedge\beta) &=& d(f\cdot g)\tilde{\alpha}\wedge
 \tilde{\beta} = \big((df)g+f(dg)\big)\,\tilde{\alpha}\wedge\tilde{\beta}\\
 &=& (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}
 \end{align*}\end{proof}
-\label{vektoranalysis/diffformen:thm:dd}
-\begin{theorem}{}{}
+\begin{theorem}{}{vektoranalysis/diffformen:thm:dd}
 
 
 
@@ -3389,8 +2984,7 @@ denn gemäß Satz \cref{vektoranalysis/diffformen:Antiderivation} wird die äuß
 1 Formen \(d\omega_{i_1\ldots i_k}\) und \(dx_{i_l}\) angewandt, und nach Teil 1.
 ist das Ergebnis Null.
 \end{proof}
-\label{vektoranalysis/diffformen:geschlossen:exakt}
-\begin{definition}{}{}
+\begin{definition}{}{vektoranalysis/diffformen:geschlossen:exakt}
 
 
 

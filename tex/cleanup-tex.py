@@ -6,7 +6,7 @@ extension = ".tex"
 
 def match_theorems(content):
     keys = {'Example': 'example', 'Definition':'definition', 'Theorem':'theorem', 'Remark':'remark', 
-            'note': 'emphBox', 'Lemma': 'lemma'}
+            'note': 'emphBox', 'danger': 'emphBox', 'Lemma': 'lemma'}
     token_init = r'\\begin\{sphinxadmonition\}\{note\}\{'
     token_end = r'\\end\{sphinxadmonition\}'
     
@@ -24,6 +24,9 @@ def match_theorems(content):
         content = re.sub(r'\\label\{(.*?)\}\n\\begin\{'+ keys[key] + r'\}\{(.*?)\}\{(.*?)\}', 
                              r'\\begin{' + keys[key] + r'}{\3}{\1}', content, flags = re.M)
     
+    # note boxes
+    content = re.sub(r'\\begin\{sphinxadmonition\}\{danger\}\{Danger:\}((.|\n)*?)' + token_end, 
+                             r'\\begin{' + keys['danger'] + r'}{}{}\1\\end{'+keys['danger']+'}', content, flags = re.M)
     # note boxes
     content = re.sub(r'\\begin\{sphinxadmonition\}\{note\}((.|\n)*?)' + token_end, 
                              r'\\begin{' + keys['note'] + r'}{}{}\1\\end{'+keys['note']+'}', content, flags = re.M)
