@@ -135,6 +135,7 @@ Wir sehen also ein, dass der Differentialoperator **nicht stetig** ist und somit
 Damit haben wir gezeigt, dass in unendlich-dimensionalen Räumen $V' \subsetneq V^\ast$ gilt.
 ````
 
+(s:k-multilinearform)=
 ## k-Multilinearformen
 
 Nachdem wir uns den Begriff der Linearität ins Gedächtnis zurückgerufen haben und Dualräume erklärt haben, wollen wir was Konzept linearer Abbildungen in der folgenden Definition verallgemeinern.

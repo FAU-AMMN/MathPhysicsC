@@ -512,69 +512,77 @@ Deshalb werden wir im Folgendem auch häufig von **dem** Tensorprodukt sprechen.
 
 ## Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
 
-Von vielen Operationen kennen wir bereits Eigenschaften wie Kommutativität und Assoziativität. Derartige Eigenschaften gelten nicht direkt für das Tensorprodukt, allerdings erhalten wir Isomorphismen, welche bekannte Rechenregeln nachbilden. Diese Isomorphismen nennt auch **natürlich** oder **kanonisch**, weil Sie jeweils auf die naheliegendste Art und Weise definiert sind.
+Von vielen Operationen kennen wir bereits Eigenschaften wie *Kommutativität* und *Assoziativität*.
+Derartige Eigenschaften gelten nicht direkt für das Tensorprodukt, allerdings erhalten wir Isomorphismen, welche bekannte Rechenregeln nachbilden. 
+Diese Isomorphismen nennt auch **natürlich** oder **kanonisch**, weil Sie jeweils auf die naheliegendste Art und Weise definiert sind.
+Das folgende Lemma fasst die wichtigsten Eigenschaften des Tensorprodukts zusammen
 
-````{prf:lemma} Natürliche Isomorphismen
+````{prf:lemma} Natürliche Isomorphismen des Tensorprodukts
 :label: lem:natISO
 
-Es seien $V_1,V_2,V_3, V_4$ reelle Vektorräume, dann haben wir folgende Isomorphismen.
+Es seien $V_1,V_2,V_3$ und $V_4$ reelle Vektorräume.
+Dann existieren für das Tensorprodukt die folgenden Isomorphismen:
 
-1. **Kommutativität:** $V_1\otimes V_2 \cong V_2\otimes V_1, \quad v_1\otimes v_2 \mapsto v_2\otimes v_1$, 
+1. $V_1\otimes V_2 \cong V_2\otimes V_1, \quad v_1\otimes v_2 \mapsto v_2\otimes v_1$ (**Kommutativität**), 
 
-2. **Assoziativität:** $(V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3),\quad (v_1\otimes v_2)\otimes v_3 \mapsto v_1 \otimes (v_2\otimes v_3)$,
+2. $(V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3),\quad (v_1\otimes v_2)\otimes v_3 \mapsto v_1 \otimes (v_2\otimes v_3)$ (**Assoziativität**),
 
-3. **Produkt mit Skalaren:** $\R \otimes V_1 \cong V_1,\quad a\otimes v_1 \mapsto a\,v_1$.
+3. $\R \otimes V_1 \cong V_1,\quad a\otimes v_1 \mapsto a\,v_1$ **(Produkt mit Skalaren)**,
 
-4. **Transitivität:** Falls $p_{12}:V_1\to V_2$ und $p_{34}:V_3\to V_4$ Isomorphismen sind, so gilt $(V_1\otimes V_3)\cong (V_2\otimes V_4),\quad (v_1\otimes v_3)\mapsto (p_{12}(v_1)\otimes p_{34}(v_3))$.  
+4. Falls $p_{12}:V_1\to V_2$ und $p_{34}:V_3\to V_4$ Isomorphismen sind, so gilt $V_1\otimes V_3 \cong V_2\otimes V_4,\quad v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)$ (**Transitivität**).
 
 ````
 
 ````{prf:proof}
-Punkt 1.-3. wird in der Übung durchgeführt. 
+Punkt 1.-3. sind in der Hausaufgabe zu zeigen.
 
-**Punkt 4.**
+**Zu Punkt 4.:**
 
-Wichtig für alle diese Eigenschaften ist es zuerst zu sehen, dass die Definition sinnvoll ist. Denn nicht jedes Element 
-$x\in V_1\otimes V_3$ lässt sich direkt als Tensorprodukt schreiben, wir wissen lediglich, dass **endlich viele** sogenannte 
-**elementare** oder **zerfallende** Produkte $(v_1^i\otimes v_3^i)_{i=1}^n$ und Skalare $\alpha_i\in\R$ existieren, s.d.
+Wichtig für die Transitivitätseigenschaft ist es zunächst einzusehen, dass die Definition des Tensorprodukts sinnvoll ist, denn nicht jedes Element $x\in V_1\otimes V_3$ lässt sich *direkt* als Tensorprodukt schreiben.
+Wir wissen lediglich, dass *endlich viele* sogenannte **elementare** oder **zerfallende** Produkte $(v_1^i\otimes v_3^i)_{i=1}^n$ und Skalare $\alpha_i\in\R, i=1,\ldots,n$, für $n\in\N$ existieren, so dass sich jeder Vektor $x \in V_1 \otimes V_3$ schreiben lässt als
 
 ```{math}
-x = \sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i
+x = \sum_{i=1}^n \alpha_i (v_1^i \otimes v_3^i),
 ```
 
-was direkt aus der Basiskonstruktion in {prf:ref}`thm:existenzTensorprodukt` folgt. Die angegebene Abbildung
-$(v_1\otimes v_3)\mapsto (p_{12}(v_1)\otimes p_{34}(v_3)$ ist nun nur für zerfallende Tensoren definiert, allerdings lässt sie sich unter Bedingung der Linearität eindeutig zu $\Phi(V_1\otimes V_3)\to (V_2\otimes V_4)$ fortgesetzten, s.d., 
+was direkt aus der Basiskonstruktion in {prf:ref}`thm:existenzTensorprodukt` folgt.
+
+Die angegebene Abbildung $v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)$ ist nun **nur** für zerfallende Tensoren definiert.
+Allerdings lässt sie sich unter Ausnutzung der Linearität eindeutig zu einer Abbildung $\Phi(V_1\otimes V_3)\to (V_2\otimes V_4)$ fortsetzen, so dass für beliebige Vektoren $x \in V_1 \otimes V_3$ gilt 
 
 ```{math}
 \Phi(x) = \Phi(\sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i) = 
 \sum_{i=1}^n \alpha_i \Phi(v_1^i \otimes v_3^i) = 
-\sum_{i=1}^n \alpha_i p_{12}(v_1^i)\otimes p_{34}(v_3^i).
+\sum_{i=1}^n \alpha_i (p_{12}(v_1^i)\otimes p_{34}(v_3^i)).
 ```
 
-Auf analoge Art und Weise definiert man 
+Auf analoge Art und Weise definiert man nun die lineare Abbildung $\Psi \colon V_2 \otimes V_4 \rightarrow V_1 \otimes V_3$ mit
 
 ```{math}
-\Psi(v_2\otimes v_4) := p_{12}^{-1}(v_2)\otimes p_{23}^{-1}(v_4)
+\Psi(v_2\otimes v_4) := p_{12}^{-1}(v_2)\otimes p_{34}^{-1}(v_4)
 ```
 
-und erhält sofort, dass $\Psi\circ\Phi = \Phi\circ\Psi = \mathrm{Id}$.
+und erhält sofort, dass $\Psi\circ\Phi = \mathrm{Id}$ und $\Phi\circ\Psi = \mathrm{Id}$ gilt und somit haben wir die Behauptung des Lemmas bewiesen.
 
 ````
 
-Die zweite Eigenschaft erlaubt es uns das Tensorprodukt über $k$-viele reelle Vektorräume $V_1,\ldots, V_k$ zu bilden, wir notieren
+Die zweite Eigenschaft in {prf:ref}`lem:natISO` erlaubt es uns das Tensorprodukt über $k$-viele reelle Vektorräume $V_1,\ldots, V_k$ zu bilden.
+Daher können wir ab nun folgende Notation verwenden
 
 ```{math}
 \bigotimes_{i=1}^k V_i :=V_1\otimes\ldots\otimes V_k
 ```
 
-und sehen, dass diese Objekt wohldefiniert ist. Insbesondere ist äquivalent das Tensorprodukt über $k$-Vektorräume mithilfe einer
-$k$-Multilinearform zu definieren anstatt der Bilinearform in {prf:ref}`def:tensor`.
+und sehen, dass dieses Objekt wohldefiniert ist.
+Insbesondere ist äquivalent das Tensorprodukt über $k$-Vektorräume mit Hilfe einer $k$-Multilinearform aus {ref}`s:k-multilinearform` zu definieren anstatt nur einer Bilinearform wie in {prf:ref}`def:tensor`.
+Die folgende Bemerkung gibt die universelle Eigenschaft für solch ein Tensorprodukt an.
 
-````{prf:lemma} Mehrfaches Tensorprodukt
-Es seien $V_1,\ldots, V_k$ reelle Vektorräume, dann hat der Tensorproduktraum $\bigotimes_{i=1}^k V_i$ die folgende universelle Eigenschaft:
+````{prf:remark} $k$-faches Tensorprodukt
+Es seien $V_1,\ldots, V_k$ für $k \in \N$ reelle Vektorräume.
+Dann besitzt das $k$-fache Tensorprodukt $\bigotimes_{i=1}^k V_i$ die folgende universelle Eigenschaft:
 
-Für jede Bilinearform $\phi\in L^k(V_1\times\ldots\times V_k; Y)$ in einen beliebigen reellen Vektorraum $Y$, existiert eine eindeutige lineare Abbildung 
-$p \in L^1(\bigotimes_{i=1}^k V_i; Y)$, so dass gilt 
+Für jede $k$-Multilinearform $\phi\in L^k(V_1\times\ldots\times V_k; Y)$ in einen beliebigen reellen Vektorraum $Y$ existiert eine eindeutige lineare Abbildung 
+$p \in L^1(\bigotimes_{i=1}^k V_i; Y)$, so dass gilt
 
 ```{math}
 \phi = p \circ \otimes.
@@ -582,37 +590,45 @@ $p \in L^1(\bigotimes_{i=1}^k V_i; Y)$, so dass gilt
 ````
 
 ````{remark} Notation
-Im obigen Fall interpretiert man $\otimes: V_1\times\ldots\times V_k \rightarrow \bigotimes_{i=1}^k V_i$ als $k$-Multilinearform und benutzt die Schreibweise 
+Im obigen Fall interpretiert man $\otimes: V_1\times\ldots\times V_k \rightarrow \bigotimes_{i=1}^k V_i$ als $k$-Multilinearform und benutzt die Infix-Notation 
 
 ```{math}
-\otimes(v_1,\ldots, v_k) = v_1\otimes\ldots\otimes v_k.
+v_1\otimes\ldots\otimes v_k := \otimes(v_1,\ldots, v_k).
 ```
 
 ````
 
-Im folgenden wollen wir insbesondere Multilinearformen als Tensoren interpretieren. Deshalb interessieren wir uns auch für Eigenschaften des Tensorprodukts, wenn wir speziell Räume von Linearen Abbildungen betrachten. Die folgende bilineare Abbildung bildet hierbei das zentrale Konzept.
+Im Folgenden wollen wir Tensoren insbesondere als Multilinearformen interpretieren.
+Deshalb interessieren wir uns im Folgenden für die Eigenschaften des Tensorprodukts, wenn wir speziell *Räume von linearen Abbildungen* betrachten.
+Die bilineare Abbildung im folgenden Lemma stellt hierbei die zentrale Idee dar.
 
 ````{prf:lemma}
 :label: lem:LISO
 
-Es seien $V_1, V_2, W_1, W_2$ reelle Vektorräume, dann ist die Abbildung
+Es seien $V_1, V_2$ sowie $W_1, W_2$ reelle Vektorräume. 
+Dann ist die Abbildung
 
 ```{math}
-p:L(V_1, V_2)\otimes L(W_1, W_2)\rightarrow L(V_1\otimes W_1, V_2\otimes W_2)\\
-(p(\eta_1\otimes\eta_2))(v_1\otimes w_1):= \eta_1(v_1) \otimes \eta_2(v_2).
+p:L(V_1; V_2)\otimes L(W_1; W_2) &\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(v_2).
 ```
 
-bilinear.
+linear.
 
 ````
 
-````{prf:remark} Funktionen als Werte
-Der Isomorphismus im obigen Lemma ist folgendermaßen zu verstehen:
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
+````
 
-* $\eta_1:V_1\rightarrow V_1$ ist eine lineare Abbildung, $\eta_2$ entsprechend,
-* $\eta_1 \otimes \eta_2$ ist ein Element aus dem Raum $L(V_1, V_2)\otimes L(W_1, W_2)$,
-* $p(\eta_1\otimes\eta_2)$ ist ein Element von $L(V_1\otimes W_1, V_2\otimes W_2)$, also eine lineare Abbildung, welche von $V_1\otimes W_1$ nach $V_2\otimes W_2$ abbildet.
-* $(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)$ ist dann die Auswertung dieser Abbildung am Punkt $v_1\otimes w_1\in V_1\otimes W_1$.
+Da die Notation in {prf:ref}`lem:LISO` vielleicht etwas abstrakt wirkt, soll die folgende Bemerkung auf die einzelnen Elemente der linearen Abbildung $p$ nochmal genauer eingehen.
+````{prf:remark} Funktionen als Funktionswerte
+Die lineare Abbildung in {prf:ref}`lem:LISO` ist folgendermaßen zu verstehen:
+
+* $\eta_1:V_1\rightarrow V_2$ und $\eta_2: W_1 \rightarrow W_2$ sind lineare Abbildungen mit $\eta_1 \in L(V_1; V_2)$ und $\eta_2 \in L(W_1; W_2)$
+* $\eta_1 \otimes \eta_2$ ist dementsprechend ein Element aus dem Tensorproduktraum $L(V_1; V_2)\otimes L(W_1; W_2)$,
+* $p(\eta_1\otimes\eta_2)$ ist dann ein Element von $L(V_1\otimes W_1; V_2\otimes W_2)$, also eine lineare Abbildung, welche vom Tensorproduktraum $V_1\otimes W_1$ in den Tensorproduktraum $V_2\otimes W_2$ abbildet,
+* $(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)$ ist schließlich die Auswertung dieser Abbildung am Punkt $v_1\otimes w_1\in V_1\otimes W_1$.
 
 In diesem Fall notiert man auch 
 
@@ -627,58 +643,85 @@ was bedeutet, dass $\eta_1\otimes\eta_2$ auf eine *Funktion* abgebildet wird, we
 
 ````
 
-````{prf:proof}
-Siehe Übung.
-````
-
-Insbesondere können wir im endlich dimensionalen Fall zeigen, dass die obige Abbildung einen Isomorphismus definiert.
+Insbesondere können wir im **endlich-dimensionalen Fall** zeigen, dass die Abbildung $p$ in {prf:ref}`lem:LISO` einen Isomorphismus definiert.
 
 ````{prf:lemma}
+:label: lem:pIsomorphismus
 
-Es seien $V_1, W_1$ reelle endlich dimensionale und $V_2, W_2$ allgemeine reelle Vektorräume, dann ist die Abbildung aus {prf:ref}`lem:LISO` ein Isomorphismus.
+Es seien $V_1, W_1$ reelle *endlich-dimensionale* Vektorräume und $V_2, W_2$ *beliebige* reelle Vektorräume.
+Dann ist die Abbildung 
+
+```{math}
+p:L(V_1; V_2)\otimes L(W_1; W_2) &\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(v_2).
+```
+
+ein Isomorphismus.
 
 ````
 
 ````{prf:proof}
 
-Wir beweisen die Aussage zunächst für den Fall $V_1=\R^n, W_1=\R^m$.
+Wir beweisen die Aussage zunächst für den einfachen Fall $V_1=\R^n, W_1=\R^m$ und verallgemeinern anschließend die Aussage für beliebige endlich-dimensionale $\R$-Vektorräume.
 
-**1.Schritt:** $L(\R^k, Y) \cong Y^{\times k}$.
+**1.Schritt:** Wir zeigen zunächst, dass die Isomorphie $L(\R^k; Y) \cong Y^k$ gilt.
 
-Es sei $Y$ ein reeller Vektorraum und es bezeichne $(e_i)_{i=1}^k$ die Standardbasis von $\R^k$. Dann gibt es genau eine lineare Abbildung 
-$\phi:Y^{\times k}\rightarrow L(\R^k, Y) $ s.d., 
+Es sei $Y$ ein beliebiger reeller Vektorraum und es bezeichne $(e_i)_{i=1}^k$ die Standardbasis von $\R^k$. 
+Wir konstruieren nun eine Abbildung $\phi:Y^k\rightarrow L(\R^k; Y)$, so dass
 
 ```{math}
-\phi(y_1,\ldots,y_k) = [e_i \mapsto y_i]
+\phi(y_1,\ldots,y_k) = [e_i \mapsto y_i], \quad i = 1,\ldots,k
 ```
 
-gilt. Offenbar ist diese Abbildung auch injektiv, denn
+gilt.
+Die Abbildung $\phi$ ist $k$-multilinear, da für jedes Argument $j \in \lbrace 1,\ldots, k \rbrace$ gilt:
 
 ```{math}
-\phi((y_1,\ldots,y_k))(e_i) &= 0\quad\forall i\in{1,\ldots k}\\
-&\Leftrightarrow\\
+\phi(&y_1,\ldots, y_j+z_j, \ldots, y_k)\\
+&= [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,y_j + z_j, \ldots, y_k)]\\
+&= [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,y_j,\ldots,y_k) + (y_1,\ldots,z_j,\ldots,y_k)]\\
+&= [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,y_j,\ldots,y_k)] + [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,z_j,\ldots,y_k)]\\
+&= \phi(y_1,\ldots, y_j, \ldots, y_k) + \phi(y_1,\ldots, z_j, \ldots, y_k)
+```
+
+und für jedes Skalar $\lambda \in \R$ gilt:
+
+```{math}
+\phi(y_1,\ldots, \lambda y_j, \ldots, y_k) &= [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,\lambda y_j, \ldots, y_k)]\\
+&= \lambda [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,y_j,\ldots,y_k)]\\
+&= \lambda \phi(y_1,\ldots, y_j, \ldots, y_k).
+```
+
+ 
+Offenbar ist diese Abbildung auch injektiv, denn
+
+```{math}
+\phi(y_1,\ldots,y_k)(e_i) = 0\quad\forall i\in{1,\ldots k} 
+\qquad \Leftrightarrow \qquad
 y_i = 0\quad\forall i\in{1,\ldots k}
 ```
 
-und somit ist Abbildung ein Isomorphismus.
+und somit ist die Abbildung ein Isomorphismus.
 
-**2.Schritt:** $L(\R^n, V_2) \otimes L(\R^m, W_2) \cong V_2^n \otimes W_2^m\cong L(\R^n\otimes \R^m, V_1\otimes W_2)$.
+**2.Schritt:** $L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m\cong L(\R^n\otimes \R^m; V_1\otimes W_2)$.
 
-Mit Schritt 1. Wissen wir nun, dass $L(\R^n, V_2)\cong V_2^n$ und $L(\R^m, W_2)\cong W_2^m$, und somit folgt
-die erste Isomorphie direkt aus Punkt 4. von {prf:ref}`lem:natISO`. Für die zweite Isomorphie benutzen wir, dass 
-$\R^n\otimes \R^m \cong \R^{nm}$ und erneut Schritt 1. zusammen mit Punkt 4. von {prf:ref}`lem:natISO}.
+Mit Schritt 1. Wissen wir nun, dass $L(\R^n; V_2)\cong V_2^n$ und $L(\R^m; W_2)\cong W_2^m$, und somit folgt die erste Isomorphie direkt aus Punkt 4. von {prf:ref}`lem:natISO`. 
+Für die zweite Isomorphie benutzen wir, dass $\R^n\otimes \R^m \cong \R^{n\cdot m}$ und erneut Schritt 1. zusammen mit Punkt 4. von {prf:ref}`lem:natISO`.
 
 **3.Schritt:**
 
-Zeige, dass die angebene Abb. Iso ist. Zeige die Aussage für beliebig endlich dimensionale Vektorräume.
+Zeige, dass die angebene Abbildung ein Isomorphismus ist.
+Zeige die Aussage für beliebig endlich-dimensionale Vektorräume.
 
 
 ````
 
-Wir erhalten direkt folgendes Korrolar als Anwendung des obigen Resultats.
+Wir erhalten direkt folgendes Korrolar als Anwendung des allgemeinen Resultats in {prf:ref}`lem:pIsomorphismus`.
+Dies ermöglicht es uns Tensoren als $k$-Multilinearformen zu interpretieren.
 
-````{prf:Corollary}
-Es seien $V,W$ endlichdimensionale Vektorräume, dann gilt,
+````{prf:Corollary} Isomorphie des algebraischen Dualraums des Tensorproduktraums
+Es seien $V$ und $W$ beliebige endlich-dimensionale Vektorräume.
+Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum der algebraischen Dualräume von $V$ und $W$ und dem algebraischen Dualraum des Tensorproduktraums, d.h.,
 
 ```{math}
 V^\ast \otimes W^\ast \cong (V\otimes W)^\ast.
@@ -686,14 +729,14 @@ V^\ast \otimes W^\ast \cong (V\otimes W)^\ast.
 
 ````
 
-## Tensoren als Linearformen
+## Tensoren als Multilinearformen
 
-Als Einleitung in das Thema wollen wir Tensoren zunächst als Linearformen auf $\V_1\times\ldots\times\V_k$
+Als Einleitung in das Thema wollen wir Tensoren zunächst als $k$-Multilinearformen auf $\V_1\times\ldots\times\V_k$
 betrachten wobei für $i=1,\ldots,k$ $\V_i$ reelle endlich dimensionale Vektorräume sind.
 Man schreibt in diesem Fall auch
 
 ```{math}
-\V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k,\R)
+\V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k;\R)
 ```
 
 wobei $\otimes$ das Tensorprodukt bezeichnet.
