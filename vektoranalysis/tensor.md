@@ -512,7 +512,7 @@ In der Tat gibt es zwar mehrere Tensorprodukte aber man kann diese problemlos in
 
 Deshalb werden wir im Folgendem auch häufig von **dem** Tensorprodukt sprechen.
 
-## Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
+## Natürliche Homo- und Isomorphismen des Tensorprodukts
 
 Von vielen Operationen kennen wir bereits Eigenschaften wie *Kommutativität* und *Assoziativität*.
 Derartige Eigenschaften gelten nicht direkt für das Tensorprodukt, allerdings erhalten wir Isomorphismen, welche bekannte Rechenregeln nachbilden. 
@@ -702,26 +702,24 @@ Wir konstruieren nun eine Abbildung $\phi:Y^k\rightarrow L(\R^k; Y)$, so dass
 ```
 
 gilt.
-Die Abbildung $\phi$ ist **$k$-multilinear**, da für jedes Argument $j \in \lbrace 1,\ldots, k \rbrace$ gilt:
+Die Abbildung $\phi$ ist **linear**, da für alle Vektoren $y,z \in Y^k$ und einen beliebigen Vektor $x \in \R^k$ mit der Basisdarstellung $x=\sum_{i=1}^k \alpha_i e_i$ gilt:
 
 ```{math}
-\phi(&y_1,\ldots, y_j+z_j, \ldots, y_k)\\
-&= [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,y_j + z_j, \ldots, y_k)]\\
-&= [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,y_j,\ldots,y_k) + (y_1,\ldots,z_j,\ldots,y_k)]\\
-&= [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,y_j,\ldots,y_k)] + [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,z_j,\ldots,y_k)]\\
-&= \phi(y_1,\ldots, y_j, \ldots, y_k) + \phi(y_1,\ldots, z_j, \ldots, y_k)
+\phi(y+z)(x) &= \phi(y_1+z_1,\ldots, y_k+z_k)(\sum_{i=1}^k \alpha_i e_i) = \sum_{i=1}^k \alpha_i (y_i + z_i) \\
+&= \sum_{i=1}^k \alpha_i y_i + \sum_{i=1}^k \alpha_i z_i = \phi(y_1,\ldots, y_k)(\sum_{i=1}^k \alpha_i e_i) + \phi(z_1,\ldots, z_k)(\sum_{i=1}^k \alpha_i e_i) \\
+&= \phi(y)(x) + \phi(z)(x)
 ```
 
 und für jedes Skalar $\lambda \in \R$ gilt:
 
 ```{math}
-\phi(y_1,\ldots, \lambda y_j, \ldots, y_k) &= [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,\lambda y_j, \ldots, y_k)]\\
-&= \lambda [(e_1, \ldots, e_k) \mapsto (y_1,\ldots,y_j,\ldots,y_k)]\\
-&= \lambda \phi(y_1,\ldots, y_j, \ldots, y_k).
+\phi(\lambda y)(x) &= \phi(\lambda y_1,\ldots, \lambda y_k)(\sum_{i=1}^k \alpha_i e_i)
+= \sum_{i=1}^k \alpha_i (\lambda y_i) = \lambda \sum_{i=1}^k \alpha_i y_i \\
+&= \lambda \phi( y_1,\ldots, y_k)(\sum_{i=1}^k \alpha_i e_i)
+= \lambda \phi(y)(x).
 ```
 
- 
-Offenbar ist diese Abbildung auch **injektiv**, denn
+Offenbar ist diese lineare Abbildung auch **injektiv**, denn
 
 ```{math}
 \phi(y_1,\ldots,y_k)(e_i) = 0\quad\forall i\in{1,\ldots k} 
@@ -729,24 +727,44 @@ Offenbar ist diese Abbildung auch **injektiv**, denn
 y_i = 0\quad\forall i\in{1,\ldots k}.
 ```
 
-Gleichzeitig ist die $k$-multilineare Abbildung jedoch auch **surjektiv**, da jede $k$-multilineare Abbildung in $L^k(\R^k; Y)$ sich bereits durch seine Wirkung auf den Basiselementen $e_i \in \R^k, i=1,\ldots,k$ eindeutig beschreiben lässt.
+Gleichzeitig ist die lineare Abbildung jedoch auch **surjektiv**, da jede lineare Abbildung in $L(\R^k; Y)$ sich bereits durch seine Wirkung auf den Basiselementen $e_i \in \R^k, i=1,\ldots,k$ eindeutig beschreiben lässt.
 
-Wir sehen also ein, dass es sich bei der Abbildung $\phi$ um ein Isomorphismus handelt und somit gilt also $L(\R^k; Y) \cong Y^k$.
+Wir sehen also ein, dass es sich bei der Abbildung $\phi$ um einen Isomorphismus handelt und somit gilt also $L(\R^k; Y) \cong Y^k$.
 
-**2.Schritt:** Als nächstes wollen wir die folgenden Isomorphien zeigen:
+**2.Schritt:** Als Nächstes wollen wir die folgenden Isomorphien zeigen:
 
 ```{math}
 L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m\cong L(\R^n\otimes \R^m; V_2\otimes W_2).
 ```
 
 Mit Schritt 1 des Beweises wissen wir bereits, dass $L(\R^n; V_2)\cong V_2^n$ und $L(\R^m; W_2)\cong W_2^m$ gilt.
-Zusammen mit der *Transitivitätseigenschaft des Tensorprodukts* aus {prf:ref}`lem:natISO` folgt damit schon die erste Isomorphie $L(\R^n; V_2) \otimes L(\R^m; W_2)$.
+Zusammen mit der *Transitivitätseigenschaft des Tensorprodukts* aus {prf:ref}`lem:natISO` folgt damit schon die erste Isomorphie 
 
-Für die zweite Isomorphie benutzen wir die Isomorphie $\R^n\otimes \R^m \cong \R^{n\cdot m}$ aus {prf:ref}`cor:isomorphieEndlichDimensional` und erhalten somit $L(\R^n\otimes \R^m; V_2\otimes W_2) \cong L(\R^{n\cdot m}; V_2\otimes W_2)$.
-Nutzen wir wiederum die Isomorphie aus Schritt 1 so erhalten wir $L(\R^{n\cdot m}; V_2\otimes W_2) \cong (V_2 \otimes W_2)^{n\cdot m}$.
-Wegen {prf:ref}`lem:isomorphieKartesischesProdukt` wissen wir dann aber schon, dass $(V_2 \otimes W_2)^{n\cdot m} \cong V_2^n \otimes W_2^m$ gilt.
+```{math}
+:label: eq:ersteIsormorphie
 
-Damit haben wir gezeigt, dass 
+L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m.
+```
+
+Für die zweite Isomorphie benutzen wir den Zusammenhang $\R^n\otimes \R^m \cong \R^{n\cdot m}$ aus {prf:ref}`cor:isomorphieEndlichDimensional` und erhalten somit 
+
+```{math}
+L(\R^n\otimes \R^m; V_2\otimes W_2) \cong L(\R^{n\cdot m}; V_2\otimes W_2).
+```
+
+Nutzen wir wiederum die Isomorphie aus Schritt 1 so erhalten wir 
+
+```{math}
+L(\R^{n\cdot m}; V_2\otimes W_2) \cong (V_2 \otimes W_2)^{n\cdot m}.
+```
+
+Wegen {prf:ref}`lem:isomorphieKartesischesProdukt` wissen wir dann aber schon, dass gilt
+
+```{math}
+(V_2 \otimes W_2)^{n\cdot m} \cong V_2^n \otimes W_2^m.
+```
+
+Zusammen mit der Isomorphie [](eq:ersteIsormorphie) haben wir nun insgesamt gezeigt, dass 
 
 ```{math}
 L(\R^n; V_2) \otimes L(\R^m; W_2) \cong L(\R^n\otimes \R^m; V_2\otimes W_2)
@@ -757,20 +775,23 @@ L(\R^n; V_2) \otimes L(\R^m; W_2) \cong L(\R^n\otimes \R^m; V_2\otimes W_2)
 ````
 
 Wählen wir die Zielräume der linearen Abbildungen als $V_2 = W_2 = \R$, so erhalten wir direkt folgendes Korrolar als Anwendung des allgemeinen Resultats in {prf:ref}`thm:pIsomorphismus`.
-Dies ermöglicht es uns Tensoren als $k$-Multilinearformen zu interpretieren.
+Dies ermöglicht es uns Tensoren als Linearformen zu interpretieren.
 
 ````{prf:Corollary} Isomorphie des algebraischen Dualraums des Tensorproduktraums
+:label: cor:tensorenLinearformen
+
 Es seien $V$ und $W$ beliebige endlich-dimensionale Vektorräume.
 Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum der algebraischen Dualräume von $V$ und $W$ und dem algebraischen Dualraum des Tensorproduktraums, d.h.,
 
 ```{math}
-V^\ast \otimes W^\ast \cong (V\otimes W)^\ast.
+V^\ast \otimes W^\ast \cong (V\otimes W)^\ast = L^1(V \otimes W; \R).
 ```
 
 ````
 
 ## Tensoren als Multilinearformen
 
+Wie wir in 
 Als Einleitung in das Thema wollen wir Tensoren zunächst als $k$-Multilinearformen auf $\V_1\times\ldots\times\V_k$
 betrachten wobei für $i=1,\ldots,k$ $\V_i$ reelle endlich dimensionale Vektorräume sind.
 Man schreibt in diesem Fall auch
