@@ -531,7 +531,11 @@ Dann existieren für das Tensorprodukt die folgenden Isomorphismen:
 
 3. $\R \otimes V_1 \cong V_1,\quad a\otimes v_1 \mapsto a\,v_1$ **(Produkt mit Skalaren)**,
 
-4. Falls $p_{12}:V_1\to V_2$ und $p_{34}:V_3\to V_4$ Isomorphismen sind, so gilt $V_1\otimes V_3 \cong V_2\otimes V_4,\quad v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)$ (**Transitivität**).
+4. Falls $p_{12}:V_1\to V_2$ und $p_{34}:V_3\to V_4$ Isomorphismen sind, so gilt (**Transitivität**)
+
+```{math}
+V_1\otimes V_3 \cong V_2\otimes V_4,\quad v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)
+```
 
 ````
 
@@ -549,8 +553,14 @@ x = \sum_{i=1}^n \alpha_i (v_1^i \otimes v_3^i),
 
 was direkt aus der Basiskonstruktion in {prf:ref}`thm:existenzTensorprodukt` folgt.
 
-Die angegebene Abbildung $v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)$ ist nun **nur** für zerfallende Tensoren definiert.
-Allerdings lässt sie sich unter Ausnutzung der Linearität eindeutig zu einer Abbildung $\Phi(V_1\otimes V_3)\to (V_2\otimes V_4)$ fortsetzen, so dass für beliebige Vektoren $x \in V_1 \otimes V_3$ gilt 
+Die angegebene Abbildung 
+
+```{math}
+v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)
+```
+
+ ist nun **nur** für zerfallende Produkte definiert.
+Allerdings lässt sie sich eindeutig zu einer linearen Abbildung $\Phi(V_1\otimes V_3)\to (V_2\otimes V_4)$ fortsetzen, so dass für beliebige Vektoren $x \in V_1 \otimes V_3$ gilt 
 
 ```{math}
 \Phi(x) = \Phi(\sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i) = 
@@ -564,7 +574,14 @@ Auf analoge Art und Weise definiert man nun die lineare Abbildung $\Psi \colon V
 \Psi(v_2\otimes v_4) := p_{12}^{-1}(v_2)\otimes p_{34}^{-1}(v_4)
 ```
 
-und erhält sofort, dass $\Psi\circ\Phi = \mathrm{Id}$ und $\Phi\circ\Psi = \mathrm{Id}$ gilt und somit haben wir die Behauptung des Lemmas bewiesen.
+und erhält sofort, dass $\Psi\circ\Phi = \mathrm{Id}$ gilt, da für beliebige Vektoren $x \in V_1 \otimes V_3$ gilt:
+
+```{math}
+\Psi \circ \Phi(x) &= \Psi \circ \Phi(\sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i) = \Psi \circ \sum_{i=1}^n \alpha_i (p_{12}(v_1^i)\otimes p_{34}(v_3^i)) \\
+&= \sum_{i=1}^n \alpha_i \Psi(p_{12}(v_1^i)\otimes p_{34}(v_3^i)) = \sum_{i=1}^n \alpha_i (v_1^i \otimes v_3^i) = x.
+```
+
+Analog gilt auch $\Phi\circ\Psi = \mathrm{Id}$ und somit haben wir die Behauptung des Lemmas bewiesen.
 
 ````
 
@@ -576,7 +593,7 @@ Daher können wir ab nun folgende Notation verwenden
 ```
 
 und sehen, dass dieses Objekt wohldefiniert ist.
-Insbesondere ist äquivalent das Tensorprodukt über $k$-Vektorräume mit Hilfe einer $k$-Multilinearform aus {ref}`s:k-multilinearform` zu definieren anstatt nur einer Bilinearform wie in {prf:ref}`def:tensor`.
+Insbesondere ist äquivalent das Tensorprodukt über $k$ Vektorräume mit Hilfe einer $k$-Multilinearform aus {ref}`s:k-multilinearform` zu definieren anstatt nur einer Bilinearform wie in {prf:ref}`def:tensor`.
 Die folgende Bemerkung gibt die universelle Eigenschaft für solch ein Tensorprodukt an.
 
 ````{prf:remark} $k$-faches Tensorprodukt
@@ -600,9 +617,9 @@ v_1\otimes\ldots\otimes v_k := \otimes(v_1,\ldots, v_k).
 
 ````
 
-Im Folgenden wollen wir Tensoren insbesondere als Multilinearformen interpretieren.
+Im folgenden Abschnitt der Vorlesung wollen wir Tensoren insbesondere als Multilinearformen interpretieren.
 Deshalb interessieren wir uns im Folgenden für die Eigenschaften des Tensorprodukts, wenn wir speziell *Räume von linearen Abbildungen* betrachten.
-Die bilineare Abbildung im folgenden Lemma stellt hierbei die zentrale Idee dar.
+Die lineare Abbildung im folgenden Lemma stellt hierbei die zentrale Idee dar.
 
 ````{prf:lemma}
 :label: lem:LISO
@@ -612,10 +629,10 @@ Dann ist die Abbildung
 
 ```{math}
 p:L(V_1; V_2)\otimes L(W_1; W_2) &\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
-(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(v_2).
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(w_1).
 ```
 
-linear.
+ein **Homomorphismus**.
 
 ````
 
@@ -637,11 +654,11 @@ In diesem Fall notiert man auch
 ```{math}
 \eta_1\otimes\eta_2 \mapsto 
 \big[
-v_1\otimes w_1\mapsto \eta_1(v_1) \otimes \eta_2(v_2)
+v_1\otimes w_1\mapsto \eta_1(v_1) \otimes \eta_2(w_1)
 \big],
 ```
 
-was bedeutet, dass $\eta_1\otimes\eta_2$ auf eine *Funktion* abgebildet wird, welche wiederum $v_1\otimes w_2$ als Argumente bekommt.
+was bedeutet, dass $\eta_1\otimes\eta_2$ auf eine *Funktion* abgebildet wird, welche wiederum $v_1\otimes w_1$ als Argumente bekommt.
 
 ````
 
@@ -672,7 +689,7 @@ Dann ist die Abbildung
 
 ```{math}
 p:L(V_1; V_2)\otimes L(W_1; W_2) &\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
-(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(v_2).
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(w_1).
 ```
 
 ein Isomorphismus.
@@ -681,7 +698,7 @@ ein Isomorphismus.
 
 ````{prf:proof}
 
-Seien $V_1$ und $V_2$ zwei endlich-dimensionale, reelle Vektorräume mit $\operatorname{dim}(V_1) = n \in \N$ und $\operatorname{dim}(W_1) = m \in \N$.
+Seien $V_1$ und $W_1$ zwei endlich-dimensionale, reelle Vektorräume mit $\operatorname{dim}(V_1) = n \in \N$ und $\operatorname{dim}(W_1) = m \in \N$.
 Nach dem *Isomorphiesatz für endlich-dimensionale Vektorräume* 3.20 in {cite:p}`burger_2020` existiert dann je ein Isomorphismus, so dass $V_1 \cong \R^n$ und $W_1 \cong \R^m$.
 Über diesen Isomorphismus lässt sich auch zeigen, dass $L(V_1; V_2) \cong L(\R^n; V_2)$ und $L(W_1; W_2) \cong L(\R^m; W_2)$ gilt.
 Zusammen mit der *Transitivitätseigenschaft des Tensorprodukts* aus {prf:ref}`lem:natISO` folgt dann aber schon
