@@ -285,18 +285,18 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#existenz-und-konstruktion">
-   3.2.3. Existenz und Konstruktion
+  <a class="reference internal nav-link" href="#existenz-und-konstruktion-des-tensorprodukts">
+   3.2.3. Existenz und Konstruktion des Tensorprodukts
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#naturliche-isomorphismen-und-eigenschaften-des-tensorprodukts">
-   3.2.4. Natürliche Isomorphismen und Eigenschaften des Tensorprodukts
+  <a class="reference internal nav-link" href="#naturliche-homo-und-isomorphismen-des-tensorprodukts">
+   3.2.4. Natürliche Homo- und Isomorphismen des Tensorprodukts
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensoren-als-linearformen">
-   3.2.5. Tensoren als Linearformen
+  <a class="reference internal nav-link" href="#tensoren-als-multilinearformen">
+   3.2.5. Tensoren als Multilinearformen
   </a>
  </li>
 </ul>
@@ -419,9 +419,9 @@ Ein reeller Vektorraum <span class="math notranslate nohighlight">\(X\)</span> h
 <span class="math notranslate nohighlight">\(p \in L^1(X; Y)\)</span>, so dass gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-universell">
 <span class="eqno">(3.2)<a class="headerlink" href="#equation-eq-universell" title="Permalink to this equation">¶</a></span>\[\phi(v,w) = p(v\otimes w) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.\]</div>
-<p>Das bedeutet, dass die Vektorräume <span class="math notranslate nohighlight">\(L^2(V \times W; Y)\)</span> und <span class="math notranslate nohighlight">\(L^1(X; Y)\)</span> isomorph zueinander sind.
-In diesem Fall schreibt man auch <span class="math notranslate nohighlight">\(X = V \otimes W\)</span>.
-Wir nennen die bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes\)</span> <strong>Tensorprodukt</strong> und verwenden häufig für sie die Infix-Schreibweise <span class="math notranslate nohighlight">\(\otimes(v,w)=:v\otimes w\)</span>.</p>
+<p>In diesem Fall schreibt man auch <span class="math notranslate nohighlight">\(X = V \otimes W\)</span>.
+Wir nennen die bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes\)</span> <strong>Tensorprodukt</strong> und verwenden häufig für sie die Infix-Schreibweise <span class="math notranslate nohighlight">\(v\otimes w := \otimes(v,w)\)</span>.
+Elemente <span class="math notranslate nohighlight">\(x \in X\)</span> des Tensorproduktraums <span class="math notranslate nohighlight">\(X = V \otimes W\)</span> nennen wir <strong>Tensoren</strong>.</p>
 </div>
 </div><p>Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich.
 Was ist jetzt also genau ein Tensorprodukt?</p>
@@ -453,7 +453,7 @@ x_2y_2 &amp; x_2y_1
 </div>
 </div><p><strong>Was bedeutet die universelle Eigenschaft?</strong></p>
 <p>Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf <span class="math notranslate nohighlight">\(V\times W\)</span> und dem Raum der linearen Abbildungen von <span class="math notranslate nohighlight">\(X = V\otimes W\)</span> nach <span class="math notranslate nohighlight">\(Y\)</span> für ein Tensorprodukt <span class="math notranslate nohighlight">\(\otimes\)</span> her.
-Für den Spezialfall <span class="math notranslate nohighlight">\(Y = \R\)</span> ist letzterer gerade der algebraische Dualraum des Tensorproduktraums.
+Für den Spezialfall <span class="math notranslate nohighlight">\(Y = \R\)</span> ist letzterer gerade der <em>algebraische Dualraum</em> des Tensorproduktraums.
 Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen also schon über einfache Linearformen auf <span class="math notranslate nohighlight">\(V\otimes W\)</span>.</p>
 <p>Das folgende einfache Beispiel soll uns helfen diese Beziehung besser zu verstehen.</p>
 <div class="proof example admonition" id="ex:universelleEigenschaft">
@@ -512,8 +512,8 @@ Wir haben jedoch <strong>nicht</strong> gezeigt, dass das dyadische Produkt die 
 Dafür hätten wir die Äquivalenz für <strong>alle möglichen</strong> Bilinearformen <span class="math notranslate nohighlight">\(\Phi \in L^2(V \times W; Y)\)</span> für <strong>beliebige Vektorräume</strong> <span class="math notranslate nohighlight">\(Y\)</span> beweisen müssen.</p>
 </div>
 </div>
-<div class="section" id="existenz-und-konstruktion">
-<h2><span class="section-number">3.2.3. </span>Existenz und Konstruktion<a class="headerlink" href="#existenz-und-konstruktion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="existenz-und-konstruktion-des-tensorprodukts">
+<h2><span class="section-number">3.2.3. </span>Existenz und Konstruktion des Tensorprodukts<a class="headerlink" href="#existenz-und-konstruktion-des-tensorprodukts" title="Permalink to this headline">¶</a></h2>
 <p>Wir stellen fest, dass es für zwei beliebige <span class="math notranslate nohighlight">\(\R\)</span>-Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> immer ein Tensorprodukt gibt, und dass wir dieses Tensorprodukt konkret konstruieren können indem wir uns auf die Basis der Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> zurückziehen.
 Diese Tatsache formulieren wir in der folgenden Aussage.</p>
 <div class="proof theorem admonition" id="thm:existenzTensorprodukt">
@@ -532,7 +532,7 @@ Wir betrachten zunächst das kartesische Produkt der beiden Indexmengen</p>
 <div class="math notranslate nohighlight">
 \[B^X = \{b_{ij}^X: (i,j)\in J\},\]</div>
 <p>so dass <span class="math notranslate nohighlight">\(B^X\)</span> eine Hamel-Basis von <span class="math notranslate nohighlight">\(X\)</span> ist.
-Ein solcher Vektorraum existiert immer, da zum Beispiel das kartesische Produkt <span class="math notranslate nohighlight">\(V\times W\)</span> der beiden Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> diese Eigenschaft schon erfüllt.</p>
+Man kann zeigen, dass ein solcher Vektorraum immer existiert.</p>
 <p>Wir definieren nun eine bilineare Abbildung <span class="math notranslate nohighlight">\(\otimes: V\times W \to X\)</span> über</p>
 <div class="math notranslate nohighlight">
 \[\otimes (b_i^V, b_j^W) = b_i^V \otimes b_j^W := b_{ij}^X \quad \forall (i,j)\in J.\]</div>
@@ -567,7 +567,7 @@ Hieran sieht man den qualitativen Unterschied zwischen <span class="math notrans
 <div class="proof corollary admonition" id="corollary-6">
 <p class="admonition-title"><span class="caption-number">Corollary 3.1 </span></p>
 <div class="corollary-content section" id="proof-content">
-<p>Für zwei reelle Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> mit zugehörigen Basen</p>
+<p>Für zwei reelle Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> mit zugehörigen Hamel-Basen</p>
 <div class="math notranslate nohighlight">
 \[B^V = \{b_i^V: i\in I^V\}, \quad B^W = \{b_i^W: i\in I^W\},\]</div>
 <p>und einem Tensorprodukt <span class="math notranslate nohighlight">\(\otimes:V\times W \to V\otimes W\)</span> ist</p>
@@ -575,76 +575,304 @@ Hieran sieht man den qualitativen Unterschied zwischen <span class="math notrans
 \[B^X \, \coloneqq \, \{b_i^V \otimes b_j^W: i\in I^V, j\in I^W\}\]</div>
 <p>eine Basis von <span class="math notranslate nohighlight">\(X = V\otimes W\)</span>.</p>
 </div>
-</div><p>Wir wissen nun, dass mindestens ein Tensorprodukt existiert, es stellt sich also die Frage inwiefern sich verschiedene derartige Abbildungen auf den gleichen Vektorräumen <span class="math notranslate nohighlight">\(V,W\)</span> unterschieden. Seien dazu <span class="math notranslate nohighlight">\(\otimes_1, \otimes_2\)</span> je zwei Tensorprodukte auf <span class="math notranslate nohighlight">\(V\times W\)</span>. Wegen der universellen Eigenschaft gibt es lineare Abbildungen <span class="math notranslate nohighlight">\(p_1: V\otimes_1 W\to W\otimes_2 V\)</span> und <span class="math notranslate nohighlight">\(p_2: V\otimes_2 W\to W\otimes_1 V\)</span>, s.d.,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\otimes_2 &amp;= p_1 \circ \otimes_1\\
-\otimes_1 &amp;= p_2 \circ \otimes_2.\end{split}\]</div>
-<p>und somit</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\otimes_2 &amp;= p_1\circ p_2 \circ \otimes_2\\
-\otimes_1 &amp;= p_2\circ p_1 \circ \otimes_1.\end{split}\]</div>
-<p>Da wir aber die Basis von <span class="math notranslate nohighlight">\(V\otimes_2 W\)</span> über Elemente <span class="math notranslate nohighlight">\(\otimes_2(b_i^V, b_j^W)\)</span> charakterisieren können, und aus der ersten Gleichung folgt, dass</p>
-<div class="math notranslate nohighlight">
-\[p_1\circ p_2(\otimes(b_i^V,b_j^W)) = \otimes(b_i^V, b_j^W)\]</div>
-<p>wissen wir dass <span class="math notranslate nohighlight">\(p_1\circ p_2 = \mathrm{Id}\)</span>. Das folgt da <span class="math notranslate nohighlight">\(p_1\circ p_2\)</span> als lineare Abbildung schon ganz auf den Basiselementen festgelegt ist.
-Analog folgt <span class="math notranslate nohighlight">\(p_2\circ p_1 = \mathrm{Id}\)</span> und somit sind <span class="math notranslate nohighlight">\(p_1, p_2\)</span> isomorph zueinander. D.h. wir haben insgesamt gezeigt, dass verschiedene Tensorprodukte stets isomorph zueinander sind.</p>
-<div class="proof lemma admonition" id="lemma-7">
-<p class="admonition-title"><span class="caption-number">Lemma 3.4 </span></p>
+</div><p>Wir wissen nun aus <a class="reference internal" href="#thm:existenzTensorprodukt">Theorem 3.1</a>, dass immer mindestens ein Tensorprodukt existiert.
+Es stellt sich also die Frage inwiefern sich verschiedene Tensorprodukte auf den gleichen Vektorräumen <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> unterscheiden.
+Hierzu liefert das folgende Lemma eine klare Einsicht.</p>
+<div class="proof lemma admonition" id="lem:isomorphismusTensorproduktraum">
+<p class="admonition-title"><span class="caption-number">Lemma 3.4 </span> (Isomorphie von Tensorprodukträumen)</p>
 <div class="lemma-content section" id="proof-content">
-<p>Es seien <span class="math notranslate nohighlight">\(V,W\)</span> zwei reelle Vektorräume und <span class="math notranslate nohighlight">\(\otimes_1,\otimes_2\)</span> zwei Tensorprodukte. Dann existiert genau ein Isomorphismus <span class="math notranslate nohighlight">\(p:V\otimes_1 W\to V\otimes_2 W\)</span>, s.d.</p>
+<p>Es seien <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> zwei reelle Vektorräume und es seien</p>
 <div class="math notranslate nohighlight">
-\[\otimes_2 = p\circ \otimes_1.\]</div>
-</div>
-</div><p><strong>Das Tensorprodukt?</strong></p>
-<p>Die letzte Aussage zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf Vektorräumen <span class="math notranslate nohighlight">\(V,W\)</span> zu definieren, diese stets isomorph zueinander sind. Deshalb spricht man auch von <strong>dem</strong> Tensorprodukt <span class="math notranslate nohighlight">\(V\otimes W\)</span> was so klingt als gäbe es nur ein einziges. In der Tat gibt es zwar mehrere Tensorprodukte aber man kann sie alle miteinander identifizieren.</p>
-<p>Deshalb werden wir im folgendem auch von <strong>dem</strong> Tensorprodukt sprechen.</p>
-</div>
-<div class="section" id="naturliche-isomorphismen-und-eigenschaften-des-tensorprodukts">
-<h2><span class="section-number">3.2.4. </span>Natürliche Isomorphismen und Eigenschaften des Tensorprodukts<a class="headerlink" href="#naturliche-isomorphismen-und-eigenschaften-des-tensorprodukts" title="Permalink to this headline">¶</a></h2>
-<p>Die Definition über die universelle Eigenschaft erlaubt es uns relativ direkt folgende Isomorphismen zu erhalten.</p>
-<div class="proof lemma admonition" id="lemma-8">
-<p class="admonition-title"><span class="caption-number">Lemma 3.5 </span> (Isomorphismen)</p>
-<div class="lemma-content section" id="proof-content">
-<p>Es seien <span class="math notranslate nohighlight">\(V_1,V_2,V_3\)</span> reelle Vektorräume, dann haben wir folgende Isomorphismen.</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(V_1\otimes V_2 \cong V_2\otimes V_1\)</span>,</p></li>
-<li><p><span class="math notranslate nohighlight">\((V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3)\)</span>,</p></li>
-<li><p><span class="math notranslate nohighlight">\(\R \otimes V_1 \cong V_1\)</span>,</p></li>
-<li><p><span class="math notranslate nohighlight">\(L(V_1, L(V_2, V_3))\cong L(V_1\otimes V_2, V_3)\)</span>.</p></li>
-</ol>
+\[\begin{split}\otimes_1 &amp;\colon V \times W \rightarrow V \otimes_1 W,\\
+\otimes_2 &amp;\colon V \times W \rightarrow V \otimes_2 W\end{split}\]</div>
+<p>zwei Tensorprodukte.
+Dann existiert genau ein Isomorphismus</p>
+<div class="math notranslate nohighlight">
+\[p: V\otimes_1 W \to V\otimes_2 W,\]</div>
+<p>so dass gilt <span class="math notranslate nohighlight">\(\otimes_2 = p\circ \otimes_1\)</span>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe Übung.</p>
+<p>Proof. Seien also zunächst zwei Tensorprodukte <span class="math notranslate nohighlight">\(\otimes_1, \otimes_2\)</span> auf <span class="math notranslate nohighlight">\(V\times W\)</span> gegeben.
+Wegen der <em>universellen Eigenschaft</em> des Tensorprodukts wissen wir, dass es lineare Abbildungen</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p_1&amp;: V\otimes_1 W\to Y_1 \ \coloneqq \ V\otimes_2 W,\\
+p_2&amp;: V\otimes_2 W\to Y_2 \ \coloneqq \ V\otimes_1 W\end{split}\]</div>
+<p>gibt, so dass gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\otimes_2 &amp;= p_1 \circ \otimes_1,\\
+\otimes_1 &amp;= p_2 \circ \otimes_2.\end{split}\]</div>
+<p>Durch Einsetzen der Gleichungen ineinander somit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\otimes_2 &amp;= p_1\circ p_2 \circ \otimes_2,\\
+\otimes_1 &amp;= p_2\circ p_1 \circ \otimes_1.\end{split}\]</div>
+<p>Aus dem Beweis von <a class="reference internal" href="#thm:existenzTensorprodukt">Theorem 3.1</a> wissen wir, dass wir die Basis von <span class="math notranslate nohighlight">\(V\otimes_2 W\)</span> über die Abbildung <span class="math notranslate nohighlight">\(\otimes_2(b_i^V, b_j^W)\)</span> der Basiselemente von <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> charakterisieren können.
+Setzen wir also das Tensorprodukt dieser Basiselemente in die erste Gleichung ein, so erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[\otimes_2(b_i^V, b_j^W) = p_1\circ p_2(\otimes_2(b_i^V,b_j^W)).\]</div>
+<p>Das zeigt also, dass <span class="math notranslate nohighlight">\(p_1\circ p_2 = \mathrm{Id}_{Y_1}\)</span> die Identitätsabbildung auf dem Tensorproduktraum <span class="math notranslate nohighlight">\(Y_1 = V \otimes_2 W\)</span> sein muss.
+Dies folgt, weil <span class="math notranslate nohighlight">\(p_1\circ p_2\)</span> als lineare Abbildung schon ganz durch seine Wirkung auf den Basiselementen festgelegt ist.
+Analog kann man nun folgern, dass <span class="math notranslate nohighlight">\(p_2\circ p_1 = \mathrm{Id}_{Y_2}\)</span> die Identitätsabbildung im Tensorproduktraum <span class="math notranslate nohighlight">\(Y_2 = V \otimes_1 W\)</span> ist und somit sind die Linearformen <span class="math notranslate nohighlight">\(p_1\)</span> und <span class="math notranslate nohighlight">\(p_2\)</span> <strong>Isomorphismen</strong> und gerade die jeweiligen Umkehrfunktionen zueinander.</p>
+<p>Insgesamt haben wir also gezeigt, dass Tensorprodukträume, die durch verschiedene Tensorprodukte auf dem gleiche kartesischen Produkraum stets isomorph zueinander sind.</p>
 </div>
-<p>Die zweite Eigenschaft erlaubt es uns das Tensorprodukt über <span class="math notranslate nohighlight">\(k\)</span>-viele reelle Vektorräume <span class="math notranslate nohighlight">\(V_1,\ldots, V_k\)</span> zu bilden, wir notieren</p>
+<p>Im endlich-dimensionalen Fall können wir uns also immer auf den <span class="math notranslate nohighlight">\(\R^{n \cdot m}\)</span> zurückziehen, wie das folgende Korrolar festhält.</p>
+<div class="proof corollary admonition" id="cor:isomorphieEndlichDimensional">
+<p class="admonition-title"><span class="caption-number">Corollary 3.2 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>Betrachten wir ein Tensorprodukt <span class="math notranslate nohighlight">\(\otimes \in L^2(V \times W; V \otimes W)\)</span> zweier <strong>endlich-dimensionaler</strong> <span class="math notranslate nohighlight">\(\R\)</span>-Vektorräume <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V)=n \in \N\)</span> und <span class="math notranslate nohighlight">\(\operatorname{dim}(W)=m \in \N\)</span>, so existiert stets die folgende Isormorphie</p>
 <div class="math notranslate nohighlight">
-\[\bigotimes_{i=1}^k=V_1\otimes\ldots\otimes V_k\]</div>
-<p>und sehen, dass diese Objekt wohldefiniert ist. Insbesondere ist äquivalent das Tensorprodukt über <span class="math notranslate nohighlight">\(k\)</span>-Vektorräume mithilfe einer
-<span class="math notranslate nohighlight">\(k\)</span>-Multilinearform zu definieren anstatt der Bilinearform in <a class="reference internal" href="#def:tensor">Definition 3.4</a>.</p>
-<p>Die letzte Eigenschaft wird insbesondere wichtig um Tensorprodukte von Dualräumen zu charakterisieren. Dafür benötigen wir zusätzlich folgendes Prinzip, was man in der Algebra unter <a class="reference external" href="https://de.wikipedia.org/wiki/Funktor_(Mathematik)">Funktoren</a> kennt. Konkret wollen wir nun für reelle Vektorräume <span class="math notranslate nohighlight">\(V_1,V_2, W_1, W_2\)</span> das Tensorprodukt</p>
+\[V \otimes W \cong \R^{n \cdot m}.\]</div>
+<p>Das heißt für die Dimension des Tensorproduktraums <span class="math notranslate nohighlight">\(V \otimes W\)</span> gilt offensichtlich</p>
 <div class="math notranslate nohighlight">
-\[\mathrm{Hom}(V_1, W_1) \otimes \mathrm{Hom}(V_2, W_2)\]</div>
-<p>untersuchen.</p>
-<div class="proof lemma admonition" id="lemma-9">
+\[\operatorname{dim}(V \otimes W) = n\cdot m.\]</div>
+</div>
+</div><p>Das folgende Beispiel soll noch einmal die Isomorphie zwischen verschiedenen Tensorprodukträumen illustrieren.</p>
+<div class="proof example admonition" id="example-9">
+<p class="admonition-title"><span class="caption-number">Example 3.7 </span> (Dyadisches Produkt vs. Kronecker-Produkt)</p>
+<div class="example-content section" id="proof-content">
+<p>Im Folgenden betrachten wir wieder den Euklidischen Vektorraum <span class="math notranslate nohighlight">\(V=W=\R^2\)</span> und zwei Vektoren <span class="math notranslate nohighlight">\(x, y \in \R^2\)</span>.
+Wie wir in <a class="reference internal" href="#ex:tensorproduktVarianten">Example 3.5</a> und <a class="reference internal" href="#ex:universelleEigenschaft">Example 3.6</a> festgestellt haben realisiert das <strong>dyadische Produkt</strong></p>
+<div class="math notranslate nohighlight">
+\[\otimes_d \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_d \R^2 = \R^{2 \times 2} =: X_d\]</div>
+<p>mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x \otimes_d y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 &amp; x_1y_2 \\
+x_2y_1 &amp; x_2y_2
+\end{pmatrix}.\end{split}\]</div>
+<p>ein Tensorprodukt der Vektorräume <span class="math notranslate nohighlight">\(V=W=\R^2\)</span>.</p>
+<p>Betrachten wir nun ein weiteres Tensorprodukt auf dem kartesischen Produktraum <span class="math notranslate nohighlight">\(V \times W\)</span>, nämlich das <strong>Kronecker-Produkt</strong> <span class="math notranslate nohighlight">\(\otimes_K\)</span>.
+Das Kronecker-Produkt realisiert eine Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\otimes_K \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_K \R^2 = \R^{4} =: X_K,\]</div>
+<p>mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x \otimes_K y =
+\begin{pmatrix}
+x_1 \\ x_2
+\end{pmatrix} \otimes_K 
+\begin{pmatrix}
+y_1 \\ y_2
+\end{pmatrix}
+\, = \, 
+\begin{pmatrix}
+x_1 \cdot \begin{pmatrix} y_1 \\ y_2 \end{pmatrix} \\ 
+x_2 \cdot \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
+\end{pmatrix}
+= 
+\begin{pmatrix}
+x_1y_1\\
+x_1y_2\\
+x_2y_1\\
+x_2y_2
+\end{pmatrix}.\end{split}\]</div>
+<p>Es wird nun klar, dass die Räume <span class="math notranslate nohighlight">\(X_d = \R^{2 \times 2}\)</span> und <span class="math notranslate nohighlight">\(X_K = \R^4\)</span> isomorph zueinander sind, d.h., es gilt <span class="math notranslate nohighlight">\(X_d \cong X_K\)</span>.
+Außerdem kann man Tensoren in den jeweiligen Tensorprodukträumen durch zeilenweises Ablesen bzw. Eintragen in eine Matrix eindeutig ineinander überführen.</p>
+</div>
+</div><p><strong>Das Tensorprodukt?</strong></p>
+<p>Die Aussage aus <a class="reference internal" href="#lem:isomorphismusTensorproduktraum">Lemma 3.4</a> zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf dem kartesischen Produktraum <span class="math notranslate nohighlight">\(V \times W\)</span> zu definieren, die resultierenden Tensorprodukträume stets isomorph zueinander sind.
+Deshalb spricht man auch von <strong>dem</strong> Tensorprodukt <span class="math notranslate nohighlight">\(\otimes\)</span> und <strong>dem</strong> Tensorproduktraum <span class="math notranslate nohighlight">\(V \otimes W\)</span>, was so klingt als gäbe es jeweils nur ein einziges Exemplar.
+In der Tat gibt es zwar mehrere Tensorprodukte aber man kann diese problemlos ineinander umrechnen und die resultierenden Tensorprodukträume alle miteinander identifizieren.</p>
+<p>Deshalb werden wir im Folgendem auch häufig von <strong>dem</strong> Tensorprodukt sprechen.</p>
+</div>
+<div class="section" id="naturliche-homo-und-isomorphismen-des-tensorprodukts">
+<h2><span class="section-number">3.2.4. </span>Natürliche Homo- und Isomorphismen des Tensorprodukts<a class="headerlink" href="#naturliche-homo-und-isomorphismen-des-tensorprodukts" title="Permalink to this headline">¶</a></h2>
+<p>Von vielen Operationen kennen wir bereits Eigenschaften wie <em>Kommutativität</em> und <em>Assoziativität</em>.
+Derartige Eigenschaften gelten nicht direkt für das Tensorprodukt, allerdings erhalten wir Isomorphismen, welche bekannte Rechenregeln nachbilden.
+Diese Isomorphismen nennt auch <strong>natürlich</strong> oder <strong>kanonisch</strong>, weil Sie jeweils auf die naheliegendste Art und Weise definiert sind.
+Das folgende Lemma fasst die wichtigsten Eigenschaften des Tensorprodukts zusammen</p>
+<div class="proof lemma admonition" id="lem:natISO">
+<p class="admonition-title"><span class="caption-number">Lemma 3.5 </span> (Natürliche Isomorphismen des Tensorprodukts)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Es seien <span class="math notranslate nohighlight">\(V_1,V_2,V_3\)</span> und <span class="math notranslate nohighlight">\(V_4\)</span> reelle Vektorräume.
+Dann existieren für das Tensorprodukt die folgenden Isomorphismen:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_1\otimes V_2 \cong V_2\otimes V_1, \quad v_1\otimes v_2 \mapsto v_2\otimes v_1\)</span> (<strong>Kommutativität</strong>),</p></li>
+<li><p><span class="math notranslate nohighlight">\((V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3),\quad (v_1\otimes v_2)\otimes v_3 \mapsto v_1 \otimes (v_2\otimes v_3)\)</span> (<strong>Assoziativität</strong>),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\R \otimes V_1 \cong V_1,\quad a\otimes v_1 \mapsto a\,v_1\)</span> <strong>(Produkt mit Skalaren)</strong>,</p></li>
+<li><p>Falls <span class="math notranslate nohighlight">\(p_{12}:V_1\to V_2\)</span> und <span class="math notranslate nohighlight">\(p_{34}:V_3\to V_4\)</span> Isomorphismen sind, so gilt (<strong>Transitivität</strong>)</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[V_1\otimes V_3 \cong V_2\otimes V_4,\quad v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Punkt 1.-3. sind in der Hausaufgabe zu zeigen.</p>
+<p><strong>Zu Punkt 4.:</strong></p>
+<p>Wichtig für die Transitivitätseigenschaft ist es zunächst einzusehen, dass die Definition des Tensorprodukts sinnvoll ist, denn nicht jedes Element <span class="math notranslate nohighlight">\(x\in V_1\otimes V_3\)</span> lässt sich <em>direkt</em> als Tensorprodukt schreiben.
+Wir wissen lediglich, dass <em>endlich viele</em> sogenannte <strong>elementare</strong> oder <strong>zerfallende</strong> Produkte <span class="math notranslate nohighlight">\((v_1^i\otimes v_3^i)_{i=1}^n\)</span> und Skalare <span class="math notranslate nohighlight">\(\alpha_i\in\R, i=1,\ldots,n\)</span>, für <span class="math notranslate nohighlight">\(n\in\N\)</span> existieren, so dass sich jeder Vektor <span class="math notranslate nohighlight">\(x \in V_1 \otimes V_3\)</span> schreiben lässt als</p>
+<div class="math notranslate nohighlight">
+\[x = \sum_{i=1}^n \alpha_i (v_1^i \otimes v_3^i),\]</div>
+<p>was direkt aus der Basiskonstruktion in <a class="reference internal" href="#thm:existenzTensorprodukt">Theorem 3.1</a> folgt.</p>
+<p>Die angegebene Abbildung</p>
+<div class="math notranslate nohighlight">
+\[v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)\]</div>
+<p>ist nun <strong>nur</strong> für zerfallende Produkte definiert.
+Allerdings lässt sie sich eindeutig zu einer linearen Abbildung <span class="math notranslate nohighlight">\(\Phi(V_1\otimes V_3)\to (V_2\otimes V_4)\)</span> fortsetzen, so dass für beliebige Vektoren <span class="math notranslate nohighlight">\(x \in V_1 \otimes V_3\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[\Phi(x) = \Phi(\sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i) = 
+\sum_{i=1}^n \alpha_i \Phi(v_1^i \otimes v_3^i) = 
+\sum_{i=1}^n \alpha_i (p_{12}(v_1^i)\otimes p_{34}(v_3^i)).\]</div>
+<p>Auf analoge Art und Weise definiert man nun die lineare Abbildung <span class="math notranslate nohighlight">\(\Psi \colon V_2 \otimes V_4 \rightarrow V_1 \otimes V_3\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[\Psi(v_2\otimes v_4) := p_{12}^{-1}(v_2)\otimes p_{34}^{-1}(v_4)\]</div>
+<p>und erhält sofort, dass <span class="math notranslate nohighlight">\(\Psi\circ\Phi = \mathrm{Id}\)</span> gilt, da für beliebige Vektoren <span class="math notranslate nohighlight">\(x \in V_1 \otimes V_3\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Psi \circ \Phi(x) &amp;= \Psi \circ \Phi(\sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i) = \Psi \circ \sum_{i=1}^n \alpha_i (p_{12}(v_1^i)\otimes p_{34}(v_3^i)) \\
+&amp;= \sum_{i=1}^n \alpha_i \Psi(p_{12}(v_1^i)\otimes p_{34}(v_3^i)) = \sum_{i=1}^n \alpha_i (v_1^i \otimes v_3^i) = x.\end{split}\]</div>
+<p>Analog gilt auch <span class="math notranslate nohighlight">\(\Phi\circ\Psi = \mathrm{Id}\)</span> und somit haben wir die Behauptung des Lemmas bewiesen.</p>
+</div>
+<p>Die zweite Eigenschaft in <a class="reference internal" href="#lem:natISO">Lemma 3.5</a> erlaubt es uns das Tensorprodukt über <span class="math notranslate nohighlight">\(k\)</span>-viele reelle Vektorräume <span class="math notranslate nohighlight">\(V_1,\ldots, V_k\)</span> zu bilden.
+Daher können wir ab nun folgende Notation verwenden</p>
+<div class="math notranslate nohighlight">
+\[\bigotimes_{i=1}^k V_i :=V_1\otimes\ldots\otimes V_k\]</div>
+<p>und sehen, dass dieses Objekt wohldefiniert ist.
+Insbesondere ist äquivalent das Tensorprodukt über <span class="math notranslate nohighlight">\(k\)</span> Vektorräume mit Hilfe einer <span class="math notranslate nohighlight">\(k\)</span>-Multilinearform aus <a class="reference internal" href="multilinear.html#s-k-multilinearform"><span class="std std-ref">k-Multilinearformen</span></a> zu definieren anstatt nur einer Bilinearform wie in <a class="reference internal" href="#def:tensor">Definition 3.4</a>.
+Die folgende Bemerkung gibt die universelle Eigenschaft für solch ein Tensorprodukt an.</p>
+<div class="proof remark admonition" id="remark-11">
+<p class="admonition-title"><span class="caption-number">Remark 3.7 </span> (<span class="math notranslate nohighlight">\(k\)</span>-faches Tensorprodukt)</p>
+<div class="remark-content section" id="proof-content">
+<p>Es seien <span class="math notranslate nohighlight">\(V_1,\ldots, V_k\)</span> für <span class="math notranslate nohighlight">\(k \in \N\)</span> reelle Vektorräume.
+Dann besitzt das <span class="math notranslate nohighlight">\(k\)</span>-fache Tensorprodukt <span class="math notranslate nohighlight">\(\bigotimes_{i=1}^k V_i\)</span> die folgende universelle Eigenschaft:</p>
+<p>Für jede <span class="math notranslate nohighlight">\(k\)</span>-Multilinearform <span class="math notranslate nohighlight">\(\phi\in L^k(V_1\times\ldots\times V_k; Y)\)</span> in einen beliebigen reellen Vektorraum <span class="math notranslate nohighlight">\(Y\)</span> existiert eine eindeutige lineare Abbildung
+<span class="math notranslate nohighlight">\(p \in L^1(\bigotimes_{i=1}^k V_i; Y)\)</span>, so dass gilt</p>
+<div class="math notranslate nohighlight">
+\[\phi = p \circ \otimes.\]</div>
+</div>
+</div><p>Im folgenden Abschnitt der Vorlesung wollen wir Tensoren insbesondere als Multilinearformen interpretieren.
+Deshalb interessieren wir uns im Folgenden für die Eigenschaften des Tensorprodukts, wenn wir speziell <em>Räume von linearen Abbildungen</em> betrachten.
+Die lineare Abbildung im folgenden Lemma stellt hierbei die zentrale Idee dar.</p>
+<div class="proof lemma admonition" id="lem:LISO">
 <p class="admonition-title"><span class="caption-number">Lemma 3.6 </span></p>
 <div class="lemma-content section" id="proof-content">
-<p>Es seinen <span class="math notranslate nohighlight">\(V_1,V_2, W_1,W_2\)</span> reelle Vektorräume und <span class="math notranslate nohighlight">\(\phi_1\in \mathrm{Hom}(V_1, W_1), \phi_2 \in \mathrm{Hom}(V_2, W_2)\)</span>, dann existiert <strong>genau ein</strong> Tensorprodukt, s.d.,</p>
+<p>Es seien <span class="math notranslate nohighlight">\(V_1, V_2\)</span> sowie <span class="math notranslate nohighlight">\(W_1, W_2\)</span> reelle Vektorräume.
+Dann ist die Abbildung</p>
 <div class="math notranslate nohighlight">
-\[(\phi_1 \otimes \phi_2)\]</div>
+\[\begin{split}p:L(V_1; V_2)\otimes L(W_1; W_2) &amp;\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&amp;:= \eta_1(v_1) \otimes \eta_2(w_1).\end{split}\]</div>
+<p>ein <strong>Homomorphismus</strong>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
+</div>
+<p>Da die Notation in <a class="reference internal" href="#lem:LISO">Lemma 3.6</a> vielleicht etwas abstrakt wirkt, soll die folgende Bemerkung auf die einzelnen Elemente der linearen Abbildung <span class="math notranslate nohighlight">\(p\)</span> nochmal genauer eingehen.</p>
+<div class="proof remark admonition" id="remark-13">
+<p class="admonition-title"><span class="caption-number">Remark 3.8 </span> (Funktionen als Funktionswerte)</p>
+<div class="remark-content section" id="proof-content">
+<p>Die lineare Abbildung in <a class="reference internal" href="#lem:LISO">Lemma 3.6</a> ist folgendermaßen zu verstehen:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\eta_1:V_1\rightarrow V_2\)</span> und <span class="math notranslate nohighlight">\(\eta_2: W_1 \rightarrow W_2\)</span> sind lineare Abbildungen mit <span class="math notranslate nohighlight">\(\eta_1 \in L(V_1; V_2)\)</span> und <span class="math notranslate nohighlight">\(\eta_2 \in L(W_1; W_2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\eta_1 \otimes \eta_2\)</span> ist dementsprechend ein Element aus dem Tensorproduktraum <span class="math notranslate nohighlight">\(L(V_1; V_2)\otimes L(W_1; W_2)\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(\eta_1\otimes\eta_2)\)</span> ist dann ein Element von <span class="math notranslate nohighlight">\(L(V_1\otimes W_1; V_2\otimes W_2)\)</span>, also eine lineare Abbildung, welche vom Tensorproduktraum <span class="math notranslate nohighlight">\(V_1\otimes W_1\)</span> in den Tensorproduktraum <span class="math notranslate nohighlight">\(V_2\otimes W_2\)</span> abbildet,</p></li>
+<li><p><span class="math notranslate nohighlight">\((p(\eta_1\otimes\eta_2))(v_1\otimes w_1)\)</span> ist schließlich die Auswertung dieser Abbildung am Punkt <span class="math notranslate nohighlight">\(v_1\otimes w_1\in V_1\otimes W_1\)</span>.</p></li>
+</ul>
+<p>In diesem Fall notiert man auch</p>
+<div class="math notranslate nohighlight">
+\[\eta_1\otimes\eta_2 \mapsto 
+\big[
+v_1\otimes w_1\mapsto \eta_1(v_1) \otimes \eta_2(w_1)
+\big],\]</div>
+<p>was bedeutet, dass <span class="math notranslate nohighlight">\(\eta_1\otimes\eta_2\)</span> auf eine <em>Funktion</em> abgebildet wird, welche wiederum <span class="math notranslate nohighlight">\(v_1\otimes w_1\)</span> als Argumente bekommt.</p>
+</div>
+</div><p>Insbesondere können wir im <strong>endlich-dimensionalen Fall</strong> zeigen, dass die Abbildung <span class="math notranslate nohighlight">\(p\)</span> in <a class="reference internal" href="#lem:LISO">Lemma 3.6</a> einen Isomorphismus definiert.
+Hierzu formulieren wir zunächst das folgende nützliche Hilfslemma.</p>
+<div class="proof lemma admonition" id="lem:isomorphieKartesischesProdukt">
+<p class="admonition-title"><span class="caption-number">Lemma 3.7 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Seien <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> zwei beliebige reelle Vektorräume und <span class="math notranslate nohighlight">\(n,m \in \N\)</span>.
+Dann existiert ein Isomorphismus, so dass</p>
+<div class="math notranslate nohighlight">
+\[(V \otimes W)^{n\cdot m} \cong V^n \otimes W^m.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
+</div>
+<div class="proof theorem admonition" id="thm:pIsomorphismus">
+<p class="admonition-title"><span class="caption-number">Theorem 3.2 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Es seien <span class="math notranslate nohighlight">\(V_1, W_1\)</span> reelle <em>endlich-dimensionale</em> Vektorräume und <span class="math notranslate nohighlight">\(V_2, W_2\)</span> <em>beliebige</em> reelle Vektorräume.
+Dann ist die Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p:L(V_1; V_2)\otimes L(W_1; W_2) &amp;\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&amp;:= \eta_1(v_1) \otimes \eta_2(w_1).\end{split}\]</div>
+<p>ein Isomorphismus.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Seien <span class="math notranslate nohighlight">\(V_1\)</span> und <span class="math notranslate nohighlight">\(W_1\)</span> zwei endlich-dimensionale, reelle Vektorräume mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V_1) = n \in \N\)</span> und <span class="math notranslate nohighlight">\(\operatorname{dim}(W_1) = m \in \N\)</span>.
+Nach dem <em>Isomorphiesatz für endlich-dimensionale Vektorräume</em> 3.20 in <span id="id1">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span> existiert dann je ein Isomorphismus, so dass <span class="math notranslate nohighlight">\(V_1 \cong \R^n\)</span> und <span class="math notranslate nohighlight">\(W_1 \cong \R^m\)</span>.
+Über diesen Isomorphismus lässt sich auch zeigen, dass <span class="math notranslate nohighlight">\(L(V_1; V_2) \cong L(\R^n; V_2)\)</span> und <span class="math notranslate nohighlight">\(L(W_1; W_2) \cong L(\R^m; W_2)\)</span> gilt.
+Zusammen mit der <em>Transitivitätseigenschaft des Tensorprodukts</em> aus <a class="reference internal" href="#lem:natISO">Lemma 3.5</a> folgt dann aber schon</p>
+<div class="math notranslate nohighlight">
+\[L(V_1; V_2)\otimes L(W_1; W_2) \cong L(\R^n; V_2)\otimes L(\R^m; W_2).\]</div>
+<p>Daher reicht es, die Aussage des Theorems für den einfachen Fall <span class="math notranslate nohighlight">\(V_1=\R^n, W_1=\R^m\)</span> im Folgenden in zwei Schritten zu zeigen.</p>
+<p><strong>1.Schritt:</strong> Wir zeigen zunächst, dass die Isomorphie <span class="math notranslate nohighlight">\(L(\R^k; Y) \cong Y^k\)</span> gilt.</p>
+<p>Es sei <span class="math notranslate nohighlight">\(Y\)</span> ein beliebiger reeller Vektorraum und es bezeichne <span class="math notranslate nohighlight">\((e_i)_{i=1}^k\)</span> die Standardbasis von <span class="math notranslate nohighlight">\(\R^k\)</span>.
+Wir konstruieren nun eine Abbildung <span class="math notranslate nohighlight">\(\phi:Y^k\rightarrow L(\R^k; Y)\)</span>, so dass</p>
+<div class="math notranslate nohighlight">
+\[\phi(y_1,\ldots,y_k) = [e_i \mapsto y_i], \quad i = 1,\ldots,k\]</div>
+<p>gilt.
+Die Abbildung <span class="math notranslate nohighlight">\(\phi\)</span> ist <strong>linear</strong>, da für alle Vektoren <span class="math notranslate nohighlight">\(y,z \in Y^k\)</span> und einen beliebigen Vektor <span class="math notranslate nohighlight">\(x \in \R^k\)</span> mit der Basisdarstellung <span class="math notranslate nohighlight">\(x=\sum_{i=1}^k \alpha_i e_i\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\phi(y+z)(x) &amp;= \phi(y_1+z_1,\ldots, y_k+z_k)(\sum_{i=1}^k \alpha_i e_i) = \sum_{i=1}^k \alpha_i (y_i + z_i) \\
+&amp;= \sum_{i=1}^k \alpha_i y_i + \sum_{i=1}^k \alpha_i z_i = \phi(y_1,\ldots, y_k)(\sum_{i=1}^k \alpha_i e_i) + \phi(z_1,\ldots, z_k)(\sum_{i=1}^k \alpha_i e_i) \\
+&amp;= \phi(y)(x) + \phi(z)(x)\end{split}\]</div>
+<p>und für jedes Skalar <span class="math notranslate nohighlight">\(\lambda \in \R\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\phi(\lambda y)(x) &amp;= \phi(\lambda y_1,\ldots, \lambda y_k)(\sum_{i=1}^k \alpha_i e_i)
+= \sum_{i=1}^k \alpha_i (\lambda y_i) = \lambda \sum_{i=1}^k \alpha_i y_i \\
+&amp;= \lambda \phi( y_1,\ldots, y_k)(\sum_{i=1}^k \alpha_i e_i)
+= \lambda \phi(y)(x).\end{split}\]</div>
+<p>Offenbar ist diese lineare Abbildung auch <strong>injektiv</strong>, denn</p>
+<div class="math notranslate nohighlight">
+\[\phi(y_1,\ldots,y_k)(e_i) = 0\quad\forall i\in{1,\ldots k} 
+\qquad \Leftrightarrow \qquad
+y_i = 0\quad\forall i\in{1,\ldots k}.\]</div>
+<p>Gleichzeitig ist die lineare Abbildung jedoch auch <strong>surjektiv</strong>, da jede lineare Abbildung in <span class="math notranslate nohighlight">\(L(\R^k; Y)\)</span> sich bereits durch seine Wirkung auf den Basiselementen <span class="math notranslate nohighlight">\(e_i \in \R^k, i=1,\ldots,k\)</span> eindeutig beschreiben lässt.</p>
+<p>Wir sehen also ein, dass es sich bei der Abbildung <span class="math notranslate nohighlight">\(\phi\)</span> um einen Isomorphismus handelt und somit gilt also <span class="math notranslate nohighlight">\(L(\R^k; Y) \cong Y^k\)</span>.</p>
+<p><strong>2.Schritt:</strong> Als Nächstes wollen wir die folgenden Isomorphien zeigen:</p>
+<div class="math notranslate nohighlight">
+\[L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m\cong L(\R^n\otimes \R^m; V_2\otimes W_2).\]</div>
+<p>Mit Schritt 1 des Beweises wissen wir bereits, dass <span class="math notranslate nohighlight">\(L(\R^n; V_2)\cong V_2^n\)</span> und <span class="math notranslate nohighlight">\(L(\R^m; W_2)\cong W_2^m\)</span> gilt.
+Zusammen mit der <em>Transitivitätseigenschaft des Tensorprodukts</em> aus <a class="reference internal" href="#lem:natISO">Lemma 3.5</a> folgt damit schon die erste Isomorphie</p>
+<div class="math notranslate nohighlight" id="equation-eq-ersteisormorphie">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-eq-ersteisormorphie" title="Permalink to this equation">¶</a></span>\[L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m.\]</div>
+<p>Für die zweite Isomorphie benutzen wir den Zusammenhang <span class="math notranslate nohighlight">\(\R^n\otimes \R^m \cong \R^{n\cdot m}\)</span> aus <a class="reference internal" href="#cor:isomorphieEndlichDimensional">Corollary 3.2</a> und erhalten somit</p>
+<div class="math notranslate nohighlight">
+\[L(\R^n\otimes \R^m; V_2\otimes W_2) \cong L(\R^{n\cdot m}; V_2\otimes W_2).\]</div>
+<p>Nutzen wir wiederum die Isomorphie aus Schritt 1 so erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[L(\R^{n\cdot m}; V_2\otimes W_2) \cong (V_2 \otimes W_2)^{n\cdot m}.\]</div>
+<p>Wegen <a class="reference internal" href="#lem:isomorphieKartesischesProdukt">Lemma 3.7</a> wissen wir dann aber schon, dass gilt</p>
+<div class="math notranslate nohighlight">
+\[(V_2 \otimes W_2)^{n\cdot m} \cong V_2^n \otimes W_2^m.\]</div>
+<p>Zusammen mit der Isomorphie <a class="reference internal" href="#equation-eq-ersteisormorphie">(3.3)</a> haben wir nun insgesamt gezeigt, dass</p>
+<div class="math notranslate nohighlight">
+\[L(\R^n; V_2) \otimes L(\R^m; W_2) \cong L(\R^n\otimes \R^m; V_2\otimes W_2)\]</div>
+<p>gilt, was mit unseren Vorüberlegungen die Aussage des Theorems beweist.</p>
+</div>
+<p>Wählen wir die Zielräume der linearen Abbildungen als <span class="math notranslate nohighlight">\(V_2 = W_2 = \R\)</span>, so erhalten wir direkt folgendes Korrolar als Anwendung des allgemeinen Resultats in <a class="reference internal" href="#thm:pIsomorphismus">Theorem 3.2</a>.
+Dies ermöglicht es uns Tensoren als Linearformen zu interpretieren.</p>
+<div class="proof corollary admonition" id="cor:tensorenLinearformen">
+<p class="admonition-title"><span class="caption-number">Corollary 3.3 </span> (Isomorphie des algebraischen Dualraums des Tensorproduktraums)</p>
+<div class="corollary-content section" id="proof-content">
+<p>Es seien <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> beliebige endlich-dimensionale Vektorräume.
+Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum der algebraischen Dualräume von <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> und dem algebraischen Dualraum des Tensorproduktraums, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[V^\ast \otimes W^\ast \cong (V\otimes W)^\ast = L^1(V \otimes W; \R).\]</div>
 </div>
 </div></div>
-<div class="section" id="tensoren-als-linearformen">
-<h2><span class="section-number">3.2.5. </span>Tensoren als Linearformen<a class="headerlink" href="#tensoren-als-linearformen" title="Permalink to this headline">¶</a></h2>
-<p>Als Einleitung in das Thema wollen wir Tensoren zunächst als Linearformen auf <span class="math notranslate nohighlight">\(\V_1\times\ldots\times\V_k\)</span>
+<div class="section" id="tensoren-als-multilinearformen">
+<h2><span class="section-number">3.2.5. </span>Tensoren als Multilinearformen<a class="headerlink" href="#tensoren-als-multilinearformen" title="Permalink to this headline">¶</a></h2>
+<p>Wie wir in
+Als Einleitung in das Thema wollen wir Tensoren zunächst als <span class="math notranslate nohighlight">\(k\)</span>-Multilinearformen auf <span class="math notranslate nohighlight">\(\V_1\times\ldots\times\V_k\)</span>
 betrachten wobei für <span class="math notranslate nohighlight">\(i=1,\ldots,k\)</span> <span class="math notranslate nohighlight">\(\V_i\)</span> reelle endlich dimensionale Vektorräume sind.
 Man schreibt in diesem Fall auch</p>
 <div class="math notranslate nohighlight">
-\[\V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k,\R)\]</div>
+\[\V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k;\R)\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(\otimes\)</span> das Tensorprodukt bezeichnet.</p>
 <p>Der wichtige Spezialfall ist hier allerdings nun nicht <span class="math notranslate nohighlight">\(\V^k\)</span> sondern ein kartesisches Produkt der Form</p>
 <div class="math notranslate nohighlight">
 \[(V^\ast)^r\times V^s.\]</div>
-<div class="proof definition admonition" id="definition-10">
+<div class="proof definition admonition" id="definition-17">
 <p class="admonition-title"><span class="caption-number">Definition 3.5 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\V\)</span> ein reeller endlich-dimensionaler Vektorraum, dann nennt man</p>
@@ -653,8 +881,8 @@ Man schreibt in diesem Fall auch</p>
 <p>Menge der <span class="math notranslate nohighlight">\(r\)</span>-fach <strong>kontravarianten</strong> und <span class="math notranslate nohighlight">\(s\)</span>-fach <strong>kovarianten</strong> Tensoren, oder alternativ Tensoren der Stufe <span class="math notranslate nohighlight">\((r,s)\)</span>.</p>
 </div>
 </div><p>Wir wollen diese abstrakte Definition nun mit einfachen Beispielen veranschaulichen zunächst für <span class="math notranslate nohighlight">\(r+s=1\)</span>.</p>
-<div class="proof example admonition" id="example-11">
-<p class="admonition-title"><span class="caption-number">Example 3.7 </span></p>
+<div class="proof example admonition" id="example-18">
+<p class="admonition-title"><span class="caption-number">Example 3.8 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Tensoren der Stufe <span class="math notranslate nohighlight">\((1,0)\)</span> können mit Elementen des Vektorraums selbst identifiziert werden, denn</p>
 <div class="math notranslate nohighlight">
@@ -663,13 +891,13 @@ Man schreibt in diesem Fall auch</p>
 Dualraums, also einfach Linearformen auf <span class="math notranslate nohighlight">\(\V\)</span>, sogenannte <em>Kovektoren</em>.</p>
 </div>
 </div><p>Als weiteren Spezialfall erhalten wir Multilinearformen.</p>
-<div class="proof example admonition" id="example-12">
-<p class="admonition-title"><span class="caption-number">Example 3.8 </span></p>
+<div class="proof example admonition" id="example-19">
+<p class="admonition-title"><span class="caption-number">Example 3.9 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Tensoren der Stufe <span class="math notranslate nohighlight">\((0,k)\)</span> sind <span class="math notranslate nohighlight">\(k\)</span>-Linearformen, da <span class="math notranslate nohighlight">\(T^0_k(V) = L^k(V)\)</span>.</p>
 </div>
-</div><div class="proof example admonition" id="example-13">
-<p class="admonition-title"><span class="caption-number">Example 3.9 </span></p>
+</div><div class="proof example admonition" id="example-20">
+<p class="admonition-title"><span class="caption-number">Example 3.10 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Aus einer linearen Abbildung <span class="math notranslate nohighlight">\(A:\V\to\V\)</span> erhält man direkt einen Tensor der Stufe <span class="math notranslate nohighlight">\((1,1)\)</span> über die Abbildung</p>
 <div class="math notranslate nohighlight">

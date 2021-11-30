@@ -263,6 +263,8 @@
    <a href="#cap-Antiderivation"><strong>Antiderivation</strong></a> | 
    <a href="#cap-aeussere Ableitung"><strong>aeussere Ableitung</strong></a> | 
    <a href="#cap-cor:eindeutigkeitlinear"><strong>cor:eindeutigkeitlinear</strong></a> | 
+   <a href="#cap-cor:isomorphieEndlichDimensional"><strong>cor:isomorphieEndlichDimensional</strong></a> | 
+   <a href="#cap-cor:tensorenLinearformen"><strong>cor:tensorenLinearformen</strong></a> | 
    <a href="#cap-corollary-6"><strong>corollary-6</strong></a> | 
    <a href="#cap-def:DGL"><strong>def:DGL</strong></a> | 
    <a href="#cap-def:Fluss"><strong>def:Fluss</strong></a> | 
@@ -275,8 +277,8 @@
    <a href="#cap-def:multilinear"><strong>def:multilinear</strong></a> | 
    <a href="#cap-def:tensor"><strong>def:tensor</strong></a> | 
    <a href="#cap-def:topologischerDualraum"><strong>def:topologischerDualraum</strong></a> | 
-   <a href="#cap-definition-10"><strong>definition-10</strong></a> | 
    <a href="#cap-definition-12"><strong>definition-12</strong></a> | 
+   <a href="#cap-definition-17"><strong>definition-17</strong></a> | 
    <a href="#cap-definition-2"><strong>definition-2</strong></a> | 
    <a href="#cap-definition-3"><strong>definition-3</strong></a> | 
    <a href="#cap-definition-4"><strong>definition-4</strong></a> | 
@@ -289,10 +291,11 @@
    <a href="#cap-ex:tensorproduktVarianten"><strong>ex:tensorproduktVarianten</strong></a> | 
    <a href="#cap-ex:universelleEigenschaft"><strong>ex:universelleEigenschaft</strong></a> | 
    <a href="#cap-example-1"><strong>example-1</strong></a> | 
-   <a href="#cap-example-11"><strong>example-11</strong></a> | 
    <a href="#cap-example-12"><strong>example-12</strong></a> | 
-   <a href="#cap-example-13"><strong>example-13</strong></a> | 
+   <a href="#cap-example-18"><strong>example-18</strong></a> | 
+   <a href="#cap-example-19"><strong>example-19</strong></a> | 
    <a href="#cap-example-2"><strong>example-2</strong></a> | 
+   <a href="#cap-example-20"><strong>example-20</strong></a> | 
    <a href="#cap-example-3"><strong>example-3</strong></a> | 
    <a href="#cap-example-4"><strong>example-4</strong></a> | 
    <a href="#cap-example-5"><strong>example-5</strong></a> | 
@@ -301,14 +304,16 @@
    <a href="#cap-example-8"><strong>example-8</strong></a> | 
    <a href="#cap-example-9"><strong>example-9</strong></a> | 
    <a href="#cap-geschlossen:exakt"><strong>geschlossen:exakt</strong></a> | 
+   <a href="#cap-lem:LISO"><strong>lem:LISO</strong></a> | 
    <a href="#cap-lem:dualeBasis"><strong>lem:dualeBasis</strong></a> | 
    <a href="#cap-lem:intexpglgn"><strong>lem:intexpglgn</strong></a> | 
+   <a href="#cap-lem:isomorphieKartesischesProdukt"><strong>lem:isomorphieKartesischesProdukt</strong></a> | 
+   <a href="#cap-lem:isomorphismusTensorproduktraum"><strong>lem:isomorphismusTensorproduktraum</strong></a> | 
    <a href="#cap-lem:mpotew"><strong>lem:mpotew</strong></a> | 
+   <a href="#cap-lem:natISO"><strong>lem:natISO</strong></a> | 
    <a href="#cap-lemma-15"><strong>lemma-15</strong></a> | 
    <a href="#cap-lemma-3"><strong>lemma-3</strong></a> | 
    <a href="#cap-lemma-4"><strong>lemma-4</strong></a> | 
-   <a href="#cap-lemma-7"><strong>lemma-7</strong></a> | 
-   <a href="#cap-lemma-8"><strong>lemma-8</strong></a> | 
    <a href="#cap-lemma-9"><strong>lemma-9</strong></a> | 
    <a href="#cap-lemma:Gronwall"><strong>lemma:Gronwall</strong></a> | 
    <a href="#cap-rem:doubledual"><strong>rem:doubledual</strong></a> | 
@@ -316,6 +321,7 @@
    <a href="#cap-remark-0"><strong>remark-0</strong></a> | 
    <a href="#cap-remark-1"><strong>remark-1</strong></a> | 
    <a href="#cap-remark-11"><strong>remark-11</strong></a> | 
+   <a href="#cap-remark-13"><strong>remark-13</strong></a> | 
    <a href="#cap-remark-16"><strong>remark-16</strong></a> | 
    <a href="#cap-remark-2"><strong>remark-2</strong></a> | 
    <a href="#cap-remark-3"><strong>remark-3</strong></a> | 
@@ -326,6 +332,7 @@
    <a href="#cap-thm:dd"><strong>thm:dd</strong></a> | 
    <a href="#cap-thm:existenzTensorprodukt"><strong>thm:existenzTensorprodukt</strong></a> | 
    <a href="#cap-thm:hamconst"><strong>thm:hamconst</strong></a> | 
+   <a href="#cap-thm:pIsomorphismus"><strong>thm:pIsomorphismus</strong></a> | 
    <a href="#cap-thm:piclindlokal"><strong>thm:piclindlokal</strong></a> | 
    <a href="#cap-thm:stabasymallg"><strong>thm:stabasymallg</strong></a> | 
    <a href="#cap-thm:stablin"><strong>thm:stablin</strong></a> | 
@@ -356,6 +363,22 @@
        <td></td>
        <td>
        <a href="ode/repetition.html#cor:eindeutigkeitlinear"><code class="xref">cor:eindeutigkeitlinear</code></a> <em>(ode/repetition)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-cor:isomorphieEndlichDimensional"><td></td><td>
+       <strong>cor:isomorphieEndlichDimensional</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#cor:isomorphieEndlichDimensional"><code class="xref">cor:isomorphieEndlichDimensional</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-cor:tensorenLinearformen"><td></td><td>
+       <strong>cor:tensorenLinearformen</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#cor:tensorenLinearformen"><code class="xref">cor:tensorenLinearformen</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>corollary</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-corollary-6"><td></td><td>
@@ -454,20 +477,20 @@
        <a href="vektoranalysis/multilinear.html#def:topologischerDualraum"><code class="xref">def:topologischerDualraum</code></a> <em>(vektoranalysis/multilinear)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-10"><td></td><td>
-       <strong>definition-10</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/tensor.html#definition-10"><code class="xref">definition-10</code></a> <em>(vektoranalysis/tensor)</em></td><td>
-       <em>definition</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-12"><td></td><td>
        <strong>definition-12</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
        <a href="ode/repetition.html#definition-12"><code class="xref">definition-12</code></a> <em>(ode/repetition)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-17"><td></td><td>
+       <strong>definition-17</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#definition-17"><code class="xref">definition-17</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-2"><td></td><td>
@@ -566,28 +589,28 @@
        <a href="odestability/stabilitaetsbegriffe.html#example-1"><code class="xref">example-1</code></a> <em>(odestability/stabilitaetsbegriffe)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-example-11"><td></td><td>
-       <strong>example-11</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/tensor.html#example-11"><code class="xref">example-11</code></a> <em>(vektoranalysis/tensor)</em></td><td>
-       <em>example</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-12"><td></td><td>
        <strong>example-12</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/tensor.html#example-12"><code class="xref">example-12</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <a href="vektoranalysis/multilinear.html#example-12"><code class="xref">example-12</code></a> <em>(vektoranalysis/multilinear)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-example-13"><td></td><td>
-       <strong>example-13</strong></td><td></td></tr>
+     <tr class="cap" id="cap-example-18"><td></td><td>
+       <strong>example-18</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/tensor.html#example-13"><code class="xref">example-13</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <a href="vektoranalysis/tensor.html#example-18"><code class="xref">example-18</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-19"><td></td><td>
+       <strong>example-19</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#example-19"><code class="xref">example-19</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-2"><td></td><td>
@@ -596,6 +619,14 @@
        <td></td>
        <td>
        <a href="vektoranalysis/multilinear.html#example-2"><code class="xref">example-2</code></a> <em>(vektoranalysis/multilinear)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-20"><td></td><td>
+       <strong>example-20</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#example-20"><code class="xref">example-20</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-3"><td></td><td>
@@ -651,7 +682,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="odestability/ruhelagen.html#example-9"><code class="xref">example-9</code></a> <em>(odestability/ruhelagen)</em></td><td>
+       <a href="vektoranalysis/tensor.html#example-9"><code class="xref">example-9</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-geschlossen:exakt"><td></td><td>
@@ -661,6 +692,14 @@
        <td>
        <a href="vektoranalysis/diffformen.html#geschlossen:exakt"><code class="xref">geschlossen:exakt</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
        <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:LISO"><td></td><td>
+       <strong>lem:LISO</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#lem:LISO"><code class="xref">lem:LISO</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:dualeBasis"><td></td><td>
        <strong>lem:dualeBasis</strong></td><td></td></tr>
@@ -678,12 +717,36 @@
        <a href="odestability/ruhelagen.html#lem:intexpglgn"><code class="xref">lem:intexpglgn</code></a> <em>(odestability/ruhelagen)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:isomorphieKartesischesProdukt"><td></td><td>
+       <strong>lem:isomorphieKartesischesProdukt</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#lem:isomorphieKartesischesProdukt"><code class="xref">lem:isomorphieKartesischesProdukt</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:isomorphismusTensorproduktraum"><td></td><td>
+       <strong>lem:isomorphismusTensorproduktraum</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#lem:isomorphismusTensorproduktraum"><code class="xref">lem:isomorphismusTensorproduktraum</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:mpotew"><td></td><td>
        <strong>lem:mpotew</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
        <a href="ode/repetition.html#lem:mpotew"><code class="xref">lem:mpotew</code></a> <em>(ode/repetition)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:natISO"><td></td><td>
+       <strong>lem:natISO</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#lem:natISO"><code class="xref">lem:natISO</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-15"><td></td><td>
@@ -710,28 +773,12 @@
        <a href="vektoranalysis/multilinear.html#lemma-4"><code class="xref">lemma-4</code></a> <em>(vektoranalysis/multilinear)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-lemma-7"><td></td><td>
-       <strong>lemma-7</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/tensor.html#lemma-7"><code class="xref">lemma-7</code></a> <em>(vektoranalysis/tensor)</em></td><td>
-       <em>lemma</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-lemma-8"><td></td><td>
-       <strong>lemma-8</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/tensor.html#lemma-8"><code class="xref">lemma-8</code></a> <em>(vektoranalysis/tensor)</em></td><td>
-       <em>lemma</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-9"><td></td><td>
        <strong>lemma-9</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/tensor.html#lemma-9"><code class="xref">lemma-9</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <a href="vektoranalysis/multilinear.html#lemma-9"><code class="xref">lemma-9</code></a> <em>(vektoranalysis/multilinear)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma:Gronwall"><td></td><td>
@@ -779,7 +826,15 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/multilinear.html#remark-11"><code class="xref">remark-11</code></a> <em>(vektoranalysis/multilinear)</em></td><td>
+       <a href="vektoranalysis/tensor.html#remark-11"><code class="xref">remark-11</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-remark-13"><td></td><td>
+       <strong>remark-13</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#remark-13"><code class="xref">remark-13</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-16"><td></td><td>
@@ -860,6 +915,14 @@
        <td></td>
        <td>
        <a href="ode/hamilton.html#thm:hamconst"><code class="xref">thm:hamconst</code></a> <em>(ode/hamilton)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm:pIsomorphismus"><td></td><td>
+       <strong>thm:pIsomorphismus</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="vektoranalysis/tensor.html#thm:pIsomorphismus"><code class="xref">thm:pIsomorphismus</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-thm:piclindlokal"><td></td><td>
