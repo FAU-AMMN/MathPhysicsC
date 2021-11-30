@@ -430,6 +430,8 @@ Insgesamt haben wir also gezeigt, dass Tensorprodukträume, die durch verschiede
 Im endlich-dimensionalen Fall können wir uns also immer auf den $\R^{n \cdot m}$ zurückziehen, wie das folgende Korrolar festhält.
 
 ````{prf:corollary}
+:label: cor:isomorphieEndlichDimensional
+
 Betrachten wir ein Tensorprodukt $\otimes \in L^2(V \times W; V \otimes W)$ zweier **endlich-dimensionaler** $\R$-Vektorräume $V$ und $W$ mit $\operatorname{dim}(V)=n \in \N$ und $\operatorname{dim}(W)=m \in \N$, so existiert stets die folgende Isormorphie
 
 ```{math}
@@ -644,9 +646,26 @@ was bedeutet, dass $\eta_1\otimes\eta_2$ auf eine *Funktion* abgebildet wird, we
 ````
 
 Insbesondere können wir im **endlich-dimensionalen Fall** zeigen, dass die Abbildung $p$ in {prf:ref}`lem:LISO` einen Isomorphismus definiert.
+Hierzu formulieren wir zunächst das folgende nützliche Hilfslemma.
 
 ````{prf:lemma}
-:label: lem:pIsomorphismus
+:label: lem:isomorphieKartesischesProdukt
+
+Seien $V$ und $W$ zwei beliebige reelle Vektorräume und $n,m \in \N$.
+Dann existiert ein Isomorphismus, so dass
+
+```{math}
+(V \otimes W)^{n\cdot m} \cong V^n \otimes W^m.
+```
+
+````
+
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
+````
+
+````{prf:theorem}
+:label: thm:pIsomorphismus
 
 Es seien $V_1, W_1$ reelle *endlich-dimensionale* Vektorräume und $V_2, W_2$ *beliebige* reelle Vektorräume.
 Dann ist die Abbildung 
@@ -662,7 +681,16 @@ ein Isomorphismus.
 
 ````{prf:proof}
 
-Wir beweisen die Aussage zunächst für den einfachen Fall $V_1=\R^n, W_1=\R^m$ und verallgemeinern anschließend die Aussage für beliebige endlich-dimensionale $\R$-Vektorräume.
+Seien $V_1$ und $V_2$ zwei endlich-dimensionale, reelle Vektorräume mit $\operatorname{dim}(V_1) = n \in \N$ und $\operatorname{dim}(W_1) = m \in \N$.
+Nach dem *Isomorphiesatz für endlich-dimensionale Vektorräume* 3.20 in {cite:p}`burger_2020` existiert dann je ein Isomorphismus, so dass $V_1 \cong \R^n$ und $W_1 \cong \R^m$.
+Über diesen Isomorphismus lässt sich auch zeigen, dass $L(V_1; V_2) \cong L(\R^n; V_2)$ und $L(W_1; W_2) \cong L(\R^m; W_2)$ gilt.
+Zusammen mit der *Transitivitätseigenschaft des Tensorprodukts* aus {prf:ref}`lem:natISO` folgt dann aber schon
+
+```{math}
+L(V_1; V_2)\otimes L(W_1; W_2) \cong L(\R^n; V_2)\otimes L(\R^m; W_2).
+```
+
+Daher reicht es, die Aussage des Theorems für den einfachen Fall $V_1=\R^n, W_1=\R^m$ im Folgenden in zwei Schritten zu zeigen.
 
 **1.Schritt:** Wir zeigen zunächst, dass die Isomorphie $L(\R^k; Y) \cong Y^k$ gilt.
 
@@ -674,7 +702,7 @@ Wir konstruieren nun eine Abbildung $\phi:Y^k\rightarrow L(\R^k; Y)$, so dass
 ```
 
 gilt.
-Die Abbildung $\phi$ ist $k$-multilinear, da für jedes Argument $j \in \lbrace 1,\ldots, k \rbrace$ gilt:
+Die Abbildung $\phi$ ist **$k$-multilinear**, da für jedes Argument $j \in \lbrace 1,\ldots, k \rbrace$ gilt:
 
 ```{math}
 \phi(&y_1,\ldots, y_j+z_j, \ldots, y_k)\\
@@ -693,30 +721,42 @@ und für jedes Skalar $\lambda \in \R$ gilt:
 ```
 
  
-Offenbar ist diese Abbildung auch injektiv, denn
+Offenbar ist diese Abbildung auch **injektiv**, denn
 
 ```{math}
 \phi(y_1,\ldots,y_k)(e_i) = 0\quad\forall i\in{1,\ldots k} 
 \qquad \Leftrightarrow \qquad
-y_i = 0\quad\forall i\in{1,\ldots k}
+y_i = 0\quad\forall i\in{1,\ldots k}.
 ```
 
-und somit ist die Abbildung ein Isomorphismus.
+Gleichzeitig ist die $k$-multilineare Abbildung jedoch auch **surjektiv**, da jede $k$-multilineare Abbildung in $L^k(\R^k; Y)$ sich bereits durch seine Wirkung auf den Basiselementen $e_i \in \R^k, i=1,\ldots,k$ eindeutig beschreiben lässt.
 
-**2.Schritt:** $L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m\cong L(\R^n\otimes \R^m; V_1\otimes W_2)$.
+Wir sehen also ein, dass es sich bei der Abbildung $\phi$ um ein Isomorphismus handelt und somit gilt also $L(\R^k; Y) \cong Y^k$.
 
-Mit Schritt 1. Wissen wir nun, dass $L(\R^n; V_2)\cong V_2^n$ und $L(\R^m; W_2)\cong W_2^m$, und somit folgt die erste Isomorphie direkt aus Punkt 4. von {prf:ref}`lem:natISO`. 
-Für die zweite Isomorphie benutzen wir, dass $\R^n\otimes \R^m \cong \R^{n\cdot m}$ und erneut Schritt 1. zusammen mit Punkt 4. von {prf:ref}`lem:natISO`.
+**2.Schritt:** Als nächstes wollen wir die folgenden Isomorphien zeigen:
 
-**3.Schritt:**
+```{math}
+L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m\cong L(\R^n\otimes \R^m; V_2\otimes W_2).
+```
 
-Zeige, dass die angebene Abbildung ein Isomorphismus ist.
-Zeige die Aussage für beliebig endlich-dimensionale Vektorräume.
+Mit Schritt 1 des Beweises wissen wir bereits, dass $L(\R^n; V_2)\cong V_2^n$ und $L(\R^m; W_2)\cong W_2^m$ gilt.
+Zusammen mit der *Transitivitätseigenschaft des Tensorprodukts* aus {prf:ref}`lem:natISO` folgt damit schon die erste Isomorphie $L(\R^n; V_2) \otimes L(\R^m; W_2)$.
 
+Für die zweite Isomorphie benutzen wir die Isomorphie $\R^n\otimes \R^m \cong \R^{n\cdot m}$ aus {prf:ref}`cor:isomorphieEndlichDimensional` und erhalten somit $L(\R^n\otimes \R^m; V_2\otimes W_2) \cong L(\R^{n\cdot m}; V_2\otimes W_2)$.
+Nutzen wir wiederum die Isomorphie aus Schritt 1 so erhalten wir $L(\R^{n\cdot m}; V_2\otimes W_2) \cong (V_2 \otimes W_2)^{n\cdot m}$.
+Wegen {prf:ref}`lem:isomorphieKartesischesProdukt` wissen wir dann aber schon, dass $(V_2 \otimes W_2)^{n\cdot m} \cong V_2^n \otimes W_2^m$ gilt.
+
+Damit haben wir gezeigt, dass 
+
+```{math}
+L(\R^n; V_2) \otimes L(\R^m; W_2) \cong L(\R^n\otimes \R^m; V_2\otimes W_2)
+```
+
+ gilt, was mit unseren Vorüberlegungen die Aussage des Theorems beweist.
 
 ````
 
-Wir erhalten direkt folgendes Korrolar als Anwendung des allgemeinen Resultats in {prf:ref}`lem:pIsomorphismus`.
+Wählen wir die Zielräume der linearen Abbildungen als $V_2 = W_2 = \R$, so erhalten wir direkt folgendes Korrolar als Anwendung des allgemeinen Resultats in {prf:ref}`thm:pIsomorphismus`.
 Dies ermöglicht es uns Tensoren als $k$-Multilinearformen zu interpretieren.
 
 ````{prf:Corollary} Isomorphie des algebraischen Dualraums des Tensorproduktraums
