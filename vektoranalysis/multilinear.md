@@ -258,6 +258,7 @@ Für diesen Vektorraum können wir eine spezielle Basis angeben, wie das folgend
 
 ````{prf:lemma} Duale Basis
 :label: lem:dualeBasis
+
 Es sei $\V$ ein $n$-dimensionaler $\R$-Vektorraum mit einer endlichen Basis $B = (b_1,\ldots,b_n)$.
 Für beliebige Vektoren $z \in V$ bilden die Abbildungen $\eta_j:\V\rightarrow\R$ für $j=1,\ldots,n$ mit
 

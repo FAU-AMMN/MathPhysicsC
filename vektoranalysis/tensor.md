@@ -597,8 +597,10 @@ Insbesondere ist äquivalent das Tensorprodukt über $k$ Vektorräume mit Hilfe 
 Die folgende Bemerkung gibt die universelle Eigenschaft für solch ein Tensorprodukt an.
 
 ````{prf:remark} $k$-faches Tensorprodukt
+:label: rem:kfachesTensorprodukt
+
 Es seien $V_1,\ldots, V_k$ für $k \in \N$ reelle Vektorräume.
-Dann besitzt das $k$-fache Tensorprodukt $\bigotimes_{i=1}^k V_i$ die folgende universelle Eigenschaft:
+Dann besitzt das $k$-fache Tensorprodukt $\otimes \colon V_1 \times \ldots \times V_k \rightarrow \bigotimes_{i=1}^k V_i$ die folgende universelle Eigenschaft:
 
 Für jede $k$-Multilinearform $\phi\in L^k(V_1\times\ldots\times V_k; Y)$ in einen beliebigen reellen Vektorraum $Y$ existiert eine eindeutige lineare Abbildung 
 $p \in L^1(\bigotimes_{i=1}^k V_i; Y)$, so dass gilt
@@ -792,7 +794,7 @@ L(\R^n; V_2) \otimes L(\R^m; W_2) \cong L(\R^n\otimes \R^m; V_2\otimes W_2)
 ````
 
 Wählen wir die Zielräume der linearen Abbildungen als $V_2 = W_2 = \R$, so erhalten wir direkt folgendes Korrolar als Anwendung des allgemeinen Resultats in {prf:ref}`thm:pIsomorphismus`.
-Dies ermöglicht es uns Tensoren als Linearformen zu interpretieren.
+Dies ermöglicht es uns später Tensoren als Linearformen zu interpretieren.
 
 ````{prf:Corollary} Isomorphie des algebraischen Dualraums des Tensorproduktraums
 :label: cor:tensorenLinearformen
@@ -808,53 +810,124 @@ V^\ast \otimes W^\ast \cong (V\otimes W)^\ast = L^1(V \otimes W; \R).
 
 ## Tensoren als Multilinearformen
 
-Wie wir in 
-Als Einleitung in das Thema wollen wir Tensoren zunächst als $k$-Multilinearformen auf $\V_1\times\ldots\times\V_k$
-betrachten wobei für $i=1,\ldots,k$ $\V_i$ reelle endlich dimensionale Vektorräume sind.
-Man schreibt in diesem Fall auch
+Das folgende Korollar kombiniert die theoretischen Ergebnisse des letzten Abschnitts und liefert so ein mathematisches Resultat, das für die Anwendung beispielsweise in der Physik von Bedeutung ist.
+Wir werden nämlich nun folgern, dass wir Tensoren als Multilinearformen auffassen können.
+
+````{prf:corollary} Tensoren als Multilinearformen
+:label: cor:tensorMultilinearform
+
+Seien $V$ und $W$ zwei reelle endlich-dimensionale Vektorräume und $\otimes \colon V \times W \rightarrow V \otimes W$ das Tensorprodukt.
+Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum und dem Raum der Bilinearformen durch
 
 ```{math}
-\V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k;\R)
+V \otimes W \cong L^2(V \times W; \R).
 ```
-
-wobei $\otimes$ das Tensorprodukt bezeichnet.
-
-Der wichtige Spezialfall ist hier allerdings nun nicht $\V^k$ sondern ein kartesisches Produkt der Form
-
-```{math}
-(V^\ast)^r\times V^s.
-```
-
-````{prf:definition}
-Es sei $\V$ ein reeller endlich-dimensionaler Vektorraum, dann nennt man 
-
-```{math}
-T^r_s(V) := L((V^\ast)^r\times V^s, \R)
-```
-
-Menge der $r$-fach **kontravarianten** und $s$-fach **kovarianten** Tensoren, oder alternativ Tensoren der Stufe $(r,s)$. 
 
 ````
 
-Wir wollen diese abstrakte Definition nun mit einfachen Beispielen veranschaulichen zunächst für $r+s=1$.
-
-````{prf:example}
-Tensoren der Stufe $(1,0)$ können mit Elementen des Vektorraums selbst identifiziert werden, denn 
+````{prf:proof}
+Wie wir in {prf:ref}`cor:tensorenLinearformen` gesehen haben, besteht ein Isomorphismus zwischen dem Tensorproduktraum algebraischer Dualräume und dem algebraischen Dualraum des entsprechenden Tensorproduktraums mit
 
 ```{math}
-T^1_0(V) = L((V^\ast), \R) = \V^{\ast\ast}\cong \V
+V^\ast \otimes W^\ast \cong (V\otimes W)^\ast = L^1(V \otimes W; \R).
 ```
 
-mit der Identifikation aus {prf:ref}`lem:doubledual`. Weiterhin sind Tensoren der Stufe $(0,1)$ Elemente des 
-Dualraums, also einfach Linearformen auf $\V$, sogenannte _Kovektoren_.
+Da jeder endlich-dimensionale, reelle Vektorraums $V$ nach {prf:ref}`lem:dualeBasis` isomorph zu seinem algebraischen Dualraum $V^\ast$ ist, können wir die *Transitivitätseigenschaft des Tensorprodukts* aus {prf:ref}`lem:natISO` ausnutzen und erhalten die folgende Isomorphie
 
+```{math}
+:label: eq:transitivIsomorphismus
+V \otimes W \cong V^\ast \otimes W^\ast.
+```
+
+Gleichzeitig besagt die *universelle Eigenschaft des Tensorprodukts* in , dass es zu jeder Bilinearform $\Phi \in L^2(V \times W; \R)$ eine eindeutige Linearform $p \in L^1(V \otimes W; \R)$ gibt, so dass $\Phi = p \circ \otimes$ gilt.
+Somit erhalten wir also auch einen Isomorphismus
+
+```{math}
+L^1(V \otimes W; \R) \cong L^2(V \times W; \R).
+```
+
+Kombinieren wir diese mathematischen Resultate nun alle so ergibt sich die folgende Kette von Isomorphismen:
+
+```{math}
+V \otimes W \cong V^\ast \otimes W^\ast \cong L^1(V \otimes W; \R) \cong L^2(V \times W; \R),
+```
+
+was die Aussage beweist.
+````
+
+{prf:ref}`cor:tensorMultilinearform` besagt, dass Tensoren als Elemente des Tensorproduktraums $V \otimes W$ als Bilinearformen auf dem kartesischen Produktraum $V \times W$ aufgefasst werden können.
+Diese Aussage lässt sich mit Hilfe von {prf:ref}`rem:kfachesTensorprodukt` auch auf das $k$-fache Tensorprodukt verallgemeinern.
+Hier erhält man dann das Resultat, dass sich Tensoren als $k$-Multilinearformen interpretieren lassen mit
+
+```{math}
+\V_1\otimes\ldots\otimes\V_k \cong L^k(\V_1\times\ldots\V_k;\R) \cong L(\V_1\otimes\ldots\V_k;\R).
+```
+
+In [](eq:transitivIsomorphismus) haben wir die Transitivitätseigenschaft des Tensorprodukts ausgenutzt, um *beide* Vektorräume mit ihren jeweiligen algebraischen Dualräumen zu identifizieren.
+Dies muss jedoch nicht sein, denn wir hätten genauso gut **gemischte Tensorprodukte** der Form $V \otimes W^\ast$ oder $V^\ast \otimes W$ betrachten können.
+Daher wollen wir im Folgenden Tensoren einer allgemeineren Form betrachten, nämlich solche, die für kartesische Produkte der Form $V^r\times (V^\ast)^s$ mit $r+s=k$ definiert sind.
+
+````{prf:definition} Gemischte Tensoren
+Es sei $V$ ein reeller endlich-dimensionaler Vektorraum und $V^\ast$ der zugehörige algebraische Dualraum.
+Dann nennt man 
+
+```{math}
+T^r_s(V) := L(V^r\times (V^\ast)^s; \R)
+```
+
+Menge der gemischten Tensoren, welche **kontravariant** der Stufe $r$ und **kovariant** der Stufe $s$ sind.
+In manchen Kontexten spricht man auch nur von **gemischten Tensoren der Stufe $k=r+s$**.
+````
+
+Wir wollen diese allgemeine Definition von gemischten Tensoren nun mit einfachen Beispielen veranschaulichen.
+Beginnen wir zunächst mit dem Spezialfall von rein kontravarianten Tensoren.
+````{prf:example} Rein kontravariante Tensoren
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n \in \N$.
+Wir wollen im Folgenden Tensoren unterschiedlicher Stufe betrachten, die keine *kovarianten Komponenten* besitzen, also sozusagen *rein kontravariant* sind.
+
+**Stufe 0:**
+Wir betrachten Tensoren der Stufe $r+s=0+0=0$.
+Elemente der Menge $T^0_0(V)$ sind gerade die **Skalare** des zu Grunde liegenden Körpers $\R$, da der Vektorraum $V^0$ nur das Nullelement enthält.
+
+**Stufe 1:**
+Wir betrachten Tensoren der Stufe $r+s=1+0=1$.
+In diesem Fall entsprechen Elemente der Menge $T^1_0(V)$ gerade den **Vektoren** des Vektorraums $V$.
+Genauer gesagt handelt es sich um Elemente des *Bidualraums* $V^{**}$, der nach {prf:ref}`rem:doubledual` isomorph zu $V$ ist.
+
+**Stufe 2:**
+Wir betrachten Tensoren der Stufe $r+s=2+0=2$.
+In diesem Fall entsprechen Elemente der Menge $T^2_0(V)$ sogenannten **Bivektoren** oder **Dyaden**.
+Ein Beispiel hierfür sind Tensoren, die durch *dyadische Produkte* erzeugt werden.
+
+**Stufe n:**
+Wir betrachten Tensoren der Stufe $r+s=n+0=n$.
+Ein Beispiel für Elemente der Menge $T^n_0(V)$ ist die **Determinante** einer $n \times n$-Matrix.
 
 ````
 
-Als weiteren Spezialfall erhalten wir Multilinearformen.
+Betrachten wir als Nächstes den Spezialfall in dem gemischte Tensoren Multilinearformen entsprechen.
+
+````{prf:example} Gemischte Tensoren als Multilinearformen
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum.
+Wir wollen im Folgenden gemischte Tensoren unterschiedlicher Stufen betrachten, die Mult
+
+ 
+Wir beginnen zunächst mit dem einfachen Fall $r+s=1$.
+Gemischte Tensoren der Stufe $(1,0)$ können mit Elementen des Vektorraums selbst identifiziert werden, denn 
+
+```{math}
+T^1_0(V) = L(V^\ast; \R) = \V^{\ast\ast}\cong \V.
+```
+
+Für die Isomorphie von $\V^{\ast\ast}$ und $\V$ haben wir das Resultat aus {prf:ref}`rem:doubledual` ausgenutzt.
+Weiterhin sind Tensoren der Stufe $(0,1)$ Elemente des Dualraums, also einfach Linearformen auf $\V$, auch _Kovektoren_ genannt.
+
+Gemischte Tensoren der Stufe $(0,k)$ sind $k$-Multilinearformen, da $T^0_k(V) = L((V^\ast)^k; \R) \cong L^k(V; \R)$. 
+````
+
 
 ````{prf:example}
-Tensoren der Stufe $(0,k)$ sind $k$-Linearformen, da $T^0_k(V) = L^k(V)$. 
+Gemischte Tensoren der Stufe $(0,k)$ sind $k$-Multilinearformen, da $T^0_k(V) = L^k(V)$. 
 
 
 ````
