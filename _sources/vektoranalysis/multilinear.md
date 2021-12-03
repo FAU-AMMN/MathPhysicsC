@@ -230,7 +230,7 @@ Die Determinantenform gibt das orientierte Volumen des von den Vektoren $z_1,\ld
 
 ## Der Vektorraum der Multilinearformen
 
-Die Menge der $k$-linearen Abbildung $L^k(V_1,\ldots,V_k; W)$ für $\R$-Vektorräume $V_1,\ldots,V_k$ und $W$ besitzt mehr Struktur als wir ihr bisher angesehen haben.
+Die Menge der $k$-linearen Abbildung $L^k(V_1 \times \ldots \times V_k; W)$ für $\R$-Vektorräume $V_1,\ldots,V_k$ und $W$ besitzt mehr Struktur als wir ihr bisher angesehen haben.
 Mit den entsprechenden Verknüpfungen handelt es sich ebenfalls um einen Vektorraum, wie das folgende Lemma zeigt.
 
 ````{prf:lemma}
@@ -241,10 +241,10 @@ Dann ist die Menge $L^k(\V_1\times\ldots\V_k; W)$ ein Vektorraum über $\R$ bez�
 (\varphi_1+\varphi_2)(z_1,\ldots,z_k) := \varphi_1(z_1,\ldots,z_k) +
 \varphi_2(z_1,\ldots,z_k),
 ```
-für $k$-lineare Abbildungen $\varphi_1,\varphi_2\in L^k(\V_1, \ldots, V_k;W)$ und der Multiplikation mit Skalaren $\lambda \in \R$
+für $k$-lineare Abbildungen $\varphi_1,\varphi_2\in L^k(\V_1 \times \ldots \times V_k;W)$ und der Multiplikation mit Skalaren $\lambda \in \R$
 
 ```{math}
-(\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V_1, \ldots, V_k;W).
+(\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V_1 \times \ldots \times V_k;W).
 ```
 
 ````
@@ -258,6 +258,7 @@ Für diesen Vektorraum können wir eine spezielle Basis angeben, wie das folgend
 
 ````{prf:lemma} Duale Basis
 :label: lem:dualeBasis
+
 Es sei $\V$ ein $n$-dimensionaler $\R$-Vektorraum mit einer endlichen Basis $B = (b_1,\ldots,b_n)$.
 Für beliebige Vektoren $z \in V$ bilden die Abbildungen $\eta_j:\V\rightarrow\R$ für $j=1,\ldots,n$ mit
 

@@ -299,6 +299,16 @@
    3.2.5. Tensoren als Multilinearformen
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#symmetrische-und-antisymmetrische-tensoren">
+   3.2.6. Symmetrische und antisymmetrische Tensoren
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grassmann-algebra">
+   3.2.7. Grassmann-Algebra
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -728,11 +738,11 @@ Daher können wir ab nun folgende Notation verwenden</p>
 <p>und sehen, dass dieses Objekt wohldefiniert ist.
 Insbesondere ist äquivalent das Tensorprodukt über <span class="math notranslate nohighlight">\(k\)</span> Vektorräume mit Hilfe einer <span class="math notranslate nohighlight">\(k\)</span>-Multilinearform aus <a class="reference internal" href="multilinear.html#s-k-multilinearform"><span class="std std-ref">k-Multilinearformen</span></a> zu definieren anstatt nur einer Bilinearform wie in <a class="reference internal" href="#def:tensor">Definition 3.4</a>.
 Die folgende Bemerkung gibt die universelle Eigenschaft für solch ein Tensorprodukt an.</p>
-<div class="proof remark admonition" id="remark-11">
+<div class="proof remark admonition" id="rem:kfachesTensorprodukt">
 <p class="admonition-title"><span class="caption-number">Remark 3.7 </span> (<span class="math notranslate nohighlight">\(k\)</span>-faches Tensorprodukt)</p>
 <div class="remark-content section" id="proof-content">
 <p>Es seien <span class="math notranslate nohighlight">\(V_1,\ldots, V_k\)</span> für <span class="math notranslate nohighlight">\(k \in \N\)</span> reelle Vektorräume.
-Dann besitzt das <span class="math notranslate nohighlight">\(k\)</span>-fache Tensorprodukt <span class="math notranslate nohighlight">\(\bigotimes_{i=1}^k V_i\)</span> die folgende universelle Eigenschaft:</p>
+Dann besitzt das <span class="math notranslate nohighlight">\(k\)</span>-fache Tensorprodukt <span class="math notranslate nohighlight">\(\otimes \colon V_1 \times \ldots \times V_k \rightarrow \bigotimes_{i=1}^k V_i\)</span> die folgende universelle Eigenschaft:</p>
 <p>Für jede <span class="math notranslate nohighlight">\(k\)</span>-Multilinearform <span class="math notranslate nohighlight">\(\phi\in L^k(V_1\times\ldots\times V_k; Y)\)</span> in einen beliebigen reellen Vektorraum <span class="math notranslate nohighlight">\(Y\)</span> existiert eine eindeutige lineare Abbildung
 <span class="math notranslate nohighlight">\(p \in L^1(\bigotimes_{i=1}^k V_i; Y)\)</span>, so dass gilt</p>
 <div class="math notranslate nohighlight">
@@ -850,7 +860,7 @@ Zusammen mit der <em>Transitivitätseigenschaft des Tensorprodukts</em> aus <a c
 <p>gilt, was mit unseren Vorüberlegungen die Aussage des Theorems beweist.</p>
 </div>
 <p>Wählen wir die Zielräume der linearen Abbildungen als <span class="math notranslate nohighlight">\(V_2 = W_2 = \R\)</span>, so erhalten wir direkt folgendes Korrolar als Anwendung des allgemeinen Resultats in <a class="reference internal" href="#thm:pIsomorphismus">Theorem 3.2</a>.
-Dies ermöglicht es uns Tensoren als Linearformen zu interpretieren.</p>
+Dies ermöglicht es uns später Tensoren als Linearformen zu interpretieren.</p>
 <div class="proof corollary admonition" id="cor:tensorenLinearformen">
 <p class="admonition-title"><span class="caption-number">Corollary 3.3 </span> (Isomorphie des algebraischen Dualraums des Tensorproduktraums)</p>
 <div class="corollary-content section" id="proof-content">
@@ -862,46 +872,184 @@ Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum der algebraische
 </div></div>
 <div class="section" id="tensoren-als-multilinearformen">
 <h2><span class="section-number">3.2.5. </span>Tensoren als Multilinearformen<a class="headerlink" href="#tensoren-als-multilinearformen" title="Permalink to this headline">¶</a></h2>
-<p>Wie wir in
-Als Einleitung in das Thema wollen wir Tensoren zunächst als <span class="math notranslate nohighlight">\(k\)</span>-Multilinearformen auf <span class="math notranslate nohighlight">\(\V_1\times\ldots\times\V_k\)</span>
-betrachten wobei für <span class="math notranslate nohighlight">\(i=1,\ldots,k\)</span> <span class="math notranslate nohighlight">\(\V_i\)</span> reelle endlich dimensionale Vektorräume sind.
-Man schreibt in diesem Fall auch</p>
+<p>Das folgende Korollar kombiniert die theoretischen Ergebnisse des letzten Abschnitts und liefert so ein mathematisches Resultat, das für die Anwendung beispielsweise in der Physik von Bedeutung ist.
+Wir werden nämlich nun folgern, dass wir Tensoren als Multilinearformen auffassen können.</p>
+<div class="proof corollary admonition" id="cor:tensorMultilinearform">
+<p class="admonition-title"><span class="caption-number">Corollary 3.4 </span> (Tensoren als Multilinearformen)</p>
+<div class="corollary-content section" id="proof-content">
+<p>Seien <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(W\)</span> zwei reelle endlich-dimensionale Vektorräume und <span class="math notranslate nohighlight">\(\otimes \colon V \times W \rightarrow V \otimes W\)</span> das Tensorprodukt.
+Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum und dem Raum der Bilinearformen durch</p>
 <div class="math notranslate nohighlight">
-\[\V_1\otimes\ldots\otimes\V_k = L(\V_1\times\ldots\V_k;\R)\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(\otimes\)</span> das Tensorprodukt bezeichnet.</p>
-<p>Der wichtige Spezialfall ist hier allerdings nun nicht <span class="math notranslate nohighlight">\(\V^k\)</span> sondern ein kartesisches Produkt der Form</p>
-<div class="math notranslate nohighlight">
-\[(V^\ast)^r\times V^s.\]</div>
-<div class="proof definition admonition" id="definition-17">
-<p class="admonition-title"><span class="caption-number">Definition 3.5 </span></p>
-<div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\V\)</span> ein reeller endlich-dimensionaler Vektorraum, dann nennt man</p>
-<div class="math notranslate nohighlight">
-\[T^r_s(V) := L((V^\ast)^r\times V^s, \R)\]</div>
-<p>Menge der <span class="math notranslate nohighlight">\(r\)</span>-fach <strong>kontravarianten</strong> und <span class="math notranslate nohighlight">\(s\)</span>-fach <strong>kovarianten</strong> Tensoren, oder alternativ Tensoren der Stufe <span class="math notranslate nohighlight">\((r,s)\)</span>.</p>
+\[V \otimes W \cong L^2(V \times W; \R).\]</div>
 </div>
-</div><p>Wir wollen diese abstrakte Definition nun mit einfachen Beispielen veranschaulichen zunächst für <span class="math notranslate nohighlight">\(r+s=1\)</span>.</p>
-<div class="proof example admonition" id="example-18">
+</div><div class="proof admonition" id="proof">
+<p>Proof. Wie wir in <a class="reference internal" href="#cor:tensorenLinearformen">Corollary 3.3</a> gesehen haben, besteht ein Isomorphismus zwischen dem Tensorproduktraum algebraischer Dualräume und dem algebraischen Dualraum des entsprechenden Tensorproduktraums mit</p>
+<div class="math notranslate nohighlight">
+\[V^\ast \otimes W^\ast \cong (V\otimes W)^\ast = L^1(V \otimes W; \R).\]</div>
+<p>Da jeder endlich-dimensionale, reelle Vektorraums <span class="math notranslate nohighlight">\(V\)</span> nach <a class="reference internal" href="multilinear.html#lem:dualeBasis">Lemma 3.3</a> isomorph zu seinem algebraischen Dualraum <span class="math notranslate nohighlight">\(V^\ast\)</span> ist, können wir die <em>Transitivitätseigenschaft des Tensorprodukts</em> aus <a class="reference internal" href="#lem:natISO">Lemma 3.5</a> ausnutzen und erhalten die folgende Isomorphie</p>
+<div class="math notranslate nohighlight" id="equation-eq-transitivisomorphismus">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-eq-transitivisomorphismus" title="Permalink to this equation">¶</a></span>\[V \otimes W \cong V^\ast \otimes W^\ast.\]</div>
+<p>Gleichzeitig besagt die <em>universelle Eigenschaft des Tensorprodukts</em> in , dass es zu jeder Bilinearform <span class="math notranslate nohighlight">\(\Phi \in L^2(V \times W; \R)\)</span> eine eindeutige Linearform <span class="math notranslate nohighlight">\(p \in L^1(V \otimes W; \R)\)</span> gibt, so dass <span class="math notranslate nohighlight">\(\Phi = p \circ \otimes\)</span> gilt.
+Somit erhalten wir also auch einen Isomorphismus</p>
+<div class="math notranslate nohighlight">
+\[L^1(V \otimes W; \R) \cong L^2(V \times W; \R).\]</div>
+<p>Kombinieren wir diese mathematischen Resultate nun alle so ergibt sich die folgende Kette von Isomorphismen:</p>
+<div class="math notranslate nohighlight">
+\[V \otimes W \cong V^\ast \otimes W^\ast \cong L^1(V \otimes W; \R) \cong L^2(V \times W; \R),\]</div>
+<p>was die Aussage beweist.</p>
+</div>
+<p><a class="reference internal" href="#cor:tensorMultilinearform">Corollary 3.4</a> besagt, dass Tensoren als Elemente des Tensorproduktraums <span class="math notranslate nohighlight">\(V \otimes W\)</span> als Bilinearformen auf dem kartesischen Produktraum <span class="math notranslate nohighlight">\(V \times W\)</span> aufgefasst werden können.
+Diese Aussage lässt sich mit Hilfe von <a class="reference internal" href="#rem:kfachesTensorprodukt">Remark 3.7</a> auch auf das <span class="math notranslate nohighlight">\(k\)</span>-fache Tensorprodukt verallgemeinern.
+Hier erhält man dann das Resultat, dass sich Tensoren als <span class="math notranslate nohighlight">\(k\)</span>-Multilinearformen interpretieren lassen mit</p>
+<div class="math notranslate nohighlight">
+\[\V_1\otimes\ldots\otimes\V_k \cong L^k(\V_1\times\ldots\V_k;\R) \cong L(\V_1\otimes\ldots\V_k;\R).\]</div>
+<p>In <a class="reference internal" href="#equation-eq-transitivisomorphismus">(3.4)</a> haben wir die Transitivitätseigenschaft des Tensorprodukts ausgenutzt, um <em>beide</em> Vektorräume mit ihren jeweiligen algebraischen Dualräumen zu identifizieren.
+Dies muss jedoch nicht sein, denn wir hätten genauso gut <strong>gemischte Tensorprodukte</strong> der Form <span class="math notranslate nohighlight">\(V \otimes W^\ast\)</span> oder <span class="math notranslate nohighlight">\(V^\ast \otimes W\)</span> betrachten können, wenn wir die triviale Identifikation <span class="math notranslate nohighlight">\(V \cong V\)</span> oder <span class="math notranslate nohighlight">\(W \cong W\)</span> nutzen.
+Daher wollen wir im Folgenden Tensoren einer allgemeineren Form betrachten, nämlich solche, die für kartesische Produkte der Form <span class="math notranslate nohighlight">\(V^r\times (V^\ast)^s\)</span> mit <span class="math notranslate nohighlight">\(r+s=k\)</span> definiert sind.</p>
+<div class="proof definition admonition" id="definition-18">
+<p class="admonition-title"><span class="caption-number">Definition 3.5 </span> (Gemischte Tensoren)</p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein reeller endlich-dimensionaler Vektorraum und <span class="math notranslate nohighlight">\(V^\ast\)</span> der zugehörige algebraische Dualraum.
+Dann nennt man</p>
+<div class="math notranslate nohighlight">
+\[T^r_s(V) := L(V^r\times (V^\ast)^s; \R)\]</div>
+<p>Menge der gemischten Tensoren, welche <strong>kovariant</strong> der Stufe <span class="math notranslate nohighlight">\(r\)</span> und <strong>kontravariant</strong> der Stufe <span class="math notranslate nohighlight">\(s\)</span> sind.
+In manchen Kontexten spricht man auch nur von <strong>gemischten Tensoren der Stufe <span class="math notranslate nohighlight">\(k=r+s\)</span></strong>.</p>
+</div>
+</div><p>Die folgende Bemerkung erklärt, woher die Begriffe <em>Kovarianz</em> und <em>Kontravarianz</em> stammen.</p>
+<div class="proof remark admonition" id="remark-19">
+<p class="admonition-title"><span class="caption-number">Remark 3.9 </span> (Ko- und Kontravarianz)</p>
+<div class="remark-content section" id="proof-content">
+<p>Die Bezeichnungen “kovariant” und “kontravariant” beziehen sich auf die Koordinatendarstellungen von Tensoren.
+Genauer gesagt beschreieb Sie, wie sich solche Koordinatendarstellungen bezüglich eines Basiswechsels im zugrundeliegenden Vektorraum verhalten.</p>
+<p>Zusammenfassend kann man festhalten:</p>
+<ul class="simple">
+<li><p><strong>Kovariant</strong> nennt man ein Transformationsverhalten, bei dem sich die Basisvektoren und die darin dargestellten Größen in gleicher Weise transformieren.</p></li>
+<li><p><strong>Kontravariant</strong> nennt man ein Transformationsverhalten, wenn sich die Basisvektoren und die darin dargestellten Größen in unterschiedlicher Weise transformieren.</p></li>
+</ul>
+</div>
+</div><p>Das folgende Beispiel gibt eine Intuition für den Begriff der Kontravarianz an Hand von Vektorkoordinaten unter Basiswechseloperationen.</p>
+<div class="proof example admonition" id="example-20">
 <p class="admonition-title"><span class="caption-number">Example 3.8 </span></p>
 <div class="example-content section" id="proof-content">
-<p>Tensoren der Stufe <span class="math notranslate nohighlight">\((1,0)\)</span> können mit Elementen des Vektorraums selbst identifiziert werden, denn</p>
+<p>Sei <span class="math notranslate nohighlight">\(V = \R^3\)</span> der Euklidische Vektorraum und sei</p>
 <div class="math notranslate nohighlight">
-\[T^1_0(V) = L((V^\ast), \R) = \V^{\ast\ast}\cong \V\]</div>
-<p>mit der Identifikation aus <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">lem:doubledual</span></code>. Weiterhin sind Tensoren der Stufe <span class="math notranslate nohighlight">\((0,1)\)</span> Elemente des
-Dualraums, also einfach Linearformen auf <span class="math notranslate nohighlight">\(\V\)</span>, sogenannte <em>Kovektoren</em>.</p>
-</div>
-</div><p>Als weiteren Spezialfall erhalten wir Multilinearformen.</p>
-<div class="proof example admonition" id="example-19">
-<p class="admonition-title"><span class="caption-number">Example 3.9 </span></p>
-<div class="example-content section" id="proof-content">
-<p>Tensoren der Stufe <span class="math notranslate nohighlight">\((0,k)\)</span> sind <span class="math notranslate nohighlight">\(k\)</span>-Linearformen, da <span class="math notranslate nohighlight">\(T^0_k(V) = L^k(V)\)</span>.</p>
-</div>
-</div><div class="proof example admonition" id="example-20">
-<p class="admonition-title"><span class="caption-number">Example 3.10 </span></p>
-<div class="example-content section" id="proof-content">
-<p>Aus einer linearen Abbildung <span class="math notranslate nohighlight">\(A:\V\to\V\)</span> erhält man direkt einen Tensor der Stufe <span class="math notranslate nohighlight">\((1,1)\)</span> über die Abbildung</p>
+\[\begin{split}B_1 := \lbrace \begin{pmatrix}1\\ 0\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 1\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 0\\ 1\end{pmatrix} \rbrace\end{split}\]</div>
+<p>die Standard-Einheitsbasis des <span class="math notranslate nohighlight">\(\R^3\)</span>.
+Sei nun <span class="math notranslate nohighlight">\(x \in \R^3\)</span> ein Vektor, dessen Koordinaten bezüglich der Basis <span class="math notranslate nohighlight">\(B_1\)</span> gegeben sind als</p>
 <div class="math notranslate nohighlight">
-\[\varphi, v \mapsto \varphi(Av).\]</div>
+\[\begin{split}x = \begin{pmatrix}4\\ 8\\ 2\end{pmatrix}.\end{split}\]</div>
+<p>Führen wir nun einen Basiswechsel von <span class="math notranslate nohighlight">\(B_1\)</span> zu einer neuen Basis <span class="math notranslate nohighlight">\(B_2\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}B_2 := \lbrace \begin{pmatrix}2\\ 0\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 2\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 0\\ 2\end{pmatrix} \rbrace\end{split}\]</div>
+<p>durch, so ändert sich die Koordinatendarstellung von <span class="math notranslate nohighlight">\(x\)</span> bezüglich dieser Transformation zu</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x = \begin{pmatrix}2\\ 4\\ 1\end{pmatrix}.\end{split}\]</div>
+<p>Wir sehen also, dass durch die Skalierung der Basisvektoren von <span class="math notranslate nohighlight">\(B_1\)</span> um den Faktor <span class="math notranslate nohighlight">\(2\)</span> sich die entsprechende Koordinatendarstellung halbiert, d.h., sich gerade <strong>gegensätzlich</strong> zur Basistransformation verhält.
+Daher sind Vektoren <strong>kontravariant</strong> bezüglich Basiswechseltransformationen.</p>
+</div>
+</div><p>Wir wollen diese allgemeine Definition von gemischten Tensoren nun mit einfachen Beispielen veranschaulichen.
+Beginnen wir zunächst mit dem Spezialfall von rein kovarianten Tensoren.</p>
+<div class="proof example admonition" id="example-21">
+<p class="admonition-title"><span class="caption-number">Example 3.9 </span> (Rein kovariante Tensoren)</p>
+<div class="example-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n \in \N\)</span>.
+Wir wollen im Folgenden Tensoren unterschiedlicher Stufen betrachten, die Multilinearformen repräsentieren.
+Diese haben keine <em>kontravarianten Komponenten</em>, sind also sozusagen <em>rein kovariant</em>.</p>
+<p><strong>Stufe 0:</strong>
+Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=0+0=0\)</span>.
+Elemente der Menge <span class="math notranslate nohighlight">\(T^0_0(V) = L(V^0; \R)\)</span> sind gerade die <strong>Skalare</strong> des zu Grunde liegenden Körpers <span class="math notranslate nohighlight">\(\R\)</span>, da der Vektorraum <span class="math notranslate nohighlight">\(V^0\)</span> nur das Nullelement enthält.</p>
+<p><strong>Stufe 1:</strong>
+Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=1+0=1\)</span>.
+In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohighlight">\(T^1_0(V) = L(V; \R)\)</span> gerade den <strong>Linearformen</strong> des Vektorraums <span class="math notranslate nohighlight">\(V\)</span>.
+Genauer gesagt handelt es sich um Elemente des <em>algebraischen Dualraums</em> <span class="math notranslate nohighlight">\(V^\ast\)</span>.</p>
+<p><strong>Stufe k:</strong>
+Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=k+0=k\)</span> für <span class="math notranslate nohighlight">\(k\in \N\)</span>.
+Diese Tensoren entsprechen gerade den <strong><span class="math notranslate nohighlight">\(\mathbf{k}\)</span>-Multilinearformen</strong>, da <span class="math notranslate nohighlight">\(T^k_0(V) = L(V^k; \R) \cong L^k(V; \R)\)</span>.</p>
+<p><strong>Stufe n:</strong>
+Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=n+0=n\)</span>.
+Ein Beispiel für Elemente der Menge <span class="math notranslate nohighlight">\(T^n_0(V) = L(V^n; \R)\)</span> ist die <strong>Determinante</strong> einer <span class="math notranslate nohighlight">\(n \times n\)</span>-Matrix.</p>
+</div>
+</div><p>Betrachten wir als Nächstes den Spezialfall von rein kontravarianten Tensoren.</p>
+<div class="proof example admonition" id="example-22">
+<p class="admonition-title"><span class="caption-number">Example 3.10 </span> (Rein kontravariante Tensoren)</p>
+<div class="example-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum.
+Diese besitzen keine <em>kovarianten Komponenten</em>, sind also sozusagen <em>rein kontravariant</em>.</p>
+<p><strong>Stufe 1:</strong>
+Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=0+1=1\)</span>.
+In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohighlight">\(T^0_1(V) = L(V^\ast; \R)\)</span> gerade den <strong>Vektoren</strong> des Vektorraums <span class="math notranslate nohighlight">\(V\)</span>.
+Genauer gesagt handelt es sich um Elemente des <em>Bidualraums</em> <span class="math notranslate nohighlight">\(V^{**}\)</span>, der nach <a class="reference internal" href="multilinear.html#rem:doubledual">Remark 3.4</a> isomorph zu <span class="math notranslate nohighlight">\(V\)</span> ist.</p>
+<p><strong>Stufe 2:</strong>
+Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=0+2=2\)</span>.
+In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohighlight">\(T^0_2(V) = L(V^\ast \times V^\ast; \R)\)</span> sogenannten <strong>Bivektoren</strong> oder <strong>Dyaden</strong>.
+Ein Beispiel hierfür sind Tensoren, die durch <em>dyadische Produkte</em> erzeugt werden.</p>
+</div>
+</div><p>Abschließend betrachten wir noch ein Beispiel für echt gemischte Tensoren.</p>
+<div class="proof example admonition" id="example-23">
+<p class="admonition-title"><span class="caption-number">Example 3.11 </span> (Echt gemischte Tensoren)</p>
+<div class="example-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum.
+Wir wollen im Folgenden <em>echt gemischte</em> Tensoren diskutieren.
+Diese besitzen sowohl kontravariante als auch kovariante Komponenten.</p>
+<p>Wir betrachten echt gemischte Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=1+1=2\)</span>.
+Die Menge <span class="math notranslate nohighlight">\(T^1_1(V) = L(V^\ast \times V; \R)\)</span> enthält dann alle linearen Abbildung, die einer Linearform und einem Vektor eine reelle Zahl zuweisen.
+Ein typisches Beispiel für solch einen ist die sogenannte <strong>duale Paarung</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\langle \cdot, \cdot \rangle \colon V^\ast \times V &amp;\rightarrow \R,\\
+(L, v) &amp;\mapsto \langle L, v \rangle := L(v).\end{split}\]</div>
+<p>Hier wird ein gegebener Vektor <span class="math notranslate nohighlight">\(v \in V\)</span> durch einen gegebenen linearen Operator <span class="math notranslate nohighlight">\(L \in V^\ast\)</span> ausgewertet.
+Die duale Paarung stellt eine <em>Verallgemeinerung des Skalarprodukts</em> dar.</p>
+</div>
+</div></div>
+<div class="section" id="symmetrische-und-antisymmetrische-tensoren">
+<h2><span class="section-number">3.2.6. </span>Symmetrische und antisymmetrische Tensoren<a class="headerlink" href="#symmetrische-und-antisymmetrische-tensoren" title="Permalink to this headline">¶</a></h2>
+<div class="proof definition admonition" id="definition-24">
+<p class="admonition-title"><span class="caption-number">Definition 3.6 </span> (Signum einer Permutation)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(k\in\N\)</span> und <span class="math notranslate nohighlight">\(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\)</span> eine Permutation der Indizes <span class="math notranslate nohighlight">\(1,\ldots,k\)</span>.
+Dann bezeichnen wir mit <span class="math notranslate nohighlight">\(\operatorname{sgn}(\pi) := (-1)^{|\operatorname{inv}(\pi)|}\)</span> das sogenannte <strong>Signum der Permutation</strong> <span class="math notranslate nohighlight">\(\pi\)</span>, für das man die Menge der Fehlstände der Permutation <span class="math notranslate nohighlight">\(\operatorname{inv}(\pi)\)</span> betrachtet mit:</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{inv}(\pi) := \lbrace (i,j) \in \lbrace 1, \ldots, k \rbrace : i &lt; j, \pi(i) &gt; \pi(j) \rbrace.\]</div>
+</div>
+</div><div class="proof definition admonition" id="definition-25">
+<p class="admonition-title"><span class="caption-number">Definition 3.7 </span> (Symmetrie und Antisymmetrie von Tensoren)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei V ein reeller, endlich-dimensionaler Vektorraum und <span class="math notranslate nohighlight">\(T \in T_0^k(V)\)</span> ein rein kontravarianter Tensor von Stufe <span class="math notranslate nohighlight">\(k \in \N\)</span>.</p>
+<p>Wir nennen den Tensor <span class="math notranslate nohighlight">\(T\)</span> <strong>symmetrisch</strong>, wenn für alle möglichen Permutationen <span class="math notranslate nohighlight">\(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\)</span> der Indizes <span class="math notranslate nohighlight">\(1,\ldots,k\)</span> der Wert des Tensors mit permutierten Argumenten sich nicht ändert, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[T(v_1, \ldots, v_k) = T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\]</div>
+<p>Wir nennen den Tensor <span class="math notranslate nohighlight">\(T\)</span> <strong>antisymmetrisch</strong>, wenn für alle möglichen Permutationen <span class="math notranslate nohighlight">\(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\)</span> der Indizes <span class="math notranslate nohighlight">\(1,\ldots,k\)</span> der Wert des Tensors mit permutierten Argumenten sich <em>bis auf das Vorzeichen</em> nicht ändert, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[T(v_1, \ldots, v_k) = \operatorname{sgn}(\pi) \cdot T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\]</div>
+</div>
+</div><p>Analog lässt sich die (Anti-)Symmetrie eines rein kovarianten Tensors <span class="math notranslate nohighlight">\(T \in T_k^0(V)\)</span> von Stufe <span class="math notranslate nohighlight">\(k\)</span> definieren.</p>
+<div class="proof example admonition" id="example-26">
+<p class="admonition-title"><span class="caption-number">Example 3.12 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Skalarprodukt</p>
+</div>
+</div><p>Projektion auf (anti-)symmetrische Tensoren</p>
+<div class="proof definition admonition" id="definition-27">
+<p class="admonition-title"><span class="caption-number">Definition 3.8 </span> (Fermionsche Projektion)</p>
+<div class="definition-content section" id="proof-content">
+<p>Die sogenannte fermionische Projektion</p>
+</div>
+</div><div class="proof remark admonition" id="remark-28">
+<p class="admonition-title"><span class="caption-number">Remark 3.10 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>In der Quantenmechanik beschreiben symmetrische Tensorprodukte <em>identische Bosonen</em> und antisymmetrische Tensorprodukte beschreiben <em>identische Fermionen</em>.</p>
+</div>
+</div></div>
+<div class="section" id="grassmann-algebra">
+<h2><span class="section-number">3.2.7. </span>Grassmann-Algebra<a class="headerlink" href="#grassmann-algebra" title="Permalink to this headline">¶</a></h2>
+<div class="proof definition admonition" id="definition-29">
+<p class="admonition-title"><span class="caption-number">Definition 3.9 </span> (Grassmann-Algebra)</p>
+<div class="definition-content section" id="proof-content">
+</div>
+</div><div class="proof definition admonition" id="definition-30">
+<p class="admonition-title"><span class="caption-number">Definition 3.10 </span> (Äußeres Produkt)</p>
+<div class="definition-content section" id="proof-content">
 </div>
 </div></div>
 </div>
