@@ -869,6 +869,8 @@ Dies muss jedoch nicht sein, denn wir hätten genauso gut **gemischte Tensorprod
 Daher wollen wir im Folgenden Tensoren einer allgemeineren Form betrachten, nämlich solche, die für kartesische Produkte der Form $V^r\times (V^\ast)^s$ mit $r+s=k$ definiert sind.
 
 ````{prf:definition} Gemischte Tensoren
+:label: def:gemischteTensoren
+
 Es sei $V$ ein reeller endlich-dimensionaler Vektorraum und $V^\ast$ der zugehörige algebraische Dualraum.
 Dann nennt man 
 
@@ -992,7 +994,15 @@ Die duale Paarung stellt eine *Verallgemeinerung des Skalarprodukts* dar.
 
 ## Symmetrische und antisymmetrische Tensoren
 
+Oft spielen gerade in der Physik spezielle Familien von Tensoren eine wichtige Rolle, nämlich symmetrische und antisymmetrische Tensoren.
+Diese Operatoren zeichnen sich durch ihr Verhalten unter Vertauschung von Argumenten aus und werden besonders in der Quantenmechanik und Kontinuumsmechanik betrachtet.
+
+Bevor wir die Symmetrieeigenschaften von Tensoren definieren können, benötigen wir weitere Hilfsmittel aus der Kombinatorik.
+Die Vertauschung von Argumenten entspricht einer Permutationsabbildung und daher wollen wir das *Vorzeichen* solch einer Permutation betrachten, welches die Symmetrieeigenschaften von Tensoren charakterisiert.
+
 ````{prf:definition} Signum einer Permutation
+:label: def:signumPermutation
+
 Sei $k\in\N$ und $\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace$ eine Permutation der Indizes $1,\ldots,k$.
 Dann bezeichnen wir mit $\operatorname{sgn}(\pi) := (-1)^{|\operatorname{inv}(\pi)|}$ das sogenannte **Signum der Permutation** $\pi$, für das man die Menge der Fehlstände der Permutation $\operatorname{inv}(\pi)$ betrachtet mit:
 
@@ -1001,7 +1011,63 @@ Dann bezeichnen wir mit $\operatorname{sgn}(\pi) := (-1)^{|\operatorname{inv}(\p
 ```
 ````
 
+Das folgende einfache Beispiel illustriert die Berechnung des Signums einer Permutation.
+
+````{prf:example} Signum zweier Permutationen
+Wir betrachten im Folgenden zwei verschiedene Permutationen 
+
+```{math}
+\pi_i \colon \lbrace 1, 2, 3, 4 \rbrace \rightarrow \lbrace 1, 2, 3, 4 \rbrace \quad i=1,2.
+```
+
+<br/>
+
+1\. Sei die Permutation $\pi_1$ gegeben mit
+
+```{math}
+\pi_1(1) = 3, \quad \pi_1(2) = 2, \quad \pi_1(3) = 4, \quad \pi_1(4) = 1.
+```
+
+Für die Menge der Fehlstände $\operatorname{inv}(\pi_1)$ selektieren wir diejenigen Elemente $i,j \in \lbrace 1,2,3,4 \rbrace$ mit $i < j$ und $\pi(i) > \pi(j)$.
+Dies trifft auf folgende Paare von Elementen zu:
+
+```{math}
+\operatorname{inv}(\pi_1) = \lbrace (1,2), (1,4), (2,4), (3,4)\rbrace.
+```
+
+Da die Permutation $\pi_1$ insgesamt $4$ Fehlstände erzeugt, gilt für das Signum der Permutation:
+
+```{math}
+\operatorname{sgn}(\pi_1) := (-1)^{|\operatorname{inv}(\pi_1)|} = (-1)^4 = +1.
+```
+
+<br/>
+
+2\. Sei die Permutation $\pi_2$ gegeben mit
+
+```{math}
+\pi_1(1) = 2, \quad \pi_1(2) = 4, \quad \pi_1(3) = 1, \quad \pi_1(4) = 3.
+```
+
+Für die Menge der Fehlstände $\operatorname{inv}(\pi_2)$ selektieren wir diejenigen Elemente $i,j \in \lbrace 1,2,3,4 \rbrace$ mit $i < j$ und $\pi(i) > \pi(j)$.
+Dies trifft auf folgende Paare von Elementen zu:
+
+```{math}
+\operatorname{inv}(\pi_2) = \lbrace (1,3), (2,3), (2,4)\rbrace.
+```
+
+Da die Permutation $\pi_2$ insgesamt $3$ Fehlstände erzeugt, gilt für das Signum der Permutation:
+
+```{math}
+\operatorname{sgn}(\pi_2) := (-1)^{|\operatorname{inv}(\pi_2)|} = (-1)^3 = -1.
+```
+````
+
+Nun sind wir in der Lage die Symmetrieeigenschaften von Tensoren formal zu definieren.
+
 ````{prf:definition} Symmetrie und Antisymmetrie von Tensoren
+:label: def:symmetrieTensor
+
 Sei V ein reeller, endlich-dimensionaler Vektorraum und $T \in T_0^k(V)$ ein rein kontravarianter Tensor von Stufe $k \in \N$.
 
 Wir nennen den Tensor $T$ **symmetrisch**, wenn für alle möglichen Permutationen $\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace$ der Indizes $1,\ldots,k$ der Wert des Tensors mit permutierten Argumenten sich nicht ändert, d.h.,
@@ -1010,7 +1076,7 @@ Wir nennen den Tensor $T$ **symmetrisch**, wenn für alle möglichen Permutation
 T(v_1, \ldots, v_k) = T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
 ```
 
-Wir nennen den Tensor $T$ **antisymmetrisch**, wenn für alle möglichen Permutationen $\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace$ der Indizes $1,\ldots,k$ der Wert des Tensors mit permutierten Argumenten sich *bis auf das Vorzeichen* nicht ändert, d.h.,
+Wir nennen den Tensor $T$ **antisymmetrisch** oder **schiefsymmetrisch**, wenn für alle möglichen Permutationen $\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace$ der Indizes $1,\ldots,k$ der Wert des Tensors mit permutierten Argumenten sich *bis auf das Vorzeichen* nicht ändert und dabei folgendem Zusammenhang genügt
 
 ```{math}
 T(v_1, \ldots, v_k) = \operatorname{sgn}(\pi) \cdot T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
@@ -1018,20 +1084,92 @@ T(v_1, \ldots, v_k) = \operatorname{sgn}(\pi) \cdot T(v_{\pi(1)}, \ldots, v_{\pi
 
 ````
 
+In {prf:ref}`def:symmetrieTensor` haben wir die Symmetrieeigeschaften für rein kontravariante Tensoren eingeführt.
 Analog lässt sich die (Anti-)Symmetrie eines rein kovarianten Tensors $T \in T_k^0(V)$ von Stufe $k$ definieren.
+Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus {prf:def}`def:gemischteTensoren` ist hingegen wenig sinnvoll, da die Rechenvorschrift eine gemischten Tensors unter beliebigen Permutationen der Argumente nicht mehr wohldefiniert sein muss.
 
-````{prf:example}
-Skalarprodukt
+Im folgenden Beispiel diskutieren wir jeweils einen Vertreter für symmetrische und antisymmetrische Tensoren.
+
+````{prf:example} Symmetrieeigenschaften von Tensoren
+Betrachten wir zunächst das *Standardskalarprodukt*
+
+```{math}
+\langle \cdot, \cdot \rangle \colon \R^n \times \R^n \rightarrow \R
+```
+
+als rein kontravarianten Tensor zweiter Stufe.
+Da das Standardskalarprodukt im $\R^n$ eine positiv definite, symmetrische Bilinearform ist, überträgt sich die Symmetrieeigenschaft auf die Interpretation als Tensor.
+Daher ist das Standardskalarprodukt ein **symmetrischer Tensor**.
+
+Als zweites Beispiel betrachten wir das sogenannte *Levi-Civita-Symbol*, auch genannt *Epsilon-Tensor*,
+
+```{math}
+\epsilon_{i_1,\ldots,i_n} : \N^n \rightarrow \lbrace -1, 0, 1 \rbrace,
+```
+
+welcher einem Tupel von $n\in\N$ Indizes $(i_1,\ldots,i_n) \in \N^n$ einen Wert zuordnet, je nachdem ob eine gerade oder eine ungerade Anzahl an Vertauschung benötigt wird, um die Indizes in aufsteigender Reihenfolge zu sortieren.
+Wird eine gerade Anzahl an Vertauschungen benötigt, so gilt $\epsilon_{i_1,\ldots,i_n} = +1$.
+Wird eine ungerade Anzahl an Vertauschungen benötigt, so gilt $\epsilon_{i_1,\ldots,i_n} = -1$.
+Aus letzterer Vorschrift lässt sich ableiten, dass der Epsilon-Tensor den Wert $0$ haben muss, wenn mindestens zwei der Indizes gleich sind.
+Dies unterscheidet das Levi-Civita-Symbol vom Signum einer Permutation in {prf:ref}`def:signumPermutation`, welche als Bijektion auf paarweise verschiedenen Indizes definiert ist.
+
+Aus dieser Vorschrift lässt sich bereits direkt ableiten, dass es sich beim Levi-Civita-Symbol um einen **antisymmetrischen Tensor** n-ter Stufe handelt, da jede paarweise Vertauschung von Indizes das Vorzeichen des Tensors wechselt.
+
 ````
 
-Projektion auf (anti-)symmetrische Tensoren
+Es stellt sich heraus, dass die Menge der (anti-)symmetrischen Tensoren eine Vektorraumstruktur induzieren, wie das folgende Lemma zeigt.
 
-````{prf:definition} Fermionsche Projektion
-Die sogenannte fermionische Projektion
+````{prf:lemma} Vektorraum der (anti-)symmetrischen Tensoren
+Sei $V$ ein beliebiger, reeller Vektorraum und $k \in \N$.
+Seien außerdem
+
+```{math}
+\Lambda_k(V) = \lbrace \omega \in T_k^0(V) : \omega \text{ ist antisymmetrisch} \rbrace.
+```
+
+die Menge der *antisymmetrischen Tensoren* der Stufe $k$ auf $V$ und 
+
+```{math}
+\mathcal{S}_k(V) = \lbrace \omega \in T_k^0(V) : \omega \text{ ist symmetrisch} \rbrace.
+```
+
+die Menge der *symmetrischen Tensoren* der Stufe $k$ auf $V$.
+
+Dann bilden $\Lambda_k(V)$ und $\mathcal{S}_k(V)$ bezüglich der Addition von Tensoren und der skalaren Multiplikation in $\R$ einen Vektorraum.
+
 ````
 
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
+````
+
+Abschließend wollen wir uns in diesem Abschnitt noch einem nützlichen mathematischen Werkzeug widmen, das es erlaubt beliebige Tensoren symmetrisch bzw. antisymmetrisch zu machen.
+Hierzu definieren wir die folgenden Projektionsabbildungen.
+
+````{prf:definition} Fermionsche und bosonische Projektion
+Sei $V$ ein beliebiger, reeller Vektorraum und $k \in \N$.
+Wir definieren zunächst die sogenannte **fermionische Projektion**
+
+```{math}
+\Pi_- \colon T_k^0(V) &\rightarrow \Lambda_k(V), \\
+T(v_1, \ldots, v_k) &\mapsto (\Pi T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} \operatorname{sgn}(\pi) \, T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
+```
+
+Diese Projektionsabbilding weist jedem Tensor $T\in T_k^0$ der Stufe $k$ einen antisymmetrischen Tensor $\Pi(T) \in \Lambda_k(V)$ zu.
+
+Analog definieren wir die sogenannte **bosonische Projektion**
+
+```{math}
+\Pi \colon T_k^0(V) &\rightarrow \mathcal{S}_k(V), \\
+T(v_1, \ldots, v_k) &\mapsto (\Pi T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
+```
+
+Diese Projektionsabbilding weist jedem Tensor $T\in T_k^0$ der Stufe $k$ einen symmetrischen Tensor $\Pi(T) \in \mathcal{S}_k(V)$ zu.
+````
+
+Beispiel mit Skalarprodukt als Übungsaufgabe?
 ````{prf:remark}
-In der Quantenmechanik beschreiben symmetrische Tensorprodukte *identische Bosonen* und antisymmetrische Tensorprodukte beschreiben *identische Fermionen*.
+Die Bezeichnung *fermionisch* und *bosonisch* in {prf:ref}`def:` stammen daher, dass symmetrische Tensorprodukte *identische Bosonen* in der Quantenmechanik beschreiben, wohingegen antisymmetrische Tensorprodukte *identische Fermionen* beschreiben.
 ````
 
 ## Grassmann-Algebra
