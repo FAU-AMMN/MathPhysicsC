@@ -1007,8 +1007,42 @@ Sei $k\in\N$ und $\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\l
 Dann bezeichnen wir mit $\operatorname{sgn}(\pi) := (-1)^{|\operatorname{inv}(\pi)|}$ das sogenannte **Signum der Permutation** $\pi$, für das man die Menge der Fehlstände der Permutation $\operatorname{inv}(\pi)$ betrachtet mit:
 
 ```{math}
-\operatorname{inv}(\pi) := \lbrace (i,j) \in \lbrace 1, \ldots, k \rbrace : i < j, \pi(i) > \pi(j) \rbrace.
+\operatorname{inv}(\pi) := \lbrace i,j \in \lbrace 1, \ldots, k \rbrace : i < j, \pi(i) > \pi(j) \rbrace.
 ```
+````
+
+````{prf:remark} Signum durch Transpositionen
+Man erhält eine äquivalente Definition indem man die Darstellung einer Permuattaion durch Transpositionen betrachtet. Eine Permuation vertauscht genau zwei Zahlen, konkret, definiert man für $r,l\in\{1,\ldots,k\}$ die Permutation $\tau_{rl}:\{1,\ldots,k\}\to\{1,\ldots,k\}$ wie folgt,
+
+```{math}
+\tau_{rl}(i) = 
+\begin{cases}
+l&\text{ falls } i=r,\\
+r&\text{ falls } i=l,\\
+i\text{ sonst}
+\end{cases}.
+```
+
+Jede Permutation lässt sich als Verkettung von Nachbarvertauschung darstellen, also Permutationen von benachbarten Elemneten. Konkret gilt für $r<l$,
+
+```{math}
+\tau_{rl} = \underbrace{\left(\tau_{l-1,l}\circ\ldots\circ \tau_{r+1,r+2} \right)}_{\text{Element }r\text{ nach vorne durchreichen}}\circ
+\underbrace{\left(\tau_{r,r+1}\circ\ldots\circ \tau_{l-1,l} \right)}_{\text{Elemnet }l\text{ nach hinten durchreichen}}
+```
+
+und da jede Nachbarvertauschung einen Fehlstand produziert gilt 
+
+```{math}
+|\operatorname{inv}\tau_{rl}| = (l-r) + (l-r-1) = 2(l-r)-1
+```
+
+was stets ungerade ist und somit haben wir $\operatorname{sgn}(\tau_{rl}) = -1$ für belibiebige Transpositionen ungleich der Identität. 
+Sei $\pi$ nun eine Permutation und $M(\pi)$ die Anzahl der Transpostionen mit welcher wir $\pi$ darstellen können, dann gilt 
+
+```{math}
+\operatorname{sgn}(\pi) = -1^{M(\pi)}.
+```
+
 ````
 
 Das folgende einfache Beispiel illustriert die Berechnung des Signums einer Permutation.
