@@ -47,6 +47,7 @@ Der Hauptzweck dieses Abschnitts ist es diese Tatsache klar zu machen und die Un
 ```
 
 Der Integraloperator ist ein typisches Beispiel für einen linearen stetigen Operator.
+
 ````{prf:example} Integraloperator
 Es sei $\V := C([0,1])$ der Funktionenraum der stetigen Funktionen auf dem Intervall $[0,1] \subset \R$.
 Dann ist der durch $T \colon C([0,1]) \rightarrow \R$ definierte Integraloperator mit
@@ -253,7 +254,7 @@ für $k$-lineare Abbildungen $\varphi_1,\varphi_2\in L^k(\V_1 \times \ldots \tim
 In der Hausaufgabe zu zeigen.
 ````
 
-Wir wir bereits in {prf:ref}`ex:multilinear` gesehen haben erhalten wir einen wichtigen Spezialfall für $k=1$, nämlich den algebraischen Dualraum $V^\ast = L^1(\V;\R)$. 
+Wir wir bereits in {prf:ref}`ex:multilinear` gesehen haben erhalten wir einen wichtigen Spezialfall für $k=1$, nämlich den algebraischen Dualraum $V^\ast = L^1(\V;\R)$.
 Für diesen Vektorraum können wir eine spezielle Basis angeben, wie das folgende Lemma zeigt.
 
 ````{prf:lemma} Duale Basis
@@ -327,6 +328,7 @@ Offensichtlich kann die Nullabbildung nur erzeugt werden, wenn für alle Koeffiz
 ````
 
 Folgende Bemerkungen wollen wir zum gerade diskutierten Lemma festhalten.
+
 ````{prf:remark}
 1\. Die Aussage aus {prf:ref}`lem:dualeBasis` zeigt insbesondere, dass im **endlich-dimensionalen** Fall $\dim(\V) = \dim(\V^\ast)$.
 Die Vektorräume sind also isomorph zueinander.
@@ -352,6 +354,7 @@ Diese Konzept ist insbesondere verschieden vom Begriff der [Schauderbasis](https
 ```
 
 Wir wollen uns das Konzept der dualen Basis im Falle des Euklidischen Vektorraums klar machen im Folgenden.
+
 ````{prf:example} Duale Basis
 Sei $V = \R^n$ der Euklidische Vektorraum ausgestattet mit der Standard Einheitsbasis $B = (e_i)_{i=1,\ldots,n}$.
 Dann lässt sich jeder Vektor $x \in V$ eindeutig als Linearkombination der Einheitsvektoren schreiben mit

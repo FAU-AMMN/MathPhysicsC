@@ -610,7 +610,7 @@ $p \in L^1(\bigotimes_{i=1}^k V_i; Y)$, so dass gilt
 ```
 ````
 
-````{remark} Notation
+````{prf:remark} Notation
 Im obigen Fall interpretiert man $\otimes: V_1\times\ldots\times V_k \rightarrow \bigotimes_{i=1}^k V_i$ als $k$-Multilinearform und benutzt die Infix-Notation 
 
 ```{math}
@@ -1180,7 +1180,7 @@ die Menge der *antisymmetrischen Tensoren* der Stufe $k$ auf $V$ und
 
 die Menge der *symmetrischen Tensoren* der Stufe $k$ auf $V$.
 
-Dann bilden $\Lambda_k(V)$ und $\mathcal{S}_k(V)$ bezüglich der Addition von Tensoren und der skalaren Multiplikation in $\R$ einen Vektorraum.
+Dann bilden $\Lambda_k(V)$ und $\mathcal{S}_k(V)$ bezüglich der Addition von Tensoren und der skalaren Multiplikation in $\R$ einen reellen Vektorraum.
 
 ````
 
@@ -1229,7 +1229,7 @@ Zunächst wollen wir das äußere Produkt zweier Tensoren definieren.
 Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und seien $r,r',s,s' \in \N$.
 Sei außerdem $T \in T^r_s(V)$ ein Tensor, der kovariant von Stufe $r$ und kontravariant von Stufe $s$ ist und sei $T' \in T^{r'}_{s'}(V)$ ein Tensor, der kovariant von Stufe $r'$ und kontravariant von Stufe $s'$ ist.
 
-Dann wird das **äußere Tensorprodukt** von $T$ und $T'$ als folgende Abbildung definiert:
+Dann wird das **äußere Tensorprodukt** von $T$ und $T'$ (manchmal auch **Tensormultiplikation** genannt) als folgende Abbildung definiert:
 
 ```{math}
 (T \otimes T')(v_1,\ldots,v_r,v'_1,\ldots,v'_{r'},&w_1,\ldots,w_s,w'_1,\ldots,w'_{s'}) := \\
@@ -1242,16 +1242,46 @@ Dann wird das **äußere Tensorprodukt** von $T$ und $T'$ als folgende Abbildung
 
 ````
 
-Lemma: Antisymmetrischer Tensor (linear abhängig)
-
-Quotientenräume
-
-Vektorräume
-
 ````{prf:definition} Äußeres Produkt
-Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n$ und seien $\Lambda_k(V), \Lambda_l(V)$ die Vektorräume der *antisymmeterischen 
+:label: def:aeusseresProdukt
+
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n$ und seien $\Lambda_k(V), \Lambda_l(V)$ jeweils die Vektorräume der *antisymmetrischen Tensoren* der Stufe $k\in\N$ und $l\in\N$.
+Wir definieren das sogenannte **äußere Produkt** als die folgende Abbildung
+
+```{math}
+\wedge : \Lambda_k(V) \times \Lambda_l(V) &\rightarrow \Lambda_{k+l}(V),\\
+(\omega, \eta) &\mapsto \wedge(\omega,\eta) = \frac{(k+l)!}{k! \, l!} \Pi_-(\omega \otimes \eta).
+```
+
+Häufig wird für das äußere Produkt die Infix-Notation verwendet, d.h., $\omega \wedge \eta :=  \wedge(\omega,\eta)$.
 ````
 
-````{prf:definition} Grassmann-Algebra
+Das folgende Lemma weist auf eine interessante Eigenschaft des Vektorraums der antisymmetrischen Tensoren hin, für den Fall, dass die Stufe der zugehörigen Tensoren größer als die Dimension des zu Grunde liegenden Vektorraums $V$ ist.
 
+````{prf:lemma}
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n \in \N$.
+Sei außerdem $\Lambda_k(V)$ der Vektorraum der antisymmetrischen Tensoren der Stufe $k\in\N$ mit $k > n$.
+Dann gilt schon $\Lambda_k(V) = \lbrace 0 \rbrace$.
+````
+
+````{prf:proof}
+Test
+````
+
+````{prf:remark} Grassmann-Algebra
+Die Menge
+
+```{math}
+\Lambda(V) := \bigoplus_{k=1}^n \Lambda_k(V) = \Lambda_1(V) \times \ldots \times \Lambda_n(V)
+```
+
+bildet zusammen mit den mathematischen Verknüpfungen
+
+* der Tensoraddition $+$
+* und der skalaren Multiplikation $\cdot$ in $\R$
+
+als direkte äußere Summe von Vektorräumen wiederum einen reellen Vektorraum.
+
+Erweitert man diesen um die bilineare Verknüpfung, die durch das äußere Produkt $\wedge$ in {prf:ref}`def:aeusseresProdukt` beschrieben wird, so erhält man eine Algebra.
+Diese wird auch **Grassmann-Algebra** oder **äußere Algebra** genannt.
 ````
