@@ -1140,7 +1140,11 @@ Daher ist das Standardskalarprodukt ein **symmetrischer Tensor**.
 Als zweites Beispiel betrachten wir das sogenannte *Levi-Civita-Symbol*, auch genannt *Epsilon-Tensor*,
 
 ```{math}
-\epsilon_{i_1,\ldots,i_n} : \N^n \rightarrow \lbrace -1, 0, 1 \rbrace,
+\epsilon_{i_1,\ldots,i_n} :=
+\begin{cases}
+\operatorname{sgn}((i_1,\ldots,i_n))&\text{ falls }(i_1,\ldots,i_n)\text{ eine Permutation beschreibt,}\\
+0&\text{ sonst,}
+\end{cases}
 ```
 
 welcher einem Tupel von $n\in\N$ Indizes $(i_1,\ldots,i_n) \in \N^n$ einen Wert zuordnet, je nachdem ob eine gerade oder eine ungerade Anzahl an Vertauschung benötigt wird, um die Indizes in aufsteigender Reihenfolge zu sortieren.
@@ -1152,6 +1156,11 @@ Dies unterscheidet das Levi-Civita-Symbol vom Signum einer Permutation in {prf:r
 Aus dieser Vorschrift lässt sich bereits direkt ableiten, dass es sich beim Levi-Civita-Symbol um einen **antisymmetrischen Tensor** n-ter Stufe handelt, da jede paarweise Vertauschung von Indizes das Vorzeichen des Tensors wechselt.
 
 ````
+
+```{margin} Tullio Levi-Civita
+
+[Tullio Levi-Civita](https://en.wikipedia.org/wiki/Tullio_Levi-Civita) (Geboren 29. März 1873 in Padua; Gestorben 29. Dezember 1941 in Rom) war ein italienischer Mathematiker.
+```
 
 Es stellt sich heraus, dass die Menge der (anti-)symmetrischen Tensoren eine Vektorraumstruktur induzieren, wie das folgende Lemma zeigt.
 
