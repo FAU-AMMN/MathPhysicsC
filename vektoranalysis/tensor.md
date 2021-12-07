@@ -875,7 +875,7 @@ Es sei $V$ ein reeller endlich-dimensionaler Vektorraum und $V^\ast$ der zugehö
 Dann nennt man 
 
 ```{math}
-T^r_s(V) := L(V^r\times (V^\ast)^s; \R)
+T^r_s(V) := L^{r+s}(V^r\times (V^\ast)^s; \R)
 ```
 
 Menge der gemischten Tensoren, welche **kovariant** der Stufe $r$ und **kontravariant** der Stufe $s$ sind.
@@ -937,16 +937,12 @@ Diese haben keine *kontravarianten Komponenten*, sind also sozusagen *rein kovar
 
 **Stufe 0:**
 Wir betrachten Tensoren der Stufe $r+s=0+0=0$.
-Elemente der Menge $T^0_0(V) = L(V^0; \R)$ sind gerade die **Skalare** des zu Grunde liegenden Körpers $\R$, da der Vektorraum $V^0$ nur das Nullelement enthält.
+Elemente der Menge $T^0_0(V) = L^0(V^0; \R)$ sind gerade die **Skalare** des zu Grunde liegenden Körpers $\R$, da der Vektorraum $V^0$ nur das Nullelement enthält.
 
 **Stufe 1:**
 Wir betrachten Tensoren der Stufe $r+s=1+0=1$.
-In diesem Fall entsprechen Elemente der Menge $T^1_0(V) = L(V; \R)$ gerade den **Linearformen** des Vektorraums $V$.
+In diesem Fall entsprechen Elemente der Menge $T^1_0(V) = L^1(V; \R)$ gerade den **Linearformen** des Vektorraums $V$.
 Genauer gesagt handelt es sich um Elemente des *algebraischen Dualraums* $V^\ast$.
-
-**Stufe k:**
-Wir betrachten Tensoren der Stufe $r+s=k+0=k$ für $k\in \N$.
-Diese Tensoren entsprechen gerade den **$\mathbf{k}$-Multilinearformen**, da $T^k_0(V) = L(V^k; \R) \cong L^k(V; \R)$.
 
 **Stufe n:**
 Wir betrachten Tensoren der Stufe $r+s=n+0=n$.
@@ -961,12 +957,12 @@ Diese besitzen keine *kovarianten Komponenten*, sind also sozusagen *rein kontra
 
 **Stufe 1:**
 Wir betrachten Tensoren der Stufe $r+s=0+1=1$.
-In diesem Fall entsprechen Elemente der Menge $T^0_1(V) = L(V^\ast; \R)$ gerade den **Vektoren** des Vektorraums $V$.
+In diesem Fall entsprechen Elemente der Menge $T^0_1(V) = L^1(V^\ast; \R)$ gerade den **Vektoren** des Vektorraums $V$.
 Genauer gesagt handelt es sich um Elemente des *Bidualraums* $V^{**}$, der nach {prf:ref}`rem:doubledual` isomorph zu $V$ ist.
 
 **Stufe 2:**
 Wir betrachten Tensoren der Stufe $r+s=0+2=2$.
-In diesem Fall entsprechen Elemente der Menge $T^0_2(V) = L(V^\ast \times V^\ast; \R)$ sogenannten **Bivektoren** oder **Dyaden**.
+In diesem Fall entsprechen Elemente der Menge $T^0_2(V) = L^2(V^\ast \times V^\ast; \R)$ sogenannten **Bivektoren** oder **Dyaden**.
 Ein Beispiel hierfür sind Tensoren, die durch *dyadische Produkte* erzeugt werden.
 
 ````
@@ -979,7 +975,7 @@ Wir wollen im Folgenden *echt gemischte* Tensoren diskutieren.
 Diese besitzen sowohl kontravariante als auch kovariante Komponenten.
 
 Wir betrachten echt gemischte Tensoren der Stufe $r+s=1+1=2$.
-Die Menge $T^1_1(V) = L(V^\ast \times V; \R)$ enthält dann alle linearen Abbildung, die einer Linearform und einem Vektor eine reelle Zahl zuweisen.
+Die Menge $T^1_1(V) = L^2(V^\ast \times V; \R)$ enthält dann alle linearen Abbildung, die einer Linearform und einem Vektor eine reelle Zahl zuweisen.
 Ein typisches Beispiel für solch einen ist die sogenannte **duale Paarung**
 
 ```{math}
@@ -1124,6 +1120,11 @@ Die Definition von Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus
 
 Im folgenden Beispiel diskutieren wir jeweils einen Vertreter für symmetrische und antisymmetrische Tensoren.
 
+```{margin} Tullio Levi-Civita
+
+[Tullio Levi-Civita](https://en.wikipedia.org/wiki/Tullio_Levi-Civita) (Geboren 29. März 1873 in Padua; Gestorben 29. Dezember 1941 in Rom) war ein italienischer Mathematiker.
+```
+
 ````{prf:example} Symmetrieeigenschaften von Tensoren
 Betrachten wir zunächst das *Standardskalarprodukt*
 
@@ -1156,11 +1157,6 @@ Dies unterscheidet das Levi-Civita-Symbol vom Signum einer Permutation in {prf:r
 Aus dieser Vorschrift lässt sich bereits direkt ableiten, dass es sich beim Levi-Civita-Symbol um einen **antisymmetrischen Tensor** n-ter Stufe handelt, da jede paarweise Vertauschung von Indizes das Vorzeichen des Tensors wechselt.
 
 ````
-
-```{margin} Tullio Levi-Civita
-
-[Tullio Levi-Civita](https://en.wikipedia.org/wiki/Tullio_Levi-Civita) (Geboren 29. März 1873 in Padua; Gestorben 29. Dezember 1941 in Rom) war ein italienischer Mathematiker.
-```
 
 Es stellt sich heraus, dass die Menge der (anti-)symmetrischen Tensoren eine Vektorraumstruktur induzieren, wie das folgende Lemma zeigt.
 
