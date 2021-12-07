@@ -1231,5 +1231,3 @@ Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V)
 ````{prf:definition} Grassmann-Algebra
 
 ````
-
-
