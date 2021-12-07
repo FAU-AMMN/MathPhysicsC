@@ -269,6 +269,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensorfelder">
+   3.3.1. Tensorfelder
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differentialformen-auf-offenen-mengen">
+   3.3.2. Differentialformen auf offenen Mengen
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -281,6 +299,15 @@
 <h1><span class="section-number">3.3. </span>Differentialformen<a class="headerlink" href="#differentialformen" title="Permalink to this headline">¶</a></h1>
 <p>In diesem Kapitel werden wir nun <a class="reference external" href="https://de.wikipedia.org/wiki/Differentialform">Differentialformen</a> einführen. Die entscheidende Neuerung im Vergleich zum vorhergehenden Kapitel, ist
 dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen, speziell betrachten wir eine offene Menge <span class="math notranslate nohighlight">\(U\subset\R^n\)</span>. Ein weiterer wichtiger Aspekt, ist dass wir im Folgenden mit glatten Funktion arbeiten wollen, d.h., mit dem Raum <span class="math notranslate nohighlight">\(C^\infty(U,\R^n)\)</span>.</p>
+<div class="section" id="tensorfelder">
+<h2><span class="section-number">3.3.1. </span>Tensorfelder<a class="headerlink" href="#tensorfelder" title="Permalink to this headline">¶</a></h2>
+<p>Der Begriff <strong>Feld</strong> tritt in sowohl in der Physik als auch in der Mathematik auf. Anschaulich versteht man unter einem Feld die Verteilung einer Größe über den Raum. Beispielweise versteht man unter Vektorfeldern eine Funktion</p>
+<div class="math notranslate nohighlight">
+\[F:U\to \R^m\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(U\)</span> eine Teilmenge des <span class="math notranslate nohighlight">\(\R^n\)</span> ist. Das Konzept hierbei ist also, anstatt nur Vektoren <span class="math notranslate nohighlight">\(y\in\R^m\)</span> zu betrachten, ordnet ein <strong>Feld</strong> jedem <span class="math notranslate nohighlight">\(x\in U\)</span> einen Vektor <span class="math notranslate nohighlight">\(F(x)\in\R^m\)</span> zu. Wir wollen im Folgenden die Zielmenge <span class="math notranslate nohighlight">\(\R^m\)</span> durch Tensorräume ersetzen. Zusätzlich, schränken wir uns nur auf glatte, d.h., unendlich oft differenzierbare Funktionen ein.</p>
+</div>
+<div class="section" id="differentialformen-auf-offenen-mengen">
+<h2><span class="section-number">3.3.2. </span>Differentialformen auf offenen Mengen<a class="headerlink" href="#differentialformen-auf-offenen-mengen" title="Permalink to this headline">¶</a></h2>
 <p>Eine Differentialform <span class="math notranslate nohighlight">\(\omega\)</span> auf <span class="math notranslate nohighlight">\(U\subseteq\R^n\)</span> ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.</p>
 <p>Wir schreiben eine allgemeine <em><span class="math notranslate nohighlight">\(k\)</span>–Form</em> <span class="math notranslate nohighlight">\(\omega\)</span> in der <em>Grundform</em></p>
 <div class="math notranslate nohighlight">
@@ -317,7 +344,7 @@ dx_1\wedge\ldots\wedge dx_{i_k}\)</span></p></li>
 </ul>
 <p>definiert ist. <span class="math notranslate nohighlight">\(d\)</span> verwandelt eine <span class="math notranslate nohighlight">\(k\)</span>–Form also in eine <span class="math notranslate nohighlight">\((k+1)\)</span>–Form.</p>
 <div class="proof definition admonition" id="aeussere Ableitung">
-<p class="admonition-title"><span class="caption-number">Definition 3.11 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.12 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Die lineare Abbildung <span class="math notranslate nohighlight">\(d:\Omega^*(U)\to\Omega^*(U)\)</span> heißt <a class="reference external" href="https://de.wikipedia.org/wiki/%C3%84u%C3%9Fere_Ableitung"><strong>äußere Ableitung</strong></a>.</p>
 </div>
@@ -395,7 +422,7 @@ können.</p>
 ist das Ergebnis Null.</p>
 </div>
 <div class="proof definition admonition" id="geschlossen:exakt">
-<p class="admonition-title"><span class="caption-number">Definition 3.12 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.13 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Eine Differentialform <span class="math notranslate nohighlight">\(v\in\Omega^*(U)\)</span> heißt</p>
 <ul class="simple">
@@ -405,6 +432,7 @@ ist das Ergebnis Null.</p>
 <a class="reference external" href="https://de.wikipedia.org/wiki/Poincar%c3%a9-Lemma"><strong>Poincaré-Lemma</strong></a> ),  siehe Kapitel <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">sect:Poinca</span></code>).</p>
 </div>
 </div></div>
+</div>
 
     <script type="text/x-thebe-config">
     {

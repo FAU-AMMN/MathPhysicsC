@@ -300,8 +300,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#symmetrische-und-antisymmetrische-tensoren">
-   3.2.6. Symmetrische und antisymmetrische Tensoren
+  <a class="reference internal nav-link" href="#symmetrie-und-antisymmetrie-von-tensoren">
+   3.2.6. Symmetrie und Antisymmetrie von Tensoren
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -902,7 +902,7 @@ Somit erhalten wir also auch einen Isomorphismus</p>
 Diese Aussage lässt sich mit Hilfe von <a class="reference internal" href="#rem:kfachesTensorprodukt">Remark 3.7</a> auch auf das <span class="math notranslate nohighlight">\(k\)</span>-fache Tensorprodukt verallgemeinern.
 Hier erhält man dann das Resultat, dass sich Tensoren als <span class="math notranslate nohighlight">\(k\)</span>-Multilinearformen interpretieren lassen mit</p>
 <div class="math notranslate nohighlight">
-\[\V_1\otimes\ldots\otimes\V_k \cong L^k(\V_1\times\ldots\V_k;\R) \cong L(\V_1\otimes\ldots\V_k;\R).\]</div>
+\[\V_1\otimes\ldots\otimes\V_k \cong L^k(\V_1\times\ldots\times\V_k;\R) \cong L(\V_1\otimes\ldots \otimes\V_k;\R).\]</div>
 <p>In <a class="reference internal" href="#equation-eq-transitivisomorphismus">(3.4)</a> haben wir die Transitivitätseigenschaft des Tensorprodukts ausgenutzt, um <em>beide</em> Vektorräume mit ihren jeweiligen algebraischen Dualräumen zu identifizieren.
 Dies muss jedoch nicht sein, denn wir hätten genauso gut <strong>gemischte Tensorprodukte</strong> der Form <span class="math notranslate nohighlight">\(V \otimes W^\ast\)</span> oder <span class="math notranslate nohighlight">\(V^\ast \otimes W\)</span> betrachten können, wenn wir die triviale Identifikation <span class="math notranslate nohighlight">\(V \cong V\)</span> oder <span class="math notranslate nohighlight">\(W \cong W\)</span> nutzen.
 Daher wollen wir im Folgenden Tensoren einer allgemeineren Form betrachten, nämlich solche, die für kartesische Produkte der Form <span class="math notranslate nohighlight">\(V^r\times (V^\ast)^s\)</span> mit <span class="math notranslate nohighlight">\(r+s=k\)</span> definiert sind.</p>
@@ -912,8 +912,8 @@ Daher wollen wir im Folgenden Tensoren einer allgemeineren Form betrachten, näm
 <p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein reeller endlich-dimensionaler Vektorraum und <span class="math notranslate nohighlight">\(V^\ast\)</span> der zugehörige algebraische Dualraum.
 Dann nennt man</p>
 <div class="math notranslate nohighlight">
-\[T^r_s(V) := L(V^r\times (V^\ast)^s; \R)\]</div>
-<p>Menge der gemischten Tensoren, welche <strong>kovariant</strong> der Stufe <span class="math notranslate nohighlight">\(r\)</span> und <strong>kontravariant</strong> der Stufe <span class="math notranslate nohighlight">\(s\)</span> sind.
+\[T^r_s(V) := L^k(V^r\times (V^\ast)^s; \R)\]</div>
+<p>für <span class="math notranslate nohighlight">\(k = r+s \in \N\)</span> die Menge der gemischten Tensoren, welche <strong>kovariant</strong> der Stufe <span class="math notranslate nohighlight">\(r\)</span> und <strong>kontravariant</strong> der Stufe <span class="math notranslate nohighlight">\(s\)</span> sind.
 In manchen Kontexten spricht man auch nur von <strong>gemischten Tensoren der Stufe <span class="math notranslate nohighlight">\(k=r+s\)</span></strong>.</p>
 </div>
 </div><p>Die folgende Bemerkung erklärt, woher die Begriffe <em>Kovarianz</em> und <em>Kontravarianz</em> stammen.</p>
@@ -958,17 +958,17 @@ Wir wollen im Folgenden Tensoren unterschiedlicher Stufen betrachten, die Multil
 Diese haben keine <em>kontravarianten Komponenten</em>, sind also sozusagen <em>rein kovariant</em>.</p>
 <p><strong>Stufe 0:</strong>
 Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=0+0=0\)</span>.
-Elemente der Menge <span class="math notranslate nohighlight">\(T^0_0(V) = L(V^0; \R)\)</span> sind gerade die <strong>Skalare</strong> des zu Grunde liegenden Körpers <span class="math notranslate nohighlight">\(\R\)</span>, da der Vektorraum <span class="math notranslate nohighlight">\(V^0\)</span> nur das Nullelement enthält.</p>
+Elemente der Menge <span class="math notranslate nohighlight">\(T^0_0(V) = L^0(V^0; \R)\)</span> sind gerade die <strong>Skalare</strong> des zu Grunde liegenden Körpers <span class="math notranslate nohighlight">\(\R\)</span>, da der Vektorraum <span class="math notranslate nohighlight">\(V^0\)</span> nur das Nullelement enthält.</p>
 <p><strong>Stufe 1:</strong>
 Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=1+0=1\)</span>.
-In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohighlight">\(T^1_0(V) = L(V; \R)\)</span> gerade den <strong>Linearformen</strong> des Vektorraums <span class="math notranslate nohighlight">\(V\)</span>.
+In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohighlight">\(T^1_0(V) = L^1(V; \R)\)</span> gerade den <strong>Linearformen</strong> des Vektorraums <span class="math notranslate nohighlight">\(V\)</span>.
 Genauer gesagt handelt es sich um Elemente des <em>algebraischen Dualraums</em> <span class="math notranslate nohighlight">\(V^\ast\)</span>.</p>
 <p><strong>Stufe k:</strong>
 Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=k+0=k\)</span> für <span class="math notranslate nohighlight">\(k\in \N\)</span>.
-Diese Tensoren entsprechen gerade den <strong><span class="math notranslate nohighlight">\(\mathbf{k}\)</span>-Multilinearformen</strong>, da <span class="math notranslate nohighlight">\(T^k_0(V) = L(V^k; \R) \cong L^k(V; \R)\)</span>.</p>
+Diese Tensoren entsprechen gerade den <strong><span class="math notranslate nohighlight">\(\mathbf{k}\)</span>-Multilinearformen</strong>, da <span class="math notranslate nohighlight">\(T^k_0(V) = L^k(V^k; \R) = L^k(V; \R)\)</span>.</p>
 <p><strong>Stufe n:</strong>
 Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=n+0=n\)</span>.
-Ein Beispiel für Elemente der Menge <span class="math notranslate nohighlight">\(T^n_0(V) = L(V^n; \R)\)</span> ist die <strong>Determinante</strong> einer <span class="math notranslate nohighlight">\(n \times n\)</span>-Matrix.</p>
+Ein Beispiel für Elemente der Menge <span class="math notranslate nohighlight">\(T^n_0(V) = L^n(V^n; \R)\)</span> ist die <strong>Determinante</strong> einer <span class="math notranslate nohighlight">\(n \times n\)</span>-Matrix.</p>
 </div>
 </div><p>Betrachten wir als Nächstes den Spezialfall von rein kontravarianten Tensoren.</p>
 <div class="proof example admonition" id="example-22">
@@ -978,11 +978,11 @@ Ein Beispiel für Elemente der Menge <span class="math notranslate nohighlight">
 Diese besitzen keine <em>kovarianten Komponenten</em>, sind also sozusagen <em>rein kontravariant</em>.</p>
 <p><strong>Stufe 1:</strong>
 Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=0+1=1\)</span>.
-In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohighlight">\(T^0_1(V) = L(V^\ast; \R)\)</span> gerade den <strong>Vektoren</strong> des Vektorraums <span class="math notranslate nohighlight">\(V\)</span>.
+In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohighlight">\(T^0_1(V) = L^1(V^\ast; \R)\)</span> gerade den <strong>Vektoren</strong> des Vektorraums <span class="math notranslate nohighlight">\(V\)</span>.
 Genauer gesagt handelt es sich um Elemente des <em>Bidualraums</em> <span class="math notranslate nohighlight">\(V^{**}\)</span>, der nach <a class="reference internal" href="multilinear.html#rem:doubledual">Remark 3.4</a> isomorph zu <span class="math notranslate nohighlight">\(V\)</span> ist.</p>
 <p><strong>Stufe 2:</strong>
 Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=0+2=2\)</span>.
-In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohighlight">\(T^0_2(V) = L(V^\ast \times V^\ast; \R)\)</span> sogenannten <strong>Bivektoren</strong> oder <strong>Dyaden</strong>.
+In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohighlight">\(T^0_2(V) = L^2(V^\ast \times V^\ast; \R)\)</span> sogenannten <strong>Bivektoren</strong> oder <strong>Dyaden</strong>.
 Ein Beispiel hierfür sind Tensoren, die durch <em>dyadische Produkte</em> erzeugt werden.</p>
 </div>
 </div><p>Abschließend betrachten wir noch ein Beispiel für echt gemischte Tensoren.</p>
@@ -993,7 +993,7 @@ Ein Beispiel hierfür sind Tensoren, die durch <em>dyadische Produkte</em> erzeu
 Wir wollen im Folgenden <em>echt gemischte</em> Tensoren diskutieren.
 Diese besitzen sowohl kontravariante als auch kovariante Komponenten.</p>
 <p>Wir betrachten echt gemischte Tensoren der Stufe <span class="math notranslate nohighlight">\(r+s=1+1=2\)</span>.
-Die Menge <span class="math notranslate nohighlight">\(T^1_1(V) = L(V^\ast \times V; \R)\)</span> enthält dann alle linearen Abbildung, die einer Linearform und einem Vektor eine reelle Zahl zuweisen.
+Die Menge <span class="math notranslate nohighlight">\(T^1_1(V) = L^2(V^\ast \times V; \R)\)</span> enthält dann alle linearen Abbildung, die einer Linearform und einem Vektor eine reelle Zahl zuweisen.
 Ein typisches Beispiel für solch einen ist die sogenannte <strong>duale Paarung</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\langle \cdot, \cdot \rangle \colon V^\ast \times V &amp;\rightarrow \R,\\
@@ -1002,8 +1002,8 @@ Ein typisches Beispiel für solch einen ist die sogenannte <strong>duale Paarung
 Die duale Paarung stellt eine <em>Verallgemeinerung des Skalarprodukts</em> dar.</p>
 </div>
 </div></div>
-<div class="section" id="symmetrische-und-antisymmetrische-tensoren">
-<h2><span class="section-number">3.2.6. </span>Symmetrische und antisymmetrische Tensoren<a class="headerlink" href="#symmetrische-und-antisymmetrische-tensoren" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="symmetrie-und-antisymmetrie-von-tensoren">
+<h2><span class="section-number">3.2.6. </span>Symmetrie und Antisymmetrie von Tensoren<a class="headerlink" href="#symmetrie-und-antisymmetrie-von-tensoren" title="Permalink to this headline">¶</a></h2>
 <p>Oft spielen gerade in der Physik spezielle Familien von Tensoren eine wichtige Rolle, nämlich <em>symmetrische</em> und <em>antisymmetrische Tensoren</em>.
 Diese Operatoren zeichnen sich durch ihr Verhalten unter Vertauschung von Argumenten aus und werden besonders in der Quantenmechanik und Kontinuumsmechanik betrachtet.</p>
 <p>Bevor wir die Symmetrieeigenschaften von Tensoren definieren können, benötigen wir weitere Hilfsmittel aus der Kombinatorik.
@@ -1014,10 +1014,33 @@ Die Vertauschung von Argumenten entspricht einer Permutationsabbildung und daher
 <p>Sei <span class="math notranslate nohighlight">\(k\in\N\)</span> und <span class="math notranslate nohighlight">\(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\)</span> eine Permutation der Indizes <span class="math notranslate nohighlight">\(1,\ldots,k\)</span>.
 Dann bezeichnen wir mit <span class="math notranslate nohighlight">\(\operatorname{sgn}(\pi) := (-1)^{|\operatorname{inv}(\pi)|}\)</span> das sogenannte <strong>Signum der Permutation</strong> <span class="math notranslate nohighlight">\(\pi\)</span>, für das man die Menge der Fehlstände der Permutation <span class="math notranslate nohighlight">\(\operatorname{inv}(\pi)\)</span> betrachtet mit:</p>
 <div class="math notranslate nohighlight">
-\[\operatorname{inv}(\pi) := \lbrace (i,j) \in \lbrace 1, \ldots, k \rbrace \times \lbrace 1, \ldots, k \rbrace  : i &lt; j, \pi(i) &gt; \pi(j) \rbrace.\]</div>
+\[\operatorname{inv}(\pi) := \lbrace i,j \in \lbrace 1, \ldots, k \rbrace : i &lt; j, \pi(i) &gt; \pi(j) \rbrace.\]</div>
+</div>
+</div><div class="proof remark admonition" id="remark-25">
+<p class="admonition-title"><span class="caption-number">Remark 3.10 </span> (Signum durch Transpositionen)</p>
+<div class="remark-content section" id="proof-content">
+<p>Man erhält eine äquivalente Definition indem man die Darstellung einer Permuattaion durch Transpositionen betrachtet. Eine Permuation vertauscht genau zwei Zahlen, konkret, definiert man für <span class="math notranslate nohighlight">\(r,l\in\{1,\ldots,k\}\)</span> die Permutation <span class="math notranslate nohighlight">\(\tau_{rl}:\{1,\ldots,k\}\to\{1,\ldots,k\}\)</span> wie folgt,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\tau_{rl}(i) = 
+\begin{cases}
+l&amp;\text{ falls } i=r,\\
+r&amp;\text{ falls } i=l,\\
+i\text{ sonst}
+\end{cases}.\end{split}\]</div>
+<p>Jede Permutation lässt sich als Verkettung von Nachbarvertauschung darstellen, also Permutationen von benachbarten Elemneten. Konkret gilt für <span class="math notranslate nohighlight">\(r&lt;l\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\tau_{rl} = \underbrace{\left(\tau_{l-1,l}\circ\ldots\circ \tau_{r+1,r+2} \right)}_{\text{Element }r\text{ nach vorne durchreichen}}\circ
+\underbrace{\left(\tau_{r,r+1}\circ\ldots\circ \tau_{l-1,l} \right)}_{\text{Elemnet }l\text{ nach hinten durchreichen}}\]</div>
+<p>und da jede Nachbarvertauschung einen Fehlstand produziert gilt</p>
+<div class="math notranslate nohighlight">
+\[|\operatorname{inv}\tau_{rl}| = (l-r) + (l-r-1) = 2(l-r)-1\]</div>
+<p>was stets ungerade ist und somit haben wir <span class="math notranslate nohighlight">\(\operatorname{sgn}(\tau_{rl}) = -1\)</span> für belibiebige Transpositionen ungleich der Identität.
+Sei <span class="math notranslate nohighlight">\(\pi\)</span> nun eine Permutation und <span class="math notranslate nohighlight">\(M(\pi)\)</span> die Anzahl der Transpostionen mit welcher wir <span class="math notranslate nohighlight">\(\pi\)</span> darstellen können, dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{sgn}(\pi) = -1^{M(\pi)}.\]</div>
 </div>
 </div><p>Das folgende einfache Beispiel illustriert die Berechnung des Signums einer Permutation.</p>
-<div class="proof example admonition" id="example-25">
+<div class="proof example admonition" id="example-26">
 <p class="admonition-title"><span class="caption-number">Example 3.12 </span> (Signum zweier Permutationen)</p>
 <div class="example-content section" id="proof-content">
 <p>Wir betrachten im Folgenden zwei verschiedene Permutationen</p>
@@ -1062,7 +1085,11 @@ Dies trifft auf folgende Paare von Elementen zu:</p>
 Analog lässt sich die (Anti-)Symmetrie eines rein kovarianten Tensors <span class="math notranslate nohighlight">\(T \in T^k_0(V)\)</span> von Stufe <span class="math notranslate nohighlight">\(k\)</span> definieren.
 Die Definition von Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus <a class="reference internal" href="#def:gemischteTensoren">Definition 3.5</a> ist hingegen wenig sinnvoll, da die Rechenvorschrift eine gemischten Tensors unter beliebigen Permutationen der Argumente nicht mehr wohldefiniert sein muss.</p>
 <p>Im folgenden Beispiel diskutieren wir jeweils einen Vertreter für symmetrische und antisymmetrische Tensoren.</p>
-<div class="proof example admonition" id="example-27">
+<div class="margin sidebar">
+<p class="sidebar-title">Tullio Levi-Civita</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Tullio_Levi-Civita">Tullio Levi-Civita</a> (Geboren 29. März 1873 in Padua; Gestorben 29. Dezember 1941 in Rom) war ein italienischer Mathematiker.</p>
+</div>
+<div class="proof example admonition" id="example-28">
 <p class="admonition-title"><span class="caption-number">Example 3.13 </span> (Symmetrieeigenschaften von Tensoren)</p>
 <div class="example-content section" id="proof-content">
 <p>Betrachten wir zunächst das <em>Standardskalarprodukt</em></p>
@@ -1074,7 +1101,11 @@ Daher ist das Standardskalarprodukt ein <strong>symmetrischer Tensor</strong>.</
 <br/>
 <p>Als zweites Beispiel betrachten wir das sogenannte <em>Levi-Civita-Symbol</em>, auch genannt <em>Epsilon-Tensor</em>,</p>
 <div class="math notranslate nohighlight">
-\[\epsilon_{i_1,\ldots,i_n} : \N^n \rightarrow \lbrace -1, 0, 1 \rbrace,\]</div>
+\[\begin{split}\epsilon_{i_1,\ldots,i_n} :=
+\begin{cases}
+\operatorname{sgn}((i_1,\ldots,i_n))&amp;\text{ falls }(i_1,\ldots,i_n)\text{ eine Permutation beschreibt,}\\
+0&amp;\text{ sonst,}
+\end{cases}\end{split}\]</div>
 <p>welcher einem Tupel von <span class="math notranslate nohighlight">\(n\in\N\)</span> Indizes <span class="math notranslate nohighlight">\((i_1,\ldots,i_n) \in \N^n\)</span> einen Wert zuordnet, je nachdem ob eine gerade oder eine ungerade Anzahl an Vertauschung benötigt wird, um die Indizes in aufsteigender Reihenfolge zu sortieren.
 Wird eine gerade Anzahl an Vertauschungen benötigt, so gilt <span class="math notranslate nohighlight">\(\epsilon_{i_1,\ldots,i_n} = +1\)</span>.
 Wird eine ungerade Anzahl an Vertauschungen benötigt, so gilt <span class="math notranslate nohighlight">\(\epsilon_{i_1,\ldots,i_n} = -1\)</span>.
@@ -1083,7 +1114,7 @@ Dies unterscheidet das Levi-Civita-Symbol vom Signum einer Permutation in <a cla
 <p>Aus dieser Vorschrift lässt sich bereits direkt ableiten, dass es sich beim Levi-Civita-Symbol um einen <strong>antisymmetrischen Tensor</strong> n-ter Stufe handelt, da jede paarweise Vertauschung von Indizes das Vorzeichen des Tensors wechselt.</p>
 </div>
 </div><p>Es stellt sich heraus, dass die Menge der (anti-)symmetrischen Tensoren eine Vektorraumstruktur induzieren, wie das folgende Lemma zeigt.</p>
-<div class="proof lemma admonition" id="lemma-28">
+<div class="proof lemma admonition" id="lemma-29">
 <p class="admonition-title"><span class="caption-number">Lemma 3.8 </span> (Vektorraum der (anti-)symmetrischen Tensoren)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n \in \N\)</span> und sei <span class="math notranslate nohighlight">\(k \in \N\)</span> mit <span class="math notranslate nohighlight">\(k \leq n\)</span>.
@@ -1116,25 +1147,39 @@ T(v_1, \ldots, v_k) &amp;\mapsto (\Pi_- T)(v_1, \ldots, v_k) := \frac{1}{k!} \su
 T(v_1, \ldots, v_k) &amp;\mapsto (\Pi_+ T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\end{split}\]</div>
 <p>Diese Projektionsabbildung weist jedem Tensor <span class="math notranslate nohighlight">\(T\in T_k^0\)</span> der Stufe <span class="math notranslate nohighlight">\(k\)</span> einen symmetrischen Tensor <span class="math notranslate nohighlight">\(\Pi_+(T) \in \mathcal{S}_k(V)\)</span> zu.</p>
 </div>
-</div><div class="proof remark admonition" id="remark-30">
-<p class="admonition-title"><span class="caption-number">Remark 3.10 </span></p>
+</div><div class="proof remark admonition" id="remark-31">
+<p class="admonition-title"><span class="caption-number">Remark 3.11 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Die Bezeichnung <strong>fermionisch</strong> und <strong>bosonisch</strong> in <a class="reference internal" href="#def:fermionischeProjektion">Definition 3.8</a> stammen daher, dass symmetrische Tensorprodukte <em>identische Bosonen</em> in der Quantenmechanik beschreiben, wohingegen antisymmetrische Tensorprodukte <em>identischen Fermionen</em> zugeordnet werden. Weitere Informationen findet man beispielsweise unter <a class="reference external" href="https://de.wikipedia.org/wiki/Ununterscheidbare_Teilchen#Ununterscheidbarkeit_in_der_Quantenmechanik">Ununterscheidbarkeit von Teilchen in der Quantenmechanik</a>.</p>
 </div>
 </div></div>
 <div class="section" id="grassmann-algebra">
 <h2><span class="section-number">3.2.7. </span>Grassmann-Algebra<a class="headerlink" href="#grassmann-algebra" title="Permalink to this headline">¶</a></h2>
-<p>Tensorprodukt von Tensoren</p>
-<p>Lemma: Antisymmetrischer Tensor (linear abhängig)</p>
+<p>Im letzten Abschnitt haben wir gesehen, dass die Menge der antisymmetrischen Tensoren von Stufe zusammen mit der Addition von Tensoren der gleichen Stufe einen Vektorraum <span class="math notranslate nohighlight">\(\Lambda_k(V)\)</span> bildet.
+Im Folgenden werden wir sehen, dass wir sogar noch mehr Struktur in Form einer Algebra erhalten, wenn wir den Vektorraum mit einer verträglichen Multiplikation von Tensoren erweitern.</p>
+<p>Zunächst wollen wir das äußere Produkt zweier Tensoren definieren.</p>
+<div class="proof definition admonition" id="definition-32">
+<p class="admonition-title"><span class="caption-number">Definition 3.9 </span> (Äußeres Produkt von Tensoren)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum und seien <span class="math notranslate nohighlight">\(r,r',s,s' \in \N\)</span>.
+Sei außerdem <span class="math notranslate nohighlight">\(T \in T^r_s(V)\)</span> ein Tensor, der kovariant von Stufe <span class="math notranslate nohighlight">\(r\)</span> und kontravariant von Stufe <span class="math notranslate nohighlight">\(s\)</span> ist und sei <span class="math notranslate nohighlight">\(T' \in T^{r'}_{s'}(V)\)</span> ein Tensor, der kovariant von Stufe <span class="math notranslate nohighlight">\(r'\)</span> und kontravariant von Stufe <span class="math notranslate nohighlight">\(s'\)</span> ist.</p>
+<p>Dann wird das <strong>äußere Tensorprodukt</strong> von <span class="math notranslate nohighlight">\(T\)</span> und <span class="math notranslate nohighlight">\(T'\)</span> als folgende Abbildung definiert:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(T \otimes T')(v_1,\ldots,v_r,v'_1,\ldots,v'_{r'},&amp;w_1,\ldots,w_s,w'_1,\ldots,w'_{s'}) := \\
+&amp;T(v_1,\ldots,v_r,w_1,\ldots,w_s)\cdot T'(v'_1,\ldots,v'_{r'},w'_1,\ldots,w'_{s'}).\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\otimes : T^r_s(V) \times T^{r'}_{s'}(V) \rightarrow T^{r+r'}_{s+s'}(V),\]</div>
+</div>
+</div><p>Lemma: Antisymmetrischer Tensor (linear abhängig)</p>
 <p>Quotientenräume</p>
 <p>Vektorräume</p>
-<div class="proof definition admonition" id="definition-31">
-<p class="admonition-title"><span class="caption-number">Definition 3.9 </span> (Äußeres Produkt)</p>
+<div class="proof definition admonition" id="definition-33">
+<p class="admonition-title"><span class="caption-number">Definition 3.10 </span> (Äußeres Produkt)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n\)</span> und seien <span class="math notranslate nohighlight">\(\Lambda_k(V), \Lambda_l(V)\)</span> die Vektorräume der *antisymmeterischen</p>
 </div>
-</div><div class="proof definition admonition" id="definition-32">
-<p class="admonition-title"><span class="caption-number">Definition 3.10 </span> (Grassmann-Algebra)</p>
+</div><div class="proof definition admonition" id="definition-34">
+<p class="admonition-title"><span class="caption-number">Definition 3.11 </span> (Grassmann-Algebra)</p>
 <div class="definition-content section" id="proof-content">
 </div>
 </div></div>
