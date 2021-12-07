@@ -54,16 +54,11 @@ def replace_underscore(m):
     s = m.groups(1)[0]
     return r'\includegraphics[width=\textwidth]{' + re.sub(r'_', r'\\string_', s, flags = re.M) + r'}'
 
-with open (path+file_name+extension, 'r' ) as f:
-    content = f.read()
-    
-    
-    # preamble
-    content_new = re.sub(r'\\sphinx(.*?)', r'\\\1', content, flags = re.M)
-    
-    # graphics
-    #content_new = re.sub(r'\\noindent\\includegraphics\{(.*?)\}\n', r'', content_new, flags = re.M)
-    
+def graphics(content):
+    # replace optional arguments
+    content_new =  re.sub(r'\\includegraphics\[(.*?)]\{(.*?)\}', r'\\includegraphics{\2}', content, flags = re.M)
+
+    # path specification
     content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)\\(.*?)\}.png\}',
                          r'\\includegraphics{\3.png}', content_new, flags = re.M)
     content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)/(.*?)\}.png\}',
@@ -75,9 +70,22 @@ with open (path+file_name+extension, 'r' ) as f:
     content_new = re.sub(r'\\includegraphics\{(.*?).png\}',
                          r'\\includegraphics{../_build/html/_images/\1.png}', content_new, flags = re.M)
     content_new = re.sub(r'\\includegraphics\{(.*?)\}', replace_underscore, content_new, flags = re.M)
+    return content_new
 
-    content_new = re.sub(r'\\capstart', r'', content_new, flags = re.M)                    
+
+with open (path+file_name+extension, 'r' ) as f:
+    content = f.read()
+    
+    
+    # preamble
+    content_new = re.sub(r'\\sphinx(.*?)', r'\\\1', content, flags = re.M)
+    
+    # graphics
+    content_new = graphics(content_new)
+    
+                   
     # Misc
+    content_new = re.sub(r'\\capstart', r'', content_new, flags = re.M) 
     content_new = re.sub(r'\\hyphen{}', r' ', content_new, flags = re.M)
     content_new = re.sub(r'\\styleemphasis', '\\emph', content_new, flags = re.M)
     content_new = re.sub(r'\\styleemphasis', '\\emph', content_new, flags = re.M)
@@ -85,6 +93,8 @@ with open (path+file_name+extension, 'r' ) as f:
     content_new = re.sub(r'\\makeindex', '', content_new, flags = re.M)
     content_new = re.sub(r'\\maketitle', '', content_new, flags = re.M)
     content_new = re.sub(r'\\tableofcontents', '', content_new, flags = re.M)
+    content_new = re.sub(r'\\unicode\{(.*?)\}', r'\\symbol{"\1}', content_new, flags = re.M)
+    content_new = re.sub(r'\\code\{(.*?)\}', r'{\1 broken reference}', content_new, flags = re.M)
     
     # theorems and proofs
     content_new = match_theorems(content_new)
@@ -137,9 +147,7 @@ with open (path+file_name+extension, 'r' ) as f:
     
     # Par
     content_new = re.sub(r'\\AtStartPar', r'\\par', content_new, flags = re.M)
-
-    # Par
-    content_new = re.sub(r'\\unicode\{(.*?)\}', r'\\symbol{"\1}', content_new, flags = re.M)
+    
     
     
     # get rid of certain commands
@@ -149,6 +157,7 @@ with open (path+file_name+extension, 'r' ) as f:
     content_new = re.sub(r'\\styletheadfamily', r'', content_new, flags = re.M)
     content_new = re.sub(r'\\pagestyle\{(.*?)\}', r'', content_new, flags = re.M)
     content_new = re.sub(r'\\DUrole{xref,myst}{}',r'', content_new, flags = re.M)
+    content_new = re.sub(r'\\upquote\{(.*?)\}',r'\1', content_new, flags = re.M)
     
     # Umlaute
     special = {'ß':'\ss{}', 'ä':'\"a', 'ü':'\"ü', 'ö':'\"ü'}
