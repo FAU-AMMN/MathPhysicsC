@@ -937,16 +937,16 @@ Diese haben keine *kontravarianten Komponenten*, sind also sozusagen *rein kovar
 
 **Stufe 0:**
 Wir betrachten Tensoren der Stufe $r+s=0+0=0$.
-Elemente der Menge $T^0_0(V) = L(V^0; \R)$ sind gerade die **Skalare** des zu Grunde liegenden Körpers $\R$, da der Vektorraum $V^0$ nur das Nullelement enthält.
+Elemente der Menge $T^0_0(V) = L^0(V^0; \R)$ sind gerade die **Skalare** des zu Grunde liegenden Körpers $\R$, da der Vektorraum $V^0$ nur das Nullelement enthält.
 
 **Stufe 1:**
 Wir betrachten Tensoren der Stufe $r+s=1+0=1$.
-In diesem Fall entsprechen Elemente der Menge $T^1_0(V) = L(V; \R)$ gerade den **Linearformen** des Vektorraums $V$.
+In diesem Fall entsprechen Elemente der Menge $T^1_0(V) = L^1(V; \R)$ gerade den **Linearformen** des Vektorraums $V$.
 Genauer gesagt handelt es sich um Elemente des *algebraischen Dualraums* $V^\ast$.
 
 **Stufe k:**
 Wir betrachten Tensoren der Stufe $r+s=k+0=k$ für $k\in \N$.
-Diese Tensoren entsprechen gerade den **$\mathbf{k}$-Multilinearformen**, da $T^k_0(V) = L^k(V^k; \R) = L^k(V; \R).
+Diese Tensoren entsprechen gerade den **$\mathbf{k}$-Multilinearformen**, da $T^k_0(V) = L^k(V^k; \R) = L^k(V; \R)$.
 
 **Stufe n:**
 Wir betrachten Tensoren der Stufe $r+s=n+0=n$.
@@ -961,7 +961,7 @@ Diese besitzen keine *kovarianten Komponenten*, sind also sozusagen *rein kontra
 
 **Stufe 1:**
 Wir betrachten Tensoren der Stufe $r+s=0+1=1$.
-In diesem Fall entsprechen Elemente der Menge $T^0_1(V) = L(V^\ast; \R)$ gerade den **Vektoren** des Vektorraums $V$.
+In diesem Fall entsprechen Elemente der Menge $T^0_1(V) = L^1(V^\ast; \R)$ gerade den **Vektoren** des Vektorraums $V$.
 Genauer gesagt handelt es sich um Elemente des *Bidualraums* $V^{**}$, der nach {prf:ref}`rem:doubledual` isomorph zu $V$ ist.
 
 **Stufe 2:**
@@ -1007,8 +1007,42 @@ Sei $k\in\N$ und $\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\l
 Dann bezeichnen wir mit $\operatorname{sgn}(\pi) := (-1)^{|\operatorname{inv}(\pi)|}$ das sogenannte **Signum der Permutation** $\pi$, für das man die Menge der Fehlstände der Permutation $\operatorname{inv}(\pi)$ betrachtet mit:
 
 ```{math}
-\operatorname{inv}(\pi) := \lbrace (i,j) \in \lbrace 1, \ldots, k \rbrace \times \lbrace 1, \ldots, k \rbrace  : i < j, \pi(i) > \pi(j) \rbrace.
+\operatorname{inv}(\pi) := \lbrace i,j \in \lbrace 1, \ldots, k \rbrace : i < j, \pi(i) > \pi(j) \rbrace.
 ```
+````
+
+````{prf:remark} Signum durch Transpositionen
+Man erhält eine äquivalente Definition indem man die Darstellung einer Permuattaion durch Transpositionen betrachtet. Eine Permuation vertauscht genau zwei Zahlen, konkret, definiert man für $r,l\in\{1,\ldots,k\}$ die Permutation $\tau_{rl}:\{1,\ldots,k\}\to\{1,\ldots,k\}$ wie folgt,
+
+```{math}
+\tau_{rl}(i) = 
+\begin{cases}
+l&\text{ falls } i=r,\\
+r&\text{ falls } i=l,\\
+i\text{ sonst}
+\end{cases}.
+```
+
+Jede Permutation lässt sich als Verkettung von Nachbarvertauschung darstellen, also Permutationen von benachbarten Elemneten. Konkret gilt für $r<l$,
+
+```{math}
+\tau_{rl} = \underbrace{\left(\tau_{l-1,l}\circ\ldots\circ \tau_{r+1,r+2} \right)}_{\text{Element }r\text{ nach vorne durchreichen}}\circ
+\underbrace{\left(\tau_{r,r+1}\circ\ldots\circ \tau_{l-1,l} \right)}_{\text{Elemnet }l\text{ nach hinten durchreichen}}
+```
+
+und da jede Nachbarvertauschung einen Fehlstand produziert gilt 
+
+```{math}
+|\operatorname{inv}\tau_{rl}| = (l-r) + (l-r-1) = 2(l-r)-1
+```
+
+was stets ungerade ist und somit haben wir $\operatorname{sgn}(\tau_{rl}) = -1$ für belibiebige Transpositionen ungleich der Identität. 
+Sei $\pi$ nun eine Permutation und $M(\pi)$ die Anzahl der Transpostionen mit welcher wir $\pi$ darstellen können, dann gilt 
+
+```{math}
+\operatorname{sgn}(\pi) = -1^{M(\pi)}.
+```
+
 ````
 
 Das folgende einfache Beispiel illustriert die Berechnung des Signums einer Permutation.
@@ -1090,6 +1124,11 @@ Die Definition von Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus
 
 Im folgenden Beispiel diskutieren wir jeweils einen Vertreter für symmetrische und antisymmetrische Tensoren.
 
+```{margin} Tullio Levi-Civita
+
+[Tullio Levi-Civita](https://en.wikipedia.org/wiki/Tullio_Levi-Civita) (Geboren 29. März 1873 in Padua; Gestorben 29. Dezember 1941 in Rom) war ein italienischer Mathematiker.
+```
+
 ````{prf:example} Symmetrieeigenschaften von Tensoren
 Betrachten wir zunächst das *Standardskalarprodukt*
 
@@ -1106,7 +1145,11 @@ Daher ist das Standardskalarprodukt ein **symmetrischer Tensor**.
 Als zweites Beispiel betrachten wir das sogenannte *Levi-Civita-Symbol*, auch genannt *Epsilon-Tensor*,
 
 ```{math}
-\epsilon_{i_1,\ldots,i_n} : \N^n \rightarrow \lbrace -1, 0, 1 \rbrace,
+\epsilon_{i_1,\ldots,i_n} :=
+\begin{cases}
+\operatorname{sgn}((i_1,\ldots,i_n))&\text{ falls }(i_1,\ldots,i_n)\text{ eine Permutation beschreibt,}\\
+0&\text{ sonst,}
+\end{cases}
 ```
 
 welcher einem Tupel von $n\in\N$ Indizes $(i_1,\ldots,i_n) \in \N^n$ einen Wert zuordnet, je nachdem ob eine gerade oder eine ungerade Anzahl an Vertauschung benötigt wird, um die Indizes in aufsteigender Reihenfolge zu sortieren.
@@ -1212,5 +1255,3 @@ Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V)
 ````{prf:definition} Grassmann-Algebra
 
 ````
-
-
