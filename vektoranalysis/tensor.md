@@ -994,7 +994,7 @@ Die duale Paarung stellt eine *Verallgemeinerung des Skalarprodukts* dar.
 
 ## Symmetrische und antisymmetrische Tensoren
 
-Oft spielen gerade in der Physik spezielle Familien von Tensoren eine wichtige Rolle, nämlich symmetrische und antisymmetrische Tensoren.
+Oft spielen gerade in der Physik spezielle Familien von Tensoren eine wichtige Rolle, nämlich *symmetrische* und *antisymmetrische Tensoren*.
 Diese Operatoren zeichnen sich durch ihr Verhalten unter Vertauschung von Argumenten aus und werden besonders in der Quantenmechanik und Kontinuumsmechanik betrachtet.
 
 Bevor wir die Symmetrieeigenschaften von Tensoren definieren können, benötigen wir weitere Hilfsmittel aus der Kombinatorik.
@@ -1084,9 +1084,9 @@ T(v_1, \ldots, v_k) = \operatorname{sgn}(\pi) \cdot T(v_{\pi(1)}, \ldots, v_{\pi
 
 ````
 
-In {prf:ref}`def:symmetrieTensor` haben wir die Symmetrieeigeschaften für rein kontravariante Tensoren eingeführt.
+In {prf:ref}`def:symmetrieTensor` haben wir die Symmetrieeigenschaften für rein kontravariante Tensoren eingeführt.
 Analog lässt sich die (Anti-)Symmetrie eines rein kovarianten Tensors $T \in T_k^0(V)$ von Stufe $k$ definieren.
-Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus {prf:def}`def:gemischteTensoren` ist hingegen wenig sinnvoll, da die Rechenvorschrift eine gemischten Tensors unter beliebigen Permutationen der Argumente nicht mehr wohldefiniert sein muss.
+Die Definition von Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus {prf:ref}`def:gemischteTensoren` ist hingegen wenig sinnvoll, da die Rechenvorschrift eine gemischten Tensors unter beliebigen Permutationen der Argumente nicht mehr wohldefiniert sein muss.
 
 Im folgenden Beispiel diskutieren wir jeweils einen Vertreter für symmetrische und antisymmetrische Tensoren.
 
@@ -1100,6 +1100,8 @@ Betrachten wir zunächst das *Standardskalarprodukt*
 als rein kontravarianten Tensor zweiter Stufe.
 Da das Standardskalarprodukt im $\R^n$ eine positiv definite, symmetrische Bilinearform ist, überträgt sich die Symmetrieeigenschaft auf die Interpretation als Tensor.
 Daher ist das Standardskalarprodukt ein **symmetrischer Tensor**.
+
+<br/>
 
 Als zweites Beispiel betrachten wir das sogenannte *Levi-Civita-Symbol*, auch genannt *Epsilon-Tensor*,
 
@@ -1146,30 +1148,31 @@ In der Hausaufgabe zu zeigen.
 Abschließend wollen wir uns in diesem Abschnitt noch einem nützlichen mathematischen Werkzeug widmen, das es erlaubt beliebige Tensoren symmetrisch bzw. antisymmetrisch zu machen.
 Hierzu definieren wir die folgenden Projektionsabbildungen.
 
-````{prf:definition} Fermionsche und bosonische Projektion
+````{prf:definition} Fermionische und bosonische Projektion
+:label: def:fermionischeProjektion
+
 Sei $V$ ein beliebiger, reeller Vektorraum und $k \in \N$.
 Wir definieren zunächst die sogenannte **fermionische Projektion**
 
 ```{math}
 \Pi_- \colon T_k^0(V) &\rightarrow \Lambda_k(V), \\
-T(v_1, \ldots, v_k) &\mapsto (\Pi T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} \operatorname{sgn}(\pi) \, T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
+T(v_1, \ldots, v_k) &\mapsto (\Pi_- T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} \operatorname{sgn}(\pi) \, T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
 ```
 
-Diese Projektionsabbilding weist jedem Tensor $T\in T_k^0$ der Stufe $k$ einen antisymmetrischen Tensor $\Pi(T) \in \Lambda_k(V)$ zu.
+Diese Projektionsabbildung weist jedem Tensor $T\in T_k^0$ der Stufe $k$ einen antisymmetrischen Tensor $\Pi_-(T) \in \Lambda_k(V)$ zu.
 
 Analog definieren wir die sogenannte **bosonische Projektion**
 
 ```{math}
-\Pi \colon T_k^0(V) &\rightarrow \mathcal{S}_k(V), \\
-T(v_1, \ldots, v_k) &\mapsto (\Pi T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
+\Pi_+ \colon T_k^0(V) &\rightarrow \mathcal{S}_k(V), \\
+T(v_1, \ldots, v_k) &\mapsto (\Pi_+ T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
 ```
 
-Diese Projektionsabbilding weist jedem Tensor $T\in T_k^0$ der Stufe $k$ einen symmetrischen Tensor $\Pi(T) \in \mathcal{S}_k(V)$ zu.
+Diese Projektionsabbildung weist jedem Tensor $T\in T_k^0$ der Stufe $k$ einen symmetrischen Tensor $\Pi_+(T) \in \mathcal{S}_k(V)$ zu.
 ````
 
-Beispiel mit Skalarprodukt als Übungsaufgabe?
 ````{prf:remark}
-Die Bezeichnung *fermionisch* und *bosonisch* in {prf:ref}`def:` stammen daher, dass symmetrische Tensorprodukte *identische Bosonen* in der Quantenmechanik beschreiben, wohingegen antisymmetrische Tensorprodukte *identische Fermionen* beschreiben.
+Die Bezeichnung **fermionisch** und **bosonisch** in {prf:ref}`def:fermionischeProjektion` stammen daher, dass symmetrische Tensorprodukte *identische Bosonen* in der Quantenmechanik beschreiben, wohingegen antisymmetrische Tensorprodukte *identischen Fermionen* zugeordnet werden. Weitere Informationen findet man beispielsweise unter [Ununterscheidbarkeit von Teilchen in der Quantenmechanik](https://de.wikipedia.org/wiki/Ununterscheidbare_Teilchen#Ununterscheidbarkeit_in_der_Quantenmechanik).
 ````
 
 ## Grassmann-Algebra
