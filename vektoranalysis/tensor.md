@@ -861,7 +861,7 @@ Diese Aussage lässt sich mit Hilfe von {prf:ref}`rem:kfachesTensorprodukt` auch
 Hier erhält man dann das Resultat, dass sich Tensoren als $k$-Multilinearformen interpretieren lassen mit
 
 ```{math}
-\V_1\otimes\ldots\otimes\V_k \cong L^k(\V_1\times\ldots\V_k;\R) \cong L(\V_1\otimes\ldots\V_k;\R).
+\V_1\otimes\ldots\otimes\V_k \cong L^k(\V_1\times\ldots\times\V_k;\R) \cong L(\V_1\otimes\ldots \otimes\V_k;\R).
 ```
 
 In [](eq:transitivIsomorphismus) haben wir die Transitivitätseigenschaft des Tensorprodukts ausgenutzt, um *beide* Vektorräume mit ihren jeweiligen algebraischen Dualräumen zu identifizieren.
@@ -875,10 +875,10 @@ Es sei $V$ ein reeller endlich-dimensionaler Vektorraum und $V^\ast$ der zugehö
 Dann nennt man 
 
 ```{math}
-T^r_s(V) := L(V^r\times (V^\ast)^s; \R)
+T^r_s(V) := L^k(V^r\times (V^\ast)^s; \R)
 ```
 
-Menge der gemischten Tensoren, welche **kovariant** der Stufe $r$ und **kontravariant** der Stufe $s$ sind.
+für $k = r+s \in \N$ die Menge der gemischten Tensoren, welche **kovariant** der Stufe $r$ und **kontravariant** der Stufe $s$ sind.
 In manchen Kontexten spricht man auch nur von **gemischten Tensoren der Stufe $k=r+s$**.
 ````
 
@@ -946,11 +946,11 @@ Genauer gesagt handelt es sich um Elemente des *algebraischen Dualraums* $V^\ast
 
 **Stufe k:**
 Wir betrachten Tensoren der Stufe $r+s=k+0=k$ für $k\in \N$.
-Diese Tensoren entsprechen gerade den **$\mathbf{k}$-Multilinearformen**, da $T^k_0(V) = L(V^k; \R) \cong L^k(V; \R)$.
+Diese Tensoren entsprechen gerade den **$\mathbf{k}$-Multilinearformen**, da $T^k_0(V) = L^k(V^k; \R) = L^k(V; \R).
 
 **Stufe n:**
 Wir betrachten Tensoren der Stufe $r+s=n+0=n$.
-Ein Beispiel für Elemente der Menge $T^n_0(V) = L(V^n; \R)$ ist die **Determinante** einer $n \times n$-Matrix.
+Ein Beispiel für Elemente der Menge $T^n_0(V) = L^n(V^n; \R)$ ist die **Determinante** einer $n \times n$-Matrix.
 ````
 
 Betrachten wir als Nächstes den Spezialfall von rein kontravarianten Tensoren.
@@ -966,7 +966,7 @@ Genauer gesagt handelt es sich um Elemente des *Bidualraums* $V^{**}$, der nach 
 
 **Stufe 2:**
 Wir betrachten Tensoren der Stufe $r+s=0+2=2$.
-In diesem Fall entsprechen Elemente der Menge $T^0_2(V) = L(V^\ast \times V^\ast; \R)$ sogenannten **Bivektoren** oder **Dyaden**.
+In diesem Fall entsprechen Elemente der Menge $T^0_2(V) = L^2(V^\ast \times V^\ast; \R)$ sogenannten **Bivektoren** oder **Dyaden**.
 Ein Beispiel hierfür sind Tensoren, die durch *dyadische Produkte* erzeugt werden.
 
 ````
@@ -979,7 +979,7 @@ Wir wollen im Folgenden *echt gemischte* Tensoren diskutieren.
 Diese besitzen sowohl kontravariante als auch kovariante Komponenten.
 
 Wir betrachten echt gemischte Tensoren der Stufe $r+s=1+1=2$.
-Die Menge $T^1_1(V) = L(V^\ast \times V; \R)$ enthält dann alle linearen Abbildung, die einer Linearform und einem Vektor eine reelle Zahl zuweisen.
+Die Menge $T^1_1(V) = L^2(V^\ast \times V; \R)$ enthält dann alle linearen Abbildung, die einer Linearform und einem Vektor eine reelle Zahl zuweisen.
 Ein typisches Beispiel für solch einen ist die sogenannte **duale Paarung**
 
 ```{math}
@@ -992,7 +992,7 @@ Die duale Paarung stellt eine *Verallgemeinerung des Skalarprodukts* dar.
 
 ````
 
-## Symmetrische und antisymmetrische Tensoren
+## Symmetrie und Antisymmetrie von Tensoren
 
 Oft spielen gerade in der Physik spezielle Familien von Tensoren eine wichtige Rolle, nämlich *symmetrische* und *antisymmetrische Tensoren*.
 Diese Operatoren zeichnen sich durch ihr Verhalten unter Vertauschung von Argumenten aus und werden besonders in der Quantenmechanik und Kontinuumsmechanik betrachtet.
@@ -1177,7 +1177,27 @@ Die Bezeichnung **fermionisch** und **bosonisch** in {prf:ref}`def:fermionischeP
 
 ## Grassmann-Algebra
 
-Tensorprodukt von Tensoren
+Im letzten Abschnitt haben wir gesehen, dass die Menge der antisymmetrischen Tensoren von Stufe zusammen mit der Addition von Tensoren der gleichen Stufe einen Vektorraum $\Lambda_k(V)$ bildet.
+Im Folgenden werden wir sehen, dass wir sogar noch mehr Struktur in Form einer Algebra erhalten, wenn wir den Vektorraum mit einer verträglichen Multiplikation von Tensoren erweitern.
+
+Zunächst wollen wir das äußere Produkt zweier Tensoren definieren.
+
+````{prf:definition} Äußeres Produkt von Tensoren
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und seien $r,r',s,s' \in \N$.
+Sei außerdem $T \in T^r_s(V)$ ein Tensor, der kovariant von Stufe $r$ und kontravariant von Stufe $s$ ist und sei $T' \in T^{r'}_{s'}(V)$ ein Tensor, der kovariant von Stufe $r'$ und kontravariant von Stufe $s'$ ist.
+
+Dann wird das **äußere Tensorprodukt** von $T$ und $T'$ als folgende Abbildung definiert:
+
+```{math}
+(T \otimes T')(v_1,\ldots,v_r,v'_1,\ldots,v'_{r'},&w_1,\ldots,w_s,w'_1,\ldots,w'_{s'}) := \\
+&T(v_1,\ldots,v_r,w_1,\ldots,w_s)\cdot T'(v'_1,\ldots,v'_{r'},w'_1,\ldots,w'_{s'}).
+```
+
+```{math}
+\otimes : T^r_s(V) \times T^{r'}_{s'}(V) \rightarrow T^{r+r'}_{s+s'}(V),
+```
+
+````
 
 Lemma: Antisymmetrischer Tensor (linear abhängig)
 
