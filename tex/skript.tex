@@ -78,7 +78,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{Nov 13, 2021}
+\date{Dec 07, 2021}
 \release{}
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -2146,6 +2146,48 @@ instabil \(\beta > 0\)
 \par
 \sphinxattableend\end{savenotes}
 
+\sphinxAtStartPar
+Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter \(\alpha\), sondern ebenfalls von \(\beta\) ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
+\end{sphinxadmonition}
+
+
+\chapter{Vektoranalysis}
+\label{\detokenize{vektoranalysis/vektoranalysis:vektoranalysis}}\label{\detokenize{vektoranalysis/vektoranalysis::doc}}
+\sphinxAtStartPar
+In diesem Kapitel der Vorlesung führen wir wichtige Konzepte der \sphinxstyleemphasis{Vektoranalysis} ein.
+Insbesondere schaffen wir die mathematischen Grundlagen für eine spezielle Art der mehrdimensionalen Integration, das Integrieren über sogenannte \sphinxstyleemphasis{Untermannigfaltigkeiten} des \(\R^n\).
+Um diese Integration durchführen zu können, entwickeln wir das Kalkül der \sphinxstyleemphasis{Differentialformen} auf Mannigfaltigkeiten.
+
+\sphinxAtStartPar
+Dieses Kalkül lässt auch den geometrischen Gehalt physikalischer Theorien wie Elektrodynamik oder Allgemeine Relativitätstheorie klar hervortreten.
+So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mit Hilfe des Differentialformenkalkül elegant beschreiben.
+
+\sphinxAtStartPar
+Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von Agricola und Friedrich {[}\hyperlink{cite.references:id13}{AF13}{]}.
+
+
+\section{Multilinearformen}
+\label{\detokenize{vektoranalysis/multilinear:multilinearformen}}\label{\detokenize{vektoranalysis/multilinear:s-multilinearformen}}\label{\detokenize{vektoranalysis/multilinear::doc}}
+\sphinxAtStartPar
+In diesem Abschnitt wollen wir die Definition der sogenannten \sphinxstyleemphasis{Multilinearformen} einführen.
+Für beliebige Vektorräume \(\V, W\) über einem Körper \(\K\) haben Sie bereits den Begriff der \sphinxstyleemphasis{Linearform}, also einer linearen Abbildung \(\varphi:\V\rightarrow W\) kennengelernt.
+Die Idee der Multilinearform ist anstatt nur einem, gleich \(k\)\sphinxhyphen{}viele Vektorräume \(V_1,\ldots,V_k\) für \(k \in \N\) über \(\K\) zu betrachten und das Konzept der Linearität auf eine Abbildung \(\varphi:\V_1\times\ldots\V_k\rightarrow W\) zu übertragen.
+
+\sphinxAtStartPar
+Zur Vereinfachung werden wir im Folgenden nur den Körper \(\K=\R\) betrachten, in den meisten Fällen lassen sich die hier beschriebenen Konzepte aber direkt auf allgemeine Körper übertragen.
+Wir beginnen zunächst mit einer Wiederholung und betrachten die schon bekannten Linearformen.
+Insbesondere soll der nächste Abschnitt die verschiedenen Begriffe des Dualraums abgrenzen.
+
+
+\subsection{Dualräume}
+\label{\detokenize{vektoranalysis/multilinear:dualraume}}
+\sphinxAtStartPar
+Für einen reellen Vektorraum \(\V\) wollen wir lineare Abbildungen \(\varphi:V\to\R\) betrachten.
+Diese lassen sich mit Hilfe der folgenden Definition zum algebraischen Dualraum zusammenfassen.
+\label{vektoranalysis/multilinear:def:algebraischerDualraum}
+\begin{sphinxadmonition}{note}{Definition 3.1 (Algebraischer Dualraum)}
+
+
 
 \sphinxAtStartPar
 Es sei \(\V\) ein beliebiger \(\R\)\sphinxhyphen{}Vektorraum.
@@ -2154,7 +2196,7 @@ Dann nennen wir die Menge
 \begin{split}\V^\ast := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear}\}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter \(\alpha\), sondern ebenfalls von \(\beta\) ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
+den \sphinxstylestrong{algebraischer Dualraum} zu \(V\).
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -2283,7 +2325,7 @@ Damit haben wir gezeigt, dass in unendlich\sphinxhyphen{}dimensionalen Räumen \
 
 
 \subsection{k\sphinxhyphen{}Multilinearformen}
-\label{\detokenize{vektoranalysis/multilinear:k-multilinearformen}}
+\label{\detokenize{vektoranalysis/multilinear:k-multilinearformen}}\label{\detokenize{vektoranalysis/multilinear:s-k-multilinearform}}
 \sphinxAtStartPar
 Nachdem wir uns den Begriff der Linearität ins Gedächtnis zurückgerufen haben und Dualräume erklärt haben, wollen wir was Konzept linearer Abbildungen in der folgenden Definition verallgemeinern.
 \label{vektoranalysis/multilinear:def:multilinear}
@@ -2315,11 +2357,1795 @@ Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ld
 \label{vektoranalysis/multilinear:remark-7}
 \begin{sphinxadmonition}{note}{Remark 3.2}
 
+
+
+\sphinxAtStartPar
+Ausgeschrieben bedeutet die Bedingung in der obigen Definition, dass für beliebige Vektoren \(x,y\in \V_i\) und Skalare \(\lambda \in \R\) gilt
+\begin{equation*}
+\begin{split}\varphi(z_1,\ldots,z_{i-1},\lambda \cdot x, z_{i+1},\ldots,z_k) = \lambda \cdot \varphi(z_1,\ldots,z_{i-1}, x, z_{i+1}, \ldots,z_k)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und
+\begin{equation*}
+\begin{split}\varphi(z_1,\ldots,z_{i-1},x+y,z_{i+1},\ldots,z_k) = \varphi(z_1,\ldots,x,\ldots,z_k) + \varphi(z_1,\ldots,y,\ldots,z_k).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für jedes Argument \(i = 1,\ldots,k\) der Abbildung \(\varphi \colon V_1 \times \ldots \times \V_k \rightarrow W\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Viele multilineare Abbildungen kennen wir bereits aus der Linearen Algebra ohne sie bisher so bezeichnet zu haben.
+Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
+\label{vektoranalysis/multilinear:ex:multilinear}
+\begin{sphinxadmonition}{note}{Example 3.3}
+
+
+
+\sphinxAtStartPar
+Wir betrachten im Folgenden Beispiele für \(k\)\sphinxhyphen{}lineare Abbildungen mit verschiedenen \(k\in\N\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{\(k=1\)}: In diesem einfachen Fall sind alle Linearformen \(1\)\sphinxhyphen{}linear.
+Daher ist der Raum der \(1\)\sphinxhyphen{}Linearformen gerade der algebraische Dualraum aus {\hyperref[\detokenize{vektoranalysis/multilinear:def:algebraischerDualraum}]{\sphinxcrossref{Definition 3.1}}}, d.h. es gilt \(L^1(\V; \R) = \V^\ast\).
+
+\sphinxAtStartPar
+
+\sphinxstylestrong{\(k=2\)}: Es sei \(\V=\R^n\) der Euklidische Vektorraum mit kanonischem innerem Produkt \(\langle\cdot,\cdot\rangle\).
+Für \(A\in\R^{n,n}\) ist
+\begin{equation*}
+\begin{split}\varphi:\V\times \V &\to\R\\ 
+(x,y) &\mapsto \varphi(x, y) :=\langle x,A y \rangle\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine \sphinxstylestrong{Bilinearform} bzw. eine \(2\)\sphinxhyphen{}Linearform nach {\hyperref[\detokenize{vektoranalysis/multilinear:def:multilinear}]{\sphinxcrossref{Definition 3.3}}}.
+Sie heißt \sphinxstyleemphasis{symmetrisch}, falls
+\begin{equation*}
+\begin{split}\varphi(x, y) = \varphi(y, x), \quad \forall x, y\in \V\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und \sphinxstyleemphasis{antisymmetrisch} falls
+\begin{equation*}
+\begin{split}\varphi(x, y) = -\varphi(y, x), \quad \forall x, y\in \V.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+
+\sphinxstylestrong{\(k=n\)}: Es sei \(n\in \N\) und \(\V=\R^n\) der Euklidische Vektorraum.
+Die \(n\)\sphinxhyphen{}lineare Abbildung
+\begin{equation*}
+\begin{split}\varphi :\V \times \ldots \times \V &\to\R\\ 
+(z_1, \ldots, z_n) &\mapsto \varphi(z_1,\ldots,z_n) := \det([z_1,\ldots,z_n])\end{split}
+\end{equation*}
+\sphinxAtStartPar
+heißt \sphinxstylestrong{Determinantenform}.
+Wir beachten, dass hierbei jedes \(z_i \in \R^n\) für \(i=1,\ldots,n\) ein Vektor ist und es sich bei \([z_1,\ldots,z_n] \in \R^{n\times n}\) um eine Matrix handelt.
+Die Determinantenform gibt das orientierte Volumen des von den Vektoren \(z_1,\ldots,z_n\) aufgespannten Parallelotops an.
+\end{sphinxadmonition}
+
+
+\subsection{Der Vektorraum der Multilinearformen}
+\label{\detokenize{vektoranalysis/multilinear:der-vektorraum-der-multilinearformen}}
+\sphinxAtStartPar
+Die Menge der \(k\)\sphinxhyphen{}linearen Abbildung \(L^k(V_1 \times \ldots \times V_k; W)\) für \(\R\)\sphinxhyphen{}Vektorräume \(V_1,\ldots,V_k\) und \(W\) besitzt mehr Struktur als wir ihr bisher angesehen haben.
+Mit den entsprechenden Verknüpfungen handelt es sich ebenfalls um einen Vektorraum, wie das folgende Lemma zeigt.
+\label{vektoranalysis/multilinear:lemma-9}
+\begin{sphinxadmonition}{note}{Lemma 3.2}
+
+
+
+\sphinxAtStartPar
+Sei \(k \in \N\) und es seien \(\V_1,\ldots,\V_k\) sowie \(W\) reelle Vektorräume.
+Dann ist die Menge \(L^k(\V_1\times\ldots\V_k; W)\) ein Vektorraum über \(\R\) bezüglich der Addition
+\begin{equation*}
+\begin{split}(\varphi_1+\varphi_2)(z_1,\ldots,z_k) := \varphi_1(z_1,\ldots,z_k) +
+\varphi_2(z_1,\ldots,z_k),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für \(k\)\sphinxhyphen{}lineare Abbildungen \(\varphi_1,\varphi_2\in L^k(\V_1 \times \ldots \times V_k;W)\) und der Multiplikation mit Skalaren \(\lambda \in \R\)
+\begin{equation*}
+\begin{split}(\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V_1 \times \ldots \times V_k;W).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. In der Hausaufgabe zu zeigen.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir wir bereits in {\hyperref[\detokenize{vektoranalysis/multilinear:ex:multilinear}]{\sphinxcrossref{Example 3.3}}} gesehen haben erhalten wir einen wichtigen Spezialfall für \(k=1\), nämlich den algebraischen Dualraum \(V^\ast = L^1(\V;\R)\).
+Für diesen Vektorraum können wir eine spezielle Basis angeben, wie das folgende Lemma zeigt.
+\label{vektoranalysis/multilinear:lem:dualeBasis}
+\begin{sphinxadmonition}{note}{Lemma 3.3 (Duale Basis)}
+
+
+
+\sphinxAtStartPar
+Es sei \(\V\) ein \(n\)\sphinxhyphen{}dimensionaler \(\R\)\sphinxhyphen{}Vektorraum mit einer endlichen Basis \(B = (b_1,\ldots,b_n)\).
+Für beliebige Vektoren \(z \in V\) bilden die Abbildungen \(\eta_j:\V\rightarrow\R\) für \(j=1,\ldots,n\) mit
+\begin{equation*}
+\begin{split}\eta_j(z) := \eta_j\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_j\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine Basis des algebraischen Dualraums \(\V^\ast\).
+Diese spezielle Basis wird auch die \sphinxstylestrong{duale Basis} zur Basis \(B\) genannt.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Wir zeigen zunächst, dass \(\eta_j\in\V^\ast\) für \(j=1,\ldots,n\).
+Dazu seien \(x,y\in\V\) beliebige Vektoren.
+Dann existieren Koeffizienten \(\alpha_i^x,\alpha_i^y \in \R\) für \(i=1,\ldots,n\), so dass es eine eindeutige Darstellung als Linearkombination der Basisvektoren gibt mit
+\begin{equation*}
+\begin{split}x = \sum_{i=1}^n \alpha_i^x b_i, \qquad y = \sum_{i=1}^n \alpha_i^y b_i.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Somit haben wir also für die Summe der Vektoren
+\begin{equation*}
+\begin{split}\eta_j(x+y) &= 
+\eta_j\left(\sum_{i=1}^n \alpha_i^x b_i + \sum_{i=1}^n \alpha_i^y b_i\right) = 
+\eta_j\left(\sum_{i=1}^n \alpha_i^x b_i + \alpha_i^y b_i\right) = 
+\eta_j\left(\sum_{i=1}^n (\alpha_i^x + \alpha_i^y) b_i\right) 
+\\&= \alpha_i^x + \alpha_i^y = 
+\eta_j\left(\sum_{i=1}^n \alpha_i^x b_i\right)  + \eta_j\left(\sum_{i=1}^n \alpha_i^y b_i\right) = 
+\eta_j(x) + \eta_j(y).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Weiterhin gilt für beliebige Skalare \(\lambda\in\R\)
+\begin{equation*}
+\begin{split}\eta_j(\lambda x) = \eta_j\left(\lambda \sum_{i=1}^n \alpha_i^x b_i\right) = 
+\eta_j\left(\sum_{i=1}^n (\lambda \alpha_i^x) b_i\right) =
+\lambda \alpha_i^x =
+\lambda \eta_j(x).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Damit haben wir also gezeigt, dass die Elemente der dualen Basis linear sind und somit gilt \(\eta_j \in V^\ast\) für \(j=1,\ldots,n\).
+
+\sphinxAtStartPar
+Sei nun \(\phi\in \V^\ast\), dann gilt
+\begin{equation*}
+\begin{split}\phi(x) = \phi\left(\sum_{i=1}^n \alpha_i^x b_i\right) = \sum_{i=1}^n \alpha_i^x \phi(b_i) = 
+\sum_{i=1}^n \eta_i(x) \phi(b_i),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+insbesondere gilt also \(\phi = \sum_{i=1}^n \phi(b_i) \eta_i\).
+
+\sphinxAtStartPar
+Somit bilden die Abbildungen \(\eta_j, j=1,\ldots, n\) ein Erzeugendensystem von \(V^\ast\), da jede lineare Abbildung \(\phi \in V^\ast\) als Linearkombination dargestellt werden kann.
+
+\sphinxAtStartPar
+Um zu zeigen, dass es sogar um eine Basis des algebraischen Dualraums handelt, müssen wir noch zeigen, dass das Nullelement des Vektorraums eine eindeutige Darstellung besitzt, da dies impliziert, dass die Elemente des Erzeugendensystems linear unabhängig sind.
+Seien also Koeffizienten \(a_i\in\R\) gegeben, so dass \(0 = \sum_{i=1}^n a_i \eta_i\) die Nullabbildung realisiert.
+Dann folgt schon für jedes \(j=1,\ldots,n\)
+\begin{equation*}
+\begin{split}0 = \left(\sum_{i=1}^n a_i \eta_i\right)(b_j) = \sum_{i=1}^n a_i \underbrace{\eta_i(b_j)}_{=\delta_{ij}} = a_j.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Offensichtlich kann die Nullabbildung nur erzeugt werden, wenn für alle Koeffizienten \(a_i=0\) gilt für \(i=1,\ldots,n\) und damit ist die Aussage bewiesen.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Folgende Bemerkungen wollen wir zum gerade diskutierten Lemma festhalten.
+\label{vektoranalysis/multilinear:remark-11}
+\begin{sphinxadmonition}{note}{Remark 3.3}
+
+
+
+\sphinxAtStartPar
+1. Die Aussage aus {\hyperref[\detokenize{vektoranalysis/multilinear:lem:dualeBasis}]{\sphinxcrossref{Lemma 3.3}}} zeigt insbesondere, dass im \sphinxstylestrong{endlich\sphinxhyphen{}dimensionalen} Fall \(\dim(\V) = \dim(\V^\ast)\).
+Die Vektorräume sind also isomorph zueinander.
+
+\sphinxAtStartPar
+2. Die Aussage des {\hyperref[\detokenize{vektoranalysis/multilinear:lem:dualeBasis}]{\sphinxcrossref{Lemma 3.3}}} zur dualen Basis lässt sich ebenfalls auf den Fall eines \sphinxstylestrong{unendlich\sphinxhyphen{}dimensionalen} Vektorraums übertragen.
+Hierfür erinnern wir daran, dass für einen Vektorraum \(V\) stets eine Basis \(B = \{b_i:i\in I\}\subset V\) existiert, wobei \(I\) eine (nicht notwendigerweise endliche) Indexmenge ist.
+Insbesondere bemerken wir, dass wir hier von einer \sphinxstylestrong{Hamelbasis} sprechen, d.h., für jedes Element \(v\in V\) gibt es eindeutig bestimmte Koeffizienten \(\alpha_i, i\in I\), so dass gilt
+\begin{equation*}
+\begin{split}v = \sum_{i\in I} \alpha_i b_i.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Der wichtige Punkt hierbei ist, dass nur \sphinxstylestrong{endlich viele} Koeffizienten \(\alpha_i\) ungleich null sind und die Summation somit keine eigentlich unendliche Reihe beschreibt, sondern nur eine endliche Summe.
+Diese Konzept ist insbesondere verschieden vom Begriff der \sphinxhref{https://de.wikipedia.org/wiki/Schauderbasis}{Schauderbasis}
+\end{sphinxadmonition}
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Georg Hamel}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Georg\_Hamel}{Georg Karl Wilhelm Hamel} (Geboren 12. September 1877 in Düren; Gestorben 4. Oktober 1954 in Landshut) war ein deutscher Mathematiker.
+\end{sphinxShadowBox}
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Juliusz Schauder}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Juliusz\_Schauder}{Juliusz Paweł Schauder} (Geboren 21. September 1899 in Lemberg; Gestorben September 1943) war ein polnischer Mathematiker.
+\end{sphinxShadowBox}
+
+\sphinxAtStartPar
+Wir wollen uns das Konzept der dualen Basis im Falle des Euklidischen Vektorraums klar machen im Folgenden.
+\label{vektoranalysis/multilinear:example-12}
+\begin{sphinxadmonition}{note}{Example 3.4 (Duale Basis)}
+
+
+
+\sphinxAtStartPar
+Sei \(V = \R^n\) der Euklidische Vektorraum ausgestattet mit der Standard Einheitsbasis \(B = (e_i)_{i=1,\ldots,n}\).
+Dann lässt sich jeder Vektor \(x \in V\) eindeutig als Linearkombination der Einheitsvektoren schreiben mit
+\begin{equation*}
+\begin{split}x = \sum_{i=1}^n \alpha_i^x e_i = \sum_{i=1}^n x_i e_i.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir sehen also ein, dass die Koeffizienten \(\alpha_i^x\) gerade die Einträge des Vektors \(x\) selbst sind.
+Da die duale Basis des algebraischen Dualraums \(V^\ast\) zur Basis \(B\) nach {\hyperref[\detokenize{vektoranalysis/multilinear:lem:dualeBasis}]{\sphinxcrossref{Lemma 3.3}}} gerade die Koeffizienten \(\alpha_i^x\) liefern soll, ist klar, dass die entsprechenden linearen Abbildungen durch eine \sphinxstylestrong{Linksmultiplikation mit den transponierten Einheitsvektoren} gegeben sind, d.h., \(\eta_j(x) := e_j^T x = \langle e_j, x \rangle\), denn es gilt
+\begin{equation*}
+\begin{split}\eta_j(x) = 
+\eta_j \left( \sum_{i=1}^n \alpha_i^x e_i \right) = 
+\langle e_j, \sum_{i=1}^n x_i e_i\rangle =
+\sum_{i=1}^n x_i \underbrace{\langle e_j, e_i\rangle}_{= \delta_{ij}} =  
+x_j = \alpha_j^x, \quad \forall j=1,\ldots,n.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir halten abschließend fest, dass sich der \sphinxstylestrong{Bidualraum} \(V^{\ast\ast} := (V^\ast)^\ast\), d.h., der duale Raum des Dualraums \(V^\ast\), im endlich\sphinxhyphen{}dimensionalen Fall leicht charakterisieren lässt.
+\label{vektoranalysis/multilinear:rem:doubledual}
+\begin{sphinxadmonition}{note}{Remark 3.4}
+
+
+
+\sphinxAtStartPar
+Für \(n \in \N\) sei \(\V\) ein \(n\)\sphinxhyphen{}dimensionaler reeller Vektorraum.
+Dann gilt, dass die Abbildung
+\begin{equation*}
+\begin{split}\Psi :\V &\rightarrow \V^{\ast\ast}\\
+x &\mapsto \Psi_x \quad \text{ mit } \quad \Psi_x(\varphi) := \varphi(x).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ein Isomorphismus ist.
+\end{sphinxadmonition}
+
+
+\section{Tensoren und Tensorprodukte}
+\label{\detokenize{vektoranalysis/tensor:tensoren-und-tensorprodukte}}\label{\detokenize{vektoranalysis/tensor::doc}}
+\sphinxAtStartPar
+In diesem Kapitel widmen wir uns einem für die Physik sehr wichtigen aber relativ abstrakten Thema der Vektoranalysis, nämlich \sphinxstyleemphasis{Tensoren} und \sphinxstyleemphasis{Tensorprodukten}.
+Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe \sphinxhref{https://de.wikipedia.org/wiki/Tensorprodukt}{Wikipedia}) weshalb es nicht leicht ist eine Einführung zu geben die gleichzeitig allgemein, aber auch verständlich ist. Da Tensoren aber eine wichtige Rolle in der Physik spielen werden wir uns hier damit beschäftigen.
+
+
+\subsection{Motivation}
+\label{\detokenize{vektoranalysis/tensor:motivation}}
+\sphinxAtStartPar
+Wir betrachten zunächst ein konkretes Anwendungsbeispiel aus der Physik, welches auf Tensoren zurückgreift.
+Hier wird der sogenannte \sphinxstyleemphasis{Cauchy Spannungstensor} verwendet.
+\label{vektoranalysis/tensor:remark-0}
+\begin{sphinxadmonition}{note}{Remark 3.5 (Begriffsherkunft)}
+
+
+
+\sphinxAtStartPar
+Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom lateinischen \sphinxstyleemphasis{tendere} (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.
+\end{sphinxadmonition}
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Augustin Cauchy}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Augustin-Louis\_Cauchy}{Augustin\sphinxhyphen{}Louis Cauchy} (Geboren 21. August 1789 in Paris; Gestorben 23. Mai 1857 in Sceaux) war ein französischer Mathematiker.
+\end{sphinxShadowBox}
+
+\sphinxAtStartPar
+Mechanische Spannung ist eine physikalische Größe, die die innere Beanspruchung und Kräfte in einem Volumen \(V\subset\R^3\) angibt, welche aufgrund einer äußeren Belastungen auftreten.
+Die grundlegende Idee ist das \sphinxstylestrong{Euler\sphinxhyphen{}Cauchy Spannungsprinzip}, welches beschreibt, dass auf jede Schnittfläche \(A\subset\R^2\), die ein Volumen in zwei Teile trennt, von diesen zwei Volumenteilen eine Spannung auf \(A\) ausgeübt wird, welche durch einen sogenannten \sphinxstylestrong{Spannungsvektor} \(\mathbf{T}^{(n)}\) beschrieben wird.
+Der Komponenten des Spannungsvektors haben hierbei die Dimension “Kraft pro Fläche”.
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[height=250\sphinxpxdimen]{{stress_vector}.png}
+\caption{Visualisierung für Normal\sphinxhyphen{} und Scherspannung an einer Schnittfläche. Quelle: \sphinxhref{https://en.wikipedia.org/wiki/Cauchy\_stress\_tensor}{Wikipedia; Cauchy Stress Tensor}.}\label{\detokenize{vektoranalysis/tensor:fig-stress}}\end{figure}
+
+\sphinxAtStartPar
+Wie in \hyperref[\detokenize{vektoranalysis/tensor:fig-stress}]{Fig.\@ \ref{\detokenize{vektoranalysis/tensor:fig-stress}}} visualisiert teilt sich die Spannung in zwei Komponenten auf:
+
+\sphinxAtStartPar
+\sphinxstylestrong{Normalspannung:}
+
+\sphinxAtStartPar
+Die Normalspannung \(\sigma_n\) ist der Teil des Spannungsvektors, der in Richtung der Normalen \(\mathbf{n}\) zeigt, welche orthogonal auf der Schnittfläche steht.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Scherspannung:}
+
+\sphinxAtStartPar
+Die Scherspannung \(\tau_n\) ist der Teil des Spannungstensors, der parallel zur Schnittfläche liegt.
+
+\sphinxAtStartPar
+Man erkennt nun, dass die Spannung in \(V\) nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt \(x\in V\) ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein linearer Operator \(\mathbf{\sigma}(x)\) existiert, so dass
+\begin{equation*}
+\begin{split}\mathbf{T}^{(n)}(x) = \mathbf{\sigma}(x) \cdot n,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+d.h. in jedem Punkt \(x\in V\) ist der Stressvektor linear im Normalenvektor \(n\).
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[height=250\sphinxpxdimen]{{stress_tensor_comp}.png}
+\caption{Quelle: \sphinxhref{https://de.wikipedia.org/wiki/Spannungstensor}{Wikipedia; Spannungstensor}.}\label{\detokenize{vektoranalysis/tensor:fig-stress-comp}}\end{figure}
+
+\sphinxAtStartPar
+Der lineare Operator \(\mathbf{\sigma}\) wird auch \sphinxstylestrong{Cauchy Spannungstensor} genannt.
+Um diesen besser zu verstehen betrachtet man für einen fixen Punkt \(x\) des Volumens einen infinitesimal kleinen, freigeschnittenen Würfel wie in \hyperref[\detokenize{vektoranalysis/tensor:fig-stress-comp}]{Fig.\@ \ref{\detokenize{vektoranalysis/tensor:fig-stress-comp}}}.
+Nun definieren wir für die drei verschiedenen Flächen (orthogonal zu den Einheitsvektoren \(e_1, e_2\) und \(e_3\)) die Spannungsvektoren
+\begin{equation*}
+\begin{split}\mathbf{T}^{(e_i)}:= \sum_{j=1}^3 \sigma_{ij} e_j, \quad i \in \lbrace 1,2,3 \rbrace.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+So setzt sich beispielsweise der Spannungsvektor \(\mathbf{T}^{(e_1)}\) zusammen aus der Summe der Normalspannung \(\sigma_{11} e_1\) und den zwei Scherspannungskomponenten \(\sigma_{12} e_2\) und \(\sigma_{13} e_3\).
+
+\sphinxAtStartPar
+Insgesamt erhält man neun Spannungskomponenten \(\sigma_{ij}\) für \(i,j=1,2,3\) welche insgesamt den Spannungszustand im Punkt \(x\) als Spannungsvektoren in Richtung der Einheitsvektoren vollständig beschreiben.
+Dies liegt daran, dass wir jeden Spannungsvektor in \(x\) als Linearkombination der drei Spannungsvektoren \(\mathbf{T}^{(e_i)}, i=1,2,3\) darstellen können.
+
+\sphinxAtStartPar
+Wir führen nun eine \sphinxstyleemphasis{multilineare Abbildung} \(\otimes \colon \R^n \times \R^m \rightarrow \R^{n \times m}\) für zwei beliebige Vektoren \(x\in\R^n\) und \(y\in\R^m\) ein, die das \sphinxstylestrong{dyadische Produkt} der Vektoren genannt wird und wie folgt definiert ist
+\begin{equation*}
+\begin{split}x \otimes y := 
+\begin{pmatrix}
+x_1y_1 &\ldots &x_1 y_m\\
+\vdots &\ddots & \vdots\\
+x_n y_1&\ldots& x_n y_m
+\end{pmatrix}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Fassen wir nun zeilenweise die Spannungsvektoren \(\mathbf{T}^{(e_i)}, i=1,2,3\) in einer Matrix zusammen, so erhalten wir den Cauchy Spannungstensor \(\mathbf{\sigma}\) für den Punkt \(x\) des Volumens als
+\begin{equation}\label{equation:vektoranalysis/tensor:eq:cauchySpannungstensor}
+\begin{split}\mathbf{\sigma} := 
+\begin{pmatrix}
+\sigma_{11} & \sigma_{12} & \sigma_{13} \\
+\sigma_{21} & \sigma_{22} & \sigma_{23} \\
+\sigma_{31} & \sigma_{32} & \sigma_{33}
+\end{pmatrix} 
+&= 
+\begin{pmatrix}
+\mathbf{T}^{(e_1)} \\
+\mathbf{T}^{(e_2)} \\
+\mathbf{T}^{(e_3)}
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\mathbf{T}^{(e_1)} \\
+0 \\
+0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\
+\mathbf{T}^{(e_2)} \\
+0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\
+0 \\
+\mathbf{T}^{(e_3)} \\
+\end{pmatrix}\\
+&=
+\sum_{i=1}^3 e_i \otimes \mathbf{T}^{(e_i)} = \sum_{i=1}^3 e_i\otimes ( \sum_{j=1}^3 \sigma_{ij} e_j) =
+\sum_{i=1}^3\sum_{j=1}^3 \sigma_{ij} (e_i\otimes e_j).\end{split}
+\end{equation}
+\sphinxAtStartPar
+Wir werden später sehen, dass man die Idee, den Operator \(\sigma\) über das dyadische Produkt zu definieren, abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.
+\label{vektoranalysis/tensor:remark-1}
+\begin{sphinxadmonition}{note}{Remark 3.6}
+
+
+
+\sphinxAtStartPar
+In der Tat handelt es sich bei dem Operator \(\sigma \colon \R^3 \rightarrow \R^3\) in \eqref{equation:vektoranalysis/tensor:eq:cauchySpannungstensor} nicht nur um einen Tensor, sondern genauer um ein \sphinxstylestrong{Tensorfeld}, dass jedem Punkt \(x\) des Volumens einen Spannungstensor zuordnet.
+\end{sphinxadmonition}
+
+
+\subsection{Das Tensorprodukt}
+\label{\detokenize{vektoranalysis/tensor:das-tensorprodukt}}
+\sphinxAtStartPar
+Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es an späterer Stelle für konkrete Realisierungen diskutieren.
+Hierbei wollen wir uns zunächst auf einen Spezialfall einschränken, der lediglich \sphinxstyleemphasis{zwei Vektorräume} berücksichtigt, um die zu Grunde liegenden wichtigen Konzepte klarer herauszustellen.
+Es ist wichtig zu verstehen, dass die folgenden Definitionen sich mit dem Konzept der \(k\)\sphinxhyphen{}Multilinearität in {\hyperref[\detokenize{vektoranalysis/multilinear:s-multilinearformen}]{\sphinxcrossref{\DUrole{std,std-ref}{Multilinearformen}}}} auf \(k \in \N\) verschiedene \(\R\)\sphinxhyphen{}Vektorräume direkt verallgemeinern lassen.
+\label{vektoranalysis/tensor:def:tensor}
+\begin{sphinxadmonition}{note}{Definition 3.4 (Tensorprodukt)}
+
+
+
+\sphinxAtStartPar
+Es seien \(V\) und \(W\) zwei reelle Vektorräume.
+Ein reeller Vektorraum \(X\) heißt \sphinxstylestrong{Tensorproduktraum} falls eine bilineare Abbildung \(\otimes:V\times W\rightarrow X\) existiert, so dass die folgende \sphinxstylestrong{universelle Eigenschaft} gilt:
+
+\sphinxAtStartPar
+Für jede Bilinearform \(\phi\in L^2(V\times W; Y)\) in einen beliebigen reellen Vektorraum \(Y\), existiert eine eindeutige lineare Abbildung
+\(p \in L^1(X; Y)\), so dass gilt
+\begin{equation}\label{equation:vektoranalysis/tensor:eq:universell}
+\begin{split}\phi(v,w) = p(v\otimes w) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.\end{split}
+\end{equation}
+\sphinxAtStartPar
+In diesem Fall schreibt man auch \(X = V \otimes W\).
+Wir nennen die bilineare Abbildung \(\otimes\) \sphinxstylestrong{Tensorprodukt} und verwenden häufig für sie die Infix\sphinxhyphen{}Schreibweise \(v\otimes w := \otimes(v,w)\).
+Elemente \(x \in X\) des Tensorproduktraums \(X = V \otimes W\) nennen wir \sphinxstylestrong{Tensoren}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich.
+Was ist jetzt also genau ein Tensorprodukt?
+
+\sphinxAtStartPar
+\sphinxstylestrong{Das Tensorprodukt ist universell:}
+
+\sphinxAtStartPar
+Wir haben in der {\hyperref[\detokenize{vektoranalysis/tensor:def:tensor}]{\sphinxcrossref{Definition 3.4}}} das kartesische Produkt \(\times\) benutzt welches eindeutig definiert ist.
+Im Gegensatz dazu gibt es jedoch nicht \sphinxstyleemphasis{ein} Tensorprodukt \(\otimes\) oder \sphinxstyleemphasis{einen} Tensorproduktraum \(V\otimes W\).
+Wir haben die Freiheit \(\otimes\) zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann \(X = V\otimes W\) Tensorproduktraum.
+Derartige Konzepte nennt man in der Algebra \sphinxstyleemphasis{universell}.
+Betrachten wir hierzu ein kurzes Beispiel für unterschiedliche Realisierungen eines Tensorproduktes.
+\label{vektoranalysis/tensor:ex:tensorproduktVarianten}
+\begin{sphinxadmonition}{note}{Example 3.5 (Varianten eines Tensorprodukts)}
+
+
+
+\sphinxAtStartPar
+Wir betrachten in diesem Beispiel den Euklidischen Vektorraum \(V=W=\R^2\) und zwei Vektoren \(x, y \in \R^2\).
+Nehmen wir zunächst das Tensorprodukt, dass durch das \sphinxstylestrong{dyadische Produkt} \(\otimes : \R^2 \times \R^2 \rightarrow \R^{2 \times 2}\) gegeben ist mit
+\begin{equation*}
+\begin{split}x \otimes y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Man sieht ein, dass der zugehörige \sphinxstyleemphasis{Tensorproduktraum} also \(\R^{2 \times 2} = \R^2 \otimes \R^2\) sein muss.
+Anderseits erhält man den gleichen Tensorproduktraum, wenn man ein \sphinxstylestrong{alternatives Tensorprodukt} \(\otimes^*\) zum dyadischen Produkt definiert, welches lediglich die Reihenfolge der Komponenten von \(y\) vertauscht mit
+\begin{equation*}
+\begin{split}x \otimes^* y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_2 & x_1y_1 \\
+x_2y_2 & x_2y_1
+\end{pmatrix}.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Was bedeutet die universelle Eigenschaft?}
+
+\sphinxAtStartPar
+Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf \(V\times W\) und dem Raum der linearen Abbildungen von \(X = V\otimes W\) nach \(Y\) für ein Tensorprodukt \(\otimes\) her.
+Für den Spezialfall \(Y = \R\) ist letzterer gerade der \sphinxstyleemphasis{algebraische Dualraum} des Tensorproduktraums.
+Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen also schon über einfache Linearformen auf \(V\otimes W\).
+
+\sphinxAtStartPar
+Das folgende einfache Beispiel soll uns helfen diese Beziehung besser zu verstehen.
+\label{vektoranalysis/tensor:ex:universelleEigenschaft}
+\begin{sphinxadmonition}{note}{Example 3.6 (Universelle Eigenschaft)}
+
+
+
+\sphinxAtStartPar
+Im Folgenden betrachten wir wieder den Euklidischen Vektorraum \(V=W=\R^2\) und zwei Vektoren \(x, y \in \R^2\).
+Wie wir in {\hyperref[\detokenize{vektoranalysis/tensor:ex:tensorproduktVarianten}]{\sphinxcrossref{Example 3.5}}} festgestellt haben realisiert das dyadische Produkt
+\begin{equation*}
+\begin{split}\otimes \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes \R^2 = \R^{2 \times 2} =: X\end{split}
+\end{equation*}
+\sphinxAtStartPar
+mit
+\begin{equation*}
+\begin{split}x \otimes y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ein \sphinxstyleemphasis{Tensorprodukt} der Vektorräume \(V=W=\R^2\).
+Wegen der \sphinxstyleemphasis{universellen Eigenschaft} muss nun gelten, dass für jede Bilinearform \(\Phi \in L^2(V \times W; Y)\) für beliebige \(\R\)\sphinxhyphen{}Vektorräume \(Y\) eine eindeutige lineare Abbildung \(p \in L^1(X; Y)\) existiert, die äquivalent im Sinne von \eqref{equation:vektoranalysis/tensor:eq:universell} ist.
+
+\sphinxAtStartPar
+Nehmen wir also beispielsweise das Skalarprodukt \(\langle \cdot, \cdot \rangle \colon V \times W \rightarrow \R\) als eine mögliche Bilinearform \(\Phi \in L^2(V \times W; Y)\) mit
+\begin{equation*}
+\begin{split}\langle x, y \rangle = x^T \cdot y = x_1y_1 + x_2y_2.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir müssen nun einen linearen Operator \(p \in L^1(X; Y)\) finden, der eine äquivalente Berechnung wie das Skalarprodukt auf dem Tensorproduktraum \(X = \R^{2 \times 2}\), der durch das dyadische Produkt induziert wird, durchführt.
+Hierzu wählen wir die Spur \(p(A) \coloneqq \operatorname{Spur}(A)\) einer Matrix \(A \in \R^{2 \times 2}\), denn diese ist \sphinxstylestrong{linear} und es gilt:
+\begin{equation*}
+\begin{split}\operatorname{Spur}
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{pmatrix}
+= a_{11} + a_{22}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Überprüfen wir mit dieser Wahl nun die \sphinxstylestrong{universelle Eigenschaft des dyadischen Produkts}, so erhalten wir
+\begin{equation*}
+\begin{split}\Phi(x,y) = \langle x, y \rangle = x_1y_1 + x_2y_2 = \operatorname{Spur}
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}
+ = \operatorname{Spur}(x \otimes y) = p(x \otimes y).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Es sei angemerkt, dass wir nicht gezeigt haben, dass der Spur\sphinxhyphen{}Operator der \sphinxstyleemphasis{einzige} lineare Operator ist, der diese Äquivalenz erfüllt.
+Betrachten wir statt dessen die alternative Variante \(\otimes^*\) des dyadischen Produkts aus {\hyperref[\detokenize{vektoranalysis/tensor:ex:tensorproduktVarianten}]{\sphinxcrossref{Example 3.5}}}, so bleibt der Tensorproduktraum gleich, jedoch ändert sich der eindeutig bestimmte, lineare Operator \(p \in L^1(X; Y)\).
+Durch die Vertauschung der Elemente der Matrix \(x \otimes^* y\) nimmt man nicht mehr die Summe der Hauptdiagonalelemente realisiert durch den Operator \(\operatorname{Spur}(A) = a_{11} + a_{22}\), sondern die \sphinxstylestrong{Summe der Gegendiagonalelemente} realisiert durch einen linearen Operator \(\operatorname{Spur}^*(A) \coloneqq a_{21} + a_{12}\), d.h., die Diagonale von links unten nach rechts oben in der Matrix.
+In diesem Fall erhält man nämlich analog
+\begin{equation*}
+\begin{split}\Phi(x,y) = \langle x, y \rangle = x_1y_1 + x_2y_2 = \operatorname{Spur}^*
+\begin{pmatrix}
+x_1y_2 & x_1y_1 \\
+x_2y_2 & x_2y_1
+\end{pmatrix}
+ = \operatorname{Spur}^*(x \otimes^* y) = p(x \otimes^* y).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Dies Veranschaulicht die Beziehung der involvierten Vektorräume und die zu Grunde liegende universelle Eigenschaft des Tensorprodukts.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{danger}{Danger:}
+\sphinxAtStartPar
+Wir haben in {\hyperref[\detokenize{vektoranalysis/tensor:ex:universelleEigenschaft}]{\sphinxcrossref{Example 3.6}}} lediglich die universelle Eigenschaft zur Veranschaulichung überprüft für ein konkretes Beispiel.
+Wir haben jedoch \sphinxstylestrong{nicht} gezeigt, dass das dyadische Produkt die \sphinxstyleemphasis{universelle Eigenschaft} erfüllt.
+Dafür hätten wir die Äquivalenz für \sphinxstylestrong{alle möglichen} Bilinearformen \(\Phi \in L^2(V \times W; Y)\) für \sphinxstylestrong{beliebige Vektorräume} \(Y\) beweisen müssen.
+\end{sphinxadmonition}
+
+
+\subsection{Existenz und Konstruktion des Tensorprodukts}
+\label{\detokenize{vektoranalysis/tensor:existenz-und-konstruktion-des-tensorprodukts}}
+\sphinxAtStartPar
+Wir stellen fest, dass es für zwei beliebige \(\R\)\sphinxhyphen{}Vektorräume \(V\) und \(W\) immer ein Tensorprodukt gibt, und dass wir dieses Tensorprodukt konkret konstruieren können indem wir uns auf die Basis der Vektorräume \(V\) und \(W\) zurückziehen.
+Diese Tatsache formulieren wir in der folgenden Aussage.
+\label{vektoranalysis/tensor:thm:existenzTensorprodukt}
+\begin{sphinxadmonition}{note}{Theorem 3.1 (Existenz des Tensorprodukts)}
+
+
+
+\sphinxAtStartPar
+Für zwei reelle Vektorräume \(V, W\) existiert stets mindestens ein Tensorprodukt \(\otimes\in L^2(V\times W; V\otimes W)\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Der folgende Beweis ist ein sogenannter \sphinxstyleemphasis{konstruktiver Beweis}, d.h., wir zeigen die Existenz eines Objekts indem wir es explizit angeben.
+Im Gegensatz hierzu gibt es auch nicht\sphinxhyphen{}konstruktive Existenzbeweise.
+
+\sphinxAtStartPar
+Es sei \(B^V = \{b_i^V: i\in I^V\}\) eine Basis von \(V\) und es sei analog \(B^W = \{b_i^W: i\in I^W\}\) eine Basis von \(W\) für zwei Indexmengen \(I^V\) und \(I^W\).
+Wir betrachten zunächst das kartesische Produkt der beiden Indexmengen
+\begin{equation*}
+\begin{split}J := I^V \times I^W = \{(i,j): i\in I^V, j\in I^W\}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Es sei nun \(X\) ein reeller Vektorraum dessen Basis sich durch \(J\) indizieren lässt, das heißt es existiert eine Menge
+\begin{equation*}
+\begin{split}B^X = \{b_{ij}^X: (i,j)\in J\},\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so dass \(B^X\) eine Hamel\sphinxhyphen{}Basis von \(X\) ist.
+Man kann zeigen, dass ein solcher Vektorraum immer existiert.
+
+\sphinxAtStartPar
+Wir definieren nun eine bilineare Abbildung \(\otimes: V\times W \to X\) über
+\begin{equation*}
+\begin{split}\otimes (b_i^V, b_j^W) = b_i^V \otimes b_j^W := b_{ij}^X \quad \forall (i,j)\in J.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Es sei darauf hingewiesen, dass die bilineare Abbildung \(\otimes\) durch eine Definition über die Indexmenge \(J\) eindeutig festgelegt ist.
+Dies liegt daran, dass für beliebige Paare \((v,w)\in V\times W\) endlich viele Koeffizienten \(\alpha_{i_1},\ldots,\alpha_{i_n}\) und \(\beta_{j_1},\ldots, \beta_{j_m}\) existieren, so dass für die Vektoren \(v \in V\) und \(w \in W\) eine Darstellung in den jeweiligen Hamel\sphinxhyphen{}Basen existiert mit
+\begin{equation*}
+\begin{split}v = \sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \quad w = \sum_{l=1}^m \beta_{j_l} b_{j_l}^W.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Durch diese Darstellung erhalten wir für die bilineare Abbildung \(\otimes: V\times W \to X\) nun eine \sphinxstylestrong{explizite Vorschrift} als
+\begin{equation*}
+\begin{split}\otimes(v,w) 
+= 
+\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) = 
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} \otimes\left(b_{i_k}^V, b_{j_l}^W\right) =
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} b_{i_kj_l}^X.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir müssen nun noch die \sphinxstylestrong{universelle Eigenschaft} der bilinearen Abbildung \(\otimes\) nachweisen, um zu zeigen, dass es sich um ein Tensorprodukt handelt.
+Sei dazu \(\phi\in L^2(V\times W; Y)\) eine Bilinearform auf einen beliebigen reellen Vektorraum \(Y\).
+Dann können wir eine Linearform auf \(p: X\to Y\) explizit definieren durch Angabe ihrer Wirkung auf die Basiselemente mit
+\begin{equation*}
+\begin{split}p(b_{ij}^X) := \phi(b_i^V, b_j^W) \quad \forall (i,j) \in J.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Dann gilt nämlich, unter Ausnutzung der Linearität von \(p\) und der obigen Rechnung, dass gilt
+\begin{equation*}
+\begin{split}p(\otimes(v,w))
+&= p \left( \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} b_{i_kj_l}^X \right)
+= \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} p(b_{i_kj_l}^X) \\
+&= \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} \phi\left(b_{i_k}^V, b_{j_l}^W\right)
+= \phi\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V,\sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big)
+= \phi(v,w)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir sehen also, dass \(\otimes\) die universelle Eigenschaft erfüllt und zwar insbesondere dadurch, dass die Linearform \(p\) durch die obige Definition eindeutig festgelegt ist.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Als Korollar aus {\hyperref[\detokenize{vektoranalysis/tensor:thm:existenzTensorprodukt}]{\sphinxcrossref{Theorem 3.1}}} erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann.
+Hieran sieht man den qualitativen Unterschied zwischen \(V \times W\) und \(V\otimes W\).
+\label{vektoranalysis/tensor:corollary-6}
+\begin{sphinxadmonition}{note}{Corollary 3.1}
+
+
+
+\sphinxAtStartPar
+Für zwei reelle Vektorräume \(V\) und \(W\) mit zugehörigen Hamel\sphinxhyphen{}Basen
+\begin{equation*}
+\begin{split}B^V = \{b_i^V: i\in I^V\}, \quad B^W = \{b_i^W: i\in I^W\},\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und einem Tensorprodukt \(\otimes:V\times W \to V\otimes W\) ist
+\begin{equation*}
+\begin{split}B^X \, \coloneqq \, \{b_i^V \otimes b_j^W: i\in I^V, j\in I^W\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine Basis von \(X = V\otimes W\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir wissen nun aus {\hyperref[\detokenize{vektoranalysis/tensor:thm:existenzTensorprodukt}]{\sphinxcrossref{Theorem 3.1}}}, dass immer mindestens ein Tensorprodukt existiert.
+Es stellt sich also die Frage inwiefern sich verschiedene Tensorprodukte auf den gleichen Vektorräumen \(V\) und \(W\) unterscheiden.
+Hierzu liefert das folgende Lemma eine klare Einsicht.
+\label{vektoranalysis/tensor:lem:isomorphismusTensorproduktraum}
+\begin{sphinxadmonition}{note}{Lemma 3.4 (Isomorphie von Tensorprodukträumen)}
+
+
+
+\sphinxAtStartPar
+Es seien \(V\) und \(W\) zwei reelle Vektorräume und es seien
+\begin{equation*}
+\begin{split}\otimes_1 &\colon V \times W \rightarrow V \otimes_1 W,\\
+\otimes_2 &\colon V \times W \rightarrow V \otimes_2 W\end{split}
+\end{equation*}
+\sphinxAtStartPar
+zwei Tensorprodukte.
+Dann existiert genau ein Isomorphismus
+\begin{equation*}
+\begin{split}p: V\otimes_1 W \to V\otimes_2 W,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so dass gilt \(\otimes_2 = p\circ \otimes_1\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Seien also zunächst zwei Tensorprodukte \(\otimes_1, \otimes_2\) auf \(V\times W\) gegeben.
+Wegen der \sphinxstyleemphasis{universellen Eigenschaft} des Tensorprodukts wissen wir, dass es lineare Abbildungen
+\begin{equation*}
+\begin{split}p_1&: V\otimes_1 W\to Y_1 \ \coloneqq \ V\otimes_2 W,\\
+p_2&: V\otimes_2 W\to Y_2 \ \coloneqq \ V\otimes_1 W\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gibt, so dass gilt
+\begin{equation*}
+\begin{split}\otimes_2 &= p_1 \circ \otimes_1,\\
+\otimes_1 &= p_2 \circ \otimes_2.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Durch Einsetzen der Gleichungen ineinander somit
+\begin{equation*}
+\begin{split}\otimes_2 &= p_1\circ p_2 \circ \otimes_2,\\
+\otimes_1 &= p_2\circ p_1 \circ \otimes_1.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Aus dem Beweis von {\hyperref[\detokenize{vektoranalysis/tensor:thm:existenzTensorprodukt}]{\sphinxcrossref{Theorem 3.1}}} wissen wir, dass wir die Basis von \(V\otimes_2 W\) über die Abbildung \(\otimes_2(b_i^V, b_j^W)\) der Basiselemente von \(V\) und \(W\) charakterisieren können.
+Setzen wir also das Tensorprodukt dieser Basiselemente in die erste Gleichung ein, so erhalten wir
+\begin{equation*}
+\begin{split}\otimes_2(b_i^V, b_j^W) = p_1\circ p_2(\otimes_2(b_i^V,b_j^W)).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Das zeigt also, dass \(p_1\circ p_2 = \mathrm{Id}_{Y_1}\) die Identitätsabbildung auf dem Tensorproduktraum \(Y_1 = V \otimes_2 W\) sein muss.
+Dies folgt, weil \(p_1\circ p_2\) als lineare Abbildung schon ganz durch seine Wirkung auf den Basiselementen festgelegt ist.
+Analog kann man nun folgern, dass \(p_2\circ p_1 = \mathrm{Id}_{Y_2}\) die Identitätsabbildung im Tensorproduktraum \(Y_2 = V \otimes_1 W\) ist und somit sind die Linearformen \(p_1\) und \(p_2\) \sphinxstylestrong{Isomorphismen} und gerade die jeweiligen Umkehrfunktionen zueinander.
+
+\sphinxAtStartPar
+Insgesamt haben wir also gezeigt, dass Tensorprodukträume, die durch verschiedene Tensorprodukte auf dem gleiche kartesischen Produkraum stets isomorph zueinander sind.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Im endlich\sphinxhyphen{}dimensionalen Fall können wir uns also immer auf den \(\R^{n \cdot m}\) zurückziehen, wie das folgende Korrolar festhält.
+\label{vektoranalysis/tensor:cor:isomorphieEndlichDimensional}
+\begin{sphinxadmonition}{note}{Corollary 3.2}
+
+
+
+\sphinxAtStartPar
+Betrachten wir ein Tensorprodukt \(\otimes \in L^2(V \times W; V \otimes W)\) zweier \sphinxstylestrong{endlich\sphinxhyphen{}dimensionaler} \(\R\)\sphinxhyphen{}Vektorräume \(V\) und \(W\) mit \(\operatorname{dim}(V)=n \in \N\) und \(\operatorname{dim}(W)=m \in \N\), so existiert stets die folgende Isormorphie
+\begin{equation*}
+\begin{split}V \otimes W \cong \R^{n \cdot m}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Das heißt für die Dimension des Tensorproduktraums \(V \otimes W\) gilt offensichtlich
+\begin{equation*}
+\begin{split}\operatorname{dim}(V \otimes W) = n\cdot m.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Das folgende Beispiel soll noch einmal die Isomorphie zwischen verschiedenen Tensorprodukträumen illustrieren.
+\label{vektoranalysis/tensor:example-9}
+\begin{sphinxadmonition}{note}{Example 3.7 (Dyadisches Produkt vs. Kronecker\sphinxhyphen{}Produkt)}
+
+
+
+\sphinxAtStartPar
+Im Folgenden betrachten wir wieder den Euklidischen Vektorraum \(V=W=\R^2\) und zwei Vektoren \(x, y \in \R^2\).
+Wie wir in {\hyperref[\detokenize{vektoranalysis/tensor:ex:tensorproduktVarianten}]{\sphinxcrossref{Example 3.5}}} und {\hyperref[\detokenize{vektoranalysis/tensor:ex:universelleEigenschaft}]{\sphinxcrossref{Example 3.6}}} festgestellt haben realisiert das \sphinxstylestrong{dyadische Produkt}
+\begin{equation*}
+\begin{split}\otimes_d \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_d \R^2 = \R^{2 \times 2} =: X_d\end{split}
+\end{equation*}
+\sphinxAtStartPar
+mit
+\begin{equation*}
+\begin{split}x \otimes_d y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ein Tensorprodukt der Vektorräume \(V=W=\R^2\).
+
+\sphinxAtStartPar
+Betrachten wir nun ein weiteres Tensorprodukt auf dem kartesischen Produktraum \(V \times W\), nämlich das \sphinxstylestrong{Kronecker\sphinxhyphen{}Produkt} \(\otimes_K\).
+Das Kronecker\sphinxhyphen{}Produkt realisiert eine Abbildung
+\begin{equation*}
+\begin{split}\otimes_K \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_K \R^2 = \R^{4} =: X_K,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+mit
+\begin{equation*}
+\begin{split}x \otimes_K y =
+\begin{pmatrix}
+x_1 \\ x_2
+\end{pmatrix} \otimes_K 
+\begin{pmatrix}
+y_1 \\ y_2
+\end{pmatrix}
+\, = \, 
+\begin{pmatrix}
+x_1 \cdot \begin{pmatrix} y_1 \\ y_2 \end{pmatrix} \\ 
+x_2 \cdot \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
+\end{pmatrix}
+= 
+\begin{pmatrix}
+x_1y_1\\
+x_1y_2\\
+x_2y_1\\
+x_2y_2
+\end{pmatrix}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Es wird nun klar, dass die Räume \(X_d = \R^{2 \times 2}\) und \(X_K = \R^4\) isomorph zueinander sind, d.h., es gilt \(X_d \cong X_K\).
+Außerdem kann man Tensoren in den jeweiligen Tensorprodukträumen durch zeilenweises Ablesen bzw. Eintragen in eine Matrix eindeutig ineinander überführen.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Das Tensorprodukt?}
+
+\sphinxAtStartPar
+Die Aussage aus {\hyperref[\detokenize{vektoranalysis/tensor:lem:isomorphismusTensorproduktraum}]{\sphinxcrossref{Lemma 3.4}}} zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf dem kartesischen Produktraum \(V \times W\) zu definieren, die resultierenden Tensorprodukträume stets isomorph zueinander sind.
+Deshalb spricht man auch von \sphinxstylestrong{dem} Tensorprodukt \(\otimes\) und \sphinxstylestrong{dem} Tensorproduktraum \(V \otimes W\), was so klingt als gäbe es jeweils nur ein einziges Exemplar.
+In der Tat gibt es zwar mehrere Tensorprodukte aber man kann diese problemlos ineinander umrechnen und die resultierenden Tensorprodukträume alle miteinander identifizieren.
+
+\sphinxAtStartPar
+Deshalb werden wir im Folgendem auch häufig von \sphinxstylestrong{dem} Tensorprodukt sprechen.
+
+
+\subsection{Natürliche Homo\sphinxhyphen{} und Isomorphismen des Tensorprodukts}
+\label{\detokenize{vektoranalysis/tensor:naturliche-homo-und-isomorphismen-des-tensorprodukts}}
+\sphinxAtStartPar
+Von vielen Operationen kennen wir bereits Eigenschaften wie \sphinxstyleemphasis{Kommutativität} und \sphinxstyleemphasis{Assoziativität}.
+Derartige Eigenschaften gelten nicht direkt für das Tensorprodukt, allerdings erhalten wir Isomorphismen, welche bekannte Rechenregeln nachbilden.
+Diese Isomorphismen nennt auch \sphinxstylestrong{natürlich} oder \sphinxstylestrong{kanonisch}, weil Sie jeweils auf die naheliegendste Art und Weise definiert sind.
+Das folgende Lemma fasst die wichtigsten Eigenschaften des Tensorprodukts zusammen
+\label{vektoranalysis/tensor:lem:natISO}
+\begin{sphinxadmonition}{note}{Lemma 3.5 (Natürliche Isomorphismen des Tensorprodukts)}
+
+
+
+\sphinxAtStartPar
+Es seien \(V_1,V_2,V_3\) und \(V_4\) reelle Vektorräume.
+Dann existieren für das Tensorprodukt die folgenden Isomorphismen:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\(V_1\otimes V_2 \cong V_2\otimes V_1, \quad v_1\otimes v_2 \mapsto v_2\otimes v_1\) (\sphinxstylestrong{Kommutativität}),
+
+\item {} 
+\sphinxAtStartPar
+\((V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3),\quad (v_1\otimes v_2)\otimes v_3 \mapsto v_1 \otimes (v_2\otimes v_3)\) (\sphinxstylestrong{Assoziativität}),
+
+\item {} 
+\sphinxAtStartPar
+\(\R \otimes V_1 \cong V_1,\quad a\otimes v_1 \mapsto a\,v_1\) \sphinxstylestrong{(Produkt mit Skalaren)},
+
+\item {} 
+\sphinxAtStartPar
+Falls \(p_{12}:V_1\to V_2\) und \(p_{34}:V_3\to V_4\) Isomorphismen sind, so gilt (\sphinxstylestrong{Transitivität})
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}V_1\otimes V_3 \cong V_2\otimes V_4,\quad v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Punkt 1.\sphinxhyphen{}3. sind in der Hausaufgabe zu zeigen.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Zu Punkt 4.:}
+
+\sphinxAtStartPar
+Wichtig für die Transitivitätseigenschaft ist es zunächst einzusehen, dass die Definition des Tensorprodukts sinnvoll ist, denn nicht jedes Element \(x\in V_1\otimes V_3\) lässt sich \sphinxstyleemphasis{direkt} als Tensorprodukt schreiben.
+Wir wissen lediglich, dass \sphinxstyleemphasis{endlich viele} sogenannte \sphinxstylestrong{elementare} oder \sphinxstylestrong{zerfallende} Produkte \((v_1^i\otimes v_3^i)_{i=1}^n\) und Skalare \(\alpha_i\in\R, i=1,\ldots,n\), für \(n\in\N\) existieren, so dass sich jeder Vektor \(x \in V_1 \otimes V_3\) schreiben lässt als
+\begin{equation*}
+\begin{split}x = \sum_{i=1}^n \alpha_i (v_1^i \otimes v_3^i),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+was direkt aus der Basiskonstruktion in {\hyperref[\detokenize{vektoranalysis/tensor:thm:existenzTensorprodukt}]{\sphinxcrossref{Theorem 3.1}}} folgt.
+
+\sphinxAtStartPar
+Die angegebene Abbildung
+\begin{equation*}
+\begin{split}v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ist nun \sphinxstylestrong{nur} für zerfallende Produkte definiert.
+Allerdings lässt sie sich eindeutig zu einer linearen Abbildung \(\Phi(V_1\otimes V_3)\to (V_2\otimes V_4)\) fortsetzen, so dass für beliebige Vektoren \(x \in V_1 \otimes V_3\) gilt
+\begin{equation*}
+\begin{split}\Phi(x) = \Phi(\sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i) = 
+\sum_{i=1}^n \alpha_i \Phi(v_1^i \otimes v_3^i) = 
+\sum_{i=1}^n \alpha_i (p_{12}(v_1^i)\otimes p_{34}(v_3^i)).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Auf analoge Art und Weise definiert man nun die lineare Abbildung \(\Psi \colon V_2 \otimes V_4 \rightarrow V_1 \otimes V_3\) mit
+\begin{equation*}
+\begin{split}\Psi(v_2\otimes v_4) := p_{12}^{-1}(v_2)\otimes p_{34}^{-1}(v_4)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und erhält sofort, dass \(\Psi\circ\Phi = \mathrm{Id}\) gilt, da für beliebige Vektoren \(x \in V_1 \otimes V_3\) gilt:
+\begin{equation*}
+\begin{split}\Psi \circ \Phi(x) &= \Psi \circ \Phi(\sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i) = \Psi \circ \sum_{i=1}^n \alpha_i (p_{12}(v_1^i)\otimes p_{34}(v_3^i)) \\
+&= \sum_{i=1}^n \alpha_i \Psi(p_{12}(v_1^i)\otimes p_{34}(v_3^i)) = \sum_{i=1}^n \alpha_i (v_1^i \otimes v_3^i) = x.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Analog gilt auch \(\Phi\circ\Psi = \mathrm{Id}\) und somit haben wir die Behauptung des Lemmas bewiesen.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Die zweite Eigenschaft in {\hyperref[\detokenize{vektoranalysis/tensor:lem:natISO}]{\sphinxcrossref{Lemma 3.5}}} erlaubt es uns das Tensorprodukt über \(k\)\sphinxhyphen{}viele reelle Vektorräume \(V_1,\ldots, V_k\) zu bilden.
+Daher können wir ab nun folgende Notation verwenden
+\begin{equation*}
+\begin{split}\bigotimes_{i=1}^k V_i :=V_1\otimes\ldots\otimes V_k\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und sehen, dass dieses Objekt wohldefiniert ist.
+Insbesondere ist äquivalent das Tensorprodukt über \(k\) Vektorräume mit Hilfe einer \(k\)\sphinxhyphen{}Multilinearform aus {\hyperref[\detokenize{vektoranalysis/multilinear:s-k-multilinearform}]{\sphinxcrossref{\DUrole{std,std-ref}{k\sphinxhyphen{}Multilinearformen}}}} zu definieren anstatt nur einer Bilinearform wie in {\hyperref[\detokenize{vektoranalysis/tensor:def:tensor}]{\sphinxcrossref{Definition 3.4}}}.
+Die folgende Bemerkung gibt die universelle Eigenschaft für solch ein Tensorprodukt an.
+\label{vektoranalysis/tensor:rem:kfachesTensorprodukt}
+\begin{sphinxadmonition}{note}{Remark 3.7 (\protect\(k\protect\)\sphinxhyphen{}faches Tensorprodukt)}
+
+
+
+\sphinxAtStartPar
+Es seien \(V_1,\ldots, V_k\) für \(k \in \N\) reelle Vektorräume.
+Dann besitzt das \(k\)\sphinxhyphen{}fache Tensorprodukt \(\otimes \colon V_1 \times \ldots \times V_k \rightarrow \bigotimes_{i=1}^k V_i\) die folgende universelle Eigenschaft:
+
+\sphinxAtStartPar
+Für jede \(k\)\sphinxhyphen{}Multilinearform \(\phi\in L^k(V_1\times\ldots\times V_k; Y)\) in einen beliebigen reellen Vektorraum \(Y\) existiert eine eindeutige lineare Abbildung
+\(p \in L^1(\bigotimes_{i=1}^k V_i; Y)\), so dass gilt
+\begin{equation*}
+\begin{split}\phi = p \circ \otimes.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Im folgenden Abschnitt der Vorlesung wollen wir Tensoren insbesondere als Multilinearformen interpretieren.
+Deshalb interessieren wir uns im Folgenden für die Eigenschaften des Tensorprodukts, wenn wir speziell \sphinxstyleemphasis{Räume von linearen Abbildungen} betrachten.
+Die lineare Abbildung im folgenden Lemma stellt hierbei die zentrale Idee dar.
+\label{vektoranalysis/tensor:lem:LISO}
+\begin{sphinxadmonition}{note}{Lemma 3.6}
+
+
+
+\sphinxAtStartPar
+Es seien \(V_1, V_2\) sowie \(W_1, W_2\) reelle Vektorräume.
+Dann ist die Abbildung
+\begin{equation*}
+\begin{split}p:L(V_1; V_2)\otimes L(W_1; W_2) &\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(w_1).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ein \sphinxstylestrong{Homomorphismus}.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. In der Hausaufgabe zu zeigen.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Da die Notation in {\hyperref[\detokenize{vektoranalysis/tensor:lem:LISO}]{\sphinxcrossref{Lemma 3.6}}} vielleicht etwas abstrakt wirkt, soll die folgende Bemerkung auf die einzelnen Elemente der linearen Abbildung \(p\) nochmal genauer eingehen.
+\label{vektoranalysis/tensor:remark-13}
+\begin{sphinxadmonition}{note}{Remark 3.8 (Funktionen als Funktionswerte)}
+
+
+
+\sphinxAtStartPar
+Die lineare Abbildung in {\hyperref[\detokenize{vektoranalysis/tensor:lem:LISO}]{\sphinxcrossref{Lemma 3.6}}} ist folgendermaßen zu verstehen:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(\eta_1:V_1\rightarrow V_2\) und \(\eta_2: W_1 \rightarrow W_2\) sind lineare Abbildungen mit \(\eta_1 \in L(V_1; V_2)\) und \(\eta_2 \in L(W_1; W_2)\)
+
+\item {} 
+\sphinxAtStartPar
+\(\eta_1 \otimes \eta_2\) ist dementsprechend ein Element aus dem Tensorproduktraum \(L(V_1; V_2)\otimes L(W_1; W_2)\),
+
+\item {} 
+\sphinxAtStartPar
+\(p(\eta_1\otimes\eta_2)\) ist dann ein Element von \(L(V_1\otimes W_1; V_2\otimes W_2)\), also eine lineare Abbildung, welche vom Tensorproduktraum \(V_1\otimes W_1\) in den Tensorproduktraum \(V_2\otimes W_2\) abbildet,
+
+\item {} 
+\sphinxAtStartPar
+\((p(\eta_1\otimes\eta_2))(v_1\otimes w_1)\) ist schließlich die Auswertung dieser Abbildung am Punkt \(v_1\otimes w_1\in V_1\otimes W_1\).
+
+\end{itemize}
+
+\sphinxAtStartPar
+In diesem Fall notiert man auch
+\begin{equation*}
+\begin{split}\eta_1\otimes\eta_2 \mapsto 
+\big[
+v_1\otimes w_1\mapsto \eta_1(v_1) \otimes \eta_2(w_1)
+\big],\end{split}
+\end{equation*}
+\sphinxAtStartPar
+was bedeutet, dass \(\eta_1\otimes\eta_2\) auf eine \sphinxstyleemphasis{Funktion} abgebildet wird, welche wiederum \(v_1\otimes w_1\) als Argumente bekommt.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Insbesondere können wir im \sphinxstylestrong{endlich\sphinxhyphen{}dimensionalen Fall} zeigen, dass die Abbildung \(p\) in {\hyperref[\detokenize{vektoranalysis/tensor:lem:LISO}]{\sphinxcrossref{Lemma 3.6}}} einen Isomorphismus definiert.
+Hierzu formulieren wir zunächst das folgende nützliche Hilfslemma.
+\label{vektoranalysis/tensor:lem:isomorphieKartesischesProdukt}
+\begin{sphinxadmonition}{note}{Lemma 3.7}
+
+
+
+\sphinxAtStartPar
+Seien \(V\) und \(W\) zwei beliebige reelle Vektorräume und \(n,m \in \N\).
+Dann existiert ein Isomorphismus, so dass
+\begin{equation*}
+\begin{split}(V \otimes W)^{n\cdot m} \cong V^n \otimes W^m.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. In der Hausaufgabe zu zeigen.
+\end{sphinxadmonition}
+\label{vektoranalysis/tensor:thm:pIsomorphismus}
+\begin{sphinxadmonition}{note}{Theorem 3.2}
+
+
+
+\sphinxAtStartPar
+Es seien \(V_1, W_1\) reelle \sphinxstyleemphasis{endlich\sphinxhyphen{}dimensionale} Vektorräume und \(V_2, W_2\) \sphinxstyleemphasis{beliebige} reelle Vektorräume.
+Dann ist die Abbildung
+\begin{equation*}
+\begin{split}p:L(V_1; V_2)\otimes L(W_1; W_2) &\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(w_1).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+ein Isomorphismus.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Seien \(V_1\) und \(W_1\) zwei endlich\sphinxhyphen{}dimensionale, reelle Vektorräume mit \(\operatorname{dim}(V_1) = n \in \N\) und \(\operatorname{dim}(W_1) = m \in \N\).
+Nach dem \sphinxstyleemphasis{Isomorphiesatz für endlich\sphinxhyphen{}dimensionale Vektorräume} 3.20 in {[}\hyperlink{cite.references:id2}{Bur20}{]} existiert dann je ein Isomorphismus, so dass \(V_1 \cong \R^n\) und \(W_1 \cong \R^m\).
+Über diesen Isomorphismus lässt sich auch zeigen, dass \(L(V_1; V_2) \cong L(\R^n; V_2)\) und \(L(W_1; W_2) \cong L(\R^m; W_2)\) gilt.
+Zusammen mit der \sphinxstyleemphasis{Transitivitätseigenschaft des Tensorprodukts} aus {\hyperref[\detokenize{vektoranalysis/tensor:lem:natISO}]{\sphinxcrossref{Lemma 3.5}}} folgt dann aber schon
+\begin{equation*}
+\begin{split}L(V_1; V_2)\otimes L(W_1; W_2) \cong L(\R^n; V_2)\otimes L(\R^m; W_2).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Daher reicht es, die Aussage des Theorems für den einfachen Fall \(V_1=\R^n, W_1=\R^m\) im Folgenden in zwei Schritten zu zeigen.
+
+\sphinxAtStartPar
+\sphinxstylestrong{1.Schritt:} Wir zeigen zunächst, dass die Isomorphie \(L(\R^k; Y) \cong Y^k\) gilt.
+
+\sphinxAtStartPar
+Es sei \(Y\) ein beliebiger reeller Vektorraum und es bezeichne \((e_i)_{i=1}^k\) die Standardbasis von \(\R^k\).
+Wir konstruieren nun eine Abbildung \(\phi:Y^k\rightarrow L(\R^k; Y)\), so dass
+\begin{equation*}
+\begin{split}\phi(y_1,\ldots,y_k) = [e_i \mapsto y_i], \quad i = 1,\ldots,k\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gilt.
+Die Abbildung \(\phi\) ist \sphinxstylestrong{linear}, da für alle Vektoren \(y,z \in Y^k\) und einen beliebigen Vektor \(x \in \R^k\) mit der Basisdarstellung \(x=\sum_{i=1}^k \alpha_i e_i\) gilt:
+\begin{equation*}
+\begin{split}\phi(y+z)(x) &= \phi(y_1+z_1,\ldots, y_k+z_k)(\sum_{i=1}^k \alpha_i e_i) = \sum_{i=1}^k \alpha_i (y_i + z_i) \\
+&= \sum_{i=1}^k \alpha_i y_i + \sum_{i=1}^k \alpha_i z_i = \phi(y_1,\ldots, y_k)(\sum_{i=1}^k \alpha_i e_i) + \phi(z_1,\ldots, z_k)(\sum_{i=1}^k \alpha_i e_i) \\
+&= \phi(y)(x) + \phi(z)(x)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und für jedes Skalar \(\lambda \in \R\) gilt:
+\begin{equation*}
+\begin{split}\phi(\lambda y)(x) &= \phi(\lambda y_1,\ldots, \lambda y_k)(\sum_{i=1}^k \alpha_i e_i)
+= \sum_{i=1}^k \alpha_i (\lambda y_i) = \lambda \sum_{i=1}^k \alpha_i y_i \\
+&= \lambda \phi( y_1,\ldots, y_k)(\sum_{i=1}^k \alpha_i e_i)
+= \lambda \phi(y)(x).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Offenbar ist diese lineare Abbildung auch \sphinxstylestrong{injektiv}, denn
+\begin{equation*}
+\begin{split}\phi(y_1,\ldots,y_k)(e_i) = 0\quad\forall i\in{1,\ldots k} 
+\qquad \Leftrightarrow \qquad
+y_i = 0\quad\forall i\in{1,\ldots k}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Gleichzeitig ist die lineare Abbildung jedoch auch \sphinxstylestrong{surjektiv}, da jede lineare Abbildung in \(L(\R^k; Y)\) sich bereits durch seine Wirkung auf den Basiselementen \(e_i \in \R^k, i=1,\ldots,k\) eindeutig beschreiben lässt.
+
+\sphinxAtStartPar
+Wir sehen also ein, dass es sich bei der Abbildung \(\phi\) um einen Isomorphismus handelt und somit gilt also \(L(\R^k; Y) \cong Y^k\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{2.Schritt:} Als Nächstes wollen wir die folgenden Isomorphien zeigen:
+\begin{equation*}
+\begin{split}L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m\cong L(\R^n\otimes \R^m; V_2\otimes W_2).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Mit Schritt 1 des Beweises wissen wir bereits, dass \(L(\R^n; V_2)\cong V_2^n\) und \(L(\R^m; W_2)\cong W_2^m\) gilt.
+Zusammen mit der \sphinxstyleemphasis{Transitivitätseigenschaft des Tensorprodukts} aus {\hyperref[\detokenize{vektoranalysis/tensor:lem:natISO}]{\sphinxcrossref{Lemma 3.5}}} folgt damit schon die erste Isomorphie
+\begin{equation}\label{equation:vektoranalysis/tensor:eq:ersteIsormorphie}
+\begin{split}L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m.\end{split}
+\end{equation}
+\sphinxAtStartPar
+Für die zweite Isomorphie benutzen wir den Zusammenhang \(\R^n\otimes \R^m \cong \R^{n\cdot m}\) aus {\hyperref[\detokenize{vektoranalysis/tensor:cor:isomorphieEndlichDimensional}]{\sphinxcrossref{Corollary 3.2}}} und erhalten somit
+\begin{equation*}
+\begin{split}L(\R^n\otimes \R^m; V_2\otimes W_2) \cong L(\R^{n\cdot m}; V_2\otimes W_2).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Nutzen wir wiederum die Isomorphie aus Schritt 1 so erhalten wir
+\begin{equation*}
+\begin{split}L(\R^{n\cdot m}; V_2\otimes W_2) \cong (V_2 \otimes W_2)^{n\cdot m}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wegen {\hyperref[\detokenize{vektoranalysis/tensor:lem:isomorphieKartesischesProdukt}]{\sphinxcrossref{Lemma 3.7}}} wissen wir dann aber schon, dass gilt
+\begin{equation*}
+\begin{split}(V_2 \otimes W_2)^{n\cdot m} \cong V_2^n \otimes W_2^m.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Zusammen mit der Isomorphie {\hyperref[\detokenize{vektoranalysis/tensor:equation-eq-ersteisormorphie}]{\sphinxcrossref{(3.3)}}} haben wir nun insgesamt gezeigt, dass
+\begin{equation*}
+\begin{split}L(\R^n; V_2) \otimes L(\R^m; W_2) \cong L(\R^n\otimes \R^m; V_2\otimes W_2)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gilt, was mit unseren Vorüberlegungen die Aussage des Theorems beweist.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wählen wir die Zielräume der linearen Abbildungen als \(V_2 = W_2 = \R\), so erhalten wir direkt folgendes Korrolar als Anwendung des allgemeinen Resultats in {\hyperref[\detokenize{vektoranalysis/tensor:thm:pIsomorphismus}]{\sphinxcrossref{Theorem 3.2}}}.
+Dies ermöglicht es uns später Tensoren als Linearformen zu interpretieren.
+\label{vektoranalysis/tensor:cor:tensorenLinearformen}
+\begin{sphinxadmonition}{note}{Corollary 3.3 (Isomorphie des algebraischen Dualraums des Tensorproduktraums)}
+
+
+
+\sphinxAtStartPar
+Es seien \(V\) und \(W\) beliebige endlich\sphinxhyphen{}dimensionale Vektorräume.
+Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum der algebraischen Dualräume von \(V\) und \(W\) und dem algebraischen Dualraum des Tensorproduktraums, d.h.,
+\begin{equation*}
+\begin{split}V^\ast \otimes W^\ast \cong (V\otimes W)^\ast = L^1(V \otimes W; \R).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+
+\subsection{Tensoren als Multilinearformen}
+\label{\detokenize{vektoranalysis/tensor:tensoren-als-multilinearformen}}
+\sphinxAtStartPar
+Das folgende Korollar kombiniert die theoretischen Ergebnisse des letzten Abschnitts und liefert so ein mathematisches Resultat, das für die Anwendung beispielsweise in der Physik von Bedeutung ist.
+Wir werden nämlich nun folgern, dass wir Tensoren als Multilinearformen auffassen können.
+\label{vektoranalysis/tensor:cor:tensorMultilinearform}
+\begin{sphinxadmonition}{note}{Corollary 3.4 (Tensoren als Multilinearformen)}
+
+
+
+\sphinxAtStartPar
+Seien \(V\) und \(W\) zwei reelle endlich\sphinxhyphen{}dimensionale Vektorräume und \(\otimes \colon V \times W \rightarrow V \otimes W\) das Tensorprodukt.
+Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum und dem Raum der Bilinearformen durch
+\begin{equation*}
+\begin{split}V \otimes W \cong L^2(V \times W; \R).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Wie wir in {\hyperref[\detokenize{vektoranalysis/tensor:cor:tensorenLinearformen}]{\sphinxcrossref{Corollary 3.3}}} gesehen haben, besteht ein Isomorphismus zwischen dem Tensorproduktraum algebraischer Dualräume und dem algebraischen Dualraum des entsprechenden Tensorproduktraums mit
+\begin{equation*}
+\begin{split}V^\ast \otimes W^\ast \cong (V\otimes W)^\ast = L^1(V \otimes W; \R).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Da jeder endlich\sphinxhyphen{}dimensionale, reelle Vektorraums \(V\) nach {\hyperref[\detokenize{vektoranalysis/multilinear:lem:dualeBasis}]{\sphinxcrossref{Lemma 3.3}}} isomorph zu seinem algebraischen Dualraum \(V^\ast\) ist, können wir die \sphinxstyleemphasis{Transitivitätseigenschaft des Tensorprodukts} aus {\hyperref[\detokenize{vektoranalysis/tensor:lem:natISO}]{\sphinxcrossref{Lemma 3.5}}} ausnutzen und erhalten die folgende Isomorphie
+\begin{equation}\label{equation:vektoranalysis/tensor:eq:transitivIsomorphismus}
+\begin{split}V \otimes W \cong V^\ast \otimes W^\ast.\end{split}
+\end{equation}
+\sphinxAtStartPar
+Gleichzeitig besagt die \sphinxstyleemphasis{universelle Eigenschaft des Tensorprodukts} in , dass es zu jeder Bilinearform \(\Phi \in L^2(V \times W; \R)\) eine eindeutige Linearform \(p \in L^1(V \otimes W; \R)\) gibt, so dass \(\Phi = p \circ \otimes\) gilt.
+Somit erhalten wir also auch einen Isomorphismus
+\begin{equation*}
+\begin{split}L^1(V \otimes W; \R) \cong L^2(V \times W; \R).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Kombinieren wir diese mathematischen Resultate nun alle so ergibt sich die folgende Kette von Isomorphismen:
+\begin{equation*}
+\begin{split}V \otimes W \cong V^\ast \otimes W^\ast \cong L^1(V \otimes W; \R) \cong L^2(V \times W; \R),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+was die Aussage beweist.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+{\hyperref[\detokenize{vektoranalysis/tensor:cor:tensorMultilinearform}]{\sphinxcrossref{Corollary 3.4}}} besagt, dass Tensoren als Elemente des Tensorproduktraums \(V \otimes W\) als Bilinearformen auf dem kartesischen Produktraum \(V \times W\) aufgefasst werden können.
+Diese Aussage lässt sich mit Hilfe von {\hyperref[\detokenize{vektoranalysis/tensor:rem:kfachesTensorprodukt}]{\sphinxcrossref{Remark 3.7}}} auch auf das \(k\)\sphinxhyphen{}fache Tensorprodukt verallgemeinern.
+Hier erhält man dann das Resultat, dass sich Tensoren als \(k\)\sphinxhyphen{}Multilinearformen interpretieren lassen mit
+\begin{equation*}
+\begin{split}\V_1\otimes\ldots\otimes\V_k \cong L^k(\V_1\times\ldots\V_k;\R) \cong L(\V_1\otimes\ldots\V_k;\R).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In {\hyperref[\detokenize{vektoranalysis/tensor:equation-eq-transitivisomorphismus}]{\sphinxcrossref{(3.4)}}} haben wir die Transitivitätseigenschaft des Tensorprodukts ausgenutzt, um \sphinxstyleemphasis{beide} Vektorräume mit ihren jeweiligen algebraischen Dualräumen zu identifizieren.
+Dies muss jedoch nicht sein, denn wir hätten genauso gut \sphinxstylestrong{gemischte Tensorprodukte} der Form \(V \otimes W^\ast\) oder \(V^\ast \otimes W\) betrachten können, wenn wir die triviale Identifikation \(V \cong V\) oder \(W \cong W\) nutzen.
+Daher wollen wir im Folgenden Tensoren einer allgemeineren Form betrachten, nämlich solche, die für kartesische Produkte der Form \(V^r\times (V^\ast)^s\) mit \(r+s=k\) definiert sind.
+\label{vektoranalysis/tensor:def:gemischteTensoren}
+\begin{sphinxadmonition}{note}{Definition 3.5 (Gemischte Tensoren)}
+
+
+
+\sphinxAtStartPar
+Es sei \(V\) ein reeller endlich\sphinxhyphen{}dimensionaler Vektorraum und \(V^\ast\) der zugehörige algebraische Dualraum.
+Dann nennt man
+\begin{equation*}
+\begin{split}T^r_s(V) := L(V^r\times (V^\ast)^s; \R)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Menge der gemischten Tensoren, welche \sphinxstylestrong{kovariant} der Stufe \(r\) und \sphinxstylestrong{kontravariant} der Stufe \(s\) sind.
+In manchen Kontexten spricht man auch nur von \sphinxstylestrong{gemischten Tensoren der Stufe \(k=r+s\)}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Die folgende Bemerkung erklärt, woher die Begriffe \sphinxstyleemphasis{Kovarianz} und \sphinxstyleemphasis{Kontravarianz} stammen.
+\label{vektoranalysis/tensor:remark-19}
+\begin{sphinxadmonition}{note}{Remark 3.9 (Ko\sphinxhyphen{} und Kontravarianz)}
+
+
+
+\sphinxAtStartPar
+Die Bezeichnungen “kovariant” und “kontravariant” beziehen sich auf die Koordinatendarstellungen von Tensoren.
+Genauer gesagt beschreieb Sie, wie sich solche Koordinatendarstellungen bezüglich eines Basiswechsels im zugrundeliegenden Vektorraum verhalten.
+
+\sphinxAtStartPar
+Zusammenfassend kann man festhalten:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Kovariant} nennt man ein Transformationsverhalten, bei dem sich die Basisvektoren und die darin dargestellten Größen in gleicher Weise transformieren.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Kontravariant} nennt man ein Transformationsverhalten, wenn sich die Basisvektoren und die darin dargestellten Größen in unterschiedlicher Weise transformieren.
+
+\end{itemize}
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Das folgende Beispiel gibt eine Intuition für den Begriff der Kontravarianz an Hand von Vektorkoordinaten unter Basiswechseloperationen.
+\label{vektoranalysis/tensor:example-20}
+\begin{sphinxadmonition}{note}{Example 3.8}
+
+
+
+\sphinxAtStartPar
+Sei \(V = \R^3\) der Euklidische Vektorraum und sei
+\begin{equation*}
+\begin{split}B_1 := \lbrace \begin{pmatrix}1\\ 0\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 1\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 0\\ 1\end{pmatrix} \rbrace\end{split}
+\end{equation*}
+\sphinxAtStartPar
+die Standard\sphinxhyphen{}Einheitsbasis des \(\R^3\).
+Sei nun \(x \in \R^3\) ein Vektor, dessen Koordinaten bezüglich der Basis \(B_1\) gegeben sind als
+\begin{equation*}
+\begin{split}x = \begin{pmatrix}4\\ 8\\ 2\end{pmatrix}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Führen wir nun einen Basiswechsel von \(B_1\) zu einer neuen Basis \(B_2\) mit
+\begin{equation*}
+\begin{split}B_2 := \lbrace \begin{pmatrix}2\\ 0\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 2\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 0\\ 2\end{pmatrix} \rbrace\end{split}
+\end{equation*}
+\sphinxAtStartPar
+durch, so ändert sich die Koordinatendarstellung von \(x\) bezüglich dieser Transformation zu
+\begin{equation*}
+\begin{split}x = \begin{pmatrix}2\\ 4\\ 1\end{pmatrix}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir sehen also, dass durch die Skalierung der Basisvektoren von \(B_1\) um den Faktor \(2\) sich die entsprechende Koordinatendarstellung halbiert, d.h., sich gerade \sphinxstylestrong{gegensätzlich} zur Basistransformation verhält.
+Daher sind Vektoren \sphinxstylestrong{kontravariant} bezüglich Basiswechseltransformationen.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir wollen diese allgemeine Definition von gemischten Tensoren nun mit einfachen Beispielen veranschaulichen.
+Beginnen wir zunächst mit dem Spezialfall von rein kovarianten Tensoren.
+\label{vektoranalysis/tensor:example-21}
+\begin{sphinxadmonition}{note}{Example 3.9 (Rein kovariante Tensoren)}
+
+
+
+\sphinxAtStartPar
+Sei \(V\) ein endlich\sphinxhyphen{}dimensionaler, reeller Vektorraum mit \(\operatorname{dim}(V) = n \in \N\).
+Wir wollen im Folgenden Tensoren unterschiedlicher Stufen betrachten, die Multilinearformen repräsentieren.
+Diese haben keine \sphinxstyleemphasis{kontravarianten Komponenten}, sind also sozusagen \sphinxstyleemphasis{rein kovariant}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Stufe 0:}
+Wir betrachten Tensoren der Stufe \(r+s=0+0=0\).
+Elemente der Menge \(T^0_0(V) = L(V^0; \R)\) sind gerade die \sphinxstylestrong{Skalare} des zu Grunde liegenden Körpers \(\R\), da der Vektorraum \(V^0\) nur das Nullelement enthält.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Stufe 1:}
+Wir betrachten Tensoren der Stufe \(r+s=1+0=1\).
+In diesem Fall entsprechen Elemente der Menge \(T^1_0(V) = L(V; \R)\) gerade den \sphinxstylestrong{Linearformen} des Vektorraums \(V\).
+Genauer gesagt handelt es sich um Elemente des \sphinxstyleemphasis{algebraischen Dualraums} \(V^\ast\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Stufe k:}
+Wir betrachten Tensoren der Stufe \(r+s=k+0=k\) für \(k\in \N\).
+Diese Tensoren entsprechen gerade den \sphinxstylestrong{\(\mathbf{k}\)\sphinxhyphen{}Multilinearformen}, da \(T^k_0(V) = L(V^k; \R) \cong L^k(V; \R)\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Stufe n:}
+Wir betrachten Tensoren der Stufe \(r+s=n+0=n\).
+Ein Beispiel für Elemente der Menge \(T^n_0(V) = L(V^n; \R)\) ist die \sphinxstylestrong{Determinante} einer \(n \times n\)\sphinxhyphen{}Matrix.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Betrachten wir als Nächstes den Spezialfall von rein kontravarianten Tensoren.
+\label{vektoranalysis/tensor:example-22}
+\begin{sphinxadmonition}{note}{Example 3.10 (Rein kontravariante Tensoren)}
+
+
+
+\sphinxAtStartPar
+Sei \(V\) ein endlich\sphinxhyphen{}dimensionaler, reeller Vektorraum.
+Diese besitzen keine \sphinxstyleemphasis{kovarianten Komponenten}, sind also sozusagen \sphinxstyleemphasis{rein kontravariant}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Stufe 1:}
+Wir betrachten Tensoren der Stufe \(r+s=0+1=1\).
+In diesem Fall entsprechen Elemente der Menge \(T^0_1(V) = L(V^\ast; \R)\) gerade den \sphinxstylestrong{Vektoren} des Vektorraums \(V\).
+Genauer gesagt handelt es sich um Elemente des \sphinxstyleemphasis{Bidualraums} \(V^{**}\), der nach {\hyperref[\detokenize{vektoranalysis/multilinear:rem:doubledual}]{\sphinxcrossref{Remark 3.4}}} isomorph zu \(V\) ist.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Stufe 2:}
+Wir betrachten Tensoren der Stufe \(r+s=0+2=2\).
+In diesem Fall entsprechen Elemente der Menge \(T^0_2(V) = L(V^\ast \times V^\ast; \R)\) sogenannten \sphinxstylestrong{Bivektoren} oder \sphinxstylestrong{Dyaden}.
+Ein Beispiel hierfür sind Tensoren, die durch \sphinxstyleemphasis{dyadische Produkte} erzeugt werden.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Abschließend betrachten wir noch ein Beispiel für echt gemischte Tensoren.
+\label{vektoranalysis/tensor:example-23}
+\begin{sphinxadmonition}{note}{Example 3.11 (Echt gemischte Tensoren)}
+
+
+
+\sphinxAtStartPar
+Sei \(V\) ein endlich\sphinxhyphen{}dimensionaler, reeller Vektorraum.
+Wir wollen im Folgenden \sphinxstyleemphasis{echt gemischte} Tensoren diskutieren.
+Diese besitzen sowohl kontravariante als auch kovariante Komponenten.
+
+\sphinxAtStartPar
+Wir betrachten echt gemischte Tensoren der Stufe \(r+s=1+1=2\).
+Die Menge \(T^1_1(V) = L(V^\ast \times V; \R)\) enthält dann alle linearen Abbildung, die einer Linearform und einem Vektor eine reelle Zahl zuweisen.
+Ein typisches Beispiel für solch einen ist die sogenannte \sphinxstylestrong{duale Paarung}
+\begin{equation*}
+\begin{split}\langle \cdot, \cdot \rangle \colon V^\ast \times V &\rightarrow \R,\\
+(L, v) &\mapsto \langle L, v \rangle := L(v).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Hier wird ein gegebener Vektor \(v \in V\) durch einen gegebenen linearen Operator \(L \in V^\ast\) ausgewertet.
+Die duale Paarung stellt eine \sphinxstyleemphasis{Verallgemeinerung des Skalarprodukts} dar.
+\end{sphinxadmonition}
+
+
+\subsection{Symmetrische und antisymmetrische Tensoren}
+\label{\detokenize{vektoranalysis/tensor:symmetrische-und-antisymmetrische-tensoren}}
+\sphinxAtStartPar
+Oft spielen gerade in der Physik spezielle Familien von Tensoren eine wichtige Rolle, nämlich \sphinxstyleemphasis{symmetrische} und \sphinxstyleemphasis{antisymmetrische Tensoren}.
+Diese Operatoren zeichnen sich durch ihr Verhalten unter Vertauschung von Argumenten aus und werden besonders in der Quantenmechanik und Kontinuumsmechanik betrachtet.
+
+\sphinxAtStartPar
+Bevor wir die Symmetrieeigenschaften von Tensoren definieren können, benötigen wir weitere Hilfsmittel aus der Kombinatorik.
+Die Vertauschung von Argumenten entspricht einer Permutationsabbildung und daher wollen wir das \sphinxstyleemphasis{Vorzeichen} solch einer Permutation betrachten, welches die Symmetrieeigenschaften von Tensoren charakterisiert.
+\label{vektoranalysis/tensor:def:signumPermutation}
+\begin{sphinxadmonition}{note}{Definition 3.6 (Signum einer Permutation)}
+
+
+
+\sphinxAtStartPar
+Sei \(k\in\N\) und \(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\) eine Permutation der Indizes \(1,\ldots,k\).
+Dann bezeichnen wir mit \(\operatorname{sgn}(\pi) := (-1)^{|\operatorname{inv}(\pi)|}\) das sogenannte \sphinxstylestrong{Signum der Permutation} \(\pi\), für das man die Menge der Fehlstände der Permutation \(\operatorname{inv}(\pi)\) betrachtet mit:
+\begin{equation*}
+\begin{split}\operatorname{inv}(\pi) := \lbrace (i,j) \in \lbrace 1, \ldots, k \rbrace : i < j, \pi(i) > \pi(j) \rbrace.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Das folgende einfache Beispiel illustriert die Berechnung des Signums einer Permutation.
+\label{vektoranalysis/tensor:example-25}
+\begin{sphinxadmonition}{note}{Example 3.12 (Signum zweier Permutationen)}
+
+
+
+\sphinxAtStartPar
+Wir betrachten im Folgenden zwei verschiedene Permutationen
+\begin{equation*}
+\begin{split}\pi_i \colon \lbrace 1, 2, 3, 4 \rbrace \rightarrow \lbrace 1, 2, 3, 4 \rbrace \quad i=1,2.\end{split}
+\end{equation*}
+
+
+\sphinxAtStartPar
+1. Sei die Permutation \(\pi_1\) gegeben mit
+\begin{equation*}
+\begin{split}\pi_1(1) = 3, \quad \pi_1(2) = 2, \quad \pi_1(3) = 4, \quad \pi_1(4) = 1.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Für die Menge der Fehlstände \(\operatorname{inv}(\pi_1)\) selektieren wir diejenigen Elemente \(i,j \in \lbrace 1,2,3,4 \rbrace\) mit \(i < j\) und \(\pi(i) > \pi(j)\).
+Dies trifft auf folgende Paare von Elementen zu:
+\begin{equation*}
+\begin{split}\operatorname{inv}(\pi_1) = \lbrace (1,2), (1,4), (2,4), (3,4)\rbrace.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Da die Permutation \(\pi_1\) insgesamt \(4\) Fehlstände erzeugt, gilt für das Signum der Permutation:
+\begin{equation*}
+\begin{split}\operatorname{sgn}(\pi_1) := (-1)^{|\operatorname{inv}(\pi_1)|} = (-1)^4 = +1.\end{split}
+\end{equation*}
+
+
+\sphinxAtStartPar
+2. Sei die Permutation \(\pi_2\) gegeben mit
+\begin{equation*}
+\begin{split}\pi_1(1) = 2, \quad \pi_1(2) = 4, \quad \pi_1(3) = 1, \quad \pi_1(4) = 3.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Für die Menge der Fehlstände \(\operatorname{inv}(\pi_2)\) selektieren wir diejenigen Elemente \(i,j \in \lbrace 1,2,3,4 \rbrace\) mit \(i < j\) und \(\pi(i) > \pi(j)\).
+Dies trifft auf folgende Paare von Elementen zu:
+\begin{equation*}
+\begin{split}\operatorname{inv}(\pi_2) = \lbrace (1,3), (2,3), (2,4)\rbrace.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Da die Permutation \(\pi_2\) insgesamt \(3\) Fehlstände erzeugt, gilt für das Signum der Permutation:
+\begin{equation*}
+\begin{split}\operatorname{sgn}(\pi_2) := (-1)^{|\operatorname{inv}(\pi_2)|} = (-1)^3 = -1.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Nun sind wir in der Lage die Symmetrieeigenschaften von Tensoren formal zu definieren.
+\label{vektoranalysis/tensor:def:symmetrieTensor}
+\begin{sphinxadmonition}{note}{Definition 3.7 (Symmetrie und Antisymmetrie von Tensoren)}
+
+
+
+\sphinxAtStartPar
+Sei V ein reeller, endlich\sphinxhyphen{}dimensionaler Vektorraum und \(T \in T_0^k(V)\) ein rein kontravarianter Tensor von Stufe \(k \in \N\).
+
+\sphinxAtStartPar
+Wir nennen den Tensor \(T\) \sphinxstylestrong{symmetrisch}, wenn für alle möglichen Permutationen \(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\) der Indizes \(1,\ldots,k\) der Wert des Tensors mit permutierten Argumenten sich nicht ändert, d.h.,
+\begin{equation*}
+\begin{split}T(v_1, \ldots, v_k) = T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir nennen den Tensor \(T\) \sphinxstylestrong{antisymmetrisch} oder \sphinxstylestrong{schiefsymmetrisch}, wenn für alle möglichen Permutationen \(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\) der Indizes \(1,\ldots,k\) der Wert des Tensors mit permutierten Argumenten sich \sphinxstyleemphasis{bis auf das Vorzeichen} nicht ändert und dabei folgendem Zusammenhang genügt
+\begin{equation*}
+\begin{split}T(v_1, \ldots, v_k) = \operatorname{sgn}(\pi) \cdot T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+In {\hyperref[\detokenize{vektoranalysis/tensor:def:symmetrieTensor}]{\sphinxcrossref{Definition 3.7}}} haben wir die Symmetrieeigenschaften für rein kontravariante Tensoren eingeführt.
+Analog lässt sich die (Anti\sphinxhyphen{})Symmetrie eines rein kovarianten Tensors \(T \in T_k^0(V)\) von Stufe \(k\) definieren.
+Die Definition von Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus {\hyperref[\detokenize{vektoranalysis/tensor:def:gemischteTensoren}]{\sphinxcrossref{Definition 3.5}}} ist hingegen wenig sinnvoll, da die Rechenvorschrift eine gemischten Tensors unter beliebigen Permutationen der Argumente nicht mehr wohldefiniert sein muss.
+
+\sphinxAtStartPar
+Im folgenden Beispiel diskutieren wir jeweils einen Vertreter für symmetrische und antisymmetrische Tensoren.
+\label{vektoranalysis/tensor:example-27}
+\begin{sphinxadmonition}{note}{Example 3.13 (Symmetrieeigenschaften von Tensoren)}
+
+
+
+\sphinxAtStartPar
+Betrachten wir zunächst das \sphinxstyleemphasis{Standardskalarprodukt}
+\begin{equation*}
+\begin{split}\langle \cdot, \cdot \rangle \colon \R^n \times \R^n \rightarrow \R\end{split}
+\end{equation*}
+\sphinxAtStartPar
+als rein kontravarianten Tensor zweiter Stufe.
+Da das Standardskalarprodukt im \(\R^n\) eine positiv definite, symmetrische Bilinearform ist, überträgt sich die Symmetrieeigenschaft auf die Interpretation als Tensor.
+Daher ist das Standardskalarprodukt ein \sphinxstylestrong{symmetrischer Tensor}.
+
+
+
+\sphinxAtStartPar
+Als zweites Beispiel betrachten wir das sogenannte \sphinxstyleemphasis{Levi\sphinxhyphen{}Civita\sphinxhyphen{}Symbol}, auch genannt \sphinxstyleemphasis{Epsilon\sphinxhyphen{}Tensor},
+\begin{equation*}
+\begin{split}\epsilon_{i_1,\ldots,i_n} : \N^n \rightarrow \lbrace -1, 0, 1 \rbrace,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+welcher einem Tupel von \(n\in\N\) Indizes \((i_1,\ldots,i_n) \in \N^n\) einen Wert zuordnet, je nachdem ob eine gerade oder eine ungerade Anzahl an Vertauschung benötigt wird, um die Indizes in aufsteigender Reihenfolge zu sortieren.
+Wird eine gerade Anzahl an Vertauschungen benötigt, so gilt \(\epsilon_{i_1,\ldots,i_n} = +1\).
+Wird eine ungerade Anzahl an Vertauschungen benötigt, so gilt \(\epsilon_{i_1,\ldots,i_n} = -1\).
+Aus letzterer Vorschrift lässt sich ableiten, dass der Epsilon\sphinxhyphen{}Tensor den Wert \(0\) haben muss, wenn mindestens zwei der Indizes gleich sind.
+Dies unterscheidet das Levi\sphinxhyphen{}Civita\sphinxhyphen{}Symbol vom Signum einer Permutation in {\hyperref[\detokenize{vektoranalysis/tensor:def:signumPermutation}]{\sphinxcrossref{Definition 3.6}}}, welche als Bijektion auf paarweise verschiedenen Indizes definiert ist.
+
+\sphinxAtStartPar
+Aus dieser Vorschrift lässt sich bereits direkt ableiten, dass es sich beim Levi\sphinxhyphen{}Civita\sphinxhyphen{}Symbol um einen \sphinxstylestrong{antisymmetrischen Tensor} n\sphinxhyphen{}ter Stufe handelt, da jede paarweise Vertauschung von Indizes das Vorzeichen des Tensors wechselt.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Es stellt sich heraus, dass die Menge der (anti\sphinxhyphen{})symmetrischen Tensoren eine Vektorraumstruktur induzieren, wie das folgende Lemma zeigt.
+\label{vektoranalysis/tensor:lemma-28}
+\begin{sphinxadmonition}{note}{Lemma 3.8 (Vektorraum der (anti\sphinxhyphen{})symmetrischen Tensoren)}
+
+
+
+\sphinxAtStartPar
+Sei \(V\) ein beliebiger, reeller Vektorraum und \(k \in \N\).
+Seien außerdem
+\begin{equation*}
+\begin{split}\Lambda_k(V) = \lbrace \omega \in T_k^0(V) : \omega \text{ ist antisymmetrisch} \rbrace.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+die Menge der \sphinxstyleemphasis{antisymmetrischen Tensoren} der Stufe \(k\) auf \(V\) und
+\begin{equation*}
+\begin{split}\mathcal{S}_k(V) = \lbrace \omega \in T_k^0(V) : \omega \text{ ist symmetrisch} \rbrace.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+die Menge der \sphinxstyleemphasis{symmetrischen Tensoren} der Stufe \(k\) auf \(V\).
+
+\sphinxAtStartPar
+Dann bilden \(\Lambda_k(V)\) und \(\mathcal{S}_k(V)\) bezüglich der Addition von Tensoren und der skalaren Multiplikation in \(\R\) einen Vektorraum.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. In der Hausaufgabe zu zeigen.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Abschließend wollen wir uns in diesem Abschnitt noch einem nützlichen mathematischen Werkzeug widmen, das es erlaubt beliebige Tensoren symmetrisch bzw. antisymmetrisch zu machen.
+Hierzu definieren wir die folgenden Projektionsabbildungen.
+\label{vektoranalysis/tensor:def:fermionischeProjektion}
+\begin{sphinxadmonition}{note}{Definition 3.8 (Fermionische und bosonische Projektion)}
+
+
+
+\sphinxAtStartPar
+Sei \(V\) ein beliebiger, reeller Vektorraum und \(k \in \N\).
+Wir definieren zunächst die sogenannte \sphinxstylestrong{fermionische Projektion}
+\begin{equation*}
+\begin{split}\Pi_- \colon T_k^0(V) &\rightarrow \Lambda_k(V), \\
+T(v_1, \ldots, v_k) &\mapsto (\Pi_- T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} \operatorname{sgn}(\pi) \, T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Diese Projektionsabbildung weist jedem Tensor \(T\in T_k^0\) der Stufe \(k\) einen antisymmetrischen Tensor \(\Pi_-(T) \in \Lambda_k(V)\) zu.
+
+\sphinxAtStartPar
+Analog definieren wir die sogenannte \sphinxstylestrong{bosonische Projektion}
+\begin{equation*}
+\begin{split}\Pi_+ \colon T_k^0(V) &\rightarrow \mathcal{S}_k(V), \\
+T(v_1, \ldots, v_k) &\mapsto (\Pi_+ T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Diese Projektionsabbildung weist jedem Tensor \(T\in T_k^0\) der Stufe \(k\) einen symmetrischen Tensor \(\Pi_+(T) \in \mathcal{S}_k(V)\) zu.
+\end{sphinxadmonition}
+\label{vektoranalysis/tensor:remark-30}
+\begin{sphinxadmonition}{note}{Remark 3.10}
+
+
+
+\sphinxAtStartPar
+Die Bezeichnung \sphinxstylestrong{fermionisch} und \sphinxstylestrong{bosonisch} in {\hyperref[\detokenize{vektoranalysis/tensor:def:fermionischeProjektion}]{\sphinxcrossref{Definition 3.8}}} stammen daher, dass symmetrische Tensorprodukte \sphinxstyleemphasis{identische Bosonen} in der Quantenmechanik beschreiben, wohingegen antisymmetrische Tensorprodukte \sphinxstyleemphasis{identischen Fermionen} zugeordnet werden. Weitere Informationen findet man beispielsweise unter \sphinxhref{https://de.wikipedia.org/wiki/Ununterscheidbare\_Teilchen\#Ununterscheidbarkeit\_in\_der\_Quantenmechanik}{Ununterscheidbarkeit von Teilchen in der Quantenmechanik}.
+\end{sphinxadmonition}
+
+
+\subsection{Grassmann\sphinxhyphen{}Algebra}
+\label{\detokenize{vektoranalysis/tensor:grassmann-algebra}}\label{vektoranalysis/tensor:definition-31}
+\begin{sphinxadmonition}{note}{Definition 3.9 (Grassmann\sphinxhyphen{}Algebra)}
+
+
+\end{sphinxadmonition}
+\label{vektoranalysis/tensor:definition-32}
+\begin{sphinxadmonition}{note}{Definition 3.10 (Äußeres Produkt)}
+
+
+\end{sphinxadmonition}
+
+
+\section{Differentialformen}
+\label{\detokenize{vektoranalysis/diffformen:differentialformen}}\label{\detokenize{vektoranalysis/diffformen::doc}}
+\sphinxAtStartPar
+In diesem Kapitel werden wir nun \sphinxhref{https://de.wikipedia.org/wiki/Differentialform}{Differentialformen} einführen. Die entscheidende Neuerung im Vergleich zum vorhergehenden Kapitel, ist
+dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen, speziell betrachten wir eine offene Menge \(U\subset\R^n\). Ein weiterer wichtiger Aspekt, ist dass wir im Folgenden mit glatten Funktion arbeiten wollen, d.h., mit dem Raum \(C^\infty(U,\R^n)\).
+
+\sphinxAtStartPar
+Eine Differentialform \(\omega\) auf \(U\subseteq\R^n\) ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.
+
+\sphinxAtStartPar
+Wir schreiben eine allgemeine \sphinxstyleemphasis{\(k\)–Form} \(\omega\) in der \sphinxstyleemphasis{Grundform}
+\begin{equation*}
+\begin{split}\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}\in\Omega^k(U),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+die \(\omega_{i_1\ldots i_k}\in \Omega^0(U):=C^\infty(U,\R)\), also glatte reelle Funktionen auf \(U\) sind,
+
+\item {} 
+\sphinxAtStartPar
+und die \(dx_i\) den Koordinatenfunktionen \(x_i:\R^n\to\R\) zugeordnete \(1\)–Differentialformen sind (\(dx_i\in\Omega^1(\R^n)\)).
+
+\item {} 
+\sphinxAtStartPar
+Den Raum der \(k\)–Differentialformen schreiben wir ab jetzt zur Unterscheidung vom Raum der äußeren \(k\)–Formen mit dem Symbol \(\Omega\) statt \(\Lambda\).
+
+\end{itemize}
+
+\sphinxAtStartPar
+Die \(dx_i\) sind durch ihre Wirkung auf ein Vektorfeld \(v:U\to
+\R^n\) definiert, und \(dx_i(v)( y) := v_i( y)\).
+\(1\)–Differentialformen machen also aus Vektorfeldern Funktionen, und für \(k\) Vektorfelder \(v^{(l)}:U\to\R^n\) ist für das \(\omega\) aus der Grundform
+\begin{equation*}
+\begin{split}\omega\left(v^{(1)},\ldots,v^{(k)}\right) := \sum_{1\leq i_1<\ldots<i_k\leq n}
+\omega_{i_1\ldots i_k}\cdot\det\begin{pmatrix} dx_{i_1}(v^{(1)})&\ldots& dx_{i_k}(v^{(1)})\\
+\vdots&&\vdots\\
+dx_{i_1}(v^{(k)})&\ldots& dx_{i_k}(v^{(k)}) \end{pmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+definiert. Das Ergebnis ist also eine reelle Funktion auf \(U\).\textbackslash{}
+Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformen.
+
+\sphinxAtStartPar
+Auf dem \(\R\)–Vektorraum
+\begin{equation*}
+\begin{split}\Omega^*(U) := \bigoplus_{k=0}^n\Omega^k(U)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+der Differentialformen betrachten wir jetzt
+den \sphinxstyleemphasis{Differentialoperator} \(d\), der durch
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(df := \sum_{i=1}^n\frac{\partial f}{\partial x_i}dx_i\) für Funktionen
+\(f\in C^\infty(U,\R) = \Omega^0(U)\)
+
+\item {} 
+\sphinxAtStartPar
+und \(d\omega := \sum_{1\leq i_1<\ldots<i_k\leq n}d\omega_{i_1\ldots i_k}
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k}\) für \(k\)–Formen \textbackslash{}linebreak
+\(\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
+dx_1\wedge\ldots\wedge dx_{i_k}\)
+
+\end{itemize}
+
+\sphinxAtStartPar
+definiert ist. \(d\) verwandelt eine \(k\)–Form also in eine \((k+1)\)–Form.
+\label{vektoranalysis/diffformen:aeussere Ableitung}
+\begin{sphinxadmonition}{note}{Definition 3.11}
+
+
+
+\sphinxAtStartPar
+Die lineare Abbildung \(d:\Omega^*(U)\to\Omega^*(U)\) heißt \sphinxhref{https://de.wikipedia.org/wiki/\%C3\%84u\%C3\%9Fere\_Ableitung}{\sphinxstylestrong{äußere Ableitung}}.
+\end{sphinxadmonition}
+\label{vektoranalysis/diffformen:ex:10.14}
+\begin{sphinxadmonition}{note}{Example 3.14 (Äußere Ableitung)}
+
+
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Für \(\omega\in\Omega^0(\R^3)\) ist \(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
+\frac{\partial\omega}{\partial x_2}dx_2+\frac{\partial\omega}{\partial x_3}dx_3\).
+
+\item {} 
+\sphinxAtStartPar
+Für \(\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)\) ist
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}d\omega &=& (d\omega_1)\wedge dx_1+(d\omega_2)\wedge dx_2+(d\omega_3)\wedge
+dx_3\\
+&=& \left(\frac{\partial\omega_2}{\partial x_1}-\frac{\partial\omega_1}{\partial x_2}\right)
+dx_1\wedge dx_2+ \left(\frac{\partial\omega_3}{\partial x_2}-\frac{\partial\omega_2}{\partial x_3}\right)
+dx_2\wedge dx_3\\
+&& + \left(\frac{\partial\omega_1}{\partial x_3}-\frac{\partial\omega_3}{\partial x_1}\right)
+dx_3\wedge dx_1\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Für \(\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
++\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)\) ist
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}d\omega = \left(\frac{\partial\omega_{12}}{\partial x_3} + \frac{\partial\omega_{23}}{\partial x_1}
++ \frac{\partial\omega_{31}}{\partial x_2}\right)dx_1\wedge dx_2\wedge dx_3.\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Für \(\omega\in\Omega^3(\R^3)\) ist \(d\omega=0\).
+
+\end{enumerate}
+\end{sphinxadmonition}
+\label{vektoranalysis/diffformen:Antiderivation}
+\begin{sphinxadmonition}{note}{Theorem 3.3}
+
+
+
+\sphinxAtStartPar
+\(d\) ist eine \sphinxhref{https://de.wikipedia.org/wiki/Derivation\_(Mathematik)\#Antiderivationen}{\sphinxstylestrong{Antiderivation}}, d.h. für \(\alpha\in\Omega^k(U)\) und \(\beta\in\Omega^l(U)\) ist
+\begin{equation*}
+\begin{split}d(\alpha\wedge\beta) = (d\alpha)\wedge\beta+(-1)^k\alpha\wedge d\beta.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Wegen der Linearität von \(d\) genügt es, diese Gleichung für Monome
+\begin{equation*}
+\begin{split}\alpha := f\underbrace{dx_{i_1}\wedge\ldots\wedge dx_{i_k}}_{\tilde
+{\alpha}},\ \beta := g\underbrace{dx_{j_1}\wedge\ldots\wedge dx_{j_l}}_
+{\tilde{\beta}},\ f,g\in C^\infty(U,\R)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+zu beweisen.
+Es gilt
+\begin{equation*}
+\begin{split}d(\alpha\wedge\beta) &=& d(f\cdot g)\tilde{\alpha}\wedge
+\tilde{\beta} = \big((df)g+f(dg)\big)\,\tilde{\alpha}\wedge\tilde{\beta}\\
+&=& (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{vektoranalysis/diffformen:thm:dd}
+\begin{sphinxadmonition}{note}{Theorem 3.4}
+
+
+
+\sphinxAtStartPar
+Auf \(\Omega^*(U)\) gilt
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. 1. Für \(f\in\Omega^0(U)\) ist
+\begin{equation*}
+\begin{split}ddf &=& d\left(\sum_{i=1}^n\frac{\partial f}
+{\partial x_i}dx_i\right) = \sum_{i=1}^n\sum_{l=1}^n\frac{\partial^2f}{\partial x_l\partial x_i}
+dx_l\wedge dx_i\\
+& =& \sum_{1\leq r< s\leq n}\left(\frac{\partial^2 f}{\partial x_r
+\partial x_s} - \frac{\partial^2f}{\partial x_s\partial x_r}\right)dx_r\wedge dx_s = 0,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+da wir wegen der Glattheit von \(f\) die partiellen Ableitungen vertauschen
+können.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Für \(\omega = \sum\omega_{i_1\ldots i_k}dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+\in\Omega^k(U)\) ist\textbackslash{}
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+denn gemäß Satz {\hyperref[\detokenize{vektoranalysis/diffformen:Antiderivation}]{\sphinxcrossref{Theorem 3.3}}} wird die äußere Ableitung auf die
+1\sphinxhyphen{}Formen \(d\omega_{i_1\ldots i_k}\) und \(dx_{i_l}\) angewandt, und nach Teil 1.
+ist das Ergebnis Null.
+\end{sphinxadmonition}
+\label{vektoranalysis/diffformen:geschlossen:exakt}
+\begin{sphinxadmonition}{note}{Definition 3.12}
+
+
+
+\sphinxAtStartPar
+Eine Differentialform \(v\in\Omega^*(U)\) heißt
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{geschlossen}, wenn \(dv=0\), *\sphinxstylestrong{exakt}, wenn \(v=d\psi\) für ein \(\psi\in\Omega^*(U)\) gilt.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Nach Satz {\hyperref[\detokenize{vektoranalysis/diffformen:thm:dd}]{\sphinxcrossref{Theorem 3.4}}} sind exakte Differentialformen geschlossen.\textbackslash{} Für \(k\)–Formen auf konvexen offenen Teimengen \(U\subseteq \R^n\) gilt für \(k\ge 1\)auch die Umkehrung (sog.
+\sphinxhref{https://de.wikipedia.org/wiki/Poincar\%c3\%a9-Lemma}{\sphinxstylestrong{Poincaré\sphinxhyphen{}Lemma}} ),  siehe Kapitel \sphinxcode{\sphinxupquote{sect:Poinca}}).
+\end{sphinxadmonition}
+
+
+\chapter{Bibliography}
+\label{\detokenize{references:bibliography}}\label{\detokenize{references::doc}}
+\sphinxAtStartPar
+
+
+\begin{sphinxthebibliography}{Bur20}
+\bibitem[AF13]{references:id13}
+\sphinxAtStartPar
+Ilka Agricola and Thomas Friedrich. \sphinxstyleemphasis{Globale Analysis \sphinxhyphen{} Differentialformen in Analysis, Geometrie und Physik}. Springer\sphinxhyphen{}Verlag, Berlin Heidelberg New York, edition, 2013. ISBN 978\sphinxhyphen{}3\sphinxhyphen{}322\sphinxhyphen{}92903\sphinxhyphen{}7.
+\bibitem[Bur20]{references:id2}
+\sphinxAtStartPar
+Martin Burger. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Data Science 1 / Physikstudierende A"}. 2020.
+\bibitem[For17]{references:id4}
+\sphinxAtStartPar
+Otto Forster. \sphinxstyleemphasis{Analysis 2}. Springer, 2017.
+\bibitem[Kna13]{references:id5}
+\sphinxAtStartPar
+Peter Knabner. \sphinxstyleemphasis{Skript zur Vorlesung "Gewöhnliche Differentialgleichungen"}. 2013.
+\bibitem[Kna17]{references:id8}
+\sphinxAtStartPar
+Andreas Knauf. \sphinxstyleemphasis{Mathematische Physik: Klassische Mechanik}. Springer Berlin Heidelberg, 2017. \sphinxhref{https://doi.org/10.1007/978-3-662-55776-1}{doi:10.1007/978\sphinxhyphen{}3\sphinxhyphen{}662\sphinxhyphen{}55776\sphinxhyphen{}1}.
+\bibitem[Kna20]{references:id7}
+\sphinxAtStartPar
+Andreas Knauf. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Physikstudierende 3"}. 2020.
+\bibitem[Nol11]{references:id9}
+\sphinxAtStartPar
+Wolfgang Nolting. \sphinxstyleemphasis{Grundkurs Theoretische Physik 2 \sphinxhyphen{} Analytische Mechanik}. Springer Berlin Heidelberg, 2011. \sphinxhref{https://doi.org/10.1007/978-3-642-12950-6}{doi:10.1007/978\sphinxhyphen{}3\sphinxhyphen{}642\sphinxhyphen{}12950\sphinxhyphen{}6}.
+\bibitem[SB18]{references:id10}
+\sphinxAtStartPar
+Herman Schulz\sphinxhyphen{}Baldes. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Physiker 3"}. 2018.
+\bibitem[Ten21]{references:id12}
+\sphinxAtStartPar
+Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Data Science 2"}. 2021. URL: \sphinxurl{https://fau-ammn.github.io/MathDataScience2}.
+\end{sphinxthebibliography}
+
+
+
+
+
+
 \renewcommand{\indexname}{Proof Index}
 \begin{sphinxtheindex}
 \let\bigletter\sphinxstyleindexlettergroup
+\bigletter{Antiderivation}
+\item\relax\sphinxstyleindexentry{Antiderivation}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{Antiderivation}}
+\indexspace
+\bigletter{aeussere Ableitung}
+\item\relax\sphinxstyleindexentry{aeussere Ableitung}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{aeussere Ableitung}}
+\indexspace
 \bigletter{cor:eindeutigkeitlinear}
 \item\relax\sphinxstyleindexentry{cor:eindeutigkeitlinear}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{cor:eindeutigkeitlinear}}
+\indexspace
+\bigletter{cor:isomorphieEndlichDimensional}
+\item\relax\sphinxstyleindexentry{cor:isomorphieEndlichDimensional}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{cor:isomorphieEndlichDimensional}}
+\indexspace
+\bigletter{cor:tensorMultilinearform}
+\item\relax\sphinxstyleindexentry{cor:tensorMultilinearform}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{cor:tensorMultilinearform}}
+\indexspace
+\bigletter{cor:tensorenLinearformen}
+\item\relax\sphinxstyleindexentry{cor:tensorenLinearformen}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{cor:tensorenLinearformen}}
+\indexspace
+\bigletter{corollary\sphinxhyphen{}6}
+\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}6}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{corollary-6}}
 \indexspace
 \bigletter{def:DGL}
 \item\relax\sphinxstyleindexentry{def:DGL}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:DGL}}
@@ -2333,14 +4159,38 @@ Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ld
 \bigletter{def:Stabilitaet}
 \item\relax\sphinxstyleindexentry{def:Stabilitaet}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{def:Stabilitaet}}
 \indexspace
+\bigletter{def:algebraischerDualraum}
+\item\relax\sphinxstyleindexentry{def:algebraischerDualraum}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{def:algebraischerDualraum}}
+\indexspace
 \bigletter{def:anfangswertproblem}
 \item\relax\sphinxstyleindexentry{def:anfangswertproblem}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:anfangswertproblem}}
+\indexspace
+\bigletter{def:fermionischeProjektion}
+\item\relax\sphinxstyleindexentry{def:fermionischeProjektion}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{def:fermionischeProjektion}}
+\indexspace
+\bigletter{def:gemischteTensoren}
+\item\relax\sphinxstyleindexentry{def:gemischteTensoren}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{def:gemischteTensoren}}
 \indexspace
 \bigletter{def:hamiltonsch}
 \item\relax\sphinxstyleindexentry{def:hamiltonsch}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{def:hamiltonsch}}
 \indexspace
 \bigletter{def:linearisierung}
 \item\relax\sphinxstyleindexentry{def:linearisierung}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{def:linearisierung}}
+\indexspace
+\bigletter{def:multilinear}
+\item\relax\sphinxstyleindexentry{def:multilinear}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{def:multilinear}}
+\indexspace
+\bigletter{def:signumPermutation}
+\item\relax\sphinxstyleindexentry{def:signumPermutation}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{def:signumPermutation}}
+\indexspace
+\bigletter{def:symmetrieTensor}
+\item\relax\sphinxstyleindexentry{def:symmetrieTensor}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{def:symmetrieTensor}}
+\indexspace
+\bigletter{def:tensor}
+\item\relax\sphinxstyleindexentry{def:tensor}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{def:tensor}}
+\indexspace
+\bigletter{def:topologischerDualraum}
+\item\relax\sphinxstyleindexentry{def:topologischerDualraum}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{def:topologischerDualraum}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}12}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}12}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-12}}
@@ -2351,11 +4201,20 @@ Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ld
 \bigletter{definition\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-3}}
 \indexspace
+\bigletter{definition\sphinxhyphen{}31}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}31}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{definition-31}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}32}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}32}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{definition-32}}
+\indexspace
 \bigletter{definition\sphinxhyphen{}4}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{definition-4}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}8}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-8}}
+\indexspace
+\bigletter{ex:10.14}
+\item\relax\sphinxstyleindexentry{ex:10.14}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{ex:10.14}}
 \indexspace
 \bigletter{ex:bacteria}
 \item\relax\sphinxstyleindexentry{ex:bacteria}\sphinxstyleindexextra{ode/dynamicSystems}\sphinxstyleindexpageref{ode/dynamicSystems:\detokenize{ex:bacteria}}
@@ -2363,20 +4222,44 @@ Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ld
 \bigletter{ex:freefall}
 \item\relax\sphinxstyleindexentry{ex:freefall}\sphinxstyleindexextra{ode/dynamicSystems}\sphinxstyleindexpageref{ode/dynamicSystems:\detokenize{ex:freefall}}
 \indexspace
-\bigletter{ex:multi}
-\item\relax\sphinxstyleindexentry{ex:multi}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{ex:multi}}
+\bigletter{ex:multilinear}
+\item\relax\sphinxstyleindexentry{ex:multilinear}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{ex:multilinear}}
 \indexspace
 \bigletter{ex:oscillations}
 \item\relax\sphinxstyleindexentry{ex:oscillations}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{ex:oscillations}}
 \indexspace
+\bigletter{ex:tensorproduktVarianten}
+\item\relax\sphinxstyleindexentry{ex:tensorproduktVarianten}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{ex:tensorproduktVarianten}}
+\indexspace
+\bigletter{ex:universelleEigenschaft}
+\item\relax\sphinxstyleindexentry{ex:universelleEigenschaft}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{ex:universelleEigenschaft}}
+\indexspace
 \bigletter{example\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{example-1}}
 \indexspace
-\bigletter{example\sphinxhyphen{}11}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}11}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-11}}
+\bigletter{example\sphinxhyphen{}12}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}12}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-12}}
 \indexspace
 \bigletter{example\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-2}}
+\indexspace
+\bigletter{example\sphinxhyphen{}20}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}20}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-20}}
+\indexspace
+\bigletter{example\sphinxhyphen{}21}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}21}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-21}}
+\indexspace
+\bigletter{example\sphinxhyphen{}22}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}22}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-22}}
+\indexspace
+\bigletter{example\sphinxhyphen{}23}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}23}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-23}}
+\indexspace
+\bigletter{example\sphinxhyphen{}25}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}25}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-25}}
+\indexspace
+\bigletter{example\sphinxhyphen{}27}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}27}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-27}}
 \indexspace
 \bigletter{example\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{example-3}}
@@ -2387,47 +4270,56 @@ Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ld
 \bigletter{example\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}5}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-5}}
 \indexspace
-\bigletter{example\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-6}}
-\indexspace
-\bigletter{example\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-7}}
-\indexspace
-\bigletter{example\sphinxhyphen{}8}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-8}}
-\indexspace
 \bigletter{example\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{example-9}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-9}}
 \indexspace
 \bigletter{geschlossen:exakt}
 \item\relax\sphinxstyleindexentry{geschlossen:exakt}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{geschlossen:exakt}}
 \indexspace
-\bigletter{lem:doubledual}
-\item\relax\sphinxstyleindexentry{lem:doubledual}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lem:doubledual}}
+\bigletter{lem:LISO}
+\item\relax\sphinxstyleindexentry{lem:LISO}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:LISO}}
+\indexspace
+\bigletter{lem:dualeBasis}
+\item\relax\sphinxstyleindexentry{lem:dualeBasis}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lem:dualeBasis}}
 \indexspace
 \bigletter{lem:intexpglgn}
 \item\relax\sphinxstyleindexentry{lem:intexpglgn}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lem:intexpglgn}}
 \indexspace
+\bigletter{lem:isomorphieKartesischesProdukt}
+\item\relax\sphinxstyleindexentry{lem:isomorphieKartesischesProdukt}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:isomorphieKartesischesProdukt}}
+\indexspace
+\bigletter{lem:isomorphismusTensorproduktraum}
+\item\relax\sphinxstyleindexentry{lem:isomorphismusTensorproduktraum}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:isomorphismusTensorproduktraum}}
+\indexspace
 \bigletter{lem:mpotew}
 \item\relax\sphinxstyleindexentry{lem:mpotew}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{lem:mpotew}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}10}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}10}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-10}}
+\bigletter{lem:natISO}
+\item\relax\sphinxstyleindexentry{lem:natISO}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:natISO}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}15}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}15}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{lemma-15}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}28}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}28}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lemma-28}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}3}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{lemma-3}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}4}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lemma-4}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}4}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-4}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}9}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-9}}
 \indexspace
 \bigletter{lemma:Gronwall}
 \item\relax\sphinxstyleindexentry{lemma:Gronwall}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lemma:Gronwall}}
+\indexspace
+\bigletter{rem:doubledual}
+\item\relax\sphinxstyleindexentry{rem:doubledual}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{rem:doubledual}}
+\indexspace
+\bigletter{rem:kfachesTensorprodukt}
+\item\relax\sphinxstyleindexentry{rem:kfachesTensorprodukt}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{rem:kfachesTensorprodukt}}
 \indexspace
 \bigletter{rem:matrixexponentialregeln}
 \item\relax\sphinxstyleindexentry{rem:matrixexponentialregeln}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{rem:matrixexponentialregeln}}
@@ -2436,10 +4328,19 @@ Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ld
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}0}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-0}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{remark-1}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-1}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}11}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}11}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-11}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}13}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}13}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-13}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}16}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}16}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-16}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}19}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}19}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-19}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{remark-2}}
@@ -2447,17 +4348,32 @@ Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ld
 \bigletter{remark\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}3}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-3}}
 \indexspace
+\bigletter{remark\sphinxhyphen{}30}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}30}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-30}}
+\indexspace
 \bigletter{remark\sphinxhyphen{}4}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}4}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-4}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}6}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-6}}
 \indexspace
+\bigletter{remark\sphinxhyphen{}7}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}7}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-7}}
+\indexspace
 \bigletter{satz:picardlindeloef}
 \item\relax\sphinxstyleindexentry{satz:picardlindeloef}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef}}
 \indexspace
+\bigletter{thm:dd}
+\item\relax\sphinxstyleindexentry{thm:dd}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{thm:dd}}
+\indexspace
+\bigletter{thm:existenzTensorprodukt}
+\item\relax\sphinxstyleindexentry{thm:existenzTensorprodukt}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{thm:existenzTensorprodukt}}
+\indexspace
 \bigletter{thm:hamconst}
 \item\relax\sphinxstyleindexentry{thm:hamconst}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{thm:hamconst}}
+\indexspace
+\bigletter{thm:pIsomorphismus}
+\item\relax\sphinxstyleindexentry{thm:pIsomorphismus}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{thm:pIsomorphismus}}
 \indexspace
 \bigletter{thm:piclindlokal}
 \item\relax\sphinxstyleindexentry{thm:piclindlokal}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{thm:piclindlokal}}

@@ -136,8 +136,8 @@ ist das Ergebnis Null.
 
 ````{prf:definition}
 :label: geschlossen:exakt
-Eine Differentialform $\vv\in\Omega^*(U)$ heißt
-* **geschlossen**, wenn $d\vv=0$, ***exakt**, wenn $\vv=d\psi$ für ein $\psi\in\Omega^*(U)$ gilt.
+Eine Differentialform $v\in\Omega^*(U)$ heißt
+* **geschlossen**, wenn $dv=0$, ***exakt**, wenn $v=d\psi$ für ein $\psi\in\Omega^*(U)$ gilt.
 
 %
 Nach Satz {prf:ref}`thm:dd` sind exakte Differentialformen geschlossen.\\ Für $k$--Formen auf konvexen offenen Teimengen $U\subseteq \R^n$ gilt für $k\ge 1$auch die Umkehrung (sog.
