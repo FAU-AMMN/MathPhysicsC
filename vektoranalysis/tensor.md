@@ -1102,7 +1102,7 @@ Nun sind wir in der Lage die Symmetrieeigenschaften von Tensoren formal zu defin
 ````{prf:definition} Symmetrie und Antisymmetrie von Tensoren
 :label: def:symmetrieTensor
 
-Sei V ein reeller, endlich-dimensionaler Vektorraum und $T \in T_0^k(V)$ ein rein kontravarianter Tensor von Stufe $k \in \N$.
+Sei V ein reeller, endlich-dimensionaler Vektorraum und $T \in T_k^0(V)$ ein rein kontravarianter Tensor von Stufe $k \in \N$.
 
 Wir nennen den Tensor $T$ **symmetrisch**, wenn für alle möglichen Permutationen $\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace$ der Indizes $1,\ldots,k$ der Wert des Tensors mit permutierten Argumenten sich nicht ändert, d.h.,
 
@@ -1119,7 +1119,7 @@ T(v_1, \ldots, v_k) = \operatorname{sgn}(\pi) \cdot T(v_{\pi(1)}, \ldots, v_{\pi
 ````
 
 In {prf:ref}`def:symmetrieTensor` haben wir die Symmetrieeigenschaften für rein kontravariante Tensoren eingeführt.
-Analog lässt sich die (Anti-)Symmetrie eines rein kovarianten Tensors $T \in T_k^0(V)$ von Stufe $k$ definieren.
+Analog lässt sich die (Anti-)Symmetrie eines rein kovarianten Tensors $T \in T^k_0(V)$ von Stufe $k$ definieren.
 Die Definition von Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus {prf:ref}`def:gemischteTensoren` ist hingegen wenig sinnvoll, da die Rechenvorschrift eine gemischten Tensors unter beliebigen Permutationen der Argumente nicht mehr wohldefiniert sein muss.
 
 Im folgenden Beispiel diskutieren wir jeweils einen Vertreter für symmetrische und antisymmetrische Tensoren.
@@ -1156,7 +1156,7 @@ Aus dieser Vorschrift lässt sich bereits direkt ableiten, dass es sich beim Lev
 Es stellt sich heraus, dass die Menge der (anti-)symmetrischen Tensoren eine Vektorraumstruktur induzieren, wie das folgende Lemma zeigt.
 
 ````{prf:lemma} Vektorraum der (anti-)symmetrischen Tensoren
-Sei $V$ ein beliebiger, reeller Vektorraum und $k \in \N$.
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n \in \N$ und sei $k \in \N$ mit $k \leq n$.
 Seien außerdem
 
 ```{math}
@@ -1211,10 +1211,20 @@ Die Bezeichnung **fermionisch** und **bosonisch** in {prf:ref}`def:fermionischeP
 
 ## Grassmann-Algebra
 
+Tensorprodukt von Tensoren
+
+Lemma: Antisymmetrischer Tensor (linear abhängig)
+
+Quotientenräume
+
+Vektorräume
+
+````{prf:definition} Äußeres Produkt
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n$ und seien $\Lambda_k(V), \Lambda_l(V)$ die Vektorräume der *antisymmeterischen 
+````
+
 ````{prf:definition} Grassmann-Algebra
 
 ````
 
-````{prf:definition} Äußeres Produkt
 
-````
