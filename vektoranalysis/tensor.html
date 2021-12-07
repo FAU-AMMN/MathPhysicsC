@@ -906,7 +906,7 @@ Hier erhält man dann das Resultat, dass sich Tensoren als <span class="math not
 <p>In <a class="reference internal" href="#equation-eq-transitivisomorphismus">(3.4)</a> haben wir die Transitivitätseigenschaft des Tensorprodukts ausgenutzt, um <em>beide</em> Vektorräume mit ihren jeweiligen algebraischen Dualräumen zu identifizieren.
 Dies muss jedoch nicht sein, denn wir hätten genauso gut <strong>gemischte Tensorprodukte</strong> der Form <span class="math notranslate nohighlight">\(V \otimes W^\ast\)</span> oder <span class="math notranslate nohighlight">\(V^\ast \otimes W\)</span> betrachten können, wenn wir die triviale Identifikation <span class="math notranslate nohighlight">\(V \cong V\)</span> oder <span class="math notranslate nohighlight">\(W \cong W\)</span> nutzen.
 Daher wollen wir im Folgenden Tensoren einer allgemeineren Form betrachten, nämlich solche, die für kartesische Produkte der Form <span class="math notranslate nohighlight">\(V^r\times (V^\ast)^s\)</span> mit <span class="math notranslate nohighlight">\(r+s=k\)</span> definiert sind.</p>
-<div class="proof definition admonition" id="definition-18">
+<div class="proof definition admonition" id="def:gemischteTensoren">
 <p class="admonition-title"><span class="caption-number">Definition 3.5 </span> (Gemischte Tensoren)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein reeller endlich-dimensionaler Vektorraum und <span class="math notranslate nohighlight">\(V^\ast\)</span> der zugehörige algebraische Dualraum.
@@ -1004,51 +1004,137 @@ Die duale Paarung stellt eine <em>Verallgemeinerung des Skalarprodukts</em> dar.
 </div></div>
 <div class="section" id="symmetrische-und-antisymmetrische-tensoren">
 <h2><span class="section-number">3.2.6. </span>Symmetrische und antisymmetrische Tensoren<a class="headerlink" href="#symmetrische-und-antisymmetrische-tensoren" title="Permalink to this headline">¶</a></h2>
-<div class="proof definition admonition" id="definition-24">
+<p>Oft spielen gerade in der Physik spezielle Familien von Tensoren eine wichtige Rolle, nämlich <em>symmetrische</em> und <em>antisymmetrische Tensoren</em>.
+Diese Operatoren zeichnen sich durch ihr Verhalten unter Vertauschung von Argumenten aus und werden besonders in der Quantenmechanik und Kontinuumsmechanik betrachtet.</p>
+<p>Bevor wir die Symmetrieeigenschaften von Tensoren definieren können, benötigen wir weitere Hilfsmittel aus der Kombinatorik.
+Die Vertauschung von Argumenten entspricht einer Permutationsabbildung und daher wollen wir das <em>Vorzeichen</em> solch einer Permutation betrachten, welches die Symmetrieeigenschaften von Tensoren charakterisiert.</p>
+<div class="proof definition admonition" id="def:signumPermutation">
 <p class="admonition-title"><span class="caption-number">Definition 3.6 </span> (Signum einer Permutation)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(k\in\N\)</span> und <span class="math notranslate nohighlight">\(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\)</span> eine Permutation der Indizes <span class="math notranslate nohighlight">\(1,\ldots,k\)</span>.
 Dann bezeichnen wir mit <span class="math notranslate nohighlight">\(\operatorname{sgn}(\pi) := (-1)^{|\operatorname{inv}(\pi)|}\)</span> das sogenannte <strong>Signum der Permutation</strong> <span class="math notranslate nohighlight">\(\pi\)</span>, für das man die Menge der Fehlstände der Permutation <span class="math notranslate nohighlight">\(\operatorname{inv}(\pi)\)</span> betrachtet mit:</p>
 <div class="math notranslate nohighlight">
-\[\operatorname{inv}(\pi) := \lbrace (i,j) \in \lbrace 1, \ldots, k \rbrace : i &lt; j, \pi(i) &gt; \pi(j) \rbrace.\]</div>
+\[\operatorname{inv}(\pi) := \lbrace (i,j) \in \lbrace 1, \ldots, k \rbrace \times \lbrace 1, \ldots, k \rbrace  : i &lt; j, \pi(i) &gt; \pi(j) \rbrace.\]</div>
 </div>
-</div><div class="proof definition admonition" id="definition-25">
+</div><p>Das folgende einfache Beispiel illustriert die Berechnung des Signums einer Permutation.</p>
+<div class="proof example admonition" id="example-25">
+<p class="admonition-title"><span class="caption-number">Example 3.12 </span> (Signum zweier Permutationen)</p>
+<div class="example-content section" id="proof-content">
+<p>Wir betrachten im Folgenden zwei verschiedene Permutationen</p>
+<div class="math notranslate nohighlight">
+\[\pi_i \colon \lbrace 1, 2, 3, 4 \rbrace \rightarrow \lbrace 1, 2, 3, 4 \rbrace \quad i=1,2.\]</div>
+<br/>
+<p>1. Sei die Permutation <span class="math notranslate nohighlight">\(\pi_1\)</span> gegeben mit</p>
+<div class="math notranslate nohighlight">
+\[\pi_1(1) = 3, \quad \pi_1(2) = 2, \quad \pi_1(3) = 4, \quad \pi_1(4) = 1.\]</div>
+<p>Für die Menge der Fehlstände <span class="math notranslate nohighlight">\(\operatorname{inv}(\pi_1)\)</span> selektieren wir diejenigen Elemente <span class="math notranslate nohighlight">\(i,j \in \lbrace 1,2,3,4 \rbrace\)</span> mit <span class="math notranslate nohighlight">\(i &lt; j\)</span> und <span class="math notranslate nohighlight">\(\pi(i) &gt; \pi(j)\)</span>.
+Dies trifft auf folgende Paare von Elementen zu:</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{inv}(\pi_1) = \lbrace (1,2), (1,4), (2,4), (3,4)\rbrace.\]</div>
+<p>Da die Permutation <span class="math notranslate nohighlight">\(\pi_1\)</span> insgesamt <span class="math notranslate nohighlight">\(4\)</span> Fehlstände erzeugt, gilt für das Signum der Permutation:</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{sgn}(\pi_1) := (-1)^{|\operatorname{inv}(\pi_1)|} = (-1)^4 = +1.\]</div>
+<br/>
+<p>2. Sei die Permutation <span class="math notranslate nohighlight">\(\pi_2\)</span> gegeben mit</p>
+<div class="math notranslate nohighlight">
+\[\pi_1(1) = 2, \quad \pi_1(2) = 4, \quad \pi_1(3) = 1, \quad \pi_1(4) = 3.\]</div>
+<p>Für die Menge der Fehlstände <span class="math notranslate nohighlight">\(\operatorname{inv}(\pi_2)\)</span> selektieren wir diejenigen Elemente <span class="math notranslate nohighlight">\(i,j \in \lbrace 1,2,3,4 \rbrace\)</span> mit <span class="math notranslate nohighlight">\(i &lt; j\)</span> und <span class="math notranslate nohighlight">\(\pi(i) &gt; \pi(j)\)</span>.
+Dies trifft auf folgende Paare von Elementen zu:</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{inv}(\pi_2) = \lbrace (1,3), (2,3), (2,4)\rbrace.\]</div>
+<p>Da die Permutation <span class="math notranslate nohighlight">\(\pi_2\)</span> insgesamt <span class="math notranslate nohighlight">\(3\)</span> Fehlstände erzeugt, gilt für das Signum der Permutation:</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{sgn}(\pi_2) := (-1)^{|\operatorname{inv}(\pi_2)|} = (-1)^3 = -1.\]</div>
+</div>
+</div><p>Nun sind wir in der Lage die Symmetrieeigenschaften von Tensoren formal zu definieren.</p>
+<div class="proof definition admonition" id="def:symmetrieTensor">
 <p class="admonition-title"><span class="caption-number">Definition 3.7 </span> (Symmetrie und Antisymmetrie von Tensoren)</p>
 <div class="definition-content section" id="proof-content">
-<p>Sei V ein reeller, endlich-dimensionaler Vektorraum und <span class="math notranslate nohighlight">\(T \in T_0^k(V)\)</span> ein rein kontravarianter Tensor von Stufe <span class="math notranslate nohighlight">\(k \in \N\)</span>.</p>
+<p>Sei V ein reeller, endlich-dimensionaler Vektorraum und <span class="math notranslate nohighlight">\(T \in T_k^0(V)\)</span> ein rein kontravarianter Tensor von Stufe <span class="math notranslate nohighlight">\(k \in \N\)</span>.</p>
 <p>Wir nennen den Tensor <span class="math notranslate nohighlight">\(T\)</span> <strong>symmetrisch</strong>, wenn für alle möglichen Permutationen <span class="math notranslate nohighlight">\(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\)</span> der Indizes <span class="math notranslate nohighlight">\(1,\ldots,k\)</span> der Wert des Tensors mit permutierten Argumenten sich nicht ändert, d.h.,</p>
 <div class="math notranslate nohighlight">
 \[T(v_1, \ldots, v_k) = T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\]</div>
-<p>Wir nennen den Tensor <span class="math notranslate nohighlight">\(T\)</span> <strong>antisymmetrisch</strong>, wenn für alle möglichen Permutationen <span class="math notranslate nohighlight">\(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\)</span> der Indizes <span class="math notranslate nohighlight">\(1,\ldots,k\)</span> der Wert des Tensors mit permutierten Argumenten sich <em>bis auf das Vorzeichen</em> nicht ändert, d.h.,</p>
+<p>Wir nennen den Tensor <span class="math notranslate nohighlight">\(T\)</span> <strong>antisymmetrisch</strong> oder <strong>schiefsymmetrisch</strong>, wenn für alle möglichen Permutationen <span class="math notranslate nohighlight">\(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\)</span> der Indizes <span class="math notranslate nohighlight">\(1,\ldots,k\)</span> der Wert des Tensors mit permutierten Argumenten sich <em>bis auf das Vorzeichen</em> nicht ändert und dabei folgendem Zusammenhang genügt</p>
 <div class="math notranslate nohighlight">
 \[T(v_1, \ldots, v_k) = \operatorname{sgn}(\pi) \cdot T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\]</div>
 </div>
-</div><p>Analog lässt sich die (Anti-)Symmetrie eines rein kovarianten Tensors <span class="math notranslate nohighlight">\(T \in T_k^0(V)\)</span> von Stufe <span class="math notranslate nohighlight">\(k\)</span> definieren.</p>
-<div class="proof example admonition" id="example-26">
-<p class="admonition-title"><span class="caption-number">Example 3.12 </span></p>
+</div><p>In <a class="reference internal" href="#def:symmetrieTensor">Definition 3.7</a> haben wir die Symmetrieeigenschaften für rein kontravariante Tensoren eingeführt.
+Analog lässt sich die (Anti-)Symmetrie eines rein kovarianten Tensors <span class="math notranslate nohighlight">\(T \in T^k_0(V)\)</span> von Stufe <span class="math notranslate nohighlight">\(k\)</span> definieren.
+Die Definition von Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus <a class="reference internal" href="#def:gemischteTensoren">Definition 3.5</a> ist hingegen wenig sinnvoll, da die Rechenvorschrift eine gemischten Tensors unter beliebigen Permutationen der Argumente nicht mehr wohldefiniert sein muss.</p>
+<p>Im folgenden Beispiel diskutieren wir jeweils einen Vertreter für symmetrische und antisymmetrische Tensoren.</p>
+<div class="proof example admonition" id="example-27">
+<p class="admonition-title"><span class="caption-number">Example 3.13 </span> (Symmetrieeigenschaften von Tensoren)</p>
 <div class="example-content section" id="proof-content">
-<p>Skalarprodukt</p>
+<p>Betrachten wir zunächst das <em>Standardskalarprodukt</em></p>
+<div class="math notranslate nohighlight">
+\[\langle \cdot, \cdot \rangle \colon \R^n \times \R^n \rightarrow \R\]</div>
+<p>als rein kontravarianten Tensor zweiter Stufe.
+Da das Standardskalarprodukt im <span class="math notranslate nohighlight">\(\R^n\)</span> eine positiv definite, symmetrische Bilinearform ist, überträgt sich die Symmetrieeigenschaft auf die Interpretation als Tensor.
+Daher ist das Standardskalarprodukt ein <strong>symmetrischer Tensor</strong>.</p>
+<br/>
+<p>Als zweites Beispiel betrachten wir das sogenannte <em>Levi-Civita-Symbol</em>, auch genannt <em>Epsilon-Tensor</em>,</p>
+<div class="math notranslate nohighlight">
+\[\epsilon_{i_1,\ldots,i_n} : \N^n \rightarrow \lbrace -1, 0, 1 \rbrace,\]</div>
+<p>welcher einem Tupel von <span class="math notranslate nohighlight">\(n\in\N\)</span> Indizes <span class="math notranslate nohighlight">\((i_1,\ldots,i_n) \in \N^n\)</span> einen Wert zuordnet, je nachdem ob eine gerade oder eine ungerade Anzahl an Vertauschung benötigt wird, um die Indizes in aufsteigender Reihenfolge zu sortieren.
+Wird eine gerade Anzahl an Vertauschungen benötigt, so gilt <span class="math notranslate nohighlight">\(\epsilon_{i_1,\ldots,i_n} = +1\)</span>.
+Wird eine ungerade Anzahl an Vertauschungen benötigt, so gilt <span class="math notranslate nohighlight">\(\epsilon_{i_1,\ldots,i_n} = -1\)</span>.
+Aus letzterer Vorschrift lässt sich ableiten, dass der Epsilon-Tensor den Wert <span class="math notranslate nohighlight">\(0\)</span> haben muss, wenn mindestens zwei der Indizes gleich sind.
+Dies unterscheidet das Levi-Civita-Symbol vom Signum einer Permutation in <a class="reference internal" href="#def:signumPermutation">Definition 3.6</a>, welche als Bijektion auf paarweise verschiedenen Indizes definiert ist.</p>
+<p>Aus dieser Vorschrift lässt sich bereits direkt ableiten, dass es sich beim Levi-Civita-Symbol um einen <strong>antisymmetrischen Tensor</strong> n-ter Stufe handelt, da jede paarweise Vertauschung von Indizes das Vorzeichen des Tensors wechselt.</p>
 </div>
-</div><p>Projektion auf (anti-)symmetrische Tensoren</p>
-<div class="proof definition admonition" id="definition-27">
-<p class="admonition-title"><span class="caption-number">Definition 3.8 </span> (Fermionsche Projektion)</p>
+</div><p>Es stellt sich heraus, dass die Menge der (anti-)symmetrischen Tensoren eine Vektorraumstruktur induzieren, wie das folgende Lemma zeigt.</p>
+<div class="proof lemma admonition" id="lemma-28">
+<p class="admonition-title"><span class="caption-number">Lemma 3.8 </span> (Vektorraum der (anti-)symmetrischen Tensoren)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n \in \N\)</span> und sei <span class="math notranslate nohighlight">\(k \in \N\)</span> mit <span class="math notranslate nohighlight">\(k \leq n\)</span>.
+Seien außerdem</p>
+<div class="math notranslate nohighlight">
+\[\Lambda_k(V) = \lbrace \omega \in T_k^0(V) : \omega \text{ ist antisymmetrisch} \rbrace.\]</div>
+<p>die Menge der <em>antisymmetrischen Tensoren</em> der Stufe <span class="math notranslate nohighlight">\(k\)</span> auf <span class="math notranslate nohighlight">\(V\)</span> und</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{S}_k(V) = \lbrace \omega \in T_k^0(V) : \omega \text{ ist symmetrisch} \rbrace.\]</div>
+<p>die Menge der <em>symmetrischen Tensoren</em> der Stufe <span class="math notranslate nohighlight">\(k\)</span> auf <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<p>Dann bilden <span class="math notranslate nohighlight">\(\Lambda_k(V)\)</span> und <span class="math notranslate nohighlight">\(\mathcal{S}_k(V)\)</span> bezüglich der Addition von Tensoren und der skalaren Multiplikation in <span class="math notranslate nohighlight">\(\R\)</span> einen Vektorraum.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
+</div>
+<p>Abschließend wollen wir uns in diesem Abschnitt noch einem nützlichen mathematischen Werkzeug widmen, das es erlaubt beliebige Tensoren symmetrisch bzw. antisymmetrisch zu machen.
+Hierzu definieren wir die folgenden Projektionsabbildungen.</p>
+<div class="proof definition admonition" id="def:fermionischeProjektion">
+<p class="admonition-title"><span class="caption-number">Definition 3.8 </span> (Fermionische und bosonische Projektion)</p>
 <div class="definition-content section" id="proof-content">
-<p>Die sogenannte fermionische Projektion</p>
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein beliebiger, reeller Vektorraum und <span class="math notranslate nohighlight">\(k \in \N\)</span>.
+Wir definieren zunächst die sogenannte <strong>fermionische Projektion</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Pi_- \colon T_k^0(V) &amp;\rightarrow \Lambda_k(V), \\
+T(v_1, \ldots, v_k) &amp;\mapsto (\Pi_- T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} \operatorname{sgn}(\pi) \, T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\end{split}\]</div>
+<p>Diese Projektionsabbildung weist jedem Tensor <span class="math notranslate nohighlight">\(T\in T_k^0\)</span> der Stufe <span class="math notranslate nohighlight">\(k\)</span> einen antisymmetrischen Tensor <span class="math notranslate nohighlight">\(\Pi_-(T) \in \Lambda_k(V)\)</span> zu.</p>
+<p>Analog definieren wir die sogenannte <strong>bosonische Projektion</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Pi_+ \colon T_k^0(V) &amp;\rightarrow \mathcal{S}_k(V), \\
+T(v_1, \ldots, v_k) &amp;\mapsto (\Pi_+ T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\end{split}\]</div>
+<p>Diese Projektionsabbildung weist jedem Tensor <span class="math notranslate nohighlight">\(T\in T_k^0\)</span> der Stufe <span class="math notranslate nohighlight">\(k\)</span> einen symmetrischen Tensor <span class="math notranslate nohighlight">\(\Pi_+(T) \in \mathcal{S}_k(V)\)</span> zu.</p>
 </div>
-</div><div class="proof remark admonition" id="remark-28">
+</div><div class="proof remark admonition" id="remark-30">
 <p class="admonition-title"><span class="caption-number">Remark 3.10 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>In der Quantenmechanik beschreiben symmetrische Tensorprodukte <em>identische Bosonen</em> und antisymmetrische Tensorprodukte beschreiben <em>identische Fermionen</em>.</p>
+<p>Die Bezeichnung <strong>fermionisch</strong> und <strong>bosonisch</strong> in <a class="reference internal" href="#def:fermionischeProjektion">Definition 3.8</a> stammen daher, dass symmetrische Tensorprodukte <em>identische Bosonen</em> in der Quantenmechanik beschreiben, wohingegen antisymmetrische Tensorprodukte <em>identischen Fermionen</em> zugeordnet werden. Weitere Informationen findet man beispielsweise unter <a class="reference external" href="https://de.wikipedia.org/wiki/Ununterscheidbare_Teilchen#Ununterscheidbarkeit_in_der_Quantenmechanik">Ununterscheidbarkeit von Teilchen in der Quantenmechanik</a>.</p>
 </div>
 </div></div>
 <div class="section" id="grassmann-algebra">
 <h2><span class="section-number">3.2.7. </span>Grassmann-Algebra<a class="headerlink" href="#grassmann-algebra" title="Permalink to this headline">¶</a></h2>
-<div class="proof definition admonition" id="definition-29">
-<p class="admonition-title"><span class="caption-number">Definition 3.9 </span> (Grassmann-Algebra)</p>
+<p>Tensorprodukt von Tensoren</p>
+<p>Lemma: Antisymmetrischer Tensor (linear abhängig)</p>
+<p>Quotientenräume</p>
+<p>Vektorräume</p>
+<div class="proof definition admonition" id="definition-31">
+<p class="admonition-title"><span class="caption-number">Definition 3.9 </span> (Äußeres Produkt)</p>
 <div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n\)</span> und seien <span class="math notranslate nohighlight">\(\Lambda_k(V), \Lambda_l(V)\)</span> die Vektorräume der *antisymmeterischen</p>
 </div>
-</div><div class="proof definition admonition" id="definition-30">
-<p class="admonition-title"><span class="caption-number">Definition 3.10 </span> (Äußeres Produkt)</p>
+</div><div class="proof definition admonition" id="definition-32">
+<p class="admonition-title"><span class="caption-number">Definition 3.10 </span> (Grassmann-Algebra)</p>
 <div class="definition-content section" id="proof-content">
 </div>
 </div></div>
