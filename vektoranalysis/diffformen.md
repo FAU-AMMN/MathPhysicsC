@@ -3,6 +3,62 @@
 In diesem Kapitel werden wir nun [Differentialformen](https://de.wikipedia.org/wiki/Differentialform) einführen. Die entscheidende Neuerung im Vergleich zum vorhergehenden Kapitel, ist 
 dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen, speziell betrachten wir eine offene Menge $U\subset\R^n$. Ein weiterer wichtiger Aspekt, ist dass wir im Folgenden mit glatten Funktion arbeiten wollen, d.h., mit dem Raum $C^\infty(U,\R^n)$.
 
+## Mannifaltigkeiten
+
+* Was ist ein Homöomorphismus
+
+* Was ist ein topologischer Raum
+
+```{prf:definition} Karte
+Es sei $\M$ ein topologischer Raum, $U\subset\M$ offen und $\phi:U\rightarrow \phi(U)\subset \R^n$ sei ein Homöomorphismus, dann heißt das Tupel $(U,\phi)$ **Karte** auf $\M$.
+```
+
+Relation zwischen verschieden Karten.
+
+````{prf:definition}
+Es sei $\M$ ein topologischer Raum und $(U,\phi), (V,\psi)$ seien zwei Karten auf $\M$ mit nicht-leerem Schnitt, d.h., $U\cap V\neq \emptyset$. Dann nennt man 
+
+```{math}
+\psi\circ\phi^{-1}: \phi(U\cap V)\rightarrow \psi(U\cap V)
+```
+
+**Kartenwechsel**.
+
+````
+
+```{figure} ../img/chartchange.jpg
+---
+height: 450px
+name: "fig:chartchange"
+---
+Kartenwechsel.
+```
+
+Ganz $\M$ abdecken. Man kann mit Kartenwechsel normal ableiten.
+
+````{prf:definition} Atlas
+Es sei $\M$ ein topologischer Raum, eine Familie von Karten $(U_i,\phi_i)_{i\in I}$ indiziert durch die Indexmenge $I$ heißt **Atlas**, falls 
+
+```{math}
+M = \bigcup_{i\in I} U_i.
+```
+
+Wir nennen einen Atlas $k$-mal differenzierbar oder von der der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i^{-1}\circ\phi_j, i,j\in I$ $k$-mal stetig differenzierbar ist.
+
+````
+
+### Strukturen
+
+### Differenzierbare Mannigfaltigkeiten
+
+```{margin}
+[Felix Hausdorff](https://de.wikipedia.org/wiki/Felix_Hausdorff) (geboren am 8. November 1868 in Breslau; gestorben am 26. Januar 1942 in Bonn) war ein deutscher Mathematiker.
+```
+
+````{prf:definition} Hausdorff-Raum
+Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unterschiedliche Punkte $x,y\in \M, x\neq y$ offene Umgebungen $U(x), U(y)$ existieren, welche disjunkt sind, d.h., $U(x)\cap U(y) = \emptyset$.
+````
+
 ## Tensorfelder
 
 Der Begriff **Feld** tritt in sowohl in der Physik als auch in der Mathematik auf. Anschaulich versteht man unter einem Feld die Verteilung einer Größe über den Raum. Beispielweise versteht man unter Vektorfeldern eine Funktion
@@ -13,11 +69,11 @@ F:U\to \R^m
 
 wobei $U$ eine Teilmenge des $\R^n$ ist. Das Konzept hierbei ist also, anstatt nur Vektoren $y\in\R^m$ zu betrachten, ordnet ein **Feld** jedem $x\in U$ einen Vektor $F(x)\in\R^m$ zu. Wir wollen im Folgenden die Zielmenge $\R^m$ durch Tensorräume ersetzen. Zusätzlich, schränken wir uns nur auf glatte, d.h., unendlich oft differenzierbare Funktionen ein.
 
-````{prf:defintion} Tensorfeld
+````{prf:definition} Tensorfeld
 Es sei $V$ ein reeller $m$-dimensionaler Vektorraum und für $r,s \in \N_0$ sei $\{\tau_i\}_{i=1}^{m^{r+s}}$ eine Basis von $T^r_s(V)$.
 Für eine offenen Teilmenge $U\subset\R^n$ und Funktionen $w_{i}:U\to\R$ für $i=1,\ldots, n^{r+s}$ heißt die Abbildung 
 
-```
+```{math}
 \mathcal{T}&:U\rightarrow T^r_s(V)\\
 \mathcal{T}(x)&:= \sum_{i=1}^{n^{r+s}} w_{i}(x) \tau_i
 ```
@@ -26,6 +82,7 @@ Für eine offenen Teilmenge $U\subset\R^n$ und Funktionen $w_{i}:U\to\R$ für $i
 ````
 
 ## Differentialformen auf offenen Mengen
+
 Eine Differentialform $\omega$ auf $U\subseteq\R^n$ ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.
 
 Wir schreiben eine allgemeine *$k$--Form* $\omega$ in der *Grundform*
