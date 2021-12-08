@@ -1226,6 +1226,8 @@ Im Folgenden werden wir sehen, dass wir sogar noch mehr Struktur in Form einer A
 Zunächst wollen wir das äußere Produkt zweier Tensoren definieren.
 
 ````{prf:definition} Äußeres Produkt von Tensoren
+:label: def:aeusseresProduktTensoren
+
 Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und seien $r,r',s,s' \in \N$.
 Sei außerdem $T \in T^r_s(V)$ ein Tensor, der kovariant von Stufe $r$ und kontravariant von Stufe $s$ ist und sei $T' \in T^{r'}_{s'}(V)$ ein Tensor, der kovariant von Stufe $r'$ und kontravariant von Stufe $s'$ ist.
 
@@ -1236,13 +1238,16 @@ Dann wird das **äußere Tensorprodukt** von $T$ und $T'$ (manchmal auch **Tenso
 &T(v_1,\ldots,v_r,w_1,\ldots,w_s)\cdot T'(v'_1,\ldots,v'_{r'},w'_1,\ldots,w'_{s'}).
 ```
 
+Wir sehen also ein, dass das Tensorprodukt von Tensoren unterschiedlicher Stufe eine Abbildung induziert, die einen Tensor höherer Stufe liefert, d.h.,
 ```{math}
 \otimes : T^r_s(V) \times T^{r'}_{s'}(V) \rightarrow T^{r+r'}_{s+s'}(V),
 ```
 
 ````
 
-````{prf:definition} Äußeres Produkt
+Mit Hilfe des äußeren Produkts von Tensoren in {prf:ref}`def:aeusseresProduktTensoren` sind wir nun in der Lage ein äußeres Produkt für antisymmetrische Tensoren zu definieren.
+
+````{prf:definition} Äußeres Produkt von antisymmetrischen Tensoren
 :label: def:aeusseresProdukt
 
 Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n$ und seien $\Lambda_k(V), \Lambda_l(V)$ jeweils die Vektorräume der *antisymmetrischen Tensoren* der Stufe $k\in\N$ und $l\in\N$.
@@ -1265,8 +1270,44 @@ Dann gilt schon $\Lambda_k(V) = \lbrace 0 \rbrace$.
 ````
 
 ````{prf:proof}
-Test
+Da $V$ ein endlich-dimensionaler Vektorraum mit $\operatorname{dim}(V)=n \in \N$ ist, wissen wir, dass eine Basis $B$ von $V$ aus $n$ Vektoren $B := \lbrace b_1,\ldots,b_n \rbrace \in V$ existiert.
+Dies bedeutet insbesondere, dass die Vektoren von $B$ ein maximales System von linear unabhängigen Vektoren sind, die gleichzeitig noch ein Erzeugendensystem bilden.
+Jeder weitere Vektor $v \in V$, den wir zu diesem System hinzunehmen lässt sich somit als Linearkombination der Basisvektoren von $B$ darstellen.
+
+Sei nun $\omega \in \Lambda_k(V)$ ein antisymmetrischer, rein kovarianter Tensor der Stufe $k > n$.
+Da dieser insbesondere eine $k$-Multilinearform darstellt, können wir für beliebige Vektoren $v_1, \ldots, v_k \in V$ schreiben:
+
+```{math}
+:label: eq:antisymmetrischerTensor
+
+\omega(v_1, \ldots, v_k) &= \omega(\sum_{i=1}^n \alpha_i^1 b_i, \ldots, \sum_{i=1}^n \alpha_i^k b_i) = \sum_{j_1=1}^n \alpha_{j_1}^1 \omega(b_{j_1}, \sum_{i=1}^n \alpha_i^2 b_i, \ldots, \sum_{i=1}^n \alpha_i^k b_i) \\
+&= \sum_{j_1=1}^n \ldots \sum_{j_k=1}^n \alpha_{j_1}^1 \ldots \alpha_{j_k}^k \cdot \omega(b_{j_1}, \ldots, b_{j_k}).
+```
+
+Wir sehen also, dass der Tensor sich auf die Wirkung der Basisvektoren von $B$ zurückzuführen lässt und alle Summanden die Form $\omega(b_{j_1}, \ldots, b_{j_k})$ besitzen.
+Da wir $k > n$ angenommen haben, müssen mindestens zwei Basisvektoren gleich sein für jeden dieser Summanden.
+
+Betrachten wir nun einen einzelnen Summanden für den wir ohne Beschränkung der Allgemeinheit annehmen, dass der der $s$-te und $t$-te Eintrag gleich sind für $1 \leq s \neq t \leq n$, d.h., $b_{j_s}=b_{j_t}$.
+Da der Tensor $\omega$ antisymmetrisch ist, gilt jedoch:
+
+```{math}
+\omega(b_{j_1}, \ldots, b_{j_s}, \ldots, b_{j_t}, \ldots, b_{j_k}) &= (-1) \cdot \omega(b_{j_1}, \ldots, b_{j_t}, \ldots, b_{j_s}, \ldots, b_{j_k}) \\
+&= - \omega(b_{j_1}, \ldots, b_{j_s}, \ldots, b_{j_t}, \ldots, b_{j_k}) = 0.
+```
+
+Da also jeder Summand in [](eq:antisymmetrischerTensor) Null ist, handelt es sich also bei dem antisymmetrischen Tensor $\omega$ um den *Nulltensor*, der alle Tupel $(x_1, \ldots, x_k) \in V^k$ auf die Null abbildet.
+Hieraus folgt nun die Behauptung, denn es gilt $\Lambda_k(V) = \lbrace 0 \rbrace$ für $k > n =\operatorname{dim}(V)$.
+
 ````
+
+Mit der Aussage aus {prf:ref}`` wird klar, dass wenn wir die **direkte Summe** der Vektorräume von antisymmetrischen Tensoren der Stufe $k$ bilden, wir nur bis zur Stufe $k = n = \operatorname{dim}(V)$ gehen müssen, da anschließend nur Nullvektorräume hinzugefügt werden.
+Das heißt insbesondere, dass für den $\R$-Vektorraum der durch die direkte Summe gebildet wird gilt:
+
+```{math}
+\Lambda(V) := \bigoplus_{k=1}^\infty \Lambda_k(V) = \bigoplus_{k=1}^n \Lambda_k(V).
+```
+
+Mit dieser Erkenntnis lässt sich die sogenannte Grassmann-Algebra für antisymmetrische Tensoren definieren, wie folgende Bemerkung festhält.
 
 ````{prf:remark} Grassmann-Algebra
 Die Menge
@@ -1277,11 +1318,11 @@ Die Menge
 
 bildet zusammen mit den mathematischen Verknüpfungen
 
-* der Tensoraddition $+$
-* und der skalaren Multiplikation $\cdot$ in $\R$
+* der *Tensoraddition* $+$
+* und der *skalaren Multiplikation* $\cdot$ in $\R$
 
 als direkte äußere Summe von Vektorräumen wiederum einen reellen Vektorraum.
 
-Erweitert man diesen um die bilineare Verknüpfung, die durch das äußere Produkt $\wedge$ in {prf:ref}`def:aeusseresProdukt` beschrieben wird, so erhält man eine Algebra.
+Erweitert man diesen um die bilineare Verknüpfung, die durch das *äußere Produkt* $\wedge$ in {prf:ref}`def:aeusseresProdukt` beschrieben wird, so erhält man eine Algebra.
 Diese wird auch **Grassmann-Algebra** oder **äußere Algebra** genannt.
 ````
