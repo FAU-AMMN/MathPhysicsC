@@ -79,6 +79,7 @@ sphinx:
           "vec"  : ["\\mathbf{#1}",1]
           "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]
           "M"    : "\\mathcal{M}"
+          "S"    : "\\mathbb{S}"
     #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     # tojupyter_target_html: true
     # tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]

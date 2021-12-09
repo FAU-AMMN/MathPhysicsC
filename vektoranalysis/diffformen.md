@@ -5,18 +5,119 @@ dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit ei
 
 ## Mannifaltigkeiten
 
-* Was ist ein Homöomorphismus
+Wir beschäftigen uns im folgenden zunächst mit Mannigfaltigkeiten, bzw. speziell mit differenzierbaren Mannigfaltigkeiten. A priori betrachten wir hier topologische Räume $\M$ mit speziellen Strukturen und Eigenschaften. 
 
-* Was ist ein topologischer Raum
+**Was ist ein topologischer Raum?**
+
+Wir wiederholen kurz den Begriff des topologischen Raums. Das zentrale Konzept sind hier sogenannte offene Mengen. Konkret sei $\M$ eine Menge und $\tau\subset 2^\M$ eine Teilmenge der Potenzmenge, dann heißt $(\M,\tau)$ topologischer Raum, falls die folgenden Eigenschaften erfüllt sind, 
+
+* $\emptyset, \M \in \tau$,
+
+* für eine beliebige (insbesondere auch unendlich große) Indexmenge $I$ seien $U_i\in\tau, i\in I$, dann gilt 
+
+```{math}
+    \bigcup_{i\in I} U_i \in \tau,
+```
+
+* für endlich viele $U_j\in\tau, j=1,\ldots, k$ gilt
+
+```{math}
+    \bigcap_{j=1}^k U_j \in \tau.
+```
+
+Man nennt hier $\tau$ die **Topologie** und Elemente davon $U\in\tau$ **offene Mengen**. Für jeden Punkt $x\in \M$ nennen wir eine offene Menge $U(x)$ **Nachbarschaft** oder **Umgebung** um $x$, falls $x\in U(x)$.
+
+**Warum betrachten wir Mannigfaltigkeiten?**
+
+Wir haben bereits gesehen, wie man im mehrdimensionalen differenziert, siehe z.B., [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html). In vielen Bereichen der Physik und der Mathematik möchte man aber nicht nur af offenen Teilmengen des $\R^d$ ableiten, stattdessen benötigt man auch ein ähnliches Konzept für topologische Räume $\M$. Betrachten wir z.B. die Oberfläche der Einheitskugel im $\R^3$,
+
+```{math}
+(x,y,z)\in\R^3,\text{ s.d. } x^2 + y^2 + z^2 = 1
+```
+
+so erlaubt uns unsere bisheriges Konzept von Differenzierbarkeit nicht, auf diesem Objekt abzuleiten.
+
+**Wie können wir den Ableitungsbegriff auf topologische Räume übertragen?**
+
+Die grundlegende Idee ist es, den topologischen Raum $\M$ lokal mit einer Teilmenge des $\R^n$ zu identifizieren. Für eine belibige offene
+Teilmenge $U\subset \M$ betrachten wir also eine Abbildung $\phi:U\rightarrow \phi(U) \R^n$. Wir wollen hierbei aber nur injektive Abbildungen betrachten, s.d., eine inverse Abbildung $\phi^{-1}:\phi(U)\rightarrow U$ existiert. Haben wir also eine Funktion $f:\M\to\R$ gegeben die wir ableiten möchten, so sehen wir dass die Verknüpfung
+
+```{math}
+f \circ \phi^{-1} : \R^n \supset \phi(U)\to \R
+```
+
+rein konzeptionell in den bekannten Rahmen passt.
+
+````{prf:example}
+Kurve
+````
+
+Um den Ableitungsbegriff tatsächlich definieren zu können, benötigen wir aber zusätzlich zur Bijektivität die Bedingung, dass für jede Teilmenge $V\subset U$ gilt,
+
+```{math}
+\phi(V)\text{ ist offen}\Leftrightarrow V \text{ ist offen}.
+```
+
+Erste Implikation: $\phi(V)$ ist offen $\Rightarrow V $ ist offen.
+
+Für jede offene Menge $E\subset\phi(U)$ haben wir $E=\phi(\phi^{-1}(E))$, somit ist diese Implikation äquivalent zur Forderung, dass Urbilder offener Mengen selbst wider offen sind. Diese bedeutet wiederum genau, dass $\phi$ stetig ist. Insbesondere sehen wir, dass es für den Begriff der Stetigkeit reicht auf einer Topologie zu arbeiten.
+
+Zweite Implikation: $\phi(V)$ ist offen $\Leftarrow V $ ist offen.
+
+Analog zur obigen Überlegung sehen wir, dass diese Bedingung gerade aussagt, dass $\phi^{-1}$ stetig ist. Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung gibt, s.d. $\phi^{-1}$ nicht stetig ist.
+
+````{prf:example}
+:label: ex:nonho
+
+Wir betrachten die Funktion 
+
+```{math}
+\phi:[0,2\pi)\to\R^2,\\
+\phi(t):= (\cos(t), \sin(t)).
+```
+
+Wir erkennen, dass $\S^1 = \phi([0,2\pi))$ gerade der Einheitskreis ist und, dass $\phi:[0,2\pi)\to\S^1$ bijektiv und stetig ist.
+Allerdings sehen wir, dass die Umkehrabbildung nicht stetig ist. Sei dazu $(x_i)_{i\in\N}$ eine Folge von Punkten, s.d. für alle $i\in\N$ gilt,
+
+```{math}
+x_i&\in \S^1,\\
+(x_i)_2 &<0,\\
+\lim_{i\rightarrow\infty} x_i &=: x = (1,0).
+```
+
+Dann sehen wir aber, dass 
+
+```{math}
+\lim_{i\to\infty} \phi^{-1} (x_i) = 2\pi \neq 0 = \phi^{-1}(x)
+```
+
+und somit ist $\phi^{-1}$ nicht stetig.
+
+````
+
+```{figure} ../img/nonhomöo.jpg
+---
+height: 450px
+name: "fig:nonh"
+---
+Visualisierung für {prf:ref}`ex:nonho`.
+```
+
+Insgesamt forder wir also, dass $\phi:U\rightarrow\phi(U)$ bijektiv ist und, dass $\phi,\phi^-1$ stetig sind,eine solche Abbildung nennt man auch **Homöomorphismus**. Speziell im Kontext von Mannigfaltigkeiten haben nun das Konzept einer **Karte** eingeführt.
 
 ```{prf:definition} Karte
 Es sei $\M$ ein topologischer Raum, $U\subset\M$ offen und $\phi:U\rightarrow \phi(U)\subset \R^n$ sei ein Homöomorphismus, dann heißt das Tupel $(U,\phi)$ **Karte** auf $\M$.
 ```
 
-Relation zwischen verschieden Karten.
+Die Situation nun den Ableitungsbegriff für Funktionen $f:\M\to\R$ über eine Karte $(U,\phi)$ und der Verknüpfung $f\circ \phi$ zu definieren ist noch immer nicht komplett durchdacht. Denn in der Situation, dass $(V,\psi)$ eine zweite Karte ist mit $U\cap V\neq \emptyset$ erhalten wir auf dem Schnitt dieser Mengen zwei Parametrisierungen,
+
+```{math}
+f\circ \phi^{-1} = (f\circ\psi^{-1})\circ(\psi\circ \phi^{-1}),\\
+f\circ \psi^{-1} = (f\circ\phi^{-1})\circ(\phi\circ \psi^{-1}).
+```
 
 ````{prf:definition}
-Es sei $\M$ ein topologischer Raum und $(U,\phi), (V,\psi)$ seien zwei Karten auf $\M$ mit nicht-leerem Schnitt, d.h., $U\cap V\neq \emptyset$. Dann nennt man 
+Es sei $\M$ ein topologischer Raum und $(U,\phi), (V,\psi)$ zwei Karten auf $\M$ mit nicht-leerem Schnitt, d.h., $U\cap V\neq \emptyset$. Dann nennt man 
 
 ```{math}
 \psi\circ\phi^{-1}: \phi(U\cap V)\rightarrow \psi(U\cap V)
@@ -34,10 +135,10 @@ name: "fig:chartchange"
 Kartenwechsel.
 ```
 
-Ganz $\M$ abdecken. Man kann mit Kartenwechsel normal ableiten.
+Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind. Wäre nun $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differnzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen. Allerdings existieren durchaus Fälle, in welchen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber $\psi\circ\phi^{-1}$ nicht. Deshalb führt man zusätzlich folgenden Begriff ein.
 
 ````{prf:definition} Atlas
-Es sei $\M$ ein topologischer Raum, eine Familie von Karten $(U_i,\phi_i)_{i\in I}$ indiziert durch die Indexmenge $I$ heißt **Atlas**, falls 
+Es sei $\M$ ein topologischer Raum, eine Familie von Karten $\mathcal{A} = (U_i,\phi_i)_{i\in I}$ indiziert durch die Indexmenge $I$ heißt **Atlas**, falls 
 
 ```{math}
 M = \bigcup_{i\in I} U_i.
@@ -47,7 +148,15 @@ Wir nennen einen Atlas $k$-mal differenzierbar oder von der der Klasse $C^k$, fa
 
 ````
 
-### Strukturen
+### Differenzierbare Struktur
+
+Für eine topologischen Raum $\M$ können mehrere Atlanten $\mathcal{A}$  existieren, weshalb man zusätzlich eine Äquivalenzklasse definiert. Für eine Differenzierbarkeitsstufe $k\in \N \cup \{\infty\}$ heißen zwei $C^k$ Atlanten  $\mathcal{A}_1, \mathcal{A}_2$ $k$-äquivalent, $\mathcal{A}_1\sim_k \mathcal{A}_2$, falls ihre Vereinigung
+
+```{math}
+\mathcal{A}_1\cup \mathcal{A}_2
+```
+
+ein $C^k$ Atlas ist. Die Äquivalenzklasse $[\mathcal{A}]_{\sim_k}$ nennt man $C^k$-differenzierbare Struktur.
 
 ### Differenzierbare Mannigfaltigkeiten
 
@@ -55,9 +164,89 @@ Wir nennen einen Atlas $k$-mal differenzierbar oder von der der Klasse $C^k$, fa
 [Felix Hausdorff](https://de.wikipedia.org/wiki/Felix_Hausdorff) (geboren am 8. November 1868 in Breslau; gestorben am 26. Januar 1942 in Bonn) war ein deutscher Mathematiker.
 ```
 
+Bisher haben wir $\M$ als topologischen Raum betrachtet. In vielen Anwendungen benötigt man aber zusätzliche. Insbesondere wenn man [glatte Testfunktionen](https://de.wikipedia.org/wiki/Testfunktion) und [die Zerlegung der Eins](https://en.wikipedia.org/wiki/Partition_of_unity) benutzen möchte braucht man folgende zwei Eigenschaften.
+
 ````{prf:definition} Hausdorff-Raum
 Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unterschiedliche Punkte $x,y\in \M, x\neq y$ offene Umgebungen $U(x), U(y)$ existieren, welche disjunkt sind, d.h., $U(x)\cap U(y) = \emptyset$.
 ````
+
+````{prf:definition} Zweites Abzählbarkeitsaxiom
+Ein toplogischer Raum $\M$ erfüllt das **zweite Abzählbarkeitsaxiom**, falls **abzählbar** viele offene Mengen $(V_i)_{i\in\N}$existieren, s.d., für jedes $x\in \M$ und jede Umgebung $U(x)$ mindestens ein $k\in\N$ existiert, s.d., $V_k\subset U(x)$.
+````
+
+Diese zwei Bedingung wirken zunächst abstrakt, allerdings werden sie von vielen Räumen erfüllt. So ist z.B. jeder metrische Raum ein zweitabzählbarer Hausdorff-Raum.
+
+```{danger}
+Falls der Begriff eines zweitabzählbaren Hausdorff-Raums zu unhandlich erscheint, kann man für die meisten Anwendungen in der Physik auch einfach metrische Räume betrachten.
+```
+
+Wir sind nun in der Situation den Begriff einer Mannigfaltigkeit einzuführen.
+
+````{prf:definition} Mannigfaltigkeit
+Es sei $\M$ ein zweitabzählbarer Hausdorff-Raum und für $k\in\N\cup \{\infty\}$ sei $A$ eine $C^k$-differenzierbare Struktur, dann heißt $(M,A)$ 
+$k$-**mal differenzierbare Mannigfaltigkeit**. Für $k=\infty$ spricht man auch von einer **glatten** Mannigfaltigkeit. Bilden alle Karten in $\M$ nach $\R^n$ ab, so nennt man die MAnnigfaltigkeit $n$-dimensional.
+````
+
+In den meisten Fällen spricht man nur von der Mannigfaltigkeit $\M$, die differenzierbare Struktur $A$ wird dabei implizit vorausgesetzt.
+
+### Ableiten auf Mannigfaltigkeiten
+
+Sei nun $M$ eine $k$-mal differenzierbare Mannigfaltigkeit mit Atlas $\mathcal{A}$, dann heißt $f:\M\to\R$ $k$-mal differenzierbar, falls für jedes $p\in\M$ eine differenzierbare Karte $(u,\phi)\in\mathcal{A}$ existiert, sodass $f\circ\phi^{-1}\in C^k(\phi(U))$. Insbsondere schreiben wir in diesem Fall $f\in C^k(\M)$. In vielen Anwendungen betrachtet man nur glatte Mannigfaltigkeiten und Funktionen. Wir werden im folgenden auch dazu übergehen.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist $C^\infty(\M)$ ein reeller Vektorraum mit den Verknüpfungen
+
+```{math}
+(f + g)(p) := f(p) + g(p)\quad\text{ für } f,g\in C^\infty(\M),\\
+(\lambda \cdot f)(p) := \lambda\cdot f(p)\text{ für } f\in C^\infty(\M), \lambda\in\R.
+```
+
+````
+
+````{proof}
+Siehe Übung
+````
+
+Wir halten insbesondere fest, dass die Differenzierbarkeit Kartenunabhängig ist.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit mit Atlas $\mathcal{A}$, $f:\M\to\R$ eine Funktion und $(U,\phi)\in A$ eine Karte mit $p\in U$. Ist $f\circ\phi$ differenzierbar in $p$, so ist $f\circ\psi$ auch differenzierbar in $p$ für jede Karte $(V,\psi)$ mit $p\in V$.
+````
+
+````{proof}
+Siehe Übung.
+````
+
+### Der Tangentialraum
+
+Zusätzlich zum obigen Ableitungsbegriff definieren wir die sogenannte **Richtungsableitung** einer Funktion $f:\M\to\R$. Hierbei, betrachten wir *Kurven* $\gamma:(-t,t)\to\M$ und interessieren uns für das Verhalten der Abbildung $f\circ\gamma$.
+
+````{prf:example}
+Es sei $\M=\S^2$ die Einheitssphäre und $u:\M\to\R$ beschreibe eine Wärmeverteilung auf der Kugeloberfläche. Betrachtet man nun die Bahn eines Partikels auf der Oberfläche beschrieben durch $\gamma:(-t, t)\to \M$ so erhalten wir eine eindimesnionale Abbildung 
+
+```{math}
+f\circ\gamma:(-t,t)\to \R
+```
+
+die zu jedem Zeitpunkt die Temperatur des Ortes an welchem sich der Partikel befindet beschreibt.
+````
+
+```{figure} ../img/velocity.jpg
+---
+height: 450px
+name: "fig:velocity"
+---
+ToDo.
+```
+
+Es ist in diesem Fall einen verallgemeinerten Begriff der Geschwindikeit zu definieren. Für eine gegeben Bahnkurve ist diese eine lineare Abbildung, welche jeder glatten Funktion $f:\M\to\R$ den Wert der Richtungsableitung zuweist.
+
+````{prf:definition} Geschwindigkeit
+Es sei $\M$ eine glatte Mannigfaltigkeit, $f\in C^\infty(\M)$ und 
+````
+
+### Bündel
+
 
 ## Tensorfelder
 
