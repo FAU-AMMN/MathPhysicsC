@@ -45,7 +45,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -748,6 +748,13 @@ Dann besitzt das <span class="math notranslate nohighlight">\(k\)</span>-fache T
 <div class="math notranslate nohighlight">
 \[\phi = p \circ \otimes.\]</div>
 </div>
+</div><div class="proof remark admonition" id="remark-12">
+<p class="admonition-title"><span class="caption-number">Remark 3.8 </span> (Notation)</p>
+<div class="remark-content section" id="proof-content">
+<p>Im obigen Fall interpretiert man <span class="math notranslate nohighlight">\(\otimes: V_1\times\ldots\times V_k \rightarrow \bigotimes_{i=1}^k V_i\)</span> als <span class="math notranslate nohighlight">\(k\)</span>-Multilinearform und benutzt die Infix-Notation</p>
+<div class="math notranslate nohighlight">
+\[v_1\otimes\ldots\otimes v_k := \otimes(v_1,\ldots, v_k).\]</div>
+</div>
 </div><p>Im folgenden Abschnitt der Vorlesung wollen wir Tensoren insbesondere als Multilinearformen interpretieren.
 Deshalb interessieren wir uns im Folgenden für die Eigenschaften des Tensorprodukts, wenn wir speziell <em>Räume von linearen Abbildungen</em> betrachten.
 Die lineare Abbildung im folgenden Lemma stellt hierbei die zentrale Idee dar.</p>
@@ -765,8 +772,8 @@ Dann ist die Abbildung</p>
 <p>Proof. In der Hausaufgabe zu zeigen.</p>
 </div>
 <p>Da die Notation in <a class="reference internal" href="#lem:LISO">Lemma 3.6</a> vielleicht etwas abstrakt wirkt, soll die folgende Bemerkung auf die einzelnen Elemente der linearen Abbildung <span class="math notranslate nohighlight">\(p\)</span> nochmal genauer eingehen.</p>
-<div class="proof remark admonition" id="remark-13">
-<p class="admonition-title"><span class="caption-number">Remark 3.8 </span> (Funktionen als Funktionswerte)</p>
+<div class="proof remark admonition" id="remark-14">
+<p class="admonition-title"><span class="caption-number">Remark 3.9 </span> (Funktionen als Funktionswerte)</p>
 <div class="remark-content section" id="proof-content">
 <p>Die lineare Abbildung in <a class="reference internal" href="#lem:LISO">Lemma 3.6</a> ist folgendermaßen zu verstehen:</p>
 <ul class="simple">
@@ -917,8 +924,8 @@ Dann nennt man</p>
 In manchen Kontexten spricht man auch nur von <strong>gemischten Tensoren der Stufe <span class="math notranslate nohighlight">\(k=r+s\)</span></strong>.</p>
 </div>
 </div><p>Die folgende Bemerkung erklärt, woher die Begriffe <em>Kovarianz</em> und <em>Kontravarianz</em> stammen.</p>
-<div class="proof remark admonition" id="remark-19">
-<p class="admonition-title"><span class="caption-number">Remark 3.9 </span> (Ko- und Kontravarianz)</p>
+<div class="proof remark admonition" id="remark-20">
+<p class="admonition-title"><span class="caption-number">Remark 3.10 </span> (Ko- und Kontravarianz)</p>
 <div class="remark-content section" id="proof-content">
 <p>Die Bezeichnungen “kovariant” und “kontravariant” beziehen sich auf die Koordinatendarstellungen von Tensoren.
 Genauer gesagt beschreieb Sie, wie sich solche Koordinatendarstellungen bezüglich eines Basiswechsels im zugrundeliegenden Vektorraum verhalten.</p>
@@ -929,7 +936,7 @@ Genauer gesagt beschreieb Sie, wie sich solche Koordinatendarstellungen bezügli
 </ul>
 </div>
 </div><p>Das folgende Beispiel gibt eine Intuition für den Begriff der Kontravarianz an Hand von Vektorkoordinaten unter Basiswechseloperationen.</p>
-<div class="proof example admonition" id="example-20">
+<div class="proof example admonition" id="example-21">
 <p class="admonition-title"><span class="caption-number">Example 3.8 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(V = \R^3\)</span> der Euklidische Vektorraum und sei</p>
@@ -950,7 +957,7 @@ Daher sind Vektoren <strong>kontravariant</strong> bezüglich Basiswechseltransf
 </div>
 </div><p>Wir wollen diese allgemeine Definition von gemischten Tensoren nun mit einfachen Beispielen veranschaulichen.
 Beginnen wir zunächst mit dem Spezialfall von rein kovarianten Tensoren.</p>
-<div class="proof example admonition" id="example-21">
+<div class="proof example admonition" id="example-22">
 <p class="admonition-title"><span class="caption-number">Example 3.9 </span> (Rein kovariante Tensoren)</p>
 <div class="example-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n \in \N\)</span>.
@@ -971,7 +978,7 @@ Wir betrachten Tensoren der Stufe <span class="math notranslate nohighlight">\(r
 Ein Beispiel für Elemente der Menge <span class="math notranslate nohighlight">\(T^n_0(V) = L^n(V^n; \R)\)</span> ist die <strong>Determinante</strong> einer <span class="math notranslate nohighlight">\(n \times n\)</span>-Matrix.</p>
 </div>
 </div><p>Betrachten wir als Nächstes den Spezialfall von rein kontravarianten Tensoren.</p>
-<div class="proof example admonition" id="example-22">
+<div class="proof example admonition" id="example-23">
 <p class="admonition-title"><span class="caption-number">Example 3.10 </span> (Rein kontravariante Tensoren)</p>
 <div class="example-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum.
@@ -986,7 +993,7 @@ In diesem Fall entsprechen Elemente der Menge <span class="math notranslate nohi
 Ein Beispiel hierfür sind Tensoren, die durch <em>dyadische Produkte</em> erzeugt werden.</p>
 </div>
 </div><p>Abschließend betrachten wir noch ein Beispiel für echt gemischte Tensoren.</p>
-<div class="proof example admonition" id="example-23">
+<div class="proof example admonition" id="example-24">
 <p class="admonition-title"><span class="caption-number">Example 3.11 </span> (Echt gemischte Tensoren)</p>
 <div class="example-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum.
@@ -1016,8 +1023,8 @@ Dann bezeichnen wir mit <span class="math notranslate nohighlight">\(\operatorna
 <div class="math notranslate nohighlight">
 \[\operatorname{inv}(\pi) := \lbrace i,j \in \lbrace 1, \ldots, k \rbrace : i &lt; j, \pi(i) &gt; \pi(j) \rbrace.\]</div>
 </div>
-</div><div class="proof remark admonition" id="remark-25">
-<p class="admonition-title"><span class="caption-number">Remark 3.10 </span> (Signum durch Transpositionen)</p>
+</div><div class="proof remark admonition" id="remark-26">
+<p class="admonition-title"><span class="caption-number">Remark 3.11 </span> (Signum durch Transpositionen)</p>
 <div class="remark-content section" id="proof-content">
 <p>Man erhält eine äquivalente Definition indem man die Darstellung einer Permuattaion durch Transpositionen betrachtet. Eine Permuation vertauscht genau zwei Zahlen, konkret, definiert man für <span class="math notranslate nohighlight">\(r,l\in\{1,\ldots,k\}\)</span> die Permutation <span class="math notranslate nohighlight">\(\tau_{rl}:\{1,\ldots,k\}\to\{1,\ldots,k\}\)</span> wie folgt,</p>
 <div class="math notranslate nohighlight">
@@ -1040,7 +1047,7 @@ Sei <span class="math notranslate nohighlight">\(\pi\)</span> nun eine Permutati
 \[\operatorname{sgn}(\pi) = -1^{M(\pi)}.\]</div>
 </div>
 </div><p>Das folgende einfache Beispiel illustriert die Berechnung des Signums einer Permutation.</p>
-<div class="proof example admonition" id="example-26">
+<div class="proof example admonition" id="example-27">
 <p class="admonition-title"><span class="caption-number">Example 3.12 </span> (Signum zweier Permutationen)</p>
 <div class="example-content section" id="proof-content">
 <p>Wir betrachten im Folgenden zwei verschiedene Permutationen</p>
@@ -1089,7 +1096,7 @@ Die Definition von Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus
 <p class="sidebar-title">Tullio Levi-Civita</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Tullio_Levi-Civita">Tullio Levi-Civita</a> (Geboren 29. März 1873 in Padua; Gestorben 29. Dezember 1941 in Rom) war ein italienischer Mathematiker.</p>
 </div>
-<div class="proof example admonition" id="example-28">
+<div class="proof example admonition" id="example-29">
 <p class="admonition-title"><span class="caption-number">Example 3.13 </span> (Symmetrieeigenschaften von Tensoren)</p>
 <div class="example-content section" id="proof-content">
 <p>Betrachten wir zunächst das <em>Standardskalarprodukt</em></p>
@@ -1114,7 +1121,7 @@ Dies unterscheidet das Levi-Civita-Symbol vom Signum einer Permutation in <a cla
 <p>Aus dieser Vorschrift lässt sich bereits direkt ableiten, dass es sich beim Levi-Civita-Symbol um einen <strong>antisymmetrischen Tensor</strong> n-ter Stufe handelt, da jede paarweise Vertauschung von Indizes das Vorzeichen des Tensors wechselt.</p>
 </div>
 </div><p>Es stellt sich heraus, dass die Menge der (anti-)symmetrischen Tensoren eine Vektorraumstruktur induzieren, wie das folgende Lemma zeigt.</p>
-<div class="proof lemma admonition" id="lemma-29">
+<div class="proof lemma admonition" id="lemma-30">
 <p class="admonition-title"><span class="caption-number">Lemma 3.8 </span> (Vektorraum der (anti-)symmetrischen Tensoren)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n \in \N\)</span> und sei <span class="math notranslate nohighlight">\(k \in \N\)</span> mit <span class="math notranslate nohighlight">\(k \leq n\)</span>.
@@ -1125,7 +1132,7 @@ Seien außerdem</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{S}_k(V) = \lbrace \omega \in T_k^0(V) : \omega \text{ ist symmetrisch} \rbrace.\]</div>
 <p>die Menge der <em>symmetrischen Tensoren</em> der Stufe <span class="math notranslate nohighlight">\(k\)</span> auf <span class="math notranslate nohighlight">\(V\)</span>.</p>
-<p>Dann bilden <span class="math notranslate nohighlight">\(\Lambda_k(V)\)</span> und <span class="math notranslate nohighlight">\(\mathcal{S}_k(V)\)</span> bezüglich der Addition von Tensoren und der skalaren Multiplikation in <span class="math notranslate nohighlight">\(\R\)</span> einen Vektorraum.</p>
+<p>Dann bilden <span class="math notranslate nohighlight">\(\Lambda_k(V)\)</span> und <span class="math notranslate nohighlight">\(\mathcal{S}_k(V)\)</span> bezüglich der Addition von Tensoren und der skalaren Multiplikation in <span class="math notranslate nohighlight">\(\R\)</span> einen reellen Vektorraum.</p>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. In der Hausaufgabe zu zeigen.</p>
@@ -1147,8 +1154,8 @@ T(v_1, \ldots, v_k) &amp;\mapsto (\Pi_- T)(v_1, \ldots, v_k) := \frac{1}{k!} \su
 T(v_1, \ldots, v_k) &amp;\mapsto (\Pi_+ T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} T(v_{\pi(1)}, \ldots, v_{\pi(k)}).\end{split}\]</div>
 <p>Diese Projektionsabbildung weist jedem Tensor <span class="math notranslate nohighlight">\(T\in T_k^0\)</span> der Stufe <span class="math notranslate nohighlight">\(k\)</span> einen symmetrischen Tensor <span class="math notranslate nohighlight">\(\Pi_+(T) \in \mathcal{S}_k(V)\)</span> zu.</p>
 </div>
-</div><div class="proof remark admonition" id="remark-31">
-<p class="admonition-title"><span class="caption-number">Remark 3.11 </span></p>
+</div><div class="proof remark admonition" id="remark-32">
+<p class="admonition-title"><span class="caption-number">Remark 3.12 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Die Bezeichnung <strong>fermionisch</strong> und <strong>bosonisch</strong> in <a class="reference internal" href="#def:fermionischeProjektion">Definition 3.8</a> stammen daher, dass symmetrische Tensorprodukte <em>identische Bosonen</em> in der Quantenmechanik beschreiben, wohingegen antisymmetrische Tensorprodukte <em>identischen Fermionen</em> zugeordnet werden. Weitere Informationen findet man beispielsweise unter <a class="reference external" href="https://de.wikipedia.org/wiki/Ununterscheidbare_Teilchen#Ununterscheidbarkeit_in_der_Quantenmechanik">Ununterscheidbarkeit von Teilchen in der Quantenmechanik</a>.</p>
 </div>
@@ -1158,29 +1165,128 @@ T(v_1, \ldots, v_k) &amp;\mapsto (\Pi_+ T)(v_1, \ldots, v_k) := \frac{1}{k!} \su
 <p>Im letzten Abschnitt haben wir gesehen, dass die Menge der antisymmetrischen Tensoren von Stufe zusammen mit der Addition von Tensoren der gleichen Stufe einen Vektorraum <span class="math notranslate nohighlight">\(\Lambda_k(V)\)</span> bildet.
 Im Folgenden werden wir sehen, dass wir sogar noch mehr Struktur in Form einer Algebra erhalten, wenn wir den Vektorraum mit einer verträglichen Multiplikation von Tensoren erweitern.</p>
 <p>Zunächst wollen wir das äußere Produkt zweier Tensoren definieren.</p>
-<div class="proof definition admonition" id="definition-32">
+<div class="proof definition admonition" id="def:aeusseresProduktTensoren">
 <p class="admonition-title"><span class="caption-number">Definition 3.9 </span> (Äußeres Produkt von Tensoren)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum und seien <span class="math notranslate nohighlight">\(r,r',s,s' \in \N\)</span>.
 Sei außerdem <span class="math notranslate nohighlight">\(T \in T^r_s(V)\)</span> ein Tensor, der kovariant von Stufe <span class="math notranslate nohighlight">\(r\)</span> und kontravariant von Stufe <span class="math notranslate nohighlight">\(s\)</span> ist und sei <span class="math notranslate nohighlight">\(T' \in T^{r'}_{s'}(V)\)</span> ein Tensor, der kovariant von Stufe <span class="math notranslate nohighlight">\(r'\)</span> und kontravariant von Stufe <span class="math notranslate nohighlight">\(s'\)</span> ist.</p>
-<p>Dann wird das <strong>äußere Tensorprodukt</strong> von <span class="math notranslate nohighlight">\(T\)</span> und <span class="math notranslate nohighlight">\(T'\)</span> als folgende Abbildung definiert:</p>
+<p>Dann wird das <strong>äußere Tensorprodukt</strong> von <span class="math notranslate nohighlight">\(T\)</span> und <span class="math notranslate nohighlight">\(T'\)</span> (manchmal auch <strong>Tensormultiplikation</strong> genannt) als folgende Abbildung definiert:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}(T \otimes T')(v_1,\ldots,v_r,v'_1,\ldots,v'_{r'},&amp;w_1,\ldots,w_s,w'_1,\ldots,w'_{s'}) := \\
 &amp;T(v_1,\ldots,v_r,w_1,\ldots,w_s)\cdot T'(v'_1,\ldots,v'_{r'},w'_1,\ldots,w'_{s'}).\end{split}\]</div>
+</div>
+</div><p>Wir sehen also, dass das Tensorprodukt von Tensoren unterschiedlicher Stufe eine Abbildung induziert, die per Definition einen Tensor höherer Stufe liefert, d.h.,</p>
 <div class="math notranslate nohighlight">
 \[\otimes : T^r_s(V) \times T^{r'}_{s'}(V) \rightarrow T^{r+r'}_{s+s'}(V),\]</div>
-</div>
-</div><p>Lemma: Antisymmetrischer Tensor (linear abhängig)</p>
-<p>Quotientenräume</p>
-<p>Vektorräume</p>
-<div class="proof definition admonition" id="definition-33">
-<p class="admonition-title"><span class="caption-number">Definition 3.10 </span> (Äußeres Produkt)</p>
+<p>Mit Hilfe des äußeren Produkts von Tensoren in <a class="reference internal" href="#def:aeusseresProduktTensoren">Definition 3.9</a> sind wir nun in der Lage ein äußeres Produkt für antisymmetrische Tensoren zu definieren.</p>
+<div class="proof definition admonition" id="def:aeusseresProdukt">
+<p class="admonition-title"><span class="caption-number">Definition 3.10 </span> (Äußeres Produkt von antisymmetrischen Tensoren)</p>
 <div class="definition-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n\)</span> und seien <span class="math notranslate nohighlight">\(\Lambda_k(V), \Lambda_l(V)\)</span> die Vektorräume der *antisymmeterischen</p>
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n\)</span> und seien <span class="math notranslate nohighlight">\(\Lambda_k(V), \Lambda_l(V)\)</span> jeweils die Vektorräume der <em>antisymmetrischen Tensoren</em> der Stufe <span class="math notranslate nohighlight">\(k\in\N\)</span> und <span class="math notranslate nohighlight">\(l\in\N\)</span>.
+Wir definieren das sogenannte <strong>äußere Produkt</strong> als die folgende Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\wedge : \Lambda_k(V) \times \Lambda_l(V) &amp;\rightarrow \Lambda_{k+l}(V),\\
+(\omega, \eta) &amp;\mapsto \wedge(\omega,\eta) = \frac{(k+l)!}{k! \, l!} \Pi_-(\omega \otimes \eta).\end{split}\]</div>
+<p>Häufig wird für das äußere Produkt die Infix-Notation verwendet, d.h., <span class="math notranslate nohighlight">\(\omega \wedge \eta :=  \wedge(\omega,\eta)\)</span>.</p>
 </div>
-</div><div class="proof definition admonition" id="definition-34">
-<p class="admonition-title"><span class="caption-number">Definition 3.11 </span> (Grassmann-Algebra)</p>
-<div class="definition-content section" id="proof-content">
+</div><p>Das folgende Lemma fasst die wichtigsten Eigenschaften des äußeren Produkts von antisymmetrischen Tensoren zusammen.</p>
+<div class="proof lemma admonition" id="lemma-35">
+<p class="admonition-title"><span class="caption-number">Lemma 3.9 </span> (Eigenschaften des äußeren Produkts)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum und <span class="math notranslate nohighlight">\(\lambda \in \R\)</span> ein Skalar.
+Seien außerdem folgende antisymmetrische Tensoren gegeben: <span class="math notranslate nohighlight">\(\omega, \omega' \in \Lambda_k(V), \eta \in \Lambda_l(V), \tau \in \Lambda_m(V)\)</span>.</p>
+<p>Dann besitzt das äußere Produkt <span class="math notranslate nohighlight">\(\wedge\)</span> von antisymmetrischen Tensoren die folgenden Eigenschaften:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\((\omega \wedge \eta) \wedge \tau = \omega \wedge (\eta \wedge \tau), \qquad \)</span> (<strong>Assoziativität</strong>)</p></li>
+<li><p><span class="math notranslate nohighlight">\((\omega + \lambda \omega') \wedge \eta = \omega \wedge \eta + \lambda \omega' \wedge \eta\quad\)</span> und analog im 2. Argument, (<strong>Bilinearität</strong>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega \wedge \eta = (-1)^{kl} \eta \wedge \omega. \qquad\)</span> (<strong>Antikommutativität</strong>)</p></li>
+</ol>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
+</div>
+<p>Mit Hilfe der obigen Eigenschaften, insbesondere der Assoziativität, lässt sich das äußere Produkt für <span class="math notranslate nohighlight">\(k \in \N\)</span> Tensoren verallgemeinern, wie folgende Bemerkung festhält.</p>
+<div class="proof remark admonition" id="remark-36">
+<p class="admonition-title"><span class="caption-number">Remark 3.13 </span> (<span class="math notranslate nohighlight">\(k\)</span>-faches äußeres Produkt)</p>
+<div class="remark-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum und seien <span class="math notranslate nohighlight">\(\omega_i \in \Lambda_{n_i}(V), i=1,\ldots,k\)</span> antisymmetrische Vektoren der Stufe <span class="math notranslate nohighlight">\(n_i \in \N\)</span>.</p>
+<p>Dann gilt für das <span class="math notranslate nohighlight">\(k\)</span>-fache äußere Produkt von antisymmetrischen Tensoren,</p>
+<div class="math notranslate nohighlight" id="equation-eq-kfachesprodukt">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-eq-kfachesprodukt" title="Permalink to this equation">¶</a></span>\[\omega_1 \wedge \ldots \wedge \omega_k = \frac{(n_1 + \ldots + n_k)!}{n_1!\cdot \ldots \cdot n_k!} \Pi_-(\omega_1 \otimes \ldots \otimes \omega_k).\]</div>
+</div>
+</div><p>Das folgende Theorem erweist sich als nützliche Einsicht, die im Laufe der Vorlesung noch von Bedeutung sein wird.
+Es besagt, dass das äußere Produkt von Linearformen mittels einer Determinante berechnet werden kann.</p>
+<div class="proof theorem admonition" id="theorem-37">
+<p class="admonition-title"><span class="caption-number">Theorem 3.3 </span> (Äußeres Produkt von Linearformen)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum und <span class="math notranslate nohighlight">\(k \in \N\)</span>.
+Seien außerdem <span class="math notranslate nohighlight">\(\omega_1, \ldots, \omega_k \in V^\ast\)</span> Linearformen auf <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(v_1, \ldots, v_k \in V\)</span> beliebige Vektoren.</p>
+<p>Dann lässt sich der antisymmetrische, rein kovariante Tensor <span class="math notranslate nohighlight">\(k\)</span>-ter Stufe, der durch das äußere Produkt <span class="math notranslate nohighlight">\(\omega_1 \wedge \ldots \wedge \omega_k \in \Lambda_k(V)\)</span> gegeben ist berechnen als</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(\omega_1 \wedge \ldots \wedge \omega_k)(v_1, \ldots, v_k) = \operatorname{det}
+\begin{pmatrix}
+\omega_1(v_1) &amp; \cdots &amp; \omega_k(v_1)\\
+\vdots &amp; &amp; \vdots \\
+\omega_1(v_k) &amp; \cdots &amp; \omega_k(v_k)
+\end{pmatrix}.\end{split}\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Seien <span class="math notranslate nohighlight">\(v_1,\ldots,v_k \in V\)</span> beliebige Vektoren.
+Dann gilt nach der Definition des <span class="math notranslate nohighlight">\(k\)</span>-fachen äußeren Produkts in <a class="reference internal" href="#equation-eq-kfachesprodukt">(3.5)</a> folgender Zusammenhang</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(\omega_1 \wedge \ldots \wedge \omega_k)(v_1, \ldots, v_k) &amp;= \frac{(1+\ldots+1)!}{1!\cdot\ldots\cdot1!} \cdot \Pi_-(\omega_1 \otimes \ldots \otimes \omega_k)(v_1,\ldots,v_k) \\
+&amp;= k! \cdot \Pi_-(\omega_1 \otimes \ldots \otimes \omega_k)(v_1,\ldots,v_k) \\
+&amp;= k! \frac{1}{k!} \sum_{\pi\in \mathcal{S}_k}\operatorname{sgn}(\pi) (\omega_1 \otimes \ldots \otimes \omega_k)(v_{\pi(1)},\ldots,v_{\pi(k)}) \\
+&amp;= \sum_{\pi\in \mathcal{S}_k}\operatorname{sgn}(\pi) \, \omega_1(v_{\pi(1)})\cdot \ldots \cdot \omega_k(v_{\pi(k)}) \\
+&amp;= \operatorname{det}
+\begin{pmatrix}
+\omega_1(v_1) &amp; \cdots &amp; \omega_k(v_1)\\
+\vdots &amp; &amp; \vdots \\
+\omega_1(v_k) &amp; \cdots &amp; \omega_k(v_k)
+\end{pmatrix}.\end{split}\]</div>
+<p>Bei der letzten Gleichung haben wir den <strong>Determinantenproduktsatz</strong> aus Satz 3.40 in <span id="id2">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span> verwendet.</p>
+</div>
+<p>Das folgende Lemma weist auf eine interessante Eigenschaft des Vektorraums der antisymmetrischen Tensoren hin, für den Fall, dass die Stufe der zugehörigen Tensoren größer als die Dimension des zu Grunde liegenden Vektorraums <span class="math notranslate nohighlight">\(V\)</span> ist.</p>
+<div class="proof lemma admonition" id="lem:tensorStufe">
+<p class="admonition-title"><span class="caption-number">Lemma 3.10 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler, reeller Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V) = n \in \N\)</span>.
+Sei außerdem <span class="math notranslate nohighlight">\(\Lambda_k(V)\)</span> der Vektorraum der antisymmetrischen Tensoren der Stufe <span class="math notranslate nohighlight">\(k\in\N\)</span> mit <span class="math notranslate nohighlight">\(k &gt; n\)</span>.
+Dann gilt schon <span class="math notranslate nohighlight">\(\Lambda_k(V) = \lbrace 0 \rbrace\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Da <span class="math notranslate nohighlight">\(V\)</span> ein endlich-dimensionaler Vektorraum mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V)=n \in \N\)</span> ist, wissen wir, dass eine Basis <span class="math notranslate nohighlight">\(B\)</span> von <span class="math notranslate nohighlight">\(V\)</span> aus <span class="math notranslate nohighlight">\(n\)</span> Vektoren <span class="math notranslate nohighlight">\(B := \lbrace b_1,\ldots,b_n \rbrace \in V\)</span> existiert.
+Dies bedeutet insbesondere, dass die Vektoren von <span class="math notranslate nohighlight">\(B\)</span> ein maximales System von linear unabhängigen Vektoren sind, die gleichzeitig noch ein Erzeugendensystem bilden.
+Jeder weitere Vektor <span class="math notranslate nohighlight">\(v \in V\)</span>, den wir zu diesem System hinzunehmen lässt sich somit als Linearkombination der Basisvektoren von <span class="math notranslate nohighlight">\(B\)</span> darstellen.</p>
+<p>Sei nun <span class="math notranslate nohighlight">\(\omega \in \Lambda_k(V)\)</span> ein antisymmetrischer, rein kovarianter Tensor der Stufe <span class="math notranslate nohighlight">\(k &gt; n\)</span>.
+Da dieser insbesondere eine <span class="math notranslate nohighlight">\(k\)</span>-Multilinearform darstellt, können wir für beliebige Vektoren <span class="math notranslate nohighlight">\(v_1, \ldots, v_k \in V\)</span> schreiben:</p>
+<div class="math notranslate nohighlight" id="equation-eq-antisymmetrischertensor">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-eq-antisymmetrischertensor" title="Permalink to this equation">¶</a></span>\[\begin{split}\omega(v_1, \ldots, v_k) &amp;= \omega(\sum_{i=1}^n \alpha_i^1 b_i, \ldots, \sum_{i=1}^n \alpha_i^k b_i) = \sum_{j_1=1}^n \alpha_{j_1}^1 \omega(b_{j_1}, \sum_{i=1}^n \alpha_i^2 b_i, \ldots, \sum_{i=1}^n \alpha_i^k b_i) \\
+&amp;= \sum_{j_1=1}^n \ldots \sum_{j_k=1}^n \alpha_{j_1}^1 \ldots \alpha_{j_k}^k \cdot \omega(b_{j_1}, \ldots, b_{j_k}).\end{split}\]</div>
+<p>Wir sehen also, dass der Tensor sich auf die Wirkung der Basisvektoren von <span class="math notranslate nohighlight">\(B\)</span> zurückzuführen lässt und alle Summanden die Form <span class="math notranslate nohighlight">\(\omega(b_{j_1}, \ldots, b_{j_k})\)</span> besitzen.
+Da wir <span class="math notranslate nohighlight">\(k &gt; n\)</span> angenommen haben, müssen mindestens zwei Basisvektoren gleich sein für jeden dieser Summanden.</p>
+<p>Betrachten wir nun einen einzelnen Summanden für den wir ohne Beschränkung der Allgemeinheit annehmen, dass der der <span class="math notranslate nohighlight">\(s\)</span>-te und <span class="math notranslate nohighlight">\(t\)</span>-te Eintrag gleich sind für <span class="math notranslate nohighlight">\(1 \leq s \neq t \leq n\)</span>, d.h., <span class="math notranslate nohighlight">\(b_{j_s}=b_{j_t}\)</span>.
+Da der Tensor <span class="math notranslate nohighlight">\(\omega\)</span> antisymmetrisch ist, gilt jedoch:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\omega(b_{j_1}, \ldots, b_{j_s}, \ldots, b_{j_t}, \ldots, b_{j_k}) &amp;= (-1) \cdot \omega(b_{j_1}, \ldots, b_{j_t}, \ldots, b_{j_s}, \ldots, b_{j_k}) \\
+&amp;= - \omega(b_{j_1}, \ldots, b_{j_s}, \ldots, b_{j_t}, \ldots, b_{j_k}) = 0.\end{split}\]</div>
+<p>Da also jeder Summand in <a class="reference internal" href="#equation-eq-antisymmetrischertensor">(3.6)</a> Null ist, handelt es sich also bei dem antisymmetrischen Tensor <span class="math notranslate nohighlight">\(\omega\)</span> um den <em>Nulltensor</em>, der alle Tupel <span class="math notranslate nohighlight">\((x_1, \ldots, x_k) \in V^k\)</span> auf die Null abbildet.
+Hieraus folgt nun die Behauptung, denn es gilt <span class="math notranslate nohighlight">\(\Lambda_k(V) = \lbrace 0 \rbrace\)</span> für <span class="math notranslate nohighlight">\(k &gt; n =\operatorname{dim}(V)\)</span>.</p>
+</div>
+<p>Mit der Aussage aus <a class="reference internal" href="#lem:tensorStufe">Lemma 3.10</a> wird klar, dass wenn wir die <strong>direkte Summe</strong> der Vektorräume von antisymmetrischen Tensoren der Stufe <span class="math notranslate nohighlight">\(k\)</span> bilden, wir nur bis zur Stufe <span class="math notranslate nohighlight">\(k = n = \operatorname{dim}(V)\)</span> gehen müssen, da anschließend nur Nullvektorräume hinzugefügt werden.
+Das heißt insbesondere, dass für den <span class="math notranslate nohighlight">\(\R\)</span>-Vektorraum der durch die direkte Summe gebildet wird gilt:</p>
+<div class="math notranslate nohighlight">
+\[\Lambda(V) := \bigoplus_{k=1}^\infty \Lambda_k(V) = \bigoplus_{k=1}^n \Lambda_k(V).\]</div>
+<p>Mit dieser Erkenntnis lässt sich die sogenannte Grassmann-Algebra für antisymmetrische Tensoren definieren, wie folgende Bemerkung festhält.</p>
+<div class="proof remark admonition" id="remark-39">
+<p class="admonition-title"><span class="caption-number">Remark 3.14 </span> (Grassmann-Algebra)</p>
+<div class="remark-content section" id="proof-content">
+<p>Die Menge</p>
+<div class="math notranslate nohighlight">
+\[\Lambda(V) := \bigoplus_{k=1}^n \Lambda_k(V) = \Lambda_1(V) \times \ldots \times \Lambda_n(V)\]</div>
+<p>bildet zusammen mit den Verknüpfungen der <em>Tensoraddition</em> “<span class="math notranslate nohighlight">\(+\)</span>” und der <em>skalaren Multiplikation</em> “<span class="math notranslate nohighlight">\(\cdot\)</span>” in <span class="math notranslate nohighlight">\(\R\)</span> als direkte äußere Summe von Vektorräumen wiederum einen <strong>reellen Vektorraum</strong> <span class="math notranslate nohighlight">\((\Lambda(V), +, \cdot)\)</span>.</p>
+<p>Erweitert man diesen um die bilineare Verknüpfung, die durch das <em>äußere Produkt</em> <span class="math notranslate nohighlight">\(\wedge\)</span> in <a class="reference internal" href="#def:aeusseresProdukt">Definition 3.10</a> beschrieben wird, so erhält man eine Algebra <span class="math notranslate nohighlight">\((\Lambda(V), +, \cdot, \wedge)\)</span>.
+Diese wird auch <strong>Grassmann-Algebra</strong> oder <strong>äußere Algebra</strong> genannt.</p>
 </div>
 </div></div>
 </div>

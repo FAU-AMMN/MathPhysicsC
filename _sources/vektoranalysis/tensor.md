@@ -610,7 +610,7 @@ $p \in L^1(\bigotimes_{i=1}^k V_i; Y)$, so dass gilt
 ```
 ````
 
-````{remark} Notation
+````{prf:remark} Notation
 Im obigen Fall interpretiert man $\otimes: V_1\times\ldots\times V_k \rightarrow \bigotimes_{i=1}^k V_i$ als $k$-Multilinearform und benutzt die Infix-Notation 
 
 ```{math}
@@ -1180,7 +1180,7 @@ die Menge der *antisymmetrischen Tensoren* der Stufe $k$ auf $V$ und
 
 die Menge der *symmetrischen Tensoren* der Stufe $k$ auf $V$.
 
-Dann bilden $\Lambda_k(V)$ und $\mathcal{S}_k(V)$ bezüglich der Addition von Tensoren und der skalaren Multiplikation in $\R$ einen Vektorraum.
+Dann bilden $\Lambda_k(V)$ und $\mathcal{S}_k(V)$ bezüglich der Addition von Tensoren und der skalaren Multiplikation in $\R$ einen reellen Vektorraum.
 
 ````
 
@@ -1226,32 +1226,173 @@ Im Folgenden werden wir sehen, dass wir sogar noch mehr Struktur in Form einer A
 Zunächst wollen wir das äußere Produkt zweier Tensoren definieren.
 
 ````{prf:definition} Äußeres Produkt von Tensoren
+:label: def:aeusseresProduktTensoren
+
 Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und seien $r,r',s,s' \in \N$.
 Sei außerdem $T \in T^r_s(V)$ ein Tensor, der kovariant von Stufe $r$ und kontravariant von Stufe $s$ ist und sei $T' \in T^{r'}_{s'}(V)$ ein Tensor, der kovariant von Stufe $r'$ und kontravariant von Stufe $s'$ ist.
 
-Dann wird das **äußere Tensorprodukt** von $T$ und $T'$ als folgende Abbildung definiert:
+Dann wird das **äußere Tensorprodukt** von $T$ und $T'$ (manchmal auch **Tensormultiplikation** genannt) als folgende Abbildung definiert:
 
 ```{math}
 (T \otimes T')(v_1,\ldots,v_r,v'_1,\ldots,v'_{r'},&w_1,\ldots,w_s,w'_1,\ldots,w'_{s'}) := \\
 &T(v_1,\ldots,v_r,w_1,\ldots,w_s)\cdot T'(v'_1,\ldots,v'_{r'},w'_1,\ldots,w'_{s'}).
 ```
 
+````
+
+Wir sehen also, dass das Tensorprodukt von Tensoren unterschiedlicher Stufe eine Abbildung induziert, die per Definition einen Tensor höherer Stufe liefert, d.h.,
+
 ```{math}
 \otimes : T^r_s(V) \times T^{r'}_{s'}(V) \rightarrow T^{r+r'}_{s+s'}(V),
 ```
 
+Mit Hilfe des äußeren Produkts von Tensoren in {prf:ref}`def:aeusseresProduktTensoren` sind wir nun in der Lage ein äußeres Produkt für antisymmetrische Tensoren zu definieren.
+
+````{prf:definition} Äußeres Produkt von antisymmetrischen Tensoren
+:label: def:aeusseresProdukt
+
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n$ und seien $\Lambda_k(V), \Lambda_l(V)$ jeweils die Vektorräume der *antisymmetrischen Tensoren* der Stufe $k\in\N$ und $l\in\N$.
+Wir definieren das sogenannte **äußere Produkt** als die folgende Abbildung
+
+```{math}
+\wedge : \Lambda_k(V) \times \Lambda_l(V) &\rightarrow \Lambda_{k+l}(V),\\
+(\omega, \eta) &\mapsto \wedge(\omega,\eta) = \frac{(k+l)!}{k! \, l!} \Pi_-(\omega \otimes \eta).
+```
+
+Häufig wird für das äußere Produkt die Infix-Notation verwendet, d.h., $\omega \wedge \eta :=  \wedge(\omega,\eta)$.
 ````
 
-Lemma: Antisymmetrischer Tensor (linear abhängig)
+Das folgende Lemma fasst die wichtigsten Eigenschaften des äußeren Produkts von antisymmetrischen Tensoren zusammen.
 
-Quotientenräume
+````{prf:lemma} Eigenschaften des äußeren Produkts
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und $\lambda \in \R$ ein Skalar.
+Seien außerdem folgende antisymmetrische Tensoren gegeben: $\omega, \omega' \in \Lambda_k(V), \eta \in \Lambda_l(V), \tau \in \Lambda_m(V)$.
 
-Vektorräume
+Dann besitzt das äußere Produkt $\wedge$ von antisymmetrischen Tensoren die folgenden Eigenschaften:
 
-````{prf:definition} Äußeres Produkt
-Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n$ und seien $\Lambda_k(V), \Lambda_l(V)$ die Vektorräume der *antisymmeterischen 
+1. $(\omega \wedge \eta) \wedge \tau = \omega \wedge (\eta \wedge \tau), \qquad $ (**Assoziativität**)
+2. $(\omega + \lambda \omega') \wedge \eta = \omega \wedge \eta + \lambda \omega' \wedge \eta\quad$ und analog im 2. Argument, (**Bilinearität**)
+3. $\omega \wedge \eta = (-1)^{kl} \eta \wedge \omega. \qquad$ (**Antikommutativität**)
 ````
 
-````{prf:definition} Grassmann-Algebra
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
+````
 
+Mit Hilfe der obigen Eigenschaften, insbesondere der Assoziativität, lässt sich das äußere Produkt für $k \in \N$ Tensoren verallgemeinern, wie folgende Bemerkung festhält.
+
+````{prf:remark} $k$-faches äußeres Produkt
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und seien $\omega_i \in \Lambda_{n_i}(V), i=1,\ldots,k$ antisymmetrische Vektoren der Stufe $n_i \in \N$.
+
+Dann gilt für das $k$-fache äußere Produkt von antisymmetrischen Tensoren,
+
+```{math}
+:label: eq:kfachesProdukt
+
+\omega_1 \wedge \ldots \wedge \omega_k = \frac{(n_1 + \ldots + n_k)!}{n_1!\cdot \ldots \cdot n_k!} \Pi_-(\omega_1 \otimes \ldots \otimes \omega_k).
+```
+
+````
+
+Das folgende Theorem erweist sich als nützliche Einsicht, die im Laufe der Vorlesung noch von Bedeutung sein wird.
+Es besagt, dass das äußere Produkt von Linearformen mittels einer Determinante berechnet werden kann.
+
+````{prf:theorem} Äußeres Produkt von Linearformen
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und $k \in \N$.
+Seien außerdem $\omega_1, \ldots, \omega_k \in V^\ast$ Linearformen auf $V$ und $v_1, \ldots, v_k \in V$ beliebige Vektoren.
+
+Dann lässt sich der antisymmetrische, rein kovariante Tensor $k$-ter Stufe, der durch das äußere Produkt $\omega_1 \wedge \ldots \wedge \omega_k \in \Lambda_k(V)$ gegeben ist berechnen als
+
+```{math}
+(\omega_1 \wedge \ldots \wedge \omega_k)(v_1, \ldots, v_k) = \operatorname{det}
+\begin{pmatrix}
+\omega_1(v_1) & \cdots & \omega_k(v_1)\\
+\vdots & & \vdots \\
+\omega_1(v_k) & \cdots & \omega_k(v_k)
+\end{pmatrix}.
+```
+
+````
+
+````{prf:proof}
+Seien $v_1,\ldots,v_k \in V$ beliebige Vektoren.
+Dann gilt nach der Definition des $k$-fachen äußeren Produkts in [](eq:kfachesProdukt) folgender Zusammenhang
+
+```{math}
+(\omega_1 \wedge \ldots \wedge \omega_k)(v_1, \ldots, v_k) &= \frac{(1+\ldots+1)!}{1!\cdot\ldots\cdot1!} \cdot \Pi_-(\omega_1 \otimes \ldots \otimes \omega_k)(v_1,\ldots,v_k) \\
+&= k! \cdot \Pi_-(\omega_1 \otimes \ldots \otimes \omega_k)(v_1,\ldots,v_k) \\
+&= k! \frac{1}{k!} \sum_{\pi\in \mathcal{S}_k}\operatorname{sgn}(\pi) (\omega_1 \otimes \ldots \otimes \omega_k)(v_{\pi(1)},\ldots,v_{\pi(k)}) \\
+&= \sum_{\pi\in \mathcal{S}_k}\operatorname{sgn}(\pi) \, \omega_1(v_{\pi(1)})\cdot \ldots \cdot \omega_k(v_{\pi(k)}) \\
+&= \operatorname{det}
+\begin{pmatrix}
+\omega_1(v_1) & \cdots & \omega_k(v_1)\\
+\vdots & & \vdots \\
+\omega_1(v_k) & \cdots & \omega_k(v_k)
+\end{pmatrix}.
+```
+
+Bei der letzten Gleichung haben wir den **Determinantenproduktsatz** aus Satz 3.40 in {cite:p}`burger_2020` verwendet.
+````
+
+Das folgende Lemma weist auf eine interessante Eigenschaft des Vektorraums der antisymmetrischen Tensoren hin, für den Fall, dass die Stufe der zugehörigen Tensoren größer als die Dimension des zu Grunde liegenden Vektorraums $V$ ist.
+
+````{prf:lemma}
+:label: lem:tensorStufe
+
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n \in \N$.
+Sei außerdem $\Lambda_k(V)$ der Vektorraum der antisymmetrischen Tensoren der Stufe $k\in\N$ mit $k > n$.
+Dann gilt schon $\Lambda_k(V) = \lbrace 0 \rbrace$.
+````
+
+````{prf:proof}
+Da $V$ ein endlich-dimensionaler Vektorraum mit $\operatorname{dim}(V)=n \in \N$ ist, wissen wir, dass eine Basis $B$ von $V$ aus $n$ Vektoren $B := \lbrace b_1,\ldots,b_n \rbrace \in V$ existiert.
+Dies bedeutet insbesondere, dass die Vektoren von $B$ ein maximales System von linear unabhängigen Vektoren sind, die gleichzeitig noch ein Erzeugendensystem bilden.
+Jeder weitere Vektor $v \in V$, den wir zu diesem System hinzunehmen lässt sich somit als Linearkombination der Basisvektoren von $B$ darstellen.
+
+Sei nun $\omega \in \Lambda_k(V)$ ein antisymmetrischer, rein kovarianter Tensor der Stufe $k > n$.
+Da dieser insbesondere eine $k$-Multilinearform darstellt, können wir für beliebige Vektoren $v_1, \ldots, v_k \in V$ schreiben:
+
+```{math}
+:label: eq:antisymmetrischerTensor
+
+\omega(v_1, \ldots, v_k) &= \omega(\sum_{i=1}^n \alpha_i^1 b_i, \ldots, \sum_{i=1}^n \alpha_i^k b_i) = \sum_{j_1=1}^n \alpha_{j_1}^1 \omega(b_{j_1}, \sum_{i=1}^n \alpha_i^2 b_i, \ldots, \sum_{i=1}^n \alpha_i^k b_i) \\
+&= \sum_{j_1=1}^n \ldots \sum_{j_k=1}^n \alpha_{j_1}^1 \ldots \alpha_{j_k}^k \cdot \omega(b_{j_1}, \ldots, b_{j_k}).
+```
+
+Wir sehen also, dass der Tensor sich auf die Wirkung der Basisvektoren von $B$ zurückzuführen lässt und alle Summanden die Form $\omega(b_{j_1}, \ldots, b_{j_k})$ besitzen.
+Da wir $k > n$ angenommen haben, müssen mindestens zwei Basisvektoren gleich sein für jeden dieser Summanden.
+
+Betrachten wir nun einen einzelnen Summanden für den wir ohne Beschränkung der Allgemeinheit annehmen, dass der der $s$-te und $t$-te Eintrag gleich sind für $1 \leq s \neq t \leq n$, d.h., $b_{j_s}=b_{j_t}$.
+Da der Tensor $\omega$ antisymmetrisch ist, gilt jedoch:
+
+```{math}
+\omega(b_{j_1}, \ldots, b_{j_s}, \ldots, b_{j_t}, \ldots, b_{j_k}) &= (-1) \cdot \omega(b_{j_1}, \ldots, b_{j_t}, \ldots, b_{j_s}, \ldots, b_{j_k}) \\
+&= - \omega(b_{j_1}, \ldots, b_{j_s}, \ldots, b_{j_t}, \ldots, b_{j_k}) = 0.
+```
+
+Da also jeder Summand in [](eq:antisymmetrischerTensor) Null ist, handelt es sich also bei dem antisymmetrischen Tensor $\omega$ um den *Nulltensor*, der alle Tupel $(x_1, \ldots, x_k) \in V^k$ auf die Null abbildet.
+Hieraus folgt nun die Behauptung, denn es gilt $\Lambda_k(V) = \lbrace 0 \rbrace$ für $k > n =\operatorname{dim}(V)$.
+
+````
+
+Mit der Aussage aus {prf:ref}`lem:tensorStufe` wird klar, dass wenn wir die **direkte Summe** der Vektorräume von antisymmetrischen Tensoren der Stufe $k$ bilden, wir nur bis zur Stufe $k = n = \operatorname{dim}(V)$ gehen müssen, da anschließend nur Nullvektorräume hinzugefügt werden.
+Das heißt insbesondere, dass für den $\R$-Vektorraum der durch die direkte Summe gebildet wird gilt:
+
+```{math}
+\Lambda(V) := \bigoplus_{k=1}^\infty \Lambda_k(V) = \bigoplus_{k=1}^n \Lambda_k(V).
+```
+
+Mit dieser Erkenntnis lässt sich die sogenannte Grassmann-Algebra für antisymmetrische Tensoren definieren, wie folgende Bemerkung festhält.
+
+````{prf:remark} Grassmann-Algebra
+Die Menge
+
+```{math}
+\Lambda(V) := \bigoplus_{k=1}^n \Lambda_k(V) = \Lambda_1(V) \times \ldots \times \Lambda_n(V)
+```
+
+bildet zusammen mit den Verknüpfungen der *Tensoraddition* "$+$" und der *skalaren Multiplikation* "$\cdot$" in $\R$ als direkte äußere Summe von Vektorräumen wiederum einen **reellen Vektorraum** $(\Lambda(V), +, \cdot)$.
+
+Erweitert man diesen um die bilineare Verknüpfung, die durch das *äußere Produkt* $\wedge$ in {prf:ref}`def:aeusseresProdukt` beschrieben wird, so erhält man eine Algebra $(\Lambda(V), +, \cdot, \wedge)$.
+Diese wird auch **Grassmann-Algebra** oder **äußere Algebra** genannt.
 ````
