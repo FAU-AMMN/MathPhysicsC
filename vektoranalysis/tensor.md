@@ -1241,9 +1241,11 @@ Dann wird das **äußere Tensorprodukt** von $T$ und $T'$ (manchmal auch **Tenso
 ````
 
 Wir sehen also, dass das Tensorprodukt von Tensoren unterschiedlicher Stufe eine Abbildung induziert, die per Definition einen Tensor höherer Stufe liefert, d.h.,
+
 ```{math}
 \otimes : T^r_s(V) \times T^{r'}_{s'}(V) \rightarrow T^{r+r'}_{s+s'}(V),
 ```
+
 Mit Hilfe des äußeren Produkts von Tensoren in {prf:ref}`def:aeusseresProduktTensoren` sind wir nun in der Lage ein äußeres Produkt für antisymmetrische Tensoren zu definieren.
 
 ````{prf:definition} Äußeres Produkt von antisymmetrischen Tensoren
@@ -1335,6 +1337,8 @@ Bei der letzten Gleichung haben wir den **Determinantenproduktsatz** aus Satz 3.
 Das folgende Lemma weist auf eine interessante Eigenschaft des Vektorraums der antisymmetrischen Tensoren hin, für den Fall, dass die Stufe der zugehörigen Tensoren größer als die Dimension des zu Grunde liegenden Vektorraums $V$ ist.
 
 ````{prf:lemma}
+:label: lem:tensorStufe
+
 Sei $V$ ein endlich-dimensionaler, reeller Vektorraum mit $\operatorname{dim}(V) = n \in \N$.
 Sei außerdem $\Lambda_k(V)$ der Vektorraum der antisymmetrischen Tensoren der Stufe $k\in\N$ mit $k > n$.
 Dann gilt schon $\Lambda_k(V) = \lbrace 0 \rbrace$.
@@ -1371,7 +1375,7 @@ Hieraus folgt nun die Behauptung, denn es gilt $\Lambda_k(V) = \lbrace 0 \rbrace
 
 ````
 
-Mit der Aussage aus {prf:ref}`` wird klar, dass wenn wir die **direkte Summe** der Vektorräume von antisymmetrischen Tensoren der Stufe $k$ bilden, wir nur bis zur Stufe $k = n = \operatorname{dim}(V)$ gehen müssen, da anschließend nur Nullvektorräume hinzugefügt werden.
+Mit der Aussage aus {prf:ref}`lem:tensorStufe` wird klar, dass wenn wir die **direkte Summe** der Vektorräume von antisymmetrischen Tensoren der Stufe $k$ bilden, wir nur bis zur Stufe $k = n = \operatorname{dim}(V)$ gehen müssen, da anschließend nur Nullvektorräume hinzugefügt werden.
 Das heißt insbesondere, dass für den $\R$-Vektorraum der durch die direkte Summe gebildet wird gilt:
 
 ```{math}
@@ -1387,12 +1391,7 @@ Die Menge
 \Lambda(V) := \bigoplus_{k=1}^n \Lambda_k(V) = \Lambda_1(V) \times \ldots \times \Lambda_n(V)
 ```
 
-bildet zusammen mit den mathematischen Verknüpfungen
-
-* der *Tensoraddition* $+$
-* und der *skalaren Multiplikation* $\cdot$ in $\R$
-
-als direkte äußere Summe von Vektorräumen wiederum einen reellen Vektorraum.
+bildet zusammen mit den Verknüpfungen der *Tensoraddition* "$+$" und der *skalaren Multiplikation* "$\cdot$" in $\R$ als direkte äußere Summe von Vektorräumen wiederum einen **reellen Vektorraum**.
 
 Erweitert man diesen um die bilineare Verknüpfung, die durch das *äußere Produkt* $\wedge$ in {prf:ref}`def:aeusseresProdukt` beschrieben wird, so erhält man eine Algebra.
 Diese wird auch **Grassmann-Algebra** oder **äußere Algebra** genannt.
