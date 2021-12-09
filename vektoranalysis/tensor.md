@@ -1308,7 +1308,7 @@ Dann lässt sich der antisymmetrische, rein kovariante Tensor $k$-ter Stufe, der
 \begin{pmatrix}
 \omega_1(v_1) & \cdots & \omega_k(v_1)\\
 \vdots & & \vdots \\
-\omega_k(v_1) & \cdots & \omega_k(v_k)
+\omega_1(v_k) & \cdots & \omega_k(v_k)
 \end{pmatrix}.
 ```
 
@@ -1327,7 +1327,7 @@ Dann gilt nach der Definition des $k$-fachen äußeren Produkts in [](eq:kfaches
 \begin{pmatrix}
 \omega_1(v_1) & \cdots & \omega_k(v_1)\\
 \vdots & & \vdots \\
-\omega_k(v_1) & \cdots & \omega_k(v_k)
+\omega_1(v_k) & \cdots & \omega_k(v_k)
 \end{pmatrix}.
 ```
 
@@ -1391,8 +1391,8 @@ Die Menge
 \Lambda(V) := \bigoplus_{k=1}^n \Lambda_k(V) = \Lambda_1(V) \times \ldots \times \Lambda_n(V)
 ```
 
-bildet zusammen mit den Verknüpfungen der *Tensoraddition* "$+$" und der *skalaren Multiplikation* "$\cdot$" in $\R$ als direkte äußere Summe von Vektorräumen wiederum einen **reellen Vektorraum**.
+bildet zusammen mit den Verknüpfungen der *Tensoraddition* "$+$" und der *skalaren Multiplikation* "$\cdot$" in $\R$ als direkte äußere Summe von Vektorräumen wiederum einen **reellen Vektorraum** $(\Lambda(V), +, \cdot)$.
 
-Erweitert man diesen um die bilineare Verknüpfung, die durch das *äußere Produkt* $\wedge$ in {prf:ref}`def:aeusseresProdukt` beschrieben wird, so erhält man eine Algebra.
+Erweitert man diesen um die bilineare Verknüpfung, die durch das *äußere Produkt* $\wedge$ in {prf:ref}`def:aeusseresProdukt` beschrieben wird, so erhält man eine Algebra $(\Lambda(V), +, \cdot, \wedge)$.
 Diese wird auch **Grassmann-Algebra** oder **äußere Algebra** genannt.
 ````
