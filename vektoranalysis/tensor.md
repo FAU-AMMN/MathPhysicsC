@@ -1238,13 +1238,12 @@ Dann wird das **äußere Tensorprodukt** von $T$ und $T'$ (manchmal auch **Tenso
 &T(v_1,\ldots,v_r,w_1,\ldots,w_s)\cdot T'(v'_1,\ldots,v'_{r'},w'_1,\ldots,w'_{s'}).
 ```
 
-Wir sehen also ein, dass das Tensorprodukt von Tensoren unterschiedlicher Stufe eine Abbildung induziert, die einen Tensor höherer Stufe liefert, d.h.,
+````
+
+Wir sehen also, dass das Tensorprodukt von Tensoren unterschiedlicher Stufe eine Abbildung induziert, die per Definition einen Tensor höherer Stufe liefert, d.h.,
 ```{math}
 \otimes : T^r_s(V) \times T^{r'}_{s'}(V) \rightarrow T^{r+r'}_{s+s'}(V),
 ```
-
-````
-
 Mit Hilfe des äußeren Produkts von Tensoren in {prf:ref}`def:aeusseresProduktTensoren` sind wir nun in der Lage ein äußeres Produkt für antisymmetrische Tensoren zu definieren.
 
 ````{prf:definition} Äußeres Produkt von antisymmetrischen Tensoren
@@ -1259,6 +1258,78 @@ Wir definieren das sogenannte **äußere Produkt** als die folgende Abbildung
 ```
 
 Häufig wird für das äußere Produkt die Infix-Notation verwendet, d.h., $\omega \wedge \eta :=  \wedge(\omega,\eta)$.
+````
+
+Das folgende Lemma fasst die wichtigsten Eigenschaften des äußeren Produkts von antisymmetrischen Tensoren zusammen.
+
+````{prf:lemma} Eigenschaften des äußeren Produkts
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und $\lambda \in \R$ ein Skalar.
+Seien außerdem folgende antisymmetrische Tensoren gegeben: $\omega, \omega' \in \Lambda_k(V), \eta \in \Lambda_l(V), \tau \in \Lambda_m(V)$.
+
+Dann besitzt das äußere Produkt $\wedge$ von antisymmetrischen Tensoren die folgenden Eigenschaften:
+
+1. $(\omega \wedge \eta) \wedge \tau = \omega \wedge (\eta \wedge \tau), \qquad $ (**Assoziativität**)
+2. $(\omega + \lambda \omega') \wedge \eta = \omega \wedge \eta + \lambda \omega' \wedge \eta\quad$ und analog im 2. Argument, (**Bilinearität**)
+3. $\omega \wedge \eta = (-1)^{kl} \eta \wedge \omega. \qquad$ (**Antikommutativität**)
+````
+
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
+````
+
+Mit Hilfe der obigen Eigenschaften, insbesondere der Assoziativität, lässt sich das äußere Produkt für $k \in \N$ Tensoren verallgemeinern, wie folgende Bemerkung festhält.
+
+````{prf:remark} $k$-faches äußeres Produkt
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und seien $\omega_i \in \Lambda_{n_i}(V), i=1,\ldots,k$ antisymmetrische Vektoren der Stufe $n_i \in \N$.
+
+Dann gilt für das $k$-fache äußere Produkt von antisymmetrischen Tensoren,
+
+```{math}
+:label: eq:kfachesProdukt
+
+\omega_1 \wedge \ldots \wedge \omega_k = \frac{(n_1 + \ldots + n_k)!}{n_1!\cdot \ldots \cdot n_k!} \Pi_-(\omega_1 \otimes \ldots \otimes \omega_k).
+```
+
+````
+
+Das folgende Theorem erweist sich als nützliche Einsicht, die im Laufe der Vorlesung noch von Bedeutung sein wird.
+Es besagt, dass das äußere Produkt von Linearformen mittels einer Determinante berechnet werden kann.
+
+````{prf:theorem} Äußeres Produkt von Linearformen
+Sei $V$ ein endlich-dimensionaler, reeller Vektorraum und $k \in \N$.
+Seien außerdem $\omega_1, \ldots, \omega_k \in V^\ast$ Linearformen auf $V$ und $v_1, \ldots, v_k \in V$ beliebige Vektoren.
+
+Dann lässt sich der antisymmetrische, rein kovariante Tensor $k$-ter Stufe, der durch das äußere Produkt $\omega_1 \wedge \ldots \wedge \omega_k \in \Lambda_k(V)$ gegeben ist berechnen als
+
+```{math}
+(\omega_1 \wedge \ldots \wedge \omega_k)(v_1, \ldots, v_k) = \operatorname{det}
+\begin{pmatrix}
+\omega_1(v_1) & \cdots & \omega_k(v_1)\\
+\vdots & & \vdots \\
+\omega_k(v_1) & \cdots & \omega_k(v_k)
+\end{pmatrix}.
+```
+
+````
+
+````{prf:proof}
+Seien $v_1,\ldots,v_k \in V$ beliebige Vektoren.
+Dann gilt nach der Definition des $k$-fachen äußeren Produkts in [](eq:kfachesProdukt) folgender Zusammenhang
+
+```{math}
+(\omega_1 \wedge \ldots \wedge \omega_k)(v_1, \ldots, v_k) &= \frac{(1+\ldots+1)!}{1!\cdot\ldots\cdot1!} \cdot \Pi_-(\omega_1 \otimes \ldots \otimes \omega_k)(v_1,\ldots,v_k) \\
+&= k! \cdot \Pi_-(\omega_1 \otimes \ldots \otimes \omega_k)(v_1,\ldots,v_k) \\
+&= k! \frac{1}{k!} \sum_{\pi\in \mathcal{S}_k}\operatorname{sgn}(\pi) (\omega_1 \otimes \ldots \otimes \omega_k)(v_{\pi(1)},\ldots,v_{\pi(k)}) \\
+&= \sum_{\pi\in \mathcal{S}_k}\operatorname{sgn}(\pi) \, \omega_1(v_{\pi(1)})\cdot \ldots \cdot \omega_k(v_{\pi(k)}) \\
+&= \operatorname{det}
+\begin{pmatrix}
+\omega_1(v_1) & \cdots & \omega_k(v_1)\\
+\vdots & & \vdots \\
+\omega_k(v_1) & \cdots & \omega_k(v_k)
+\end{pmatrix}.
+```
+
+Bei der letzten Gleichung haben wir den **Determinantenproduktsatz** aus Satz 3.40 in {cite:p}`burger_2020` verwendet.
 ````
 
 Das folgende Lemma weist auf eine interessante Eigenschaft des Vektorraums der antisymmetrischen Tensoren hin, für den Fall, dass die Stufe der zugehörigen Tensoren größer als die Dimension des zu Grunde liegenden Vektorraums $V$ ist.
