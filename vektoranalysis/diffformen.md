@@ -219,10 +219,16 @@ Siehe Übung.
 
 ### Der Tangentialraum
 
-Zusätzlich zum obigen Ableitungsbegriff definieren wir die sogenannte **Richtungsableitung** einer Funktion $f:\M\to\R$. Hierbei, betrachten wir *Kurven* $\gamma:(-t,t)\to\M$ und interessieren uns für das Verhalten der Abbildung $f\circ\gamma$.
+Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der **Richtungsableitung** bekannt. Für eine Funktion $F:\R^n\to\R$ betrachtet man den Strahl $\gamma(t):= x + t\,v$, wobei $x,v\in\R^n$ und den Grenzwert
+
+```{math}
+\lim_{t\to 0} \frac{F(\gamma(t)) - F(\gamma(0))}{t} = \frac{F(x + t\,v) - F(x))}{t}.
+```
+
+Wir werden diese Konzept nun auf glatte $n$-dimensionale Mannigfaltigkeiten $\M$ verallgemeinern indem wir anstatt von Strahlen, differenzierbare *Kurven* $\gamma$ betrachten. Hierbei nennen wir eine Kurve differenzierbar am Punkt $0\in(-1,1)$ falls sie stetig ist und falls eine Karte $(U,\phi)$ für $\M$ existiert, wobei $U$ eine offene Umgebung von $\phi(0)$ ist, s.d., $\phi((-\varepsilon,\varepsilon))\subset U$ und $\phi \circ \gamma:(-\varepsilon,\varepsilon)\to\R^n$ differenzierbar in $0$ ist, wobei $\varepsilon$ klein genug ist. Wir werden im Folgenden stets die Ableitung im Punkt $t=0$ betrachten und sprechen deshalb verkürzt von *differenzierbaren* Kurven. Wir bemerken insbesondere, dass ide obige Definition **nicht** von der Wahl der Karte abhängt.
 
 ````{prf:example}
-Es sei $\M=\S^2$ die Einheitssphäre und $u:\M\to\R$ beschreibe eine Wärmeverteilung auf der Kugeloberfläche. Betrachtet man nun die Bahn eines Partikels auf der Oberfläche beschrieben durch $\gamma:(-t, t)\to \M$ so erhalten wir eine eindimesnionale Abbildung 
+Es sei $\M=\S^2$ die Einheitssphäre und $u:\M\to\R$ beschreibe eine Wärmeverteilung auf der Kugeloberfläche. Betrachtet man nun die Bahn eines Partikels auf der Oberfläche beschrieben durch $\gamma:(-t, t)\to \M$ so erhalten wir eine eindimensionale Abbildung 
 
 ```{math}
 f\circ\gamma:(-t,t)\to \R
@@ -239,11 +245,109 @@ name: "fig:velocity"
 ToDo.
 ```
 
-Es ist in diesem Fall einen verallgemeinerten Begriff der Geschwindikeit zu definieren. Für eine gegeben Bahnkurve ist diese eine lineare Abbildung, welche jeder glatten Funktion $f:\M\to\R$ den Wert der Richtungsableitung zuweist.
+````{prf:definition} Richtungsableitung
+:label: def:direcdiv
 
-````{prf:definition} Geschwindigkeit
-Es sei $\M$ eine glatte Mannigfaltigkeit, $f\in C^\infty(\M)$ und 
+Es sei $\M$ eine glatte Mannigfaltigkeit, $\gamma:(-1,1)\to\M$ eine differenzierbare Kurve mit $\gamma(0)=p\in\M$, dann nennen wir die Abbildung
+
+```{math}
+D_\gamma &: C^\infty(\M)\to\R\\
+f\mapsto D_\gamma(f)&:=\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0}
+```
+
+**Richtungsableitung** von $f$ durch $\gamma$ im Punkt $p$.
 ````
+
+Sei nun $\gamma$ eine differenzierbare Kurve mit $\gamma(0)=p$, dann haben wir
+
+```{math}
+\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0} = \frac{d}{dt}\big( (f\circ \phi^{-1}) (\phi \circ \gamma) \big) = 
+\big(\frac{d}{dt}(f\circ \phi^{-1})\big)(\phi(p))\cdot \frac{d}{dt}(\phi \circ \gamma)\rvert_{t=0}
+```
+
+und für eine weitere differenzierbare Kurve $\tilde{\gamma}, \tilde{\gamma}(0)=p$ ebenfalls
+
+```{math}
+\frac{d}{dt}(f\circ \tilde{\gamma})\big\rvert_{t=0} = 
+\big(\frac{d}{dt}(f\circ \phi^{-1})\big)(\phi(p))\cdot \frac{d}{dt}(\phi \circ \tilde{\gamma})\rvert_{t=0}.
+```
+
+Wir erkennen also, dass der Wert der Richtungsableitung in derTat von der Kurve $\gamma$ abhängt. Dies führt auf einen natürlichen Äquivalenzbegriff von Kurven.
+
+````{prf:lemma} Tangentialvektoren
+:label: lem:tang
+
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, $p\in\M$ und $(U,\phi)$ eine Karte in $\M$, mit $p\in U$. Für differenzierbare Kurven $\gamma,\tilde{\gamma}:(-1,1)\to U$ mit $\gamma(0) = \tilde{\gamma}(0) = p$ ist die Relation 
+
+```{math}
+\gamma \sim_p \tilde{\gamma} 
+\Leftrightarrow 
+\frac{d}{dt}(\phi \circ \gamma)\rvert_{t=0} = \frac{d}{dt}(\phi \circ \tilde{\gamma})\rvert_{t=0}\in R^d
+```
+
+eine Äquivalenzrelation. Die Äquivalenzklasse $\gamma^\prime(0):=[\gamma]_{\sim_p}$ wird als **Tangentialvektor** bezeichnet. Insbesondere ist die Klasse unabhängig von der Wahl der Karte $\phi$.
+````
+
+````{prf:proof}
+Siehe Übung.
+````
+
+````{prf:example}
+Tangentialvektoren im $\R^n$.
+````
+
+Da wir nun Tangentialvektoren eingeführt haben, sind wir in der Lage den **Tangentialraum** zu definieren, nämlich als Raum aller Tangentialvektoren.
+
+````{prf:definition}
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, dann heißt der Raum der Tangentialvektoren  
+
+```{math}
+T_p\M := \{\gamma^\prime(0): \gamma\text{ ist differenzierbare Kurve mit }\gamma(0)=p\}
+```
+
+**Tangentialraum** am Punkt $p$.
+````
+
+Um eine Vektorraumstruktur zu definieren, wählen wir eine Karte $\phi$ wie in {prf:ref}`lem:tang` und definieren die Abbildung
+
+```{math}
+d\phi\rvert_p [\gamma]_{\sim_p} = d\phi\rvert_p (\gamma^\prime(0)) := (\phi \circ \gamma)^\prime (0)
+```
+
+was eine Bijektion zwischen $\R^n$ und $T_p\M$ ist. Damit erhalten wie die Operationen
+
+```{math}
+\gamma^\prime(0) +_{p} \tilde{\gamma}^\prime(0) &:=
+(d\phi\rvert_p)^{-1}\big(d\phi\rvert_p(\gamma^\prime(0)) + d\phi\rvert_p(\tilde{\gamma}^\prime(0))\big)\\
+\lambda \cdot_p \gamma^\prime(0) &:= (d\phi\rvert_p)^{-1} (\lambda\,d\phi\rvert_p(\gamma^\prime(0))
+```
+
+welche erneut **unabhängig** von der Wahl der Karte $\phi$ definiert sind
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, das Tripel $(T_p\M, +_p, \cdot_p)$ bildet einen reellen Vektorraum.
+````
+
+Es gibt eine alternativen Weg den Tangentialraum einzuführen, über sogenannte Derivationen.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, eine lineare Abbildung $D:C^\infty(\M)\to \R$ heißt **Derivation** an $p$, falls die folgende Kettenregel gilt, 
+
+```{math}
+D(fg) = D(f) g(p) + f(p) D(g).
+```
+````
+
+Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum welcher isomorph zu $T_p\M$ ist.
+
+Um eine Basis von $T_p\M$ zu erhalten benutzten wir die natürliche Wahl im euklidischen, nämlich Funktionen 
+
+```{math}
+t\mapsto t e_i
+```
+
+für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. Um daraus nun eine passende
+
 
 ### Bündel
 
