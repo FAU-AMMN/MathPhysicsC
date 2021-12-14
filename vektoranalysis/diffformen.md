@@ -38,10 +38,9 @@ Im Folgenden wollen wir ein relativ generisches Beispiel für einen topologische
 ````{prf:example} Diskrete Topologie
 Es sei $M$ eine beliebige Menge. 
 Dann können wir eine Topologie $\tau$ auf $M$ definieren, in dem wir alle Teilmengen von $M$ als offen definieren.
-Dann ist $(M, \tau)$ ein topologischer Raum.
-
-Diese Topologie nennt man **diskrete Topologie**, da für jeden diskreten Punkt $x \in M$ die Menge $\lbrace x \rbrace$ offen ist.
 In diesem Beispiel folgt trivialerweise, dass $\tau = \mathcal{P}(M)$ gilt.
+Dann ist $(M, \tau)$ ein topologischer Raum.
+Diese Topologie nennt man **diskrete Topologie**, da für jeden diskreten Punkt $x \in M$ die Menge $\lbrace x \rbrace$ offen ist.
 
 Die diskrete Topologie wird durch eine spezielle Metrik erzeugt, wie man im Folgenden einsieht.
 Seien $x,y \in M$ Punkte der Menge und $d \colon M \times M \rightarrow \R^+_0$ eine Metrik auf $M$ mit
@@ -62,7 +61,7 @@ Dies führt dazu, dass alle Teilmengen, die nur einen Punkt der Menge enthalten,
 
 Viele mathematische Konzepte lassen sich von metrischen oder normierten Räumen auf topologische Räume übertragen, wie zum Beispiel der Begriff einer stetigen Funktion.
 
-````{prf:definition} Stetige Funktion auf topologischen Räumen
+````{prf:definition} Stetige Funktionen auf topologischen Räumen
 Seien $(M_1, \tau_1)$ und $(M_2, \tau_2)$ topologische Räume und $f$ eine Funktion mit
 
 ```{math}
@@ -72,7 +71,7 @@ f \colon (M_1, \tau_1) \rightarrow (M_2, \tau_2).
 Wir nennen $f$ **stetig**, wenn die Urbilder offener Mengen in $\tau_2$ unter $f$ wieder offene Mengen in $\tau_1$ ergeben, d.h.,
 
 ```{math}
-f \ \text{ stetig } \quad \Leftrightarrow \quad \forall O \, \in \tau_2 : f^{-1}(O) \in \tau_1.
+f \ \text{ stetig } \quad \Leftrightarrow \quad \forall \, O \in \tau_2 : f^{-1}(O) \in \tau_1.
 ```
 
 ````
@@ -95,34 +94,51 @@ Das folgende Diagramm zeigt die Relationen zwischen verschiedenen mathematischen
 
 ## Mannigfaltigkeiten
 
-In diesem Abschnitt führen wir das grundlegende Konzept von Mannigfaltigkeiten als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum $\R^n$ identifiziert werden kann.
+In diesem Abschnitt führen wir das grundlegende Konzept von [Mannigfaltigkeiten](https://de.wikipedia.org/wiki/Mannigfaltigkeit) als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum $\R^n$ identifiziert werden kann.
+Mannigfaltigkeiten spielen insbesondere im mathematischen Teilgebiet der [Differentialgeometrie](https://de.wikipedia.org/wiki/Differentialgeometrie) eine zentrale Rolle.
 
-, bzw. speziell mit differenzierbaren Mannigfaltigkeiten. A priori betrachten wir hier topologische Räume $\M$ mit speziellen Strukturen und Eigenschaften.
+### Motivation
 
-**Warum betrachten wir Mannigfaltigkeiten?**
-
-Wir haben bereits gesehen, wie man im mehrdimensionalen differenziert, siehe z.B., [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html). In vielen Bereichen der Physik und der Mathematik möchte man aber nicht nur af offenen Teilmengen des $\R^d$ ableiten, stattdessen benötigt man auch ein ähnliches Konzept für topologische Räume $\M$. Betrachten wir z.B. die Oberfläche der Einheitskugel im $\R^3$,
+Das wohl verständlichste Bild einer Mannigfaltigkeit ist die Oberfläche einer dreidimensionalen Kugel
 
 ```{math}
-(x,y,z)\in\R^3,\text{ so dass } x^2 + y^2 + z^2 = 1
+\mathbb{S}^2 := \lbrace (x,y,z)\in\R^3 : x^2 + y^2 + z^2 = 1 \rbrace,
 ```
 
-so erlaubt uns unsere bisheriges Konzept von Differenzierbarkeit nicht, auf diesem Objekt abzuleiten.
+wie sie zum Beispiel genutzt wird um die Erdoberfläche zu modellieren.
+Möchte man Mathematik auf solch einer Oberfläche betreiben, so benötigt man vollkommen andere Konzepte als in offenen Teilmengen des $\R^n$.
+Möchte man beispielsweise berechnen, wie weit man reisen muss, um von einem Punkt auf der Oberfläche zu einem anderen Punkt zu kommen, so benötigt man einen angepassten Abstandsbegriff, da die Euklidische Norm nur die direkte Entfernung messen würde, welche die Kugeloberfläche jedoch durchschneidet.
+Dies ist in folgender Abbildung visualisiert.
+
+```{figure} ../img/mannigfaltigkeit.png
+---
+height: 300px
+name: "fig:kugel"
+---
+Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kugeloberfläche $\mathbb{S}^2$.
+```
+
+Aus dieser Anschauung wird klar, dass unser bisheriges Konzept von Differenzierbarkeit im Mehrdimensionalen aus [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html) nicht ausreicht, um auf diesem Objekt geeignet Funktionen abzuleiten.
+Da man in vielen Bereichen der Physik und der Mathematik nicht nur auf offenen Teilmengen des $\R^n$ ableiten möchte, benötigen wir ein analoges Prinzip für topologische Räume $(M, \tau)$.
 
 **Wie können wir den Ableitungsbegriff auf topologische Räume übertragen?**
 
-Die grundlegende Idee ist es, den topologischen Raum $\M$ lokal mit einer Teilmenge des $\R^n$ zu identifizieren. Für eine belibige offene
-Teilmenge $U\subset \M$ betrachten wir also eine Abbildung $\phi:U\rightarrow \phi(U) \R^n$. Wir wollen hierbei aber nur injektive Abbildungen betrachten, s.d., eine inverse Abbildung $\phi^{-1}:\phi(U)\rightarrow U$ existiert. Haben wir also eine Funktion $f:\M\to\R$ gegeben die wir ableiten möchten, so sehen wir dass die Verknüpfung
+Die grundlegende Idee ist es, den topologischen Raum $\M$ lokal mit einer Teilmenge des $\R^n$ zu identifizieren.
+Für eine beliebige offene Teilmenge $U\subset \M$ betrachten wir also eine Abbildung $\phi:U\rightarrow \phi(U) \R^n$.
+Wir wollen hierbei aber nur *injektive Abbildungen* betrachten, so dass, eine inverse Abbildung $\phi^{-1}:\phi(U)\rightarrow U$ existiert und wohldefiniert ist.
+Betrachten wir also eine Funktion $f:\M\to\R$, die wir differenzieren möchten, so sehen wir ein, dass die Verknüpfung
 
 ```{math}
 f \circ \phi^{-1} : \R^n \supset \phi(U)\to \R
 ```
 
-rein konzeptionell in den bekannten Rahmen passt.
+es erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konzept der mehrdimensionalen Differentiation im $\R^n$ zurückführt.
 
 ````{prf:example}
 Kurve
 ````
+
+### Karten und Atlanten auf topologischen Räumen
 
 Um den Ableitungsbegriff tatsächlich definieren zu können, benötigen wir aber zusätzlich zur Bijektivität die Bedingung, dass für jede Teilmenge $V\subset U$ gilt,
 
@@ -136,7 +152,9 @@ Für jede offene Menge $E\subset\phi(U)$ haben wir $E=\phi(\phi^{-1}(E))$, somit
 
 Zweite Implikation: $\phi(V)$ ist offen $\Leftarrow V $ ist offen.
 
-Analog zur obigen Überlegung sehen wir, dass diese Bedingung gerade aussagt, dass $\phi^{-1}$ stetig ist. Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung gibt, s.d. $\phi^{-1}$ nicht stetig ist.
+Analog zur obigen Überlegung sehen wir, dass diese Bedingung gerade aussagt, dass $\phi^{-1}$ stetig ist.
+Diese Forderung ist nicht immer trivialerweise erfüllt.
+Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung gibt, s.d. $\phi^{-1}$ nicht stetig ist.
 
 ````{prf:example}
 :label: ex:nonho
@@ -175,7 +193,9 @@ name: "fig:nonh"
 Visualisierung für {prf:ref}`ex:nonho`.
 ```
 
-Insgesamt forder wir also, dass $\phi:U\rightarrow\phi(U)$ bijektiv ist und, dass $\phi,\phi^-1$ stetig sind,eine solche Abbildung nennt man auch **Homöomorphismus**. Speziell im Kontext von Mannigfaltigkeiten haben nun das Konzept einer **Karte** eingeführt.
+Insgesamt forder wir also, dass $\phi:U\rightarrow\phi(U)$ bijektiv ist und, dass $\phi,\phi^-1$ stetig sind.
+Eine solche Abbildung nennt man auch **Homöomorphismus**.
+Speziell im Kontext von Mannigfaltigkeiten haben wir somit das Konzept einer **Karte** eingeführt.
 
 ```{prf:definition} Karte
 Es sei $\M$ ein topologischer Raum, $U\subset\M$ offen und $\phi:U\rightarrow \phi(U)\subset \R^n$ sei ein Homöomorphismus, dann heißt das Tupel $(U,\phi)$ **Karte** auf $\M$.
@@ -207,7 +227,8 @@ name: "fig:chartchange"
 Kartenwechsel.
 ```
 
-Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind. Wäre nun $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differnzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen. Allerdings existieren durchaus Fälle, in welchen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber $\psi\circ\phi^{-1}$ nicht. Deshalb führt man zusätzlich folgenden Begriff ein.
+Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind. 
+Wäre nun $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen. Allerdings existieren durchaus Fälle, in welchen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber $\psi\circ\phi^{-1}$ nicht. Deshalb führt man zusätzlich folgenden Begriff ein.
 
 ````{prf:definition} Atlas
 Es sei $\M$ ein topologischer Raum, eine Familie von Karten $\mathcal{A} = (U_i,\phi_i)_{i\in I}$ indiziert durch die Indexmenge $I$ heißt **Atlas**, falls 
@@ -219,6 +240,11 @@ M = \bigcup_{i\in I} U_i.
 Wir nennen einen Atlas $k$-mal differenzierbar oder von der der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i^{-1}\circ\phi_j, i,j\in I$ $k$-mal stetig differenzierbar ist.
 
 ````
+
+Die Begriffe *Karte* und *Atlas* stammen in der Tat aus mathematischen Überlegungen in der Kartographie.
+Man kann Teile der Erdoberfläche mit einer Karte auf eine Ebene $\R^2$ abbilden.
+Nähert man sich dem Rand einer Karte, so möchte man zu einer anderen Karte wechseln, die das angrenzende Gebiet darstellt. 
+So kann eine Mannigfaltigkeit durch einen vollständigen Satz von Karten vollständig beschrieben werden; man braucht dabei Regeln, wie sich beim Kartenwechsel die Karten überlappen.
 
 ### Differenzierbare Struktur
 
@@ -246,10 +272,11 @@ Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unters
 Ein toplogischer Raum $\M$ erfüllt das **zweite Abzählbarkeitsaxiom**, falls **abzählbar** viele offene Mengen $(V_i)_{i\in\N}$existieren, s.d., für jedes $x\in \M$ und jede Umgebung $U(x)$ mindestens ein $k\in\N$ existiert, s.d., $V_k\subset U(x)$.
 ````
 
-Diese zwei Bedingung wirken zunächst abstrakt, allerdings werden sie von vielen Räumen erfüllt. So ist z.B. jeder metrische Raum ein zweitabzählbarer Hausdorff-Raum.
+Diese zwei Bedingung wirken zunächst abstrakt, allerdings werden sie von vielen Räumen erfüllt.
+So ist z.B. jeder metrische Raum ein zweitabzählbarer Hausdorff-Raum.
 
 ```{danger}
-Falls der Begriff eines zweitabzählbaren Hausdorff-Raums zu unhandlich erscheint, kann man für die meisten Anwendungen in der Physik auch einfach metrische Räume betrachten.
+Falls der Begriff eines zweitabzählbaren Hausdorff-Raums zu unhandlich erscheint, kann man für die meisten Anwendungen in der Physik auch einfach **metrische Räume** betrachten, die diese Eigenschaften implizieren.
 ```
 
 Wir sind nun in der Situation den Begriff einer Mannigfaltigkeit einzuführen.
