@@ -509,7 +509,7 @@ für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. 
 und darüber die Derivationen
 
 ```{math}
-\partial_i:= \partial_{x^i}:C^\infty(\M)\to\R
+\partial_i:= \partial_{x^i}:C^\infty(\M)\to\R\\
 \partial_i(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))
 ```
 
