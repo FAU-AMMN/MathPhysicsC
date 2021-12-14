@@ -38,10 +38,9 @@ Im Folgenden wollen wir ein relativ generisches Beispiel für einen topologische
 ````{prf:example} Diskrete Topologie
 Es sei $M$ eine beliebige Menge. 
 Dann können wir eine Topologie $\tau$ auf $M$ definieren, in dem wir alle Teilmengen von $M$ als offen definieren.
-Dann ist $(M, \tau)$ ein topologischer Raum.
-
-Diese Topologie nennt man **diskrete Topologie**, da für jeden diskreten Punkt $x \in M$ die Menge $\lbrace x \rbrace$ offen ist.
 In diesem Beispiel folgt trivialerweise, dass $\tau = \mathcal{P}(M)$ gilt.
+Dann ist $(M, \tau)$ ein topologischer Raum.
+Diese Topologie nennt man **diskrete Topologie**, da für jeden diskreten Punkt $x \in M$ die Menge $\lbrace x \rbrace$ offen ist.
 
 Die diskrete Topologie wird durch eine spezielle Metrik erzeugt, wie man im Folgenden einsieht.
 Seien $x,y \in M$ Punkte der Menge und $d \colon M \times M \rightarrow \R^+_0$ eine Metrik auf $M$ mit
@@ -62,7 +61,7 @@ Dies führt dazu, dass alle Teilmengen, die nur einen Punkt der Menge enthalten,
 
 Viele mathematische Konzepte lassen sich von metrischen oder normierten Räumen auf topologische Räume übertragen, wie zum Beispiel der Begriff einer stetigen Funktion.
 
-````{prf:definition} Stetige Funktion auf topologischen Räumen
+````{prf:definition} Stetige Funktionen auf topologischen Räumen
 Seien $(M_1, \tau_1)$ und $(M_2, \tau_2)$ topologische Räume und $f$ eine Funktion mit
 
 ```{math}
@@ -96,29 +95,40 @@ Das folgende Diagramm zeigt die Relationen zwischen verschiedenen mathematischen
 ## Mannigfaltigkeiten
 
 In diesem Abschnitt führen wir das grundlegende Konzept von Mannigfaltigkeiten als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum $\R^n$ identifiziert werden kann.
-
-, bzw. speziell mit differenzierbaren Mannigfaltigkeiten. A priori betrachten wir hier topologische Räume $\M$ mit speziellen Strukturen und Eigenschaften.
-
-**Warum betrachten wir Mannigfaltigkeiten?**
-
-Wir haben bereits gesehen, wie man im mehrdimensionalen differenziert, siehe z.B., [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html). In vielen Bereichen der Physik und der Mathematik möchte man aber nicht nur af offenen Teilmengen des $\R^d$ ableiten, stattdessen benötigt man auch ein ähnliches Konzept für topologische Räume $\M$. Betrachten wir z.B. die Oberfläche der Einheitskugel im $\R^3$,
+Das wohl verständlichste Bild einer Mannigfaltigkeit ist die Oberfläche einer dreidimensionalen Kugel
 
 ```{math}
-(x,y,z)\in\R^3,\text{ so dass } x^2 + y^2 + z^2 = 1
+\mathbb{S}^2 := \lbrace (x,y,z)\in\R^3 : x^2 + y^2 + z^2 = 1 \rbrace,
 ```
 
-so erlaubt uns unsere bisheriges Konzept von Differenzierbarkeit nicht, auf diesem Objekt abzuleiten.
+wie sie zum Beispiel genutzt wird um die Erdoberfläche zu modellieren.
+Möchte man Mathematik auf solch einer Oberfläche betreiben, so benötigt man vollkommen andere Konzepte als in offenen Teilmengen des $\R^n$.
+Möchte man beispielsweise berechnen, wie weit man reisen muss, um von einem Punkt auf der Oberfläche zu einem anderen Punkt zu kommen, so benötigt man einen angepassten Abstandsbegriff, da die Euklidische Norm nur die direkte Entfernung messen würde, welche die Kugeloberfläche jedoch durchschneidet.
+Dies ist in folgender Abbildung visualisiert.
+
+```{figure} ../img/mannigfaltigkeit.png
+---
+height: 300px
+name: "fig:kugel"
+---
+Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kugeloberfläche $\mathbb{S}^2$.
+```
+
+Aus dieser Anschauung wird klar, dass unser bisheriges Konzept von Differenzierbarkeit im Mehrdimensionalen aus [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html) nicht ausreicht, um auf diesem Objekt geeignet Funktionen abzuleiten.
+Da man in vielen Bereichen der Physik und der Mathematik nicht nur auf offenen Teilmengen des $\R^d$ ableiten möchte, benötigen wir ein analoges Prinzip für topologische Räume $(M, \tau)$.
 
 **Wie können wir den Ableitungsbegriff auf topologische Räume übertragen?**
 
-Die grundlegende Idee ist es, den topologischen Raum $\M$ lokal mit einer Teilmenge des $\R^n$ zu identifizieren. Für eine belibige offene
-Teilmenge $U\subset \M$ betrachten wir also eine Abbildung $\phi:U\rightarrow \phi(U) \R^n$. Wir wollen hierbei aber nur injektive Abbildungen betrachten, s.d., eine inverse Abbildung $\phi^{-1}:\phi(U)\rightarrow U$ existiert. Haben wir also eine Funktion $f:\M\to\R$ gegeben die wir ableiten möchten, so sehen wir dass die Verknüpfung
+Die grundlegende Idee ist es, den topologischen Raum $\M$ lokal mit einer Teilmenge des $\R^n$ zu identifizieren.
+Für eine beliebige offene Teilmenge $U\subset \M$ betrachten wir also eine Abbildung $\phi:U\rightarrow \phi(U) \R^n$.
+Wir wollen hierbei aber nur injektive Abbildungen betrachten, so dass, eine inverse Abbildung $\phi^{-1}:\phi(U)\rightarrow U$ existiert und wohldefiniert ist.
+Haben wir also eine Funktion $f:\M\to\R$ gegeben die wir ableiten möchten, so sehen wir ein, dass die Verknüpfung
 
 ```{math}
 f \circ \phi^{-1} : \R^n \supset \phi(U)\to \R
 ```
 
-rein konzeptionell in den bekannten Rahmen passt.
+sich auf das Konzept der mehrdimensionalen Differentiation zurückführen lässt.
 
 ````{prf:example}
 Kurve
