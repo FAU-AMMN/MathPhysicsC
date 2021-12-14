@@ -301,13 +301,40 @@ Siehe Übung.
 
 ### Der Tangentialraum
 
+Aus Kapitel (??) ist bereits das Konzept der Linearisierung bekannt. Anschaulich gesprochen ersetzten wir eine diffenzierbare Funktion $f$ durch eine seine Linearisierung um ein einfacheres Problem zu erhalten. Dieses Konzept soll nun auf Funktionen $f:\M\to\R$ übertragen werden, wobei $\M$ eine glatte Mannigfaltigkeit ist. Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit definieren, insbesondere ist dieser 
+kartenunabhängig. Der Tatsächliche der Wert der Ableitung von Funktionen $f\cic\phi^{-1}$ hängt aber noch immer von der Wahl der Karte $\phi$ ab. Um auch hier Kartenunabhängigkeit herzustellen brauchen wir einen anderen Begriff der Differenzierbarkeit. Hierbei wird uns der sogenannte **Tangentialraum** helfen. Intuitiv ist er eine Linearisierung der Mannigfaltigkeit $M$ an einem Punkt $p\in\M$.
+
+````{prf:example}
+Mannigfaltigkeit $\R^n$.
+````
+
+Es gibt verschiedene (äquivalente) Arten den Tangentialraum konkret einzuführen.
+
+* **Geometrischer Tangentialraum**: Hierbei behält man die geometrische Anschauung und definiert Tangentialvektoren durch Richtungsvektoren die am Punkt $p\in\M$ anliegen. Diese Definition ist intuitiv und sehr anschaulich.
+
+* **Algebrische Defnition**: Diese Definition zieht sich auf das Konzept der Derivationen zurück. Man verliert zwar die intuitive Anschauung, allerdings ist sie sehr einfach zu formulieren und hilft in den meisten Fällen die Sachverhalte auf einfache algebraische Konzept zurückzuführen.
+
+In der Praxis (und in vielen Büchern) werden beide Definitionen parallel verwendet, die jeweilige Interpretation geht dann aus dem Kontext hervor. Da sich die beiden Konzepte schlecht voneinander trennen lassen werden wir im folgenden den geometrischen Tangentialraum $T^{\text{geom}}_p\M$ und den algebraischen Tangentialraum $T^{\text{alg}}_p\M$ einführen eine Isomorphie
+
+```{math}
+T^{\text{geom}}_p\M\cong T^{\text{alg}}_p\M
+```
+
+zeigen.
+
+```{danger}
+In der Literatur wird diese Unterscheidung oft nicht vorgenommen, stattdessen wird der Tangentialraum $T_p\M$ genannt. Elemente dieses Raums sind dann je nach Kontext geometrisch oder algebraisch zu verstehen.
+```
+
+#### Geometrische Definition
+
 Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der **Richtungsableitung** bekannt. Für eine Funktion $F:\R^n\to\R$ betrachtet man den Strahl $\gamma(t):= x + t\,v$, wobei $x,v\in\R^n$ und den Grenzwert
 
 ```{math}
 \lim_{t\to 0} \frac{F(\gamma(t)) - F(\gamma(0))}{t} = \frac{F(x + t\,v) - F(x))}{t}.
 ```
 
-Wir werden diese Konzept nun auf glatte $n$-dimensionale Mannigfaltigkeiten $\M$ verallgemeinern indem wir anstatt von Strahlen, differenzierbare *Kurven* $\gamma$ betrachten. Hierbei nennen wir eine Kurve differenzierbar am Punkt $0\in(-1,1)$ falls sie stetig ist und falls eine Karte $(U,\phi)$ für $\M$ existiert, wobei $U$ eine offene Umgebung von $\phi(0)$ ist, s.d., $\phi((-\varepsilon,\varepsilon))\subset U$ und $\phi \circ \gamma:(-\varepsilon,\varepsilon)\to\R^n$ differenzierbar in $0$ ist, wobei $\varepsilon$ klein genug ist. Wir werden im Folgenden stets die Ableitung im Punkt $t=0$ betrachten und sprechen deshalb verkürzt von *differenzierbaren* Kurven. Wir bemerken insbesondere, dass ide obige Definition **nicht** von der Wahl der Karte abhängt.
+Wir werden diese Konzept nun auf glatte $n$-dimensionale Mannigfaltigkeiten $\M$ verallgemeinern indem wir anstatt von Strahlen, differenzierbare *Kurven* $\gamma$ betrachten. Hierbei nennen wir eine Kurve differenzierbar am Punkt $0\in(-1,1)$ falls sie stetig ist und falls eine Karte $(U,\phi)$ für $\M$ existiert, wobei $U$ eine offene Umgebung von $\phi(0)$ ist, s.d., $\phi((-\varepsilon,\varepsilon))\subset U$ und $\phi \circ \gamma:(-\varepsilon,\varepsilon)\to\R^n$ differenzierbar in $0$ ist, wobei $\varepsilon$ klein genug ist. Wir werden im Folgenden stets die Ableitung im Punkt $t=0$ betrachten und sprechen deshalb verkürzt von *differenzierbaren* Kurven. Wir bemerken insbesondere, dass die obige Definition **nicht** von der Wahl der Karte abhängt.
 
 ````{prf:example}
 Es sei $\M=\S^2$ die Einheitssphäre und $u:\M\to\R$ beschreibe eine Wärmeverteilung auf der Kugeloberfläche. Betrachtet man nun die Bahn eines Partikels auf der Oberfläche beschrieben durch $\gamma:(-t, t)\to \M$ so erhalten wir eine eindimensionale Abbildung 
@@ -380,14 +407,18 @@ Tangentialvektoren im $\R^n$.
 
 Da wir nun Tangentialvektoren eingeführt haben, sind wir in der Lage den **Tangentialraum** zu definieren, nämlich als Raum aller Tangentialvektoren.
 
-````{prf:definition}
-Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, dann heißt der Raum der Tangentialvektoren  
-
-```{math}
-T_p\M := \{\gamma^\prime(0): \gamma\text{ ist differenzierbare Kurve mit }\gamma(0)=p\}
+```{danger}
+ToDo: Quotientenräume machen es hier einfacher.
 ```
 
-**Tangentialraum** am Punkt $p$.
+````{prf:definition}
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, dann heißt der Raum der (geometrischen) Tangentialvektoren  
+
+```{math}
+T_p^{\text{geom}}\M := \{\gamma^\prime(0): \gamma\text{ ist differenzierbare Kurve mit }\gamma(0)=p\}
+```
+
+**geometrischer Tangentialraum** am Punkt $p$.
 ````
 
 Um eine Vektorraumstruktur zu definieren, wählen wir eine Karte $\phi$ wie in {prf:ref}`lem:tang` und definieren die Abbildung
@@ -407,10 +438,12 @@ was eine Bijektion zwischen $\R^n$ und $T_p\M$ ist. Damit erhalten wie die Opera
 welche erneut **unabhängig** von der Wahl der Karte $\phi$ definiert sind
 
 ````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, das Tripel $(T_p\M, +_p, \cdot_p)$ bildet einen reellen Vektorraum.
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, das Tripel $(T_p^{\text{geom}}\M, +_p, \cdot_p)$ bildet einen reellen Vektorraum.
 ````
 
-Es gibt eine alternativen Weg den Tangentialraum einzuführen, über sogenannte Derivationen.
+#### Algebraische Definition
+
+Es gibt eine alternativen Weg den Tangentialraum einzuführen, über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr direkt als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind. 
 
 ````{prf:definition}
 Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, eine lineare Abbildung $D:C^\infty(\M)\to \R$ heißt **Derivation** an $p$, falls die folgende Kettenregel gilt, 
@@ -418,17 +451,80 @@ Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, eine lineare Abbildung $D
 ```{math}
 D(fg) = D(f) g(p) + f(p) D(g).
 ```
+
+Der Raum der Derivationen an $p$
+
+```{math}
+T^{\text{alg}}_p\M:=\{D\in C^\infty(\M)^\ast: D\text{ ist Derivation an }p\}
+```
+
+wird als **algebraischer Tangentialraum** bezeichnet.
 ````
 
-Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum welcher isomorph zu $T_p\M$ ist.
+Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum.
 
-Um eine Basis von $T_p\M$ zu erhalten benutzten wir die natürliche Wahl im euklidischen, nämlich Funktionen 
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist $T^{\text{alg}}_p\M$ ein reeller Vektorraum.
+````
+
+````{prf:proof}
+Siehe Übung.
+````
+
+Wie bereits erwähnt ist diese Definition des Tangentialraums äquivalent zu der geomtrischen Version. Konkret heißt das, dass wir eine Isomorphie
+
+```{math}
+T^{\text{alg}}_p\M\cong T^{\text{geom}}_p\M
+```
+
+erhalten. Die Identifikation lässt sich sehr einfach angeben, ist nämlich $\gamma$ eine differenzierbare Kurve, so ist durch
+
+```{math}
+D_\gamma(f):= (f\circ \gamma)^\prime(0)
+```
+
+eine Derivation an $\gamma(0)$ gegeben. Ist umgekehrt eine Derivation $D$ gegeben, so erhalten wir über
+
+```{math}
+\gamma_D(t):= \phi^{-1} (\phi(p) + t (D(\phi_1), \ldots, D(\phi_n)))
+```
+
+eine differenzierbare Kurve durch $p$. Diese Idee wird in folgendem Lemma formalisiert.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$. Die Abbildung 
+
+```{math}
+\Theta: T^{\text{geom}}_p\M &\to T^{\text{alg}}_p\M\\
+\gamma &\to D_\gamma
+```
+
+ist ein Isomorphismus.
+````
+
+### Basis des Tangentialraums
+
+Wir wollen eine Basis des algebraischen Tangentialraums konstruieren. Im euklidischen können wir auf natürliche Art die Koordinatenrichtungen als Kurven wählen, also Funktionen der Form
 
 ```{math}
 t\mapsto t e_i
 ```
 
-für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. Um daraus nun eine passende
+für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. Wir können diese Idee auf Mannigfaltigkeiten übertragen und erhalten Kurven
+
+```{math}
+\gamma_{x^i}(t):= p + \phi(t e_i)
+```
+
+und darüber die Derivationen
+
+```{math}
+\partial_i:= \partial_{x^i}:C^\infty(\M)\to\R
+\partial_i(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))
+```
+
+
+
 
 
 ### Bündel
