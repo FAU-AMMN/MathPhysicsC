@@ -71,7 +71,7 @@ f \colon (M_1, \tau_1) \rightarrow (M_2, \tau_2).
 Wir nennen $f$ **stetig**, wenn die Urbilder offener Mengen in $\tau_2$ unter $f$ wieder offene Mengen in $\tau_1$ ergeben, d.h.,
 
 ```{math}
-f \ \text{ stetig } \quad \Leftrightarrow \quad \forall O \, \in \tau_2 : f^{-1}(O) \in \tau_1.
+f \ \text{ stetig } \quad \Leftrightarrow \quad \forall \, O \in \tau_2 : f^{-1}(O) \in \tau_1.
 ```
 
 ````
@@ -94,7 +94,11 @@ Das folgende Diagramm zeigt die Relationen zwischen verschiedenen mathematischen
 
 ## Mannigfaltigkeiten
 
-In diesem Abschnitt führen wir das grundlegende Konzept von Mannigfaltigkeiten als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum $\R^n$ identifiziert werden kann.
+In diesem Abschnitt führen wir das grundlegende Konzept von [Mannigfaltigkeiten](https://de.wikipedia.org/wiki/Mannigfaltigkeit) als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum $\R^n$ identifiziert werden kann.
+Mannigfaltigkeiten spielen insbesondere im mathematischen Teilgebiet der [Differentialgeometrie](https://de.wikipedia.org/wiki/Differentialgeometrie) eine zentrale Rolle.
+
+### Motivation
+
 Das wohl verständlichste Bild einer Mannigfaltigkeit ist die Oberfläche einer dreidimensionalen Kugel
 
 ```{math}
@@ -115,24 +119,26 @@ Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kug
 ```
 
 Aus dieser Anschauung wird klar, dass unser bisheriges Konzept von Differenzierbarkeit im Mehrdimensionalen aus [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html) nicht ausreicht, um auf diesem Objekt geeignet Funktionen abzuleiten.
-Da man in vielen Bereichen der Physik und der Mathematik nicht nur auf offenen Teilmengen des $\R^d$ ableiten möchte, benötigen wir ein analoges Prinzip für topologische Räume $(M, \tau)$.
+Da man in vielen Bereichen der Physik und der Mathematik nicht nur auf offenen Teilmengen des $\R^n$ ableiten möchte, benötigen wir ein analoges Prinzip für topologische Räume $(M, \tau)$.
 
 **Wie können wir den Ableitungsbegriff auf topologische Räume übertragen?**
 
 Die grundlegende Idee ist es, den topologischen Raum $\M$ lokal mit einer Teilmenge des $\R^n$ zu identifizieren.
 Für eine beliebige offene Teilmenge $U\subset \M$ betrachten wir also eine Abbildung $\phi:U\rightarrow \phi(U) \R^n$.
-Wir wollen hierbei aber nur injektive Abbildungen betrachten, so dass, eine inverse Abbildung $\phi^{-1}:\phi(U)\rightarrow U$ existiert und wohldefiniert ist.
-Haben wir also eine Funktion $f:\M\to\R$ gegeben die wir ableiten möchten, so sehen wir ein, dass die Verknüpfung
+Wir wollen hierbei aber nur *injektive Abbildungen* betrachten, so dass, eine inverse Abbildung $\phi^{-1}:\phi(U)\rightarrow U$ existiert und wohldefiniert ist.
+Betrachten wir also eine Funktion $f:\M\to\R$, die wir differenzieren möchten, so sehen wir ein, dass die Verknüpfung
 
 ```{math}
 f \circ \phi^{-1} : \R^n \supset \phi(U)\to \R
 ```
 
-sich auf das Konzept der mehrdimensionalen Differentiation zurückführen lässt.
+es erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konzept der mehrdimensionalen Differentiation im $\R^n$ zurückführt.
 
 ````{prf:example}
 Kurve
 ````
+
+### Karten und Atlanten auf topologischen Räumen
 
 Um den Ableitungsbegriff tatsächlich definieren zu können, benötigen wir aber zusätzlich zur Bijektivität die Bedingung, dass für jede Teilmenge $V\subset U$ gilt,
 
@@ -146,7 +152,9 @@ Für jede offene Menge $E\subset\phi(U)$ haben wir $E=\phi(\phi^{-1}(E))$, somit
 
 Zweite Implikation: $\phi(V)$ ist offen $\Leftarrow V $ ist offen.
 
-Analog zur obigen Überlegung sehen wir, dass diese Bedingung gerade aussagt, dass $\phi^{-1}$ stetig ist. Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung gibt, s.d. $\phi^{-1}$ nicht stetig ist.
+Analog zur obigen Überlegung sehen wir, dass diese Bedingung gerade aussagt, dass $\phi^{-1}$ stetig ist.
+Diese Forderung ist nicht immer trivialerweise erfüllt.
+Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung gibt, s.d. $\phi^{-1}$ nicht stetig ist.
 
 ````{prf:example}
 :label: ex:nonho
@@ -185,7 +193,9 @@ name: "fig:nonh"
 Visualisierung für {prf:ref}`ex:nonho`.
 ```
 
-Insgesamt forder wir also, dass $\phi:U\rightarrow\phi(U)$ bijektiv ist und, dass $\phi,\phi^-1$ stetig sind,eine solche Abbildung nennt man auch **Homöomorphismus**. Speziell im Kontext von Mannigfaltigkeiten haben nun das Konzept einer **Karte** eingeführt.
+Insgesamt forder wir also, dass $\phi:U\rightarrow\phi(U)$ bijektiv ist und, dass $\phi,\phi^-1$ stetig sind.
+Eine solche Abbildung nennt man auch **Homöomorphismus**.
+Speziell im Kontext von Mannigfaltigkeiten haben wir somit das Konzept einer **Karte** eingeführt.
 
 ```{prf:definition} Karte
 Es sei $\M$ ein topologischer Raum, $U\subset\M$ offen und $\phi:U\rightarrow \phi(U)\subset \R^n$ sei ein Homöomorphismus, dann heißt das Tupel $(U,\phi)$ **Karte** auf $\M$.
@@ -217,7 +227,8 @@ name: "fig:chartchange"
 Kartenwechsel.
 ```
 
-Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind. Wäre nun $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differnzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen. Allerdings existieren durchaus Fälle, in welchen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber $\psi\circ\phi^{-1}$ nicht. Deshalb führt man zusätzlich folgenden Begriff ein.
+Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind. 
+Wäre nun $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen. Allerdings existieren durchaus Fälle, in welchen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber $\psi\circ\phi^{-1}$ nicht. Deshalb führt man zusätzlich folgenden Begriff ein.
 
 ````{prf:definition} Atlas
 Es sei $\M$ ein topologischer Raum, eine Familie von Karten $\mathcal{A} = (U_i,\phi_i)_{i\in I}$ indiziert durch die Indexmenge $I$ heißt **Atlas**, falls 
@@ -229,6 +240,11 @@ M = \bigcup_{i\in I} U_i.
 Wir nennen einen Atlas $k$-mal differenzierbar oder von der der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i^{-1}\circ\phi_j, i,j\in I$ $k$-mal stetig differenzierbar ist.
 
 ````
+
+Die Begriffe *Karte* und *Atlas* stammen in der Tat aus mathematischen Überlegungen in der Kartographie.
+Man kann Teile der Erdoberfläche mit einer Karte auf eine Ebene $\R^2$ abbilden.
+Nähert man sich dem Rand einer Karte, so möchte man zu einer anderen Karte wechseln, die das angrenzende Gebiet darstellt. 
+So kann eine Mannigfaltigkeit durch einen vollständigen Satz von Karten vollständig beschrieben werden; man braucht dabei Regeln, wie sich beim Kartenwechsel die Karten überlappen.
 
 ### Differenzierbare Struktur
 
@@ -256,10 +272,11 @@ Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unters
 Ein toplogischer Raum $\M$ erfüllt das **zweite Abzählbarkeitsaxiom**, falls **abzählbar** viele offene Mengen $(V_i)_{i\in\N}$existieren, s.d., für jedes $x\in \M$ und jede Umgebung $U(x)$ mindestens ein $k\in\N$ existiert, s.d., $V_k\subset U(x)$.
 ````
 
-Diese zwei Bedingung wirken zunächst abstrakt, allerdings werden sie von vielen Räumen erfüllt. So ist z.B. jeder metrische Raum ein zweitabzählbarer Hausdorff-Raum.
+Diese zwei Bedingung wirken zunächst abstrakt, allerdings werden sie von vielen Räumen erfüllt.
+So ist z.B. jeder metrische Raum ein zweitabzählbarer Hausdorff-Raum.
 
 ```{danger}
-Falls der Begriff eines zweitabzählbaren Hausdorff-Raums zu unhandlich erscheint, kann man für die meisten Anwendungen in der Physik auch einfach metrische Räume betrachten.
+Falls der Begriff eines zweitabzählbaren Hausdorff-Raums zu unhandlich erscheint, kann man für die meisten Anwendungen in der Physik auch einfach **metrische Räume** betrachten, die diese Eigenschaften implizieren.
 ```
 
 Wir sind nun in der Situation den Begriff einer Mannigfaltigkeit einzuführen.
