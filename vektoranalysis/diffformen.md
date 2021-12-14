@@ -489,7 +489,7 @@ Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$. Die Abbildung
 \gamma &\to D_\gamma
 ```
 
-ist ein Isomorphismus
+ist ein Isomorphismus.
 ````
 
 ### Basis des Tangentialraums
@@ -500,12 +500,17 @@ Wir wollen eine Basis des algebraischen Tangentialraums konstruieren. Im euklidi
 t\mapsto t e_i
 ```
 
-für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. Um daraus nun eine Kurve zu erhalten wählen wir eine Karte
-$(U,\phi)$ wobei $U$ offene Umgebung von $p$ ist und definieren
+für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. Wir können diese Idee auf Mannigfaltigkeiten übertragen und erhalten Kurven
 
 ```{math}
-\gamma_i:(-1,1)&\to U\\
-\gamma_i(t) := \phi^{-1}(p+te_i)
+\gamma_{x^i}(t):= p + \phi(t e_i)
+```
+
+und darüber die Derivationen
+
+```{math}
+\partial_i:= \partial_{x^i}:C^\infty(\M)\to\R
+\partial_i(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))
 ```
 
 
