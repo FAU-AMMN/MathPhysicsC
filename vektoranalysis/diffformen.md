@@ -124,7 +124,13 @@ Da man in vielen Bereichen der Physik und der Mathematik nicht nur auf offenen T
 **Wie können wir den Ableitungsbegriff auf topologische Räume übertragen?**
 
 Die grundlegende Idee ist es, den topologischen Raum $\M$ lokal mit einer Teilmenge des $\R^n$ zu identifizieren.
-Für eine beliebige offene Teilmenge $U\subset \M$ betrachten wir also eine Abbildung $\phi:U\rightarrow \phi(U) \R^n$.
+Sei $f \colon M \rightarrow \R^m$ eine Funktion, die Punkte des topologischen Raumes auf Punkte des $\R^n$ abbildet.
+Für eine beliebige offene Teilmenge $U\subset \M$ betrachten wir also eine Abbildung 
+
+```{math}
+\phi:U\rightarrow \phi(U) \subset \R^n.
+```
+
 Wir wollen hierbei aber nur *injektive Abbildungen* betrachten, so dass, eine inverse Abbildung $\phi^{-1}:\phi(U)\rightarrow U$ existiert und wohldefiniert ist.
 Betrachten wir also eine Funktion $f:\M\to\R$, die wir differenzieren möchten, so sehen wir ein, dass die Verknüpfung
 
