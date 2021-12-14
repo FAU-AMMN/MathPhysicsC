@@ -1,38 +1,110 @@
 # Differentialformen
 
-In diesem Kapitel werden wir nun [Differentialformen](https://de.wikipedia.org/wiki/Differentialform) einführen. Die entscheidende Neuerung im Vergleich zum vorhergehenden Kapitel, ist 
-dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen, speziell betrachten wir eine offene Menge $U\subset\R^n$. Ein weiterer wichtiger Aspekt, ist dass wir im Folgenden mit glatten Funktion arbeiten wollen, d.h., mit dem Raum $C^\infty(U,\R^n)$.
+In diesem Kapitel der Vektoranalysis werden wir nun [Differentialformen](https://de.wikipedia.org/wiki/Differentialform) einführen.
+Die entscheidende Neuerung im Vergleich zum vorangegangen Kapitel über Tensoren ist, dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen.
+Außerdem werden wir im Folgenden mit *glatten Funktion* arbeiten, d.h., mit Funktionen aus dem Raum $C^\infty(U,\R^n)$.
 
-## Mannifaltigkeiten
+Um Differentialformen vernünftig einführen zu können benötigen wir allerdings einige zusätzliche mathematische Konzepte, die bisher noch nicht behandelt wurden.
+Wir definieren zunächst den Begriff des topologischen Raums als Verallgemeinerung von metrischen Vektorräumen.
+Anschließend sind wir in der Lage Mannigfaltigkeiten als spezielle topologische Räume zu definieren, die lokal dem Euklidischen Raum $\R^n$ ähneln, jedoch global verschieden sein können.
+Schließlich werden wir Tensorfelder und Differentialformen diskutieren.
 
-Wir beschäftigen uns im folgenden zunächst mit Mannigfaltigkeiten, bzw. speziell mit differenzierbaren Mannigfaltigkeiten. A priori betrachten wir hier topologische Räume $\M$ mit speziellen Strukturen und Eigenschaften. 
+## Topologische Räume
 
-**Was ist ein topologischer Raum?**
+Wir haben bisher immer Mathematik auf **metrischen** oder gar **normierten Vektorräumen** betrieben, da uns diese Struktur für alle erklärten Konzepte am dienlichsten war (siehe Kapitel 4 \& 5 in {cite:p}`burger_2020` und [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/normierte_raeume/normierte_raeume.html)).
+Als Vorbereitung für {ref}`s:mannigfaltigkeiten` wollen wir von den metrischen Räumen zu allgemeineren Strukturen wechseln - den sogenannten **topologischen Räumen**.
 
-Wir wiederholen kurz den Begriff des topologischen Raums. Das zentrale Konzept sind hier sogenannte offene Mengen. Konkret sei $\M$ eine Menge und $\tau\subset 2^\M$ eine Teilmenge der Potenzmenge, dann heißt $(\M,\tau)$ topologischer Raum, falls die folgenden Eigenschaften erfüllt sind, 
+Das zentrale Konzept topologischer Räume ist die folgende Definition der *offene Mengen*.
+
+````{prf:definition} Offene Mengen und topologischer Raum
+ Sei $\M$ eine Menge und $\tau \subset \mathcal{P}(M)$ eine Teilmenge der Potenzmenge.
+ Wir nennen das Tupel $(\M,\tau)$ **topologischer Raum**, falls die folgenden Eigenschaften erfüllt sind, 
 
 * $\emptyset, \M \in \tau$,
 
-* für eine beliebige (insbesondere auch unendlich große) Indexmenge $I$ seien $U_i\in\tau, i\in I$, dann gilt 
+* für eine beliebige (insbesondere auch *unendlich große*) Indexmenge $\mathcal{I}$ seien $U_i\in\tau, i\in \mathcal{I}$. Dann gilt auch schon $\bigcup_{i\in I} U_i \in \tau$,
+
+* für *endlich viele* $U_j\in\tau, j=1,\ldots, k$ gilt auch schon $\bigcap_{j=1}^k U_j \in \tau$.
+
+Wir bezeichnen mit $\tau$ die **Topologie** des Raumes und dessen Elemente $U\in\tau$ heißen **offene Mengen**.
+Für jeden Punkt $x\in \M$ nennen wir eine offene Menge $U(x) \in \tau$ **Nachbarschaft** oder **Umgebung** um $x$, falls $x\in U(x)$.
+
+Analog zur Definition auf metrischen Räumen bezeichnen wir das Komplement einer offenen Menge als **abgeschlossen**.
+````
+
+Es gibt viele interessante topologische Räume, die den Namen ihrer Entdecker tragen, wie zum Beispiel der [Arens-Fort-Raum](https://de.wikipedia.org/wiki/Arens-Fort-Raum), der [Cantor-Raum](https://de.wikipedia.org/wiki/Cantor-Raum), oder der [Hilbertwürfel](https://de.wikipedia.org/wiki/Hilbertw%C3%BCrfel).
+Im Folgenden wollen wir ein relativ generisches Beispiel für einen topologischen Raum betrachten.
+
+````{prf:example} Diskrete Topologie
+Es sei $M$ eine beliebige Menge. 
+Dann können wir eine Topologie $\tau$ auf $M$ definieren, in dem wir alle Teilmengen von $M$ als offen definieren.
+Dann ist $(M, \tau)$ ein topologischer Raum.
+
+Diese Topologie nennt man **diskrete Topologie**, da für jeden diskreten Punkt $x \in M$ die Menge $\lbrace x \rbrace$ offen ist.
+In diesem Beispiel folgt trivialerweise, dass $\tau = \mathcal{P}(M)$ gilt.
+
+Die diskrete Topologie wird durch eine spezielle Metrik erzeugt, wie man im Folgenden einsieht.
+Seien $x,y \in M$ Punkte der Menge und $d \colon M \times M \rightarrow \R^+_0$ eine Metrik auf $M$ mit
 
 ```{math}
-    \bigcup_{i\in I} U_i \in \tau,
+d(x,y) := \begin{cases} 0, \quad \text{ falls } x=y,\\ 1, \quad \text{ falls } x\neq y. \end{cases}
 ```
 
-* für endlich viele $U_j\in\tau, j=1,\ldots, k$ gilt
+Über diese Metrik kann man nun *offene Umgebungen* von Punkten $x \in M$ wie folgt konstruieren,
 
 ```{math}
-    \bigcap_{j=1}^k U_j \in \tau.
+B_1(x) := \lbrace y \in M : d(x,y) < 1 \rbrace = \lbrace x \rbrace.
 ```
 
-Man nennt hier $\tau$ die **Topologie** und Elemente davon $U\in\tau$ **offene Mengen**. Für jeden Punkt $x\in \M$ nennen wir eine offene Menge $U(x)$ **Nachbarschaft** oder **Umgebung** um $x$, falls $x\in U(x)$.
+Dies führt dazu, dass alle Teilmengen, die nur einen Punkt der Menge enthalten, offen sind.
+Über beliebige Vereinigung dieser Punktmengen, lassen sich dann alle Teilmengen der Potenzmenge $\mathcal{P}(M)$ als offen definieren und man erhält somit die diskrete Topologie.
+````
+
+Viele mathematische Konzepte lassen sich von metrischen oder normierten Räumen auf topologische Räume übertragen, wie zum Beispiel der Begriff einer stetigen Funktion.
+
+````{prf:definition} Stetige Funktion auf topologischen Räumen
+Seien $(M_1, \tau_1)$ und $(M_2, \tau_2)$ topologische Räume und $f$ eine Funktion mit
+
+```{math}
+f \colon (M_1, \tau_1) \rightarrow (M_2, \tau_2).
+```
+
+Wir nennen $f$ **stetig**, wenn die Urbilder offener Mengen in $\tau_2$ unter $f$ wieder offene Mengen in $\tau_1$ ergeben, d.h.,
+
+```{math}
+f \ \text{ stetig } \quad \Leftrightarrow \quad \forall O \, \in \tau_2 : f^{-1}(O) \in \tau_1.
+```
+
+````
+
+Das folgende Diagramm zeigt die Relationen zwischen verschiedenen mathematischen Konzepten innerhalb einer hierarchischen Struktur.
+
+```{math}
+\begin{gathered}
+\text{Skalarprodukt (Euklidischer / Unitärer Vektorraum)}\\
+\downarrow \text{induziert}\\
+\text{Norm (Normierter Vektorraum)}\\
+\downarrow \text{induziert}\\             
+\text{Metrik (Metrischer Vektorraum)}\\
+\downarrow \text{induziert}\\                 
+\text{Topologie (Topologischer Vektorraum)}
+\end{gathered}
+```
+
+(s:mannigfaltigkeiten)=
+
+## Mannigfaltigkeiten
+
+In diesem Abschnitt führen wir das grundlegende Konzept von Mannigfaltigkeiten als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum $\R^n$ identifiziert werden kann.
+
+, bzw. speziell mit differenzierbaren Mannigfaltigkeiten. A priori betrachten wir hier topologische Räume $\M$ mit speziellen Strukturen und Eigenschaften.
 
 **Warum betrachten wir Mannigfaltigkeiten?**
 
 Wir haben bereits gesehen, wie man im mehrdimensionalen differenziert, siehe z.B., [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html). In vielen Bereichen der Physik und der Mathematik möchte man aber nicht nur af offenen Teilmengen des $\R^d$ ableiten, stattdessen benötigt man auch ein ähnliches Konzept für topologische Räume $\M$. Betrachten wir z.B. die Oberfläche der Einheitskugel im $\R^3$,
 
 ```{math}
-(x,y,z)\in\R^3,\text{ s.d. } x^2 + y^2 + z^2 = 1
+(x,y,z)\in\R^3,\text{ so dass } x^2 + y^2 + z^2 = 1
 ```
 
 so erlaubt uns unsere bisheriges Konzept von Differenzierbarkeit nicht, auf diesem Objekt abzuleiten.
