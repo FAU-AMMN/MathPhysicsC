@@ -219,6 +219,22 @@ Siehe Übung.
 
 ### Der Tangentialraum
 
+#### Algebraische Definition
+
+Es gibt eine alternativen Weg den Tangentialraum einzuführen, über sogenannte Derivationen.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, eine lineare Abbildung $D:C^\infty(\M)\to \R$ heißt **Derivation** an $p$, falls die folgende Kettenregel gilt, 
+
+```{math}
+D(fg) = D(f) g(p) + f(p) D(g).
+```
+````
+
+Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum welcher isomorph zu $T_p\M$ ist.
+
+#### Geometrische Deinition
+
 Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der **Richtungsableitung** bekannt. Für eine Funktion $F:\R^n\to\R$ betrachtet man den Strahl $\gamma(t):= x + t\,v$, wobei $x,v\in\R^n$ und den Grenzwert
 
 ```{math}
@@ -328,17 +344,7 @@ welche erneut **unabhängig** von der Wahl der Karte $\phi$ definiert sind
 Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, das Tripel $(T_p\M, +_p, \cdot_p)$ bildet einen reellen Vektorraum.
 ````
 
-Es gibt eine alternativen Weg den Tangentialraum einzuführen, über sogenannte Derivationen.
 
-````{prf:definition}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, eine lineare Abbildung $D:C^\infty(\M)\to \R$ heißt **Derivation** an $p$, falls die folgende Kettenregel gilt, 
-
-```{math}
-D(fg) = D(f) g(p) + f(p) D(g).
-```
-````
-
-Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum welcher isomorph zu $T_p\M$ ist.
 
 Um eine Basis von $T_p\M$ zu erhalten benutzten wir die natürliche Wahl im euklidischen, nämlich Funktionen 
 
