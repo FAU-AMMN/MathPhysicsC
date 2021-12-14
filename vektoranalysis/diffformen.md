@@ -533,7 +533,7 @@ Wir wollen eine Basis des algebraischen Tangentialraums konstruieren. Im euklidi
 t\mapsto t e_i
 ```
 
-für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. Wir können diese Idee auf Mannigfaltigkeiten übertragen und erhalten Kurven
+für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. Wir können diese Idee auf Mannigfaltigkeiten übertragen. Dazu wählen wir eine Karte $\phi:\M\to\R^n$, wobei man hier auch von $\phi = (\phi_1,\ldots,\phi_n) =: (x^1,\ldots,x^n)$ als **lokales Koordinatensystem** spricht. So erhalten Kurven
 
 ```{math}
 \gamma_{x^i}(t):= p + \phi(t e_i)
@@ -542,15 +542,88 @@ für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. 
 und darüber die Derivationen
 
 ```{math}
-\partial_i:= \partial_{x^i}:C^\infty(\M)\to\R
-\partial_i(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))
+\partial_{x^i}:C^\infty(\M)\to\R\\
+\partial_{x^i}(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
 ```
 
+Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}$ als Derivation, d.h. insbesondere, als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
+
+````{prf:lemma}
+Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1},\ldots,\partial_{x^n}\}$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
+````
+
+### Tangentialbündel
+
+Im folgenden bezeichne $T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}$ entweder den algebraischen oder den geometrischen Tangentialraum. Wir werden die Wahl an den entsprechenden Stellen spezifizieren.
+Wir haben bisher für jedes $p\in\M$ einen Vektorraum betrachtet, nämlich den Tangentialraum an $p$. Wir wollen nun eine globale Struktur betrachten die alle diese Vektorräume (d.h. für jedes $p\in\M$) zusammenfasst.
+
+Wir haben einen sogenannten **Basisraum** $B=\M$ aus welchem wir die Punkte $p$ entnehmen und für jedes einzelne $p$ erhalten wir einen Vektorraum
+$T_p\M$. Der topologischer Raum $E$ der alle diese Vektorräume enthält, nennt man in diesem Kontext **Totalraum**, er wird über die disjunkte Vereinigung
+
+```{math}
+E = T\M:= \bigsqcup_{p\in\M}  T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
+```
+
+definiert. Der Trick bei der Definition des Totalraums das erzeugende Element an erster Stelle zu schreiben, erlaubt uns die Projektion
+
+```{math}
+\pi:T\M\to \M\\
+\{p\}\times T_p\M\mapsto p
+```
+
+zu definieren. D.h. von jedem Element des Totalraums, können wir eindeutig zurück auf $\M$ projizieren. Weiterhin erkennen wir aber auch, dass für jedes $p\in\M$ der Raum $\pi^{-1}(p) = \{p\}\times T_p\M$ ein reeller $n$-dimensionaler Vektorraum ist.
+
+Die Situation die wir so erzeugt haben, führt auf das abstrakte Konzept der **Vektorbündel**.
+
+````{prf:definition}
+Es seien $B$ der Basisraum und $E$ der Totalraum topologische Räume und $\pi:E\to B$ sei stetig und bijektiv. Weiterhin gelte
+
+* für jedes $x\in B$ sei die sogenannte **Faser** $E_x:= \pi^{-1}(x)$ ein $n$-dimensionaler Vektorraum,
+
+* Zu jedem $x\in B$ existiert eine offene Umgebung $U\subset B$ und ein Homöomorphismus $\psi: U\times\R^n\to \pi^{-1}(U)$, s.d.,
+
+```{math}
+(\pi\circ\psi)(y,\cdot) &= y\quad\forall y\in U\\
+\psi_y:\{y\}\times \R^n&\to \pi^{-1}(y)\text{ ist ein Isomorphismus}.
+```
+
+Dann heißt $(E,B,\pi)$ **Vektorbündel** vom Rang $n$.
+````
 
 
+Anschaulich heißt die Darstellung, dass der Raum $E$ lokal immer als Produktraum dargestellt werden kann.
+
+````{prf:example}
+Zylinder
+````
+
+````{prf:example}
+Möbius-Band
+````
+
+````{prf:lemma}
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit mit dem Tangentialraum 
+
+```{math}
+T\M:= \bigsqcup_{p\in\M}  T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
+```
+
+und der Abbildung
+
+```{math}
+\pi:T\M\to \M\\
+\{p\}\times T_p\M\mapsto p.
+```
+
+Dann ist $(T\M, \M, \pi)$ ein Vektorbündel vom Rang $n$.
+````
+
+````{prf:proof}
+Relativ lang, siehe hier [Skript Uni Hamburg](https://www.math.uni-hamburg.de/home/lindemann/material/DG2020L7_slides.pdf)
+````
 
 
-### Bündel
+### Vektorfelder
 
 
 ## Tensorfelder
