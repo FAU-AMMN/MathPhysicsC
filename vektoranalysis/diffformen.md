@@ -155,21 +155,21 @@ es uns erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konze
 
 ### Karten und Atlanten auf topologischen Räumen
 
-Um den Ableitungsbegriff auf topologischen Räumen $\M$ formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung $\phi \colon U \rightarrow \phi(U) \subset \R^n$ die Bedingung, dass für jede Teilmenge $V\subset U \subset M$ gilt,
+Um den Ableitungsbegriff auf topologischen Räumen $\M$ formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung $\phi \colon U \rightarrow \phi(U) \subset \R^n$ die Bedingung, dass für jede Teilmenge $U \subset M$ gilt,
 
 ```{math}
-\phi(V)\text{ ist offen} \ \Leftrightarrow \ V \text{ ist offen}.
+\phi(U)\text{ ist offen} \ \Leftrightarrow \ U \text{ ist offen}.
 ```
 
 Diese Forderung bedeutet, dass offene Teilmengen in $U \subset \M$ gerade mit offenen Teilmengen in $\phi(U) \subset \R^n$ identifiziert werden.
 Wir wollen im Folgenden beide Implikationsrichtungen diskutieren.
 
-1\. $\phi(V)$ ist offen $\Rightarrow V $ ist offen.
+1\. $\phi(U)$ ist offen $\Rightarrow U $ ist offen.
 
-Diese Implikation äquivalent zur Forderung, dass Urbilder offener Mengen selbst wieder offen sind.
+Diese Implikation ist äquivalent zur Forderung, dass Urbilder offener Mengen selbst wieder offen sind.
 Mit {prf:ref}`def:stetigkeitTopologie` bedeutet dies wiederum, dass die Abbildung $\phi$ stetig ist.
 
-2\. $\phi(V)$ ist offen $\Leftarrow V $ ist offen.
+2\. $\phi(U)$ ist offen $\Leftarrow U $ ist offen.
 
 Analog zur obigen Überlegung sehen wir ein, dass diese Bedingung gerade aussagt, dass $\phi^{-1}$ stetig ist.
 Diese Forderung ist nicht immer trivialerweise erfüllt.
