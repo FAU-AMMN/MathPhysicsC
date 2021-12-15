@@ -634,7 +634,7 @@ p:L(V_1; V_2)\otimes L(W_1; W_2) &\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\
 (p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(w_1).
 ```
 
-ein **Homomorphismus**.
+ein wohldefinierter **Homomorphismus**.
 
 ````
 

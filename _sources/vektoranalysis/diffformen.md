@@ -1,28 +1,256 @@
-# Differentialformen
+# Differentialformen auf Mannigfaltigkeiten
 
-In diesem Kapitel werden wir nun [Differentialformen](https://de.wikipedia.org/wiki/Differentialform) einführen. Die entscheidende Neuerung im Vergleich zum vorhergehenden Kapitel, ist 
-dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen, speziell betrachten wir eine offene Menge $U\subset\R^n$. Ein weiterer wichtiger Aspekt, ist dass wir im Folgenden mit glatten Funktion arbeiten wollen, d.h., mit dem Raum $C^\infty(U,\R^n)$.
+In diesem Kapitel der Vektoranalysis werden wir nun [Differentialformen](https://de.wikipedia.org/wiki/Differentialform) einführen.
+Die entscheidende Neuerung im Vergleich zum vorangegangen Kapitel über Tensoren ist, dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen.
+Außerdem werden wir im Folgenden mit *glatten Funktion* arbeiten, d.h., mit Funktionen aus dem Raum $C^\infty(U,\R^n)$.
 
-## Mannifaltigkeiten
+Um Differentialformen vernünftig einführen zu können benötigen wir allerdings einige zusätzliche mathematische Konzepte, die bisher noch nicht behandelt wurden.
+Wir definieren zunächst den Begriff des topologischen Raums als Verallgemeinerung von metrischen Vektorräumen.
+Anschließend sind wir in der Lage Mannigfaltigkeiten als spezielle topologische Räume zu definieren, die lokal dem Euklidischen Raum $\R^n$ ähneln, jedoch global verschieden sein können.
+Schließlich werden wir Tensorfelder und Differentialformen diskutieren.
 
-* Was ist ein Homöomorphismus
+## Topologische Räume
 
-* Was ist ein topologischer Raum
+Wir haben bisher immer Mathematik auf **metrischen** oder gar **normierten Vektorräumen** betrieben, da uns diese Struktur für alle erklärten Konzepte am dienlichsten war (siehe Kapitel 4 \& 5 in {cite:p}`burger_2020` und [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/normierte_raeume/normierte_raeume.html)).
+Als Vorbereitung für {ref}`s:mannigfaltigkeiten` wollen wir von den metrischen Räumen zu allgemeineren Strukturen wechseln - den sogenannten **topologischen Räumen**.
 
-```{prf:definition} Karte
-Es sei $\M$ ein topologischer Raum, $U\subset\M$ offen und $\phi:U\rightarrow \phi(U)\subset \R^n$ sei ein Homöomorphismus, dann heißt das Tupel $(U,\phi)$ **Karte** auf $\M$.
+Das zentrale Konzept topologischer Räume ist die folgende Definition der *offene Mengen*.
+
+````{prf:definition} Offene Mengen und topologischer Raum
+ Sei $\M$ eine Menge und $\tau \subset \mathcal{P}(M)$ eine Teilmenge der Potenzmenge.
+ Wir nennen das Tupel $(\M,\tau)$ **topologischer Raum**, falls die folgenden Eigenschaften erfüllt sind, 
+
+* $\emptyset, \M \in \tau$,
+
+* für eine beliebige (insbesondere auch *unendlich große*) Indexmenge $\mathcal{I}$ seien $U_i\in\tau, i\in \mathcal{I}$. Dann gilt auch schon $\bigcup_{i\in I} U_i \in \tau$,
+
+* für *endlich viele* $U_j\in\tau, j=1,\ldots, k$ gilt auch schon $\bigcap_{j=1}^k U_j \in \tau$.
+
+Wir bezeichnen mit $\tau$ die **Topologie** des Raumes und dessen Elemente $U\in\tau$ heißen **offene Mengen**.
+Für jeden Punkt $x\in \M$ nennen wir eine offene Menge $U(x) \in \tau$ **Nachbarschaft** oder **Umgebung** um $x$, falls $x\in U(x)$.
+
+Analog zur Definition auf metrischen Räumen bezeichnen wir das Komplement $\M \setminus U$ \einer offenen Menge $U$ als **abgeschlossen**.
+````
+
+Es gibt viele interessante topologische Räume, die den Namen ihrer Entdecker tragen, wie zum Beispiel der [Arens-Fort-Raum](https://de.wikipedia.org/wiki/Arens-Fort-Raum), der [Cantor-Raum](https://de.wikipedia.org/wiki/Cantor-Raum), oder der [Hilbertwürfel](https://de.wikipedia.org/wiki/Hilbertw%C3%BCrfel).
+Im Folgenden wollen wir ein relativ generisches Beispiel für einen topologischen Raum betrachten.
+
+````{prf:example} Diskrete Topologie
+:label: ex:diskreteTopologie
+
+Es sei $M$ eine beliebige Menge. 
+Dann können wir eine Topologie $\tau$ auf $\M$ definieren, in dem wir alle Teilmengen von $\M$ als offen definieren.
+In diesem Beispiel folgt trivialerweise, dass $\tau = \mathcal{P}(\M)$ gilt.
+Dann ist $(\M, \tau)$ ein topologischer Raum.
+Diese Topologie nennt man **diskrete Topologie**, da für jeden diskreten Punkt $x \in \M$ die Menge $\lbrace x \rbrace$ offen ist.
+
+Die diskrete Topologie wird durch eine spezielle Metrik erzeugt, wie man im Folgenden einsieht.
+Seien $x,y \in M$ Punkte der Menge und $d \colon \M \times \M \rightarrow \R^+_0$ eine Metrik auf $\M$ mit
+
+```{math}
+d(x,y) := \begin{cases} 0, \quad \text{ falls } x=y,\\ 1, \quad \text{ falls } x\neq y. \end{cases}
 ```
 
-Relation zwischen verschieden Karten.
+Über diese Metrik kann man nun *offene Umgebungen* von Punkten $x \in \M$ wie folgt konstruieren,
 
-````{prf:definition}
-Es sei $\M$ ein topologischer Raum und $(U,\phi), (V,\psi)$ seien zwei Karten auf $\M$ mit nicht-leerem Schnitt, d.h., $U\cap V\neq \emptyset$. Dann nennt man 
+```{math}
+B_1(x) := \lbrace y \in \M : d(x,y) < 1 \rbrace = \lbrace x \rbrace.
+```
+
+Dies führt dazu, dass alle Teilmengen, die nur einen Punkt der Menge enthalten, offen sind.
+Über beliebige Vereinigung dieser Punktmengen, lassen sich dann alle Teilmengen der Potenzmenge $\mathcal{P}(\M)$ als offen definieren und man erhält somit die diskrete Topologie.
+````
+
+````{prf:remark} Notation von topologischen Räumen
+Häufig spielt die konkrete Wahl einer Topologie $\tau \subset \mathcal{P}(\M)$ keine Rolle für die mathematischen Aussagen, die man treffen möchte.
+Da wir jede beliebige Menge $\M$ mit der diskreten Topologie aus {prf:ref}`ex:diskreteTopologie` zu einem topologischen Raum $(\M, \tau)$ ausstatten können, wird die Angabe der konkreten Topologie $\tau$ häufig ausgelassen.
+In solchen Fällen identifiziert man den topologischen Raum einfach mit der zu Grunde liegenden Menge $\M$, d.h., wir nennen $\M$ einen topologischen Raum, wenn die konkrete Topologie im gewählten Kontext eindeutig ist oder keine Rolle spielt.
+````
+
+Viele mathematische Konzepte lassen sich von metrischen oder normierten Räumen auf topologische Räume übertragen, wie zum Beispiel der Begriff einer stetigen Funktion.
+
+````{prf:definition} Stetige Funktionen auf topologischen Räumen
+:label: def:stetigkeitTopologie
+
+Seien $(\M_1, \tau_1)$ und $(\M_2, \tau_2)$ topologische Räume und $f$ eine Funktion mit
+
+```{math}
+f \colon (\M_1, \tau_1) \rightarrow (\M_2, \tau_2).
+```
+
+Wir nennen $f$ **stetig**, wenn die Urbilder offener Mengen in $\tau_2$ unter $f$ wieder offene Mengen in $\tau_1$ ergeben, d.h.,
+
+```{math}
+f \ \text{ stetig } \quad \Leftrightarrow \quad \forall \, O \in \tau_2 : f^{-1}(O) \in \tau_1.
+```
+
+````
+
+Das folgende Diagramm zeigt die Relationen zwischen verschiedenen mathematischen Konzepten innerhalb einer hierarchischen Struktur.
+
+```{math}
+\begin{gathered}
+\text{Skalarprodukt (Euklidischer / Unitärer Vektorraum)}\\
+\downarrow \text{induziert}\\
+\text{Norm (Normierter Vektorraum)}\\
+\downarrow \text{induziert}\\             
+\text{Metrik (Metrischer Vektorraum)}\\
+\downarrow \text{induziert}\\                 
+\text{Topologie (Topologischer Vektorraum)}
+\end{gathered}
+```
+
+(s:mannigfaltigkeiten)=
+
+## Mannigfaltigkeiten
+
+In diesem Abschnitt führen wir das grundlegende Konzept von [Mannigfaltigkeiten](https://de.wikipedia.org/wiki/Mannigfaltigkeit) als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum $\R^n$ identifiziert werden kann.
+Mannigfaltigkeiten spielen insbesondere im mathematischen Teilgebiet der [Differentialgeometrie](https://de.wikipedia.org/wiki/Differentialgeometrie) eine zentrale Rolle.
+
+### Motivation
+
+Das wohl verständlichste Bild einer Mannigfaltigkeit ist die Oberfläche einer dreidimensionalen Kugel
+
+```{math}
+\mathbb{S}^2 := \lbrace (x,y,z)\in\R^3 : x^2 + y^2 + z^2 = 1 \rbrace,
+```
+
+wie sie zum Beispiel genutzt wird um die Erdoberfläche zu modellieren.
+Möchte man Mathematik auf solch einer Oberfläche betreiben, so benötigt man vollkommen andere Konzepte als in offenen Teilmengen des $\R^n$.
+Möchte man beispielsweise berechnen, wie weit man reisen muss, um von einem Punkt auf der Oberfläche zu einem anderen Punkt zu kommen, so benötigt man einen angepassten Abstandsbegriff, da die Euklidische Norm nur die direkte Entfernung messen würde, welche die Kugeloberfläche jedoch durchschneidet.
+Dies ist in folgender Abbildung visualisiert.
+
+```{figure} ../img/mannigfaltigkeit.png
+---
+height: 300px
+name: "fig:kugel"
+---
+Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kugeloberfläche $\mathbb{S}^2$.
+```
+
+Aus dieser Anschauung wird klar, dass unser bisheriges Konzept von Differenzierbarkeit im Mehrdimensionalen aus dem [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html) nicht ausreicht, um auf diesem Objekt geeignet Funktionen abzuleiten.
+Da man in vielen Bereichen der Physik und der Mathematik nicht nur auf offenen Teilmengen des $\R^n$ ableiten möchte, benötigen wir ein analoges Prinzip für topologische Räume $\M := (\M, \tau)$.
+
+**Wie können wir den Ableitungsbegriff auf topologische Räume übertragen?**
+
+Die grundlegende Idee ist es, den topologischen Raum $\M$ lokal mit einer Teilmenge des $\R^n$ zu identifizieren.
+Für eine beliebige offene Teilmenge $U\subset \M$ betrachten wir also eine Abbildung
+
+```{math}
+\phi:U\rightarrow \R^n.
+```
+
+Wir wollen fordern, dass es sich bei $\phi$ um eine *injektive Abbildung* handelt, so dass eine inverse Abbildung $\phi^{-1}$ existiert.
+Diese Umkehrabbildung müssen wir jedoch auf das Bild $\phi(U) \subset \R^n$ einschränken, damit sie wohldefiniert ist.
+Damit erhalten wir eine *lokale Bijektion* $\phi^{-1}:\phi(U)\rightarrow U$.
+
+Betrachten wir nun eine Funktion $f \colon \M \rightarrow \R^m$, die Punkte des topologischen Raumes auf Punkte des $\R^m$ abbildet.
+Wenn wir diese Funktion differenzieren möchten, so sehen wir ein, dass die Verknüpfung
+
+```{math}
+f \circ \phi^{-1} : \phi(U) \subset \R^n \to \R^m
+```
+
+es uns erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konzept der mehrdimensionalen Differentiation im $\R^n$ zurückzuführen.
+
+### Karten und Atlanten auf topologischen Räumen
+
+Um den Ableitungsbegriff auf topologischen Räumen $\M$ formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung $\phi \colon U \rightarrow \phi(U) \subset \R^n$ die Bedingung, dass für jede Teilmenge $U \subset M$ gilt,
+
+```{math}
+\phi(U)\text{ ist offen} \ \Leftrightarrow \ U \text{ ist offen}.
+```
+
+Diese Forderung bedeutet, dass offene Teilmengen in $U \subset \M$ gerade mit offenen Teilmengen in $\phi(U) \subset \R^n$ identifiziert werden.
+Wir wollen im Folgenden beide Implikationsrichtungen diskutieren.
+
+1\. $\phi(U)$ ist offen $\Rightarrow U $ ist offen.
+
+Diese Implikation ist äquivalent zur Forderung, dass Urbilder offener Mengen selbst wieder offen sind.
+Mit {prf:ref}`def:stetigkeitTopologie` bedeutet dies wiederum, dass die Abbildung $\phi$ stetig ist.
+
+2\. $\phi(U)$ ist offen $\Leftarrow U $ ist offen.
+
+Analog zur obigen Überlegung sehen wir ein, dass diese Bedingung gerade aussagt, dass $\phi^{-1}$ stetig ist.
+Diese Forderung ist nicht immer trivialerweise erfüllt.
+
+Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung $\phi$ gibt, für die gilt, dass die Umkehrabbildung $\phi^{-1}$ *nicht stetig* ist.
+
+````{prf:example}
+:label: ex:nonho
+
+Wir betrachten in diesem Beispiel die Funktion 
+
+```{math}
+\phi:[0,2\pi)&\to\R^2,\\
+t &\mapsto \phi(t):= (\cos(t), \sin(t)).
+```
+
+Wir erkennen, dass $\phi([0,2\pi)) = \S^1$ gerade der Einheitskreis ist, und dass $\phi:[0,2\pi)\to\S^1$ bijektiv und stetig ist.
+Allerdings stellen wir fest, dass die Umkehrabbildung nicht stetig ist. 
+Sei dazu $(x_i)_{i\in\N}$ eine Folge von Punkten auf dem Einheitskreis $\S^1$, deren $y$-Koordinate negativ ist und die gegen den Punkt $x = (1,0) \in \S^1$ konvergieren, d.h.,
+
+```{math}
+\lim_{i\rightarrow\infty} x_i =: x = (1,0) \in \S^1.
+```
+
+Betrachten wir jedoch den Grenzwert der Folge von Funktionswerten $(\phi^{-1}(x_i))_{i\in I}$, so sehen wir, dass 
+
+```{math}
+\lim_{i\to\infty} \phi^{-1} (x_i) = 2\pi \neq 0 = \phi^{-1}(x)
+```
+
+und somit ist $\phi^{-1}$ offensichtlich nicht stetig.
+
+````
+
+```{figure} ../img/nonhomöo.jpg
+---
+height: 450px
+name: "fig:nonh"
+---
+Visualisierung einer unstetigen Umkehrabbildung für das {prf:ref}`ex:nonho`.
+```
+
+Insgesamt fordern wir also, dass $\phi:U\rightarrow\phi(U)$ bijektiv ist und zusätzlich, dass sowohl $\phi$ als auch die Umkehrabbildung $\phi^-1$ stetig sind.
+Eine solche Abbildung definiert man unter dem Begriff *Homöomorphismus*.
+
+````{prf:definition} Homöomorphismus
+Seien $X$ und $Y$ topologische Räume.
+Dann nennen wir eine Abbildung $f \colon X \rightarrow Y$ einen **Homöomorphismus**, wenn sie folgende Eigenschaften erfüllt:
+
+1. $f$ ist bijektiv
+2. $f$ ist stetig
+3. die Umkehrfunktion $f^{-1}$ ist ebenfalls stetig.
+````
+
+Speziell im Kontext von Mannigfaltigkeiten $\M$, als Spezialfall topologischer Räume (wie wir noch sehen werden), nennt man eine offene Menge zusammen mit einem Homöomorphismus eine **Karte** auf $\M$.
+
+```{prf:definition} Karte
+Es sei $\M$ ein topologischer Raum und $U\subset\M$ eine offene Menge.
+Sei außerdem $\phi:U\rightarrow \phi(U)\subset \R^n$ ein Homöomorphismus.
+Dann heißt das Tupel $(U,\phi)$ **Karte** auf $\M$.
+```
+
+Um einen Ableitungsbegriff für Funktionen $f:\M\to\R^m$ über eine Karte $(U,\phi)$ und der Verknüpfung $f\circ \phi^{-1}$ zu definieren benötigen wir noch ein zusätzliches Konzept.
+Denn in der Situation, dass $(V,\psi)$ eine zweite Karte ist, deren offene Menge $V$ einen nichtleeren Schnitt mit der offenen Menge $U$ hat, d.h., $U\cap V \neq \emptyset$, erhalten wir genau auf dem Schnitt dieser Mengen zwei unterschiedliche Parametrisierungen,
+
+```{math}
+f\circ \phi^{-1} = (f\circ\psi^{-1})\circ(\psi\circ \phi^{-1}),\\
+f\circ \psi^{-1} = (f\circ\phi^{-1})\circ(\phi\circ \psi^{-1}).
+```
+
+Um von einer Karte zur nächsten Karte zu kommen benötigen wir eine geeignete Abbildung.
+
+````{prf:definition} Kartenwechsel
+Es sei $\M$ ein topologischer Raum und es seien $(U,\phi)$ und $(V,\psi)$ zwei Karten auf $\M$ mit nicht-leerem Schnitt, d.h., $U\cap V\neq \emptyset$. 
+Dann nennt man die Abbildung
 
 ```{math}
 \psi\circ\phi^{-1}: \phi(U\cap V)\rightarrow \psi(U\cap V)
 ```
 
-**Kartenwechsel**.
+einen **Kartenwechsel** von $(U,\phi)$ nach $(V,\psi)$.
 
 ````
 
@@ -34,30 +262,400 @@ name: "fig:chartchange"
 Kartenwechsel.
 ```
 
-Ganz $\M$ abdecken. Man kann mit Kartenwechsel normal ableiten.
+Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind, um von einer lokalen Identifikation des topologischen Raums zur nächsten zu gelangen.
+Wäre nun der Kartenwechsel $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen.
+Allerdings existieren durchaus Beispiele, in dnen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber der Kartenwechsel $\psi\circ\phi^{-1}$ nicht.
+Deshalb führt man zusätzlich noch den folgenden Begriff ein.
 
 ````{prf:definition} Atlas
-Es sei $\M$ ein topologischer Raum, eine Familie von Karten $(U_i,\phi_i)_{i\in I}$ indiziert durch die Indexmenge $I$ heißt **Atlas**, falls 
+Es sei $\M$ ein topologischer Raum.
+Eine Familie von Karten $\mathcal{A} = (U_i,\phi_i)_{i\in I}$ indiziert durch die Indexmenge $I$ heißt **Atlas**, falls die Vereinigung aller offenen Mengen eine Überdeckung des topologischen Raums darstellt, d.h., es gilt
 
 ```{math}
-M = \bigcup_{i\in I} U_i.
+\M = \bigcup_{i\in I} U_i.
 ```
 
-Wir nennen einen Atlas $k$-mal differenzierbar oder von der der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i^{-1}\circ\phi_j, i,j\in I$ $k$-mal stetig differenzierbar ist.
+Wir nennen einen Atlas $k$-mal **differenzierbar** oder von der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i^{-1}\circ\phi_j, i,j\in I$ $k$-mal stetig differenzierbar ist.
 
 ````
 
-### Strukturen
+Die Begriffe *Karte* und *Atlas* stammen in der Tat aus mathematischen Überlegungen in der Kartographie.
+Man kann Teile der Erdoberfläche mit einer Karte auf eine Ebene $\R^2$ abbilden.
+Nähert man sich dem Rand einer Karte, so möchte man zu einer anderen Karte wechseln, die das angrenzende Gebiet darstellt. 
+
+So kann eine Mannigfaltigkeit durch einen vollständigen Satz von Karten vollständig beschrieben werden; man braucht dabei Regeln, wie sich beim Kartenwechsel die Karten überlappen.
 
 ### Differenzierbare Mannigfaltigkeiten
+
+Für eine topologischen Raum $\M$ können mehrere Atlanten $\mathcal{A}$  existieren, weshalb man zusätzlich eine Äquivalenzklasse definiert. Für eine Differenzierbarkeitsstufe $k\in \N \cup \{\infty\}$ heißen zwei $C^k$ Atlanten  $\mathcal{A}_1, \mathcal{A}_2$ $k$-äquivalent, $\mathcal{A}_1\sim_k \mathcal{A}_2$, falls ihre Vereinigung
+
+```{math}
+\mathcal{A}_1\cup \mathcal{A}_2
+```
+
+ein $C^k$ Atlas ist. Die Äquivalenzklasse $[\mathcal{A}]_{\sim_k}$ nennt man $C^k$-differenzierbare Struktur.
 
 ```{margin}
 [Felix Hausdorff](https://de.wikipedia.org/wiki/Felix_Hausdorff) (geboren am 8. November 1868 in Breslau; gestorben am 26. Januar 1942 in Bonn) war ein deutscher Mathematiker.
 ```
 
+Bisher haben wir $\M$ als topologischen Raum betrachtet. In vielen Anwendungen benötigt man aber zusätzliche. Insbesondere wenn man [glatte Testfunktionen](https://de.wikipedia.org/wiki/Testfunktion) und [die Zerlegung der Eins](https://en.wikipedia.org/wiki/Partition_of_unity) benutzen möchte braucht man folgende zwei Eigenschaften.
+
 ````{prf:definition} Hausdorff-Raum
 Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unterschiedliche Punkte $x,y\in \M, x\neq y$ offene Umgebungen $U(x), U(y)$ existieren, welche disjunkt sind, d.h., $U(x)\cap U(y) = \emptyset$.
 ````
+
+````{prf:definition} Zweites Abzählbarkeitsaxiom
+Ein toplogischer Raum $\M$ erfüllt das **zweite Abzählbarkeitsaxiom**, falls **abzählbar** viele offene Mengen $(V_i)_{i\in\N}$existieren, s.d., für jedes $x\in \M$ und jede Umgebung $U(x)$ mindestens ein $k\in\N$ existiert, s.d., $V_k\subset U(x)$.
+````
+
+Diese zwei Bedingung wirken zunächst abstrakt, allerdings werden sie von vielen Räumen erfüllt.
+So ist z.B. jeder metrische Raum ein zweitabzählbarer Hausdorff-Raum.
+
+```{danger}
+Falls der Begriff eines zweitabzählbaren Hausdorff-Raums zu unhandlich erscheint, kann man für die meisten Anwendungen in der Physik auch einfach **metrische Räume** betrachten, die diese Eigenschaften implizieren.
+```
+
+Wir sind nun in der Situation den Begriff einer Mannigfaltigkeit einzuführen.
+
+````{prf:definition} Mannigfaltigkeit
+Es sei $\M$ ein zweitabzählbarer Hausdorff-Raum und für $k\in\N\cup \{\infty\}$ sei $A$ eine $C^k$-differenzierbare Struktur, dann heißt $(M,A)$ 
+$k$-**mal differenzierbare Mannigfaltigkeit**. Für $k=\infty$ spricht man auch von einer **glatten** Mannigfaltigkeit. Bilden alle Karten in $\M$ nach $\R^n$ ab, so nennt man die MAnnigfaltigkeit $n$-dimensional.
+````
+
+In den meisten Fällen spricht man nur von der Mannigfaltigkeit $\M$, die differenzierbare Struktur $A$ wird dabei implizit vorausgesetzt.
+
+### Ableiten auf Mannigfaltigkeiten
+
+Sei nun $M$ eine $k$-mal differenzierbare Mannigfaltigkeit mit Atlas $\mathcal{A}$, dann heißt $f:\M\to\R$ $k$-mal differenzierbar, falls für jedes $p\in\M$ eine differenzierbare Karte $(u,\phi)\in\mathcal{A}$ existiert, sodass $f\circ\phi^{-1}\in C^k(\phi(U))$. Insbsondere schreiben wir in diesem Fall $f\in C^k(\M)$. In vielen Anwendungen betrachtet man nur glatte Mannigfaltigkeiten und Funktionen. Wir werden im folgenden auch dazu übergehen.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist $C^\infty(\M)$ ein reeller Vektorraum mit den Verknüpfungen
+
+```{math}
+(f + g)(p) := f(p) + g(p)\quad\text{ für } f,g\in C^\infty(\M),\\
+(\lambda \cdot f)(p) := \lambda\cdot f(p)\text{ für } f\in C^\infty(\M), \lambda\in\R.
+```
+
+````
+
+````{proof}
+Siehe Übung
+````
+
+Wir halten insbesondere fest, dass die Differenzierbarkeit Kartenunabhängig ist.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit mit Atlas $\mathcal{A}$, $f:\M\to\R$ eine Funktion und $(U,\phi)\in A$ eine Karte mit $p\in U$. Ist $f\circ\phi$ differenzierbar in $p$, so ist $f\circ\psi$ auch differenzierbar in $p$ für jede Karte $(V,\psi)$ mit $p\in V$.
+````
+
+````{proof}
+Siehe Übung.
+````
+
+### Der Tangentialraum
+
+Aus Kapitel (??) ist bereits das Konzept der Linearisierung bekannt. Anschaulich gesprochen ersetzten wir eine diffenzierbare Funktion $f$ durch eine seine Linearisierung um ein einfacheres Problem zu erhalten. Dieses Konzept soll nun auf Funktionen $f:\M\to\R$ übertragen werden, wobei $\M$ eine glatte Mannigfaltigkeit ist. Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit definieren, insbesondere ist dieser 
+kartenunabhängig. Der Tatsächliche der Wert der Ableitung von Funktionen $f\cic\phi^{-1}$ hängt aber noch immer von der Wahl der Karte $\phi$ ab. Um auch hier Kartenunabhängigkeit herzustellen brauchen wir einen anderen Begriff der Differenzierbarkeit. Hierbei wird uns der sogenannte **Tangentialraum** helfen. Intuitiv ist er eine Linearisierung der Mannigfaltigkeit $M$ an einem Punkt $p\in\M$.
+
+````{prf:example}
+Mannigfaltigkeit $\R^n$.
+````
+
+Es gibt verschiedene (äquivalente) Arten den Tangentialraum konkret einzuführen.
+
+* **Geometrischer Tangentialraum**: Hierbei behält man die geometrische Anschauung und definiert Tangentialvektoren durch Richtungsvektoren die am Punkt $p\in\M$ anliegen. Diese Definition ist intuitiv und sehr anschaulich.
+
+* **Algebrische Defnition**: Diese Definition zieht sich auf das Konzept der Derivationen zurück. Man verliert zwar die intuitive Anschauung, allerdings ist sie sehr einfach zu formulieren und hilft in den meisten Fällen die Sachverhalte auf einfache algebraische Konzept zurückzuführen.
+
+In der Praxis (und in vielen Büchern) werden beide Definitionen parallel verwendet, die jeweilige Interpretation geht dann aus dem Kontext hervor. Da sich die beiden Konzepte schlecht voneinander trennen lassen werden wir im folgenden den geometrischen Tangentialraum $T^{\text{geom}}_p\M$ und den algebraischen Tangentialraum $T^{\text{alg}}_p\M$ einführen eine Isomorphie
+
+```{math}
+T^{\text{geom}}_p\M\cong T^{\text{alg}}_p\M
+```
+
+zeigen.
+
+```{danger}
+In der Literatur wird diese Unterscheidung oft nicht vorgenommen, stattdessen wird der Tangentialraum $T_p\M$ genannt. Elemente dieses Raums sind dann je nach Kontext geometrisch oder algebraisch zu verstehen.
+```
+
+#### Geometrische Definition
+
+Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der **Richtungsableitung** bekannt. Für eine Funktion $F:\R^n\to\R$ betrachtet man den Strahl $\gamma(t):= x + t\,v$, wobei $x,v\in\R^n$ und den Grenzwert
+
+```{math}
+\lim_{t\to 0} \frac{F(\gamma(t)) - F(\gamma(0))}{t} = \frac{F(x + t\,v) - F(x))}{t}.
+```
+
+Wir werden diese Konzept nun auf glatte $n$-dimensionale Mannigfaltigkeiten $\M$ verallgemeinern indem wir anstatt von Strahlen, differenzierbare *Kurven* $\gamma$ betrachten. Hierbei nennen wir eine Kurve differenzierbar am Punkt $0\in(-1,1)$ falls sie stetig ist und falls eine Karte $(U,\phi)$ für $\M$ existiert, wobei $U$ eine offene Umgebung von $\phi(0)$ ist, s.d., $\phi((-\varepsilon,\varepsilon))\subset U$ und $\phi \circ \gamma:(-\varepsilon,\varepsilon)\to\R^n$ differenzierbar in $0$ ist, wobei $\varepsilon$ klein genug ist. Wir werden im Folgenden stets die Ableitung im Punkt $t=0$ betrachten und sprechen deshalb verkürzt von *differenzierbaren* Kurven. Wir bemerken insbesondere, dass die obige Definition **nicht** von der Wahl der Karte abhängt.
+
+````{prf:example}
+Es sei $\M=\S^2$ die Einheitssphäre und $u:\M\to\R$ beschreibe eine Wärmeverteilung auf der Kugeloberfläche. Betrachtet man nun die Bahn eines Partikels auf der Oberfläche beschrieben durch $\gamma:(-t, t)\to \M$ so erhalten wir eine eindimensionale Abbildung 
+
+```{math}
+f\circ\gamma:(-t,t)\to \R
+```
+
+die zu jedem Zeitpunkt die Temperatur des Ortes an welchem sich der Partikel befindet beschreibt.
+````
+
+```{figure} ../img/velocity.jpg
+---
+height: 450px
+name: "fig:velocity"
+---
+ToDo.
+```
+
+````{prf:definition} Richtungsableitung
+:label: def:direcdiv
+
+Es sei $\M$ eine glatte Mannigfaltigkeit, $\gamma:(-1,1)\to\M$ eine differenzierbare Kurve mit $\gamma(0)=p\in\M$, dann nennen wir die Abbildung
+
+```{math}
+D_\gamma &: C^\infty(\M)\to\R\\
+f\mapsto D_\gamma(f)&:=\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0}
+```
+
+**Richtungsableitung** von $f$ durch $\gamma$ im Punkt $p$.
+````
+
+Sei nun $\gamma$ eine differenzierbare Kurve mit $\gamma(0)=p$, dann haben wir
+
+```{math}
+\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0} = \frac{d}{dt}\big( (f\circ \phi^{-1}) (\phi \circ \gamma) \big) = 
+\big(\frac{d}{dt}(f\circ \phi^{-1})\big)(\phi(p))\cdot \frac{d}{dt}(\phi \circ \gamma)\rvert_{t=0}
+```
+
+und für eine weitere differenzierbare Kurve $\tilde{\gamma}, \tilde{\gamma}(0)=p$ ebenfalls
+
+```{math}
+\frac{d}{dt}(f\circ \tilde{\gamma})\big\rvert_{t=0} = 
+\big(\frac{d}{dt}(f\circ \phi^{-1})\big)(\phi(p))\cdot \frac{d}{dt}(\phi \circ \tilde{\gamma})\rvert_{t=0}.
+```
+
+Wir erkennen also, dass der Wert der Richtungsableitung in derTat von der Kurve $\gamma$ abhängt. Dies führt auf einen natürlichen Äquivalenzbegriff von Kurven.
+
+````{prf:lemma} Tangentialvektoren
+:label: lem:tang
+
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, $p\in\M$ und $(U,\phi)$ eine Karte in $\M$, mit $p\in U$. Für differenzierbare Kurven $\gamma,\tilde{\gamma}:(-1,1)\to U$ mit $\gamma(0) = \tilde{\gamma}(0) = p$ ist die Relation 
+
+```{math}
+\gamma \sim_p \tilde{\gamma} 
+\Leftrightarrow 
+\frac{d}{dt}(\phi \circ \gamma)\rvert_{t=0} = \frac{d}{dt}(\phi \circ \tilde{\gamma})\rvert_{t=0}\in R^d
+```
+
+eine Äquivalenzrelation. Die Äquivalenzklasse $\gamma^\prime(0):=[\gamma]_{\sim_p}$ wird als **Tangentialvektor** bezeichnet. Insbesondere ist die Klasse unabhängig von der Wahl der Karte $\phi$.
+````
+
+````{prf:proof}
+Siehe Übung.
+````
+
+````{prf:example}
+Tangentialvektoren im $\R^n$.
+````
+
+Da wir nun Tangentialvektoren eingeführt haben, sind wir in der Lage den **Tangentialraum** zu definieren, nämlich als Raum aller Tangentialvektoren.
+
+```{danger}
+ToDo: Quotientenräume machen es hier einfacher.
+```
+
+````{prf:definition}
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, dann heißt der Raum der (geometrischen) Tangentialvektoren  
+
+```{math}
+T_p^{\text{geom}}\M := \{\gamma^\prime(0): \gamma\text{ ist differenzierbare Kurve mit }\gamma(0)=p\}
+```
+
+**geometrischer Tangentialraum** am Punkt $p$.
+````
+
+Um eine Vektorraumstruktur zu definieren, wählen wir eine Karte $\phi$ wie in {prf:ref}`lem:tang` und definieren die Abbildung
+
+```{math}
+d\phi\rvert_p [\gamma]_{\sim_p} = d\phi\rvert_p (\gamma^\prime(0)) := (\phi \circ \gamma)^\prime (0)
+```
+
+was eine Bijektion zwischen $\R^n$ und $T_p\M$ ist. Damit erhalten wie die Operationen
+
+```{math}
+\gamma^\prime(0) +_{p} \tilde{\gamma}^\prime(0) &:=
+(d\phi\rvert_p)^{-1}\big(d\phi\rvert_p(\gamma^\prime(0)) + d\phi\rvert_p(\tilde{\gamma}^\prime(0))\big)\\
+\lambda \cdot_p \gamma^\prime(0) &:= (d\phi\rvert_p)^{-1} (\lambda\,d\phi\rvert_p(\gamma^\prime(0))
+```
+
+welche erneut **unabhängig** von der Wahl der Karte $\phi$ definiert sind
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, das Tripel $(T_p^{\text{geom}}\M, +_p, \cdot_p)$ bildet einen reellen Vektorraum.
+````
+
+#### Algebraische Definition
+
+Es gibt eine alternativen Weg den Tangentialraum einzuführen, über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr direkt als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind. 
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, eine lineare Abbildung $D:C^\infty(\M)\to \R$ heißt **Derivation** an $p$, falls die folgende Kettenregel gilt, 
+
+```{math}
+D(fg) = D(f) g(p) + f(p) D(g).
+```
+
+Der Raum der Derivationen an $p$
+
+```{math}
+T^{\text{alg}}_p\M:=\{D\in C^\infty(\M)^\ast: D\text{ ist Derivation an }p\}
+```
+
+wird als **algebraischer Tangentialraum** bezeichnet.
+````
+
+Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist $T^{\text{alg}}_p\M$ ein reeller Vektorraum.
+````
+
+````{prf:proof}
+Siehe Übung.
+````
+
+Wie bereits erwähnt ist diese Definition des Tangentialraums äquivalent zu der geomtrischen Version. Konkret heißt das, dass wir eine Isomorphie
+
+```{math}
+T^{\text{alg}}_p\M\cong T^{\text{geom}}_p\M
+```
+
+erhalten. Die Identifikation lässt sich sehr einfach angeben, ist nämlich $\gamma$ eine differenzierbare Kurve, so ist durch
+
+```{math}
+D_\gamma(f):= (f\circ \gamma)^\prime(0)
+```
+
+eine Derivation an $\gamma(0)$ gegeben. Ist umgekehrt eine Derivation $D$ gegeben, so erhalten wir über
+
+```{math}
+\gamma_D(t):= \phi^{-1} (\phi(p) + t (D(\phi_1), \ldots, D(\phi_n)))
+```
+
+eine differenzierbare Kurve durch $p$. Diese Idee wird in folgendem Lemma formalisiert.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$. Die Abbildung 
+
+```{math}
+\Theta: T^{\text{geom}}_p\M &\to T^{\text{alg}}_p\M\\
+\gamma &\to D_\gamma
+```
+
+ist ein Isomorphismus.
+````
+
+### Basis des Tangentialraums
+
+Wir wollen eine Basis des algebraischen Tangentialraums konstruieren. Im euklidischen können wir auf natürliche Art die Koordinatenrichtungen als Kurven wählen, also Funktionen der Form
+
+```{math}
+t\mapsto t e_i
+```
+
+für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. Wir können diese Idee auf Mannigfaltigkeiten übertragen. Dazu wählen wir eine Karte $\phi:\M\to\R^n$, wobei man hier auch von $\phi = (\phi_1,\ldots,\phi_n) =: (x^1,\ldots,x^n)$ als **lokales Koordinatensystem** spricht. So erhalten Kurven
+
+```{math}
+\gamma_{x^i}(t):= p + \phi(t e_i)
+```
+
+und darüber die Derivationen
+
+```{math}
+\partial_{x^i}:C^\infty(\M)\to\R\\
+\partial_{x^i}(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
+```
+
+Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}$ als Derivation, d.h. insbesondere, als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
+
+````{prf:lemma}
+Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1},\ldots,\partial_{x^n}\}$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
+````
+
+### Tangentialbündel
+
+Im folgenden bezeichne $T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}$ entweder den algebraischen oder den geometrischen Tangentialraum. Wir werden die Wahl an den entsprechenden Stellen spezifizieren.
+Wir haben bisher für jedes $p\in\M$ einen Vektorraum betrachtet, nämlich den Tangentialraum an $p$. Wir wollen nun eine globale Struktur betrachten die alle diese Vektorräume (d.h. für jedes $p\in\M$) zusammenfasst.
+
+Wir haben einen sogenannten **Basisraum** $B=\M$ aus welchem wir die Punkte $p$ entnehmen und für jedes einzelne $p$ erhalten wir einen Vektorraum
+$T_p\M$. Der topologischer Raum $E$ der alle diese Vektorräume enthält, nennt man in diesem Kontext **Totalraum**, er wird über die disjunkte Vereinigung
+
+```{math}
+E = T\M:= \bigsqcup_{p\in\M}  T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
+```
+
+definiert. Der Trick bei der Definition des Totalraums das erzeugende Element an erster Stelle zu schreiben, erlaubt uns die Projektion
+
+```{math}
+\pi:T\M\to \M\\
+\{p\}\times T_p\M\mapsto p
+```
+
+zu definieren. D.h. von jedem Element des Totalraums, können wir eindeutig zurück auf $\M$ projizieren. Weiterhin erkennen wir aber auch, dass für jedes $p\in\M$ der Raum $\pi^{-1}(p) = \{p\}\times T_p\M$ ein reeller $n$-dimensionaler Vektorraum ist.
+
+Die Situation die wir so erzeugt haben, führt auf das abstrakte Konzept der **Vektorbündel**.
+
+````{prf:definition}
+Es seien $B$ der Basisraum und $E$ der Totalraum topologische Räume und $\pi:E\to B$ sei stetig und bijektiv. Weiterhin gelte
+
+* für jedes $x\in B$ sei die sogenannte **Faser** $E_x:= \pi^{-1}(x)$ ein $n$-dimensionaler Vektorraum,
+
+* Zu jedem $x\in B$ existiert eine offene Umgebung $U\subset B$ und ein Homöomorphismus $\psi: U\times\R^n\to \pi^{-1}(U)$, s.d.,
+
+```{math}
+(\pi\circ\psi)(y,\cdot) &= y\quad\forall y\in U\\
+\psi_y:\{y\}\times \R^n&\to \pi^{-1}(y)\text{ ist ein Isomorphismus}.
+```
+
+Dann heißt $(E,B,\pi)$ **Vektorbündel** vom Rang $n$.
+````
+
+
+Anschaulich heißt die Darstellung, dass der Raum $E$ lokal immer als Produktraum dargestellt werden kann.
+
+````{prf:example}
+Zylinder
+````
+
+````{prf:example}
+Möbius-Band
+````
+
+````{prf:lemma}
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit mit dem Tangentialraum 
+
+```{math}
+T\M:= \bigsqcup_{p\in\M}  T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
+```
+
+und der Abbildung
+
+```{math}
+\pi:T\M\to \M\\
+\{p\}\times T_p\M\mapsto p.
+```
+
+Dann ist $(T\M, \M, \pi)$ ein Vektorbündel vom Rang $n$.
+````
+
+````{prf:proof}
+Relativ lang, siehe hier [Skript Uni Hamburg](https://www.math.uni-hamburg.de/home/lindemann/material/DG2020L7_slides.pdf)
+````
+
+
+### Vektorfelder
+
 
 ## Tensorfelder
 
