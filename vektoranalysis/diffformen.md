@@ -583,6 +583,54 @@ Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}$ als Derivatio
 Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1},\ldots,\partial_{x^n}\}$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
 ````
 
+#### Kotangentialraum
+
+Da wir den Tangentialraum $T^{\text{alg}}_p$ als Vektorraum identifiziert haben, können wir auch den algebraischen Dualraum betrachten.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann bezeichnen wir mit 
+
+```{math}
+T_p^\ast\M:= (T_p^{\text{alg}}\M)^\ast
+```
+
+den algebraischen Dualraum des Tangentialraums, der sogenannte **Kotangentialraum**.
+````
+
+````{prf:remark}
+Ein Element $\delta\in T^\ast\M$ ist also eine lineare Abbildung 
+
+```{math}
+\delta: (T_p^{\text{alg}}\M)\to\R,
+```
+
+welches eine Derivation $D\in C^\infty(\M)^\ast$ auf eine reelle Zahl $\delta(D)\in\R$ abbildet.
+````
+
+Ein wichtiges Element des Kotangentialraums ist das **totale Differential**, welches für jede Funktion $f\in\C^\infty(\M)$ definiert ist durch
+
+```{math}
+df:(T_p^{\text{alg}}\M)\to\R\\
+D\mapsto df(D):= D(f).
+```
+
+Insbesondere können wir $df$ mit einer Funktion $C^\infty(M)$ identifizieren, was den Zusammenhang von $T^\ast_p$ als Bidualraum von
+$C^\infty(\M)$ unterstreicht.
+
+Die Basis von $T^\ast_p$ wird kanonisch als duale Basis gewählt. Jeder Vektor $v\in T_p^{\text{alg}}\M$ hat eine eindeutige Darstellung
+
+```{math}
+v = \sum_{i=1}^n \alpha_i \partial_{x^i},
+```
+
+und wir wählen die Abbildung $dx^i\in T^\ast_p$ gerade so, dass
+
+```{math}
+(dx^i)(v) = \alpha_i
+```
+
+gilt. Wegen (Lemma duale Basis) ist dann $\{dx^1,\ldots, dx^n\}$ eine Basis von $T^\ast_p\M$.
+
 ### Tangentialbündel
 
 Im folgenden bezeichne $T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}$ entweder den algebraischen oder den geometrischen Tangentialraum. Wir werden die Wahl an den entsprechenden Stellen spezifizieren.
@@ -607,29 +655,62 @@ zu definieren. D.h. von jedem Element des Totalraums, können wir eindeutig zur�
 Die Situation die wir so erzeugt haben, führt auf das abstrakte Konzept der **Vektorbündel**.
 
 ````{prf:definition}
-Es seien $B$ der Basisraum und $E$ der Totalraum topologische Räume und $\pi:E\to B$ sei stetig und bijektiv. Weiterhin gelte
+Es seien $\M$ der Basisraum und $E$ der Totalraum glatte Mannigfaltigkeiten und $\pi:E\to \M$ sei glatt und bijektiv. Weiterhin gelte
 
-* für jedes $x\in B$ sei die sogenannte **Faser** $E_x:= \pi^{-1}(x)$ ein $n$-dimensionaler Vektorraum,
+* für jedes $p\in \M$ sei die sogenannte **Faser** $E_p:= \pi^{-1}(p)$ ein $n$-dimensionaler Vektorraum,
 
-* Zu jedem $x\in B$ existiert eine offene Umgebung $U\subset B$ und ein Homöomorphismus $\psi: U\times\R^n\to \pi^{-1}(U)$, s.d.,
+* Zu jedem $p\in \M$ existiere eine offene Umgebung $U\subset \M$ und ein Diffeomorphimus $\psi: \pi^{-1}(U)\to U\times\R^n$, s.d., 
+für alle $x\in U$
 
 ```{math}
-(\pi\circ\psi)(y,\cdot) &= y\quad\forall y\in U\\
-\psi_y:\{y\}\times \R^n&\to \pi^{-1}(y)\text{ ist ein Isomorphismus}.
+\text{pr}_U(\psi(x)) &= \pi(x)\quad\forall x\in \pi^{-1}(U)\\
+\psi\rvert_{E_q}&: \pi^{-1}(q) \to \{q\}\times \R^n \text{ ist ein Isomorphismus, für alle }q\in U.
 ```
 
-Dann heißt $(E,B,\pi)$ **Vektorbündel** vom Rang $n$.
+Dann heißt $(E,\M,\pi)$ **Vektorbündel** vom Rang $n$. Hierbei bezeichnet $\text{pr}_U(q, z):= u$ die Projektion auf die $U$ Komponente eines Vektors $(q,z)\in U\times\R^n$.
 ````
 
-
-Anschaulich heißt die Darstellung, dass der Raum $E$ lokal immer als Produktraum dargestellt werden kann.
-
-````{prf:example}
-Zylinder
+````{prf:remark} Bündel-Notation
+Anstatt das Vektorbündel $(E,\M,\pi)$ als Tripel aufzuschreiben, ist es üblich von einem Bündel $E\overset{\pi}{\to}\M$ oder sogar $E\to\M$ zu sprechen. Die Abbildung $\pi$ wird im zweiten Fall nur implizit vorausgesetzt.
 ````
 
+Die Funktion $\psi$ heißt hier **lokale Trivialisierung**, denn sie erlaubt es uns den Totalraum $E$ lokal als Produktraum darzustellen. Die Idee des Vektorbündels kommt von der Anschauung, dass wir eine Familie von Vektorräumen haben, die durch einen anderen Raum parametrisiert sind. Die Parametrisierung ist hierbei durch die Funktion $\pi^{-1}$ charakterisiert.
+
+````{prf:example} Zylinder
+Wir wählen als Basisraum den Einheitskreis $\M:=\mathbb{S}^1\subset \R^2$. Für jeden Punkt auf dem Kreis wählen wir den Vektorraum $\R$, somit betrachten wir also eine konstante Abbildung 
+
+```{math}
+\chi(p):= \R\text{ für alle }p\in \M.
+```
+
+Damit definieren wir den Totalraum 
+
+```{math}
+E := \bigsqcup_{p\in\M} \chi(p) = \bigcup_{p\in\M} \{p\}\times \R = \M\times\R
+```
+
+und die Projektion $\pi:E\to\M$
+
+```{math}
+\pi(\{p\}\times \R):= \{p\}.
+```
+
+Wir erkennen, dass man in diesem Fall die Trivialisierung $\psi:=\mathrm{Id}$ wählen kann, welche nicht nur lokal sondern global gilt. 
+Vektorbündel, für welche eine lokale Trivialisierung auf ganz $\M$ existiert heißen **trivial**. 
+````
+
+Im obigen Beispiel ordnen wir jedem Punkt $p\in\mathbb{S}^1$ den Vektorraum $\{p\}\times\R$ zu. Diese Idee wurde in der Definition eines Vektorbündels verallgemeinert. Wir fordern nicht konkret, dass für jedes $q\in\M$ der Vektorraum $E_q$ gleich $\{q\}\times\R^n$ ist, allerdings fordern wir die Isomorphie $E_q\cong \{q\}\times\R^n$ gibt. A priori könnte es für jedes $q\in\M$ nun unterschiedliche Isomorphismen $\psi_q$ geben die keineswegs miteinander übereinstimmen. Deshalb kontrollieren wir zusätzlich wie unterschiedlich die Isomporphismen für verschiedene $q$ sind. Konkret fordern wir das lokal für $U\subset\M$ ein Diffeomorphismus $\phi:\pi^{-1}(U)\to U\times\R^n$ existiert.
+
+```{note}
+Die Grundidee hinter Vektorbündeln ist der Wunsch Teile des Totalraums $E$ mit Mengen $U\times\R^n$ zu identifizieren.
+```
+
 ````{prf:example}
-Möbius-Band
+Möbius-Band.
+````
+
+````{prf:lemma}
+ToDo: $T\M$ ist glatte Mannigfaltigkeit.
 ````
 
 ````{prf:lemma}
@@ -653,9 +734,73 @@ Dann ist $(T\M, \M, \pi)$ ein Vektorbündel vom Rang $n$.
 Relativ lang, siehe hier [Skript Uni Hamburg](https://www.math.uni-hamburg.de/home/lindemann/material/DG2020L7_slides.pdf)
 ````
 
-
 ### Vektorfelder
 
+Wir führen zunächst sogenannte Schnitte auf Bündeln ein. Anschaulich abstrahieren wir hier das Konzept der Graphen von Funktionen.
+
+Es sei $f:\M\to\R^n$ eine Funktion$, dann ist ihr Graph gegeben durch
+
+```{math}
+\{(p,f(p)): p\in\M\}\subset \M\times\R^n.
+```
+
+Hierbei sehen wir, dass $\M\times\R^n\overset{\pi}{\to}\M$ ein triviales Bündel ist mit 
+
+```{math}
+\pi(p,(f(p))) = p.
+```
+
+Verallgemeinert betrachten führt diese Überlegung auf folgende Definition.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $E\overset{\pi}{\to}\M$ ein Vektorbündel. Eine glatte Abbildung 
+
+```{math}
+\sigma: \M\to E
+```
+
+heißt **glatter Schnitt**, falls 
+
+```{math}
+\pi(\sigma(p)) = p\quad\text{ für alle }p\in \M.
+```
+
+Die Menge der glatten Schnitte wird mit $\gamma(E)$ bezeichnet.
+````
+
+Für offenen Mengen im euklidischen kennen wir bereits den Begriff **Vektorfeld**, nämlich eine Funktion
+
+```{math}
+F:U\to\R^n
+```
+
+wobei $U\subset\R^n$ offen ist. Wir nehmen also Punkte $x\in\R^n$ und ordnen ihnen Vektoren $F(x)\in\R^n$ aus dem gleichen Raum zu.
+
+Betrachten wir statt offenen Mengen $U\subset\R^n$ nun glatte Mannigfaltigkeiten $\M$ so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen. Hierbei hilft uns nun der Tangentialraum $T\M$, welcher die richtige Wahl des Zielraums darstellt. Somit können wir Vektorfelder verallgemeinern indem wir als Schnitte des Tangenialraums auffassen.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit, ein glatter Schnitt 
+
+```{math}
+X:\M\to T\M
+```
+
+heißt glattes Vektorfeld.
+````
+
+Für Tangentialbündel haben wir die Abbildung $\pi:T\M\to\M$ durch
+
+```{math}
+\pi(\{p\}\times v):= p\quad\text{ für } (p,v)\in\{p\}\times T_p\M
+```
+
+definiert. Ist $X$ nun ein glattes Vektorfeld, so gilt
+
+```{math}
+\pi(X(p)) = p
+```
+
+und somit insbesondere $X(p)\in T_p\M$. Ein Vektorfeld ordnet also jedem Punkt $p\in\M$ ein Element seines Tangentialraums zu. Falls $\M$ eine offene Menge in $\R^n$ ist, ist dies insbesondere konsistent zur bekannten Definition von Vektorfeldern.
 
 ## Tensorfelder
 
