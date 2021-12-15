@@ -1,4 +1,4 @@
-# Differentialformen
+# Differentialformen auf Mannigfaltigkeiten
 
 In diesem Kapitel der Vektoranalysis werden wir nun [Differentialformen](https://de.wikipedia.org/wiki/Differentialform) einführen.
 Die entscheidende Neuerung im Vergleich zum vorangegangen Kapitel über Tensoren ist, dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen.
@@ -29,43 +29,53 @@ Das zentrale Konzept topologischer Räume ist die folgende Definition der *offen
 Wir bezeichnen mit $\tau$ die **Topologie** des Raumes und dessen Elemente $U\in\tau$ heißen **offene Mengen**.
 Für jeden Punkt $x\in \M$ nennen wir eine offene Menge $U(x) \in \tau$ **Nachbarschaft** oder **Umgebung** um $x$, falls $x\in U(x)$.
 
-Analog zur Definition auf metrischen Räumen bezeichnen wir das Komplement einer offenen Menge als **abgeschlossen**.
+Analog zur Definition auf metrischen Räumen bezeichnen wir das Komplement $\M \setminus U$ \einer offenen Menge $U$ als **abgeschlossen**.
 ````
 
 Es gibt viele interessante topologische Räume, die den Namen ihrer Entdecker tragen, wie zum Beispiel der [Arens-Fort-Raum](https://de.wikipedia.org/wiki/Arens-Fort-Raum), der [Cantor-Raum](https://de.wikipedia.org/wiki/Cantor-Raum), oder der [Hilbertwürfel](https://de.wikipedia.org/wiki/Hilbertw%C3%BCrfel).
 Im Folgenden wollen wir ein relativ generisches Beispiel für einen topologischen Raum betrachten.
 
 ````{prf:example} Diskrete Topologie
+:label: ex:diskreteTopologie
+
 Es sei $M$ eine beliebige Menge. 
-Dann können wir eine Topologie $\tau$ auf $M$ definieren, in dem wir alle Teilmengen von $M$ als offen definieren.
-In diesem Beispiel folgt trivialerweise, dass $\tau = \mathcal{P}(M)$ gilt.
-Dann ist $(M, \tau)$ ein topologischer Raum.
-Diese Topologie nennt man **diskrete Topologie**, da für jeden diskreten Punkt $x \in M$ die Menge $\lbrace x \rbrace$ offen ist.
+Dann können wir eine Topologie $\tau$ auf $\M$ definieren, in dem wir alle Teilmengen von $\M$ als offen definieren.
+In diesem Beispiel folgt trivialerweise, dass $\tau = \mathcal{P}(\M)$ gilt.
+Dann ist $(\M, \tau)$ ein topologischer Raum.
+Diese Topologie nennt man **diskrete Topologie**, da für jeden diskreten Punkt $x \in \M$ die Menge $\lbrace x \rbrace$ offen ist.
 
 Die diskrete Topologie wird durch eine spezielle Metrik erzeugt, wie man im Folgenden einsieht.
-Seien $x,y \in M$ Punkte der Menge und $d \colon M \times M \rightarrow \R^+_0$ eine Metrik auf $M$ mit
+Seien $x,y \in M$ Punkte der Menge und $d \colon \M \times \M \rightarrow \R^+_0$ eine Metrik auf $\M$ mit
 
 ```{math}
 d(x,y) := \begin{cases} 0, \quad \text{ falls } x=y,\\ 1, \quad \text{ falls } x\neq y. \end{cases}
 ```
 
-Über diese Metrik kann man nun *offene Umgebungen* von Punkten $x \in M$ wie folgt konstruieren,
+Über diese Metrik kann man nun *offene Umgebungen* von Punkten $x \in \M$ wie folgt konstruieren,
 
 ```{math}
-B_1(x) := \lbrace y \in M : d(x,y) < 1 \rbrace = \lbrace x \rbrace.
+B_1(x) := \lbrace y \in \M : d(x,y) < 1 \rbrace = \lbrace x \rbrace.
 ```
 
 Dies führt dazu, dass alle Teilmengen, die nur einen Punkt der Menge enthalten, offen sind.
-Über beliebige Vereinigung dieser Punktmengen, lassen sich dann alle Teilmengen der Potenzmenge $\mathcal{P}(M)$ als offen definieren und man erhält somit die diskrete Topologie.
+Über beliebige Vereinigung dieser Punktmengen, lassen sich dann alle Teilmengen der Potenzmenge $\mathcal{P}(\M)$ als offen definieren und man erhält somit die diskrete Topologie.
+````
+
+````{prf:remark} Notation von topologischen Räumen
+Häufig spielt die konkrete Wahl einer Topologie $\tau \subset \mathcal{P}(\M)$ keine Rolle für die mathematischen Aussagen, die man treffen möchte.
+Da wir jede beliebige Menge $\M$ mit der diskreten Topologie aus {prf:ref}`ex:diskreteTopologie` zu einem topologischen Raum $(\M, \tau)$ ausstatten können, wird die Angabe der konkreten Topologie $\tau$ häufig ausgelassen.
+In solchen Fällen identifiziert man den topologischen Raum einfach mit der zu Grunde liegenden Menge $\M$, d.h., wir nennen $\M$ einen topologischen Raum, wenn die konkrete Topologie im gewählten Kontext eindeutig ist oder keine Rolle spielt.
 ````
 
 Viele mathematische Konzepte lassen sich von metrischen oder normierten Räumen auf topologische Räume übertragen, wie zum Beispiel der Begriff einer stetigen Funktion.
 
 ````{prf:definition} Stetige Funktionen auf topologischen Räumen
-Seien $(M_1, \tau_1)$ und $(M_2, \tau_2)$ topologische Räume und $f$ eine Funktion mit
+:label: def:stetigkeitTopologie
+
+Seien $(\M_1, \tau_1)$ und $(\M_2, \tau_2)$ topologische Räume und $f$ eine Funktion mit
 
 ```{math}
-f \colon (M_1, \tau_1) \rightarrow (M_2, \tau_2).
+f \colon (\M_1, \tau_1) \rightarrow (\M_2, \tau_2).
 ```
 
 Wir nennen $f$ **stetig**, wenn die Urbilder offener Mengen in $\tau_2$ unter $f$ wieder offene Mengen in $\tau_1$ ergeben, d.h.,
@@ -118,76 +128,79 @@ name: "fig:kugel"
 Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kugeloberfläche $\mathbb{S}^2$.
 ```
 
-Aus dieser Anschauung wird klar, dass unser bisheriges Konzept von Differenzierbarkeit im Mehrdimensionalen aus [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html) nicht ausreicht, um auf diesem Objekt geeignet Funktionen abzuleiten.
-Da man in vielen Bereichen der Physik und der Mathematik nicht nur auf offenen Teilmengen des $\R^n$ ableiten möchte, benötigen wir ein analoges Prinzip für topologische Räume $(M, \tau)$.
+Aus dieser Anschauung wird klar, dass unser bisheriges Konzept von Differenzierbarkeit im Mehrdimensionalen aus dem [MP-2 Skript](https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html) nicht ausreicht, um auf diesem Objekt geeignet Funktionen abzuleiten.
+Da man in vielen Bereichen der Physik und der Mathematik nicht nur auf offenen Teilmengen des $\R^n$ ableiten möchte, benötigen wir ein analoges Prinzip für topologische Räume $\M := (\M, \tau)$.
 
 **Wie können wir den Ableitungsbegriff auf topologische Räume übertragen?**
 
 Die grundlegende Idee ist es, den topologischen Raum $\M$ lokal mit einer Teilmenge des $\R^n$ zu identifizieren.
-Sei $f \colon M \rightarrow \R^m$ eine Funktion, die Punkte des topologischen Raumes auf Punkte des $\R^n$ abbildet.
-Für eine beliebige offene Teilmenge $U\subset \M$ betrachten wir also eine Abbildung 
+Für eine beliebige offene Teilmenge $U\subset \M$ betrachten wir also eine Abbildung
 
 ```{math}
-\phi:U\rightarrow \phi(U) \subset \R^n.
+\phi:U\rightarrow \R^n.
 ```
 
-Wir wollen hierbei aber nur *injektive Abbildungen* betrachten, so dass, eine inverse Abbildung $\phi^{-1}:\phi(U)\rightarrow U$ existiert und wohldefiniert ist.
-Betrachten wir also eine Funktion $f:\M\to\R$, die wir differenzieren möchten, so sehen wir ein, dass die Verknüpfung
+Wir wollen fordern, dass es sich bei $\phi$ um eine *injektive Abbildung* handelt, so dass eine inverse Abbildung $\phi^{-1}$ existiert.
+Diese Umkehrabbildung müssen wir jedoch auf das Bild $\phi(U) \subset \R^n$ einschränken, damit sie wohldefiniert ist.
+Damit erhalten wir eine *lokale Bijektion* $\phi^{-1}:\phi(U)\rightarrow U$.
+
+Betrachten wir nun eine Funktion $f \colon \M \rightarrow \R^m$, die Punkte des topologischen Raumes auf Punkte des $\R^m$ abbildet.
+Wenn wir diese Funktion differenzieren möchten, so sehen wir ein, dass die Verknüpfung
 
 ```{math}
-f \circ \phi^{-1} : \R^n \supset \phi(U)\to \R
+f \circ \phi^{-1} : \phi(U) \subset \R^n \to \R^m
 ```
 
-es erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konzept der mehrdimensionalen Differentiation im $\R^n$ zurückführt.
-
-````{prf:example}
-Kurve
-````
+es uns erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konzept der mehrdimensionalen Differentiation im $\R^n$ zurückzuführen.
 
 ### Karten und Atlanten auf topologischen Räumen
 
-Um den Ableitungsbegriff tatsächlich definieren zu können, benötigen wir aber zusätzlich zur Bijektivität die Bedingung, dass für jede Teilmenge $V\subset U$ gilt,
+Um den Ableitungsbegriff auf topologischen Räumen $\M$ formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung $\phi \colon U \rightarrow \phi(U) \subset \R^n$ die Bedingung, dass für jede Teilmenge $V\subset U \subset M$ gilt,
 
 ```{math}
-\phi(V)\text{ ist offen}\Leftrightarrow V \text{ ist offen}.
+\phi(V)\text{ ist offen} \ \Leftrightarrow \ V \text{ ist offen}.
 ```
 
-Erste Implikation: $\phi(V)$ ist offen $\Rightarrow V $ ist offen.
+Diese Forderung bedeutet, dass offene Teilmengen in $U \subset \M$ gerade mit offenen Teilmengen in $\phi(U) \subset \R^n$ identifiziert werden.
+Wir wollen im Folgenden beide Implikationsrichtungen diskutieren.
 
-Für jede offene Menge $E\subset\phi(U)$ haben wir $E=\phi(\phi^{-1}(E))$, somit ist diese Implikation äquivalent zur Forderung, dass Urbilder offener Mengen selbst wider offen sind. Diese bedeutet wiederum genau, dass $\phi$ stetig ist. Insbesondere sehen wir, dass es für den Begriff der Stetigkeit reicht auf einer Topologie zu arbeiten.
+1\. $\phi(V)$ ist offen $\Rightarrow V $ ist offen.
 
-Zweite Implikation: $\phi(V)$ ist offen $\Leftarrow V $ ist offen.
+Diese Implikation äquivalent zur Forderung, dass Urbilder offener Mengen selbst wieder offen sind.
+Mit {prf:ref}`def:stetigkeitTopologie` bedeutet dies wiederum, dass die Abbildung $\phi$ stetig ist.
 
-Analog zur obigen Überlegung sehen wir, dass diese Bedingung gerade aussagt, dass $\phi^{-1}$ stetig ist.
+2\. $\phi(V)$ ist offen $\Leftarrow V $ ist offen.
+
+Analog zur obigen Überlegung sehen wir ein, dass diese Bedingung gerade aussagt, dass $\phi^{-1}$ stetig ist.
 Diese Forderung ist nicht immer trivialerweise erfüllt.
-Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung gibt, s.d. $\phi^{-1}$ nicht stetig ist.
+
+Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung $\phi$ gibt, für die gilt, dass die Umkehrabbildung $\phi^{-1}$ *nicht stetig* ist.
 
 ````{prf:example}
 :label: ex:nonho
 
-Wir betrachten die Funktion 
+Wir betrachten in diesem Beispiel die Funktion 
 
 ```{math}
-\phi:[0,2\pi)\to\R^2,\\
-\phi(t):= (\cos(t), \sin(t)).
+\phi:[0,2\pi)&\to\R^2,\\
+t &\mapsto \phi(t):= (\cos(t), \sin(t)).
 ```
 
-Wir erkennen, dass $\S^1 = \phi([0,2\pi))$ gerade der Einheitskreis ist und, dass $\phi:[0,2\pi)\to\S^1$ bijektiv und stetig ist.
-Allerdings sehen wir, dass die Umkehrabbildung nicht stetig ist. Sei dazu $(x_i)_{i\in\N}$ eine Folge von Punkten, s.d. für alle $i\in\N$ gilt,
+Wir erkennen, dass $\phi([0,2\pi)) = \S^1$ gerade der Einheitskreis ist, und dass $\phi:[0,2\pi)\to\S^1$ bijektiv und stetig ist.
+Allerdings stellen wir fest, dass die Umkehrabbildung nicht stetig ist. 
+Sei dazu $(x_i)_{i\in\N}$ eine Folge von Punkten auf dem Einheitskreis $\S^1$, deren $y$-Koordinate negativ ist und die gegen den Punkt $x = (1,0) \in \S^1$ konvergieren, d.h.,
 
 ```{math}
-x_i&\in \S^1,\\
-(x_i)_2 &<0,\\
-\lim_{i\rightarrow\infty} x_i &=: x = (1,0).
+\lim_{i\rightarrow\infty} x_i =: x = (1,0) \in \S^1.
 ```
 
-Dann sehen wir aber, dass 
+Betrachten wir jedoch den Grenzwert der Folge von Funktionswerten $(\phi^{-1}(x_i))_{i\in I}$, so sehen wir, dass 
 
 ```{math}
 \lim_{i\to\infty} \phi^{-1} (x_i) = 2\pi \neq 0 = \phi^{-1}(x)
 ```
 
-und somit ist $\phi^{-1}$ nicht stetig.
+und somit ist $\phi^{-1}$ offensichtlich nicht stetig.
 
 ````
 
@@ -196,32 +209,48 @@ und somit ist $\phi^{-1}$ nicht stetig.
 height: 450px
 name: "fig:nonh"
 ---
-Visualisierung für {prf:ref}`ex:nonho`.
+Visualisierung einer unstetigen Umkehrabbildung für das {prf:ref}`ex:nonho`.
 ```
 
-Insgesamt forder wir also, dass $\phi:U\rightarrow\phi(U)$ bijektiv ist und, dass $\phi,\phi^-1$ stetig sind.
-Eine solche Abbildung nennt man auch **Homöomorphismus**.
-Speziell im Kontext von Mannigfaltigkeiten haben wir somit das Konzept einer **Karte** eingeführt.
+Insgesamt fordern wir also, dass $\phi:U\rightarrow\phi(U)$ bijektiv ist und zusätzlich, dass sowohl $\phi$ als auch die Umkehrabbildung $\phi^-1$ stetig sind.
+Eine solche Abbildung definiert man unter dem Begriff *Homöomorphismus*.
+
+````{prf:definition} Homöomorphismus
+Seien $X$ und $Y$ topologische Räume.
+Dann nennen wir eine Abbildung $f \colon X \rightarrow Y$ einen **Homöomorphismus**, wenn sie folgende Eigenschaften erfüllt:
+
+1. $f$ ist bijektiv
+2. $f$ ist stetig
+3. die Umkehrfunktion $f^{-1}$ ist ebenfalls stetig.
+````
+
+Speziell im Kontext von Mannigfaltigkeiten $\M$, als Spezialfall topologischer Räume (wie wir noch sehen werden), nennt man eine offene Menge zusammen mit einem Homöomorphismus eine **Karte** auf $\M$.
 
 ```{prf:definition} Karte
-Es sei $\M$ ein topologischer Raum, $U\subset\M$ offen und $\phi:U\rightarrow \phi(U)\subset \R^n$ sei ein Homöomorphismus, dann heißt das Tupel $(U,\phi)$ **Karte** auf $\M$.
+Es sei $\M$ ein topologischer Raum und $U\subset\M$ eine offene Menge.
+Sei außerdem $\phi:U\rightarrow \phi(U)\subset \R^n$ ein Homöomorphismus.
+Dann heißt das Tupel $(U,\phi)$ **Karte** auf $\M$.
 ```
 
-Die Situation nun den Ableitungsbegriff für Funktionen $f:\M\to\R$ über eine Karte $(U,\phi)$ und der Verknüpfung $f\circ \phi$ zu definieren ist noch immer nicht komplett durchdacht. Denn in der Situation, dass $(V,\psi)$ eine zweite Karte ist mit $U\cap V\neq \emptyset$ erhalten wir auf dem Schnitt dieser Mengen zwei Parametrisierungen,
+Um einen Ableitungsbegriff für Funktionen $f:\M\to\R^m$ über eine Karte $(U,\phi)$ und der Verknüpfung $f\circ \phi^{-1}$ zu definieren benötigen wir noch ein zusätzliches Konzept.
+Denn in der Situation, dass $(V,\psi)$ eine zweite Karte ist, deren offene Menge $V$ einen nichtleeren Schnitt mit der offenen Menge $U$ hat, d.h., $U\cap V \neq \emptyset$, erhalten wir genau auf dem Schnitt dieser Mengen zwei unterschiedliche Parametrisierungen,
 
 ```{math}
 f\circ \phi^{-1} = (f\circ\psi^{-1})\circ(\psi\circ \phi^{-1}),\\
 f\circ \psi^{-1} = (f\circ\phi^{-1})\circ(\phi\circ \psi^{-1}).
 ```
 
-````{prf:definition}
-Es sei $\M$ ein topologischer Raum und $(U,\phi), (V,\psi)$ zwei Karten auf $\M$ mit nicht-leerem Schnitt, d.h., $U\cap V\neq \emptyset$. Dann nennt man 
+Um von einer Karte zur nächsten Karte zu kommen benötigen wir eine geeignete Abbildung.
+
+````{prf:definition} Kartenwechsel
+Es sei $\M$ ein topologischer Raum und es seien $(U,\phi)$ und $(V,\psi)$ zwei Karten auf $\M$ mit nicht-leerem Schnitt, d.h., $U\cap V\neq \emptyset$. 
+Dann nennt man die Abbildung
 
 ```{math}
 \psi\circ\phi^{-1}: \phi(U\cap V)\rightarrow \psi(U\cap V)
 ```
 
-**Kartenwechsel**.
+einen **Kartenwechsel** von $(U,\phi)$ nach $(V,\psi)$.
 
 ````
 
@@ -233,26 +262,30 @@ name: "fig:chartchange"
 Kartenwechsel.
 ```
 
-Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind. 
-Wäre nun $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen. Allerdings existieren durchaus Fälle, in welchen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber $\psi\circ\phi^{-1}$ nicht. Deshalb führt man zusätzlich folgenden Begriff ein.
+Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind, um von einer lokalen Identifikation des topologischen Raums zur nächsten zu gelangen.
+Wäre nun der Kartenwechsel $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen.
+Allerdings existieren durchaus Beispiele, in dnen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber der Kartenwechsel $\psi\circ\phi^{-1}$ nicht.
+Deshalb führt man zusätzlich noch den folgenden Begriff ein.
 
 ````{prf:definition} Atlas
-Es sei $\M$ ein topologischer Raum, eine Familie von Karten $\mathcal{A} = (U_i,\phi_i)_{i\in I}$ indiziert durch die Indexmenge $I$ heißt **Atlas**, falls 
+Es sei $\M$ ein topologischer Raum.
+Eine Familie von Karten $\mathcal{A} = (U_i,\phi_i)_{i\in I}$ indiziert durch die Indexmenge $I$ heißt **Atlas**, falls die Vereinigung aller offenen Mengen eine Überdeckung des topologischen Raums darstellt, d.h., es gilt
 
 ```{math}
-M = \bigcup_{i\in I} U_i.
+\M = \bigcup_{i\in I} U_i.
 ```
 
-Wir nennen einen Atlas $k$-mal differenzierbar oder von der der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i^{-1}\circ\phi_j, i,j\in I$ $k$-mal stetig differenzierbar ist.
+Wir nennen einen Atlas $k$-mal **differenzierbar** oder von der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i^{-1}\circ\phi_j, i,j\in I$ $k$-mal stetig differenzierbar ist.
 
 ````
 
 Die Begriffe *Karte* und *Atlas* stammen in der Tat aus mathematischen Überlegungen in der Kartographie.
 Man kann Teile der Erdoberfläche mit einer Karte auf eine Ebene $\R^2$ abbilden.
 Nähert man sich dem Rand einer Karte, so möchte man zu einer anderen Karte wechseln, die das angrenzende Gebiet darstellt. 
+
 So kann eine Mannigfaltigkeit durch einen vollständigen Satz von Karten vollständig beschrieben werden; man braucht dabei Regeln, wie sich beim Kartenwechsel die Karten überlappen.
 
-### Differenzierbare Struktur
+### Differenzierbare Mannigfaltigkeiten
 
 Für eine topologischen Raum $\M$ können mehrere Atlanten $\mathcal{A}$  existieren, weshalb man zusätzlich eine Äquivalenzklasse definiert. Für eine Differenzierbarkeitsstufe $k\in \N \cup \{\infty\}$ heißen zwei $C^k$ Atlanten  $\mathcal{A}_1, \mathcal{A}_2$ $k$-äquivalent, $\mathcal{A}_1\sim_k \mathcal{A}_2$, falls ihre Vereinigung
 
@@ -261,8 +294,6 @@ Für eine topologischen Raum $\M$ können mehrere Atlanten $\mathcal{A}$  existi
 ```
 
 ein $C^k$ Atlas ist. Die Äquivalenzklasse $[\mathcal{A}]_{\sim_k}$ nennt man $C^k$-differenzierbare Struktur.
-
-### Differenzierbare Mannigfaltigkeiten
 
 ```{margin}
 [Felix Hausdorff](https://de.wikipedia.org/wiki/Felix_Hausdorff) (geboren am 8. November 1868 in Breslau; gestorben am 26. Januar 1942 in Bonn) war ein deutscher Mathematiker.
