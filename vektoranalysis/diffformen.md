@@ -288,10 +288,13 @@ So kann eine Mannigfaltigkeit durch einen vollständigen Satz von Karten vollst�
 ### Differenzierbare Mannigfaltigkeiten
 
 Für einen topologischen Raum $\M$ können mehrere Atlanten $\mathcal{A}$ existieren, weshalb es sinnvoll ist Äquivalenzklassen von Atlanten zu betrachten.
-Für eine Differenzierbarkeitsstufe $k\in \N \cup \{\infty\}$ heißen zwei differenzierbare Atlanten $\mathcal{A}_1, \mathcal{A}_2$ der Klasse $C^k$ $k$-äquivalent, falls ihre Vereinigung $\mathcal{A}_1\cup \mathcal{A}_2$ wieder ein Atlas der Klasse $C^k$ ist.
+
+````{prf:definition} $C^k$-differenzierbare Struktur
+Für einen Index $k\in \N \cup \{\infty\}$ heißen zwei differenzierbare Atlanten $\mathcal{A}_1, \mathcal{A}_2$ der Klasse $C^k$ **$k$-äquivalent**, falls ihre Vereinigung $\mathcal{A}_1\cup \mathcal{A}_2$ wieder ein Atlas der Klasse $C^k$ ist.
 Dies bedeutet insbesondere, dass die Kartenwechsel durch die Vereinigung der beiden Atlanten weiterhin $k$-mal stetig differenzierbar bleiben.
 In diesem Fall notieren wir $\mathcal{A}_1\sim_k \mathcal{A}_2$.
 Die Äquivalenzklasse $[\mathcal{A}]_{\sim_k}$ nennt man eine **$C^k$-differenzierbare Struktur**.
+````
 
 ```{margin}
 [Felix Hausdorff](https://de.wikipedia.org/wiki/Felix_Hausdorff) (geboren am 8. November 1868 in Breslau; gestorben am 26. Januar 1942 in Bonn) war ein deutscher Mathematiker.
@@ -304,7 +307,7 @@ Insbesondere wenn man [glatte Testfunktionen](https://de.wikipedia.org/wiki/Test
 Wir definieren zunächst die Eigenschaft eines Hausdorff-Raums.
 
 ````{prf:definition} Hausdorff-Raum
-Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unterschiedliche Punkte $x,y\in \M, x\neq y$ offene Umgebungen $U(x), U(y)$ existieren, welche disjunkt sind, d.h., $U(x)\cap U(y) = \emptyset$.
+Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unterschiedliche Punkte $x,y\in \M, x\neq y$ offene Umgebungen $U(x), U(y) \subset \M$ existieren, welche disjunkt sind, d.h., $U(x)\cap U(y) = \emptyset$.
 Man nennt $\M$ dann auch einen **separierten Raum**.
 ````
 
@@ -336,22 +339,10 @@ Falls alle Karten auf $\M$ nach $\R^n$ abbilden, so nennt man die Mannigfaltigke
 
 Basierend auf einer differenzierbaren Mannigfaltigkeit $\M$ können wir nun differenzierbare Funktionen auf $\M$ definieren.
 
-````{prf:definition} Differenzierbare Funktion auf Mannigfaltigkeit
+````{prf:definition} Differenzierbare Funktion auf einer Mannigfaltigkeit
 Sei $\M$ eine $k$-mal differenzierbare Mannigfaltigkeit $\mathcal{A}$ ein Atlas auf $\M$.
 Dann nennen wir eine Abbildung $f:\M\to\R^m$ **$k$-mal differenzierbar**, falls für jeden Punkt $x\in\M$ eine differenzierbare Karte $(U(x),\phi)\in\mathcal{A}$ existiert, so dass $f\circ\phi^{-1} \in C^k(\phi(U(x)); \R^m)$.
 Insbesondere schreiben wir in diesem Fall $f\in C^k(\M; \R^m)$. 
-````
-
-Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.
-
-````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $\mathcal{A}$ ein Atlas auf $\M$.
-Außerdem sei $f:\M \to \R^m$ eine Funktion, $(U,\phi)\in \mathcal{A}$ eine Karte und $x \in U$ ein Punkt in der offenen Menge $U$.
-Ist $f\circ\phi^{-1}$ differenzierbar in $x$, so ist $f\circ\psi^{-1}$ auch differenzierbar in $x$ für jede Karte $(V,\psi)$ mit $x\in V$.
-````
-
-````{prf:proof}
-In der Hausaufgabe zu zeigen.
 ````
 
 In vielen Anwendungen beschränkt man sich nur auf *glatte Mannigfaltigkeiten* und *glatte Funktionen* in $C^\infty(\M; \R^m)$.
@@ -362,10 +353,22 @@ Es sei $\M$ eine glatte Mannigfaltigkeit.
 Dann ist $C^\infty(\M; \R^m)$ ein reeller Vektorraum mit den Verknüpfungen
 
 ```{math}
-(f + g)(p) := f(p) + g(p)\quad\text{ für } f,g\in C^\infty(\M; \R^m),\\
-(\lambda \cdot f)(p) := \lambda\cdot f(p)\text{ für } f\in C^\infty(\M; \R^m), \lambda\in\R.
+(\lambda \cdot f)(x) := \lambda\cdot f(x)\text{ für } f\in C^\infty(\M; \R^m), \lambda\in\R,\\
+(f + g)(x) := f(x) + g(x)\quad\text{ für } f,g\in C^\infty(\M; \R^m).
 ```
 
+````
+
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
+````
+
+Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $\mathcal{A}$ ein Atlas auf $\M$.
+Außerdem sei $f:\M \to \R^m$ eine Funktion, $(U,\phi)\in \mathcal{A}$ eine Karte und $x \in U$ ein Punkt in der offenen Menge $U$.
+Ist $f\circ\phi^{-1}$ differenzierbar in $x$, so ist $f\circ\psi^{-1}$ auch differenzierbar in $x$ für jede Karte $(V,\psi)$ mit $x\in V$.
 ````
 
 ````{prf:proof}
