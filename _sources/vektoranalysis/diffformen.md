@@ -281,82 +281,103 @@ Wir nennen einen Atlas $k$-mal **differenzierbar** oder von der Klasse $C^k$, fa
 
 Die Begriffe *Karte* und *Atlas* stammen in der Tat aus mathematischen Überlegungen in der Kartographie.
 Man kann Teile der Erdoberfläche mit einer Karte auf eine Ebene $\R^2$ abbilden.
-Nähert man sich dem Rand einer Karte, so möchte man zu einer anderen Karte wechseln, die das angrenzende Gebiet darstellt. 
+Nähert man sich dem Rand einer Karte, so möchte man zu einer anderen Karte wechseln, die das angrenzende Gebiet darstellt.
 
 So kann eine Mannigfaltigkeit durch einen vollständigen Satz von Karten vollständig beschrieben werden; man braucht dabei Regeln, wie sich beim Kartenwechsel die Karten überlappen.
 
 ### Differenzierbare Mannigfaltigkeiten
 
-Für eine topologischen Raum $\M$ können mehrere Atlanten $\mathcal{A}$  existieren, weshalb man zusätzlich eine Äquivalenzklasse definiert. Für eine Differenzierbarkeitsstufe $k\in \N \cup \{\infty\}$ heißen zwei $C^k$ Atlanten  $\mathcal{A}_1, \mathcal{A}_2$ $k$-äquivalent, $\mathcal{A}_1\sim_k \mathcal{A}_2$, falls ihre Vereinigung
+Für einen topologischen Raum $\M$ können mehrere Atlanten $\mathcal{A}$ existieren, weshalb es sinnvoll ist Äquivalenzklassen von Atlanten zu betrachten.
 
-```{math}
-\mathcal{A}_1\cup \mathcal{A}_2
-```
-
-ein $C^k$ Atlas ist. Die Äquivalenzklasse $[\mathcal{A}]_{\sim_k}$ nennt man $C^k$-differenzierbare Struktur.
+````{prf:definition} $C^k$-differenzierbare Struktur
+Für einen Index $k\in \N \cup \{\infty\}$ heißen zwei differenzierbare Atlanten $\mathcal{A}_1, \mathcal{A}_2$ der Klasse $C^k$ **$k$-äquivalent**, falls ihre Vereinigung $\mathcal{A}_1\cup \mathcal{A}_2$ wieder ein Atlas der Klasse $C^k$ ist.
+Dies bedeutet insbesondere, dass die Kartenwechsel durch die Vereinigung der beiden Atlanten weiterhin $k$-mal stetig differenzierbar bleiben.
+In diesem Fall notieren wir $\mathcal{A}_1\sim_k \mathcal{A}_2$.
+Die Äquivalenzklasse $[\mathcal{A}]_{\sim_k}$ nennt man eine **$C^k$-differenzierbare Struktur**.
+````
 
 ```{margin}
 [Felix Hausdorff](https://de.wikipedia.org/wiki/Felix_Hausdorff) (geboren am 8. November 1868 in Breslau; gestorben am 26. Januar 1942 in Bonn) war ein deutscher Mathematiker.
 ```
 
-Bisher haben wir $\M$ als topologischen Raum betrachtet. In vielen Anwendungen benötigt man aber zusätzliche. Insbesondere wenn man [glatte Testfunktionen](https://de.wikipedia.org/wiki/Testfunktion) und [die Zerlegung der Eins](https://en.wikipedia.org/wiki/Partition_of_unity) benutzen möchte braucht man folgende zwei Eigenschaften.
+Bisher haben wir $\M$ als allgemeinen topologischen Raum betrachtet.
+In vielen Anwendungen benötigt man aber weitere nützliche Eigenschaften des Raumes.
+Insbesondere wenn man [glatte Testfunktionen](https://de.wikipedia.org/wiki/Testfunktion) und [die Zerlegung der Eins](https://en.wikipedia.org/wiki/Partition_of_unity) benutzen möchte braucht man folgende zwei zusätzliche Eigenschaften.
+
+Wir definieren zunächst die Eigenschaft eines Hausdorff-Raums.
 
 ````{prf:definition} Hausdorff-Raum
-Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unterschiedliche Punkte $x,y\in \M, x\neq y$ offene Umgebungen $U(x), U(y)$ existieren, welche disjunkt sind, d.h., $U(x)\cap U(y) = \emptyset$.
+Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unterschiedliche Punkte $x,y\in \M, x\neq y$ offene Umgebungen $U(x), U(y) \subset \M$ existieren, welche disjunkt sind, d.h., $U(x)\cap U(y) = \emptyset$.
+Man nennt $\M$ dann auch einen **separierten Raum**.
 ````
+
+Als zweite nützliche Eigenschaft fordern wir, dass unser topologischer Raum $\M$ das zweite Abzählbarkeitsaxiom erfüllen soll.
 
 ````{prf:definition} Zweites Abzählbarkeitsaxiom
-Ein toplogischer Raum $\M$ erfüllt das **zweite Abzählbarkeitsaxiom**, falls **abzählbar** viele offene Mengen $(V_i)_{i\in\N}$existieren, s.d., für jedes $x\in \M$ und jede Umgebung $U(x)$ mindestens ein $k\in\N$ existiert, s.d., $V_k\subset U(x)$.
+Ein toplogischer Raum $(\M, \tau)$ erfüllt das **zweite Abzählbarkeitsaxiom**, falls *abzählbar* viele offene Mengen $(V_i)_{i\in\N} \in \tau$ existieren, so dass für jeden Punkt $x\in \M$ und jede offene Umgebung $U(x) \in \tau$ von $x$ mindestens ein Index $k\in\N$ existiert mit $V_k \subset U(x)$.
+Man nennt $(\M, \tau)$ dann auch **zweitabzählbar**.
 ````
 
-Diese zwei Bedingung wirken zunächst abstrakt, allerdings werden sie von vielen Räumen erfüllt.
-So ist z.B. jeder metrische Raum ein zweitabzählbarer Hausdorff-Raum.
+Diese zwei Bedingung wirken zunächst abstrakt.
+Glücklicherweise werden sie jedoch von vielen üblichen topologischen Räumen erfüllt, wie zum Beispiel dem Euklidischen Raum $\R^n$.
 
-```{danger}
-Falls der Begriff eines zweitabzählbaren Hausdorff-Raums zu unhandlich erscheint, kann man für die meisten Anwendungen in der Physik auch einfach **metrische Räume** betrachten, die diese Eigenschaften implizieren.
+```{prf:remark}
+Falls der Begriff eines zweitabzählbaren Hausdorff-Raums zu unhandlich erscheint, kann man für die meisten Anwendungen in der Physik auch einfach **metrische Räume** betrachten, die diese beiden Eigenschaften implizieren.
 ```
 
-Wir sind nun in der Situation den Begriff einer Mannigfaltigkeit einzuführen.
+Nun haben wir alle nötigen Voraussetzungen geschaffen um den Begriff einer Mannigfaltigkeit formal einzuführen.
 
-````{prf:definition} Mannigfaltigkeit
-Es sei $\M$ ein zweitabzählbarer Hausdorff-Raum und für $k\in\N\cup \{\infty\}$ sei $A$ eine $C^k$-differenzierbare Struktur, dann heißt $(M,A)$ 
-$k$-**mal differenzierbare Mannigfaltigkeit**. Für $k=\infty$ spricht man auch von einer **glatten** Mannigfaltigkeit. Bilden alle Karten in $\M$ nach $\R^n$ ab, so nennt man die MAnnigfaltigkeit $n$-dimensional.
+````{prf:definition} Differenzierbare Mannigfaltigkeit
+Es sei $\M$ ein zweitabzählbarer Hausdorff-Raum und für $k\in\N\cup \{\infty\}$ sei $[\mathcal{A}]_{\sim_k}$ eine $C^k$-differenzierbare Struktur.
+Dann nennen wir $(\M,[\mathcal{A}]_{\sim_k})$ eine $k$-**mal differenzierbare Mannigfaltigkeit**.
+Für den Spezialfall $k=\infty$ sprechen wir auch von einer **glatten Mannigfaltigkeit**.
+
+Falls alle Karten auf $\M$ nach $\R^n$ abbilden, so nennt man die Mannigfaltigkeit *$n$-dimensional*.
 ````
 
-In den meisten Fällen spricht man nur von der Mannigfaltigkeit $\M$, die differenzierbare Struktur $A$ wird dabei implizit vorausgesetzt.
+Ähnlich wie bei topologischen Räumen spricht man in den meisten Fällen nur von der Mannigfaltigkeit $\M$; die differenzierbare Struktur $[\mathcal{A}]_{\sim_k}$ wird dabei implizit vorausgesetzt.
 
-### Ableiten auf Mannigfaltigkeiten
+Basierend auf einer differenzierbaren Mannigfaltigkeit $\M$ können wir nun differenzierbare Funktionen auf $\M$ definieren.
 
-Sei nun $M$ eine $k$-mal differenzierbare Mannigfaltigkeit mit Atlas $\mathcal{A}$, dann heißt $f:\M\to\R$ $k$-mal differenzierbar, falls für jedes $p\in\M$ eine differenzierbare Karte $(u,\phi)\in\mathcal{A}$ existiert, sodass $f\circ\phi^{-1}\in C^k(\phi(U))$. Insbsondere schreiben wir in diesem Fall $f\in C^k(\M)$. In vielen Anwendungen betrachtet man nur glatte Mannigfaltigkeiten und Funktionen. Wir werden im folgenden auch dazu übergehen.
+````{prf:definition} Differenzierbare Funktion auf einer Mannigfaltigkeit
+Sei $\M$ eine $k$-mal differenzierbare Mannigfaltigkeit $\mathcal{A}$ ein Atlas auf $\M$.
+Dann nennen wir eine Abbildung $f:\M\to\R^m$ **$k$-mal differenzierbar**, falls für jeden Punkt $x\in\M$ eine differenzierbare Karte $(U(x),\phi)\in\mathcal{A}$ existiert, so dass $f\circ\phi^{-1} \in C^k(\phi(U(x)); \R^m)$.
+Insbesondere schreiben wir in diesem Fall $f\in C^k(\M; \R^m)$. 
+````
+
+In vielen Anwendungen beschränkt man sich nur auf *glatte Mannigfaltigkeiten* und *glatte Funktionen* in $C^\infty(\M; \R^m)$.
+Wir werden im Folgenden der Einfachheit-halber auch dazu übergehen.
 
 ````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist $C^\infty(\M)$ ein reeller Vektorraum mit den Verknüpfungen
+Es sei $\M$ eine glatte Mannigfaltigkeit.
+Dann ist $C^\infty(\M; \R^m)$ ein reeller Vektorraum mit den Verknüpfungen
 
 ```{math}
-(f + g)(p) := f(p) + g(p)\quad\text{ für } f,g\in C^\infty(\M),\\
-(\lambda \cdot f)(p) := \lambda\cdot f(p)\text{ für } f\in C^\infty(\M), \lambda\in\R.
+(\lambda \cdot f)(x) := \lambda\cdot f(x)\text{ für } f\in C^\infty(\M; \R^m), \lambda\in\R,\\
+(f + g)(x) := f(x) + g(x)\quad\text{ für } f,g\in C^\infty(\M; \R^m).
 ```
 
 ````
 
-````{proof}
-Siehe Übung
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
 ````
 
-Wir halten insbesondere fest, dass die Differenzierbarkeit Kartenunabhängig ist.
+Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.
 
 ````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit mit Atlas $\mathcal{A}$, $f:\M\to\R$ eine Funktion und $(U,\phi)\in A$ eine Karte mit $p\in U$. Ist $f\circ\phi$ differenzierbar in $p$, so ist $f\circ\psi$ auch differenzierbar in $p$ für jede Karte $(V,\psi)$ mit $p\in V$.
+Es sei $\M$ eine glatte Mannigfaltigkeit und $\mathcal{A}$ ein Atlas auf $\M$.
+Außerdem sei $f:\M \to \R^m$ eine Funktion, $(U,\phi)\in \mathcal{A}$ eine Karte und $x \in U$ ein Punkt in der offenen Menge $U$.
+Ist $f\circ\phi^{-1}$ differenzierbar in $x$, so ist $f\circ\psi^{-1}$ auch differenzierbar in $x$ für jede Karte $(V,\psi)$ mit $x\in V$.
 ````
 
-````{proof}
-Siehe Übung.
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
 ````
 
 ### Der Tangentialraum
 
-Aus Kapitel (??) ist bereits das Konzept der Linearisierung bekannt. Anschaulich gesprochen ersetzten wir eine diffenzierbare Funktion $f$ durch eine seine Linearisierung um ein einfacheres Problem zu erhalten. Dieses Konzept soll nun auf Funktionen $f:\M\to\R$ übertragen werden, wobei $\M$ eine glatte Mannigfaltigkeit ist. Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit definieren, insbesondere ist dieser 
-kartenunabhängig. Der Tatsächliche der Wert der Ableitung von Funktionen $f\cic\phi^{-1}$ hängt aber noch immer von der Wahl der Karte $\phi$ ab. Um auch hier Kartenunabhängigkeit herzustellen brauchen wir einen anderen Begriff der Differenzierbarkeit. Hierbei wird uns der sogenannte **Tangentialraum** helfen. Intuitiv ist er eine Linearisierung der Mannigfaltigkeit $M$ an einem Punkt $p\in\M$.
+Aus Kapitel (??) ist bereits das Konzept der Linearisierung bekannt. Anschaulich gesprochen ersetzten wir eine diffenzierbare Funktion $f$ durch eine seine Linearisierung um ein einfacheres Problem zu erhalten. Dieses Konzept soll nun auf Funktionen $f:\M\to\R$ übertragen werden, wobei $\M$ eine glatte Mannigfaltigkeit ist. Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit definieren, insbesondere ist dieser kartenunabhängig. Der Tatsächliche der Wert der Ableitung von Funktionen $f\cic\phi^{-1}$ hängt aber noch immer von der Wahl der Karte $\phi$ ab. Um auch hier Kartenunabhängigkeit herzustellen brauchen wir einen anderen Begriff der Differenzierbarkeit. Hierbei wird uns der sogenannte **Tangentialraum** helfen. Intuitiv ist er eine Linearisierung der Mannigfaltigkeit $M$ an einem Punkt $p\in\M$.
 
 ````{prf:example}
 Mannigfaltigkeit $\R^n$.
@@ -583,6 +604,54 @@ Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}$ als Derivatio
 Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1},\ldots,\partial_{x^n}\}$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
 ````
 
+#### Kotangentialraum
+
+Da wir den Tangentialraum $T^{\text{alg}}_p$ als Vektorraum identifiziert haben, können wir auch den algebraischen Dualraum betrachten.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann bezeichnen wir mit 
+
+```{math}
+T_p^\ast\M:= (T_p^{\text{alg}}\M)^\ast
+```
+
+den algebraischen Dualraum des Tangentialraums, der sogenannte **Kotangentialraum**.
+````
+
+````{prf:remark}
+Ein Element $\delta\in T^\ast\M$ ist also eine lineare Abbildung 
+
+```{math}
+\delta: (T_p^{\text{alg}}\M)\to\R,
+```
+
+welches eine Derivation $D\in C^\infty(\M)^\ast$ auf eine reelle Zahl $\delta(D)\in\R$ abbildet.
+````
+
+Ein wichtiges Element des Kotangentialraums ist das **totale Differential**, welches für jede Funktion $f\in\C^\infty(\M)$ definiert ist durch
+
+```{math}
+df:(T_p^{\text{alg}}\M)\to\R\\
+D\mapsto df(D):= D(f).
+```
+
+Insbesondere können wir $df$ mit einer Funktion $C^\infty(M)$ identifizieren, was den Zusammenhang von $T^\ast_p$ als Bidualraum von
+$C^\infty(\M)$ unterstreicht.
+
+Die Basis von $T^\ast_p$ wird kanonisch als duale Basis gewählt. Jeder Vektor $v\in T_p^{\text{alg}}\M$ hat eine eindeutige Darstellung
+
+```{math}
+v = \sum_{i=1}^n \alpha_i \partial_{x^i},
+```
+
+und wir wählen die Abbildung $dx^i\in T^\ast_p$ gerade so, dass
+
+```{math}
+(dx^i)(v) = \alpha_i
+```
+
+gilt. Wegen (Lemma duale Basis) ist dann $\{dx^1,\ldots, dx^n\}$ eine Basis von $T^\ast_p\M$.
+
 ### Tangentialbündel
 
 Im folgenden bezeichne $T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}$ entweder den algebraischen oder den geometrischen Tangentialraum. Wir werden die Wahl an den entsprechenden Stellen spezifizieren.
@@ -607,29 +676,62 @@ zu definieren. D.h. von jedem Element des Totalraums, können wir eindeutig zur�
 Die Situation die wir so erzeugt haben, führt auf das abstrakte Konzept der **Vektorbündel**.
 
 ````{prf:definition}
-Es seien $B$ der Basisraum und $E$ der Totalraum topologische Räume und $\pi:E\to B$ sei stetig und bijektiv. Weiterhin gelte
+Es seien $\M$ der Basisraum und $E$ der Totalraum glatte Mannigfaltigkeiten und $\pi:E\to \M$ sei glatt und bijektiv. Weiterhin gelte
 
-* für jedes $x\in B$ sei die sogenannte **Faser** $E_x:= \pi^{-1}(x)$ ein $n$-dimensionaler Vektorraum,
+* für jedes $p\in \M$ sei die sogenannte **Faser** $E_p:= \pi^{-1}(p)$ ein $n$-dimensionaler Vektorraum,
 
-* Zu jedem $x\in B$ existiert eine offene Umgebung $U\subset B$ und ein Homöomorphismus $\psi: U\times\R^n\to \pi^{-1}(U)$, s.d.,
+* Zu jedem $p\in \M$ existiere eine offene Umgebung $U\subset \M$ und ein Diffeomorphimus $\psi: \pi^{-1}(U)\to U\times\R^n$, s.d., 
+für alle $x\in U$
 
 ```{math}
-(\pi\circ\psi)(y,\cdot) &= y\quad\forall y\in U\\
-\psi_y:\{y\}\times \R^n&\to \pi^{-1}(y)\text{ ist ein Isomorphismus}.
+\text{pr}_U(\psi(x)) &= \pi(x)\quad\forall x\in \pi^{-1}(U)\\
+\psi\rvert_{E_q}&: \pi^{-1}(q) \to \{q\}\times \R^n \text{ ist ein Isomorphismus, für alle }q\in U.
 ```
 
-Dann heißt $(E,B,\pi)$ **Vektorbündel** vom Rang $n$.
+Dann heißt $(E,\M,\pi)$ **Vektorbündel** vom Rang $n$. Hierbei bezeichnet $\text{pr}_U(q, z):= u$ die Projektion auf die $U$ Komponente eines Vektors $(q,z)\in U\times\R^n$.
 ````
 
-
-Anschaulich heißt die Darstellung, dass der Raum $E$ lokal immer als Produktraum dargestellt werden kann.
-
-````{prf:example}
-Zylinder
+````{prf:remark} Bündel-Notation
+Anstatt das Vektorbündel $(E,\M,\pi)$ als Tripel aufzuschreiben, ist es üblich von einem Bündel $E\overset{\pi}{\to}\M$ oder sogar $E\to\M$ zu sprechen. Die Abbildung $\pi$ wird im zweiten Fall nur implizit vorausgesetzt.
 ````
 
+Die Funktion $\psi$ heißt hier **lokale Trivialisierung**, denn sie erlaubt es uns den Totalraum $E$ lokal als Produktraum darzustellen. Die Idee des Vektorbündels kommt von der Anschauung, dass wir eine Familie von Vektorräumen haben, die durch einen anderen Raum parametrisiert sind. Die Parametrisierung ist hierbei durch die Funktion $\pi^{-1}$ charakterisiert.
+
+````{prf:example} Zylinder
+Wir wählen als Basisraum den Einheitskreis $\M:=\mathbb{S}^1\subset \R^2$. Für jeden Punkt auf dem Kreis wählen wir den Vektorraum $\R$, somit betrachten wir also eine konstante Abbildung 
+
+```{math}
+\chi(p):= \R\text{ für alle }p\in \M.
+```
+
+Damit definieren wir den Totalraum 
+
+```{math}
+E := \bigsqcup_{p\in\M} \chi(p) = \bigcup_{p\in\M} \{p\}\times \R = \M\times\R
+```
+
+und die Projektion $\pi:E\to\M$
+
+```{math}
+\pi(\{p\}\times \R):= \{p\}.
+```
+
+Wir erkennen, dass man in diesem Fall die Trivialisierung $\psi:=\mathrm{Id}$ wählen kann, welche nicht nur lokal sondern global gilt. 
+Vektorbündel, für welche eine lokale Trivialisierung auf ganz $\M$ existiert heißen **trivial**. 
+````
+
+Im obigen Beispiel ordnen wir jedem Punkt $p\in\mathbb{S}^1$ den Vektorraum $\{p\}\times\R$ zu. Diese Idee wurde in der Definition eines Vektorbündels verallgemeinert. Wir fordern nicht konkret, dass für jedes $q\in\M$ der Vektorraum $E_q$ gleich $\{q\}\times\R^n$ ist, allerdings fordern wir die Isomorphie $E_q\cong \{q\}\times\R^n$ gibt. A priori könnte es für jedes $q\in\M$ nun unterschiedliche Isomorphismen $\psi_q$ geben die keineswegs miteinander übereinstimmen. Deshalb kontrollieren wir zusätzlich wie unterschiedlich die Isomporphismen für verschiedene $q$ sind. Konkret fordern wir das lokal für $U\subset\M$ ein Diffeomorphismus $\phi:\pi^{-1}(U)\to U\times\R^n$ existiert.
+
+```{note}
+Die Grundidee hinter Vektorbündeln ist der Wunsch Teile des Totalraums $E$ mit Mengen $U\times\R^n$ zu identifizieren.
+```
+
 ````{prf:example}
-Möbius-Band
+Möbius-Band.
+````
+
+````{prf:lemma}
+ToDo: $T\M$ ist glatte Mannigfaltigkeit.
 ````
 
 ````{prf:lemma}
@@ -653,9 +755,73 @@ Dann ist $(T\M, \M, \pi)$ ein Vektorbündel vom Rang $n$.
 Relativ lang, siehe hier [Skript Uni Hamburg](https://www.math.uni-hamburg.de/home/lindemann/material/DG2020L7_slides.pdf)
 ````
 
-
 ### Vektorfelder
 
+Wir führen zunächst sogenannte Schnitte auf Bündeln ein. Anschaulich abstrahieren wir hier das Konzept der Graphen von Funktionen.
+
+Es sei $f:\M\to\R^n$ eine Funktion$, dann ist ihr Graph gegeben durch
+
+```{math}
+\{(p,f(p)): p\in\M\}\subset \M\times\R^n.
+```
+
+Hierbei sehen wir, dass $\M\times\R^n\overset{\pi}{\to}\M$ ein triviales Bündel ist mit 
+
+```{math}
+\pi(p,(f(p))) = p.
+```
+
+Verallgemeinert betrachten führt diese Überlegung auf folgende Definition.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $E\overset{\pi}{\to}\M$ ein Vektorbündel. Eine glatte Abbildung 
+
+```{math}
+\sigma: \M\to E
+```
+
+heißt **glatter Schnitt**, falls 
+
+```{math}
+\pi(\sigma(p)) = p\quad\text{ für alle }p\in \M.
+```
+
+Die Menge der glatten Schnitte wird mit $\gamma(E)$ bezeichnet.
+````
+
+Für offenen Mengen im euklidischen kennen wir bereits den Begriff **Vektorfeld**, nämlich eine Funktion
+
+```{math}
+F:U\to\R^n
+```
+
+wobei $U\subset\R^n$ offen ist. Wir nehmen also Punkte $x\in\R^n$ und ordnen ihnen Vektoren $F(x)\in\R^n$ aus dem gleichen Raum zu.
+
+Betrachten wir statt offenen Mengen $U\subset\R^n$ nun glatte Mannigfaltigkeiten $\M$ so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen. Hierbei hilft uns nun der Tangentialraum $T\M$, welcher die richtige Wahl des Zielraums darstellt. Somit können wir Vektorfelder verallgemeinern indem wir als Schnitte des Tangenialraums auffassen.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit, ein glatter Schnitt 
+
+```{math}
+X:\M\to T\M
+```
+
+heißt glattes Vektorfeld.
+````
+
+Für Tangentialbündel haben wir die Abbildung $\pi:T\M\to\M$ durch
+
+```{math}
+\pi(\{p\}\times v):= p\quad\text{ für } (p,v)\in\{p\}\times T_p\M
+```
+
+definiert. Ist $X$ nun ein glattes Vektorfeld, so gilt
+
+```{math}
+\pi(X(p)) = p
+```
+
+und somit insbesondere $X(p)\in T_p\M$. Ein Vektorfeld ordnet also jedem Punkt $p\in\M$ ein Element seines Tangentialraums zu. Falls $\M$ eine offene Menge in $\R^n$ ist, ist dies insbesondere konsistent zur bekannten Definition von Vektorfeldern.
 
 ## Tensorfelder
 
