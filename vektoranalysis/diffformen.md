@@ -378,7 +378,7 @@ In der Hausaufgabe zu zeigen.
 
 ### Tangentialräume an Mannigfaltigkeiten
 
-Aus Kapitel {ref}[s:linearisierung_ruhelage] ist bereits das Konzept der *Linearisierung* bekannt.
+Aus Kapitel {ref}`s:linearisierung_ruhelage` ist bereits das Konzept der *Linearisierung* bekannt.
 Anschaulich gesprochen haben wir eine diffenzierbare Funktion $f$ durch seine Linearisierung ersetzt um ein einfacheres Problem zu erhalten.
 Dieses Konzept soll nun auf Funktionen $f:\M\to\R$ übertragen werden, wobei $\M$ eine glatte Mannigfaltigkeit ist.
 
@@ -564,10 +564,11 @@ Man bemerke, dass die oben definierten Abbildungen erneut **unabhängig** von de
 
 #### Algebraische Definition
 
-Es gibt eine alternativen Weg den Tangentialraum einzuführen, über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr direkt als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind.
+Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr anschaulich als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind.
 
-````{prf:definition}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, eine lineare Abbildung $D:C^\infty(\M)\to \R$ heißt **Derivation** an $p$, falls die folgende Kettenregel gilt, 
+````{prf:definition} Derivation
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$ ein Punkt der Mannigfaltigkeit.
+Wir nennen eine lineare Abbildung $D: C^\infty(\M) \to \R$ eine **Derivation** an $p$, falls sie die folgende Kettenregel erfüllt, 
 
 ```{math}
 D(fg) = D(f) g(p) + f(p) D(g).
@@ -592,46 +593,59 @@ Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist $T^{\text{alg}}_p\M$ ein reel
 Siehe Übung.
 ````
 
-Wie bereits erwähnt ist diese Definition des Tangentialraums äquivalent zu der geomtrischen Version. Konkret heißt das, dass wir eine Isomorphie
+Diese Definition des Tangentialraums ist äquivalent zu der geometrischen Variante.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$. 
+
+Dann existiert ein Isomorphismus 
 
 ```{math}
-T^{\text{alg}}_p\M\cong T^{\text{geom}}_p\M
+\Theta: T^{\text{geom}}_p\M &\to T^{\text{alg}}_p\M\\
+\gamma &\mapsto D_\gamma
 ```
 
-erhalten. Die Identifikation lässt sich sehr einfach angeben, ist nämlich $\gamma$ eine differenzierbare Kurve, so ist durch
+zwischen dem geometrischen und algebraischen Tangentialraum.
+````
+
+````{prf:proof}
+Die Identifikation lässt sich sehr einfach angeben.
+Ist nämlich $\gamma$ eine differenzierbare Kurve, so ist durch
 
 ```{math}
 D_\gamma(f):= (f\circ \gamma)^\prime(0)
 ```
 
-eine Derivation an $\gamma(0)$ gegeben. Ist umgekehrt eine Derivation $D$ gegeben, so erhalten wir über
+eine Derivation an $\gamma(0)$ gegeben. 
+Ist umgekehrt eine Derivation $D$ gegeben, so erhalten wir über
 
 ```{math}
 \gamma_D(t):= \phi^{-1} (\phi(p) + t (D(\phi_1), \ldots, D(\phi_n)))
 ```
 
-eine differenzierbare Kurve durch $p$. Diese Idee wird in folgendem Lemma formalisiert.
-
-````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$. Die Abbildung 
-
-```{math}
-\Theta: T^{\text{geom}}_p\M &\to T^{\text{alg}}_p\M\\
-\gamma &\to D_\gamma
-```
-
-ist ein Isomorphismus.
+eine differenzierbare Kurve durch $p$. 
 ````
 
-### Basis des Tangentialraums
+#### Basis des algebraische Tangentialraums
 
-Wir wollen eine Basis des algebraischen Tangentialraums konstruieren. Im euklidischen können wir auf natürliche Art die Koordinatenrichtungen als Kurven wählen, also Funktionen der Form
+Wir wollen eine Basis des algebraischen Tangentialraums konstruieren.
+Im Euklidischen Raum können wir auf natürliche Art die Koordinatenrichtungen als Kurven wählen, also Funktionen der Form
 
 ```{math}
 t\mapsto t e_i
 ```
 
-für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. Wir können diese Idee auf Mannigfaltigkeiten übertragen. Dazu wählen wir eine Karte $\phi:\M\to\R^n$, wobei man hier auch von $\phi = (\phi_1,\ldots,\phi_n) =: (x^1,\ldots,x^n)$ als **lokales Koordinatensystem** spricht. So erhalten Kurven
+für $i=1,\ldots,n$, wobei $e_i$ den $i$-ten Einheitsvektor in $\R^n$ bezeichnet.
+Wir können diese Idee auf Mannigfaltigkeiten übertragen.
+Dazu wählen wir eine Karte $\phi:\M\to\R^n$, wobei man hier auch von
+
+```{math}
+\phi = (\phi_1,\ldots,\phi_n) =: (x^1,\ldots,x^n)
+```
+
+als **lokales Koordinatensystem** spricht.
+
+So erhalten wir Kurven
 
 ```{math}
 \gamma_{x^i}(t):= p + \phi(t e_i)
@@ -640,11 +654,11 @@ für $i=1,\ldots,n$ wobei $e_i$ den $i$ten Einheitsvektor in $\R^n$ bezeichnet. 
 und darüber die Derivationen
 
 ```{math}
-\partial_{x^i}:C^\infty(\M)\to\R\\
+\partial_{x^i} : C^\infty(\M) \to \R\\
 \partial_{x^i}(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
 ```
 
-Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}$ als Derivation, d.h. insbesondere, als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
+Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}$ als Derivation, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
 
 ````{prf:lemma}
 Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1},\ldots,\partial_{x^n}\}$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
