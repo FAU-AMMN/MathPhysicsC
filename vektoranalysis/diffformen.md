@@ -626,6 +626,7 @@ Ist umgekehrt eine Derivation $D$ gegeben, so erhalten wir über
 eine differenzierbare Kurve durch $p$. 
 ````
 
+(sec:TPBasis)=
 #### Basis des algebraische Tangentialraums
 
 Wir wollen eine Basis des algebraischen Tangentialraums konstruieren.
@@ -654,14 +655,14 @@ So erhalten wir Kurven
 und darüber die Derivationen
 
 ```{math}
-\partial_{x^i} : C^\infty(\M) \to \R\\
-\partial_{x^i}(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
+\partial_{x^i}\revert_p: C^\infty(\M) \to \R\\
+\partial_{x^i}\revert_p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
 ```
 
-Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}$ als Derivation, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
+Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}\revert_p$ als Derivation, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
 
 ````{prf:lemma}
-Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1},\ldots,\partial_{x^n}\}$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
+Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1}\revert_p,\ldots,\partial_{x^n}\}\revert_p$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
 ````
 
 #### Kotangentialraum
@@ -691,8 +692,8 @@ welches eine Derivation $D\in C^\infty(\M)^\ast$ auf eine reelle Zahl $\delta(D)
 Ein wichtiges Element des Kotangentialraums ist das **totale Differential**, welches für jede Funktion $f\in\C^\infty(\M)$ definiert ist durch
 
 ```{math}
-df:(T_p^{\text{alg}}\M)\to\R\\
-D\mapsto df(D):= D(f).
+df_p:(T_p^{\text{alg}}\M)\to\R\\
+D\mapsto df_p(D):= D(f).
 ```
 
 Insbesondere können wir $df$ mit einer Funktion $C^\infty(M)$ identifizieren, was den Zusammenhang von $T^\ast_p$ als Bidualraum von
@@ -825,7 +826,7 @@ Es sei $f:\M\to\R^n$ eine Funktion$, dann ist ihr Graph gegeben durch
 \{(p,f(p)): p\in\M\}\subset \M\times\R^n.
 ```
 
-Hierbei sehen wir, dass $\M\times\R^n\overset{\pi}{\to}\M$ ein triviales Bündel ist mit 
+Hierbei sehen wir, dass $\M\times\R^n\overset{\pi}{\to}\M$ ein triviales Bündel ist mit
 
 ```{math}
 \pi(p,(f(p))) = p.
@@ -834,19 +835,21 @@ Hierbei sehen wir, dass $\M\times\R^n\overset{\pi}{\to}\M$ ein triviales Bündel
 Verallgemeinert betrachten führt diese Überlegung auf folgende Definition.
 
 ````{prf:definition}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $E\overset{\pi}{\to}\M$ ein Vektorbündel. Eine glatte Abbildung 
+Es sei $\M$ eine glatte Mannigfaltigkeit und $E\overset{\pi}{\to}\M$ ein Vektorbündel. Für $U\subset\M$ offen, heißt eine glatte Abbildung
 
 ```{math}
-\sigma: \M\to E
+\sigma: U\to E
 ```
 
-heißt **glatter Schnitt**, falls 
+**lokaler glatter Schnitt**, falls 
 
 ```{math}
 \pi(\sigma(p)) = p\quad\text{ für alle }p\in \M.
 ```
 
-Die Menge der glatten Schnitte wird mit $\gamma(E)$ bezeichnet.
+Die Menge der glatten Schnitte auf $U$ wird mit $\Gamma(E\rvert_U)$ bezeichnet. Für $U=\M$ heißt $\sigma$ **glatter Schnitt** und wir definieren 
+$\Gamma(E\rvert):=\Gamma(E\rvert_\M)$.
+
 ````
 
 Für offenen Mengen im euklidischen kennen wir bereits den Begriff **Vektorfeld**, nämlich eine Funktion
@@ -883,27 +886,79 @@ definiert. Ist $X$ nun ein glattes Vektorfeld, so gilt
 
 und somit insbesondere $X(p)\in T_p\M$. Ein Vektorfeld ordnet also jedem Punkt $p\in\M$ ein Element seines Tangentialraums zu. Falls $\M$ eine offene Menge in $\R^n$ ist, ist dies insbesondere konsistent zur bekannten Definition von Vektorfeldern.
 
-## Tensorfelder
+#### Wirkung von Vektorfeldern
 
-Der Begriff **Feld** tritt in sowohl in der Physik als auch in der Mathematik auf. Anschaulich versteht man unter einem Feld die Verteilung einer Größe über den Raum. Beispielweise versteht man unter Vektorfeldern eine Funktion
-
-```{math}
-F:U\to \R^m
-```
-
-wobei $U$ eine Teilmenge des $\R^n$ ist. Das Konzept hierbei ist also, anstatt nur Vektoren $y\in\R^m$ zu betrachten, ordnet ein **Feld** jedem $x\in U$ einen Vektor $F(x)\in\R^m$ zu. Wir wollen im Folgenden die Zielmenge $\R^m$ durch Tensorräume ersetzen. Zusätzlich, schränken wir uns nur auf glatte, d.h., unendlich oft differenzierbare Funktionen ein.
-
-````{prf:definition} Tensorfeld
-Es sei $V$ ein reeller $m$-dimensionaler Vektorraum und für $r,s \in \N_0$ sei $\{\tau_i\}_{i=1}^{m^{r+s}}$ eine Basis von $T^r_s(V)$.
-Für eine offenen Teilmenge $U\subset\R^n$ und Funktionen $w_{i}:U\to\R$ für $i=1,\ldots, n^{r+s}$ heißt die Abbildung 
+Von der algebraischen Definition des Tangentialraums ist das totale Diffential $df_p$ bekannt, welches für $D\in T^{\text{alg}}_p\M$ definiert ist durch
 
 ```{math}
-\mathcal{T}&:U\rightarrow T^r_s(V)\\
-\mathcal{T}(x)&:= \sum_{i=1}^{n^{r+s}} w_{i}(x) \tau_i
+df_p(D):= D(f)
 ```
 
-**Tensorfeld**. Gilt für alle Funktionen $w_{i}\in C^k(U)$ so nennt man $\mathcal{k}$ k-mal differenzierbar.
+für eine Funktion $f\in C^\infty(M)$. Mithilfe dieses Konzepts können wir die Wirkung eines Vektorfelds defnieren.
+
+````{definition} Wirkung
+Es sei $\M$ eine glatte Mannigfaltigkeit und $X\in\Gamma(T\M)$, die **Wirkung** von $X$ auf $C^\infty$ ist definiert durch 
+
+```{math}
+X(\cdot):C^\infty(M)\to C^\infty(\M)\\
+f\mapsto [p\mapsto X(f)(p) := df_p(X)]
+```
 ````
+
+#### Lokale Basis von Vektorfeldern
+
+Aus {ref}`sec:TPBasis` wissen wir bereits, dass wir für $p\in\M$ Tangentialvektoren $v\in T_p\M$ durch die Vektoren $\partial_{x^i}\rvert_p$ darstellen können. Im Kontext von Tangentialbündeln stellt sich auf natürliche Art die Frage, wie sich diese Vektoren verändern, wenn der Punkt $p$ variiert wird. Hierzu definieren wir folgende Abbildungen.
+
+````{prf:definition}
+Es sei $\M$ eine glatte $n$-dimesnionale Mannigfaltigkeit und $(U,\phi)$ eine Karte, dann definieren wir die lokalen Koordinatenfelder 
+für $i=1,\ldots,n$ durch
+
+```{math}
+\partial_{x^{i}}&:\M\to\T\M\\
+\partial_{x^{i}}(p)&:= \partial_{x^{i}}\rvert_p
+```
+````
+
+Mithilfe dieser lokalen Koordiantenfelder können wir nun Vektorfelder lokal darstellen.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $(U,\phi)$ sei eine Karte, dann gilt für $X\in\Gamma(T\M\rvert_U)$ und die Koeffizientfunktionen $X^i:=X(\phi_i)\in C^\infty(U)$ 
+
+```{math}
+X = \sum_{i=1}^n X^i \partial_{x^{i}}.
+```
+````
+
+Aus dieser Darstellung folgt auch, dass lokal für eine Karte $(U,\phi)$ die Wirkung auf $f\in C^\infty(U)$ geschrieben werden kann als
+
+```{math}
+X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.
+```
+
+#### Koordinatenwechsel
+
+Die Darstellung eines Vektorfeldes über einer glatten Mannigfaltigkeit $\M$ durch Basisvektoren gilt nur lokal für eine Karte $(U,\phi)$. Falls wir nun eine zweite Karte $(V,\psi)$ betrachten mit $U\cap V\neq\emptyset$ stellt sich also die Frage wie die Darstellungen zusammenhängen. Das folgende Lemma beschreibt die Transformationsregel die in diesem Fall gilt.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und es seien $(U,\phi), (V,\psi)$ zwei Karten mit $U\cap V\neq \emptyset$, wobei 
+$(\partial_{x^i})_{i=1}^n$ das Koordinatnfeld für $\phi$ und $(\partial_{y^i})_{i=1}^n$ das Koordinatenfeld für $\psi$ sei. Weiterhin sei Funktion 
+
+```{math}
+D(\psi\circ\phi^{-1})(p)
+```
+die Jacobimatrix von $\psi\circ\phi^{-1}$ am Punkt $p\in U\cap V$. Dann gilt 
+
+```{math}
+D(\psi\circ\phi^{-1})(p) X(\phi) = X(\psi).
+```
+````
+
+### Tensorfelder
+
+## Differnitlaformen
+
+### Einsformen
+
 
 ## Differentialformen auf offenen Mengen
 
