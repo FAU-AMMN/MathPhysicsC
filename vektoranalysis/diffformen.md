@@ -378,12 +378,12 @@ In der Hausaufgabe zu zeigen.
 
 ### Tangentialräume an Mannigfaltigkeiten
 
-Aus Kapitel {ref}`s:linearisierung_ruhelage` ist bereits das Konzept der *Linearisierung* bekannt.
-Anschaulich gesprochen haben wir eine diffenzierbare Funktion $f$ durch seine Linearisierung ersetzt um ein einfacheres Problem zu erhalten.
-Dieses Konzept soll nun auf Funktionen $f:\M\to\R$ übertragen werden, wobei $\M$ eine glatte Mannigfaltigkeit ist.
+Aus dem Kapitel {ref}`s:linearisierung_ruhelage` ist bereits das Konzept der *Linearisierung* bekannt.
+Anschaulich gesprochen haben wir eine diffenzierbare Funktion $f$ durch ihre Linearisierung ersetzt um ein einfacheres Problem zu erhalten.
+Dieses Konzept soll nun auf glatte Mannigfaltigkeiten übertragen werden.
 
 Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit definieren.
-Und obwohl die Frage nach der Differenzierbarkeit einer Funktion nach {prf:ref}`lem:differenzierbarkeitKartenunabhaengig` kartenunabhängig ist, so stellt sich heraus, dass der tatsächliche *Wert der Ableitung* einer Verknüpfung $f \circ\phi^{-1}$ noch immer von der konkreten Wahl der Karte $\phi$ abhängt.
+Und obwohl die Frage nach der Differenzierbarkeit einer Funktion nach {prf:ref}`lem:differenzierbarkeitKartenunabhaengig` kartenunabhängig ist, so stellt sich heraus, dass der tatsächliche *Wert der Ableitung* einer Verknüpfung $f \circ\phi^{-1}$ noch immer von der konkreten Wahl des Homöomorphismus $\phi$ abhängt.
 Um auch hier die gewünschte Kartenunabhängigkeit zu erreichen, brauchen wir einen anderen Begriff der Differenzierbarkeit.
 Hierbei wird uns der sogenannte **Tangentialraum** helfen.
 Man kann ihn als eine Linearisierung der Mannigfaltigkeit $\M$ an einem Punkt $p\in\M$ interpretieren.
@@ -478,7 +478,8 @@ Mit Hilfe von differenzierbaren Kurven auf Mannigfaltigkeiten können wir im Fol
 ````{prf:definition} Richtungsableitung an Mannigfaltigkeit
 :label: def:direcdiv
 
-Es sei $\M$ eine glatte Mannigfaltigkeit, $\gamma:(-1,1)\to\M$ eine differenzierbare Kurve mit $\gamma(0)=p\in\M$, dann nennen wir die Abbildung
+Es sei $\M$ eine glatte Mannigfaltigkeit, $\gamma:(-1,1)\to\M$ eine differenzierbare Kurve mit $\gamma(0)=p\in\M$ und $f \in C^\infty(\M)$ eine glatte Funktion.
+Dann nennen wir die Abbildung
 
 ```{math}
 D_\gamma : C^\infty(\M) &\to \R\\
@@ -519,21 +520,22 @@ Für zwei differenzierbare Kurven $\gamma, \eta:(-1,1) \to U$ mit $\gamma(0) = \
 ```
 
 eine Äquivalenzrelation (siehe Kapitel 2.1.1 in {cite:p}`burger_2020`).
-
-Die Äquivalenzklasse $\gamma^\prime(0):=[\gamma]_{\sim_p}$ wird als **geometrischer Tangentialvektor** an $\M$ im Punkt $p$ bezeichnet. Insbesondere ist die Äquivalenzklasse unabhängig von der Wahl des Homöomorphismus $\phi$.
+Insbesondere ist die Äquivalenzklasse unabhängig von der Wahl des Homöomorphismus $\phi$.
 ````
 
-Da wir nun Tangentialvektoren eingeführt haben, sind wir schließlich in der Lage den *Tangentialraum* formal zu definieren, nämlich als Raum aller Tangentialvektoren.
+Mittels der oben beschriebenen Äquivalenzrelation sind wir in der Lage den Begriff der *Tangentialvektoren* und des *Tangentialraums* zu definieren.
 
-````{prf:definition} Geometrischer Tangentialraum
-Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit.
-Dann heißt der Raum der (geometrischen) Tangentialvektoren
+````{prf:definition} Geometrische Tangentialvektoren und Tangentialraum
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, $p\in\M$ ein Punkt auf der Mannigfaltigkeit und $(U,\phi)$ eine Karte von $\M$, für die gilt, dass $p\in U$ ist.
+
+Die Äquivalenzklasse $\gamma^\prime(0):=[\gamma]_{\sim_p}$ wird als **geometrischer Tangentialvektor** an $\M$ im Punkt $p$ bezeichnet.
+Der Raum der (geometrischen) Tangentialvektoren
 
 ```{math}
 T_p^{\text{geo}}\M := \{\gamma^\prime(0): \gamma\text{ ist differenzierbare Kurve mit }\gamma(0)=p\}
 ```
 
-**geometrischer Tangentialraum** der Mannigfaltigkeit $\M$ am Punkt $p \in \M$.
+heißt **geometrischer Tangentialraum** der Mannigfaltigkeit $\M$ am Punkt $p \in \M$.
 ````
 
 Der Tangentialraum induziert sogar eine Vektorraumstruktur wie folgende Bemerkung festhält.
@@ -541,15 +543,13 @@ Der Tangentialraum induziert sogar eine Vektorraumstruktur wie folgende Bemerkun
 ````{prf:remark}
 
 Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, $p\in\M$ ein Punkt auf der Mannigfaltigkeit und $(U,\phi)$ eine Karte von $\M$, für die gilt, dass $p\in U$ ist.
-Sei außerdem $\gamma \colon (-1,1) \rightarrow \M$ eine Kurve auf $\M$ mit $\gamma(0) = p$.
+Sei außerdem $\gamma \colon (-1,1) \rightarrow \M$ eine differenzierbare Kurve auf $\M$ mit $\gamma(0) = p$.
 Wir definieren nun die folgende Bijektion auf dem Tangentialraum
 
 ```{math}
 d\phi\rvert_p \colon T^{\text{geo}}_p\M &\rightarrow \R^n,\\
 [\gamma]_{\sim_p} &\mapsto d\phi\rvert_p (\gamma^\prime(0)) := (\phi \circ \gamma)^\prime (0).
 ```
-
-````
 
 Basierend auf dieser Abbildung lassen sich die folgenden Operationen für den Punkt $p \in \M$ definieren
 
@@ -562,13 +562,15 @@ Basierend auf dieser Abbildung lassen sich die folgenden Operationen für den Pu
 Insgesamt ergibt somit das Tripel $(T_p^{\text{geo}}\M, +_p, \cdot_p)$ einen reellen Vektorraum.
 Man bemerke, dass die oben definierten Abbildungen erneut **unabhängig** von der Wahl des Homöomorphismus $\phi$ sind.
 
+````
+
 #### Algebraische Definition
 
 Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr anschaulich als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind.
 
 ````{prf:definition} Derivation
 Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$ ein Punkt der Mannigfaltigkeit.
-Wir nennen eine lineare Abbildung $D: C^\infty(\M) \to \R$ eine **Derivation** an $p$, falls sie die folgende Kettenregel erfüllt, 
+Wir nennen eine lineare Abbildung $D: C^\infty(\M) \to \R$ eine **Derivation** an $p$, falls sie die folgende Produktregel erfüllt, 
 
 ```{math}
 D(fg) = D(f) g(p) + f(p) D(g).
