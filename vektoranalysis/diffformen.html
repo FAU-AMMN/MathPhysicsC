@@ -300,8 +300,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#der-tangentialraum">
-     3.3.2.4. Der Tangentialraum
+    <a class="reference internal nav-link" href="#tangentialraume-an-mannigfaltigkeiten">
+     3.3.2.4. Tangentialräume an Mannigfaltigkeiten
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -314,36 +314,63 @@
        3.3.2.4.2. Algebraische Definition
       </a>
      </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basis-des-tangentialraums">
-     3.3.2.5. Basis des Tangentialraums
-    </a>
-    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#basis-des-algebraische-tangentialraums">
+       3.3.2.4.3. Basis des algebraische Tangentialraums
+      </a>
+     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#kotangentialraum">
-       3.3.2.5.1. Kotangentialraum
+       3.3.2.4.4. Kotangentialraum
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tangentialbundel">
-     3.3.2.6. Tangentialbündel
+     3.3.2.5. Tangentialbündel
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vektorfelder">
-     3.3.2.7. Vektorfelder
+     3.3.2.6. Vektorfelder
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#wirkung-von-vektorfeldern">
+       3.3.2.6.1. Wirkung von Vektorfeldern
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lokale-basis-von-vektorfeldern">
+       3.3.2.6.2. Lokale Basis von Vektorfeldern
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#koordinatenwechsel">
+       3.3.2.6.3. Koordinatenwechsel
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tensorfelder">
+     3.3.2.7. Tensorfelder
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensorfelder">
-   3.3.3. Tensorfelder
+  <a class="reference internal nav-link" href="#differnitlaformen">
+   3.3.3. Differnitlaformen
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#einsformen">
+     3.3.3.1. Einsformen
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#differentialformen-auf-offenen-mengen">
@@ -637,7 +664,7 @@ Dann ist <span class="math notranslate nohighlight">\(C^\infty(\M; \R^m)\)</span
 <p>Proof. In der Hausaufgabe zu zeigen.</p>
 </div>
 <p>Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.</p>
-<div class="proof lemma admonition" id="lemma-16">
+<div class="proof lemma admonition" id="lem:differenzierbarkeitKartenunabhaengig">
 <p class="admonition-title"><span class="caption-number">Lemma 3.12 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> ein Atlas auf <span class="math notranslate nohighlight">\(\M\)</span>.
@@ -648,116 +675,149 @@ Ist <span class="math notranslate nohighlight">\(f\circ\phi^{-1}\)</span> differ
 <p>Proof. In der Hausaufgabe zu zeigen.</p>
 </div>
 </div>
-<div class="section" id="der-tangentialraum">
-<h3><span class="section-number">3.3.2.4. </span>Der Tangentialraum<a class="headerlink" href="#der-tangentialraum" title="Permalink to this headline">¶</a></h3>
-<p>Aus Kapitel (??) ist bereits das Konzept der Linearisierung bekannt. Anschaulich gesprochen ersetzten wir eine diffenzierbare Funktion <span class="math notranslate nohighlight">\(f\)</span> durch eine seine Linearisierung um ein einfacheres Problem zu erhalten. Dieses Konzept soll nun auf Funktionen <span class="math notranslate nohighlight">\(f:\M\to\R\)</span> übertragen werden, wobei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit ist. Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit definieren, insbesondere ist dieser kartenunabhängig. Der Tatsächliche der Wert der Ableitung von Funktionen <span class="math notranslate nohighlight">\(f\cic\phi^{-1}\)</span> hängt aber noch immer von der Wahl der Karte <span class="math notranslate nohighlight">\(\phi\)</span> ab. Um auch hier Kartenunabhängigkeit herzustellen brauchen wir einen anderen Begriff der Differenzierbarkeit. Hierbei wird uns der sogenannte <strong>Tangentialraum</strong> helfen. Intuitiv ist er eine Linearisierung der Mannigfaltigkeit <span class="math notranslate nohighlight">\(M\)</span> an einem Punkt <span class="math notranslate nohighlight">\(p\in\M\)</span>.</p>
+<div class="section" id="tangentialraume-an-mannigfaltigkeiten">
+<h3><span class="section-number">3.3.2.4. </span>Tangentialräume an Mannigfaltigkeiten<a class="headerlink" href="#tangentialraume-an-mannigfaltigkeiten" title="Permalink to this headline">¶</a></h3>
+<p>Aus dem Kapitel <a class="reference internal" href="../odestability/ruhelagen.html#s-linearisierung-ruhelage"><span class="std std-ref">Linearisierung um Ruhelage</span></a> ist bereits das Konzept der <em>Linearisierung</em> bekannt.
+Anschaulich gesprochen haben wir eine diffenzierbare Funktion <span class="math notranslate nohighlight">\(f\)</span> durch ihre Linearisierung ersetzt um ein einfacheres Problem zu erhalten.
+Dieses Konzept soll nun auf glatte Mannigfaltigkeiten übertragen werden.</p>
+<p>Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit definieren.
+Und obwohl die Frage nach der Differenzierbarkeit einer Funktion nach <a class="reference internal" href="#lem:differenzierbarkeitKartenunabhaengig">Lemma 3.12</a> kartenunabhängig ist, so stellt sich heraus, dass der tatsächliche <em>Wert der Ableitung</em> einer Verknüpfung <span class="math notranslate nohighlight">\(f \circ\phi^{-1}\)</span> noch immer von der konkreten Wahl des Homöomorphismus <span class="math notranslate nohighlight">\(\phi\)</span> abhängt.
+Um auch hier die gewünschte Kartenunabhängigkeit zu erreichen, brauchen wir einen anderen Begriff der Differenzierbarkeit.
+Hierbei wird uns der sogenannte <strong>Tangentialraum</strong> helfen.
+Man kann ihn als eine Linearisierung der Mannigfaltigkeit <span class="math notranslate nohighlight">\(\M\)</span> an einem Punkt <span class="math notranslate nohighlight">\(p\in\M\)</span> interpretieren.</p>
+<p>Das folgende Beispiel erklärt anschaulich den Tangentialraum an eine Mannigfaltigkeit.</p>
 <div class="proof example admonition" id="example-17">
 <p class="admonition-title"><span class="caption-number">Example 3.16 </span></p>
 <div class="example-content section" id="proof-content">
-<p>Mannigfaltigkeit <span class="math notranslate nohighlight">\(\R^n\)</span>.</p>
-</div>
-</div><p>Es gibt verschiedene (äquivalente) Arten den Tangentialraum konkret einzuführen.</p>
-<ul class="simple">
-<li><p><strong>Geometrischer Tangentialraum</strong>: Hierbei behält man die geometrische Anschauung und definiert Tangentialvektoren durch Richtungsvektoren die am Punkt <span class="math notranslate nohighlight">\(p\in\M\)</span> anliegen. Diese Definition ist intuitiv und sehr anschaulich.</p></li>
-<li><p><strong>Algebrische Defnition</strong>: Diese Definition zieht sich auf das Konzept der Derivationen zurück. Man verliert zwar die intuitive Anschauung, allerdings ist sie sehr einfach zu formulieren und hilft in den meisten Fällen die Sachverhalte auf einfache algebraische Konzept zurückzuführen.</p></li>
-</ul>
-<p>In der Praxis (und in vielen Büchern) werden beide Definitionen parallel verwendet, die jeweilige Interpretation geht dann aus dem Kontext hervor. Da sich die beiden Konzepte schlecht voneinander trennen lassen werden wir im folgenden den geometrischen Tangentialraum <span class="math notranslate nohighlight">\(T^{\text{geom}}_p\M\)</span> und den algebraischen Tangentialraum <span class="math notranslate nohighlight">\(T^{\text{alg}}_p\M\)</span> einführen eine Isomorphie</p>
+<p>Wir betrachten zunächst den Einheitskreis <span class="math notranslate nohighlight">\(\M = \mathbb{S}^1\)</span> und den Punkt <span class="math notranslate nohighlight">\(p = (1, 0)^T \in \mathbb{S}^1\)</span>.
+Der Tangentialraum <span class="math notranslate nohighlight">\(T_p\M\)</span> an <span class="math notranslate nohighlight">\(\M\)</span> im Punkt <span class="math notranslate nohighlight">\(p\)</span> ist der eindimensionale Unterraum</p>
 <div class="math notranslate nohighlight">
-\[T^{\text{geom}}_p\M\cong T^{\text{alg}}_p\M\]</div>
-<p>zeigen.</p>
+\[T_p\M = \lbrace \lambda \cdot (0, 1)^T : \lambda \in \R \rbrace \subset \R^2.\]</div>
+</div>
+</div><p>Es gibt in der Literatur zwei verschiedene, jedoch äquivalente Arten den Tangentialraum zu definieren.</p>
+<ul class="simple">
+<li><p><strong>Geometrischer Tangentialraum</strong>: Bei diesem Ansatz wählt man eine geometrisch Anschauung und definiert den Tangentialraum durch Richtungsvektoren, die am Punkt <span class="math notranslate nohighlight">\(p\in\M\)</span> anliegen.
+Der Vorteil dieser Definition ist es, dass sie intuitiv und geometrisch anschaulich ist.</p></li>
+<li><p><strong>Algebraische Defnition</strong>: Bei diesem Ansatz führt man den Tangentialraum mittels spezieller linearer Abbildungen, genannt Derivationen, zurück.
+Man verliert hierbei zwar die geometrische Anschauung, allerdings ist das Konzept relativ einfach zu formulieren und hilft die Sachverhalte auf algebraische Zusammenhänge zurückzuführen.</p></li>
+</ul>
+<p>In der Praxis (und in vielen Mathematikbüchern) werden beide Definitionen nebeneinander verwendet und die jeweilige Interpretation geht dann aus dem Kontext hervor.
+Da sich die beiden Konzepte somit schlecht voneinander trennen lassen werden wir im Folgenden den geometrischen Tangentialraum <span class="math notranslate nohighlight">\(T^{\text{geo}}_p\M\)</span> und den algebraischen Tangentialraum <span class="math notranslate nohighlight">\(T^{\text{alg}}_p\M\)</span> explizit einführen und anschließend eine Isomorphie</p>
+<div class="math notranslate nohighlight">
+\[T^{\text{geo}}_p\M\cong T^{\text{alg}}_p\M\]</div>
+<p>zwischen den beiden Tangentialräumen zeigen.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>In der Literatur wird diese Unterscheidung oft nicht vorgenommen, stattdessen wird der Tangentialraum <span class="math notranslate nohighlight">\(T_p\M\)</span> genannt. Elemente dieses Raums sind dann je nach Kontext geometrisch oder algebraisch zu verstehen.</p>
+<p>In der Literatur wird diese explizite Unterscheidung oft nicht vorgenommen.
+Stattdessen wird der Tangentialraum einfach nur <span class="math notranslate nohighlight">\(T_p\M\)</span> genannt.
+Elemente dieses Raums sind dann je nach Kontext geometrisch oder algebraisch zu interpretieren.</p>
 </div>
 <div class="section" id="geometrische-definition">
 <h4><span class="section-number">3.3.2.4.1. </span>Geometrische Definition<a class="headerlink" href="#geometrische-definition" title="Permalink to this headline">¶</a></h4>
-<p>Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der <strong>Richtungsableitung</strong> bekannt. Für eine Funktion <span class="math notranslate nohighlight">\(F:\R^n\to\R\)</span> betrachtet man den Strahl <span class="math notranslate nohighlight">\(\gamma(t):= x + t\,v\)</span>, wobei <span class="math notranslate nohighlight">\(x,v\in\R^n\)</span> und den Grenzwert</p>
+<p>Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der <strong>Richtungsableitung</strong> bekannt (siehe Kapitel 6.2.2 in <span id="id2">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>).
+Hierbei betrachtet man für eine Funktion <span class="math notranslate nohighlight">\(F:\R^n\to\R\)</span> den Strahl <span class="math notranslate nohighlight">\(\gamma(t):= x + t\cdot v\)</span>, wobei <span class="math notranslate nohighlight">\(x,v\in\R^n\)</span> und den Grenzwert</p>
 <div class="math notranslate nohighlight">
-\[\lim_{t\to 0} \frac{F(\gamma(t)) - F(\gamma(0))}{t} = \frac{F(x + t\,v) - F(x))}{t}.\]</div>
-<p>Wir werden diese Konzept nun auf glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeiten <span class="math notranslate nohighlight">\(\M\)</span> verallgemeinern indem wir anstatt von Strahlen, differenzierbare <em>Kurven</em> <span class="math notranslate nohighlight">\(\gamma\)</span> betrachten. Hierbei nennen wir eine Kurve differenzierbar am Punkt <span class="math notranslate nohighlight">\(0\in(-1,1)\)</span> falls sie stetig ist und falls eine Karte <span class="math notranslate nohighlight">\((U,\phi)\)</span> für <span class="math notranslate nohighlight">\(\M\)</span> existiert, wobei <span class="math notranslate nohighlight">\(U\)</span> eine offene Umgebung von <span class="math notranslate nohighlight">\(\phi(0)\)</span> ist, s.d., <span class="math notranslate nohighlight">\(\phi((-\varepsilon,\varepsilon))\subset U\)</span> und <span class="math notranslate nohighlight">\(\phi \circ \gamma:(-\varepsilon,\varepsilon)\to\R^n\)</span> differenzierbar in <span class="math notranslate nohighlight">\(0\)</span> ist, wobei <span class="math notranslate nohighlight">\(\varepsilon\)</span> klein genug ist. Wir werden im Folgenden stets die Ableitung im Punkt <span class="math notranslate nohighlight">\(t=0\)</span> betrachten und sprechen deshalb verkürzt von <em>differenzierbaren</em> Kurven. Wir bemerken insbesondere, dass die obige Definition <strong>nicht</strong> von der Wahl der Karte abhängt.</p>
-<div class="proof example admonition" id="example-18">
+\[\lim_{t\to 0} \frac{F(\gamma(t)) - F(\gamma(0))}{t} = \frac{F(x + t\cdot v) - F(x))}{t}.\]</div>
+<p>Wir werden dieses Konzept nun auf glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeiten <span class="math notranslate nohighlight">\(\M\)</span> verallgemeinern, indem wir anstatt von Strahlen differenzierbare <em>Kurven</em> auf der Mannigfaltigkeit betrachten.</p>
+<div class="proof definition admonition" id="definition-18">
+<p class="admonition-title"><span class="caption-number">Definition 3.22 </span> (Differenzierbare Kurve)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und sei</p>
+<div class="math notranslate nohighlight">
+\[\gamma \colon (-1,1) \rightarrow \M\]</div>
+<p>eine Kurve auf der Mannigfaltigkeit <span class="math notranslate nohighlight">\(\M\)</span>.
+Wir nennen <span class="math notranslate nohighlight">\(\gamma\)</span> <strong>differenzierbar</strong> im Punkt <span class="math notranslate nohighlight">\(0\in(-1,1)\)</span>, falls die Kurve <em>stetig</em> ist und falls eine Karte <span class="math notranslate nohighlight">\((U,\phi)\)</span> von <span class="math notranslate nohighlight">\(\M\)</span> existiert, so dass für genügend kleines <span class="math notranslate nohighlight">\(\varepsilon\)</span> auch <span class="math notranslate nohighlight">\(\gamma((-\varepsilon,\varepsilon))\subset U\)</span> gilt und die Verknüpfung</p>
+<div class="math notranslate nohighlight">
+\[\phi \circ \gamma:(-\varepsilon,\varepsilon)\to\R^n\]</div>
+<p>differenzierbar in <span class="math notranslate nohighlight">\(0\)</span> ist .</p>
+</div>
+</div><p>Wir werden im Folgenden ausschließlich die Ableitung der Kurve im Punkt <span class="math notranslate nohighlight">\(t=0\)</span> betrachten und sprechen deshalb verkürzt einfach nur von <em>differenzierbaren</em> Kurven.
+Zusätzlich sei zu bemerken, dass die obige Definition <strong>nicht</strong> von der Wahl der Karte abhängt.</p>
+<div class="proof example admonition" id="example-19">
 <p class="admonition-title"><span class="caption-number">Example 3.17 </span></p>
 <div class="example-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M=\S^2\)</span> die Einheitssphäre und <span class="math notranslate nohighlight">\(u:\M\to\R\)</span> beschreibe eine Wärmeverteilung auf der Kugeloberfläche. Betrachtet man nun die Bahn eines Partikels auf der Oberfläche beschrieben durch <span class="math notranslate nohighlight">\(\gamma:(-t, t)\to \M\)</span> so erhalten wir eine eindimensionale Abbildung</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\M=\S^2\)</span> die Einheitssphäre und <span class="math notranslate nohighlight">\(f:\M\to\R\)</span> beschreibe eine Wärmeverteilung auf deren Oberfläche.
+Betrachtet man nun die Bahn eines Partikels auf der Oberfläche beschrieben durch die Kurve <span class="math notranslate nohighlight">\(\gamma:(-t, t)\to \M\)</span> so erhalten wir eine eindimensionale Abbildung</p>
 <div class="math notranslate nohighlight">
-\[f\circ\gamma:(-t,t)\to \R\]</div>
-<p>die zu jedem Zeitpunkt die Temperatur des Ortes an welchem sich der Partikel befindet beschreibt.</p>
+\[f\circ\gamma:(-t,t)\to \R,\]</div>
+<p>die zu jedem Zeitpunkt die Temperatur des Ortes, an dem sich der Partikel befindet, beschreibt.</p>
 </div>
 </div><div class="figure align-default" id="fig-velocity">
-<a class="reference internal image-reference" href="../_images/velocity.jpg"><img alt="../_images/velocity.jpg" src="../_images/velocity.jpg" style="height: 450px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.6 </span><span class="caption-text">ToDo.</span><a class="headerlink" href="#fig-velocity" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="../_images/velocity.jpg"><img alt="../_images/velocity.jpg" src="../_images/velocity.jpg" style="width: 350px; height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Visualisierung einer Kurve auf der oberen Hälfte der Einheitssphäre im <span class="math notranslate nohighlight">\(\R^3\)</span>.</span><a class="headerlink" href="#fig-velocity" title="Permalink to this image">¶</a></p>
 </div>
+<p>Mit Hilfe von differenzierbaren Kurven auf Mannigfaltigkeiten können wir im Folgenden die Richtungsableitung an einer Mannigfaltigkeit definieren.</p>
 <div class="proof definition admonition" id="def:direcdiv">
-<p class="admonition-title"><span class="caption-number">Definition 3.22 </span> (Richtungsableitung)</p>
+<p class="admonition-title"><span class="caption-number">Definition 3.23 </span> (Richtungsableitung an Mannigfaltigkeit)</p>
 <div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit, <span class="math notranslate nohighlight">\(\gamma:(-1,1)\to\M\)</span> eine differenzierbare Kurve mit <span class="math notranslate nohighlight">\(\gamma(0)=p\in\M\)</span>, dann nennen wir die Abbildung</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit, <span class="math notranslate nohighlight">\(\gamma:(-1,1)\to\M\)</span> eine differenzierbare Kurve mit <span class="math notranslate nohighlight">\(\gamma(0)=p\in\M\)</span> und <span class="math notranslate nohighlight">\(f \in C^\infty(\M)\)</span> eine glatte Funktion.
+Dann nennen wir die Abbildung</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}D_\gamma &amp;: C^\infty(\M)\to\R\\
-f\mapsto D_\gamma(f)&amp;:=\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0}\end{split}\]</div>
+\[\begin{split}D_\gamma : C^\infty(\M) &amp;\to \R\\
+f &amp;\mapsto D_\gamma(f):=\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0}\end{split}\]</div>
 <p><strong>Richtungsableitung</strong> von <span class="math notranslate nohighlight">\(f\)</span> durch <span class="math notranslate nohighlight">\(\gamma\)</span> im Punkt <span class="math notranslate nohighlight">\(p\)</span>.</p>
 </div>
-</div><p>Sei nun <span class="math notranslate nohighlight">\(\gamma\)</span> eine differenzierbare Kurve mit <span class="math notranslate nohighlight">\(\gamma(0)=p\)</span>, dann haben wir</p>
+</div><p>Betrachten wir nun eine differenzierbare Kurve <span class="math notranslate nohighlight">\(\gamma \colon (-1, 1) \rightarrow \M\)</span> mit <span class="math notranslate nohighlight">\(\gamma(0)=p \in \M\)</span> und eine glatte Funktion <span class="math notranslate nohighlight">\(f \in \C^\infty(\M)\)</span> definiert auf einer glatten Mannigfaltigkeit <span class="math notranslate nohighlight">\(\M\)</span>.
+Dann können wir die Richtungsableitung <span class="math notranslate nohighlight">\(D_\gamma(f)\)</span> mit Hilfe der <strong>Kettenregel für die Differentiation</strong> darstellen als</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0} = \frac{d}{dt}\big( (f\circ \phi^{-1}) (\phi \circ \gamma) \big) = 
-\big(\frac{d}{dt}(f\circ \phi^{-1})\big)(\phi(p))\cdot \frac{d}{dt}(\phi \circ \gamma)\rvert_{t=0}\]</div>
-<p>und für eine weitere differenzierbare Kurve <span class="math notranslate nohighlight">\(\tilde{\gamma}, \tilde{\gamma}(0)=p\)</span> ebenfalls</p>
+\[D_\gamma(f) = \frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0} = \frac{d}{dt}\big( (f\circ \phi^{-1}) (\phi \circ \gamma) \big)\rvert_{t=0} = 
+\big(D(f\circ \phi^{-1})\big)(\phi(p))\cdot \frac{d}{dt}(\phi \circ \gamma)\rvert_{t=0}\]</div>
+<p>und für eine weitere differenzierbare Kurve <span class="math notranslate nohighlight">\(\eta \colon (-1, 1) \rightarrow \M\)</span> mit <span class="math notranslate nohighlight">\(\eta(0)=p\)</span> erhalten wir analog</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dt}(f\circ \tilde{\gamma})\big\rvert_{t=0} = 
-\big(\frac{d}{dt}(f\circ \phi^{-1})\big)(\phi(p))\cdot \frac{d}{dt}(\phi \circ \tilde{\gamma})\rvert_{t=0}.\]</div>
-<p>Wir erkennen also, dass der Wert der Richtungsableitung in derTat von der Kurve <span class="math notranslate nohighlight">\(\gamma\)</span> abhängt. Dies führt auf einen natürlichen Äquivalenzbegriff von Kurven.</p>
-<div class="proof lemma admonition" id="lem:tang">
-<p class="admonition-title"><span class="caption-number">Lemma 3.13 </span> (Tangentialvektoren)</p>
-<div class="lemma-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit, <span class="math notranslate nohighlight">\(p\in\M\)</span> und <span class="math notranslate nohighlight">\((U,\phi)\)</span> eine Karte in <span class="math notranslate nohighlight">\(\M\)</span>, mit <span class="math notranslate nohighlight">\(p\in U\)</span>. Für differenzierbare Kurven <span class="math notranslate nohighlight">\(\gamma,\tilde{\gamma}:(-1,1)\to U\)</span> mit <span class="math notranslate nohighlight">\(\gamma(0) = \tilde{\gamma}(0) = p\)</span> ist die Relation</p>
+\[D_\eta(f) = \frac{d}{dt}(f\circ \eta)\big\rvert_{t=0} = 
+\big(D(f\circ \phi^{-1})\big)(\phi(p))\cdot \frac{d}{dt}(\phi \circ \eta)\rvert_{t=0}.\]</div>
+<p>Wir erkennen also, dass der Wert der Richtungsableitung in der Tat von der Kurve <span class="math notranslate nohighlight">\(\gamma\)</span> abhängt.
+Dies führt auf einen natürlichen Äquivalenzbegriff von Kurven, wie die folgende Bemerkung beschreibt.</p>
+<div class="proof remark admonition" id="rem:tang">
+<p class="admonition-title"><span class="caption-number">Remark 3.17 </span> (Tangentialvektoren)</p>
+<div class="remark-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit, <span class="math notranslate nohighlight">\(p\in\M\)</span> ein Punkt auf der Mannigfaltigkeit und <span class="math notranslate nohighlight">\((U,\phi)\)</span> eine Karte von <span class="math notranslate nohighlight">\(\M\)</span>, für die gilt, dass <span class="math notranslate nohighlight">\(p\in U\)</span> ist.
+Für zwei differenzierbare Kurven <span class="math notranslate nohighlight">\(\gamma, \eta:(-1,1) \to U\)</span> mit <span class="math notranslate nohighlight">\(\gamma(0) = \eta(0) = p\)</span> ist die Relation</p>
 <div class="math notranslate nohighlight">
-\[\gamma \sim_p \tilde{\gamma} 
-\Leftrightarrow 
-\frac{d}{dt}(\phi \circ \gamma)\rvert_{t=0} = \frac{d}{dt}(\phi \circ \tilde{\gamma})\rvert_{t=0}\in R^d\]</div>
-<p>eine Äquivalenzrelation. Die Äquivalenzklasse <span class="math notranslate nohighlight">\(\gamma^\prime(0):=[\gamma]_{\sim_p}\)</span> wird als <strong>Tangentialvektor</strong> bezeichnet. Insbesondere ist die Klasse unabhängig von der Wahl der Karte <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+\[\gamma \sim_p \eta
+\qquad \Leftrightarrow \qquad
+\frac{d}{dt}(\phi \circ \gamma)\rvert_{t=0} = \frac{d}{dt}(\phi \circ \eta)\rvert_{t=0}\in \R^n\]</div>
+<p>eine Äquivalenzrelation (siehe Kapitel 2.1.1 in <span id="id3">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span>).
+Insbesondere ist die Äquivalenzklasse unabhängig von der Wahl des Homöomorphismus <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
 </div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Siehe Übung.</p>
-</div>
-<div class="proof example admonition" id="example-21">
-<p class="admonition-title"><span class="caption-number">Example 3.18 </span></p>
-<div class="example-content section" id="proof-content">
-<p>Tangentialvektoren im <span class="math notranslate nohighlight">\(\R^n\)</span>.</p>
-</div>
-</div><p>Da wir nun Tangentialvektoren eingeführt haben, sind wir in der Lage den <strong>Tangentialraum</strong> zu definieren, nämlich als Raum aller Tangentialvektoren.</p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>ToDo: Quotientenräume machen es hier einfacher.</p>
-</div>
+</div><p>Mittels der oben beschriebenen Äquivalenzrelation sind wir in der Lage den Begriff der <em>Tangentialvektoren</em> und des <em>Tangentialraums</em> zu definieren.</p>
 <div class="proof definition admonition" id="definition-22">
-<p class="admonition-title"><span class="caption-number">Definition 3.23 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.24 </span> (Geometrische Tangentialvektoren und Tangentialraum)</p>
 <div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit, dann heißt der Raum der (geometrischen) Tangentialvektoren</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit, <span class="math notranslate nohighlight">\(p\in\M\)</span> ein Punkt auf der Mannigfaltigkeit und <span class="math notranslate nohighlight">\((U,\phi)\)</span> eine Karte von <span class="math notranslate nohighlight">\(\M\)</span>, für die gilt, dass <span class="math notranslate nohighlight">\(p\in U\)</span> ist.</p>
+<p>Die Äquivalenzklasse <span class="math notranslate nohighlight">\(\gamma^\prime(0):=[\gamma]_{\sim_p}\)</span> wird als <strong>geometrischer Tangentialvektor</strong> an <span class="math notranslate nohighlight">\(\M\)</span> im Punkt <span class="math notranslate nohighlight">\(p\)</span> bezeichnet.
+Der Raum der (geometrischen) Tangentialvektoren</p>
 <div class="math notranslate nohighlight">
-\[T_p^{\text{geom}}\M := \{\gamma^\prime(0): \gamma\text{ ist differenzierbare Kurve mit }\gamma(0)=p\}\]</div>
-<p><strong>geometrischer Tangentialraum</strong> am Punkt <span class="math notranslate nohighlight">\(p\)</span>.</p>
+\[T_p^{\text{geo}}\M := \{\gamma^\prime(0): \gamma\text{ ist differenzierbare Kurve mit }\gamma(0)=p\}\]</div>
+<p>heißt <strong>geometrischer Tangentialraum</strong> der Mannigfaltigkeit <span class="math notranslate nohighlight">\(\M\)</span> am Punkt <span class="math notranslate nohighlight">\(p \in \M\)</span>.</p>
 </div>
-</div><p>Um eine Vektorraumstruktur zu definieren, wählen wir eine Karte <span class="math notranslate nohighlight">\(\phi\)</span> wie in <a class="reference internal" href="#lem:tang">Lemma 3.13</a> und definieren die Abbildung</p>
+</div><p>Der Tangentialraum induziert sogar eine Vektorraumstruktur wie folgende Bemerkung festhält.</p>
+<div class="proof remark admonition" id="remark-23">
+<p class="admonition-title"><span class="caption-number">Remark 3.18 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit, <span class="math notranslate nohighlight">\(p\in\M\)</span> ein Punkt auf der Mannigfaltigkeit und <span class="math notranslate nohighlight">\((U,\phi)\)</span> eine Karte von <span class="math notranslate nohighlight">\(\M\)</span>, für die gilt, dass <span class="math notranslate nohighlight">\(p\in U\)</span> ist.
+Sei außerdem <span class="math notranslate nohighlight">\(\gamma \colon (-1,1) \rightarrow \M\)</span> eine differenzierbare Kurve auf <span class="math notranslate nohighlight">\(\M\)</span> mit <span class="math notranslate nohighlight">\(\gamma(0) = p\)</span>.
+Wir definieren nun die folgende Bijektion auf dem Tangentialraum</p>
 <div class="math notranslate nohighlight">
-\[d\phi\rvert_p [\gamma]_{\sim_p} = d\phi\rvert_p (\gamma^\prime(0)) := (\phi \circ \gamma)^\prime (0)\]</div>
-<p>was eine Bijektion zwischen <span class="math notranslate nohighlight">\(\R^n\)</span> und <span class="math notranslate nohighlight">\(T_p\M\)</span> ist. Damit erhalten wie die Operationen</p>
+\[\begin{split}d\phi\rvert_p \colon T^{\text{geo}}_p\M &amp;\rightarrow \R^n,\\
+[\gamma]_{\sim_p} &amp;\mapsto d\phi\rvert_p (\gamma^\prime(0)) := (\phi \circ \gamma)^\prime (0).\end{split}\]</div>
+<p>Basierend auf dieser Abbildung lassen sich die folgenden Operationen für den Punkt <span class="math notranslate nohighlight">\(p \in \M\)</span> definieren</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\gamma^\prime(0) +_{p} \tilde{\gamma}^\prime(0) &amp;:=
-(d\phi\rvert_p)^{-1}\big(d\phi\rvert_p(\gamma^\prime(0)) + d\phi\rvert_p(\tilde{\gamma}^\prime(0))\big)\\
-\lambda \cdot_p \gamma^\prime(0) &amp;:= (d\phi\rvert_p)^{-1} (\lambda\,d\phi\rvert_p(\gamma^\prime(0))\end{split}\]</div>
-<p>welche erneut <strong>unabhängig</strong> von der Wahl der Karte <span class="math notranslate nohighlight">\(\phi\)</span> definiert sind</p>
-<div class="proof lemma admonition" id="lemma-23">
-<p class="admonition-title"><span class="caption-number">Lemma 3.14 </span></p>
-<div class="lemma-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(p\in\M\)</span>, das Tripel <span class="math notranslate nohighlight">\((T_p^{\text{geom}}\M, +_p, \cdot_p)\)</span> bildet einen reellen Vektorraum.</p>
+\[\begin{split}\gamma^\prime(0) +_{p} \eta^\prime(0) \ &amp;:= \
+(d\phi\rvert_p)^{-1}\big[d\phi\rvert_p(\gamma^\prime(0)) + d\phi\rvert_p(\eta^\prime(0))\big]\\
+\lambda \cdot_p \gamma^\prime(0) \ &amp;:= \ (d\phi\rvert_p)^{-1} (\lambda \cdot d\phi\rvert_p(\gamma^\prime(0))\end{split}\]</div>
+<p>Insgesamt ergibt somit das Tripel <span class="math notranslate nohighlight">\((T_p^{\text{geo}}\M, +_p, \cdot_p)\)</span> einen reellen Vektorraum.
+Man bemerke, dass die oben definierten Abbildungen erneut <strong>unabhängig</strong> von der Wahl des Homöomorphismus <span class="math notranslate nohighlight">\(\phi\)</span> sind.</p>
 </div>
 </div></div>
 <div class="section" id="algebraische-definition">
 <h4><span class="section-number">3.3.2.4.2. </span>Algebraische Definition<a class="headerlink" href="#algebraische-definition" title="Permalink to this headline">¶</a></h4>
-<p>Es gibt eine alternativen Weg den Tangentialraum einzuführen, über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr direkt als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf <span class="math notranslate nohighlight">\(C^\infty(\M)\)</span> charakterisiert sind.</p>
+<p>Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr anschaulich als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf <span class="math notranslate nohighlight">\(C^\infty(\M)\)</span> charakterisiert sind.</p>
 <div class="proof definition admonition" id="definition-24">
-<p class="admonition-title"><span class="caption-number">Definition 3.24 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.25 </span> (Derivation)</p>
 <div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(p\in\M\)</span>, eine lineare Abbildung <span class="math notranslate nohighlight">\(D:C^\infty(\M)\to \R\)</span> heißt <strong>Derivation</strong> an <span class="math notranslate nohighlight">\(p\)</span>, falls die folgende Kettenregel gilt,</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(p\in\M\)</span> ein Punkt der Mannigfaltigkeit.
+Wir nennen eine lineare Abbildung <span class="math notranslate nohighlight">\(D: C^\infty(\M) \to \R\)</span> eine <strong>Derivation</strong> an <span class="math notranslate nohighlight">\(p\)</span>, falls sie die folgende Produktregel erfüllt,</p>
 <div class="math notranslate nohighlight">
 \[D(fg) = D(f) g(p) + f(p) D(g).\]</div>
 <p>Der Raum der Derivationen an <span class="math notranslate nohighlight">\(p\)</span></p>
@@ -767,57 +827,67 @@ f\mapsto D_\gamma(f)&amp;:=\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0}\end{split
 </div>
 </div><p>Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum.</p>
 <div class="proof lemma admonition" id="lemma-25">
-<p class="admonition-title"><span class="caption-number">Lemma 3.15 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 3.13 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit, dann ist <span class="math notranslate nohighlight">\(T^{\text{alg}}_p\M\)</span> ein reeller Vektorraum.</p>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Siehe Übung.</p>
 </div>
-<p>Wie bereits erwähnt ist diese Definition des Tangentialraums äquivalent zu der geomtrischen Version. Konkret heißt das, dass wir eine Isomorphie</p>
-<div class="math notranslate nohighlight">
-\[T^{\text{alg}}_p\M\cong T^{\text{geom}}_p\M\]</div>
-<p>erhalten. Die Identifikation lässt sich sehr einfach angeben, ist nämlich <span class="math notranslate nohighlight">\(\gamma\)</span> eine differenzierbare Kurve, so ist durch</p>
-<div class="math notranslate nohighlight">
-\[D_\gamma(f):= (f\circ \gamma)^\prime(0)\]</div>
-<p>eine Derivation an <span class="math notranslate nohighlight">\(\gamma(0)\)</span> gegeben. Ist umgekehrt eine Derivation <span class="math notranslate nohighlight">\(D\)</span> gegeben, so erhalten wir über</p>
-<div class="math notranslate nohighlight">
-\[\gamma_D(t):= \phi^{-1} (\phi(p) + t (D(\phi_1), \ldots, D(\phi_n)))\]</div>
-<p>eine differenzierbare Kurve durch <span class="math notranslate nohighlight">\(p\)</span>. Diese Idee wird in folgendem Lemma formalisiert.</p>
+<p>Diese Definition des Tangentialraums ist äquivalent zu der geometrischen Variante.</p>
 <div class="proof lemma admonition" id="lemma-26">
-<p class="admonition-title"><span class="caption-number">Lemma 3.16 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 3.14 </span></p>
 <div class="lemma-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(p\in\M\)</span>. Die Abbildung</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(p\in\M\)</span>.</p>
+<p>Dann existiert ein Isomorphismus</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\Theta: T^{\text{geom}}_p\M &amp;\to T^{\text{alg}}_p\M\\
-\gamma &amp;\to D_\gamma\end{split}\]</div>
-<p>ist ein Isomorphismus.</p>
+\gamma &amp;\mapsto D_\gamma\end{split}\]</div>
+<p>zwischen dem geometrischen und algebraischen Tangentialraum.</p>
 </div>
-</div></div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Die Identifikation lässt sich sehr einfach angeben.
+Ist nämlich <span class="math notranslate nohighlight">\(\gamma\)</span> eine differenzierbare Kurve, so ist durch</p>
+<div class="math notranslate nohighlight">
+\[D_\gamma(f):= (f\circ \gamma)^\prime(0)\]</div>
+<p>eine Derivation an <span class="math notranslate nohighlight">\(\gamma(0)\)</span> gegeben.
+Ist umgekehrt eine Derivation <span class="math notranslate nohighlight">\(D\)</span> gegeben, so erhalten wir über</p>
+<div class="math notranslate nohighlight">
+\[\gamma_D(t):= \phi^{-1} (\phi(p) + t (D(\phi_1), \ldots, D(\phi_n)))\]</div>
+<p>eine differenzierbare Kurve durch <span class="math notranslate nohighlight">\(p\)</span>.</p>
 </div>
-<div class="section" id="basis-des-tangentialraums">
-<h3><span class="section-number">3.3.2.5. </span>Basis des Tangentialraums<a class="headerlink" href="#basis-des-tangentialraums" title="Permalink to this headline">¶</a></h3>
-<p>Wir wollen eine Basis des algebraischen Tangentialraums konstruieren. Im euklidischen können wir auf natürliche Art die Koordinatenrichtungen als Kurven wählen, also Funktionen der Form</p>
+</div>
+<div class="section" id="basis-des-algebraische-tangentialraums">
+<span id="sec-tpbasis"></span><h4><span class="section-number">3.3.2.4.3. </span>Basis des algebraische Tangentialraums<a class="headerlink" href="#basis-des-algebraische-tangentialraums" title="Permalink to this headline">¶</a></h4>
+<p>Wir wollen eine Basis des algebraischen Tangentialraums konstruieren.
+Im Euklidischen Raum können wir auf natürliche Art die Koordinatenrichtungen als Kurven wählen, also Funktionen der Form</p>
 <div class="math notranslate nohighlight">
 \[t\mapsto t e_i\]</div>
-<p>für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> wobei <span class="math notranslate nohighlight">\(e_i\)</span> den <span class="math notranslate nohighlight">\(i\)</span>ten Einheitsvektor in <span class="math notranslate nohighlight">\(\R^n\)</span> bezeichnet. Wir können diese Idee auf Mannigfaltigkeiten übertragen. Dazu wählen wir eine Karte <span class="math notranslate nohighlight">\(\phi:\M\to\R^n\)</span>, wobei man hier auch von <span class="math notranslate nohighlight">\(\phi = (\phi_1,\ldots,\phi_n) =: (x^1,\ldots,x^n)\)</span> als <strong>lokales Koordinatensystem</strong> spricht. So erhalten Kurven</p>
+<p>für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>, wobei <span class="math notranslate nohighlight">\(e_i\)</span> den <span class="math notranslate nohighlight">\(i\)</span>-ten Einheitsvektor in <span class="math notranslate nohighlight">\(\R^n\)</span> bezeichnet.
+Wir können diese Idee auf Mannigfaltigkeiten übertragen.
+Dazu wählen wir eine Karte <span class="math notranslate nohighlight">\(\phi:\M\to\R^n\)</span>, wobei man hier auch von</p>
+<div class="math notranslate nohighlight">
+\[\phi = (\phi_1,\ldots,\phi_n) =: (x^1,\ldots,x^n)\]</div>
+<p>als <strong>lokales Koordinatensystem</strong> spricht.</p>
+<p>So erhalten wir Kurven</p>
 <div class="math notranslate nohighlight">
 \[\gamma_{x^i}(t):= p + \phi(t e_i)\]</div>
 <p>und darüber die Derivationen</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\partial_{x^i}:C^\infty(\M)\to\R\\
-\partial_{x^i}(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).\end{split}\]</div>
-<p>Wir interpretieren also im Folgenden das Symbol <span class="math notranslate nohighlight">\(\partial_{x^{i}}\)</span> als Derivation, d.h. insbesondere, als lineare Abbildung von <span class="math notranslate nohighlight">\(C^\infty(\M)\)</span> nach <span class="math notranslate nohighlight">\(\R\)</span>.</p>
+\[\begin{split}\partial_{x^i}\revert_p: C^\infty(\M) \to \R\\
+\partial_{x^i}\revert_p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).\end{split}\]</div>
+<p>Wir interpretieren also im Folgenden das Symbol <span class="math notranslate nohighlight">\(\partial_{x^{i}}\revert_p\)</span> als Derivation, d.h., insbesondere als lineare Abbildung von <span class="math notranslate nohighlight">\(C^\infty(\M)\)</span> nach <span class="math notranslate nohighlight">\(\R\)</span>.</p>
 <div class="proof lemma admonition" id="lemma-27">
-<p class="admonition-title"><span class="caption-number">Lemma 3.17 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 3.15 </span></p>
 <div class="lemma-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> ein <span class="math notranslate nohighlight">\(n\)</span>-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge <span class="math notranslate nohighlight">\(\{\partial_{x^1},\ldots,\partial_{x^n}\}\)</span> eine Basis des Vektorraums <span class="math notranslate nohighlight">\(T^{\text{alg}}_p\)</span>. Insbesondere gilt <span class="math notranslate nohighlight">\(\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n\)</span>.</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> ein <span class="math notranslate nohighlight">\(n\)</span>-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge <span class="math notranslate nohighlight">\(\{\partial_{x^1}\revert_p,\ldots,\partial_{x^n}\}\revert_p\)</span> eine Basis des Vektorraums <span class="math notranslate nohighlight">\(T^{\text{alg}}_p\)</span>. Insbesondere gilt <span class="math notranslate nohighlight">\(\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n\)</span>.</p>
 </div>
-</div><div class="section" id="kotangentialraum">
-<h4><span class="section-number">3.3.2.5.1. </span>Kotangentialraum<a class="headerlink" href="#kotangentialraum" title="Permalink to this headline">¶</a></h4>
+</div></div>
+<div class="section" id="kotangentialraum">
+<h4><span class="section-number">3.3.2.4.4. </span>Kotangentialraum<a class="headerlink" href="#kotangentialraum" title="Permalink to this headline">¶</a></h4>
 <p>Da wir den Tangentialraum <span class="math notranslate nohighlight">\(T^{\text{alg}}_p\)</span> als Vektorraum identifiziert haben, können wir auch den algebraischen Dualraum betrachten.</p>
 <div class="proof definition admonition" id="definition-28">
-<p class="admonition-title"><span class="caption-number">Definition 3.25 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.26 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit, dann bezeichnen wir mit</p>
 <div class="math notranslate nohighlight">
@@ -825,7 +895,7 @@ f\mapsto D_\gamma(f)&amp;:=\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0}\end{split
 <p>den algebraischen Dualraum des Tangentialraums, der sogenannte <strong>Kotangentialraum</strong>.</p>
 </div>
 </div><div class="proof remark admonition" id="remark-29">
-<p class="admonition-title"><span class="caption-number">Remark 3.17 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 3.19 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Ein Element <span class="math notranslate nohighlight">\(\delta\in T^\ast\M\)</span> ist also eine lineare Abbildung</p>
 <div class="math notranslate nohighlight">
@@ -834,8 +904,8 @@ f\mapsto D_\gamma(f)&amp;:=\frac{d}{dt}(f\circ \gamma)\big\rvert_{t=0}\end{split
 </div>
 </div><p>Ein wichtiges Element des Kotangentialraums ist das <strong>totale Differential</strong>, welches für jede Funktion <span class="math notranslate nohighlight">\(f\in\C^\infty(\M)\)</span> definiert ist durch</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}df:(T_p^{\text{alg}}\M)\to\R\\
-D\mapsto df(D):= D(f).\end{split}\]</div>
+\[\begin{split}df_p:(T_p^{\text{alg}}\M)\to\R\\
+D\mapsto df_p(D):= D(f).\end{split}\]</div>
 <p>Insbesondere können wir <span class="math notranslate nohighlight">\(df\)</span> mit einer Funktion <span class="math notranslate nohighlight">\(C^\infty(M)\)</span> identifizieren, was den Zusammenhang von <span class="math notranslate nohighlight">\(T^\ast_p\)</span> als Bidualraum von
 <span class="math notranslate nohighlight">\(C^\infty(\M)\)</span> unterstreicht.</p>
 <p>Die Basis von <span class="math notranslate nohighlight">\(T^\ast_p\)</span> wird kanonisch als duale Basis gewählt. Jeder Vektor <span class="math notranslate nohighlight">\(v\in T_p^{\text{alg}}\M\)</span> hat eine eindeutige Darstellung</p>
@@ -848,7 +918,7 @@ D\mapsto df(D):= D(f).\end{split}\]</div>
 </div>
 </div>
 <div class="section" id="tangentialbundel">
-<h3><span class="section-number">3.3.2.6. </span>Tangentialbündel<a class="headerlink" href="#tangentialbundel" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.2.5. </span>Tangentialbündel<a class="headerlink" href="#tangentialbundel" title="Permalink to this headline">¶</a></h3>
 <p>Im folgenden bezeichne <span class="math notranslate nohighlight">\(T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}\)</span> entweder den algebraischen oder den geometrischen Tangentialraum. Wir werden die Wahl an den entsprechenden Stellen spezifizieren.
 Wir haben bisher für jedes <span class="math notranslate nohighlight">\(p\in\M\)</span> einen Vektorraum betrachtet, nämlich den Tangentialraum an <span class="math notranslate nohighlight">\(p\)</span>. Wir wollen nun eine globale Struktur betrachten die alle diese Vektorräume (d.h. für jedes <span class="math notranslate nohighlight">\(p\in\M\)</span>) zusammenfasst.</p>
 <p>Wir haben einen sogenannten <strong>Basisraum</strong> <span class="math notranslate nohighlight">\(B=\M\)</span> aus welchem wir die Punkte <span class="math notranslate nohighlight">\(p\)</span> entnehmen und für jedes einzelne <span class="math notranslate nohighlight">\(p\)</span> erhalten wir einen Vektorraum
@@ -862,7 +932,7 @@ Wir haben bisher für jedes <span class="math notranslate nohighlight">\(p\in\M\
 <p>zu definieren. D.h. von jedem Element des Totalraums, können wir eindeutig zurück auf <span class="math notranslate nohighlight">\(\M\)</span> projizieren. Weiterhin erkennen wir aber auch, dass für jedes <span class="math notranslate nohighlight">\(p\in\M\)</span> der Raum <span class="math notranslate nohighlight">\(\pi^{-1}(p) = \{p\}\times T_p\M\)</span> ein reeller <span class="math notranslate nohighlight">\(n\)</span>-dimensionaler Vektorraum ist.</p>
 <p>Die Situation die wir so erzeugt haben, führt auf das abstrakte Konzept der <strong>Vektorbündel</strong>.</p>
 <div class="proof definition admonition" id="definition-30">
-<p class="admonition-title"><span class="caption-number">Definition 3.26 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.27 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es seien <span class="math notranslate nohighlight">\(\M\)</span> der Basisraum und <span class="math notranslate nohighlight">\(E\)</span> der Totalraum glatte Mannigfaltigkeiten und <span class="math notranslate nohighlight">\(\pi:E\to \M\)</span> sei glatt und bijektiv. Weiterhin gelte</p>
 <ul class="simple">
@@ -876,13 +946,13 @@ für alle <span class="math notranslate nohighlight">\(x\in U\)</span></p></li>
 <p>Dann heißt <span class="math notranslate nohighlight">\((E,\M,\pi)\)</span> <strong>Vektorbündel</strong> vom Rang <span class="math notranslate nohighlight">\(n\)</span>. Hierbei bezeichnet <span class="math notranslate nohighlight">\(\text{pr}_U(q, z):= u\)</span> die Projektion auf die <span class="math notranslate nohighlight">\(U\)</span> Komponente eines Vektors <span class="math notranslate nohighlight">\((q,z)\in U\times\R^n\)</span>.</p>
 </div>
 </div><div class="proof remark admonition" id="remark-31">
-<p class="admonition-title"><span class="caption-number">Remark 3.18 </span> (Bündel-Notation)</p>
+<p class="admonition-title"><span class="caption-number">Remark 3.20 </span> (Bündel-Notation)</p>
 <div class="remark-content section" id="proof-content">
 <p>Anstatt das Vektorbündel <span class="math notranslate nohighlight">\((E,\M,\pi)\)</span> als Tripel aufzuschreiben, ist es üblich von einem Bündel <span class="math notranslate nohighlight">\(E\overset{\pi}{\to}\M\)</span> oder sogar <span class="math notranslate nohighlight">\(E\to\M\)</span> zu sprechen. Die Abbildung <span class="math notranslate nohighlight">\(\pi\)</span> wird im zweiten Fall nur implizit vorausgesetzt.</p>
 </div>
 </div><p>Die Funktion <span class="math notranslate nohighlight">\(\psi\)</span> heißt hier <strong>lokale Trivialisierung</strong>, denn sie erlaubt es uns den Totalraum <span class="math notranslate nohighlight">\(E\)</span> lokal als Produktraum darzustellen. Die Idee des Vektorbündels kommt von der Anschauung, dass wir eine Familie von Vektorräumen haben, die durch einen anderen Raum parametrisiert sind. Die Parametrisierung ist hierbei durch die Funktion <span class="math notranslate nohighlight">\(\pi^{-1}\)</span> charakterisiert.</p>
 <div class="proof example admonition" id="example-32">
-<p class="admonition-title"><span class="caption-number">Example 3.19 </span> (Zylinder)</p>
+<p class="admonition-title"><span class="caption-number">Example 3.18 </span> (Zylinder)</p>
 <div class="example-content section" id="proof-content">
 <p>Wir wählen als Basisraum den Einheitskreis <span class="math notranslate nohighlight">\(\M:=\mathbb{S}^1\subset \R^2\)</span>. Für jeden Punkt auf dem Kreis wählen wir den Vektorraum <span class="math notranslate nohighlight">\(\R\)</span>, somit betrachten wir also eine konstante Abbildung</p>
 <div class="math notranslate nohighlight">
@@ -902,17 +972,17 @@ Vektorbündel, für welche eine lokale Trivialisierung auf ganz <span class="mat
 <p>Die Grundidee hinter Vektorbündeln ist der Wunsch Teile des Totalraums <span class="math notranslate nohighlight">\(E\)</span> mit Mengen <span class="math notranslate nohighlight">\(U\times\R^n\)</span> zu identifizieren.</p>
 </div>
 <div class="proof example admonition" id="example-33">
-<p class="admonition-title"><span class="caption-number">Example 3.20 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 3.19 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Möbius-Band.</p>
 </div>
 </div><div class="proof lemma admonition" id="lemma-34">
-<p class="admonition-title"><span class="caption-number">Lemma 3.18 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 3.16 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>ToDo: <span class="math notranslate nohighlight">\(T\M\)</span> ist glatte Mannigfaltigkeit.</p>
 </div>
 </div><div class="proof lemma admonition" id="lemma-35">
-<p class="admonition-title"><span class="caption-number">Lemma 3.19 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 3.17 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit mit dem Tangentialraum</p>
 <div class="math notranslate nohighlight">
@@ -928,7 +998,7 @@ Vektorbündel, für welche eine lokale Trivialisierung auf ganz <span class="mat
 </div>
 </div>
 <div class="section" id="vektorfelder">
-<h3><span class="section-number">3.3.2.7. </span>Vektorfelder<a class="headerlink" href="#vektorfelder" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.2.6. </span>Vektorfelder<a class="headerlink" href="#vektorfelder" title="Permalink to this headline">¶</a></h3>
 <p>Wir führen zunächst sogenannte Schnitte auf Bündeln ein. Anschaulich abstrahieren wir hier das Konzept der Graphen von Funktionen.</p>
 <p>Es sei <span class="math notranslate nohighlight">\(f:\M\to\R^n\)</span> eine Funktion$, dann ist ihr Graph gegeben durch</p>
 <div class="math notranslate nohighlight">
@@ -938,15 +1008,16 @@ Vektorbündel, für welche eine lokale Trivialisierung auf ganz <span class="mat
 \[\pi(p,(f(p))) = p.\]</div>
 <p>Verallgemeinert betrachten führt diese Überlegung auf folgende Definition.</p>
 <div class="proof definition admonition" id="definition-36">
-<p class="admonition-title"><span class="caption-number">Definition 3.27 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.28 </span></p>
 <div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(E\overset{\pi}{\to}\M\)</span> ein Vektorbündel. Eine glatte Abbildung</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(E\overset{\pi}{\to}\M\)</span> ein Vektorbündel. Für <span class="math notranslate nohighlight">\(U\subset\M\)</span> offen, heißt eine glatte Abbildung</p>
 <div class="math notranslate nohighlight">
-\[\sigma: \M\to E\]</div>
-<p>heißt <strong>glatter Schnitt</strong>, falls</p>
+\[\sigma: U\to E\]</div>
+<p><strong>lokaler glatter Schnitt</strong>, falls</p>
 <div class="math notranslate nohighlight">
 \[\pi(\sigma(p)) = p\quad\text{ für alle }p\in \M.\]</div>
-<p>Die Menge der glatten Schnitte wird mit <span class="math notranslate nohighlight">\(\gamma(E)\)</span> bezeichnet.</p>
+<p>Die Menge der glatten Schnitte auf <span class="math notranslate nohighlight">\(U\)</span> wird mit <span class="math notranslate nohighlight">\(\Gamma(E\rvert_U)\)</span> bezeichnet. Für <span class="math notranslate nohighlight">\(U=\M\)</span> heißt <span class="math notranslate nohighlight">\(\sigma\)</span> <strong>glatter Schnitt</strong> und wir definieren
+<span class="math notranslate nohighlight">\(\Gamma(E\rvert):=\Gamma(E\rvert_\M)\)</span>.</p>
 </div>
 </div><p>Für offenen Mengen im euklidischen kennen wir bereits den Begriff <strong>Vektorfeld</strong>, nämlich eine Funktion</p>
 <div class="math notranslate nohighlight">
@@ -954,7 +1025,7 @@ Vektorbündel, für welche eine lokale Trivialisierung auf ganz <span class="mat
 <p>wobei <span class="math notranslate nohighlight">\(U\subset\R^n\)</span> offen ist. Wir nehmen also Punkte <span class="math notranslate nohighlight">\(x\in\R^n\)</span> und ordnen ihnen Vektoren <span class="math notranslate nohighlight">\(F(x)\in\R^n\)</span> aus dem gleichen Raum zu.</p>
 <p>Betrachten wir statt offenen Mengen <span class="math notranslate nohighlight">\(U\subset\R^n\)</span> nun glatte Mannigfaltigkeiten <span class="math notranslate nohighlight">\(\M\)</span> so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen. Hierbei hilft uns nun der Tangentialraum <span class="math notranslate nohighlight">\(T\M\)</span>, welcher die richtige Wahl des Zielraums darstellt. Somit können wir Vektorfelder verallgemeinern indem wir als Schnitte des Tangenialraums auffassen.</p>
 <div class="proof definition admonition" id="definition-37">
-<p class="admonition-title"><span class="caption-number">Definition 3.28 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.29 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit, ein glatter Schnitt</p>
 <div class="math notranslate nohighlight">
@@ -968,25 +1039,63 @@ Vektorbündel, für welche eine lokale Trivialisierung auf ganz <span class="mat
 <div class="math notranslate nohighlight">
 \[\pi(X(p)) = p\]</div>
 <p>und somit insbesondere <span class="math notranslate nohighlight">\(X(p)\in T_p\M\)</span>. Ein Vektorfeld ordnet also jedem Punkt <span class="math notranslate nohighlight">\(p\in\M\)</span> ein Element seines Tangentialraums zu. Falls <span class="math notranslate nohighlight">\(\M\)</span> eine offene Menge in <span class="math notranslate nohighlight">\(\R^n\)</span> ist, ist dies insbesondere konsistent zur bekannten Definition von Vektorfeldern.</p>
-</div>
-</div>
-<div class="section" id="tensorfelder">
-<h2><span class="section-number">3.3.3. </span>Tensorfelder<a class="headerlink" href="#tensorfelder" title="Permalink to this headline">¶</a></h2>
-<p>Der Begriff <strong>Feld</strong> tritt in sowohl in der Physik als auch in der Mathematik auf. Anschaulich versteht man unter einem Feld die Verteilung einer Größe über den Raum. Beispielweise versteht man unter Vektorfeldern eine Funktion</p>
+<div class="section" id="wirkung-von-vektorfeldern">
+<h4><span class="section-number">3.3.2.6.1. </span>Wirkung von Vektorfeldern<a class="headerlink" href="#wirkung-von-vektorfeldern" title="Permalink to this headline">¶</a></h4>
+<p>Von der algebraischen Definition des Tangentialraums ist das totale Diffential <span class="math notranslate nohighlight">\(df_p\)</span> bekannt, welches für <span class="math notranslate nohighlight">\(D\in T^{\text{alg}}_p\M\)</span> definiert ist durch</p>
 <div class="math notranslate nohighlight">
-\[F:U\to \R^m\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(U\)</span> eine Teilmenge des <span class="math notranslate nohighlight">\(\R^n\)</span> ist. Das Konzept hierbei ist also, anstatt nur Vektoren <span class="math notranslate nohighlight">\(y\in\R^m\)</span> zu betrachten, ordnet ein <strong>Feld</strong> jedem <span class="math notranslate nohighlight">\(x\in U\)</span> einen Vektor <span class="math notranslate nohighlight">\(F(x)\in\R^m\)</span> zu. Wir wollen im Folgenden die Zielmenge <span class="math notranslate nohighlight">\(\R^m\)</span> durch Tensorräume ersetzen. Zusätzlich, schränken wir uns nur auf glatte, d.h., unendlich oft differenzierbare Funktionen ein.</p>
+\[df_p(D):= D(f)\]</div>
+<p>für eine Funktion <span class="math notranslate nohighlight">\(f\in C^\infty(M)\)</span>. Mithilfe dieses Konzepts können wir die Wirkung eines Vektorfelds defnieren.</p>
+</div>
+<div class="section" id="lokale-basis-von-vektorfeldern">
+<h4><span class="section-number">3.3.2.6.2. </span>Lokale Basis von Vektorfeldern<a class="headerlink" href="#lokale-basis-von-vektorfeldern" title="Permalink to this headline">¶</a></h4>
+<p>Aus <a class="reference internal" href="#sec-tpbasis"><span class="std std-ref">Basis des algebraische Tangentialraums</span></a> wissen wir bereits, dass wir für <span class="math notranslate nohighlight">\(p\in\M\)</span> Tangentialvektoren <span class="math notranslate nohighlight">\(v\in T_p\M\)</span> durch die Vektoren <span class="math notranslate nohighlight">\(\partial_{x^i}\rvert_p\)</span> darstellen können. Im Kontext von Tangentialbündeln stellt sich auf natürliche Art die Frage, wie sich diese Vektoren verändern, wenn der Punkt <span class="math notranslate nohighlight">\(p\)</span> variiert wird. Hierzu definieren wir folgende Abbildungen.</p>
 <div class="proof definition admonition" id="definition-38">
-<p class="admonition-title"><span class="caption-number">Definition 3.29 </span> (Tensorfeld)</p>
+<p class="admonition-title"><span class="caption-number">Definition 3.30 </span></p>
 <div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein reeller <span class="math notranslate nohighlight">\(m\)</span>-dimensionaler Vektorraum und für <span class="math notranslate nohighlight">\(r,s \in \N_0\)</span> sei <span class="math notranslate nohighlight">\(\{\tau_i\}_{i=1}^{m^{r+s}}\)</span> eine Basis von <span class="math notranslate nohighlight">\(T^r_s(V)\)</span>.
-Für eine offenen Teilmenge <span class="math notranslate nohighlight">\(U\subset\R^n\)</span> und Funktionen <span class="math notranslate nohighlight">\(w_{i}:U\to\R\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots, n^{r+s}\)</span> heißt die Abbildung</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimesnionale Mannigfaltigkeit und <span class="math notranslate nohighlight">\((U,\phi)\)</span> eine Karte, dann definieren wir die lokalen Koordinatenfelder
+für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> durch</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\mathcal{T}&amp;:U\rightarrow T^r_s(V)\\
-\mathcal{T}(x)&amp;:= \sum_{i=1}^{n^{r+s}} w_{i}(x) \tau_i\end{split}\]</div>
-<p><strong>Tensorfeld</strong>. Gilt für alle Funktionen <span class="math notranslate nohighlight">\(w_{i}\in C^k(U)\)</span> so nennt man <span class="math notranslate nohighlight">\(\mathcal{k}\)</span> k-mal differenzierbar.</p>
+\[\begin{split}\partial_{x^{i}}&amp;:\M\to\T\M\\
+\partial_{x^{i}}(p)&amp;:= \partial_{x^{i}}\rvert_p\end{split}\]</div>
+</div>
+</div><p>Mithilfe dieser lokalen Koordiantenfelder können wir nun Vektorfelder lokal darstellen.</p>
+<div class="proof lemma admonition" id="lemma-39">
+<p class="admonition-title"><span class="caption-number">Lemma 3.18 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\((U,\phi)\)</span> sei eine Karte, dann gilt für <span class="math notranslate nohighlight">\(X\in\Gamma(T\M\rvert_U)\)</span> und die Koeffizientfunktionen <span class="math notranslate nohighlight">\(X^i:=X(\phi_i)\in C^\infty(U)\)</span></p>
+<div class="math notranslate nohighlight">
+\[X = \sum_{i=1}^n X^i \partial_{x^{i}}.\]</div>
+</div>
+</div><p>Aus dieser Darstellung folgt auch, dass lokal für eine Karte <span class="math notranslate nohighlight">\((U,\phi)\)</span> die Wirkung auf <span class="math notranslate nohighlight">\(f\in C^\infty(U)\)</span> geschrieben werden kann als</p>
+<div class="math notranslate nohighlight">
+\[X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.\]</div>
+</div>
+<div class="section" id="koordinatenwechsel">
+<h4><span class="section-number">3.3.2.6.3. </span>Koordinatenwechsel<a class="headerlink" href="#koordinatenwechsel" title="Permalink to this headline">¶</a></h4>
+<p>Die Darstellung eines Vektorfeldes über einer glatten Mannigfaltigkeit <span class="math notranslate nohighlight">\(\M\)</span> durch Basisvektoren gilt nur lokal für eine Karte <span class="math notranslate nohighlight">\((U,\phi)\)</span>. Falls wir nun eine zweite Karte <span class="math notranslate nohighlight">\((V,\psi)\)</span> betrachten mit <span class="math notranslate nohighlight">\(U\cap V\neq\emptyset\)</span> stellt sich also die Frage wie die Darstellungen zusammenhängen. Das folgende Lemma beschreibt die Transformationsregel die in diesem Fall gilt.</p>
+<div class="proof lemma admonition" id="lemma-40">
+<p class="admonition-title"><span class="caption-number">Lemma 3.19 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und es seien <span class="math notranslate nohighlight">\((U,\phi), (V,\psi)\)</span> zwei Karten mit <span class="math notranslate nohighlight">\(U\cap V\neq \emptyset\)</span>, wobei
+<span class="math notranslate nohighlight">\((\partial_{x^i})_{i=1}^n\)</span> das Koordinatnfeld für <span class="math notranslate nohighlight">\(\phi\)</span> und <span class="math notranslate nohighlight">\((\partial_{y^i})_{i=1}^n\)</span> das Koordinatenfeld für <span class="math notranslate nohighlight">\(\psi\)</span> sei. Weiterhin sei Funktion</p>
+<div class="math notranslate nohighlight">
+\[D(\psi\circ\phi^{-1})(p)\]</div>
+<p>die Jacobimatrix von <span class="math notranslate nohighlight">\(\psi\circ\phi^{-1}\)</span> am Punkt <span class="math notranslate nohighlight">\(p\in U\cap V\)</span>. Dann gilt</p>
+<div class="math notranslate nohighlight">
+\[D(\psi\circ\phi^{-1})(p) X(\phi) = X(\psi).\]</div>
 </div>
 </div></div>
+</div>
+<div class="section" id="tensorfelder">
+<h3><span class="section-number">3.3.2.7. </span>Tensorfelder<a class="headerlink" href="#tensorfelder" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="differnitlaformen">
+<h2><span class="section-number">3.3.3. </span>Differnitlaformen<a class="headerlink" href="#differnitlaformen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="einsformen">
+<h3><span class="section-number">3.3.3.1. </span>Einsformen<a class="headerlink" href="#einsformen" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 <div class="section" id="differentialformen-auf-offenen-mengen">
 <h2><span class="section-number">3.3.4. </span>Differentialformen auf offenen Mengen<a class="headerlink" href="#differentialformen-auf-offenen-mengen" title="Permalink to this headline">¶</a></h2>
 <p>Eine Differentialform <span class="math notranslate nohighlight">\(\omega\)</span> auf <span class="math notranslate nohighlight">\(U\subseteq\R^n\)</span> ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.</p>
@@ -1025,12 +1134,12 @@ dx_1\wedge\ldots\wedge dx_{i_k}\)</span></p></li>
 </ul>
 <p>definiert ist. <span class="math notranslate nohighlight">\(d\)</span> verwandelt eine <span class="math notranslate nohighlight">\(k\)</span>–Form also in eine <span class="math notranslate nohighlight">\((k+1)\)</span>–Form.</p>
 <div class="proof definition admonition" id="aeussere Ableitung">
-<p class="admonition-title"><span class="caption-number">Definition 3.30 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.31 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Die lineare Abbildung <span class="math notranslate nohighlight">\(d:\Omega^*(U)\to\Omega^*(U)\)</span> heißt <a class="reference external" href="https://de.wikipedia.org/wiki/%C3%84u%C3%9Fere_Ableitung"><strong>äußere Ableitung</strong></a>.</p>
 </div>
 </div><div class="proof example admonition" id="ex:10.14">
-<p class="admonition-title"><span class="caption-number">Example 3.21 </span> (Äußere Ableitung)</p>
+<p class="admonition-title"><span class="caption-number">Example 3.20 </span> (Äußere Ableitung)</p>
 <div class="example-content section" id="proof-content">
 <ol class="simple">
 <li><p>Für <span class="math notranslate nohighlight">\(\omega\in\Omega^0(\R^3)\)</span> ist <span class="math notranslate nohighlight">\(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
@@ -1103,7 +1212,7 @@ können.</p>
 ist das Ergebnis Null.</p>
 </div>
 <div class="proof definition admonition" id="geschlossen:exakt">
-<p class="admonition-title"><span class="caption-number">Definition 3.31 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 3.32 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Eine Differentialform <span class="math notranslate nohighlight">\(v\in\Omega^*(U)\)</span> heißt</p>
 <ul class="simple">
