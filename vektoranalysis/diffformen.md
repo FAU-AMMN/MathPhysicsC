@@ -275,7 +275,7 @@ Eine Familie von Karten $\mathcal{A} = (U_i,\phi_i)_{i\in I}$ indiziert durch di
 \M = \bigcup_{i\in I} U_i.
 ```
 
-Wir nennen einen Atlas $k$-mal **differenzierbar** oder von der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i^{-1}\circ\phi_j, i,j\in I$ $k$-mal stetig differenzierbar ist.
+Wir nennen einen Atlas $k$-mal **differenzierbar** oder von der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i\circ\phi_j^{-1}, i,j\in I$ $k$-mal stetig differenzierbar ist.
 
 ````
 
@@ -369,7 +369,7 @@ Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkei
 :label: lem:differenzierbarkeitKartenunabhaengig
 Es sei $\M$ eine glatte Mannigfaltigkeit und $\mathcal{A}$ ein Atlas auf $\M$.
 Außerdem sei $f:\M \to \R^m$ eine Funktion, $(U,\phi)\in \mathcal{A}$ eine Karte und $x \in U$ ein Punkt in der offenen Menge $U$.
-Ist $f\circ\phi^{-1}$ differenzierbar in $x$, so ist $f\circ\psi^{-1}$ auch differenzierbar in $x$ für jede Karte $(V,\psi)$ mit $x\in V$.
+Ist $f\circ\phi^{-1}$ differenzierbar in $x$, so ist $f\circ\psi^{-1}$ auch differenzierbar in $x$ für jede Karte $(V,\psi) \in \mathcal{A}$ mit $x\in V$.
 ````
 
 ````{prf:proof}
@@ -957,7 +957,7 @@ D(\psi\circ\phi^{-1})(p) X(\phi) = X(\psi).
 
 ### Tensorfelder
 
-## Differnitlaformen
+## Differentialformen
 
 ### Einsformen
 
