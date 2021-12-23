@@ -957,6 +957,57 @@ D(\psi\circ\phi^{-1})(p) X(\phi) = X(\psi).
 
 ### Tensorfelder
 
+Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen. Hierfür benötigen wir zunächst Kotangentialbündel, welches direkt über den Kotangentialraum definiert werden kann.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist das **Kotangentialbündel** $((T\M)^\ast, \M, \pi^\ast)$ über die Abbildung 
+
+```{math}
+\pi^{\ast}(p):= T^\ast\M = (T\M)^\ast
+```
+
+definiert.
+````
+
+Um ein Tensorfeld definieen zu können müssen wir zunächst definieren, wie das Tensorprodukt von Tangentialündeln aussehen soll. Für zwei Vektorbündel $E\ovserset{\pi_E}{\to}{\M}, F\ovserset{\pi_F}{\to}{\M}$ wissen wir, dass für jedes $p\in\M$ die Fasern $E_p, F_p$ endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
+
+```{math}
+E_p\otimes F_p
+```
+
+betrachten und damit ein Bündel auf dem Totalraum 
+
+```{math}
+E\otimes F:= \bigsqcup_{p\in\M} E_p\otimes F_p
+```
+
+betrachten. Die entsprechende Projektion $\pi_{E\otimes F}:E\otimes F\to\M$ ist gegeben durch
+
+```{math}
+\pi_{E\otimes F}^{-1}(p):= E_p\otimes F_p := (E\otimes F)_p.
+```
+
+````{prf:Lemma}
+Es sei $E\ovserset{\pi_E}{\to}{\M}$ ein Vektorbündel vom Rang $k$ und $F\ovserset{\pi_F}{\to}{\M}$ ein Vektorbündel vom Rang $l$, dann ist 
+$((E\otimes F),\M, \pi_{E\otimes F})$ ein Vektorbündel vom Rang $kl$.
+````
+
+Die Definition des Tensorbündels lässt sich direkt auf mehrfache Tensorprodukte übertragen und führt uns direkt auf gemischte Tensorbündel.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $r,s\in\N$, s.d. $r+s>0$, dann heißt 
+
+```{math}
+T^r_s\M := \bigsqcup_{p\in\M} T^r_s(T_p\M) \to \M
+```
+
+Tensorbündel der Stufe $(r,s)$. Ein **Tensorfeld** ist dann ein glatter Schnitt $A\in \Gammma(T^r_s\M)$.
+````
+
+```{danger}
+Lokale Darstellung.
+```
+
 ## Differnitlaformen
 
 ### Einsformen
