@@ -568,6 +568,15 @@ Man bemerke, dass die oben definierten Abbildungen erneut **unabhängig** von de
 
 Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr anschaulich als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind.
 
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit, $p\in\M$ und $\gamma:[-1,1]\to\M$ eine glatte Kurve durch $p$, dann gilt für die Richtungsableitung $D_\gamma:C^\infty(\M)\to\R$, 
+
+* $D_\gamma\in (C^\infty(\M))^\ast$,
+
+* Für $f,g\in C^\infty(\M)$ gilt $D_\gamma(fg) = D_\gamma(f) g(p) + f(p) D_\gamma(f)$.
+
+````
+
 ````{prf:definition} Derivation
 Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$ ein Punkt der Mannigfaltigkeit.
 Wir nennen eine lineare Abbildung $D: C^\infty(\M) \to \R$ eine **Derivation** an $p$, falls sie die folgende Produktregel erfüllt, 
@@ -657,11 +666,11 @@ So erhalten wir Kurven
 und darüber die Derivationen
 
 ```{math}
-\partial_{x^i}\revert_p: C^\infty(\M) \to \R\\
-\partial_{x^i}\revert_p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
+\partial_{x^i}\rvert_p: C^\infty(\M) \to \R\\
+\partial_{x^i}\rvert_p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
 ```
 
-Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}\revert_p$ als Derivation, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
+Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}\rvert_p$ als Derivation, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
 
 ````{prf:lemma}
 Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1}\revert_p,\ldots,\partial_{x^n}\}\revert_p$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
