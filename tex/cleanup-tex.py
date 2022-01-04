@@ -5,16 +5,28 @@ file_name = "skript"
 extension = ".tex"
 
 def match_theorems(content):
-    keys = {'Example': 'example', 'Definition':'definition', 'Theorem':'theorem', 
-            'note': 'emphBox', 'Lemma': 'lemma'}
+    keys = {'Example': 'example', 'Definition':'definition', 'Theorem':'theorem', 'Remark':'remark', 
+            'note': 'emphBox', 'danger': 'emphBox', 'Lemma': 'lemma'}
     token_init = r'\\begin\{sphinxadmonition\}\{note\}\{'
     token_end = r'\\end\{sphinxadmonition\}'
     
     
     for key in keys:
+        # case 1: theorem has title text
+        content = re.sub(token_init + key + r' .\.. ([^\}]*?)\}((.|\n)*?)' + token_end, 
+                             r'\\begin{' + keys[key] + r'}{}{\1}\2\\end{'+keys[key]+'}', content, flags = re.M)
+    	# case 2: no title text
         content = re.sub(token_init + key + r' (.*?)\}((.|\n)*?)' + token_end, 
                              r'\\begin{' + keys[key] + r'}{}{}\2\\end{'+keys[key]+'}', content, flags = re.M)
+
+    # add all labels in a second run
+    for key in keys:
+        content = re.sub(r'\\label\{(.*?)\}\n\\begin\{'+ keys[key] + r'\}\{(.*?)\}\{(.*?)\}', 
+                             r'\\begin{' + keys[key] + r'}{\3}{\1}', content, flags = re.M)
     
+    # note boxes
+    content = re.sub(r'\\begin\{sphinxadmonition\}\{danger\}\{Danger:\}((.|\n)*?)' + token_end, 
+                             r'\\begin{' + keys['danger'] + r'}{}{}\1\\end{'+keys['danger']+'}', content, flags = re.M)
     # note boxes
     content = re.sub(r'\\begin\{sphinxadmonition\}\{note\}((.|\n)*?)' + token_end, 
                              r'\\begin{' + keys['note'] + r'}{}{}\1\\end{'+keys['note']+'}', content, flags = re.M)
@@ -26,7 +38,7 @@ def match_theorems(content):
 def match_proofs(content):
     content = re.sub(r'\\begin\{emphBox\}\{\}\{\}\nProof\.((.|\n)*?)\\end\{emphBox\}', 
                      r'\\begin{proof}\n\1\\end{proof}', content, flags = re.M)
-    content = re.sub(r'\\begin\{emphBox\}\{\}\{\}\n\\par\nProof\.((.|\n)*?)\\end\{emphBox\}', 
+    content = re.sub(r'\\begin\{emphBox\}\{\}\{\}\n\\AtStartPar\nProof\.((.|\n)*?)\\end\{emphBox\}', 
                      r'\\begin{proof}\n\1\\end{proof}', content, flags = re.M)
     return content
 
@@ -42,16 +54,11 @@ def replace_underscore(m):
     s = m.groups(1)[0]
     return r'\includegraphics[width=\textwidth]{' + re.sub(r'_', r'\\string_', s, flags = re.M) + r'}'
 
-with open (path+file_name+extension, 'r' ) as f:
-    content = f.read()
-    
-    
-    # preamble
-    content_new = re.sub(r'\\sphinx(.*?)', r'\\\1', content, flags = re.M)
-    
-    # graphics
-    #content_new = re.sub(r'\\noindent\\includegraphics\{(.*?)\}\n', r'', content_new, flags = re.M)
-    
+def graphics(content):
+    # replace optional arguments
+    content_new =  re.sub(r'\\includegraphics\[(.*?)]\{(.*?)\}', r'\\includegraphics{\2}', content, flags = re.M)
+
+    # path specification
     content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)\\(.*?)\}.png\}',
                          r'\\includegraphics{\3.png}', content_new, flags = re.M)
     content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)/(.*?)\}.png\}',
@@ -63,9 +70,22 @@ with open (path+file_name+extension, 'r' ) as f:
     content_new = re.sub(r'\\includegraphics\{(.*?).png\}',
                          r'\\includegraphics{../_build/html/_images/\1.png}', content_new, flags = re.M)
     content_new = re.sub(r'\\includegraphics\{(.*?)\}', replace_underscore, content_new, flags = re.M)
+    return content_new
 
-    content_new = re.sub(r'\\capstart', r'', content_new, flags = re.M)                    
+
+with open (path+file_name+extension, 'r' ) as f:
+    content = f.read()
+    
+    
+    # preamble
+    content_new = re.sub(r'\\sphinx(.*?)', r'\\\1', content, flags = re.M)
+    
+    # graphics
+    content_new = graphics(content_new)
+    
+                   
     # Misc
+    content_new = re.sub(r'\\capstart', r'', content_new, flags = re.M) 
     content_new = re.sub(r'\\hyphen{}', r' ', content_new, flags = re.M)
     content_new = re.sub(r'\\styleemphasis', '\\emph', content_new, flags = re.M)
     content_new = re.sub(r'\\styleemphasis', '\\emph', content_new, flags = re.M)
@@ -73,6 +93,8 @@ with open (path+file_name+extension, 'r' ) as f:
     content_new = re.sub(r'\\makeindex', '', content_new, flags = re.M)
     content_new = re.sub(r'\\maketitle', '', content_new, flags = re.M)
     content_new = re.sub(r'\\tableofcontents', '', content_new, flags = re.M)
+    content_new = re.sub(r'\\unicode\{(.*?)\}', r'\\symbol{"\1}', content_new, flags = re.M)
+    content_new = re.sub(r'\\code\{(.*?)\}', r'{\1 broken reference}', content_new, flags = re.M)
     
     # theorems and proofs
     content_new = match_theorems(content_new)
@@ -97,7 +119,7 @@ with open (path+file_name+extension, 'r' ) as f:
                          r'', content_new, flags = re.M)
     
     # references
-    content_new = re.sub(r'\{\\hyperref\[\\detokenize\{(.*?)\}\]\{\\crossref\{(.*?)\}\}\}( |.)',
+    content_new = re.sub(r'\{\\hyperref\[\\detokenize\{(.*?)\}\]\{\\crossref\{(.*?)\}\}\}(( |.)|\n)',
                          r'\\cref{\1} ', content_new, flags = re.M)
     
     content_new = re.sub(r'\{tabulary\}', r'{tabularx}', content_new, flags = re.M)
@@ -127,12 +149,15 @@ with open (path+file_name+extension, 'r' ) as f:
     content_new = re.sub(r'\\AtStartPar', r'\\par', content_new, flags = re.M)
     
     
+    
     # get rid of certain commands
     content_new = re.sub(r'\\release\{\}', r'', content_new, flags = re.M)
     content_new = re.sub(r'\\renewcommand\{\\releasename\}\{\}', r'', content_new, flags = re.M)
     content_new = re.sub(r'\\phantomsection', r'', content_new, flags = re.M)
     content_new = re.sub(r'\\styletheadfamily', r'', content_new, flags = re.M)
     content_new = re.sub(r'\\pagestyle\{(.*?)\}', r'', content_new, flags = re.M)
+    content_new = re.sub(r'\\DUrole{xref,myst}{}',r'', content_new, flags = re.M)
+    content_new = re.sub(r'\\upquote\{(.*?)\}',r'\1', content_new, flags = re.M)
     
     # Umlaute
     special = {'ß':'\ss{}', 'ä':'\"a', 'ü':'\"ü', 'ö':'\"ü'}

@@ -13,6 +13,7 @@ html:
   comments:
     hypothesis: true
   use_repository_button: true
+  google_analytics_id: G-Z9NNSYF13N
 
 parse:
   myst_enable_extensions:
@@ -42,6 +43,7 @@ sphinx:
       TeX:
         Macros:
           "Z"    : "\\mathbb{Z}"
+          "V"    : "V"
           "N"    : "\\mathbb{N}"
           "C"    : "\\mathbb{C}"
           "Q"    : "\\mathbb{Q}"
@@ -73,7 +75,11 @@ sphinx:
           "d"    : "\\mathrm{d}"
           "i"    : "\\mathrm{i}"
           "x"    : "\\mathbf{x}"
+          "sign" : "\\mathrm{sign}"
+          "vec"  : ["\\mathbf{#1}",1]
           "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]
+          "M"    : "\\mathcal{M}"
+          "S"    : "\\mathbb{S}"
     #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     # tojupyter_target_html: true
     # tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]

@@ -24,6 +24,7 @@ jobs:
       run: |
         pip install -r requirements.txt
         pip install --upgrade Sphinx==3.5.4
+        pip install --upgrade sphinx-book-theme==0.1.6
     # Build the book
     - name: Build the book
       run: |

@@ -13,7 +13,7 @@ with open (path+"chapters\\" + 'Bibliography' + extension, 'r' ) as f:
 with open (path+'bibliography.bib', 'w' ) as f:   
     for m in bib_items:
         # match Author Name Year 
-        entry_info = re.search(r'\\bibitem\[(.*)\]\{(.*)\}\n(.*)\. \\emph\{(.*)\}\. (.*)\.(.*)', m)
+        entry_info = re.search(r'\\bibitem\[(.*)\]\{(.*)\}\n\\par\n(.*)\. \\emph\{(.*)\}\. (.*)\.(.*)', m)
         if not entry_info is None:
             entry_key = entry_info.group(1)
             entry_author = entry_info.group(3)

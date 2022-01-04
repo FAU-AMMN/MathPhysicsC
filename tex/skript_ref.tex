@@ -78,7 +78,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{Oct 26, 2021}
+\date{Dec 07, 2021}
 
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 
@@ -134,8 +134,7 @@ Wir wollen im Folgenden zwei Beispiele zur Illustration des Unterschieds in der 
 \label{\detokenize{ode/dynamicSystems:diskrete-dynamische-systeme}}
 \par
 Zur Veranschaulichung von diskreten dynamischen System wollen wir uns im Folgenden mit einem Beispiel aus der Biologie beschäftigen.
-\label{ode/dynamicSystems:ex:bacteria}
-\begin{example}{}{}
+\begin{example}{(Wachstum von Bakterien)}{ode/dynamicSystems:ex:bacteria}
 
 
 
@@ -179,8 +178,7 @@ Diskrete dynamische Systeme tauchen auch in anderen spannenden Anwendungen auf, 
 \par
 Im Unterschied zu diskreten dynamischen Systemen wird die Zeit bei kontinuierlichen dynamischen Systemen nicht an abzählbar vielen Punkten modelliert, sondern als Kontinuum.
 Im Folgenden beschreiben wir das physikalische Experiment des freien Falls als Spezialfall eines kontinuierlichen dynamischen Systems.
-\label{ode/dynamicSystems:ex:freefall}
-\begin{example}{}{}
+\begin{example}{(Freier Fall)}{ode/dynamicSystems:ex:freefall}
 
 
 
@@ -224,8 +222,7 @@ In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse 
 \label{\detokenize{ode/repetition:gewohnliche-differentialgleichungen}}
 \par
 Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgleichungssystems \(m\) ter Ordnung als Grundlage für unsere weiteren Betrachtungen.
-\label{ode/repetition:def:DGL}
-\begin{definition}{}{}
+\begin{definition}{(Gewöhnliches Differentialgleichungssystem)}{ode/repetition:def:DGL}
 
 
 
@@ -234,7 +231,7 @@ Seien \(n,m \in \N\).
 Wir betrachten im Folgenden eine offene Teilmenge \(U\subset (\R^n)^{m+1}\) und ein offenes Intervall \(I\subset\R\).
 Es sei außerdem \(F:I\times U\rightarrow\R^n\) eine stetige Funktion, dann nennen wir
 \begin{align}\label{equation:ode/repetition:eq:DGL}
-F(x,y(x),y'(x),\ldots,y^{(m)}(x)) = 0
+F(t,x(t),x'(t),\ldots,x^{(m)}(t)) = 0
 \end{align}
 \par
 ein \textbf{gewöhnliches Differentialgleichungssystem (DGL)} \(m\) ter Ordnung von \(n\) Gleichungen.
@@ -243,12 +240,12 @@ Gilt \(n=1\), das heißt die Funktion \(F\) ist skalarwertig, so sprechen wir vo
 \par
 Eine Funktion \(\phi\in C^m(I;\R^n)\) heißt \textbf{Lösung des Differentialgleichungssystems}, falls gilt,
 \begin{align*}
-F(x, \phi(x), \phi'(x), \ldots, \phi^{(m)}(x)) = 0 \quad \forall x\in I.
+F(t, \phi(t), \phi'(t), \ldots, \phi^{(m)}(t)) = 0 \quad \forall t\in I.
 \end{align*}
 \par
 Wenn wir die DGL nach der höchsten auftauchenden Ableitung auflösen können, so dass sie die folgende Form hat
 \begin{align*}
-y^{(m)}(x) = F(x,y(x),y'(x),\ldots,y^{(m-1)}(x)),
+x^{(m)}(t) = F(t,x(t),x'(t),\ldots,x^{(m-1)}(t)),
 \end{align*}
 \par
 so nennen wir die DGL \textbf{explizit}, ansonsten wird sie \textbf{implizit} genannt.
@@ -256,40 +253,38 @@ so nennen wir die DGL \textbf{explizit}, ansonsten wird sie \textbf{implizit} ge
 
 \par
 Folgende Bemerkung beschreibt eine alternative Notation von gewöhnlichen Differentialgleichungen 1. und 2. Ordnung, die häufig in der Literatur im Kontext dynamischer Systeme auftaucht.
-\label{ode/repetition:remark-1}
-\begin{emphBox}{}{}{Remark 1.1 (Zeitableitungen bei gewöhnlichen Differentialgleichungen)}
+\begin{remark}{(Zeitableitungen bei gewöhnlichen Differentialgleichungen)}{ode/repetition:remark-1}
 
 
 
 \par
 Viele physikalische Phänomene können durch zeitabhängige gewöhnliche Differentialgleichungen 1. und 2. Ordnung beschrieben werden.
 In diesen Fällen verwendet man häufig die Variable \(t \in \R^+_0\) als unabhängige Variable anstatt einer Variable \(x \in \R\).
-Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion \(y\), so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
+Auch ändert sich häufig die Notation der Zeitableitungen der gesuchten Funktion \(x\), so dass folgende Korrespondenz für die ersten beiden Ableitungen entsteht:
 \begin{enumerate}
 
 \item {} 
 \par
-\(y'(x) \ \ \hat{=} \ \ \dot{y}(t)\),
+\(x'(t) \ \ \hat{=} \ \ \dot{x}(t)\),
 
 \item {} 
 \par
-\(y''(x) \ \ \hat{=} \ \ \ddot{y}(t)\).
+\(x''(t) \ \ \hat{=} \ \ \ddot{x}(t)\).
 
 \end{enumerate}
 
 \par
-Damit lässt sich das gewöhnliche Differentialgleichungssystem aus \cref{ode/repetition:equation-eq-dgl} schreiben als
-\begin{align}\label{equation:ode/repetition:eq:DGL_time}
-F(z, y(t), \dot{y}(t), \ldots, y{(m)}(t)) = 0 \quad \forall t\in I.
-\end{align}\end{emphBox}
+Damit lässt sich das gewöhnliche Differentialgleichungssystem aus \eqref{equation:ode/repetition:eq:DGL} schreiben als
+\begin{align}\label{equation:ode/repetition:eq:DGLtime}
+F(t, x(t), \dot{x}(t), \ldots, x{(m)}(t)) = 0 \quad \forall t\in I.
+\end{align}\end{remark}
 
 
 \subsection{Autonome Differentialgleichungen}
 \label{\detokenize{ode/repetition:autonome-differentialgleichungen}}
 \par
 Im Fall von dynamischen Systemen erhält der Definitionsbereich der Funktion \(F\) einer gewöhnlichen Differentialgleichung einen besonderen Namen, wie die folgende Bemerkung erklärt.
-\label{ode/repetition:remark-2}
-\begin{emphBox}{}{}{Remark 1.2 ((Erweiterter) Phasenraum)}
+\begin{remark}{((Erweiterter) Phasenraum)}{ode/repetition:remark-2}
 
 
 
@@ -302,21 +297,20 @@ Der Phasenraum beschreibt die Menge aller möglichen Zustände des dynamischen S
 Jeder Punkt des Phasenraums wird hierbei eindeutig einem Zustand des Systems zugeordnet.
 
 \par
-In Kapitel \{ref\}s:fluesse werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
-\end{emphBox}
+In Kapitel \cref{ode/fluesse:s-fluesse}  werden wir spezielle Diagramme basierend auf dem Begriff des erweiterten Phasenraum betrachten (auch Phasenportraits genannt), um Lösungen von dynamischen Systemen mathematisch zu charakterisieren.
+\end{remark}
 
 \par
 Im Fall von \textbf{kontinuierlichen dynamischen Systemen} spielt eine Familie von gewöhnlichen Differentialgleichungen eine wichtige Rolle, die wir im Folgenden definieren wollen.
-Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \cref{ode/repetition:equation-eq-dgl-time} nicht explizit von der Zeit abhängt.
-\label{ode/repetition:definition-3}
-\begin{definition}{}{}
+Diese zeichnen sich dadurch aus, dass die Funktion \(F\) in \eqref{equation:ode/repetition:eq:DGLtime} nicht explizit von der Zeit abhängt.
+\begin{definition}{(Autonome DGL)}{ode/repetition:definition-3}
 
 
 
 \par
 Hängt die Funktion \(F\) in \cref{ode/repetition:def:DGL} nicht explizit von der Zeit ab, d.h., wir haben \(F:U\rightarrow\R^n\) dann heißt die Gleichung
-\begin{align}\label{equation:ode/repetition:eq:autonome_DGL}
-F(y(x), y'(x), \ldots, y^{(m)}(x)) = 0 \quad \forall t\in I
+\begin{align}\label{equation:ode/repetition:eq:autonomeDGL}
+F(x(t), x'(t), \ldots, x^{(m)}(t)) = 0 \quad \forall t\in I
 \end{align}
 \par
 \textbf{autonome DGL}.
@@ -324,8 +318,7 @@ F(y(x), y'(x), \ldots, y^{(m)}(x)) = 0 \quad \forall t\in I
 
 \par
 Im folgenden Beispiel wollen wir unterschiedliche gewöhnliche Differentialgleichungen darauf prüfen, ob sie autonom sind.
-\label{ode/repetition:example-4}
-\begin{example}{}{}
+\begin{example}{(Autonome Differentialgleichungen)}{ode/repetition:example-4}
 
 
 
@@ -337,32 +330,32 @@ Sei hierzu  im Folgenden \(I \subset \R\) ein offenes Intervall.
 \par
 1. Die gewöhnliche Differentialgleichung
 \begin{align*}
-2y'(x) = y(x)\cdot x \quad \forall x \in I
+2x'(t) = x(t)\cdot t \quad \forall t \in I
 \end{align*}
 \par
 ist \textbf{nicht autonom}, da die rechte Seite der Gleichung durch die Funktion
 \begin{align*}
-F(x,y(x)) = y(x) \cdot x
+F(t,x(t)) = x(t) \cdot x
 \end{align*}
 \par
-beschrieben wird und diese Funktion explizit vom Funktionsargument \(x \in I\) abhängt.
+beschrieben wird und diese Funktion explizit vom Funktionsargument \(t \in I\) abhängt.
 
 
 
 \par
 2. Die gewöhnliche Differentialgleichung
 \begin{align*}
-2t\cdot \dot{y}(t) = y(t)\cdot t \quad \forall t \in I
+2t\cdot \dot{x}(t) = x(t)\cdot t \quad \forall t \in I
 \end{align*}
 \par
 ist hingegen \textbf{autonom}, da die Gleichung in folgende explizite Form überführt werden kann
 \begin{align*}
-\dot{y}(t) = \frac{1}{2} y(t) \quad \forall t \in I
+\dot{x}(t) = \frac{1}{2} x(t) \quad \forall t \in I
 \end{align*}
 \par
 und somit die rechte Seite der Gleichung durch die Funktion
 \begin{align*}
-F(t,y(t)) = \frac{1}{2}y(t)
+F(t,x(t)) = \frac{1}{2}x(t)
 \end{align*}
 \par
 beschrieben wird, welche nicht explizit vom Funktionsargument \(t \in I\) abhängt.
@@ -372,7 +365,7 @@ beschrieben wird, welche nicht explizit vom Funktionsargument \(t \in I\) abhän
 \par
 3. Im Fall der gewöhnlichen Differentialgleichung
 \begin{align*}
-2y'(x) = y(x)\cdot \sin(g(x)) \quad \forall x \in I
+2x'(t) = x(t)\cdot \sin(g(t)) \quad \forall t \in I
 \end{align*}
 \par
 können wir für beliebige Funktionen \(g \colon I \rightarrow \R\) \textbf{nicht entscheiden}, ob sie autonom ist wenn keine konkrete Form der Funktion \(g\) gegeben ist.
@@ -383,22 +376,21 @@ können wir für beliebige Funktionen \(g \colon I \rightarrow \R\) \textbf{nich
 \label{\detokenize{ode/repetition:anfangswertprobleme}}
 \par
 Um gewöhnliche Differentialgleichungen zu lösen, betrachtet man in der Regel sogenannte Anfangswertprobleme.
-Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\), an welchem man die Lösung explizit durch einen Anfangswert \(y_0\in U\) vorgibt.
+Hierbei wählt man einen ausgezeichneten Zeitpunkt \(t_0\in I\) aus dem Zeitintervall \(I\), an welchem man die Lösung explizit durch einen Anfangswert \(x_0\in U\) vorgibt.
 Dieses Vorgehen wird in der folgenden Definition nochmal kurz wiederholt.
-\label{ode/repetition:def:anfangswertproblem}
-\begin{definition}{}{}
+\begin{definition}{}{ode/repetition:def:anfangswertproblem}
 
 
 
 \par
 Sei ein gewöhnliches Differentialgleichungssystem 1. Ordnung wie in \cref{ode/repetition:def:DGL} gegeben, wobei \(I \times U \subset \R_0^+ \times \R^n\) den erweiterten Phasenraum des Systems bezeichnet.
-Sei außerdem \(t_0 \in I\) ein Anfangszeitpunkt und \(y_0 \in U\) der zugehörige Anfangszustand.
+Sei außerdem \(t_0 \in I\) ein Anfangszeitpunkt und \(x_0 \in U\) der zugehörige Anfangszustand.
 
 \par
 Dann nennen wir das Gleichungssystem
 \begin{align}\label{equation:ode/repetition:eq:AWP}
-\dot{y}(t) &= F(t, y(t))\quad\forall t\in I, \\
-y(t_0) &= y_0
+\dot{x}(t) &= F(t, x(t))\quad\forall t\in I, \\
+x(t_0) &= x_0
 \end{align}
 \par
 \textbf{Anfangswertproblem} des gewöhnlichen Differentialgleichungssystems.
@@ -409,30 +401,29 @@ Sofern nicht explizit angegeben werden wir im Folgenden annehmen, dass ohne Besc
 Die explizite Wahl des Anfangszeitpunkts und  zustands erlaubt es erst eine gewöhnliche Differentialgleichung eindeutig zu lösen.
 Ohne diese zusätzlichen Informationen könnte man lediglich Funktionenscharen als Lösungsmenge angeben.
 Dies wird durch das folgende Beispiel nochmal dargestellt.
-\label{ode/repetition:example-6}
-\begin{example}{}{}
+\begin{example}{}{ode/repetition:example-6}
 
 
 
 \par
 Wir betrachten eine sehr einfache gewöhnliche Differentialgleichung erster Ordnung, die sich explizit in folgender Form schreiben lässt:
 \begin{align*}
-y'(x) = y(x) \quad \forall x \in \R.
+x'(t) = x(t) \quad \forall t \in \R.
 \end{align*}
 \par
-Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen \(y \colon \R \rightarrow \R\) von der Form
+Man sieht leicht ein, dass Lösungen dieser Differentialgleichung Funktionen \(x \colon \R \rightarrow \R\) von der Form
 \begin{align*}
-y(x) = c\cdot e^x
+x(t) = c\cdot e^t
 \end{align*}
 \par
 für eine beliebige Konstante \(c \in \R\) sein müssen.
 Um diese Funktionenschar weiter einzuschränken und eine eindeutige Lösung zu erhalten, müssen wir noch Anfangswertbedindungen hinzunehmen.
-Hierzu reicht es eine ausgewiesene Stelle \(x_0 \in \R\) und einen Funktionswert \(y_0 = y(x_0)\) festzulegen.
+Hierzu reicht es eine ausgewiesene Stelle \(t_0 \in \R\) und einen Funktionswert \(x_0 = x(t_0)\) festzulegen.
 
 \par
-Wählen wir beispielsweise \(x_0 = 0\) und \(y_0 = y(0) = 2\), so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
+Wählen wir beispielsweise \(t_0 = 0\) und \(x_0 = x(0) = 2\), so erhalten wir als eindeutige Lösung der gewöhnlichen Differentialgleichung die Funktion
 \begin{align*}
-y(x) = 2\cdot e^x.
+x(t) = 2\cdot e^t.
 \end{align*}
 \par
 Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konstante \(c \in \R\) als \(c=2\) eindeutig bestimmt wurde.
@@ -443,8 +434,7 @@ Wir sehen also, dass durch das Festlegen eines Anfangswert die unbekannte Konsta
 \label{\detokenize{ode/repetition:existenz-und-eindeutigkeit-einer-losung}}
 \par
 Nicht jede gewöhnliche Differentialgleichung ist im Allgemeinen lösbar oder besitzt eindeutige Lösungen, wie das folgende Beispiel belegt.
-\label{ode/repetition:example-7}
-\begin{example}{}{}
+\begin{example}{}{ode/repetition:example-7}
 
 
 
@@ -454,7 +444,7 @@ Wir wollen im folgenden zwei Beispiele von autonomen, gewöhnlichen Differential
 \par
 1. Die gewöhnliche Differentialgleichung
 \begin{align*}
-e^{y'(x)} \equiv 0 \quad \forall x \in \R
+e^{x'(t)} \equiv 0 \quad \forall t \in \R
 \end{align*}
 \par
 besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somit keine Funktion \(y \colon \R \rightarrow \R\) gibt, so dass die obige Gleichung erfüllt werden kann.
@@ -462,12 +452,12 @@ besitzt keine Lösung, da die Exponentialfunktion strikt positiv ist und es somi
 \par
 2. Die gewöhnliche Differentialgleichung
 \begin{align*}
-y'(x)(1-y'(x)) \equiv 0 \quad \forall x \in \R
+x'(t)(1-x'(t)) \equiv 0 \quad \forall t \in \R
 \end{align*}
 \par
 besitzt auf Grund ihrer Symmetrieeigenschaften zwei unterschiedliche Funktionenscharen als Lösung, nämlich
 \begin{align*}
-y_1(x) = c \quad \text{ und } \quad y_2(x) = x + c \quad \forall x \in \R,
+x_1(t) = c \quad \text{ und } \quad x_2(t) = t + c \quad \forall t \in \R,
 \end{align*}
 \par
 wobei \(c \in \R\) eine beliebige Konstante darstellt.
@@ -476,77 +466,90 @@ wobei \(c \in \R\) eine beliebige Konstante darstellt.
 \par
 Die wichtigste Eigenschaft für die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen ist die \textbf{(lokale) Lipschitzstetigkeit} der rechten Seite \(F \colon I \times U \rightarrow U\).
 Diese wollen wir der Vollständigkeit halber im Folgenden definieren.
-\label{ode/repetition:definition-8}
-\begin{definition}{}{}
+
+\begin{emphBox}{Rudolf Lipschitz}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Rudolf\_Lipschitz}{Rudolf Otto Sigismund Lipschitz} (Geboren 14. Mai 1832 in Königsberg i. Pr.; Gestorben 7. Oktober 1903 in Bonn) war ein deutscher Mathematiker und Hochschullehrer. Er betreute die Doktorarbeit von \href{https://en.wikipedia.org/wiki/Felix\_Klein}{Felix Klein}, weswegen der österreichische Mathematiker \href{https://www.math.fau.de/angewandte-mathematik-1/mitarbeiter/prof-dr-martin-burger/}{Martin Burger} in direkter Linie im akademischen Stammbaum von Lipschitz abstammt, siehe \href{https://genealogy.math.ndsu.nodak.edu/index.php}{Mathematics Genealogy Project}.
+\end{emphBox}
+\begin{definition}{((Lokale) Lipschitzstetigkeit)}{ode/repetition:definition-8}
 
 
 
 \par
 Sei \(F \colon G \to \R^n\) eine Funktion mit dem erweiterten Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\).
-Man sagt, dass \(F\) in \(G\) einer \textbf{globalen Lipschitz Bedingung} genügt (bezüglich der Variablen \(y \in U\)) mit der Lipschitz Konstanten \(L\geq0\), wenn gilt
+Man sagt, dass \(F\) in \(G\) einer \textbf{globalen Lipschitz Bedingung} genügt (bezüglich der Variablen \(x \in U\)) mit der Lipschitz Konstanten \(L\geq0\), wenn gilt
 \begin{align*}
-\Vert F(t,y) - F(t,\widetilde{y}) \Vert \leq L \Vert y-\widetilde{y}\Vert\quad\text{ für alle }(t,y), (t,\widetilde{y})\in G\,.
+\Vert F(t,x) - F(t,\widetilde{x}) \Vert \leq L \Vert x-\widetilde{x}\Vert\quad\text{ für alle }(t,x), (t,\widetilde{x})\in G\,.
 \end{align*}
 \par
-Man sagt, \(F\) genüge in \(G\) einer \textbf{lokalen Lipschitz Bedingung}, falls jeder Punkt \((a,b)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_0^+\) genügt.
+Man sagt, \(F\) genüge in \(G\) einer \textbf{lokalen Lipschitz Bedingung}, falls jeder Punkt \((t,x)\in G\) im erweiterten Phasenraum eine Umgebung \(V\) besitzt, sodass \(F\) in \(G\cap V\) einer Lipschitzbedingung mit einer gewissen (von \(V\) abhängigen) Konstanten \(L\in\R_0^+\) genügt.
 \end{definition}
 
 \par
 Für die \textbf{(lokale) Existenz von Lösungen} haben wir in Kapitel 8.4 \cite{Ten21} den Satz von Picard Lindelöf formuliert, den wir im Folgenden wiederholen werden.
-\label{ode/repetition:satz:picardlindeloef_lokal}
-\begin{theorem}{}{}
+\begin{theorem}{(Lokaler Existenzsatz nach Picard–Lindelöf)}{ode/repetition:thm:piclindlokal}
 
 
 
 \par
-Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \coloneqq I \times U \subset \R\times\R^n\), die lokal Lipschitz stetig auf \(G\) bezüglich der \(y\) Variablen ist.
-Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) ein \(\varepsilon>0\), sowie genau eine Lösung
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \coloneqq I \times U \subset \R\times\R^n\), die lokal Lipschitz stetig auf \(G\) bezüglich der \(x\) Variablen ist.
+Dann existiert zu jedem Anfangswert \((t_0,x_0) \in G\) ein \(\varepsilon>0\), sowie genau eine Lösung
 \begin{align*}
 \phi \colon \left[t_0-\varepsilon, t_0+\varepsilon\right] \to \R^n
 \end{align*}
 \par
 der gewöhnlichen Differentialgleichung
 \begin{align*}
-\dot{y}(t) \ = \ F(t,y(t))
+\dot{x}(t) \ = \ F(t,x(t))
 \end{align*}
 \par
-unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+unter der Anfangsbedingung \(\phi(t_0)=x_0\).
 \end{theorem}
 
-\begin{emphBox}{}{}
+\begin{emphBox}{Ernst Lindelöf}{}
+
 \par
-Proof. Siehe Kapitel 12, Satz 4 Kapitel 8.4 \cite{For17}
+\href{https://en.wikipedia.org/wiki/Ernst\_Leonard\_Lindel\%C3\%B6f}{Ernst Leonard Lindelöf} (Geboren 7. März 1870 in Helsingfors (Helsinki), Großfürstentum Finnland; Gestorben 4. Juni 1946 in Helsinki) war ein finnischer Mathematiker.
 \end{emphBox}
+
+\begin{emphBox}{Émile Picard}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/\%C3\%89mile\_Picard}{Charles Émile Picard} (Geboren 24. Juli 1856 in Paris; Gestorben 11. Dezember 1941 ebenda) war ein französischer Mathematiker.
+\end{emphBox}
+
+\begin{proof}
+ Siehe Kapitel 12, Satz 4 Kapitel 8.4 \cite{For17}
+\end{proof}
 
 \par
 Bisher haben wir nur die Existenz und Eindeutigkeit von Lösungen gewöhnlicher Differentialgleichungen in lokalen Intervallen betrachtet.
 Unter den strengeren Voraussetzungen einer rechten Seite \(F\) der gewöhnlichen Differentialgleichung, die einer globalen Lipschitzbedingung genügt, lässt sich jedoch eine \textbf{globale Existenzaussage} formulieren, die besonders für konkrete Anwendungen sehr praktisch ist.
-\label{ode/repetition:satz:picardlindeloef}
-\begin{theorem}{}{}
+\begin{theorem}{(Globaler Existenzsatz nach Picard Lindelöf)}{ode/repetition:satz:picardlindeloef}
 
 
 
 \par
-Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\), die eine globale Lipschitzbedingung auf \(G\) bezüglich der \(y\) Variablen erfüllt.
-Dann existiert zu jedem Anfangswert \((t_0,y_0) \in G\) eine globale Lösung
+Sei \(F\colon G\to\R^n\) eine stetige Funktion mit erweitertem Phasenraum \(G \, \coloneqq \, I \times U \subset \R\times\R^n\), die eine globale Lipschitzbedingung auf \(G\) bezüglich der \(x\) Variablen erfüllt.
+Dann existiert zu jedem Anfangswert \((t_0,x_0) \in G\) eine globale Lösung
 \begin{align*}
 \phi \colon I \to \R^n
 \end{align*}
 \par
 der gewöhnlichen Differentialgleichung
 \begin{align*}
-\dot{y}(t) \ = \ F(t,y(t))
+\dot{x}(t) \ = \ F(t,x(t))
 \end{align*}
 \par
-unter der Anfangsbedingung \(\phi(t_0)=y_0\).
+unter der Anfangsbedingung \(\phi(t_0)=x_0\).
 Es existieren außerdem keine weiteren (lokalen) Lösungen.
 \end{theorem}
 
-\begin{emphBox}{}{}
-\par
-Proof. Siehe Kapitel 2.3 \cite{Kna13}
-\end{emphBox}
-\label{ode/repetition:corollary-11}
+\begin{proof}
+ Siehe Kapitel 2.3 \cite{Kna13}
+\end{proof}
+\label{ode/repetition:cor:eindeutigkeitlinear}
 \begin{emphBox}{}{}{Corollary 1.1}
 
 
@@ -555,10 +558,140 @@ Proof. Siehe Kapitel 2.3 \cite{Kna13}
 Das Anfangswertproblem jedes \textbf{linearen} gewöhnlichen Differentialgleichungssystems 1. Ordnung hat eine eindeutige globale Lösung.
 \end{emphBox}
 
-\begin{emphBox}{}{}
+\begin{proof}
+ Siehe Theorem 2.25, Kapitel 2.3 \cite{Kna13}
+\end{proof}
+
+
+\subsection{Lösungen von linearen Differentialgleichungssystemen}
+\label{\detokenize{ode/repetition:losungen-von-linearen-differentialgleichungssystemen}}\label{\detokenize{ode/repetition:s-lineare-dglsysteme}}
 \par
-Proof. Siehe Theorem 2.25, Kapitel 2.3 \cite{Kna13}
-\end{emphBox}
+Analog zu Kapitel 8 in \cite{Ten21} wollen wir uns mit Lösungen für \textbf{homogene lineare Differentialgleichungen} beschäftigen, jedoch dieses Mal nicht im skalaren Fall \(n=1\), sondern für ein Anfangswertproblem von der Form
+\begin{align}\label{equation:ode/repetition:eq:linhomdglsystem}
+\dot{x}(t) &= A x(t), \quad \forall t \in I \subset \R^+_0, \\
+x(t_0) &= x_0 \in U \subset \R^n.
+\end{align}
+\par
+Wir bemerken hierbei, dass im Gegensatz zum skalaren Fall hier die Koeffizientenmatrix \(A \in \C^{n\times n}\) nicht von der Zeit abhängt, wir also ein autonomes Differentialgleichungssystem betrachten.
+
+\par
+Bevor wir Lösungen von \eqref{equation:ode/repetition:eq:linhomdglsystem} angeben, wollen wir ein hilfreiches Funktionalkalkül einführen, dass die Notation im Fall von Differentialgleichungssystemen erleichtert.
+\begin{definition}{(Matrixexponential)}{ode/repetition:definition-12}
+
+
+
+\par
+Sei \(n \in \N\) und \(A \in \C^{n \times n}\) eine beliebige quadratische Matrix.
+Das \textbf{Matrixexponential} \(e^A\) von \(A\), ist diejenige \(n\times n\) Matrix, welche durch die folgende Potenzreihe definiert ist:
+\begin{align*}
+e^A \equiv \exp(A) \ \coloneqq \ \sum_{k=0}^\infty \frac{A^k}{k!} = I_n + A + \frac{A^2}{2} + \frac{A^3}{6} + \ldots.
+\end{align*}
+\par
+Analog zur gewöhnlichen Exponentialfunktion konvergiert die Reihe für alle \(A \in \C^{n \times n}\), woraus die Wohldefiniertheit der Definition folgt.
+Für den Spezialfall \(n=1\) entspricht das Matrixexponential der gewöhnlichen Exponentialfunktion.
+\end{definition}
+\begin{remark}{(Rechenregeln für das Matrixexponential)}{ode/repetition:rem:matrixexponentialregeln}
+
+
+
+\par
+Für das Matrixexponential gelten die gleichen Rechenregeln wie für die gewöhnliche Exponentialfunktion, wie zum Beispiel:
+\begin{itemize}
+\item {} 
+\par
+\(e^{tA}e^{sA} = e^{(t+s)A}, \quad\) für \(s,t \in \R\)
+
+\item {} 
+\par
+\(\frac{d}{dt} e^{tA} = Ae^{tA}, \quad\) für \(t \in \R\)
+
+\item {} 
+\par
+\( e^{D} = \operatorname{diag}(e^{a_1}, \ldots, e^{a_n})\) ist Diagonalmatrix für eine Diagonalmatrix \(D = \operatorname{diag}(a_1, \ldots, a_n)\).
+
+\end{itemize}
+\end{remark}
+
+\par
+Folgendes Lemma stellt einen interessanten Zusammenhang des Matrixexponentials zur Spektraltheorie her.
+\begin{lemma}{(Eigenwerte des Matrixexponentials)}{ode/repetition:lem:mpotew}
+
+
+
+\par
+Sei \(A \in \C^{n\times n}\) eine beliebige quadratische Matrix und sei \(\lambda \in \C\) ein Eigenwert von \(A\) zum
+Eigenvektor \(v \in \C^n\).
+Dann ist der Vektor \(v\) auch Eigenvektor des Matrixexponentials \(e^A\) zum zugehörigen Eigenwert \(e^\lambda\).
+\end{lemma}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+
+\par
+Mit Hilfe des Matrixexponentials lässt sich die Lösung des homogenen linearen Differentialgleichungssystems \eqref{equation:ode/repetition:eq:linhomdglsystem} kompakt angeben, wie uns folgendes Lemma zeigt.
+\begin{lemma}{}{ode/repetition:lemma-15}
+
+
+
+\par
+Sei \(n\in \N\), \(I \subset \R^+_0\) und \(A \in \C^{n\times n}\) eine beliebige quadratische Matrix.
+Das Anfangswertproblem \eqref{equation:ode/repetition:eq:linhomdglsystem} hat die eindeutige Lösung
+\begin{align*}
+x(t) = e^{A(t-t_0)}x_0, \quad \forall t \in I.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Wir zeigen zunächst, dass die Lösung \(x(t)\) die Anfangswertbedingung erfüllt:
+\begin{align*}
+x(t_0) = e^{A(t_0-t_0)}x_0 = e^0x_0 = I_n x_0.
+\end{align*}
+\par
+Um zu zeigen, dass \(x(t)\) das lineare homogene Differentialgleichungssystem \eqref{equation:ode/repetition:eq:linhomdglsystem} löst, berechnen wir die entsprechende Zeitableitung als
+\begin{align*}
+\dot{x}(t) = \frac{d}{dt}(e^{A(t-t_0)}x_0) = A \cdot e^{A(t-t_0)}x_0 = A x(t), \quad \forall t \in I.
+\end{align*}
+\par
+Vergleichen wir die linke und rechte Seite dieser Gleichung so erkennen wir, dass \(x(t)\) in der Tat eine Lösung des Differentialgleichungssystems ist.
+
+\par
+Nach \cref{ode/repetition:cor:eindeutigkeitlinear} ist die Lösung eindeutig, da es sich um ein lineares Differentialgleichungssystem 1. Ordnung handelt.
+\end{proof}
+
+\par
+Im Allgemeinen kann man bei linearen Differentialgleichungssystemen nicht davon ausgehen, dass diese in der einfachsten Form wie in \eqref{equation:ode/repetition:eq:linhomdglsystem} vorliegen.
+Außerdem ist die konkrete Berechnung des Matrixexponentials zur Bestimmung einer Lösungsfunktion \(x(t)\) in der Regel ungeeignet.
+Hierzu wollen wir die abschließende Bemerkung machen.
+\begin{remark}{}{ode/repetition:remark-16}
+
+
+
+\par
+1. Zur Berechnung einer konkreten Lösung \(x(t)\) des linearen homogenen Differentialgleichungssystems \eqref{equation:ode/repetition:eq:linhomdglsystem} bietet es sich an, die \textbf{Jordansche Normalform} \(J = SAS^{-1}\) von \(A\) aus Kapitel 2.7 in \cite{Ten21} auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
+\begin{align*}
+e^{tA} &=  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} 
+\\&= 
+S^{-1} \sum_{k=0}^\infty \frac{(tJ)^k}{k!} S = S^{-1} e^{tJ}S 
+\\&= S^{-1} e^{t(D+N)}S = S^{-1} e^{tD} e^{tN} S
+\end{align*}
+\par
+für eine Transformationsmatrix \(S \in \C^{n \times n}\), eine Diagonalmatrix \(D \in \C^{n \times n}\) mit den Eigenwerten von \(A\) und einer nilpotenten Matrix \(N \in \C^{n \times n}\), für die die Reihendarstellung des zugehörigen Matrixexponentials nach endlich vielen Summanden (entsprechend dem Nilpotenzindex von \(N\)) abbricht.
+
+\par
+2. Ist das vorliegende lineare Differentialgleichungssystem \textbf{inhomogen}, das heißt für eine stetige Störfunktion \(b \colon I \rightarrow \R^n\) von der Form
+\begin{align}\label{equation:ode/repetition:eq:lininhomdglsystem}
+\dot{x}(t) &= A x(t) + b(t), \quad \forall t \in I \subset \R^+_0, \\
+x(t_0) &= x_0 \in U \subset \R^n,
+\end{align}
+\par
+so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in \cite{Ten21} eine eindeutige Lösung des Anfangswertproblems \eqref{equation:ode/repetition:eq:lininhomdglsystem} angeben als
+\begin{align*}
+x(t) = e^{tA}x_0 + \int_0^t e^{(t-s)A}b(s) \, \mathrm{d}s.
+\end{align*}
+\par
+3. Im Falle eines homogenen, linearen Differentialgleichungssystems, das \textbf{nicht autonom} ist, das heißt die Koeffizientenmatrix \(A = A(t)\) ist zeitabhängig, können wir nicht mehr die Spektraltheorie zur konkreten Berechnung von Lösungen nutzen.
+Formal lassen sich dennoch Lösungen als sogenanntes \textbf{zeitgeordnetes Produkt} angeben, was jedoch den Rahmen dieser Vorlesung sprengen würde.
+\end{remark}
 
 
 \section{Phasenflüsse und Phasenportraits}
@@ -572,8 +705,7 @@ In diesem Abschnitt führen wir die grundlegende mathematischen Konzepte zur Ana
 \par
 Wir beginnen zunächst damit eine Klasse von Funktionen einzuführen, welche die Beschreibung zeitabhängiger Systeme vereinfacht.
 Die folgende Definition ist zunächst sehr allgemein für beliebige dynamische Systreme gehalten und wird später im Kontext von konkreten Anwendungsbeispielen spezieller diskutiert.
-\label{ode/fluesse:def:Fluss}
-\begin{definition}{}{}
+\begin{definition}{(Fluss und dynamisches System)}{ode/fluesse:def:Fluss}
 
 
 
@@ -615,8 +747,7 @@ Hierbei soll das zweite Argument des Flusses jeweils den Anfangswert \(x_0\in U\
 \par
 So werden durch den Phasenfluss die Lösungen des dynamischen Systems in Abhängigkeit vom Anfangszustand angegeben.
 Im folgenden Beispiel betrachten wir den \textbf{Fluss eines Vektorfeldes}, das die rechte Seite eines gewöhnlichen Differentialgleichungssystems beschreibt.
-\label{ode/fluesse:example-1}
-\begin{example}{}{}
+\begin{example}{}{ode/fluesse:example-1}
 
 
 
@@ -658,8 +789,11 @@ Das die Funktion \(\Phi \colon I \times \R^2 \rightarrow \R^2\) ein Fluss ist, l
 Nun verfizieren wir noch, dass der Fluss tatsächlich Lösungen des gewöhnlichen Differentialgleichungssystems realisiert.
 Es gilt
 \begin{align*}
-\dot{\Phi}(t, (x,y)) &= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) \\
-&= (-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) = F(\Phi(t,(x,y)).
+\dot{\Phi}(t, (x,y)) &= \frac{d}{dt}(\cos(t)x + \sin(t)y, -\sin(t)x + \cos(t)y) 
+\\&=
+(-\sin(t)x + \cos(t)y, -\cos(t)x - \sin(t)y) 
+\\&= 
+F(\Phi(t,(x,y)), \quad \forall t \in I, (x,y) \in U.
 \end{align*}
 \par
 Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lösung des gewöhnlichen Differentialgleichungssystems.
@@ -669,14 +803,13 @@ Offensichtlich ist der Fluss \(\Phi \colon I \times \R^2 \rightarrow \R^2\) Lös
 \subsection{Lokale Flüsse}
 \label{\detokenize{ode/fluesse:lokale-flusse}}
 \par
-Nach dem Satz von Picard Lindelöf \cref{ode/repetition:satz:picardlindeloef_lokal} wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es lokal eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt, falls die rechte Seite \(F\) lokal Lipschitzstetig bezüglich der \(y\) Variablen ist.
+Nach dem Satz von Picard Lindelöf \cref{ode/repetition:thm:piclindlokal} wissen wir, dass für jeden Anfangswert \(x_0\in U\) ein \(\epsilon(x_0)>0\) existiert, so dass es lokal eine eindeutige Lösung \(\phi: [-\epsilon(x_0), \epsilon(x_0)]\) gibt, falls die rechte Seite \(F\) lokal Lipschitzstetig bezüglich der \(y\) Variablen ist.
 In diesem Fall müssen wir das Zeitintervall \(I(x_0)=[-\epsilon(x_0), \epsilon(x_0)]\) wählen und können also nicht wie in \cref{ode/fluesse:def:Fluss} auf ganz \(I = \R^+_0\) als Zeitintervall arbeiten.
 Stattdessen können wir nur Tupel der Form \((t, x_0) \in I(x_0) \times \{x_0\}\) betrachten, wobei \(x_0\in U\) fixiert ist und \(t\) aus dem lokalen Existenzintervall \(I(x_0)\) gewählt werden kann.
 
 \par
 Diese Einschränkung führt uns auf den Begriff des \textbf{lokalen Phasenflusses}.
-\label{ode/fluesse:def:LokFluss}
-\begin{definition}{}{}
+\begin{definition}{(Lokaler Fluss)}{ode/fluesse:def:LokFluss}
 
 
 
@@ -706,8 +839,7 @@ Dann heißt eine Abbildung \(\Phi: G\rightarrow U\) \textbf{lokaler (Phasen )Flu
 \par
 Im nächsten Lemma werden wir sehen, dass die Lösung eines autonomen gewöhnlichen Differentialgleichungssystems tatsächlich als solch ein lokaler Fluss interpretiert werden kann.
 In diesem Fall spircht man auch vom \textbf{Fluss einer Differentialgleichung}.
-\label{ode/fluesse:lemma-3}
-\begin{lemma}{}{}
+\begin{lemma}{}{ode/fluesse:lemma-3}
 
 
 
@@ -732,9 +864,8 @@ eine Funktion \(\Phi \colon G\rightarrow \R^n\) gibt, mit folgenden Eigenschafte
 \end{enumerate}
 \end{lemma}
 
-\begin{emphBox}{}{}
-\par
-Proof. Da die rechte Seite \(F\) des autonomen gewöhnlichen Differentialgleichungssystems nach Voraussetzung lokal Lipschitzstetig ist, existiert nach dem Satz von Picard Lindelöf \cref{ode/repetition:satz:picardlindeloef_lokal} für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\), so dass eine Lösung des Differentialgleichungssystems \(\Phi_{x_0} \colon [-\epsilon(x_0),\epsilon(x_0)] \rightarrow U\) mit dem Anfangswert \(x_0\) existiert, d.h.,
+\begin{proof}
+ Da die rechte Seite \(F\) des autonomen gewöhnlichen Differentialgleichungssystems nach Voraussetzung lokal Lipschitzstetig ist, existiert nach dem Satz von Picard Lindelöf \cref{ode/repetition:thm:piclindlokal} für jedes \(x_0\in U\) ein \(\epsilon(x_0)>0\), so dass eine Lösung des Differentialgleichungssystems \(\Phi_{x_0} \colon [-\epsilon(x_0),\epsilon(x_0)] \rightarrow U\) mit dem Anfangswert \(x_0\) existiert, d.h.,
 \begin{align*}
 \dot{\Phi}_{x_0}(t) &= F(\Phi_{x_0}(t)) \quad \forall t \in [-\epsilon(x_0),\epsilon(x_0)],\\
 \Phi_{x_0}(0) &= x_0.
@@ -781,21 +912,20 @@ Wir haben also insgesamt
 \end{align*}
 \par
 für jedes \(\tau\in [t, \epsilon(x_0)]\), was die zweite Flusseigenschaft aus \cref{ode/fluesse:def:Fluss} zeigt.
-\end{emphBox}
+\end{proof}
 
 
-\subsection{Phasenportraits}
-\label{\detokenize{ode/fluesse:phasenportraits}}
+\subsection{Phasenporträts}
+\label{\detokenize{ode/fluesse:phasenportrats}}
 \par
-Die teilweise abstrakten Konzepte und Eigenschaften von Phasenflüssen aus den vorangegangenen Abschnitten werden wir im Folgenden mit einfachen geometrischen Anschauung illustrieren.
+Die teilweise abstrakten Konzepte und Eigenschaften von Phasenflüssen aus den vorangegangenen Abschnitten werden wir im Folgenden mit einfachen geometrischen Anschauungen illustrieren.
 Dafür benötigen wir zunächst die folgenden Definitionen.
-\label{ode/fluesse:definition-4}
-\begin{definition}{}{}
+\begin{definition}{(Phasenporträt)}{ode/fluesse:definition-4}
 
 
 
 \par
-Es sei \(\Phi:G\rightarrow U\) ein Phasenfluss eines gewöhnlichen Differentialgleichungssystems für den erweiterten Phasenraum \(G\subset \R^+_0\times U\).
+Es sei \(\Phi:G\rightarrow U\) ein Phasenfluss eines gewöhnlichen Differentialgleichungssystems für den erweiterten Phasenraum \(G = I \times U\subset \R^+_0\times \R^n\).
 Dann können wir folgende Begriffe für den Fluss einführen:
 \begin{itemize}
 \item {} 
@@ -808,36 +938,44 @@ Die Menge \(\mathcal{O}(x_0) := \{\Phi(t, x_0): (t, x_0)\in G\}\) heißt \textbf
 
 \item {} 
 \par
-Ein Orbit heißt \textbf{Ruhelage}, falls \(\mathcal{O}(x_0) = \{x_0\}\).
+Ein Punkt \(x_0 \in U\) heißt \textbf{Ruhelage}, falls \(\mathcal{O}(x_0) = \{x_0\}\).
 
 \item {} 
 \par
 Ein Anfangswert \(x_0\in U\) heißt \textbf{periodisch} mit Periode \(T>0\), falls \(\Phi(T, x_0) = x_0\).
 
 \end{itemize}
+
+\par
+Wir nennen die Zerlegung des erweiterten Phasenraums \(G\) in Orbits ein \textbf{Phasenporträt} des dynamischen Systems \((I,U, \Phi)\).
 \end{definition}
 
 \par
-Ein klassisches Beispiel aus der Mechanik ist besonders gut geeignet, um die eben eingeführten Konzepte näher zu diskutieren   die \textbf{gedämpfte Schwingungsgleichung}.
-\label{ode/fluesse:ex:oscillations}
-\begin{example}{}{}
+Phasenporträts erlauben es uns das charakteristische Verhalten kontinuierlicher dynamischer Systeme zu visualisieren und graphisch zu analysieren.
+An ihnen lassen sich beispielsweise die Existenz und Stabilität von Fixpunkten und periodischen Orbits direkt erkennen.
+Da ein Phasenporträt den gesamten Phasenraum zerlegt werden typischerweise nur einige charakteristische Orbits gezeichnet um die Übersichtlichkeit zu gewährleisten.
+Aus dem gleichen Grund beschränkt man sich in der Regel außerdem auf ein  und zweidimensionale Phasenräume.
+
+\par
+Ein klassisches Beispiel aus der Mechanik ist besonders gut geeignet, um die eben eingeführten Konzepte näher zu diskutieren   die gedämpfte Schwingungsgleichung.
+\begin{example}{(Gedämpfte Schwingungsgleichung)}{ode/fluesse:ex:oscillations}
 
 
 
 \par
-Die gedämpfte Schwingungsgleichung ist gegeben durch
-\begin{align*}
+Die \textbf{gedämpfte Schwingungsgleichung} ist gegeben durch
+\begin{align}\label{equation:ode/fluesse:eq:schwingungsgleichung}
 m\ddot{x}(t) + r\dot{x}(t) + kx(t)=0
-\end{align*}
+\end{align}
 \par
-und beschreibt beispielsweise die eindimensionale Auslenkung eines Federpendels, das durch Reibungsverluste Schwingungsenergie über die Zeit verliert.
+und beschreibt beispielsweise die horizontale (eindimensionale) Auslenkung eines Federpendels, das durch Reibungsverluste Schwingungsenergie über die Zeit verliert.
 
 \par
 Hierbei bezeichnet
 \begin{itemize}
 \item {} 
 \par
-\(x(t)\) die vertikale Auslenkung des Pendels zum Zeitpunkt \(t\),
+\(x(t)\) die horizontale Auslenkung des Federpendels zum Zeitpunkt \(t\),
 
 \item {} 
 \par
@@ -854,19 +992,24 @@ Hierbei bezeichnet
 \end{itemize}
 
 \par
-Durch Einführung der Variablen \(p(t):= m~\dot{x}(t)\) als Impuls erhalten wir das folgende gewöhnliche Differentialgleichungssystem
+Durch Einführung der Variablen \(p(t):= m\dot{x}(t)\) als Impuls erhalten wir das folgende gewöhnliche Differentialgleichungssystem
 \begin{align*}
-\dot{x}(t) &= \frac{1}{m}~p(t) \\
-\dot{p}(t) &= -k~x(t) - \frac{r}{m}~p(t).
+\dot{p}(t) &= - \frac{r}{m}p(t) -kx(t), \\
+\dot{x}(t) &= \frac{1}{m}p(t).
+\end{align*}
+\par
+Dies lässt sich in kompakter Form schreiben als:
+\begin{align*}
+\begin{pmatrix} \dot{p} \\ \dot{x} \end{pmatrix}(t) = \begin{pmatrix} -\frac{r}{m} & -k \\ \frac{1}{m} & 0\end{pmatrix} \begin{pmatrix}p \\ x\end{pmatrix}(t)
 \end{align*}
 \par
 Betrachten wir speziell den ungedämpften Fall für \(r=0\), d.h. ohne Reibungsverluste, so geht die Gleichung in die \textbf{Bewegungsgleichung für einen harmonischen Oszillator} über.
-In diesem Fall erhalten wir zum Anfangswert \((x,p) \in \) die Lösung
+In diesem Fall erhalten wir zum Anfangswert \((p,x) \in U \subset \R^2 \) die Lösung
 \begin{align*}
-\Phi(t, (x,p)) = 
+\Phi(t, (p,x)) = 
 \begin{pmatrix}
-\frac{p}{\omega m}\sin(\omega t) + x~\cos(\omega t)\\
-p \cos(\omega t) - m x \sin(\omega t)
+p \cos(\omega t) - m x \sin(\omega t) \\
+\frac{p}{\omega m}\sin(\omega t) + x\cos(\omega t)
 \end{pmatrix},
 \end{align*}
 \par
@@ -874,38 +1017,2936 @@ wobei \(\omega=\sqrt{\frac{k}{m}}\) die Eigenfrequenz des Systems ist.
 \end{example}
 
 \par
-Das in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} dargestellte Phasenportrait
+Wir wollen im Folgenden die Phasenporträts der gedämpften Schwingungsgleichung und des harmonischen Oszillators illustrieren.
 
-\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_2\string_0.png}
+\par
+In beiden Abbildungen wird die horizontale Auslenkung \(x(t)\) des Federpendels auf der x Achse und der Impuls \(p(t) = m\dot{x}(t)\) auf der y Achse aufgetragen.
+
+\par
+Das in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} dargestellte Phasenportrait illustriert anschaulich, dass im Fall des harmonischen Oszillators ohne Dämpfung die Orbits elliptisch sind und somit jeder Startwert \(x_0 \in U\) periodisch ist.
 
 \begin{figure}[htbp]
 \centering
 
-\caption{Visualisierung für Beispiel \cref{ode/fluesse:ex:oscillations} }\label{\detokenize{ode/fluesse:fig-harmonic-oscillator}}\end{figure}
 
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_3\string_0.png}
+\caption{Visualisierung des Phasenporträts und einiger Orbits für den Phasenfluss des harmonischen Oszillators aus \cref{ode/fluesse:ex:oscillations}  Das Phasenporträt zeigt das charakteristische Verhalten von Lösungen der gedämpften Schwingungsgleichung für reibungsfreie Prozesse, d.h., für eine Dämpfungskonstante \(r = 0\).}\label{\detokenize{ode/fluesse:fig-harmonic-oscillator}}\end{figure}
 
-\section{Hamiltonsche Differentialgleichungen und Phasenportraits}
-\label{\detokenize{ode/hamilton:hamiltonsche-differentialgleichungen-und-phasenportraits}}\label{\detokenize{ode/hamilton::doc}}
 \par
-Ein wichtiges Prinzip für viele physikalischen Anwendungen sind Erhaltungssätze und die dazugehörigen Erhaltungsgrößen. Aus der klassichen Mechanik kennen wir z.B.
+Betrachten wir nun für eine positive Dämpfungskonstante \(r > 0\) den Fall der allgemeinen gedämpften Schwingungsgleichung, so sieht man am dargestellen Phasenportrait in \hyperref[\detokenize{ode/fluesse:fig-damped-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-damped-oscillator}}}, dass die Trajektorien in den Ursprung konvergieren, der als Orbit in Ruhelage einen Fixpunkt des dynamischen Systems darstellt.
+Dies macht auch physikalisch Sinn, da jedes Federpendel auf Grund der Reibung nach endlicher Zeit zum Stillstand kommt.
+
+\begin{figure}[htbp]
+\centering
+
+
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_6\string_0.png}
+\caption{Visualisierung des Phasenporträts und einiger Orbits für den Phasenfluss der gedämpften Schwingungsgleichung aus \cref{ode/fluesse:ex:oscillations} für eine relativ groß gewählte Dämpfungskonstante \(r > 0\).}\label{\detokenize{ode/fluesse:fig-damped-oscillator}}\end{figure}
+
+
+\section{Hamiltonsche Differentialgleichungen}
+\label{\detokenize{ode/hamilton:hamiltonsche-differentialgleichungen}}\label{\detokenize{ode/hamilton::doc}}
+\par
+Ein wichtiges Prinzip für viele physikalischen Anwendungen und dynamische Systeme sind \emph{Erhaltungssätze} und die dazugehörigen \emph{Erhaltungsgrößen}.
+Aus der klassichen Mechanik kennen wir beispielsweise die \emph{Energieerhaltung} oder die \emph{Impulserhaltung}.
+In \cref{ode/fluesse:s-fluesse}  haben wir Bewegungsgleichungen als System von gewöhnlichen Differentialgleichungen hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der Formulierung des Differentialgleichungssystems abzulesen.
+
+\par
+Hamiltonsche Differentialgleichungen haben in der Physik eine besondere Rolle, insbesondere in der klassischen Mechanik bei Abwesenheit von Reibung.
+Typischerweise tauchen diese bei der Untersuchung von Bewegungen im Phasenraum auf, d.h., bei der Betrachtung von Paaren aus Orts  und Impulswerten.
+Ihre Lösungen liefern uns Trajektorien im Phasenraum für die die Gesamtenergie des Systems erhalten bleibt.
+Dies macht sie für uns besonders interessant.
+
+\par
+Bevor wir die hamiltonschen Differentialgleichungen und ihre Eigenschaften näher diskutieren führen wir zunächst ein wann wir ein Vektorfeld auf dem Phasenraum Hamiltonsch nennen und was eine Hamilton Funktion dieses Vektorfelds ist.
+\begin{definition}{(Hamilton Funktion)}{ode/hamilton:def:hamiltonsch}
+
+
+
+\par
+Sei \(n \in N\) die \textbf{Anzahl der Freiheitsgrade} des betrachteten dynamischen Systems und sei \(U\subset \R^n \times \R^n\) der zugehörige Phasenraum.
+Wir nennen ein Vektorfeld \(X \colon U \rightarrow \R^{2n}\) mit \(X \in C^1(P;\R^{2n})\) \textbf{Hamiltonsch}, falls eine reellwertige Funktion \(H \colon U \rightarrow \R\) sowie eine Matrix \(J \, \coloneqq \, \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \in \R^{2n \times 2n}\) existiert, so dass sich das Vektorfeld darstellen lässt als
+\begin{align}\label{equation:ode/hamilton:eq:hamilton_Gleichung}
+X(p,q) = J \, \nabla H (p,q) \quad \forall (p,q) \in U.
+\end{align}
+\par
+In diesem Fall nennen wir die Funktion \(H\) eine \textbf{Hamilton Funktion} des Vektorfelds \(X\).
+\end{definition}
+
+\par
+Folgende Bemerkungen zur Hamilton Funktion wollen wir festhalten.
+\begin{remark}{}{ode/hamilton:remark-1}
+
+
+\begin{enumerate}
+
+\item {} 
+\par
+Die Hamilton Funktion lässt sich auch als Legendre Transformation der Lagrange Funktion des Systems herleiten, was weitere interessante Zusammenhänge in der Physik erklärt.
+In dieser Vorlesung verzichten wir auf diesen Zugang zur Hamilton Funktion und verweisen die interessierten Leser*innen auf Kapitel 2 \cite{Nol11}.
+
+\item {} 
+\par
+Im Folgenden werden wir annehmen, dass die Hamilton Funktion \(H\) nicht explizit von der Zeitvariable \(t \in I\) abhängt, was jedoch im Allgemeinen sein kann.
+
+\end{enumerate}
+\end{remark}
+
+\par
+Basierend auf der Hamilton Funktion aus \cref{ode/hamilton:def:hamiltonsch} können wir nun die Hamiltonschen Differentialgleichungen definieren.
+\begin{definition}{}{ode/hamilton:definition-2}
+
+
+
+\par
+Sei \(x(t) = (p(t),q(t)) \in U\) eine Bahnkurve des Phasenraums \(U \subset \R^{2n}\).
+Wird das hamiltonsche Vektorfeld auf der linken Seite von \eqref{equation:ode/hamilton:eq:hamilton_Gleichung} als
+\begin{align*}
+X = \dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix} (t)
+\end{align*}
+\par
+gewählt, so lässt sich die Gleichung für \(J \, \coloneqq \, \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \in \R^{2n \times 2n}\) schreiben als
+\begin{align}\label{equation:ode/hamilton:eq:hamilton_DGL}
+\dot{x}(t) = J \nabla H(x(t)).
+\end{align}
+\par
+In dieser Form wird die entstehende Differentialgleichung in \eqref{equation:ode/hamilton:eq:hamilton_DGL} \textbf{Hamiltonsche Differentialgleichung} genannt.
+
+\par
+Äquivalent lässt sich dieses System von gewöhnlichen Differentialgleichungen auch explizit für die \(2n\) unbekannten Orts  und Impulsfunktionen \(q_i, p_i\) für \(1 \leq i \leq n\) schreiben als
+\begin{align*}
+\dot{q_i}(t) = \frac{\partial H}{\partial p_i}(t), \quad \dot{p_i}(t) = -\frac{\partial H}{\partial q_i}(t), \quad i=1,\ldots,n.
+\end{align*}\end{definition}
+
+\par
+Für den einfachen Fall einer zeitunabhängigen Hamilton Funktion \(H\) lässt sich beobachten, dass die Lösungskurven der Hamiltonschen Differentialgleichungen sich nicht schneiden und durch jeden Punkt des Phasenraums eine Lösungskurve verläuft.
+
+\par
+Die Hamilton Funktion \(H\) als Funktion des Phasenraumes kann als die Energie eines Systems von Teilchen aufgefasst werden.
+Wir wollen uns die Rolle der Hamilton Funktion \(H\) an Hand eines physikalischen Beispiels klar machen.
+\begin{example}{(Newtonsche Kraftgleichung)}{ode/hamilton:example-3}
+
+
+
+\par
+Im folgenden Beispiel wollen wir die Bewegung eines Teilchens mit Masse \(m>0\) in einem Kraftfeld \(F \colon \R^3 \rightarrow \R^3\)  untersuchen, welches nur vom Ort \(q \in \R^3\) abhängt.
+Nach dem 2. Newtonschen Gesetz erhalten wir die Bewegungsgleichung
+\begin{align}\label{equation:ode/hamilton:eq:newton}
+m\ddot{q}(t) = F(q(t)).
+\end{align}
+\par
+Die gewöhnliche Differentialgleichung 2. Ordnung in \eqref{equation:ode/hamilton:eq:newton} lässt sich durch die Definition des Impulses des Teilchens \(p(t) \, \coloneqq \, m \dot{q(t)}\) in ein gewöhnliches Differentialgleichungssystem 1. Ordnung überführen:
+\begin{align*}
+\dot{p}(t) = F(q(t)), \quad \dot{q}(t) = \frac{1}{m}p(t).
+\end{align*}
+\par
+Wir nehmen zur Vereinfachung nun an, dass das gegebene Kraftfeld \(F\) \emph{konservativ} sei, d.h., wir können annehmen, dass \(F = - \nabla V\) gilt für ein Potential \(V \colon \R^3 \rightarrow \R\) (z.B. die Erdanziehungskraft).
+Dann können wir das physikalische Modell als kontinuierliches dynamisches System interpretieren mit dem erweiterten Phasenraum \(I \times U \subset \R^+_0 \times \R^6\).
+Betrachten wir nun einen Punkt \(x = \begin{pmatrix} p \\ q\end{pmatrix} \in U\) im Phasenraum, so lässt sich das autonome gewöhnliche Differentialgleichungssystem kompakt schreiben als
+\begin{align}\label{equation:ode/hamilton:eq:newton_DGL}
+\dot{x}(t) = \begin{pmatrix} \dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t)
+\end{align}
+\par
+Wählen wir nun die \textbf{Hamilton Funktion} aus \cref{ode/hamilton:def:hamiltonsch} \begin{align*}
+H(p,q) \, \coloneqq \, \frac{||p||^2}{2m} + V(q),
+\end{align*}
+\par
+so erkennen wir, dass diese sich aus \emph{kinetischer} und \emph{potentieller Energie} zusammensetzt.
+Durch diese Hamilton Funktion \(H\) lässt sich \eqref{equation:ode/hamilton:eq:newton} als \textbf{Hamiltonsche Differentialgleichung} schreiben mit
+\begin{align*}
+\dot{x}(t) = \begin{pmatrix}\dot{p} \\ \dot{q} \end{pmatrix}(t) = \begin{pmatrix} -\nabla V(q) \\ \frac{p}{m} \end{pmatrix}(t) = \begin{pmatrix}0 & -\mathbf{1}\\ \mathbf{1} & 0 \end{pmatrix} \begin{pmatrix} \frac{p}{m} \\ \nabla V(q) \end{pmatrix}(t) = J \nabla H(p(t),q(t)).
+\end{align*}\end{example}
+
+\par
+Ergänzend wollen wir noch folgendes Beispiel einer Hamilton Funktion nennen.
+\begin{example}{}{ode/hamilton:example-4}
+
+
+
+\par
+Im Fall des eindimensionalen harmonischen Oszillators mit Masse \(m > 0\) aus \cref{ode/fluesse:ex:oscillations} lässt sich ebenfalls eine Hamilton Funktion des dynamischen Systems angeben.
+Sei \((x,p) \in U\) als Punkt des Phasenraums \(U \subset \R^2\) der Ort und Impuls eines Pendels.
+Dann lässt sich die zugehörige Hamilton Funktion \(H \colon U \rightarrow \R\) angeben als:
+\begin{align*}
+H(x,p) = \frac{p^2}{2m} + \frac{m}{2} \omega^2 x^2.
+\end{align*}
+\par
+Hierbei bezeichnet \(\omega = \sqrt{\frac{k}{m}}\) die Eigenfrequenz des Systems und \(k > 0\) die Federkonstante.
+\end{example}
+
+\par
+Bisher haben wir noch nicht den Grund diskutiert, warum die Hamilton Funktion eine besondere Rolle im Kontext dynamischer Systeme spielt.
+Das wollen wir nun im folgenden Satz nachholen.
+\begin{theorem}{}{ode/hamilton:thm:hamconst}
+
+
+
+\par
+Sei \(n\in \N, U \subseteq \mathbb{R}^{2n}\) ein (offener) Phasenraum und \(J= \begin{pmatrix} 0 & - \mathbf{1} \\ \mathbf{1} & 0 \end{pmatrix} \in \mathbb{R}^{2n \times 2n}\).
+Ist die Hamilton Funktion \(H \in C^2(U; \mathbb{R})\), dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung
+\begin{align*}
+\dot x = J \nabla H(x)
+\end{align*}
+\par
+konstant.
+\end{theorem}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+
+\par
+\cref{ode/hamilton:thm:hamconst} sagt uns also, dass die Orbits des kontinuierlichen Systems innerhalb der Niveaumengen der Hamilton Funktion verlaufen.
+Dies erlaubt es uns dynamische Systeme auf diese häufig auch \emph{Energieschalen} genannten Niveaumengen \(H^{-1}(E)\) für \(E \in \R\) zu restringieren.
+Diese Energieschalen bilden Untermannigfaltigkeiten des Phasenraums \(U\).
+
+\par
+Für den einfachen Fall eines Freiheitsgrades, d.h., für \(n = 1\), lassen sich für eine gegebene Hamilton Funktion \(H\) die Orbits des dynamischen Systems bestimmen.
+Für einen Punkt \(x \in U\) im Phasenraum \(U \subset \R^2\) unterscheiden wir zwei Fälle:
+\begin{enumerate}
+
+\item {} 
+\par
+Ist \(\nabla H(x) = 0\), so ist der Orbit wegem \eqref{equation:ode/hamilton:eq:hamilton_DGL} von der Form \(O(x) = {x}\).
+
+\item {} 
+\par
+Ist \(\nabla H(x) \neq 0\), so ist der Orbit \(O(x)\) gegeben durch die zusammenhängende Menge
+
+\end{enumerate}
+\begin{align*}
+O(x) = \{y \in U | H(y) = H(x), \nabla H(y) \neq 0\}
+\end{align*}
+\par
+Die Orientierung des Orbits erhält man durch die Richtung, die orthogonal zum Gradienten \(\nabla H\) steht, d.h., durch Drehung des Gradienten im Uhrzeigersinn um \(\frac{\pi}{2}\).
+Die Matrix \(J\) entspricht eben einer solchen Drehung.
+\begin{remark}{}{ode/hamilton:remark-6}
+
+
+
+\par
+Eine Formulierung der Bewegungsgleichungen eines dynamischen Systems als Hamiltonsche Differentialgleichungen hat den Vorteil, dass sie unter den sogenannten \emph{kanonischen Transformationen} in manchen Fällen in eine einfachere, lösbare Form gebracht werden können.
+\end{remark}
+
+
+\section{Aufgaben}
+\label{\detokenize{ode/ex:aufgaben}}\label{\detokenize{ode/ex::doc}}
+\begin{emphBox}{}{}{Aufgabe: DGL höherer Ordnung}
+
+\par
+Gegeben sei folgende gewöhnliche Differentialgleichung 4.\textasciitilde{}Ordnung:
+\begin{align*}
+x^{(4)}(t) = 7 x^{(3)}(t) - \dot x(t) + 5 x(t) + t^2
+\end{align*}
+\par
+Überführen Sie diese in ein System gewöhnlicher Differentialgleichungen 1.Ordnung.
+\end{emphBox}
+
+\begin{emphBox}{}{}{Aufgabe: Autonome gewöhnliche Differentialgleichungen}
+
+\par
+Entscheiden und begründen Sie mathematisch, ob die folgenden gewöhnlichen Differentialgleichungen \textbf{autonom} sind.
+
+\par
+\textbf{a)} Differentialgleichung für harmonischen Oszillator:
+\begin{align*}
+\ddot x(t) + \lambda x(t) = 0
+\end{align*}
+\par
+für eine Konstante \(\lambda \in \mathbb{R}\).
+
+\par
+\textbf{b)} Newtonsche Kraftgleichung:
+\begin{align*}
+m \ddot x(t) = F(t, x(t))
+\end{align*}
+\par
+für eine Konstante \(m > 0\), eine Kraft \(F: \mathbb{R} \times \mathbb{R}^3 \rightarrow \mathbb{R}^3\), welche von der Position im Raum \(x: \mathbb{R} \rightarrow \mathbb{R}^3\) und der Zeit \(t \in \mathbb{R}\) abhängt.
+
+\par
+\textbf{c)} Newtonsche Kraftgleichung:
+\begin{align*}
+m \ddot x(t) = F(t, x(t))
+\end{align*}
+\par
+für eine Konstante \(m > 0\), eine Kraft \(F: \mathbb{R}^3 \rightarrow \mathbb{R}^3\), welche im Gegensatz zur Situation in b) lediglich von der Position im Raum \(x: \mathbb{R} \rightarrow \mathbb{R}^3\) abhängt.
+
+\par
+\textbf{d)} Mathieusche Differentialgleichung:
+\begin{align*}
+\ddot x(t) + [\lambda + \gamma \cos(t)] ~ x(t) = 0
+\end{align*}
+\par
+für Konstanten \(\lambda, \gamma \in \mathbb{R}\).
+\end{emphBox}
+
+\begin{emphBox}{}{}{Flüsse}
+
+\par
+Für \(I = \mathbb{R}^0_+\) und \(U = \mathbb{R}^2\) betrachten wir die Abbildung \(\phi: I \times U \rightarrow U\) mit
+\begin{align*}
+\phi(t, x) = 
+\begin{pmatrix} \frac{x_2}{2} ~ \sin(\omega t) + x_1 ~ \cos(\omega t) \\ x_2 ~ \cos(\omega t) - 2 x_1 ~ \sin(\omega t) \end{pmatrix},\end{align*}
+\par
+wobei \(x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\) gilt.
+Zeigen Sie, dass diese Abbildung die mathematischen Eigenschaften eines Flusses erfüllt.
+\end{emphBox}
+
+\begin{emphBox}{}{}{Phasenporträt gedämpfter Oszillator}
+
+\par
+Wir betrachten die Bewegungsgleichung für den harmonischen Oszillator
+\begin{align*}
+m ~ \ddot x(t) + r ~ \dot x(t) + k ~ x(t) = 0
+\end{align*}
+\par
+mit Masse \(m = 1  ~ kg\), Dämpfungskonstante \(r = 0.5 ~ \frac{kg}{s}\) und Federkonstante \(k = 1.5 ~ \frac{kg}{s^2}\).
+
+\par
+Wie in Beispiel 1.3 im Skript führen wir den Impuls \(p(t) = m ~ \dot x(t)\) ein und erhalten das Differentialgleichungssystem erster Ordnung
+\begin{align*}
+\dot x(t) &= \frac{1}{m} ~ p(t)\\
+\dot p(t) &= -k ~ x(t) - \frac{r}{m} ~ p(t).
+\end{align*}
+\par
+Zeichnen Sie händisch ein Phasenporträt für dieses System in den Unbekannten \(x\) und \(p\), indem Sie für die folgenden Punkte \((x,p)\) die durch das Differentialsystem gegebene Steigung berechnen und einzeichnen:
+\begin{align*}
+&(-1, 0) \quad  (1, 0) \quad (0, -1) \quad  (0, 1)\\
+&(-0.75, -0.75) \quad  (-0.75, 0.75) \quad (0.75, -0.75) \quad (0.75, 0.75)
+\end{align*}\end{emphBox}
+
+\begin{emphBox}{}{}{Aufgabe: Eigenschaften Hamilton Funktion}
+
+\par
+Beweisen Sie die folgende Aussage:
+
+\par
+Sei \(P \subseteq \mathbb{R}^{2m}\) ein (offener) Phasenraum und \(\mathbb{J} = \begin{pmatrix} 0 & - 𝟙 \\ 𝟙 & 0 \end{pmatrix} \in Mat(2m, \mathbb{R})\). Ist die Hamilton Funktion \(H \in C^2(P, \mathbb{R})\), dann ist sie entlang der Lösungskurven der Hamiltonschen Differentialgleichung \(\dot x = \mathbb{J} \nabla H(x)\) konstant.
+\end{emphBox}
+
+\begin{emphBox}{}{}{Aufgabe: Hamilton Funktion}
+
+\par
+Zeigen Sie mathematisch, dass die Hamilton Funktion eines eindimensionalen harmonischen Oszillators gegeben ist durch:
+\begin{align*}
+H(x,p) = \frac{p^2}{2m} + \frac{m}{2} w^2 x^2,
+\end{align*}
+\par
+wobei \(w = \sqrt{\frac{k}{m}}\) gilt.
+\end{emphBox}
+
+
+\chapter{Stabilitätsanalyse für dynamische Systeme}
+\label{\detokenize{odestability/stabilitaetsanalyse:stabilitatsanalyse-fur-dynamische-systeme}}\label{\detokenize{odestability/stabilitaetsanalyse::doc}}
+\par
+In diesem Abschnitt beschäftigen wir uns mit der Stabilitätstheorie für kontinuierliche dynamische Systeme.
+Hierbei interessieren wir uns für die Frage, wie sich \emph{kleine Störungen} von bestimmten Zuständen des Systems auf die Lösungen der zu Grunde liegenden gewöhnlichen Differentialgleichungen auswirken.
+Der untersuchte Zustand kann beispielsweise ein periodischer Orbit oder eine Ruhelage des dynamischen Systems sein.
+Letztere sind oftmals von besonderes Interesse, da man in vielen technischen und physikalischen Anwendungen daran interessiert ist das System in eine oder nahe einer Gleichgewichtslage zu bringen.
+
+\par
+Im Folgenden werden wir verschiedene Stabilitätsbegriffe für dynamische Systeme einführen und speziell Kriterien für die Stabilität von Ruhelagen diskutieren.
+
+
+\section{Stabilitätsbegriffe}
+\label{\detokenize{odestability/stabilitaetsbegriffe:stabilitatsbegriffe}}\label{\detokenize{odestability/stabilitaetsbegriffe::doc}}
+\par
+Im Folgenden wollen wir grundlegende Begriffe der Stabilitätsanalyse von Ruhelagen einführen und diskutieren.
+Wie in \cref{ode/fluesse:s-fluesse}  definiert, nennen wir einen Punkt \(x\in U\) im Phasenraum \(U\) \textbf{Ruhelage}, falls für den zugehörigen Phasenfluss \(\Phi \colon I \times U \rightarrow U\) des dynamischen Systems gilt: \(\Phi(t,x) = x, \forall t \in I\), d.h., wenn für alle \(t \in I\) der Zustand \(x \in U\) ein \textbf{Fixpunkt des Flusses} ist.
+
+\par
+Für autonome Differentialgleichungssysteme mit
+\begin{align*}
+\dot{x}(t) = F(x)
+\end{align*}
+\par
+ist \(x \in U\) auch eine Ruhelage, falls \(F(x) = 0\) gilt, d.h., falls \(x\) eine Nullstelle von \(F\) ist.
+Das ist einfach zu verstehen, da die Zeitableitung auf der linken Seite für eine Ruhelage Null ist und somit die Funktion \(F\), die nur vom Ort abhängt, sich nicht ändern kann.
+
+\par
+Anschaulich versteht man unter der Stabilitätsanalyse von Ruhelagen die mathematische Untersuchung, ob benachbarte Lösungen von einer Ruhelage wegstreben oder nicht.
+Dies ist insbesondere in technischen Anwendungen wichtig, da man dort häufig danach strebt ein dynamisches System in eine Gleichgewichtslage zu bringen.
+Da dies nur bis zu einer gewissen Genauigkeit möglich ist, muss man also mit kleinen Störungen rechnen.
+
+\par
+Ist eine Ruhelage stabil, dann bleiben benachbarte Lösungen auch für zukünftige Zeitpunkte \(t \in I\) nahe der Ruhelage.
+Ist sie jedoch nicht stabil, so muss das im Allgemeinen nicht gelten und die Lösungen können dann mit der Zeit von der Ruhelage divergieren.
+Diese Anschauung wollen wir in der folgenden Definition mathematisch formalisieren.
+Hierbei werden wir den Stabilitätsbegriff für allgemeine Lösungen einführen und später Ruhelagen als ein Spezialfall dieser Lösungen interpretieren.
+\begin{definition}{(Stabilität von Lösungen)}{odestability/stabilitaetsbegriffe:def:Stabilitaet}
+
+
+
+\par
+Sei \(\Phi \colon I \times U \rightarrow U\) der Phasenfluss zu dem Vektorfeld \(F\in C^1(U;\R^n)\) auf \(U\), dass durch die rechte Seite des zugehörigen Differentialgleichungssystems gegeben ist.
+
+\par
+1. Eine Lösung \(t \in [0,\infty) \mapsto \Phi_t(x)\) heißt \textbf{(Lyapunov )stabil}, wenn zu jedem \(\epsilon > 0\) ein \(\delta>0\) existiert mit:
+\begin{align*}
+\|x-y\|<\delta \ \Rightarrow \ \sup_{t\geq0}\|\Phi_t(x)-\Phi_t(y)\|<\epsilon.
+\end{align*}
+\par
+2. Eine Lösung \( t \in [0,\infty) \mapsto \Phi_t(x)\) heißt \textbf{asymptotisch stabil}, wenn ein \(\delta > 0\) existiert mit:
+\begin{align*}
+\|x-y\|<\delta \ \Rightarrow \ \lim_{t\to\infty}\|\Phi_t(x)-\Phi_t(y)\|=0.
+\end{align*}
+\par
+3. Eine Lösung heißt \textbf{instabil}, wenn sie nicht (Lyapunov )stabil ist.
+\end{definition}
+
+\begin{emphBox}{Aleksandr Lyapunov}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Alexander\_Michailowitsch\_Ljapunow}{Alexander Michailowitsch Ljapunow} (Geboren 6. Juni 1857 in Jaroslawl; Gestorben 3. November 1918 in Odessa) war ein russischer Mathematiker und Physiker.
+\end{emphBox}
+
+\par
+Es ist klar, dass der Begriff der asymptotischen Stabilität \emph{stärker} als der Begriff der Lyapunov Stabilität von Lösungen ist, da jede asymptotisch stabile Lösung auch schon Lyapunov stabil ist.
+Die Umkehrung gilt jedoch im Allgemeinen nicht.
+Dies wird durch das folgende Beispiel nochmal illustriert.
+\begin{example}{(Stabilitätsanalyse für den harmonischer Oszillator)}{odestability/stabilitaetsbegriffe:example-1}
+
+
+
+\par
+Der Phasenfluss für den harmonischen Oszillator ist, wie wir in \cref{ode/fluesse:ex:oscillations} gesehen haben, gegeben durch
+\begin{align*}
+\Phi(t, (p,x)) = \begin{pmatrix}
+p \cos(\omega t) - m x \sin(\omega t)\\
+\frac{p}{\omega m}\sin(\omega t) + x\cos(\omega t)
+\end{pmatrix}
+\end{align*}
+\par
+Wir suchen nun einen Fixpunkt \((p_r,x_r) \in U\) des Flusses der unabhängig ist vom Zeitpunkt \(t\).
+Man sieht leicht ein, dass eine \textbf{Ruhelage} sich bei \((p_r,x_r) = (0,0)^T \in U\) befindet, da \(\Phi(t,(0,0)) = (0,0)^T\) ist für alle \(t \in I\).
+Die gefundene Ruhelage ist \textbf{Lyapunov stabil}, denn wie wir im Phasenporträt in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} gesehen haben, ist jeder Orbit um die Ruhelage \((0,0)\) periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.
+
+\par
+Mathematisch lässt sich diese Eigenschaft wie folgt zeigen.
+Für ein beliebiges \(\epsilon > 0\) sei \((p,y) \in U\) ein Punkt im Phasenraum mit periodischen Orbit \(O(p,y)\) um die Ruhelage \((p_r,x_r) = (0,0)^T \in U\), so dass dessen maximaler Abstand zur Ruhelage kleiner als \(\epsilon\) ist, d.h.
+\begin{align*}
+\sup_{t \geq 0} ||\Phi_t(p_r,x_r) - \Phi_t(p,y)|| < \epsilon
+\end{align*}
+\par
+Auf Grund der ersten Eigenschaft des Phasenflusses \(\Phi_0(p,y) = (p,y)\) gilt dann aber schon
+\begin{align*}
+||(p_r, x_r) - (p,y)|| = ||\Phi_0(p_r, x_r) - \Phi_0(p,y)|| < \epsilon.
+\end{align*}
+\par
+Wählen wir nun \(\delta \coloneqq \epsilon\), so haben wir gezeigt, dass die Ruhelage \((p_r, x_r) = (0,0)^T\) Lyapunov stabil ist.
+Sie ist jedoch auf Grund der Periodizität der Orbits um die Ruhelage \textbf{nicht asymptotisch stabil}, da für beliebige Punkte \((p,y) \in U\) mit \(||(p_r,x_r) - (p,y)|| < \delta\) für ein \(\delta > 0\) gilt
+\begin{align*}
+\lim_{t\to\infty}\|\Phi_t(p_r, x_r)-\Phi_t(p,y)\| \neq 0.
+\end{align*}\end{example}
+
+\par
+Im allgemeinen Fall der gedämpften Schwingungsgleichung in \cref{ode/fluesse:ex:oscillations} hängt die Stabilität der Ruhelage im Ursprung intuitiverweise von der Reibungskonstanten ab, wie folgende Bemerkung festhält.
+\begin{remark}{(Stabilität bei der gedämpften Schwingungsgleichung)}{odestability/stabilitaetsbegriffe:remark-2}
+
+
+
+\par
+Für den Fall der gedämpften Schwingungsgleichung in \eqref{equation:ode/fluesse:eq:schwingungsgleichung} lässt sich folgendes Stabilitätsverhalten der Ruhelage im Ursprung in Abhängigkeit der Reibungskonstanten \(r \in \R\) beobachten:
+\begin{enumerate}
+
+\item {} 
+\par
+Die Ruhelage ist \textbf{asymptotisch stabil} für den Fall mit positiver Reibung \(r>0\).
+
+\item {} 
+\par
+Die Ruhelage ist \textbf{Lyapunov stabil} für den reibungsfreien Fall \(r=0\).
+
+\item {} 
+\par
+Die Ruhelage ist \textbf{instabil} für den Fall einer negativen Reibung \(r < 0\), d.h. für einen externen Antrieb.
+
+\end{enumerate}
+\end{remark}
+
+
+\section{Stabilität von Ruhelagen}
+\label{\detokenize{odestability/ruhelagen:stabilitat-von-ruhelagen}}\label{\detokenize{odestability/ruhelagen::doc}}
+\par
+Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine \textbf{lineare} Differentialgleichungssysteme untersuchen.
+Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in \cite{Ten21} kennen gelernt.
+
+\par
+Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
+\begin{theorem}{}{odestability/ruhelagen:thm:stablin}
+
+
+
+\par
+Sei \(A\in \C^{n\times n}\) eine Matrix mit den Eigenwerten \(\lambda_1,\dots, \lambda_n\in \C\).
+Dann beschreibt der zugehörige Phasenfluss \(\Phi\) zum homogenen linearen Differentialgleichungssystem
+\begin{align*}
+\dot{x}(t) = Ax(t)
+\end{align*}
+\par
+eine Ruhelage in \(\mathbf{0} \in \C^n\).
+Diese ist sogar eindeutig, falls \(\lambda_i\neq 0, i=1,\ldots,n\) gilt.
+
+\par
+Für
+\begin{align*}
+\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)
+\end{align*}
+\par
+kann die Stabilität der Ruhelage wie folgt charakterisiert werden:
+\begin{enumerate}
+
+\item {} 
+\par
+Falls \(\gamma <0\) gilt, ist die Ruhelage \(\mathbf{0}\) \emph{asymptotisch stabil}
+
+\item {} 
+\par
+Falls \(\gamma >0\) gilt, ist die Ruhelage \(\mathbf{0}\) \emph{instabil}.
+
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+ Wir wissen, dass für einen beliebigen Startpunkt \(x_0 \in U\) im Phasenraum der Phasenfluss \(\Phi \colon I \times U \rightarrow U\) eine Lösung des Differentialgleichungssystems realisiert.
+Für homogene, lineare Differentialgleichungssysteme haben wir bereits in \cref{ode/repetition:s-lineare-dglsysteme}  Lösungen mittels des \emph{Matrixexponentials} hergeleitet.
+
+\par
+Sei \(J = S^{-1}AS\) die Jordansche Normalform von \(A\) mit Transformationsmatrizen \(S^{-1},S \in \C^{n \times n}\), so erhalten wir die Abschätzung
+\begin{align*}
+\|\Phi_t(x_0)\| &= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx_0\| = \|S^{-1}e^{tD}e^{tN}Sx_0\| \\
+&\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x_0\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
+\end{align*}
+\par
+für eine Konstante \(C_1 > 0\), die unabhängig von \(t\) ist.
+Hierbei haben wir ausgenutzt, dass sich die Jordannormalform \(J\) von \(A\) als Summe einer Diagonalmatrix \(D\) mit den Eigenwerten \(\lambda_i \in \C\), \(i=1,\ldots,n\) von \(A\) und einer nilpotenten Matrix \(N\) schreiben lässt als \(J = D + N\).
+Diese Matrizen kommutieren, d.h., \(D \cdot N = N \cdot D\).
+
+\par
+Wir sehen nun ein, dass \(e^{tN}\) wegen der Nilpotenz von \(N\) eine endliche Reihe bildet der Form
+\begin{align*}
+e^{tN} = \sum_{k=0}^m \frac{(tN)^k}{k!} = \sum_{k=0}^m t^k\frac{N^k}{k!},
+\end{align*}
+\par
+welches ein Polynom vom Grad \(m\) darstellt, wobei \(m \in \N\) der Nilpotenzindex der Matrix \(N\) ist.
+
+\par
+Sei nun \(\epsilon > 0\) beliebig klein gewählt.
+Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten \(C_2 > 0\), die von \(\epsilon\) jedoch nicht von \(t\) abhängt, durch eine gewöhnliche Exponentialfunktion abschätzen mit
+\begin{align*}
+ \|e^{tN}\| = \| \sum_{k=0}^m t^k\frac{N^k}{k!} \| \leq \sum_{k=0}^m t^k \frac{\|N^k\|}{k!} \leq C_2  e^{t \epsilon}.
+\end{align*}
+\par
+Wählen wir nun \(\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)\), so folgt direkt, dass gilt
+\begin{align*}
+||e^{tD}|| \leq C_3 e^{t\gamma}.
+\end{align*}
+\par
+Insgesamt erhalten wir also für die Norm des Phasenflusses
+\begin{align}\label{equation:odestability/ruhelagen:eq:abschaetzungew}
+\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.
+\end{align}
+\par
+Da \(\epsilon > 0\) beliebig klein ist, können wir \(|\epsilon| < |\gamma|\) wählen.
+Damit hängt das Verhalten der Norm des Flusses nur noch vom Vorzeichen von \(\gamma\) ab.
+Wir unterscheiden daher zwei Fälle:
+
+\par
+1. Wenn \(\gamma >0\) ist, so existiert zum Eigenwert \(\gamma\) von \(A\) ein zugehöriger Eigenvektor \(v\in U\), so dass die Eigenwertgleichung \(A v = \gamma v\) gilt.
+Nach \cref{ode/repetition:lem:mpotew} ist dann \(e^{t\gamma}\) ein Eigenwert des Matrixexponentials \(e^{tA}\) mit zugehörigem Eigenvektor \(v\).
+Insgesamt erhalten wir also
+\begin{align*}
+||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \text{ für } \ t \to \infty, \quad  \forall \alpha>0.\end{align*}
+\par
+Also enthält jede beliebig kleine Umgebung der Ruhelage \(0\) Punkte, für die die entsprechenden Lösungen divergieren.
+In diesem Fall ist die Ruhelage also \textbf{instabil}.
+
+\par
+2. Falls \(\gamma <0\) gilt, so gilt auch \(\gamma + \epsilon <0\) und wir können abschätzen,
+\begin{align*}
+0\leq \|\Phi_t(x_0)-0\|\leq C e^{t (\gamma + \epsilon)} \to 0 \quad \text{ für } \ t \to \infty.
+\end{align*}
+\par
+Dies liefert uns also \textbf{asymptotische Stabilität} der Ruhelage \(\mathbf{0}\).
+\end{proof}
+
+\par
+Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die \(\mathbf{0}\) immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.
+
+
+\subsection{Linearisierung um Ruhelage}
+\label{\detokenize{odestability/ruhelagen:linearisierung-um-ruhelage}}\label{\detokenize{odestability/ruhelagen:s-linearisierung-ruhelage}}
+\par
+In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
+Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
+Daher betrachten wir im Folgenden das Anfangswertproblem eines \textbf{allgemeinen Differentialgleichungssystem erster Ordnung} auf dem Phasenraum \(U\in \R^n\), das nicht notwendigerweise linear sein muss und für ein Vektorfeld \(F\in C^1(U;\R^n)\) wie folgt formuliert ist
+\begin{align}\label{equation:odestability/ruhelagen:eq:awpallg}
+\dot{x}(t) &= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
+x(0) &= x_0.
+\end{align}
+\par
+Wir nehmen an, dass \(x_F \in U\) eine Ruhelage des dynamischen Systems ist, so dass dementsprechend \(F(x_F) = 0\) gilt.
+Durch einfache Translation der Koordinaten des Systems um \(x_F \in U\), können wir ohne Beschränkung der Allgemeinheit annehmen, dass die Ruhelage sich im Nullpunkt befindet.
+
+\par
+Im Folgenden definieren wir zwei wichtige Werkzeuge zur Untersuchung der Stabilität von Ruhelagen für allgemeine Differentialgleichungssysteme.
+\begin{definition}{(Linearisierung und Abweichung)}{odestability/ruhelagen:def:linearisierung}
+
+
+
+\par
+Sei \(F\in C^1(U;\R^n)\) ein Vektorfeld auf dem Phasenraum \(U \subset \R^n\) und \(0\) eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in \eqref{equation:odestability/ruhelagen:eq:awpallg} charakterisiert wird.
+Sei nun \((DF)(x)\) die Jacobi Matrix der Funktion \(F\) im Punkt \(x \in U\) (vgl. Kapitel 6.2 in \cite{Ten21}).
+Dann bezeichnen wir mit \(A := (DF)(0)\) die \textbf{Linearisierung} von \(F\) in der Ruhelage \(0 \in U\).
+Außerdem bezeichnen wir die Funktion \(R \in C^1(U; \R^n)\) mit
+\begin{align*}
+R(x) \ \coloneqq \ F(x) - Ax
+\end{align*}
+\par
+als die \textbf{Abweichung} (auch \textbf{Residuum} genannt) des Vektorfeldes \(F\) von seiner Linearisierung \(A\) in der Ruhelage.
+\end{definition}
+
+\par
+Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des Differentialgleichungssystem in führender Ordnung durch die Linearisierung \(A\) von \(F\) kontrolliert werden, solange wir uns nah genug zur Ruhelage befinden. Dies wird durch das folgende Lemma ausgedrückt.
+\begin{lemma}{}{odestability/ruhelagen:lem:intexpglgn}
+
+
+
+\par
+Wir betrachten das Anfangswertproblem aus \eqref{equation:odestability/ruhelagen:eq:awpallg} auf dem Phasenraum \(U \subset \R^n\) für ein Vektorfeld \(F\in C^1(U;\R^n)\).
+Außerdem sei \(A \coloneqq (DF)(0)\) die Linearisierung des Vektorfelds in der Ruhelage \(0\) des dynamischen Systems und \(R(x) \coloneqq F(x) - Ax\) die Abweichung von \(F\) von seiner Linearisierung \(A\) im Nullpunkt.
+
+\par
+Dann lassen sich Lösungen des Differentialgleichungssystems mittels der Linearisierung \(A\) und der Abweichung \(R\) explizit angeben als
+\begin{align*}
+x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s, \quad \forall t \in I.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Wir setzen zunächst die unbekannte Lösung \(x(t)\) des Anfangswertproblems \eqref{equation:odestability/ruhelagen:eq:awpallg} in der allgemeinen Form
+\begin{align*}
+x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0
+\end{align*}
+\par
+an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion \(c(t)\) mittels \textbf{Variation der Konstanten} (vgl. Kapitel 8.2 in \cite{Ten21}).
+
+\par
+Mittels der Rechenregeln für das Matrixexponentials in \cref{ode/repetition:rem:matrixexponentialregeln} können wir die Ableitung der Funktion \(x\) mittels Produktregel angeben als
+\begin{align*}
+\dot{x}(s) = A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s).
+\end{align*}
+\par
+Aus der Definition des Residuums in \cref{odestability/ruhelagen:def:linearisierung} folgt aber auch
+\begin{align*}
+\dot{x}(s) = F(x(s)) = Ax(s) + R(x(s)).
+\end{align*}
+\par
+Vergleichen wir die beiden Gleichungen, so sieht man ein, dass
+\begin{align*}
+e^{As}\dot{c}(s) = R(x(s))
+\end{align*}
+\par
+gelten muss.
+Äquivalent können wir auch folgern, dass \(\dot{c}(s) = e^{-As}R(x(s))\) gilt.
+
+\par
+Nach dem Hauptsatz der Differential  und Integralrechnung (vgl. Theorem 5.3 in \cite{Ten21}) gilt dann für die unbekannte Funktion \(c\) der folgende Zusammenhang
+\begin{align*}
+c(t) = c(0) + \int_0^t \dot{c}(s)\, \mathrm{d}s = x_0+ \int_0^t e^{-As}R(x(s)) \, \mathrm{d}s.
+\end{align*}
+\par
+Setzen wir dies in die erste Gleichung unserer Ansatzfunktion ein und nutzen die Rechenregeln des Matrixexponnentials aus \cref{ode/repetition:rem:matrixexponentialregeln}  so erhalten wir schließlich die Aussage des Lemmas
+\begin{align*}
+x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.
+\end{align*}\end{proof}
+
+\par
+Auf den ersten Blick nützt uns die Identität in \cref{odestability/ruhelagen:lem:intexpglgn} nicht viel, denn auch auf der rechten Seite taucht \(x(s)\), also die unbekannte Lösung des Anfangswertproblems \eqref{equation:odestability/ruhelagen:eq:awpallg} auf.
+Es stellt sich jedoch heraus, dass wir die \textbf{Gronwall Ungleichung} auf diese Integralgleichung anwenden können.
+Diese wichtige Abschätzung in der Theorie von Differentialgleichungen ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
+
+\begin{emphBox}{Thomas Gronwall}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Thomas\_Hakon\_Gr\%C3\%B6nwall}{Thomas Hakon Gronwall} (Geboren 16. Januar 1877 in Dylta Bruk bei Axberg/Gemeinde Örebro; Gestorben 9. Mai 1932 in New York, NY) war ein schwedischer Mathematiker.
+\end{emphBox}
+\begin{lemma}{(Gronwall Ungleichung)}{odestability/ruhelagen:lemma:Gronwall}
+
+
+
+\par
+Für zwei stetige Funktionen \(f,g\in C([t_0,t_1]; \R^+)\) gelte für eine Konstante \(a \geq 0\) die Ungleichung
+\begin{align*}
+f(t) \leq a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad \forall t\in [t_0,t_1].
+\end{align*}
+\par
+Dann lässt sich der Wert der Funktion \(f\) durch die Funktion \(g\) wie folgt abschätzen
+\begin{align*}
+f(t) \leq a \exp{ \left(\int_{t_0}^t g(s)\, \mathrm{d}s \right)} \quad \forall t\in [t_0,t_1].
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Wir definieren zunächst eine Hilfsfunktion
+\begin{align*}
+h(t) \ \coloneqq \ a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s
+\end{align*}
+\par
+und bemerken, dass \(0 \leq f(t) \leq h(t)\) nach Voraussetzung gilt für alle \(t \in [t_0, t_1]\).
+Nun führen wir eine einfache Fallunterscheidung durch:
+
+\par
+1. Ist \(h(t)=0\), so folgt mit der Abschätzung \(f(t) \leq h(t)\) schon, dass \(f(t) = 0\) gelten muss, so dass die Behauptung des Lemmas trivialerweise erfüllt ist.
+
+\par
+2. Sei also im Folgenden \(h(t) > 0\).
+Aus dem Haupsatz der Integral  und Differentialrechnung wissen wir, dass \(h'(t) = f(t)g(t)\) gilt.
+Wegen \(f(t) \leq h(t)\) für alle \(t \in [t_0, t_1]\) folgt sofort, dass
+\begin{align*}
+f(t)g(t) \leq h(t)g(t) \quad \forall t \in [t_0,t_1].
+\end{align*}
+\par
+Kombinieren wir diese Abschätzung mit der Identität der Ableitung \(h'(t)\), so erhalten wir durch Umstellen
+\begin{align*}
+\frac{h'(t)}{h(t)} \leq g(t) \quad \forall t \in [t_0, t_1].
+\end{align*}
+\par
+Da wir \(h(t) > 0\) angenommen haben erhalten wir durch Integration beider Seiten die Abschätzung
+\begin{align*}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s \leq \int_{t_0}^t g(s) \, \mathrm{d}s\end{align*}
+\par
+für alle \(t \in [t_0, t_1]\).
+Für die linke Seite können wir das Integral explizit angeben als
+\begin{align*}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s = \ln(h(t)) - \ln(h(t_0)) = \ln(h(t)) - \ln(a) = \ln\left(\frac{h(t)}{a}\right).
+\end{align*}
+\par
+Es gilt also nun
+\begin{align*}
+\ln \left(\frac{h(t)}{a}\right) \leq \int_{t_0}^t g(s)\, \mathrm{d}s.
+\end{align*}
+\par
+Durch Anwenden der Exponentialfunktion auf beiden Seiten und Ausnutzen der Voraussetzung \(f(t) \leq h(t)\) erhalten wir schließlich die Behauptung des Lemmas
+\begin{align*}
+ f(t) \leq h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].
+\end{align*}\end{proof}
+
+\par
+Wir wollen folgende Bemerkungen zur Gronwall Ungleichung festhalten.
+\begin{remark}{}{odestability/ruhelagen:remark-4}
+
+
+
+\par
+1. Die in \cref{odestability/ruhelagen:lemma:Gronwall} beschriebene Gronwall Ungleichung ist eigentlich ein Spezialfall für eine konstante Funktion \(a(t) \equiv a \geq 0\).
+Die ursprünglich bewiesene Aussage gilt auch für allgemeinere Funktionen.
+
+\par
+2. Man kann sich die Abschätzung in der Gronwall Ungleichung leicht merken wenn man Gleichheit der beiden Seiten annimmt.
+Die Integralgleichung
+\begin{align*}
+f(t) = a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad t\in [t_0,t_1]
+\end{align*}
+\par
+entspricht nämlich dem \textbf{linearen Anfangswertproblem}
+\begin{align*}
+\dot{f}(t) &= f(t)\cdot g(t) \quad \forall t \in [t_0, t_1], \\
+f(t_0) &= a,
+\end{align*}
+\par
+welches für alle \(t \in [t_0, t_1]\) die folgende explizite Lösung besitzt
+\begin{align*}
+f(t) = a \exp{\left( \int_{t_0}^t g(s)\, \mathrm{d}s \right)}.
+\end{align*}\end{remark}
+
+\par
+Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwenden, um die Stabilität von Ruhelagen eines allgemeinen dynamischen Systems durch eine Linearisierung zu untersuchen.
+
+
+\subsection{Asymptotische Stabilität von Ruhelagen}
+\label{\detokenize{odestability/ruhelagen:asymptotische-stabilitat-von-ruhelagen}}
+\par
+Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes \(F \colon U \rightarrow \R^n\) in \cref{odestability/ruhelagen:lem:intexpglgn} und der Gronwall Ungleichung in \cref{odestability/ruhelagen:lemma:Gronwall} sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.
+
+\par
+Wir formulieren direkt das Hauptresultat, dass uns ein hinreichendes Kriterium für \textbf{asymptotische Stabilität} der Ruhelage basierend auf den Eigenwerten der Linearisierung liefert.
+\begin{theorem}{(Asymptotische Stabilität von Ruhelagen)}{odestability/ruhelagen:thm:stabasymallg}
+
+
+
+\par
+Sei \(F \in C^1(U; \R^n)\) ein Vektorfeld auf dem offenen Phasenraum \(U \subset \R^n\).
+Eine Ruhelage \(x_F \in  U \subset \R^n\) des dynamischen Systems, das durch das allgemeine Differentialgleichungssystem
+\begin{align*}
+\dot{x}(t) = F(x(t)), \quad \forall t \in \R^+_0
+\end{align*}
+\par
+charakterisiert wird, ist \textbf{asymptotisch stabil} wenn für die Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) der Linearisierung \(A \, \coloneqq \, (Df)(x_F)\) gilt
+\begin{align*}
+\mathcal{Re}(\lambda_i)<0, \quad \text{für } i=1,\ldots,n.
+\end{align*}\end{theorem}
+
+\begin{proof}
+ Wie bereits in \cref{odestability/ruhelagen:s-linearisierung-ruhelage}  diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit \(x_F = 0 \in U\) gilt.
+Da \(U\subseteq\R^n\) nach Vorraussetzung offen ist, können wir eine offene Kugel \(B_{{r^\ast}}(0) \coloneqq \{y \in U \colon ||y|| < {r^\ast}\}\) mit Radius \({r^\ast} > 0\) als Umgebung der Ruhelage \(0\) finden, so dass \(B_{r^\ast}(0) \subset U\) gilt.
+
+\par
+Wir nehmen im Folgenden an, dass der Realteil der Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) der Linearisierung \(A \, \coloneqq \, Df(0)\) echt negativ ist, d.h., für ein geeignetes \(\Lambda > 0\) gilt die Abschätzung
+\begin{align*}
+\mathcal{Re}(\lambda_i)< -\Lambda, \quad \text{für } i=1,\ldots,n.\end{align*}
+\par
+Dann gibt es analog zum Beweis von \cref{odestability/ruhelagen:thm:stablin} eine Konstante \(c>0\), so dass gilt
+\begin{align}\label{equation:odestability/ruhelagen:eq:normexp}
+\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad \forall t\in \R^+_0.
+\end{align}
+\par
+Hierbei haben wir ausgenutzt, dass wir die Konstante \(\epsilon > 0\) in \eqref{equation:odestability/ruhelagen:eq:abschaetzungew} so klein wählen können, dass \(\gamma + \epsilon < -\Lambda\) gilt.
+
+\par
+Wir können nun einen Radius \(r\in (0,{r^\ast})\) bestimmen, so dass die folgende Abschätzung gilt
+\begin{align}\label{equation:odestability/ruhelagen:eq:residuum}
+\|R(x)\| \leq \frac{\Lambda}{2c} \|x\|, \quad \forall \|x\| \leq r.
+\end{align}
+\par
+Dies liegt an der totalen Differenzierbarkeit des Vektorfelds \(F\) in der Ruhelage (vgl. Kapitel 6.2 in \cite{Ten21}), denn dies bedeutet, dass das Residuum in der Nähe der Ruhelage schnell genug gegen Null konvergiert, so dass gilt
+\begin{align*}
+\lim_{x\to 0} \frac{\|R(x)\|}{\|x\|} = \lim_{x\to 0}\frac{\|F(x)- (DF)(0)\cdot x\|}{\|x\|} = 0.
+\end{align*}
+\par
+Wir wollen im Folgenden zeigen, dass wenn der Anfangswert unserer unbekannten Lösung des Differentialgleichungssystems beschränkt ist durch
+\begin{align*}
+\|x(0)\| \leq \epsilon <\frac{r}{c},
+\end{align*}
+\par
+dann soll schon für die Norm der Lösung für beliebiges \(t \geq 0\) gelten
+\begin{align*}
+\|x(t)\| \leq c\epsilon e^{-\frac{\Lambda t}{2}}.
+\end{align*}
+\par
+Da \(c\epsilon e^{- \frac{\Lambda t}{2}} \leq c\epsilon < r <\tilde{r}\) gilt, liegt die Lösung somit noch in der offenen Kugel \(B_{{r^\ast}}(0) \subset U\) und konvergiert für \(t \rightarrow \infty\) gegen 0, was den Satz beweist.
+
+\par
+Nehmen wir also an, dass \(\|x(0)\| \leq \epsilon <\frac{r}{c}\) gelte.
+Nun können wir nach \cref{odestability/ruhelagen:lem:intexpglgn} die unbekannte Lösung durch ihre Linearisierung darstellen als
+\begin{align*}
+x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s.
+\end{align*}
+\par
+Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen \eqref{equation:odestability/ruhelagen:eq:normexp} und \eqref{equation:odestability/ruhelagen:eq:residuum}, so erhalten wir
+\begin{align*}
+\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, \mathrm{d}s, \quad \forall \|x\| \leq r.
+\end{align*}
+\par
+Multiplizieren wir beide Seiten der Ungleichung mit \(e^{\Lambda t}\) und definieren uns eine Hilfsfunktion \(f(t):=e^{\Lambda t}\|x(t)\|\), dann erhalten wir
+\begin{align*}
+f(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} f(s)\, \mathrm{d}s.
+\end{align*}
+\par
+Für diese Form der Ungleichung bietet es sich an das \cref{odestability/ruhelagen:lemma:Gronwall} zur Gronwall Ungleichung anzuwenden, durch das wir schließlich folgendes Resultat bekommen
+\begin{align*}
+f(t) \leq c \|x_0\| \exp{\left( \frac{1}{2} \int_0^t \Lambda \, \mathrm{d}s \right) }
+\leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}.
+\end{align*}
+\par
+Durch Multiplikation beider Seiten mit \(e^{-\Lambda t}\) führt dies zur finalen Abschätzung
+\begin{align*}
+ \|x(t)\|\leq re^{-\frac{\Lambda}{2}t}, \quad \forall t\in\R^+_0.
+\end{align*}
+\par
+Wir sehen also ein, dass die unbekannte Lösung für alle nicht negativen Zeiten in der offenen Kugel \(B_r(0) \subset B_{{r^\ast}}(0) \subset U\) enthalten ist und offensichtlich gegen Null konvergiert.
+Damit ist die Ruhelage \(0 \in U\) asymptotisch stabil.
+\end{proof}
+
+\par
+Folgende Bemerkung geht speziell auf ein Detail des Beweises ein, das eine Aussage zum Konvergenzradius der Lösungen eines dynamisches Systems zulässt.
+\begin{remark}{(Attraktionsbassin)}{odestability/ruhelagen:remark-6}
+
+
+
+\par
+Der Beweis von \cref{odestability/ruhelagen:thm:stabasymallg} liefert zusätzlich die Aussage, dass alle Punkte \(x\in U\) im Phasenraum mit
+\begin{align*}
+\|x\| < \frac{r}{c}
+\end{align*}
+\par
+zu Orbits gehören, die gegen die Ruhelage \(0 \in U\) konvergieren.
+Diesen attraktiven Einzugsbereich der Ruhelage nennt man auch das \textbf{Attraktionsbassin} der Ruhelage.
+\end{remark}
+
+
+\subsection{Lyapunov Stabilität von Ruhelagen}
+\label{\detokenize{odestability/ruhelagen:lyapunov-stabilitat-von-ruhelagen}}
+\par
+Während ein hinreichendes Kriterium für das Vorliegen \emph{asymptotischer Stabilität} die strikte Ungleichung \(Re(\lambda_i)<0\) für die Eigenwerte \(\lambda_i\) der Jacobi Matrix war, ist die Situation bezüglich der Lyapunov Stabilität einer Ruhelage \textbf{komplizierter}.
+Hierzu wollen wir ein Resultat für den Fall von linearen dynamischen Systemen im Folgenden formulieren.
+\begin{theorem}{(Lyapunov Stabilität von Ruhelagen)}{odestability/ruhelagen:thm:stablyaplinear}
+
+
+
+\par
+Sei \(A\in \R^{n\times n}\) eine Matrix mit den Eigenwerten \(\lambda_1,\dots, \lambda_n\in \C\).
+Besitzen die Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) von \(A\) einen nicht positiven Realteil \(Re(\lambda_i) \leq 0\), und ist im Fall \(Re(\lambda_i)=0\) die geometrische Vielfachheit gleich der algebraischen Vielfachheit des Eigenwerts, dann ist \(0\in \R^n\) eine \textbf{Lyapunov stabile} Ruhelage des dynamischen Systems, dass durch das lineare Differentialgleichungssystem
+\begin{align*}
+\dot{x}(t) = Ax(t), \quad  \forall t \in I \subset \R^+_0
+\end{align*}
+\par
+charakterisiert wird.
+\end{theorem}
+
+\begin{proof}
+ Aus \cref{odestability/ruhelagen:thm:stablin} wissen wir bereits, dass im Fall eines linearen dynamischen Systems \(\vec{0} \in U\) eine Ruhelage im Phasenraum \(U \subset \R^n\) ist.
+Seien \(\lambda_1, \ldots, \lambda_k \in \C\) für \(k \leq n\) die paarweise verschiedenen Eigenwerte der Matrix \(A\).
+Wir betrachten wieder die Jordansche Normalform \(J = S^{-1}AS\) der Matrix \(A\) für Transformationsmatrizen \(S,S^{-1} \in \C^{n \times n}\) und
+\begin{align*}
+J=
+\begin{pmatrix}
+J_{r_1}(\lambda_1)& & & 0\\
+ & J_{r_2}(\lambda_2) & & \\
+ & & \ddots & \\
+ 0 & & & J_{r_k}(\lambda_k)
+\end{pmatrix}.
+\end{align*}
+\par
+Hierbei bezeichnen \(r_i \in \N, i=1,\ldots, k\) die algebraischen Vielfachheiten der zugehörigen Eigenwerte und jeder Jordanblock (vgl. Kapitel 2.7 in \cite{Ten21})) hat die Gestalt
+\begin{align*}
+ J_r(\lambda) \ \coloneqq \ \begin{pmatrix}
+\lambda & 1 & & 0\\
+ & \ddots & \ddots & \\
+ & & \ddots & 1\\
+ 0 & & & \lambda
+ \end{pmatrix} \in \C^{r\times r}
+\end{align*}
+\par
+Mit den Rechenregeln für das Matrixexponential aus \cref{ode/repetition:rem:matrixexponentialregeln} folgt
+\begin{align*}
+e^{Jt} = \begin{pmatrix}
+\exp{(J_{r_1}(\lambda_1)t)} & & 0\\
+ & \ddots & \\
+ 0& & \exp{(J_{r_k}(\lambda_k)t)}
+ \end{pmatrix}.
+\end{align*}
+\par
+Betrachten wir nun die Norm der Lösungen des homogenen, linearen Differentialgleichungssystems für einen Startwert \(x_0 \in U\) mit
+\begin{align*}
+\| \Phi_t(x_0) \| = \|e^{At}x_0\| = \|S^{-1}e^{Jt}S x_0\| \leq \|S^{-1}\| \|e^{Jt}\| \|S\| \|x_0\|,
+\end{align*}
+\par
+so sehen wir ein, dass die Ruhelage \(\vec{0} \in U\) \textbf{Lyapunov stabil} ist wenn für alle Jordanblöcke \(J_{r_i}(\lambda_i), i=1,\ldots,k\) von \(J\) der Ursprung \(0\in \C^{r_i}\) eine Lyapunov stabile Ruhelage des folgenden linearen Differentialgleichungssystems ist
+\begin{align*}
+ \dot{y}(t) = J_{r_i}(\lambda_i) y(t), \quad t \in I \subset \R^+_0.
+\end{align*}
+\par
+Dies ist bereits gegeben falls für einen Eigenwert \(Re(\lambda_i)<0\) gilt, denn damit folgt aus \cref{odestability/ruhelagen:thm:stablin} sogar schon \textbf{asymptotische Stabilität}, welche Lyapunov Stabilität induziert.
+
+\par
+Betrachten wir also nun einen komplexen Eigenwert \(\lambda_i \in \C\) von \(A\) mit \(Re(\lambda_i)=0\) und für den die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen Vielfachheit ist.
+In diesem Fall ist der ihm zugeordnete Jordanblock eine Diagonalmatrix auf deren Hauptdiagonale der Eigenwert \(\lambda_i \in \C\) steht, da alle Jordankästchen eindimensional sind.
+In diesem Fall sehen wir, dass die Norm des Matrixexponentials beschränkt ist und wir dadurch \textbf{Lyapunov Stabilität} der Ruhelage gezeigt haben, da gilt
+\begin{align*}
+\|e^{J_{r_i}(\lambda_i)t)}\| = |e^{\lambda_i t}| = |e^0e^{\mathcal{Im}(\lambda_i) t}| = |\cos{(\mathcal{Im}(\lambda_i)t)} + i \sin{(\mathcal{Im}(\lambda_i)t)}| = 1.
+\end{align*}
+\par
+Für diese Umformung haben wir die Definition der komplexen Exponentialfunktion genutzt, für die gilt:
+\begin{align*}
+e^z = e^{x+iy} = e^xe^iy = e^x(\cos(y) + i\sin(y)), \quad \text{für } z = x+iy \in \C.
+\end{align*}\end{proof}
+
+\par
+Das folgende Beispiel illustriert, dass eine Ruhelage instabil werden kann, wenn die geometrische Vielfachheit nicht mit der algebraischen Vielfachheit übereinstimmt für einen Eigenwert \(\lambda =0\) der Koeffizientenmatrix \(A\).
+\begin{example}{}{odestability/ruhelagen:example-8}
+
+
+
+\par
+Sei \(U \subset \R^2\) der Phasenraum und wir betrachten das homogene, lineare Differentialgleichungssystem
+\begin{align*}
+\dot{x}(t) = A x(t), \quad \forall t \in \R_0^+
+\end{align*}
+\par
+für eine Koeffizientenmatrix
+\begin{align*}
+A = \begin{pmatrix} 0&1\\0&0\end{pmatrix}.
+\end{align*}
+\par
+Wie man leicht nachrechnet besitzt diese Matrix den Eigenwert \(\lambda = 0\) mit algebraischer Vielfachheit \(2\) und geometrischer Vielfachheit \(1\) zum Eigenvektor \(v = (1,0)^T \in \R^2\).
+Die Vielfachheiten des Eigenwert \textbf{stimmen} also \textbf{nicht überein}.
+
+\par
+Aus \cref{odestability/ruhelagen:thm:stablin} wissen wir, dass eine Ruhelage in \(\vec{0} \in \R^2\) existiert.
+Man sieht jedoch leicht ein, dass sogar jeder Punkt \(x_0 = (y, 0) \in U\) eine Ruhelage des Systems darstellt, da diese Punkte ein Vielfaches des Eigenvektors zum Eigenwert \(\lambda = 0\) darstellen und somit im Kern der Matrix \(A\) liegen, d.h., für diese Punkte ist die rechte Seite des Differentialgleichungssystems \(\vec{0} \in \R^2\) und somit liegt eine Ruhelage vor.
+
+\par
+Wir wollen die Stabilität dieser Ruhelagen im Folgenden untersuchen.
+Hierzu betrachten wir die Norm des Phasenflusses \(\Phi \colon I \times U \rightarrow U\), der für einen gegebenen Anfangswert \(x_0 = (y,z) \in U\) mit \(z \neq 0\) der die Lösung des Differentialgleichungssystems beschreibt mit
+\begin{align*}
+\| \Phi_t(x_0) \| &= \| e^{At}x_0 \| = \| \sum_{k=0}^\infty \frac{(At)^k}{k!} x_0\| = \| [\underbrace{(At)^0}_{=I_2} + (At)^1] x_0\| \\
+&= \| \begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix}\begin{pmatrix} y \\ z \end{pmatrix} \| = \| \begin{pmatrix} y + tz \\ z\end{pmatrix} \| \overset{t\to \infty}{\longrightarrow} \infty.
+\end{align*}
+\par
+Wir sehen also, dass für jeden Anfangswert \(x_0 = (y,z)\) mit \(z \neq 0\) die Lösung des Differentialgleichungssystems divergiert und somit ist jede Ruhelage des dynamischen Systems \textbf{instabil}.
+\end{example}
+
+\par
+Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nichtlinearen Fall schließen, wie das folgende Beispiel zeigt.
+\begin{example}{}{odestability/ruhelagen:example-9}
+
+
+
+\par
+Wir betrachten eine gewöhnliche Differentialgleichung 1. Ordnung der Form
+\begin{align*}
+\dot{x}(t) = \alpha x(t) + \beta x^3(t), \forall t \in \R^+_0.
+\end{align*}
+\par
+mit freien Parametern \(\alpha, \beta \in \R\).
+
+\par
+Wie man einsieht ist \(0\) eine Ruhelage des dynamischen Systems, das durch diese Differentialgleichung charakterisiert wird.
+Wir betrachten die Linearisierung der Differentialgleichung in der Ruhelage mit \(A := (DF)(0) = \alpha\) und erhalten
+\begin{align*}
+\dot{x}(t) = A x(t) = \alpha x(t), \quad \forall t \in \R^+_0.
+\end{align*}
+\par
+Folgende Fallunterscheidung zeigt nun das Stabilitätsverhalten der Ruhelage in Abhängigkeit der gewählten Parameter \(\alpha, \beta \in \R\):
+
+
+\begin{center}
+\centering
+\begin{tabularx}{\linewidth}[{\linewidth}]{|c|c|c|}\hline
+
+\par
+
+& 
+\par
+linearisierte Gleichung
+& 
+\par
+nicht lineare Gleichung
+\\
+\hline
+\par
+\(\alpha<0\)
+&
+\par
+asymptotisch stabil
+&
+\par
+asymptotisch stabil
+\\
+\hline
+\par
+\(\alpha>0\)
+&
+\par
+instabil
+&
+\par
+instabil
+\\
+\hline
+\par
+\(\alpha=0\)
+&
+\par
+Lyapunov stabil
+&
+\par
+asymptotisch stabil für \(\beta<0\)
+\\
+\hline
+\par
+
+&
+\par
+
+&
+\par
+stabil für \(\beta =0 \)
+\\
+\hline
+\par
+
+&
+\par
+
+&
+\par
+instabil \(\beta > 0\)
+\\
+\hline
+\end{tabularx}
+\end{center}
+
+\par
+Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter \(\alpha\), sondern ebenfalls von \(\beta\) ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
+\end{example}
+
+
+\chapter{Vektoranalysis}
+\label{\detokenize{vektoranalysis/vektoranalysis:vektoranalysis}}\label{\detokenize{vektoranalysis/vektoranalysis::doc}}
+\par
+In diesem Kapitel der Vorlesung führen wir wichtige Konzepte der \emph{Vektoranalysis} ein.
+Insbesondere schaffen wir die mathematischen Grundlagen für eine spezielle Art der mehrdimensionalen Integration, das Integrieren über sogenannte \emph{Untermannigfaltigkeiten} des \(\R^n\).
+Um diese Integration durchführen zu können, entwickeln wir das Kalkül der \emph{Differentialformen} auf Mannigfaltigkeiten.
+
+\par
+Dieses Kalkül lässt auch den geometrischen Gehalt physikalischer Theorien wie Elektrodynamik oder Allgemeine Relativitätstheorie klar hervortreten.
+So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mit Hilfe des Differentialformenkalkül elegant beschreiben.
+
+\par
+Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von Agricola und Friedrich \cite{AF13}.
+
+
+\section{Multilinearformen}
+\label{\detokenize{vektoranalysis/multilinear:multilinearformen}}\label{\detokenize{vektoranalysis/multilinear:s-multilinearformen}}\label{\detokenize{vektoranalysis/multilinear::doc}}
+\par
+In diesem Abschnitt wollen wir die Definition der sogenannten \emph{Multilinearformen} einführen.
+Für beliebige Vektorräume \(\V, W\) über einem Körper \(\K\) haben Sie bereits den Begriff der \emph{Linearform}, also einer linearen Abbildung \(\varphi:\V\rightarrow W\) kennengelernt.
+Die Idee der Multilinearform ist anstatt nur einem, gleich \(k\) viele Vektorräume \(V_1,\ldots,V_k\) für \(k \in \N\) über \(\K\) zu betrachten und das Konzept der Linearität auf eine Abbildung \(\varphi:\V_1\times\ldots\V_k\rightarrow W\) zu übertragen.
+
+\par
+Zur Vereinfachung werden wir im Folgenden nur den Körper \(\K=\R\) betrachten, in den meisten Fällen lassen sich die hier beschriebenen Konzepte aber direkt auf allgemeine Körper übertragen.
+Wir beginnen zunächst mit einer Wiederholung und betrachten die schon bekannten Linearformen.
+Insbesondere soll der nächste Abschnitt die verschiedenen Begriffe des Dualraums abgrenzen.
+
+
+\subsection{Dualräume}
+\label{\detokenize{vektoranalysis/multilinear:dualraume}}
+\par
+Für einen reellen Vektorraum \(\V\) wollen wir lineare Abbildungen \(\varphi:V\to\R\) betrachten.
+Diese lassen sich mit Hilfe der folgenden Definition zum algebraischen Dualraum zusammenfassen.
+\begin{definition}{(Algebraischer Dualraum)}{vektoranalysis/multilinear:def:algebraischerDualraum}
+
+
+
+\par
+Es sei \(\V\) ein beliebiger \(\R\) Vektorraum.
+Dann nennen wir die Menge
+\begin{align*}
+\V^\ast := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear}\}
+\end{align*}
+\par
+den \textbf{algebraischer Dualraum} zu \(V\).
+\end{definition}
+
+\par
+Aus \cite{Ten21} ist bereits der Begriff des \emph{topologischen Dualraums} bekannt, welcher allerdings eine etwas restriktivere Definition hat.
+Sie fordert nämlich noch zusätzlich die Stetigkeit der linearen Abbildungen.
+\begin{definition}{(Topologischer Dualraum)}{vektoranalysis/multilinear:def:topologischerDualraum}
+
+
+
+\par
+Es sei \(\V\) ein normierter \(\R\) Vektorraum für einen Körper \(\R\).
+Dann nennen wir die Menge
+\begin{align*}
+\V^\prime := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear und stetig}\}
+\end{align*}
+\par
+den \textbf{topologischer Dualraum} zu \(V\).
+\end{definition}
+
+\begin{emphBox}{}{}
+\par
+Der algebraische Dualraum ist im Allgemeinen nicht gleich dem topologischen Dualraum.
+Der Hauptzweck dieses Abschnitts ist es diese Tatsache klar zu machen und die Unterschiede der beiden Definitionen herauszustellen.
+\end{emphBox}
+
+\par
+Der Integraloperator ist ein typisches Beispiel für einen linearen stetigen Operator.
+\begin{example}{(Integraloperator)}{vektoranalysis/multilinear:example-2}
+
+
+
+\par
+Es sei \(\V := C([0,1])\) der Funktionenraum der stetigen Funktionen auf dem Intervall \([0,1] \subset \R\).
+Dann ist der durch \(T \colon C([0,1]) \rightarrow \R\) definierte Integraloperator mit
+\begin{align*}
+T(f) := \int_0^1 f(x) \, \mathrm{d}x
+\end{align*}
+\par
+ein Element des \emph{topologischen Dualraums}, d.h. \(T \in \V^\prime\), da man zeigen kann, dass er linear und stetig ist.
+\end{example}
+
+\par
+Folgende Bemerkung sagt etwas über die minimale Struktur, die der Vektorraum \(V\) haben muss, damit die Definition des topologischen Dualraums sinnvoll ist.
+\begin{remark}{}{vektoranalysis/multilinear:remark-3}
+
+
+
+\par
+Damit die \cref{vektoranalysis/multilinear:def:topologischerDualraum} sinnvoll ist, ist es in der Tat nicht notwendig, dass \(V\) ein normierter Raum ist. Es reicht anzunehmen, dass \(\V\) ein \emph{topologischer Vektorraum} ist.
+\end{remark}
+
+\par
+Durch Vergleichen von \cref{vektoranalysis/multilinear:def:algebraischerDualraum} und \cref{vektoranalysis/multilinear:def:topologischerDualraum} erkennt man sofort, dass stets \(\V^\prime\subset \V^\ast\) gilt.
+Außerdem stellt man fest, dass die beiden Räume im endlich dimensionalen Fall überein stimmen, wie folgendes Lemma aussagt.
+\begin{lemma}{}{vektoranalysis/multilinear:lemma-4}
+
+
+
+\par
+Für \(n\in\N\) sei \(\V\) ein \(n\) dimensionaler \(\R\) Vektorraum, dessen Norm durch das Standardskalarprodukt induziert ist.
+Dann gilt
+\begin{align*}
+V^\prime = V^\ast.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+
+\par
+Das folgende Beispiel aus der Funktionalanalysis erklärt, dass die Gleichheit von algebraischen und topologischen Dualräumen nicht mehr in unendlich dimensionalen Räumen gilt.
+\begin{example}{(Differentialoperator)}{vektoranalysis/multilinear:example-5}
+
+
+
+\par
+Sei \(\V := C^1([0,1])\) der Vektorraum der stetig differenzierbaren Funktionen auf dem Intervall \([0,1] \subset \R\).
+Wir betrachten im Folgenden den \emph{Differentialoperator}
+\begin{align*}
+D \colon V &\rightarrow \R \\
+(Df)(x) &\mapsto f'(x), \quad \forall x \in [0,1].
+\end{align*}
+\par
+Bekanntermaßen ist der Differentialoperator \(D\) \textbf{linear} und ist somit ein Element des algebraischen Dualraums, d.h., \(D \in V^\ast\).
+Statten wir den Vektorraum \(C^1([0,1])\) mit der \emph{Supremumsnorm}
+\begin{align*}
+||f||_\infty := \sup_{x \in [0,1]} |f(x)|
+\end{align*}
+\par
+aus und betrachten die Funktionenfolge \(f_n(x) := x^n\), dann sehen wir ein, dass die Supremumsnorm der Folge konstant ist mit \(||f_n||_\infty \equiv 1\) für alle \(n\in\N\).
+Für den Differentialoperator \(D\) gilt jedoch
+\begin{align*}
+||Df_n||_\infty = \sup_{x \in [0,1]} |(Df_n)(x)| = \sup_{x \in [0,1]} |f_n'(x)| = \sup_{x \in [0,1]} |nx^{n-1}| = n.
+\end{align*}
+\par
+Um die \emph{Stetigkeit} des Differentialoperators zu untersuchen betrachten wir die konstante Nullfunktion \(F_0 \in V\) mit \(F_0(x) \equiv 0\) für alle \(x \in [0,1]\).
+Vergleichen wir nun den Abstand der konstanten Nullfunktionen zum ersten Folgenglied \(f_1\) unserer Funktionenfolge, so erhalten wir erwartungsgemäß
+\begin{align*}
+||f_1 - F_0||_\infty = ||f_1||_\infty = ||x^1||_\infty = 1 < \frac{3}{2} =: \delta.
+\end{align*}
+\par
+Für den Differenzialoperator erhalten wir analog
+\begin{align*}
+||Df_1 - DF_0||_\infty = ||Df_1||_\infty = ||1||\infty < \frac{3}{2} =: \epsilon.
+\end{align*}
+\par
+Wäre der Differenzialoperator \(D\) stetig, so müsste nach dem \(\epsilon-\delta\) Kriterium nun für jedes Folgenglied \(f_n\) unserer Funktionenfolge \(||Df_n - DF_0|| < \epsilon\) gelten, da der Abstand kleiner \(\delta\) ist wegen
+\begin{align*}
+||f_n - F_0||_\infty = ||f_n||_\infty = ||x^n||_\infty = 1 < \delta.
+\end{align*}
+\par
+Jedoch sehen wir, dass die Folge der Ableitungen divergiert, d.h.,
+\begin{align*}
+||Df_n - DF_0||_\infty = ||Df_n||_\infty = ||nx^{n-1}||_\infty = n > \epsilon \quad \text{für } n\geq 2.
+\end{align*}
+\par
+Wir sehen also ein, dass der Differentialoperator \textbf{nicht stetig} ist und somit kein Element des topologischen Dualraums \(V'\) sein kann.
+Damit haben wir gezeigt, dass in unendlich dimensionalen Räumen \(V' \subsetneq V^\ast\) gilt.
+\end{example}
+
+
+\subsection{k Multilinearformen}
+\label{\detokenize{vektoranalysis/multilinear:k-multilinearformen}}\label{\detokenize{vektoranalysis/multilinear:s-k-multilinearform}}
+\par
+Nachdem wir uns den Begriff der Linearität ins Gedächtnis zurückgerufen haben und Dualräume erklärt haben, wollen wir was Konzept linearer Abbildungen in der folgenden Definition verallgemeinern.
+\begin{definition}{(k Multilinearität)}{vektoranalysis/multilinear:def:multilinear}
+
+
+
+\par
+Sei \(k \in \N\) und es seien \(\V_i, i=1,\ldots,k\), sowie \(W\) reelle Vektorräume.
+
+\par
+Wir nennen eine Abbildung
+\begin{align*}
+\varphi : \V_1\times\ldots\times \V_k\ \to W
+\end{align*}
+\par
+\textbf{k (multi)linear}, falls alle zugehörigen partiellen Abbildungen \(\varphi_i\) für \(i\in\{1,\ldots,k\}\) mit
+\begin{align*}
+\varphi_i \colon V_i &\to W\\
+x&\mapsto \varphi_i(x):= \varphi(z_1,\ldots, z_{i-1}, x, z_{i+1},\ldots,z_k)
+\end{align*}
+\par
+\emph{linear} sind.
+
+\par
+Die Menge aller \(k\) linearen Abbildungen wird mit \(L^k(\V_1\times\ldots\times \V_k; W)\) bezeichnet.
+Falls alle Vektorräume übereinstimmen, d.h., \(\V_i = \V\) für alle \(i=1,\ldots,k\) gilt, so schreibt man auch \(L^k(\V\times\ldots\times \V; W) =: L^k(\V; W)\).
+\end{definition}
+\begin{remark}{}{vektoranalysis/multilinear:remark-7}
+
+
+
+\par
+Ausgeschrieben bedeutet die Bedingung in der obigen Definition, dass für beliebige Vektoren \(x,y\in \V_i\) und Skalare \(\lambda \in \R\) gilt
+\begin{align*}
+\varphi(z_1,\ldots,z_{i-1},\lambda \cdot x, z_{i+1},\ldots,z_k) = \lambda \cdot \varphi(z_1,\ldots,z_{i-1}, x, z_{i+1}, \ldots,z_k)
+\end{align*}
+\par
+und
+\begin{align*}
+\varphi(z_1,\ldots,z_{i-1},x+y,z_{i+1},\ldots,z_k) = \varphi(z_1,\ldots,x,\ldots,z_k) + \varphi(z_1,\ldots,y,\ldots,z_k).
+\end{align*}
+\par
+für jedes Argument \(i = 1,\ldots,k\) der Abbildung \(\varphi \colon V_1 \times \ldots \times \V_k \rightarrow W\).
+\end{remark}
+
+\par
+Viele multilineare Abbildungen kennen wir bereits aus der Linearen Algebra ohne sie bisher so bezeichnet zu haben.
+Im folgenden Beispiel wiederholen wir einige bekannte Beispiele unter dem Aspekt der Multilinearität.
+\begin{example}{}{vektoranalysis/multilinear:ex:multilinear}
+
+
+
+\par
+Wir betrachten im Folgenden Beispiele für \(k\) lineare Abbildungen mit verschiedenen \(k\in\N\).
+
+\par
+\textbf{\(k=1\)}: In diesem einfachen Fall sind alle Linearformen \(1\) linear.
+Daher ist der Raum der \(1\) Linearformen gerade der algebraische Dualraum aus \cref{vektoranalysis/multilinear:def:algebraischerDualraum}  d.h. es gilt \(L^1(\V; \R) = \V^\ast\).
+
+\par
+
+\textbf{\(k=2\)}: Es sei \(\V=\R^n\) der Euklidische Vektorraum mit kanonischem innerem Produkt \(\langle\cdot,\cdot\rangle\).
+Für \(A\in\R^{n,n}\) ist
+\begin{align*}
+\varphi:\V\times \V &\to\R\\ 
+(x,y) &\mapsto \varphi(x, y) :=\langle x,A y \rangle
+\end{align*}
+\par
+eine \textbf{Bilinearform} bzw. eine \(2\) Linearform nach \cref{vektoranalysis/multilinear:def:multilinear} 
+Sie heißt \emph{symmetrisch}, falls
+\begin{align*}
+\varphi(x, y) = \varphi(y, x), \quad \forall x, y\in \V
+\end{align*}
+\par
+und \emph{antisymmetrisch} falls
+\begin{align*}
+\varphi(x, y) = -\varphi(y, x), \quad \forall x, y\in \V.
+\end{align*}
+\par
+
+\textbf{\(k=n\)}: Es sei \(n\in \N\) und \(\V=\R^n\) der Euklidische Vektorraum.
+Die \(n\) lineare Abbildung
+\begin{align*}
+\varphi :\V \times \ldots \times \V &\to\R\\ 
+(z_1, \ldots, z_n) &\mapsto \varphi(z_1,\ldots,z_n) := \det([z_1,\ldots,z_n])
+\end{align*}
+\par
+heißt \textbf{Determinantenform}.
+Wir beachten, dass hierbei jedes \(z_i \in \R^n\) für \(i=1,\ldots,n\) ein Vektor ist und es sich bei \([z_1,\ldots,z_n] \in \R^{n\times n}\) um eine Matrix handelt.
+Die Determinantenform gibt das orientierte Volumen des von den Vektoren \(z_1,\ldots,z_n\) aufgespannten Parallelotops an.
+\end{example}
+
+
+\subsection{Der Vektorraum der Multilinearformen}
+\label{\detokenize{vektoranalysis/multilinear:der-vektorraum-der-multilinearformen}}
+\par
+Die Menge der \(k\) linearen Abbildung \(L^k(V_1 \times \ldots \times V_k; W)\) für \(\R\) Vektorräume \(V_1,\ldots,V_k\) und \(W\) besitzt mehr Struktur als wir ihr bisher angesehen haben.
+Mit den entsprechenden Verknüpfungen handelt es sich ebenfalls um einen Vektorraum, wie das folgende Lemma zeigt.
+\begin{lemma}{}{vektoranalysis/multilinear:lemma-9}
+
+
+
+\par
+Sei \(k \in \N\) und es seien \(\V_1,\ldots,\V_k\) sowie \(W\) reelle Vektorräume.
+Dann ist die Menge \(L^k(\V_1\times\ldots\V_k; W)\) ein Vektorraum über \(\R\) bezüglich der Addition
+\begin{align*}
+(\varphi_1+\varphi_2)(z_1,\ldots,z_k) := \varphi_1(z_1,\ldots,z_k) +
+\varphi_2(z_1,\ldots,z_k),
+\end{align*}
+\par
+für \(k\) lineare Abbildungen \(\varphi_1,\varphi_2\in L^k(\V_1 \times \ldots \times V_k;W)\) und der Multiplikation mit Skalaren \(\lambda \in \R\)
+\begin{align*}
+(\lambda\varphi)(z_1,\ldots,z_k) := \lambda\big(\varphi(z_1,\ldots,z_k)\big),\quad\varphi\in L^k(\V_1 \times \ldots \times V_k;W).
+\end{align*}\end{lemma}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+
+\par
+Wir wir bereits in \cref{vektoranalysis/multilinear:ex:multilinear} gesehen haben erhalten wir einen wichtigen Spezialfall für \(k=1\), nämlich den algebraischen Dualraum \(V^\ast = L^1(\V;\R)\).
+Für diesen Vektorraum können wir eine spezielle Basis angeben, wie das folgende Lemma zeigt.
+\begin{lemma}{(Duale Basis)}{vektoranalysis/multilinear:lem:dualeBasis}
+
+
+
+\par
+Es sei \(\V\) ein \(n\) dimensionaler \(\R\) Vektorraum mit einer endlichen Basis \(B = (b_1,\ldots,b_n)\).
+Für beliebige Vektoren \(z \in V\) bilden die Abbildungen \(\eta_j:\V\rightarrow\R\) für \(j=1,\ldots,n\) mit
+\begin{align*}
+\eta_j(z) := \eta_j\left(\sum_{i=1}^n \alpha_i b_i\right) := \alpha_j
+\end{align*}
+\par
+eine Basis des algebraischen Dualraums \(\V^\ast\).
+Diese spezielle Basis wird auch die \textbf{duale Basis} zur Basis \(B\) genannt.
+\end{lemma}
+
+\begin{proof}
+ Wir zeigen zunächst, dass \(\eta_j\in\V^\ast\) für \(j=1,\ldots,n\).
+Dazu seien \(x,y\in\V\) beliebige Vektoren.
+Dann existieren Koeffizienten \(\alpha_i^x,\alpha_i^y \in \R\) für \(i=1,\ldots,n\), so dass es eine eindeutige Darstellung als Linearkombination der Basisvektoren gibt mit
+\begin{align*}
+x = \sum_{i=1}^n \alpha_i^x b_i, \qquad y = \sum_{i=1}^n \alpha_i^y b_i.
+\end{align*}
+\par
+Somit haben wir also für die Summe der Vektoren
+\begin{align*}
+\eta_j(x+y) &= 
+\eta_j\left(\sum_{i=1}^n \alpha_i^x b_i + \sum_{i=1}^n \alpha_i^y b_i\right) = 
+\eta_j\left(\sum_{i=1}^n \alpha_i^x b_i + \alpha_i^y b_i\right) = 
+\eta_j\left(\sum_{i=1}^n (\alpha_i^x + \alpha_i^y) b_i\right) 
+\\&= \alpha_i^x + \alpha_i^y = 
+\eta_j\left(\sum_{i=1}^n \alpha_i^x b_i\right)  + \eta_j\left(\sum_{i=1}^n \alpha_i^y b_i\right) = 
+\eta_j(x) + \eta_j(y).
+\end{align*}
+\par
+Weiterhin gilt für beliebige Skalare \(\lambda\in\R\)
+\begin{align*}
+\eta_j(\lambda x) = \eta_j\left(\lambda \sum_{i=1}^n \alpha_i^x b_i\right) = 
+\eta_j\left(\sum_{i=1}^n (\lambda \alpha_i^x) b_i\right) =
+\lambda \alpha_i^x =
+\lambda \eta_j(x).
+\end{align*}
+\par
+Damit haben wir also gezeigt, dass die Elemente der dualen Basis linear sind und somit gilt \(\eta_j \in V^\ast\) für \(j=1,\ldots,n\).
+
+\par
+Sei nun \(\phi\in \V^\ast\), dann gilt
+\begin{align*}
+\phi(x) = \phi\left(\sum_{i=1}^n \alpha_i^x b_i\right) = \sum_{i=1}^n \alpha_i^x \phi(b_i) = 
+\sum_{i=1}^n \eta_i(x) \phi(b_i),
+\end{align*}
+\par
+insbesondere gilt also \(\phi = \sum_{i=1}^n \phi(b_i) \eta_i\).
+
+\par
+Somit bilden die Abbildungen \(\eta_j, j=1,\ldots, n\) ein Erzeugendensystem von \(V^\ast\), da jede lineare Abbildung \(\phi \in V^\ast\) als Linearkombination dargestellt werden kann.
+
+\par
+Um zu zeigen, dass es sogar um eine Basis des algebraischen Dualraums handelt, müssen wir noch zeigen, dass das Nullelement des Vektorraums eine eindeutige Darstellung besitzt, da dies impliziert, dass die Elemente des Erzeugendensystems linear unabhängig sind.
+Seien also Koeffizienten \(a_i\in\R\) gegeben, so dass \(0 = \sum_{i=1}^n a_i \eta_i\) die Nullabbildung realisiert.
+Dann folgt schon für jedes \(j=1,\ldots,n\)
+\begin{align*}
+0 = \left(\sum_{i=1}^n a_i \eta_i\right)(b_j) = \sum_{i=1}^n a_i \underbrace{\eta_i(b_j)}_{=\delta_{ij}} = a_j.
+\end{align*}
+\par
+Offensichtlich kann die Nullabbildung nur erzeugt werden, wenn für alle Koeffizienten \(a_i=0\) gilt für \(i=1,\ldots,n\) und damit ist die Aussage bewiesen.
+\end{proof}
+
+\par
+Folgende Bemerkungen wollen wir zum gerade diskutierten Lemma festhalten.
+\begin{remark}{}{vektoranalysis/multilinear:remark-11}
+
+
+
+\par
+1. Die Aussage aus \cref{vektoranalysis/multilinear:lem:dualeBasis} zeigt insbesondere, dass im \textbf{endlich dimensionalen} Fall \(\dim(\V) = \dim(\V^\ast)\).
+Die Vektorräume sind also isomorph zueinander.
+
+\par
+2. Die Aussage des \cref{vektoranalysis/multilinear:lem:dualeBasis} zur dualen Basis lässt sich ebenfalls auf den Fall eines \textbf{unendlich dimensionalen} Vektorraums übertragen.
+Hierfür erinnern wir daran, dass für einen Vektorraum \(V\) stets eine Basis \(B = \{b_i:i\in I\}\subset V\) existiert, wobei \(I\) eine (nicht notwendigerweise endliche) Indexmenge ist.
+Insbesondere bemerken wir, dass wir hier von einer \textbf{Hamelbasis} sprechen, d.h., für jedes Element \(v\in V\) gibt es eindeutig bestimmte Koeffizienten \(\alpha_i, i\in I\), so dass gilt
+\begin{align*}
+v = \sum_{i\in I} \alpha_i b_i.
+\end{align*}
+\par
+Der wichtige Punkt hierbei ist, dass nur \textbf{endlich viele} Koeffizienten \(\alpha_i\) ungleich null sind und die Summation somit keine eigentlich unendliche Reihe beschreibt, sondern nur eine endliche Summe.
+Diese Konzept ist insbesondere verschieden vom Begriff der \href{https://de.wikipedia.org/wiki/Schauderbasis}{Schauderbasis}
+\end{remark}
+
+\begin{emphBox}{Georg Hamel}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Georg\_Hamel}{Georg Karl Wilhelm Hamel} (Geboren 12. September 1877 in Düren; Gestorben 4. Oktober 1954 in Landshut) war ein deutscher Mathematiker.
+\end{emphBox}
+
+\begin{emphBox}{Juliusz Schauder}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Juliusz\_Schauder}{Juliusz Paweł Schauder} (Geboren 21. September 1899 in Lemberg; Gestorben September 1943) war ein polnischer Mathematiker.
+\end{emphBox}
+
+\par
+Wir wollen uns das Konzept der dualen Basis im Falle des Euklidischen Vektorraums klar machen im Folgenden.
+\begin{example}{(Duale Basis)}{vektoranalysis/multilinear:example-12}
+
+
+
+\par
+Sei \(V = \R^n\) der Euklidische Vektorraum ausgestattet mit der Standard Einheitsbasis \(B = (e_i)_{i=1,\ldots,n}\).
+Dann lässt sich jeder Vektor \(x \in V\) eindeutig als Linearkombination der Einheitsvektoren schreiben mit
+\begin{align*}
+x = \sum_{i=1}^n \alpha_i^x e_i = \sum_{i=1}^n x_i e_i.
+\end{align*}
+\par
+Wir sehen also ein, dass die Koeffizienten \(\alpha_i^x\) gerade die Einträge des Vektors \(x\) selbst sind.
+Da die duale Basis des algebraischen Dualraums \(V^\ast\) zur Basis \(B\) nach \cref{vektoranalysis/multilinear:lem:dualeBasis} gerade die Koeffizienten \(\alpha_i^x\) liefern soll, ist klar, dass die entsprechenden linearen Abbildungen durch eine \textbf{Linksmultiplikation mit den transponierten Einheitsvektoren} gegeben sind, d.h., \(\eta_j(x) := e_j^T x = \langle e_j, x \rangle\), denn es gilt
+\begin{align*}
+\eta_j(x) = 
+\eta_j \left( \sum_{i=1}^n \alpha_i^x e_i \right) = 
+\langle e_j, \sum_{i=1}^n x_i e_i\rangle =
+\sum_{i=1}^n x_i \underbrace{\langle e_j, e_i\rangle}_{= \delta_{ij}} =  
+x_j = \alpha_j^x, \quad \forall j=1,\ldots,n.
+\end{align*}\end{example}
+
+\par
+Wir halten abschließend fest, dass sich der \textbf{Bidualraum} \(V^{\ast\ast} := (V^\ast)^\ast\), d.h., der duale Raum des Dualraums \(V^\ast\), im endlich dimensionalen Fall leicht charakterisieren lässt.
+\begin{remark}{}{vektoranalysis/multilinear:rem:doubledual}
+
+
+
+\par
+Für \(n \in \N\) sei \(\V\) ein \(n\) dimensionaler reeller Vektorraum.
+Dann gilt, dass die Abbildung
+\begin{align*}
+\Psi :\V &\rightarrow \V^{\ast\ast}\\
+x &\mapsto \Psi_x \quad \text{ mit } \quad \Psi_x(\varphi) := \varphi(x).
+\end{align*}
+\par
+ein Isomorphismus ist.
+\end{remark}
+
+
+\section{Tensoren und Tensorprodukte}
+\label{\detokenize{vektoranalysis/tensor:tensoren-und-tensorprodukte}}\label{\detokenize{vektoranalysis/tensor::doc}}
+\par
+In diesem Kapitel widmen wir uns einem für die Physik sehr wichtigen aber relativ abstrakten Thema der Vektoranalysis, nämlich \emph{Tensoren} und \emph{Tensorprodukten}.
+Der Begriff hat sehr viele verschiedene Anschauungsmöglichkeiten (siehe \href{https://de.wikipedia.org/wiki/Tensorprodukt}{Wikipedia}) weshalb es nicht leicht ist eine Einführung zu geben die gleichzeitig allgemein, aber auch verständlich ist. Da Tensoren aber eine wichtige Rolle in der Physik spielen werden wir uns hier damit beschäftigen.
+
+
+\subsection{Motivation}
+\label{\detokenize{vektoranalysis/tensor:motivation}}
+\par
+Wir betrachten zunächst ein konkretes Anwendungsbeispiel aus der Physik, welches auf Tensoren zurückgreift.
+Hier wird der sogenannte \emph{Cauchy Spannungstensor} verwendet.
+\begin{remark}{(Begriffsherkunft)}{vektoranalysis/tensor:remark-0}
+
+
+
+\par
+Der Begriff Tensor wurde von Hamilton in der Mitte des 19. Jahrhunderts eingeführt. Er leitete die Bezeichnung vom lateinischen \emph{tendere} (spannen) ab, da die ursprüngliche Anwendung derartiger Objekte in der Elastizitätstheorie Anwendung fand.
+\end{remark}
+
+\begin{emphBox}{Augustin Cauchy}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Augustin-Louis\_Cauchy}{Augustin Louis Cauchy} (Geboren 21. August 1789 in Paris; Gestorben 23. Mai 1857 in Sceaux) war ein französischer Mathematiker.
+\end{emphBox}
+
+\par
+Mechanische Spannung ist eine physikalische Größe, die die innere Beanspruchung und Kräfte in einem Volumen \(V\subset\R^3\) angibt, welche aufgrund einer äußeren Belastungen auftreten.
+Die grundlegende Idee ist das \textbf{Euler Cauchy Spannungsprinzip}, welches beschreibt, dass auf jede Schnittfläche \(A\subset\R^2\), die ein Volumen in zwei Teile trennt, von diesen zwei Volumenteilen eine Spannung auf \(A\) ausgeübt wird, welche durch einen sogenannten \textbf{Spannungsvektor} \(\mathbf{T}^{(n)}\) beschrieben wird.
+Der Komponenten des Spannungsvektors haben hierbei die Dimension “Kraft pro Fläche”.
+
+\begin{figure}[htbp]
+\centering
+
+
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/stress\string_vector.png}
+\caption{Visualisierung für Normal  und Scherspannung an einer Schnittfläche. Quelle: \href{https://en.wikipedia.org/wiki/Cauchy\_stress\_tensor}{Wikipedia; Cauchy Stress Tensor}.}\label{\detokenize{vektoranalysis/tensor:fig-stress}}\end{figure}
+
+\par
+Wie in \hyperref[\detokenize{vektoranalysis/tensor:fig-stress}]{Fig.\@ \ref{\detokenize{vektoranalysis/tensor:fig-stress}}} visualisiert teilt sich die Spannung in zwei Komponenten auf:
+
+\par
+\textbf{Normalspannung:}
+
+\par
+Die Normalspannung \(\sigma_n\) ist der Teil des Spannungsvektors, der in Richtung der Normalen \(\mathbf{n}\) zeigt, welche orthogonal auf der Schnittfläche steht.
+
+\par
+\textbf{Scherspannung:}
+
+\par
+Die Scherspannung \(\tau_n\) ist der Teil des Spannungstensors, der parallel zur Schnittfläche liegt.
+
+\par
+Man erkennt nun, dass die Spannung in \(V\) nicht durch einen einzigen Vektor ausgedrückt werden kann. Einerseits hängt sie vom betrachteten Punkt \(x\in V\) ab und zudem von der Orientierung der Schnittfläche. Allerdings hat Cauchy gezeigt, dass ein linearer Operator \(\mathbf{\sigma}(x)\) existiert, so dass
+\begin{align*}
+\mathbf{T}^{(n)}(x) = \mathbf{\sigma}(x) \cdot n,
+\end{align*}
+\par
+d.h. in jedem Punkt \(x\in V\) ist der Stressvektor linear im Normalenvektor \(n\).
+
+\begin{figure}[htbp]
+\centering
+
+
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/stress\string_tensor\string_comp.png}
+\caption{Quelle: \href{https://de.wikipedia.org/wiki/Spannungstensor}{Wikipedia; Spannungstensor}.}\label{\detokenize{vektoranalysis/tensor:fig-stress-comp}}\end{figure}
+
+\par
+Der lineare Operator \(\mathbf{\sigma}\) wird auch \textbf{Cauchy Spannungstensor} genannt.
+Um diesen besser zu verstehen betrachtet man für einen fixen Punkt \(x\) des Volumens einen infinitesimal kleinen, freigeschnittenen Würfel wie in \hyperref[\detokenize{vektoranalysis/tensor:fig-stress-comp}]{Fig.\@ \ref{\detokenize{vektoranalysis/tensor:fig-stress-comp}}}.
+Nun definieren wir für die drei verschiedenen Flächen (orthogonal zu den Einheitsvektoren \(e_1, e_2\) und \(e_3\)) die Spannungsvektoren
+\begin{align*}
+\mathbf{T}^{(e_i)}:= \sum_{j=1}^3 \sigma_{ij} e_j, \quad i \in \lbrace 1,2,3 \rbrace.
+\end{align*}
+\par
+So setzt sich beispielsweise der Spannungsvektor \(\mathbf{T}^{(e_1)}\) zusammen aus der Summe der Normalspannung \(\sigma_{11} e_1\) und den zwei Scherspannungskomponenten \(\sigma_{12} e_2\) und \(\sigma_{13} e_3\).
+
+\par
+Insgesamt erhält man neun Spannungskomponenten \(\sigma_{ij}\) für \(i,j=1,2,3\) welche insgesamt den Spannungszustand im Punkt \(x\) als Spannungsvektoren in Richtung der Einheitsvektoren vollständig beschreiben.
+Dies liegt daran, dass wir jeden Spannungsvektor in \(x\) als Linearkombination der drei Spannungsvektoren \(\mathbf{T}^{(e_i)}, i=1,2,3\) darstellen können.
+
+\par
+Wir führen nun eine \emph{multilineare Abbildung} \(\otimes \colon \R^n \times \R^m \rightarrow \R^{n \times m}\) für zwei beliebige Vektoren \(x\in\R^n\) und \(y\in\R^m\) ein, die das \textbf{dyadische Produkt} der Vektoren genannt wird und wie folgt definiert ist
+\begin{align*}
+x \otimes y := 
+\begin{pmatrix}
+x_1y_1 &\ldots &x_1 y_m\\
+\vdots &\ddots & \vdots\\
+x_n y_1&\ldots& x_n y_m
+\end{pmatrix}.
+\end{align*}
+\par
+Fassen wir nun zeilenweise die Spannungsvektoren \(\mathbf{T}^{(e_i)}, i=1,2,3\) in einer Matrix zusammen, so erhalten wir den Cauchy Spannungstensor \(\mathbf{\sigma}\) für den Punkt \(x\) des Volumens als
+\begin{align}\label{equation:vektoranalysis/tensor:eq:cauchySpannungstensor}
+\mathbf{\sigma} := 
+\begin{pmatrix}
+\sigma_{11} & \sigma_{12} & \sigma_{13} \\
+\sigma_{21} & \sigma_{22} & \sigma_{23} \\
+\sigma_{31} & \sigma_{32} & \sigma_{33}
+\end{pmatrix} 
+&= 
+\begin{pmatrix}
+\mathbf{T}^{(e_1)} \\
+\mathbf{T}^{(e_2)} \\
+\mathbf{T}^{(e_3)}
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\mathbf{T}^{(e_1)} \\
+0 \\
+0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\
+\mathbf{T}^{(e_2)} \\
+0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\
+0 \\
+\mathbf{T}^{(e_3)} \\
+\end{pmatrix}\\
+&=
+\sum_{i=1}^3 e_i \otimes \mathbf{T}^{(e_i)} = \sum_{i=1}^3 e_i\otimes ( \sum_{j=1}^3 \sigma_{ij} e_j) =
+\sum_{i=1}^3\sum_{j=1}^3 \sigma_{ij} (e_i\otimes e_j).
+\end{align}
+\par
+Wir werden später sehen, dass man die Idee, den Operator \(\sigma\) über das dyadische Produkt zu definieren, abstrahieren kann, was auf den allgemeinen Tensorbegriff führt.
+\begin{remark}{}{vektoranalysis/tensor:remark-1}
+
+
+
+\par
+In der Tat handelt es sich bei dem Operator \(\sigma \colon \R^3 \rightarrow \R^3\) in \eqref{equation:vektoranalysis/tensor:eq:cauchySpannungstensor} nicht nur um einen Tensor, sondern genauer um ein \textbf{Tensorfeld}, dass jedem Punkt \(x\) des Volumens einen Spannungstensor zuordnet.
+\end{remark}
+
+
+\subsection{Das Tensorprodukt}
+\label{\detokenize{vektoranalysis/tensor:das-tensorprodukt}}
+\par
+Wir wollen nun das Tensorprodukt von Vektorräumen abstrakt einführen und es an späterer Stelle für konkrete Realisierungen diskutieren.
+Hierbei wollen wir uns zunächst auf einen Spezialfall einschränken, der lediglich \emph{zwei Vektorräume} berücksichtigt, um die zu Grunde liegenden wichtigen Konzepte klarer herauszustellen.
+Es ist wichtig zu verstehen, dass die folgenden Definitionen sich mit dem Konzept der \(k\) Multilinearität in \cref{vektoranalysis/multilinear:s-multilinearformen}  auf \(k \in \N\) verschiedene \(\R\) Vektorräume direkt verallgemeinern lassen.
+\begin{definition}{(Tensorprodukt)}{vektoranalysis/tensor:def:tensor}
+
+
+
+\par
+Es seien \(V\) und \(W\) zwei reelle Vektorräume.
+Ein reeller Vektorraum \(X\) heißt \textbf{Tensorproduktraum} falls eine bilineare Abbildung \(\otimes:V\times W\rightarrow X\) existiert, so dass die folgende \textbf{universelle Eigenschaft} gilt:
+
+\par
+Für jede Bilinearform \(\phi\in L^2(V\times W; Y)\) in einen beliebigen reellen Vektorraum \(Y\), existiert eine eindeutige lineare Abbildung
+\(p \in L^1(X; Y)\), so dass gilt
+\begin{align}\label{equation:vektoranalysis/tensor:eq:universell}
+\phi(v,w) = p(v\otimes w) = p(\otimes(v,w))\quad\forall (v,w)\in V\times W.
+\end{align}
+\par
+In diesem Fall schreibt man auch \(X = V \otimes W\).
+Wir nennen die bilineare Abbildung \(\otimes\) \textbf{Tensorprodukt} und verwenden häufig für sie die Infix Schreibweise \(v\otimes w := \otimes(v,w)\).
+Elemente \(x \in X\) des Tensorproduktraums \(X = V \otimes W\) nennen wir \textbf{Tensoren}.
+\end{definition}
+
+\par
+Diese Definition erscheint auf den ersten Blick abstrakt und unverständlich.
+Was ist jetzt also genau ein Tensorprodukt?
+
+\par
+\textbf{Das Tensorprodukt ist universell:}
+
+\par
+Wir haben in der \cref{vektoranalysis/tensor:def:tensor} das kartesische Produkt \(\times\) benutzt welches eindeutig definiert ist.
+Im Gegensatz dazu gibt es jedoch nicht \emph{ein} Tensorprodukt \(\otimes\) oder \emph{einen} Tensorproduktraum \(V\otimes W\).
+Wir haben die Freiheit \(\otimes\) zu wählen und wann immer die universelle Eigenschaft erfüllt ist, heißt dann \(X = V\otimes W\) Tensorproduktraum.
+Derartige Konzepte nennt man in der Algebra \emph{universell}.
+Betrachten wir hierzu ein kurzes Beispiel für unterschiedliche Realisierungen eines Tensorproduktes.
+\begin{example}{(Varianten eines Tensorprodukts)}{vektoranalysis/tensor:ex:tensorproduktVarianten}
+
+
+
+\par
+Wir betrachten in diesem Beispiel den Euklidischen Vektorraum \(V=W=\R^2\) und zwei Vektoren \(x, y \in \R^2\).
+Nehmen wir zunächst das Tensorprodukt, dass durch das \textbf{dyadische Produkt} \(\otimes : \R^2 \times \R^2 \rightarrow \R^{2 \times 2}\) gegeben ist mit
+\begin{align*}
+x \otimes y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}.
+\end{align*}
+\par
+Man sieht ein, dass der zugehörige \emph{Tensorproduktraum} also \(\R^{2 \times 2} = \R^2 \otimes \R^2\) sein muss.
+Anderseits erhält man den gleichen Tensorproduktraum, wenn man ein \textbf{alternatives Tensorprodukt} \(\otimes^*\) zum dyadischen Produkt definiert, welches lediglich die Reihenfolge der Komponenten von \(y\) vertauscht mit
+\begin{align*}
+x \otimes^* y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_2 & x_1y_1 \\
+x_2y_2 & x_2y_1
+\end{pmatrix}.
+\end{align*}\end{example}
+
+\par
+\textbf{Was bedeutet die universelle Eigenschaft?}
+
+\par
+Wie wir weiter unten noch genauer beschreiben werden, stellt die universelle Eigenschaft eine wichtige Beziehung zwischen dem Raum der bilinearen Abbildungen auf \(V\times W\) und dem Raum der linearen Abbildungen von \(X = V\otimes W\) nach \(Y\) für ein Tensorprodukt \(\otimes\) her.
+Für den Spezialfall \(Y = \R\) ist letzterer gerade der \emph{algebraische Dualraum} des Tensorproduktraums.
+Sofern wir das Tensorprodukt gegeben haben erhalten wir alle Bilinearformen also schon über einfache Linearformen auf \(V\otimes W\).
+
+\par
+Das folgende einfache Beispiel soll uns helfen diese Beziehung besser zu verstehen.
+\begin{example}{(Universelle Eigenschaft)}{vektoranalysis/tensor:ex:universelleEigenschaft}
+
+
+
+\par
+Im Folgenden betrachten wir wieder den Euklidischen Vektorraum \(V=W=\R^2\) und zwei Vektoren \(x, y \in \R^2\).
+Wie wir in \cref{vektoranalysis/tensor:ex:tensorproduktVarianten} festgestellt haben realisiert das dyadische Produkt
+\begin{align*}
+\otimes \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes \R^2 = \R^{2 \times 2} =: X
+\end{align*}
+\par
+mit
+\begin{align*}
+x \otimes y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}.
+\end{align*}
+\par
+ein \emph{Tensorprodukt} der Vektorräume \(V=W=\R^2\).
+Wegen der \emph{universellen Eigenschaft} muss nun gelten, dass für jede Bilinearform \(\Phi \in L^2(V \times W; Y)\) für beliebige \(\R\) Vektorräume \(Y\) eine eindeutige lineare Abbildung \(p \in L^1(X; Y)\) existiert, die äquivalent im Sinne von \eqref{equation:vektoranalysis/tensor:eq:universell} ist.
+
+\par
+Nehmen wir also beispielsweise das Skalarprodukt \(\langle \cdot, \cdot \rangle \colon V \times W \rightarrow \R\) als eine mögliche Bilinearform \(\Phi \in L^2(V \times W; Y)\) mit
+\begin{align*}
+\langle x, y \rangle = x^T \cdot y = x_1y_1 + x_2y_2.
+\end{align*}
+\par
+Wir müssen nun einen linearen Operator \(p \in L^1(X; Y)\) finden, der eine äquivalente Berechnung wie das Skalarprodukt auf dem Tensorproduktraum \(X = \R^{2 \times 2}\), der durch das dyadische Produkt induziert wird, durchführt.
+Hierzu wählen wir die Spur \(p(A) \coloneqq \operatorname{Spur}(A)\) einer Matrix \(A \in \R^{2 \times 2}\), denn diese ist \textbf{linear} und es gilt:
+\begin{align*}
+\operatorname{Spur}
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{pmatrix}
+= a_{11} + a_{22}.
+\end{align*}
+\par
+Überprüfen wir mit dieser Wahl nun die \textbf{universelle Eigenschaft des dyadischen Produkts}, so erhalten wir
+\begin{align*}
+\Phi(x,y) = \langle x, y \rangle = x_1y_1 + x_2y_2 = \operatorname{Spur}
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}
+ = \operatorname{Spur}(x \otimes y) = p(x \otimes y).
+\end{align*}
+\par
+Es sei angemerkt, dass wir nicht gezeigt haben, dass der Spur Operator der \emph{einzige} lineare Operator ist, der diese Äquivalenz erfüllt.
+Betrachten wir statt dessen die alternative Variante \(\otimes^*\) des dyadischen Produkts aus \cref{vektoranalysis/tensor:ex:tensorproduktVarianten}  so bleibt der Tensorproduktraum gleich, jedoch ändert sich der eindeutig bestimmte, lineare Operator \(p \in L^1(X; Y)\).
+Durch die Vertauschung der Elemente der Matrix \(x \otimes^* y\) nimmt man nicht mehr die Summe der Hauptdiagonalelemente realisiert durch den Operator \(\operatorname{Spur}(A) = a_{11} + a_{22}\), sondern die \textbf{Summe der Gegendiagonalelemente} realisiert durch einen linearen Operator \(\operatorname{Spur}^*(A) \coloneqq a_{21} + a_{12}\), d.h., die Diagonale von links unten nach rechts oben in der Matrix.
+In diesem Fall erhält man nämlich analog
+\begin{align*}
+\Phi(x,y) = \langle x, y \rangle = x_1y_1 + x_2y_2 = \operatorname{Spur}^*
+\begin{pmatrix}
+x_1y_2 & x_1y_1 \\
+x_2y_2 & x_2y_1
+\end{pmatrix}
+ = \operatorname{Spur}^*(x \otimes^* y) = p(x \otimes^* y).
+\end{align*}
+\par
+Dies Veranschaulicht die Beziehung der involvierten Vektorräume und die zu Grunde liegende universelle Eigenschaft des Tensorprodukts.
+\end{example}
+
+\begin{emphBox}{}{}
+\par
+Wir haben in \cref{vektoranalysis/tensor:ex:universelleEigenschaft} lediglich die universelle Eigenschaft zur Veranschaulichung überprüft für ein konkretes Beispiel.
+Wir haben jedoch \textbf{nicht} gezeigt, dass das dyadische Produkt die \emph{universelle Eigenschaft} erfüllt.
+Dafür hätten wir die Äquivalenz für \textbf{alle möglichen} Bilinearformen \(\Phi \in L^2(V \times W; Y)\) für \textbf{beliebige Vektorräume} \(Y\) beweisen müssen.
+\end{emphBox}
+
+
+\subsection{Existenz und Konstruktion des Tensorprodukts}
+\label{\detokenize{vektoranalysis/tensor:existenz-und-konstruktion-des-tensorprodukts}}
+\par
+Wir stellen fest, dass es für zwei beliebige \(\R\) Vektorräume \(V\) und \(W\) immer ein Tensorprodukt gibt, und dass wir dieses Tensorprodukt konkret konstruieren können indem wir uns auf die Basis der Vektorräume \(V\) und \(W\) zurückziehen.
+Diese Tatsache formulieren wir in der folgenden Aussage.
+\begin{theorem}{(Existenz des Tensorprodukts)}{vektoranalysis/tensor:thm:existenzTensorprodukt}
+
+
+
+\par
+Für zwei reelle Vektorräume \(V, W\) existiert stets mindestens ein Tensorprodukt \(\otimes\in L^2(V\times W; V\otimes W)\).
+\end{theorem}
+
+\begin{proof}
+ Der folgende Beweis ist ein sogenannter \emph{konstruktiver Beweis}, d.h., wir zeigen die Existenz eines Objekts indem wir es explizit angeben.
+Im Gegensatz hierzu gibt es auch nicht konstruktive Existenzbeweise.
+
+\par
+Es sei \(B^V = \{b_i^V: i\in I^V\}\) eine Basis von \(V\) und es sei analog \(B^W = \{b_i^W: i\in I^W\}\) eine Basis von \(W\) für zwei Indexmengen \(I^V\) und \(I^W\).
+Wir betrachten zunächst das kartesische Produkt der beiden Indexmengen
+\begin{align*}
+J := I^V \times I^W = \{(i,j): i\in I^V, j\in I^W\}.
+\end{align*}
+\par
+Es sei nun \(X\) ein reeller Vektorraum dessen Basis sich durch \(J\) indizieren lässt, das heißt es existiert eine Menge
+\begin{align*}
+B^X = \{b_{ij}^X: (i,j)\in J\},
+\end{align*}
+\par
+so dass \(B^X\) eine Hamel Basis von \(X\) ist.
+Man kann zeigen, dass ein solcher Vektorraum immer existiert.
+
+\par
+Wir definieren nun eine bilineare Abbildung \(\otimes: V\times W \to X\) über
+\begin{align*}
+\otimes (b_i^V, b_j^W) = b_i^V \otimes b_j^W := b_{ij}^X \quad \forall (i,j)\in J.
+\end{align*}
+\par
+Es sei darauf hingewiesen, dass die bilineare Abbildung \(\otimes\) durch eine Definition über die Indexmenge \(J\) eindeutig festgelegt ist.
+Dies liegt daran, dass für beliebige Paare \((v,w)\in V\times W\) endlich viele Koeffizienten \(\alpha_{i_1},\ldots,\alpha_{i_n}\) und \(\beta_{j_1},\ldots, \beta_{j_m}\) existieren, so dass für die Vektoren \(v \in V\) und \(w \in W\) eine Darstellung in den jeweiligen Hamel Basen existiert mit
+\begin{align*}
+v = \sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \quad w = \sum_{l=1}^m \beta_{j_l} b_{j_l}^W.
+\end{align*}
+\par
+Durch diese Darstellung erhalten wir für die bilineare Abbildung \(\otimes: V\times W \to X\) nun eine \textbf{explizite Vorschrift} als
+\begin{align*}
+\otimes(v,w) 
+= 
+\otimes\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V, \sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big) = 
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} \otimes\left(b_{i_k}^V, b_{j_l}^W\right) =
+\sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} b_{i_kj_l}^X.
+\end{align*}
+\par
+Wir müssen nun noch die \textbf{universelle Eigenschaft} der bilinearen Abbildung \(\otimes\) nachweisen, um zu zeigen, dass es sich um ein Tensorprodukt handelt.
+Sei dazu \(\phi\in L^2(V\times W; Y)\) eine Bilinearform auf einen beliebigen reellen Vektorraum \(Y\).
+Dann können wir eine Linearform auf \(p: X\to Y\) explizit definieren durch Angabe ihrer Wirkung auf die Basiselemente mit
+\begin{align*}
+p(b_{ij}^X) := \phi(b_i^V, b_j^W) \quad \forall (i,j) \in J.
+\end{align*}
+\par
+Dann gilt nämlich, unter Ausnutzung der Linearität von \(p\) und der obigen Rechnung, dass gilt
+\begin{align*}
+p(\otimes(v,w))
+&= p \left( \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} b_{i_kj_l}^X \right)
+= \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} p(b_{i_kj_l}^X) \\
+&= \sum_{k=1}^n \sum_{l=1}^m \alpha_{i_k} \beta_{j_l} \phi\left(b_{i_k}^V, b_{j_l}^W\right)
+= \phi\big(\sum_{k=1}^n \alpha_{i_k} b_{i_k}^V,\sum_{l=1}^m \beta_{j_l} b_{j_l}^W\big)
+= \phi(v,w)
+\end{align*}
+\par
+Wir sehen also, dass \(\otimes\) die universelle Eigenschaft erfüllt und zwar insbesondere dadurch, dass die Linearform \(p\) durch die obige Definition eindeutig festgelegt ist.
+\end{proof}
+
+\par
+Als Korollar aus \cref{vektoranalysis/tensor:thm:existenzTensorprodukt} erhalten wir somit, dass eine Basis des Tensorproduktraums durch das kartesische Produkt der ursprünglichen Basen konstruiert werden kann.
+Hieran sieht man den qualitativen Unterschied zwischen \(V \times W\) und \(V\otimes W\).
+\label{vektoranalysis/tensor:corollary-6}
+\begin{emphBox}{}{}{Corollary 3.1}
+
+
+
+\par
+Für zwei reelle Vektorräume \(V\) und \(W\) mit zugehörigen Hamel Basen
+\begin{align*}
+B^V = \{b_i^V: i\in I^V\}, \quad B^W = \{b_i^W: i\in I^W\},
+\end{align*}
+\par
+und einem Tensorprodukt \(\otimes:V\times W \to V\otimes W\) ist
+\begin{align*}
+B^X \, \coloneqq \, \{b_i^V \otimes b_j^W: i\in I^V, j\in I^W\}
+\end{align*}
+\par
+eine Basis von \(X = V\otimes W\).
+\end{emphBox}
+
+\par
+Wir wissen nun aus \cref{vektoranalysis/tensor:thm:existenzTensorprodukt}  dass immer mindestens ein Tensorprodukt existiert.
+Es stellt sich also die Frage inwiefern sich verschiedene Tensorprodukte auf den gleichen Vektorräumen \(V\) und \(W\) unterscheiden.
+Hierzu liefert das folgende Lemma eine klare Einsicht.
+\begin{lemma}{(Isomorphie von Tensorprodukträumen)}{vektoranalysis/tensor:lem:isomorphismusTensorproduktraum}
+
+
+
+\par
+Es seien \(V\) und \(W\) zwei reelle Vektorräume und es seien
+\begin{align*}
+\otimes_1 &\colon V \times W \rightarrow V \otimes_1 W,\\
+\otimes_2 &\colon V \times W \rightarrow V \otimes_2 W
+\end{align*}
+\par
+zwei Tensorprodukte.
+Dann existiert genau ein Isomorphismus
+\begin{align*}
+p: V\otimes_1 W \to V\otimes_2 W,
+\end{align*}
+\par
+so dass gilt \(\otimes_2 = p\circ \otimes_1\).
+\end{lemma}
+
+\begin{proof}
+ Seien also zunächst zwei Tensorprodukte \(\otimes_1, \otimes_2\) auf \(V\times W\) gegeben.
+Wegen der \emph{universellen Eigenschaft} des Tensorprodukts wissen wir, dass es lineare Abbildungen
+\begin{align*}
+p_1&: V\otimes_1 W\to Y_1 \ \coloneqq \ V\otimes_2 W,\\
+p_2&: V\otimes_2 W\to Y_2 \ \coloneqq \ V\otimes_1 W
+\end{align*}
+\par
+gibt, so dass gilt
+\begin{align*}
+\otimes_2 &= p_1 \circ \otimes_1,\\
+\otimes_1 &= p_2 \circ \otimes_2.
+\end{align*}
+\par
+Durch Einsetzen der Gleichungen ineinander somit
+\begin{align*}
+\otimes_2 &= p_1\circ p_2 \circ \otimes_2,\\
+\otimes_1 &= p_2\circ p_1 \circ \otimes_1.
+\end{align*}
+\par
+Aus dem Beweis von \cref{vektoranalysis/tensor:thm:existenzTensorprodukt} wissen wir, dass wir die Basis von \(V\otimes_2 W\) über die Abbildung \(\otimes_2(b_i^V, b_j^W)\) der Basiselemente von \(V\) und \(W\) charakterisieren können.
+Setzen wir also das Tensorprodukt dieser Basiselemente in die erste Gleichung ein, so erhalten wir
+\begin{align*}
+\otimes_2(b_i^V, b_j^W) = p_1\circ p_2(\otimes_2(b_i^V,b_j^W)).
+\end{align*}
+\par
+Das zeigt also, dass \(p_1\circ p_2 = \mathrm{Id}_{Y_1}\) die Identitätsabbildung auf dem Tensorproduktraum \(Y_1 = V \otimes_2 W\) sein muss.
+Dies folgt, weil \(p_1\circ p_2\) als lineare Abbildung schon ganz durch seine Wirkung auf den Basiselementen festgelegt ist.
+Analog kann man nun folgern, dass \(p_2\circ p_1 = \mathrm{Id}_{Y_2}\) die Identitätsabbildung im Tensorproduktraum \(Y_2 = V \otimes_1 W\) ist und somit sind die Linearformen \(p_1\) und \(p_2\) \textbf{Isomorphismen} und gerade die jeweiligen Umkehrfunktionen zueinander.
+
+\par
+Insgesamt haben wir also gezeigt, dass Tensorprodukträume, die durch verschiedene Tensorprodukte auf dem gleiche kartesischen Produkraum stets isomorph zueinander sind.
+\end{proof}
+
+\par
+Im endlich dimensionalen Fall können wir uns also immer auf den \(\R^{n \cdot m}\) zurückziehen, wie das folgende Korrolar festhält.
+\label{vektoranalysis/tensor:cor:isomorphieEndlichDimensional}
+\begin{emphBox}{}{}{Corollary 3.2}
+
+
+
+\par
+Betrachten wir ein Tensorprodukt \(\otimes \in L^2(V \times W; V \otimes W)\) zweier \textbf{endlich dimensionaler} \(\R\) Vektorräume \(V\) und \(W\) mit \(\operatorname{dim}(V)=n \in \N\) und \(\operatorname{dim}(W)=m \in \N\), so existiert stets die folgende Isormorphie
+\begin{align*}
+V \otimes W \cong \R^{n \cdot m}.
+\end{align*}
+\par
+Das heißt für die Dimension des Tensorproduktraums \(V \otimes W\) gilt offensichtlich
+\begin{align*}
+\operatorname{dim}(V \otimes W) = n\cdot m.
+\end{align*}\end{emphBox}
+
+\par
+Das folgende Beispiel soll noch einmal die Isomorphie zwischen verschiedenen Tensorprodukträumen illustrieren.
+\begin{example}{(Dyadisches Produkt vs. Kronecker Produkt)}{vektoranalysis/tensor:example-9}
+
+
+
+\par
+Im Folgenden betrachten wir wieder den Euklidischen Vektorraum \(V=W=\R^2\) und zwei Vektoren \(x, y \in \R^2\).
+Wie wir in \cref{vektoranalysis/tensor:ex:tensorproduktVarianten} und \cref{vektoranalysis/tensor:ex:universelleEigenschaft} festgestellt haben realisiert das \textbf{dyadische Produkt}
+\begin{align*}
+\otimes_d \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_d \R^2 = \R^{2 \times 2} =: X_d
+\end{align*}
+\par
+mit
+\begin{align*}
+x \otimes_d y \, \coloneqq \,
+\begin{pmatrix}
+x_1y_1 & x_1y_2 \\
+x_2y_1 & x_2y_2
+\end{pmatrix}.
+\end{align*}
+\par
+ein Tensorprodukt der Vektorräume \(V=W=\R^2\).
+
+\par
+Betrachten wir nun ein weiteres Tensorprodukt auf dem kartesischen Produktraum \(V \times W\), nämlich das \textbf{Kronecker Produkt} \(\otimes_K\).
+Das Kronecker Produkt realisiert eine Abbildung
+\begin{align*}
+\otimes_K \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_K \R^2 = \R^{4} =: X_K,
+\end{align*}
+\par
+mit
+\begin{align*}
+x \otimes_K y =
+\begin{pmatrix}
+x_1 \\ x_2
+\end{pmatrix} \otimes_K 
+\begin{pmatrix}
+y_1 \\ y_2
+\end{pmatrix}
+\, = \, 
+\begin{pmatrix}
+x_1 \cdot \begin{pmatrix} y_1 \\ y_2 \end{pmatrix} \\ 
+x_2 \cdot \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}
+\end{pmatrix}
+= 
+\begin{pmatrix}
+x_1y_1\\
+x_1y_2\\
+x_2y_1\\
+x_2y_2
+\end{pmatrix}.
+\end{align*}
+\par
+Es wird nun klar, dass die Räume \(X_d = \R^{2 \times 2}\) und \(X_K = \R^4\) isomorph zueinander sind, d.h., es gilt \(X_d \cong X_K\).
+Außerdem kann man Tensoren in den jeweiligen Tensorprodukträumen durch zeilenweises Ablesen bzw. Eintragen in eine Matrix eindeutig ineinander überführen.
+\end{example}
+
+\par
+\textbf{Das Tensorprodukt?}
+
+\par
+Die Aussage aus \cref{vektoranalysis/tensor:lem:isomorphismusTensorproduktraum} zeigt also, dass obwohl es verschiedene Arten gibt Tensorprodukte auf dem kartesischen Produktraum \(V \times W\) zu definieren, die resultierenden Tensorprodukträume stets isomorph zueinander sind.
+Deshalb spricht man auch von \textbf{dem} Tensorprodukt \(\otimes\) und \textbf{dem} Tensorproduktraum \(V \otimes W\), was so klingt als gäbe es jeweils nur ein einziges Exemplar.
+In der Tat gibt es zwar mehrere Tensorprodukte aber man kann diese problemlos ineinander umrechnen und die resultierenden Tensorprodukträume alle miteinander identifizieren.
+
+\par
+Deshalb werden wir im Folgendem auch häufig von \textbf{dem} Tensorprodukt sprechen.
+
+
+\subsection{Natürliche Homo  und Isomorphismen des Tensorprodukts}
+\label{\detokenize{vektoranalysis/tensor:naturliche-homo-und-isomorphismen-des-tensorprodukts}}
+\par
+Von vielen Operationen kennen wir bereits Eigenschaften wie \emph{Kommutativität} und \emph{Assoziativität}.
+Derartige Eigenschaften gelten nicht direkt für das Tensorprodukt, allerdings erhalten wir Isomorphismen, welche bekannte Rechenregeln nachbilden.
+Diese Isomorphismen nennt auch \textbf{natürlich} oder \textbf{kanonisch}, weil Sie jeweils auf die naheliegendste Art und Weise definiert sind.
+Das folgende Lemma fasst die wichtigsten Eigenschaften des Tensorprodukts zusammen
+\begin{lemma}{(Natürliche Isomorphismen des Tensorprodukts)}{vektoranalysis/tensor:lem:natISO}
+
+
+
+\par
+Es seien \(V_1,V_2,V_3\) und \(V_4\) reelle Vektorräume.
+Dann existieren für das Tensorprodukt die folgenden Isomorphismen:
+\begin{enumerate}
+
+\item {} 
+\par
+\(V_1\otimes V_2 \cong V_2\otimes V_1, \quad v_1\otimes v_2 \mapsto v_2\otimes v_1\) (\textbf{Kommutativität}),
+
+\item {} 
+\par
+\((V_1\otimes V_2)\otimes V_3 \cong V_1 \otimes (V_2 \otimes V_3),\quad (v_1\otimes v_2)\otimes v_3 \mapsto v_1 \otimes (v_2\otimes v_3)\) (\textbf{Assoziativität}),
+
+\item {} 
+\par
+\(\R \otimes V_1 \cong V_1,\quad a\otimes v_1 \mapsto a\,v_1\) \textbf{(Produkt mit Skalaren)},
+
+\item {} 
+\par
+Falls \(p_{12}:V_1\to V_2\) und \(p_{34}:V_3\to V_4\) Isomorphismen sind, so gilt (\textbf{Transitivität})
+
+\end{enumerate}
+\begin{align*}
+V_1\otimes V_3 \cong V_2\otimes V_4,\quad v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Punkt 1. 3. sind in der Hausaufgabe zu zeigen.
+
+\par
+\textbf{Zu Punkt 4.:}
+
+\par
+Wichtig für die Transitivitätseigenschaft ist es zunächst einzusehen, dass die Definition des Tensorprodukts sinnvoll ist, denn nicht jedes Element \(x\in V_1\otimes V_3\) lässt sich \emph{direkt} als Tensorprodukt schreiben.
+Wir wissen lediglich, dass \emph{endlich viele} sogenannte \textbf{elementare} oder \textbf{zerfallende} Produkte \((v_1^i\otimes v_3^i)_{i=1}^n\) und Skalare \(\alpha_i\in\R, i=1,\ldots,n\), für \(n\in\N\) existieren, so dass sich jeder Vektor \(x \in V_1 \otimes V_3\) schreiben lässt als
+\begin{align*}
+x = \sum_{i=1}^n \alpha_i (v_1^i \otimes v_3^i),
+\end{align*}
+\par
+was direkt aus der Basiskonstruktion in \cref{vektoranalysis/tensor:thm:existenzTensorprodukt} folgt.
+
+\par
+Die angegebene Abbildung
+\begin{align*}
+v_1\otimes v_3 \mapsto p_{12}(v_1)\otimes p_{34}(v_3)
+\end{align*}
+\par
+ist nun \textbf{nur} für zerfallende Produkte definiert.
+Allerdings lässt sie sich eindeutig zu einer linearen Abbildung \(\Phi(V_1\otimes V_3)\to (V_2\otimes V_4)\) fortsetzen, so dass für beliebige Vektoren \(x \in V_1 \otimes V_3\) gilt
+\begin{align*}
+\Phi(x) = \Phi(\sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i) = 
+\sum_{i=1}^n \alpha_i \Phi(v_1^i \otimes v_3^i) = 
+\sum_{i=1}^n \alpha_i (p_{12}(v_1^i)\otimes p_{34}(v_3^i)).
+\end{align*}
+\par
+Auf analoge Art und Weise definiert man nun die lineare Abbildung \(\Psi \colon V_2 \otimes V_4 \rightarrow V_1 \otimes V_3\) mit
+\begin{align*}
+\Psi(v_2\otimes v_4) := p_{12}^{-1}(v_2)\otimes p_{34}^{-1}(v_4)
+\end{align*}
+\par
+und erhält sofort, dass \(\Psi\circ\Phi = \mathrm{Id}\) gilt, da für beliebige Vektoren \(x \in V_1 \otimes V_3\) gilt:
+\begin{align*}
+\Psi \circ \Phi(x) &= \Psi \circ \Phi(\sum_{i=1}^n \alpha_i v_1^i \otimes v_3^i) = \Psi \circ \sum_{i=1}^n \alpha_i (p_{12}(v_1^i)\otimes p_{34}(v_3^i)) \\
+&= \sum_{i=1}^n \alpha_i \Psi(p_{12}(v_1^i)\otimes p_{34}(v_3^i)) = \sum_{i=1}^n \alpha_i (v_1^i \otimes v_3^i) = x.
+\end{align*}
+\par
+Analog gilt auch \(\Phi\circ\Psi = \mathrm{Id}\) und somit haben wir die Behauptung des Lemmas bewiesen.
+\end{proof}
+
+\par
+Die zweite Eigenschaft in \cref{vektoranalysis/tensor:lem:natISO} erlaubt es uns das Tensorprodukt über \(k\) viele reelle Vektorräume \(V_1,\ldots, V_k\) zu bilden.
+Daher können wir ab nun folgende Notation verwenden
+\begin{align*}
+\bigotimes_{i=1}^k V_i :=V_1\otimes\ldots\otimes V_k
+\end{align*}
+\par
+und sehen, dass dieses Objekt wohldefiniert ist.
+Insbesondere ist äquivalent das Tensorprodukt über \(k\) Vektorräume mit Hilfe einer \(k\) Multilinearform aus \cref{vektoranalysis/multilinear:s-k-multilinearform}  zu definieren anstatt nur einer Bilinearform wie in \cref{vektoranalysis/tensor:def:tensor} 
+Die folgende Bemerkung gibt die universelle Eigenschaft für solch ein Tensorprodukt an.
+\begin{remark}{(\protect\(k\protect\) faches Tensorprodukt)}{vektoranalysis/tensor:rem:kfachesTensorprodukt}
+
+
+
+\par
+Es seien \(V_1,\ldots, V_k\) für \(k \in \N\) reelle Vektorräume.
+Dann besitzt das \(k\) fache Tensorprodukt \(\otimes \colon V_1 \times \ldots \times V_k \rightarrow \bigotimes_{i=1}^k V_i\) die folgende universelle Eigenschaft:
+
+\par
+Für jede \(k\) Multilinearform \(\phi\in L^k(V_1\times\ldots\times V_k; Y)\) in einen beliebigen reellen Vektorraum \(Y\) existiert eine eindeutige lineare Abbildung
+\(p \in L^1(\bigotimes_{i=1}^k V_i; Y)\), so dass gilt
+\begin{align*}
+\phi = p \circ \otimes.
+\end{align*}\end{remark}
+
+\par
+Im folgenden Abschnitt der Vorlesung wollen wir Tensoren insbesondere als Multilinearformen interpretieren.
+Deshalb interessieren wir uns im Folgenden für die Eigenschaften des Tensorprodukts, wenn wir speziell \emph{Räume von linearen Abbildungen} betrachten.
+Die lineare Abbildung im folgenden Lemma stellt hierbei die zentrale Idee dar.
+\begin{lemma}{}{vektoranalysis/tensor:lem:LISO}
+
+
+
+\par
+Es seien \(V_1, V_2\) sowie \(W_1, W_2\) reelle Vektorräume.
+Dann ist die Abbildung
+\begin{align*}
+p:L(V_1; V_2)\otimes L(W_1; W_2) &\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(w_1).
+\end{align*}
+\par
+ein \textbf{Homomorphismus}.
+\end{lemma}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+
+\par
+Da die Notation in \cref{vektoranalysis/tensor:lem:LISO} vielleicht etwas abstrakt wirkt, soll die folgende Bemerkung auf die einzelnen Elemente der linearen Abbildung \(p\) nochmal genauer eingehen.
+\begin{remark}{(Funktionen als Funktionswerte)}{vektoranalysis/tensor:remark-13}
+
+
+
+\par
+Die lineare Abbildung in \cref{vektoranalysis/tensor:lem:LISO} ist folgendermaßen zu verstehen:
 \begin{itemize}
 \item {} 
 \par
-Energieerhaltung,
+\(\eta_1:V_1\rightarrow V_2\) und \(\eta_2: W_1 \rightarrow W_2\) sind lineare Abbildungen mit \(\eta_1 \in L(V_1; V_2)\) und \(\eta_2 \in L(W_1; W_2)\)
 
 \item {} 
 \par
-Impulserhaltung.
+\(\eta_1 \otimes \eta_2\) ist dementsprechend ein Element aus dem Tensorproduktraum \(L(V_1; V_2)\otimes L(W_1; W_2)\),
+
+\item {} 
+\par
+\(p(\eta_1\otimes\eta_2)\) ist dann ein Element von \(L(V_1\otimes W_1; V_2\otimes W_2)\), also eine lineare Abbildung, welche vom Tensorproduktraum \(V_1\otimes W_1\) in den Tensorproduktraum \(V_2\otimes W_2\) abbildet,
+
+\item {} 
+\par
+\((p(\eta_1\otimes\eta_2))(v_1\otimes w_1)\) ist schließlich die Auswertung dieser Abbildung am Punkt \(v_1\otimes w_1\in V_1\otimes W_1\).
 
 \end{itemize}
 
 \par
-In ?? haben wir Bewegungslgleichungen als System von DGLs hergeleitet und gelöst, deshalb wollen wir nun die nötige Theorie entwickeln, die es uns erlaubt Erhaltungsgrößen direkt aus der DGL Formulierung zu erhalten.
-\label{ode/hamilton:example-0}
-\begin{example}{}{}
+In diesem Fall notiert man auch
+\begin{align*}
+\eta_1\otimes\eta_2 \mapsto 
+\big[
+v_1\otimes w_1\mapsto \eta_1(v_1) \otimes \eta_2(w_1)
+\big],
+\end{align*}
+\par
+was bedeutet, dass \(\eta_1\otimes\eta_2\) auf eine \emph{Funktion} abgebildet wird, welche wiederum \(v_1\otimes w_1\) als Argumente bekommt.
+\end{remark}
+
+\par
+Insbesondere können wir im \textbf{endlich dimensionalen Fall} zeigen, dass die Abbildung \(p\) in \cref{vektoranalysis/tensor:lem:LISO} einen Isomorphismus definiert.
+Hierzu formulieren wir zunächst das folgende nützliche Hilfslemma.
+\begin{lemma}{}{vektoranalysis/tensor:lem:isomorphieKartesischesProdukt}
 
 
+
+\par
+Seien \(V\) und \(W\) zwei beliebige reelle Vektorräume und \(n,m \in \N\).
+Dann existiert ein Isomorphismus, so dass
+\begin{align*}
+(V \otimes W)^{n\cdot m} \cong V^n \otimes W^m.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+\begin{theorem}{}{vektoranalysis/tensor:thm:pIsomorphismus}
+
+
+
+\par
+Es seien \(V_1, W_1\) reelle \emph{endlich dimensionale} Vektorräume und \(V_2, W_2\) \emph{beliebige} reelle Vektorräume.
+Dann ist die Abbildung
+\begin{align*}
+p:L(V_1; V_2)\otimes L(W_1; W_2) &\rightarrow L(V_1\otimes W_1; V_2\otimes W_2)\\
+(p(\eta_1\otimes\eta_2))(v_1\otimes w_1)&:= \eta_1(v_1) \otimes \eta_2(w_1).
+\end{align*}
+\par
+ein Isomorphismus.
+\end{theorem}
+
+\begin{proof}
+ Seien \(V_1\) und \(W_1\) zwei endlich dimensionale, reelle Vektorräume mit \(\operatorname{dim}(V_1) = n \in \N\) und \(\operatorname{dim}(W_1) = m \in \N\).
+Nach dem \emph{Isomorphiesatz für endlich dimensionale Vektorräume} 3.20 in \cite{Bur20} existiert dann je ein Isomorphismus, so dass \(V_1 \cong \R^n\) und \(W_1 \cong \R^m\).
+Über diesen Isomorphismus lässt sich auch zeigen, dass \(L(V_1; V_2) \cong L(\R^n; V_2)\) und \(L(W_1; W_2) \cong L(\R^m; W_2)\) gilt.
+Zusammen mit der \emph{Transitivitätseigenschaft des Tensorprodukts} aus \cref{vektoranalysis/tensor:lem:natISO} folgt dann aber schon
+\begin{align*}
+L(V_1; V_2)\otimes L(W_1; W_2) \cong L(\R^n; V_2)\otimes L(\R^m; W_2).
+\end{align*}
+\par
+Daher reicht es, die Aussage des Theorems für den einfachen Fall \(V_1=\R^n, W_1=\R^m\) im Folgenden in zwei Schritten zu zeigen.
+
+\par
+\textbf{1.Schritt:} Wir zeigen zunächst, dass die Isomorphie \(L(\R^k; Y) \cong Y^k\) gilt.
+
+\par
+Es sei \(Y\) ein beliebiger reeller Vektorraum und es bezeichne \((e_i)_{i=1}^k\) die Standardbasis von \(\R^k\).
+Wir konstruieren nun eine Abbildung \(\phi:Y^k\rightarrow L(\R^k; Y)\), so dass
+\begin{align*}
+\phi(y_1,\ldots,y_k) = [e_i \mapsto y_i], \quad i = 1,\ldots,k
+\end{align*}
+\par
+gilt.
+Die Abbildung \(\phi\) ist \textbf{linear}, da für alle Vektoren \(y,z \in Y^k\) und einen beliebigen Vektor \(x \in \R^k\) mit der Basisdarstellung \(x=\sum_{i=1}^k \alpha_i e_i\) gilt:
+\begin{align*}
+\phi(y+z)(x) &= \phi(y_1+z_1,\ldots, y_k+z_k)(\sum_{i=1}^k \alpha_i e_i) = \sum_{i=1}^k \alpha_i (y_i + z_i) \\
+&= \sum_{i=1}^k \alpha_i y_i + \sum_{i=1}^k \alpha_i z_i = \phi(y_1,\ldots, y_k)(\sum_{i=1}^k \alpha_i e_i) + \phi(z_1,\ldots, z_k)(\sum_{i=1}^k \alpha_i e_i) \\
+&= \phi(y)(x) + \phi(z)(x)
+\end{align*}
+\par
+und für jedes Skalar \(\lambda \in \R\) gilt:
+\begin{align*}
+\phi(\lambda y)(x) &= \phi(\lambda y_1,\ldots, \lambda y_k)(\sum_{i=1}^k \alpha_i e_i)
+= \sum_{i=1}^k \alpha_i (\lambda y_i) = \lambda \sum_{i=1}^k \alpha_i y_i \\
+&= \lambda \phi( y_1,\ldots, y_k)(\sum_{i=1}^k \alpha_i e_i)
+= \lambda \phi(y)(x).
+\end{align*}
+\par
+Offenbar ist diese lineare Abbildung auch \textbf{injektiv}, denn
+\begin{align*}
+\phi(y_1,\ldots,y_k)(e_i) = 0\quad\forall i\in{1,\ldots k} 
+\qquad \Leftrightarrow \qquad
+y_i = 0\quad\forall i\in{1,\ldots k}.
+\end{align*}
+\par
+Gleichzeitig ist die lineare Abbildung jedoch auch \textbf{surjektiv}, da jede lineare Abbildung in \(L(\R^k; Y)\) sich bereits durch seine Wirkung auf den Basiselementen \(e_i \in \R^k, i=1,\ldots,k\) eindeutig beschreiben lässt.
+
+\par
+Wir sehen also ein, dass es sich bei der Abbildung \(\phi\) um einen Isomorphismus handelt und somit gilt also \(L(\R^k; Y) \cong Y^k\).
+
+\par
+\textbf{2.Schritt:} Als Nächstes wollen wir die folgenden Isomorphien zeigen:
+\begin{align*}
+L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m\cong L(\R^n\otimes \R^m; V_2\otimes W_2).
+\end{align*}
+\par
+Mit Schritt 1 des Beweises wissen wir bereits, dass \(L(\R^n; V_2)\cong V_2^n\) und \(L(\R^m; W_2)\cong W_2^m\) gilt.
+Zusammen mit der \emph{Transitivitätseigenschaft des Tensorprodukts} aus \cref{vektoranalysis/tensor:lem:natISO} folgt damit schon die erste Isomorphie
+\begin{align}\label{equation:vektoranalysis/tensor:eq:ersteIsormorphie}
+L(\R^n; V_2) \otimes L(\R^m; W_2) \cong V_2^n \otimes W_2^m.
+\end{align}
+\par
+Für die zweite Isomorphie benutzen wir den Zusammenhang \(\R^n\otimes \R^m \cong \R^{n\cdot m}\) aus \cref{vektoranalysis/tensor:cor:isomorphieEndlichDimensional} und erhalten somit
+\begin{align*}
+L(\R^n\otimes \R^m; V_2\otimes W_2) \cong L(\R^{n\cdot m}; V_2\otimes W_2).
+\end{align*}
+\par
+Nutzen wir wiederum die Isomorphie aus Schritt 1 so erhalten wir
+\begin{align*}
+L(\R^{n\cdot m}; V_2\otimes W_2) \cong (V_2 \otimes W_2)^{n\cdot m}.
+\end{align*}
+\par
+Wegen \cref{vektoranalysis/tensor:lem:isomorphieKartesischesProdukt} wissen wir dann aber schon, dass gilt
+\begin{align*}
+(V_2 \otimes W_2)^{n\cdot m} \cong V_2^n \otimes W_2^m.
+\end{align*}
+\par
+Zusammen mit der Isomorphie \cref{vektoranalysis/tensor:equation-eq-ersteisormorphie} haben wir nun insgesamt gezeigt, dass
+\begin{align*}
+L(\R^n; V_2) \otimes L(\R^m; W_2) \cong L(\R^n\otimes \R^m; V_2\otimes W_2)
+\end{align*}
+\par
+gilt, was mit unseren Vorüberlegungen die Aussage des Theorems beweist.
+\end{proof}
+
+\par
+Wählen wir die Zielräume der linearen Abbildungen als \(V_2 = W_2 = \R\), so erhalten wir direkt folgendes Korrolar als Anwendung des allgemeinen Resultats in \cref{vektoranalysis/tensor:thm:pIsomorphismus} 
+Dies ermöglicht es uns später Tensoren als Linearformen zu interpretieren.
+\label{vektoranalysis/tensor:cor:tensorenLinearformen}
+\begin{emphBox}{}{}{Corollary 3.3 (Isomorphie des algebraischen Dualraums des Tensorproduktraums)}
+
+
+
+\par
+Es seien \(V\) und \(W\) beliebige endlich dimensionale Vektorräume.
+Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum der algebraischen Dualräume von \(V\) und \(W\) und dem algebraischen Dualraum des Tensorproduktraums, d.h.,
+\begin{align*}
+V^\ast \otimes W^\ast \cong (V\otimes W)^\ast = L^1(V \otimes W; \R).
+\end{align*}\end{emphBox}
+
+
+\subsection{Tensoren als Multilinearformen}
+\label{\detokenize{vektoranalysis/tensor:tensoren-als-multilinearformen}}
+\par
+Das folgende Korollar kombiniert die theoretischen Ergebnisse des letzten Abschnitts und liefert so ein mathematisches Resultat, das für die Anwendung beispielsweise in der Physik von Bedeutung ist.
+Wir werden nämlich nun folgern, dass wir Tensoren als Multilinearformen auffassen können.
+\label{vektoranalysis/tensor:cor:tensorMultilinearform}
+\begin{emphBox}{}{}{Corollary 3.4 (Tensoren als Multilinearformen)}
+
+
+
+\par
+Seien \(V\) und \(W\) zwei reelle endlich dimensionale Vektorräume und \(\otimes \colon V \times W \rightarrow V \otimes W\) das Tensorprodukt.
+Dann existiert ein Isomorphismus zwischen dem Tensorproduktraum und dem Raum der Bilinearformen durch
+\begin{align*}
+V \otimes W \cong L^2(V \times W; \R).
+\end{align*}\end{emphBox}
+
+\begin{proof}
+ Wie wir in \cref{vektoranalysis/tensor:cor:tensorenLinearformen} gesehen haben, besteht ein Isomorphismus zwischen dem Tensorproduktraum algebraischer Dualräume und dem algebraischen Dualraum des entsprechenden Tensorproduktraums mit
+\begin{align*}
+V^\ast \otimes W^\ast \cong (V\otimes W)^\ast = L^1(V \otimes W; \R).
+\end{align*}
+\par
+Da jeder endlich dimensionale, reelle Vektorraums \(V\) nach \cref{vektoranalysis/multilinear:lem:dualeBasis} isomorph zu seinem algebraischen Dualraum \(V^\ast\) ist, können wir die \emph{Transitivitätseigenschaft des Tensorprodukts} aus \cref{vektoranalysis/tensor:lem:natISO} ausnutzen und erhalten die folgende Isomorphie
+\begin{align}\label{equation:vektoranalysis/tensor:eq:transitivIsomorphismus}
+V \otimes W \cong V^\ast \otimes W^\ast.
+\end{align}
+\par
+Gleichzeitig besagt die \emph{universelle Eigenschaft des Tensorprodukts} in , dass es zu jeder Bilinearform \(\Phi \in L^2(V \times W; \R)\) eine eindeutige Linearform \(p \in L^1(V \otimes W; \R)\) gibt, so dass \(\Phi = p \circ \otimes\) gilt.
+Somit erhalten wir also auch einen Isomorphismus
+\begin{align*}
+L^1(V \otimes W; \R) \cong L^2(V \times W; \R).
+\end{align*}
+\par
+Kombinieren wir diese mathematischen Resultate nun alle so ergibt sich die folgende Kette von Isomorphismen:
+\begin{align*}
+V \otimes W \cong V^\ast \otimes W^\ast \cong L^1(V \otimes W; \R) \cong L^2(V \times W; \R),
+\end{align*}
+\par
+was die Aussage beweist.
+\end{proof}
+
+\par
+\cref{vektoranalysis/tensor:cor:tensorMultilinearform} besagt, dass Tensoren als Elemente des Tensorproduktraums \(V \otimes W\) als Bilinearformen auf dem kartesischen Produktraum \(V \times W\) aufgefasst werden können.
+Diese Aussage lässt sich mit Hilfe von \cref{vektoranalysis/tensor:rem:kfachesTensorprodukt} auch auf das \(k\) fache Tensorprodukt verallgemeinern.
+Hier erhält man dann das Resultat, dass sich Tensoren als \(k\) Multilinearformen interpretieren lassen mit
+\begin{align*}
+\V_1\otimes\ldots\otimes\V_k \cong L^k(\V_1\times\ldots\V_k;\R) \cong L(\V_1\otimes\ldots\V_k;\R).
+\end{align*}
+\par
+In \cref{vektoranalysis/tensor:equation-eq-transitivisomorphismus} haben wir die Transitivitätseigenschaft des Tensorprodukts ausgenutzt, um \emph{beide} Vektorräume mit ihren jeweiligen algebraischen Dualräumen zu identifizieren.
+Dies muss jedoch nicht sein, denn wir hätten genauso gut \textbf{gemischte Tensorprodukte} der Form \(V \otimes W^\ast\) oder \(V^\ast \otimes W\) betrachten können, wenn wir die triviale Identifikation \(V \cong V\) oder \(W \cong W\) nutzen.
+Daher wollen wir im Folgenden Tensoren einer allgemeineren Form betrachten, nämlich solche, die für kartesische Produkte der Form \(V^r\times (V^\ast)^s\) mit \(r+s=k\) definiert sind.
+\begin{definition}{(Gemischte Tensoren)}{vektoranalysis/tensor:def:gemischteTensoren}
+
+
+
+\par
+Es sei \(V\) ein reeller endlich dimensionaler Vektorraum und \(V^\ast\) der zugehörige algebraische Dualraum.
+Dann nennt man
+\begin{align*}
+T^r_s(V) := L(V^r\times (V^\ast)^s; \R)
+\end{align*}
+\par
+Menge der gemischten Tensoren, welche \textbf{kovariant} der Stufe \(r\) und \textbf{kontravariant} der Stufe \(s\) sind.
+In manchen Kontexten spricht man auch nur von \textbf{gemischten Tensoren der Stufe \(k=r+s\)}.
+\end{definition}
+
+\par
+Die folgende Bemerkung erklärt, woher die Begriffe \emph{Kovarianz} und \emph{Kontravarianz} stammen.
+\begin{remark}{(Ko  und Kontravarianz)}{vektoranalysis/tensor:remark-19}
+
+
+
+\par
+Die Bezeichnungen “kovariant” und “kontravariant” beziehen sich auf die Koordinatendarstellungen von Tensoren.
+Genauer gesagt beschreieb Sie, wie sich solche Koordinatendarstellungen bezüglich eines Basiswechsels im zugrundeliegenden Vektorraum verhalten.
+
+\par
+Zusammenfassend kann man festhalten:
+\begin{itemize}
+\item {} 
+\par
+\textbf{Kovariant} nennt man ein Transformationsverhalten, bei dem sich die Basisvektoren und die darin dargestellten Größen in gleicher Weise transformieren.
+
+\item {} 
+\par
+\textbf{Kontravariant} nennt man ein Transformationsverhalten, wenn sich die Basisvektoren und die darin dargestellten Größen in unterschiedlicher Weise transformieren.
+
+\end{itemize}
+\end{remark}
+
+\par
+Das folgende Beispiel gibt eine Intuition für den Begriff der Kontravarianz an Hand von Vektorkoordinaten unter Basiswechseloperationen.
+\begin{example}{}{vektoranalysis/tensor:example-20}
+
+
+
+\par
+Sei \(V = \R^3\) der Euklidische Vektorraum und sei
+\begin{align*}
+B_1 := \lbrace \begin{pmatrix}1\\ 0\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 1\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 0\\ 1\end{pmatrix} \rbrace
+\end{align*}
+\par
+die Standard Einheitsbasis des \(\R^3\).
+Sei nun \(x \in \R^3\) ein Vektor, dessen Koordinaten bezüglich der Basis \(B_1\) gegeben sind als
+\begin{align*}
+x = \begin{pmatrix}4\\ 8\\ 2\end{pmatrix}.
+\end{align*}
+\par
+Führen wir nun einen Basiswechsel von \(B_1\) zu einer neuen Basis \(B_2\) mit
+\begin{align*}
+B_2 := \lbrace \begin{pmatrix}2\\ 0\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 2\\ 0\end{pmatrix}, \begin{pmatrix}0\\ 0\\ 2\end{pmatrix} \rbrace
+\end{align*}
+\par
+durch, so ändert sich die Koordinatendarstellung von \(x\) bezüglich dieser Transformation zu
+\begin{align*}
+x = \begin{pmatrix}2\\ 4\\ 1\end{pmatrix}.
+\end{align*}
+\par
+Wir sehen also, dass durch die Skalierung der Basisvektoren von \(B_1\) um den Faktor \(2\) sich die entsprechende Koordinatendarstellung halbiert, d.h., sich gerade \textbf{gegensätzlich} zur Basistransformation verhält.
+Daher sind Vektoren \textbf{kontravariant} bezüglich Basiswechseltransformationen.
 \end{example}
+
+\par
+Wir wollen diese allgemeine Definition von gemischten Tensoren nun mit einfachen Beispielen veranschaulichen.
+Beginnen wir zunächst mit dem Spezialfall von rein kovarianten Tensoren.
+\begin{example}{(Rein kovariante Tensoren)}{vektoranalysis/tensor:example-21}
+
+
+
+\par
+Sei \(V\) ein endlich dimensionaler, reeller Vektorraum mit \(\operatorname{dim}(V) = n \in \N\).
+Wir wollen im Folgenden Tensoren unterschiedlicher Stufen betrachten, die Multilinearformen repräsentieren.
+Diese haben keine \emph{kontravarianten Komponenten}, sind also sozusagen \emph{rein kovariant}.
+
+\par
+\textbf{Stufe 0:}
+Wir betrachten Tensoren der Stufe \(r+s=0+0=0\).
+Elemente der Menge \(T^0_0(V) = L(V^0; \R)\) sind gerade die \textbf{Skalare} des zu Grunde liegenden Körpers \(\R\), da der Vektorraum \(V^0\) nur das Nullelement enthält.
+
+\par
+\textbf{Stufe 1:}
+Wir betrachten Tensoren der Stufe \(r+s=1+0=1\).
+In diesem Fall entsprechen Elemente der Menge \(T^1_0(V) = L(V; \R)\) gerade den \textbf{Linearformen} des Vektorraums \(V\).
+Genauer gesagt handelt es sich um Elemente des \emph{algebraischen Dualraums} \(V^\ast\).
+
+\par
+\textbf{Stufe k:}
+Wir betrachten Tensoren der Stufe \(r+s=k+0=k\) für \(k\in \N\).
+Diese Tensoren entsprechen gerade den \textbf{\(\mathbf{k}\) Multilinearformen}, da \(T^k_0(V) = L(V^k; \R) \cong L^k(V; \R)\).
+
+\par
+\textbf{Stufe n:}
+Wir betrachten Tensoren der Stufe \(r+s=n+0=n\).
+Ein Beispiel für Elemente der Menge \(T^n_0(V) = L(V^n; \R)\) ist die \textbf{Determinante} einer \(n \times n\) Matrix.
+\end{example}
+
+\par
+Betrachten wir als Nächstes den Spezialfall von rein kontravarianten Tensoren.
+\begin{example}{}{vektoranalysis/tensor:example-22}
+
+
+
+\par
+Sei \(V\) ein endlich dimensionaler, reeller Vektorraum.
+Diese besitzen keine \emph{kovarianten Komponenten}, sind also sozusagen \emph{rein kontravariant}.
+
+\par
+\textbf{Stufe 1:}
+Wir betrachten Tensoren der Stufe \(r+s=0+1=1\).
+In diesem Fall entsprechen Elemente der Menge \(T^0_1(V) = L(V^\ast; \R)\) gerade den \textbf{Vektoren} des Vektorraums \(V\).
+Genauer gesagt handelt es sich um Elemente des \emph{Bidualraums} \(V^{**}\), der nach \cref{vektoranalysis/multilinear:rem:doubledual} isomorph zu \(V\) ist.
+
+\par
+\textbf{Stufe 2:}
+Wir betrachten Tensoren der Stufe \(r+s=0+2=2\).
+In diesem Fall entsprechen Elemente der Menge \(T^0_2(V) = L(V^\ast \times V^\ast; \R)\) sogenannten \textbf{Bivektoren} oder \textbf{Dyaden}.
+Ein Beispiel hierfür sind Tensoren, die durch \emph{dyadische Produkte} erzeugt werden.
+\end{example}
+
+\par
+Abschließend betrachten wir noch ein Beispiel für echt gemischte Tensoren.
+\begin{example}{}{vektoranalysis/tensor:example-23}
+
+
+
+\par
+Sei \(V\) ein endlich dimensionaler, reeller Vektorraum.
+Wir wollen im Folgenden \emph{echt gemischte} Tensoren diskutieren.
+Diese besitzen sowohl kontravariante als auch kovariante Komponenten.
+
+\par
+Wir betrachten echt gemischte Tensoren der Stufe \(r+s=1+1=2\).
+Die Menge \(T^1_1(V) = L(V^\ast \times V; \R)\) enthält dann alle linearen Abbildung, die einer Linearform und einem Vektor eine reelle Zahl zuweisen.
+Ein typisches Beispiel für solch einen ist die sogenannte \textbf{duale Paarung}
+\begin{align*}
+\langle \cdot, \cdot \rangle \colon V^\ast \times V &\rightarrow \R,\\
+(L, v) &\mapsto \langle L, v \rangle := L(v).
+\end{align*}
+\par
+Hier wird ein gegebener Vektor \(v \in V\) durch einen gegebenen linearen Operator \(L \in V^\ast\) ausgewertet.
+Die duale Paarung stellt eine \emph{Verallgemeinerung des Skalarprodukts} dar.
+\end{example}
+
+
+\subsection{Symmetrische und antisymmetrische Tensoren}
+\label{\detokenize{vektoranalysis/tensor:symmetrische-und-antisymmetrische-tensoren}}
+\par
+Oft spielen gerade in der Physik spezielle Familien von Tensoren eine wichtige Rolle, nämlich \emph{symmetrische} und \emph{antisymmetrische Tensoren}.
+Diese Operatoren zeichnen sich durch ihr Verhalten unter Vertauschung von Argumenten aus und werden besonders in der Quantenmechanik und Kontinuumsmechanik betrachtet.
+
+\par
+Bevor wir die Symmetrieeigenschaften von Tensoren definieren können, benötigen wir weitere Hilfsmittel aus der Kombinatorik.
+Die Vertauschung von Argumenten entspricht einer Permutationsabbildung und daher wollen wir das \emph{Vorzeichen} solch einer Permutation betrachten, welches die Symmetrieeigenschaften von Tensoren charakterisiert.
+\begin{definition}{(Signum einer Permutation)}{vektoranalysis/tensor:def:signumPermutation}
+
+
+
+\par
+Sei \(k\in\N\) und \(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\) eine Permutation der Indizes \(1,\ldots,k\).
+Dann bezeichnen wir mit \(\operatorname{sgn}(\pi) := (-1)^{|\operatorname{inv}(\pi)|}\) das sogenannte \textbf{Signum der Permutation} \(\pi\), für das man die Menge der Fehlstände der Permutation \(\operatorname{inv}(\pi)\) betrachtet mit:
+\begin{align*}
+\operatorname{inv}(\pi) := \lbrace (i,j) \in \lbrace 1, \ldots, k \rbrace : i < j, \pi(i) > \pi(j) \rbrace.
+\end{align*}\end{definition}
+
+\par
+Das folgende einfache Beispiel illustriert die Berechnung des Signums einer Permutation.
+\begin{example}{}{vektoranalysis/tensor:example-25}
+
+
+
+\par
+Wir betrachten im Folgenden zwei verschiedene Permutationen
+\begin{align*}
+\pi_i \colon \lbrace 1, 2, 3, 4 \rbrace \rightarrow \lbrace 1, 2, 3, 4 \rbrace \quad i=1,2.
+\end{align*}
+
+
+\par
+1. Sei die Permutation \(\pi_1\) gegeben mit
+\begin{align*}
+\pi_1(1) = 3, \quad \pi_1(2) = 2, \quad \pi_1(3) = 4, \quad \pi_1(4) = 1.
+\end{align*}
+\par
+Für die Menge der Fehlstände \(\operatorname{inv}(\pi_1)\) selektieren wir diejenigen Elemente \(i,j \in \lbrace 1,2,3,4 \rbrace\) mit \(i < j\) und \(\pi(i) > \pi(j)\).
+Dies trifft auf folgende Paare von Elementen zu:
+\begin{align*}
+\operatorname{inv}(\pi_1) = \lbrace (1,2), (1,4), (2,4), (3,4)\rbrace.
+\end{align*}
+\par
+Da die Permutation \(\pi_1\) insgesamt \(4\) Fehlstände erzeugt, gilt für das Signum der Permutation:
+\begin{align*}
+\operatorname{sgn}(\pi_1) := (-1)^{|\operatorname{inv}(\pi_1)|} = (-1)^4 = +1.
+\end{align*}
+
+
+\par
+2. Sei die Permutation \(\pi_2\) gegeben mit
+\begin{align*}
+\pi_1(1) = 2, \quad \pi_1(2) = 4, \quad \pi_1(3) = 1, \quad \pi_1(4) = 3.
+\end{align*}
+\par
+Für die Menge der Fehlstände \(\operatorname{inv}(\pi_2)\) selektieren wir diejenigen Elemente \(i,j \in \lbrace 1,2,3,4 \rbrace\) mit \(i < j\) und \(\pi(i) > \pi(j)\).
+Dies trifft auf folgende Paare von Elementen zu:
+\begin{align*}
+\operatorname{inv}(\pi_2) = \lbrace (1,3), (2,3), (2,4)\rbrace.
+\end{align*}
+\par
+Da die Permutation \(\pi_2\) insgesamt \(3\) Fehlstände erzeugt, gilt für das Signum der Permutation:
+\begin{align*}
+\operatorname{sgn}(\pi_2) := (-1)^{|\operatorname{inv}(\pi_2)|} = (-1)^3 = -1.
+\end{align*}\end{example}
+
+\par
+Nun sind wir in der Lage die Symmetrieeigenschaften von Tensoren formal zu definieren.
+\begin{definition}{(Symmetrie und Antisymmetrie von Tensoren)}{vektoranalysis/tensor:def:symmetrieTensor}
+
+
+
+\par
+Sei V ein reeller, endlich dimensionaler Vektorraum und \(T \in T_0^k(V)\) ein rein kontravarianter Tensor von Stufe \(k \in \N\).
+
+\par
+Wir nennen den Tensor \(T\) \textbf{symmetrisch}, wenn für alle möglichen Permutationen \(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\) der Indizes \(1,\ldots,k\) der Wert des Tensors mit permutierten Argumenten sich nicht ändert, d.h.,
+\begin{align*}
+T(v_1, \ldots, v_k) = T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
+\end{align*}
+\par
+Wir nennen den Tensor \(T\) \textbf{antisymmetrisch} oder \textbf{schiefsymmetrisch}, wenn für alle möglichen Permutationen \(\pi \colon \lbrace 1,\ldots, k\rbrace \rightarrow \lbrace 1,\ldots, k\rbrace\) der Indizes \(1,\ldots,k\) der Wert des Tensors mit permutierten Argumenten sich \emph{bis auf das Vorzeichen} nicht ändert und dabei folgendem Zusammenhang genügt
+\begin{align*}
+T(v_1, \ldots, v_k) = \operatorname{sgn}(\pi) \cdot T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
+\end{align*}\end{definition}
+
+\par
+In \cref{vektoranalysis/tensor:def:symmetrieTensor} haben wir die Symmetrieeigenschaften für rein kontravariante Tensoren eingeführt.
+Analog lässt sich die (Anti )Symmetrie eines rein kovarianten Tensors \(T \in T_k^0(V)\) von Stufe \(k\) definieren.
+Die Definition von Symmetrie bzw. Antisymmetrie von echt gemischten Tensoren aus \cref{vektoranalysis/tensor:def:gemischteTensoren} ist hingegen wenig sinnvoll, da die Rechenvorschrift eine gemischten Tensors unter beliebigen Permutationen der Argumente nicht mehr wohldefiniert sein muss.
+
+\par
+Im folgenden Beispiel diskutieren wir jeweils einen Vertreter für symmetrische und antisymmetrische Tensoren.
+\begin{example}{}{vektoranalysis/tensor:example-27}
+
+
+
+\par
+Betrachten wir zunächst das \emph{Standardskalarprodukt}
+\begin{align*}
+\langle \cdot, \cdot \rangle \colon \R^n \times \R^n \rightarrow \R
+\end{align*}
+\par
+als rein kontravarianten Tensor zweiter Stufe.
+Da das Standardskalarprodukt im \(\R^n\) eine positiv definite, symmetrische Bilinearform ist, überträgt sich die Symmetrieeigenschaft auf die Interpretation als Tensor.
+Daher ist das Standardskalarprodukt ein \textbf{symmetrischer Tensor}.
+
+
+
+\par
+Als zweites Beispiel betrachten wir das sogenannte \emph{Levi Civita Symbol}, auch genannt \emph{Epsilon Tensor},
+\begin{align*}
+\epsilon_{i_1,\ldots,i_n} : \N^n \rightarrow \lbrace -1, 0, 1 \rbrace,
+\end{align*}
+\par
+welcher einem Tupel von \(n\in\N\) Indizes \((i_1,\ldots,i_n) \in \N^n\) einen Wert zuordnet, je nachdem ob eine gerade oder eine ungerade Anzahl an Vertauschung benötigt wird, um die Indizes in aufsteigender Reihenfolge zu sortieren.
+Wird eine gerade Anzahl an Vertauschungen benötigt, so gilt \(\epsilon_{i_1,\ldots,i_n} = +1\).
+Wird eine ungerade Anzahl an Vertauschungen benötigt, so gilt \(\epsilon_{i_1,\ldots,i_n} = -1\).
+Aus letzterer Vorschrift lässt sich ableiten, dass der Epsilon Tensor den Wert \(0\) haben muss, wenn mindestens zwei der Indizes gleich sind.
+Dies unterscheidet das Levi Civita Symbol vom Signum einer Permutation in \cref{vektoranalysis/tensor:def:signumPermutation}  welche als Bijektion auf paarweise verschiedenen Indizes definiert ist.
+
+\par
+Aus dieser Vorschrift lässt sich bereits direkt ableiten, dass es sich beim Levi Civita Symbol um einen \textbf{antisymmetrischen Tensor} n ter Stufe handelt, da jede paarweise Vertauschung von Indizes das Vorzeichen des Tensors wechselt.
+\end{example}
+
+\par
+Es stellt sich heraus, dass die Menge der (anti )symmetrischen Tensoren eine Vektorraumstruktur induzieren, wie das folgende Lemma zeigt.
+\begin{lemma}{(Vektorraum der (anti )symmetrischen Tensoren)}{vektoranalysis/tensor:lemma-28}
+
+
+
+\par
+Sei \(V\) ein beliebiger, reeller Vektorraum und \(k \in \N\).
+Seien außerdem
+\begin{align*}
+\Lambda_k(V) = \lbrace \omega \in T_k^0(V) : \omega \text{ ist antisymmetrisch} \rbrace.
+\end{align*}
+\par
+die Menge der \emph{antisymmetrischen Tensoren} der Stufe \(k\) auf \(V\) und
+\begin{align*}
+\mathcal{S}_k(V) = \lbrace \omega \in T_k^0(V) : \omega \text{ ist symmetrisch} \rbrace.
+\end{align*}
+\par
+die Menge der \emph{symmetrischen Tensoren} der Stufe \(k\) auf \(V\).
+
+\par
+Dann bilden \(\Lambda_k(V)\) und \(\mathcal{S}_k(V)\) bezüglich der Addition von Tensoren und der skalaren Multiplikation in \(\R\) einen Vektorraum.
+\end{lemma}
+
+\begin{proof}
+ In der Hausaufgabe zu zeigen.
+\end{proof}
+
+\par
+Abschließend wollen wir uns in diesem Abschnitt noch einem nützlichen mathematischen Werkzeug widmen, das es erlaubt beliebige Tensoren symmetrisch bzw. antisymmetrisch zu machen.
+Hierzu definieren wir die folgenden Projektionsabbildungen.
+\begin{definition}{(Fermionische und bosonische Projektion)}{vektoranalysis/tensor:def:fermionischeProjektion}
+
+
+
+\par
+Sei \(V\) ein beliebiger, reeller Vektorraum und \(k \in \N\).
+Wir definieren zunächst die sogenannte \textbf{fermionische Projektion}
+\begin{align*}
+\Pi_- \colon T_k^0(V) &\rightarrow \Lambda_k(V), \\
+T(v_1, \ldots, v_k) &\mapsto (\Pi_- T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} \operatorname{sgn}(\pi) \, T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
+\end{align*}
+\par
+Diese Projektionsabbildung weist jedem Tensor \(T\in T_k^0\) der Stufe \(k\) einen antisymmetrischen Tensor \(\Pi_-(T) \in \Lambda_k(V)\) zu.
+
+\par
+Analog definieren wir die sogenannte \textbf{bosonische Projektion}
+\begin{align*}
+\Pi_+ \colon T_k^0(V) &\rightarrow \mathcal{S}_k(V), \\
+T(v_1, \ldots, v_k) &\mapsto (\Pi_+ T)(v_1, \ldots, v_k) := \frac{1}{k!} \sum_{\pi \in S_k} T(v_{\pi(1)}, \ldots, v_{\pi(k)}).
+\end{align*}
+\par
+Diese Projektionsabbildung weist jedem Tensor \(T\in T_k^0\) der Stufe \(k\) einen symmetrischen Tensor \(\Pi_+(T) \in \mathcal{S}_k(V)\) zu.
+\end{definition}
+\begin{remark}{}{vektoranalysis/tensor:remark-30}
+
+
+
+\par
+Die Bezeichnung \textbf{fermionisch} und \textbf{bosonisch} in \cref{vektoranalysis/tensor:def:fermionischeProjektion} stammen daher, dass symmetrische Tensorprodukte \emph{identische Bosonen} in der Quantenmechanik beschreiben, wohingegen antisymmetrische Tensorprodukte \emph{identischen Fermionen} zugeordnet werden. Weitere Informationen findet man beispielsweise unter \href{https://de.wikipedia.org/wiki/Ununterscheidbare\_Teilchen\#Ununterscheidbarkeit\_in\_der\_Quantenmechanik}{Ununterscheidbarkeit von Teilchen in der Quantenmechanik}.
+\end{remark}
+
+
+\subsection{Grassmann Algebra}
+\begin{definition}{(Grassmann Algebra)}{\detokenize{vektoranalysis/tensor:grassmann-algebra}}\label{vektoranalysis/tensor:definition-31}
+
+
+\end{definition}
+\begin{definition}{}{vektoranalysis/tensor:definition-32}
+
+
+\end{definition}
+
+
+\section{Differentialformen}
+\label{\detokenize{vektoranalysis/diffformen:differentialformen}}\label{\detokenize{vektoranalysis/diffformen::doc}}
+\par
+In diesem Kapitel werden wir nun \href{https://de.wikipedia.org/wiki/Differentialform}{Differentialformen} einführen. Die entscheidende Neuerung im Vergleich zum vorhergehenden Kapitel, ist
+dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen, speziell betrachten wir eine offene Menge \(U\subset\R^n\). Ein weiterer wichtiger Aspekt, ist dass wir im Folgenden mit glatten Funktion arbeiten wollen, d.h., mit dem Raum \(C^\infty(U,\R^n)\).
+
+\par
+Eine Differentialform \(\omega\) auf \(U\subseteq\R^n\) ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.
+
+\par
+Wir schreiben eine allgemeine \emph{\(k\)–Form} \(\omega\) in der \emph{Grundform}
+\begin{align*}
+\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}\in\Omega^k(U),
+\end{align*}
+\par
+wobei
+\begin{itemize}
+\item {} 
+\par
+die \(\omega_{i_1\ldots i_k}\in \Omega^0(U):=C^\infty(U,\R)\), also glatte reelle Funktionen auf \(U\) sind,
+
+\item {} 
+\par
+und die \(dx_i\) den Koordinatenfunktionen \(x_i:\R^n\to\R\) zugeordnete \(1\)–Differentialformen sind (\(dx_i\in\Omega^1(\R^n)\)).
+
+\item {} 
+\par
+Den Raum der \(k\)–Differentialformen schreiben wir ab jetzt zur Unterscheidung vom Raum der äußeren \(k\)–Formen mit dem Symbol \(\Omega\) statt \(\Lambda\).
+
+\end{itemize}
+
+\par
+Die \(dx_i\) sind durch ihre Wirkung auf ein Vektorfeld \(v:U\to
+\R^n\) definiert, und \(dx_i(v)( y) := v_i( y)\).
+\(1\)–Differentialformen machen also aus Vektorfeldern Funktionen, und für \(k\) Vektorfelder \(v^{(l)}:U\to\R^n\) ist für das \(\omega\) aus der Grundform
+\begin{align*}
+\omega\left(v^{(1)},\ldots,v^{(k)}\right) := \sum_{1\leq i_1<\ldots<i_k\leq n}
+\omega_{i_1\ldots i_k}\cdot\det\begin{pmatrix} dx_{i_1}(v^{(1)})&\ldots& dx_{i_k}(v^{(1)})\\
+\vdots&&\vdots\\
+dx_{i_1}(v^{(k)})&\ldots& dx_{i_k}(v^{(k)}) \end{pmatrix}
+\end{align*}
+\par
+definiert. Das Ergebnis ist also eine reelle Funktion auf \(U\).\textbackslash{}
+Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformen.
+
+\par
+Auf dem \(\R\)–Vektorraum
+\begin{align*}
+\Omega^*(U) := \bigoplus_{k=0}^n\Omega^k(U)
+\end{align*}
+\par
+der Differentialformen betrachten wir jetzt
+den \emph{Differentialoperator} \(d\), der durch
+\begin{itemize}
+\item {} 
+\par
+\(df := \sum_{i=1}^n\frac{\partial f}{\partial x_i}dx_i\) für Funktionen
+\(f\in C^\infty(U,\R) = \Omega^0(U)\)
+
+\item {} 
+\par
+und \(d\omega := \sum_{1\leq i_1<\ldots<i_k\leq n}d\omega_{i_1\ldots i_k}
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k}\) für \(k\)–Formen \textbackslash{}linebreak
+\(\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
+dx_1\wedge\ldots\wedge dx_{i_k}\)
+
+\end{itemize}
+
+\par
+definiert ist. \(d\) verwandelt eine \(k\)–Form also in eine \((k+1)\)–Form.
+\begin{definition}{}{vektoranalysis/diffformen:aeussere Ableitung}
+
+
+
+\par
+Die lineare Abbildung \(d:\Omega^*(U)\to\Omega^*(U)\) heißt \href{https://de.wikipedia.org/wiki/\%C3\%84u\%C3\%9Fere\_Ableitung}{\textbf{äußere Ableitung}}.
+\end{definition}
+\begin{example}{}{vektoranalysis/diffformen:ex:10.14}
+
+
+\begin{enumerate}
+
+\item {} 
+\par
+Für \(\omega\in\Omega^0(\R^3)\) ist \(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
+\frac{\partial\omega}{\partial x_2}dx_2+\frac{\partial\omega}{\partial x_3}dx_3\).
+
+\item {} 
+\par
+Für \(\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)\) ist
+
+\end{enumerate}
+\begin{align*}
+d\omega &=& (d\omega_1)\wedge dx_1+(d\omega_2)\wedge dx_2+(d\omega_3)\wedge
+dx_3\\
+&=& \left(\frac{\partial\omega_2}{\partial x_1}-\frac{\partial\omega_1}{\partial x_2}\right)
+dx_1\wedge dx_2+ \left(\frac{\partial\omega_3}{\partial x_2}-\frac{\partial\omega_2}{\partial x_3}\right)
+dx_2\wedge dx_3\\
+&& + \left(\frac{\partial\omega_1}{\partial x_3}-\frac{\partial\omega_3}{\partial x_1}\right)
+dx_3\wedge dx_1
+\end{align*}\begin{enumerate}
+
+\item {} 
+\par
+Für \(\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
++\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)\) ist
+
+\end{enumerate}
+\begin{align*}
+d\omega = \left(\frac{\partial\omega_{12}}{\partial x_3} + \frac{\partial\omega_{23}}{\partial x_1}
++ \frac{\partial\omega_{31}}{\partial x_2}\right)dx_1\wedge dx_2\wedge dx_3.
+\end{align*}\begin{enumerate}
+
+\item {} 
+\par
+Für \(\omega\in\Omega^3(\R^3)\) ist \(d\omega=0\).
+
+\end{enumerate}
+\end{example}
+\begin{theorem}{}{vektoranalysis/diffformen:Antiderivation}
+
+
+
+\par
+\(d\) ist eine \href{https://de.wikipedia.org/wiki/Derivation\_(Mathematik)\#Antiderivationen}{\textbf{Antiderivation}}, d.h. für \(\alpha\in\Omega^k(U)\) und \(\beta\in\Omega^l(U)\) ist
+\begin{align*}
+d(\alpha\wedge\beta) = (d\alpha)\wedge\beta+(-1)^k\alpha\wedge d\beta.
+\end{align*}\end{theorem}
+
+\begin{proof}
+ Wegen der Linearität von \(d\) genügt es, diese Gleichung für Monome
+\begin{align*}
+\alpha := f\underbrace{dx_{i_1}\wedge\ldots\wedge dx_{i_k}}_{\tilde
+{\alpha}},\ \beta := g\underbrace{dx_{j_1}\wedge\ldots\wedge dx_{j_l}}_
+{\tilde{\beta}},\ f,g\in C^\infty(U,\R)
+\end{align*}
+\par
+zu beweisen.
+Es gilt
+\begin{align*}
+d(\alpha\wedge\beta) &=& d(f\cdot g)\tilde{\alpha}\wedge
+\tilde{\beta} = \big((df)g+f(dg)\big)\,\tilde{\alpha}\wedge\tilde{\beta}\\
+&=& (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}
+\end{align*}\end{proof}
+\begin{theorem}{}{vektoranalysis/diffformen:thm:dd}
+
+
+
+\par
+Auf \(\Omega^*(U)\) gilt
+\end{theorem}
+
+\begin{proof}
+ 1. Für \(f\in\Omega^0(U)\) ist
+\begin{align*}
+ddf &=& d\left(\sum_{i=1}^n\frac{\partial f}
+{\partial x_i}dx_i\right) = \sum_{i=1}^n\sum_{l=1}^n\frac{\partial^2f}{\partial x_l\partial x_i}
+dx_l\wedge dx_i\\
+& =& \sum_{1\leq r< s\leq n}\left(\frac{\partial^2 f}{\partial x_r
+\partial x_s} - \frac{\partial^2f}{\partial x_s\partial x_r}\right)dx_r\wedge dx_s = 0,
+\end{align*}
+\par
+da wir wegen der Glattheit von \(f\) die partiellen Ableitungen vertauschen
+können.
+\begin{enumerate}
+
+\item {} 
+\par
+Für \(\omega = \sum\omega_{i_1\ldots i_k}dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+\in\Omega^k(U)\) ist\textbackslash{}
+
+\end{enumerate}
+\begin{align*}
+dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
+\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0,
+\end{align*}
+\par
+denn gemäß Satz \cref{vektoranalysis/diffformen:Antiderivation} wird die äußere Ableitung auf die
+1 Formen \(d\omega_{i_1\ldots i_k}\) und \(dx_{i_l}\) angewandt, und nach Teil 1.
+ist das Ergebnis Null.
+\end{proof}
+\begin{definition}{}{vektoranalysis/diffformen:geschlossen:exakt}
+
+
+
+\par
+Eine Differentialform \(v\in\Omega^*(U)\) heißt
+\begin{itemize}
+\item {} 
+\par
+\textbf{geschlossen}, wenn \(dv=0\), *\textbf{exakt}, wenn \(v=d\psi\) für ein \(\psi\in\Omega^*(U)\) gilt.
+
+\end{itemize}
+
+\par
+Nach Satz \cref{vektoranalysis/diffformen:thm:dd} sind exakte Differentialformen geschlossen.\textbackslash{} Für \(k\)–Formen auf konvexen offenen Teimengen \(U\subseteq \R^n\) gilt für \(k\ge 1\)auch die Umkehrung (sog.
+\href{https://de.wikipedia.org/wiki/Poincar\%c3\%a9-Lemma}{\textbf{Poincaré Lemma}} ),  siehe Kapitel {sect:Poinca broken reference}).
+\end{definition}
 
 
 \chapter{Bibliography}
@@ -913,7 +3954,13 @@ In ?? haben wir Bewegungslgleichungen als System von DGLs hergeleitet und gelös
 \par
 
 
-\begin{sphinxthebibliography}{For17}
+\begin{sphinxthebibliography}{Bur20}
+\bibitem[AF13]{references:id13}
+\par
+Ilka Agricola and Thomas Friedrich. \emph{Globale Analysis   Differentialformen in Analysis, Geometrie und Physik}. Springer Verlag, Berlin Heidelberg New York, edition, 2013. ISBN 978 3 322 92903 7.
+\bibitem[Bur20]{references:id2}
+\par
+Martin Burger. \emph{Skript zur Vorlesung "Mathematik für Data Science 1 / Physikstudierende A"}. 2020.
 \bibitem[For17]{references:id4}
 \par
 Otto Forster. \emph{Analysis 2}. Springer, 2017.
@@ -926,10 +3973,13 @@ Andreas Knauf. \emph{Mathematische Physik: Klassische Mechanik}. Springer Berlin
 \bibitem[Kna20]{references:id7}
 \par
 Andreas Knauf. \emph{Skript zur Vorlesung "Mathematik für Physikstudierende 3"}. 2020.
-\bibitem[SB18]{references:id9}
+\bibitem[Nol11]{references:id9}
+\par
+Wolfgang Nolting. \emph{Grundkurs Theoretische Physik 2   Analytische Mechanik}. Springer Berlin Heidelberg, 2011. \href{https://doi.org/10.1007/978-3-642-12950-6}{doi:10.1007/978 3 642 12950 6}.
+\bibitem[SB18]{references:id10}
 \par
 Herman Schulz Baldes. \emph{Skript zur Vorlesung "Mathematik für Physiker 3"}. 2018.
-\bibitem[Ten21]{references:id11}
+\bibitem[Ten21]{references:id12}
 \par
 Daniel Tenbrinck. \emph{Skript zur Vorlesung "Mathematik für Data Science 2"}. 2021. URL: \url{https://fau-ammn.github.io/MathDataScience2}.
 \end{sphinxthebibliography}

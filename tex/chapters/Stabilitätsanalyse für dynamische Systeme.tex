@@ -1,0 +1,745 @@
+\chapter{Stabilitätsanalyse für dynamische Systeme}
+\label{\detokenize{odestability/stabilitaetsanalyse:stabilitatsanalyse-fur-dynamische-systeme}}\label{\detokenize{odestability/stabilitaetsanalyse::doc}}
+\par
+In diesem Abschnitt beschäftigen wir uns mit der Stabilitätstheorie für kontinuierliche dynamische Systeme.
+Hierbei interessieren wir uns für die Frage, wie sich \emph{kleine Störungen} von bestimmten Zuständen des Systems auf die Lösungen der zu Grunde liegenden gewöhnlichen Differentialgleichungen auswirken.
+Der untersuchte Zustand kann beispielsweise ein periodischer Orbit oder eine Ruhelage des dynamischen Systems sein.
+Letztere sind oftmals von besonderes Interesse, da man in vielen technischen und physikalischen Anwendungen daran interessiert ist das System in eine oder nahe einer Gleichgewichtslage zu bringen.
+
+\par
+Im Folgenden werden wir verschiedene Stabilitätsbegriffe für dynamische Systeme einführen und speziell Kriterien für die Stabilität von Ruhelagen diskutieren.
+
+
+\section{Stabilitätsbegriffe}
+\label{\detokenize{odestability/stabilitaetsbegriffe:stabilitatsbegriffe}}\label{\detokenize{odestability/stabilitaetsbegriffe::doc}}
+\par
+Im Folgenden wollen wir grundlegende Begriffe der Stabilitätsanalyse von Ruhelagen einführen und diskutieren.
+Wie in \cref{ode/fluesse:s-fluesse}  definiert, nennen wir einen Punkt \(x\in U\) im Phasenraum \(U\) \textbf{Ruhelage}, falls für den zugehörigen Phasenfluss \(\Phi \colon I \times U \rightarrow U\) des dynamischen Systems gilt: \(\Phi(t,x) = x, \forall t \in I\), d.h., wenn für alle \(t \in I\) der Zustand \(x \in U\) ein \textbf{Fixpunkt des Flusses} ist.
+
+\par
+Für autonome Differentialgleichungssysteme mit
+\begin{align*}
+\dot{x}(t) = F(x)
+\end{align*}
+\par
+ist \(x \in U\) auch eine Ruhelage, falls \(F(x) = 0\) gilt, d.h., falls \(x\) eine Nullstelle von \(F\) ist.
+Das ist einfach zu verstehen, da die Zeitableitung auf der linken Seite für eine Ruhelage Null ist und somit die Funktion \(F\), die nur vom Ort abhängt, sich nicht ändern kann.
+
+\par
+Anschaulich versteht man unter der Stabilitätsanalyse von Ruhelagen die mathematische Untersuchung, ob benachbarte Lösungen von einer Ruhelage wegstreben oder nicht.
+Dies ist insbesondere in technischen Anwendungen wichtig, da man dort häufig danach strebt ein dynamisches System in eine Gleichgewichtslage zu bringen.
+Da dies nur bis zu einer gewissen Genauigkeit möglich ist, muss man also mit kleinen Störungen rechnen.
+
+\par
+Ist eine Ruhelage stabil, dann bleiben benachbarte Lösungen auch für zukünftige Zeitpunkte \(t \in I\) nahe der Ruhelage.
+Ist sie jedoch nicht stabil, so muss das im Allgemeinen nicht gelten und die Lösungen können dann mit der Zeit von der Ruhelage divergieren.
+Diese Anschauung wollen wir in der folgenden Definition mathematisch formalisieren.
+Hierbei werden wir den Stabilitätsbegriff für allgemeine Lösungen einführen und später Ruhelagen als ein Spezialfall dieser Lösungen interpretieren.
+\begin{definition}{(Stabilität von Lösungen)}{odestability/stabilitaetsbegriffe:def:Stabilitaet}
+
+
+
+\par
+Sei \(\Phi \colon I \times U \rightarrow U\) der Phasenfluss zu dem Vektorfeld \(F\in C^1(U;\R^n)\) auf \(U\), dass durch die rechte Seite des zugehörigen Differentialgleichungssystems gegeben ist.
+
+\par
+1. Eine Lösung \(t \in [0,\infty) \mapsto \Phi_t(x)\) heißt \textbf{(Lyapunov )stabil}, wenn zu jedem \(\epsilon > 0\) ein \(\delta>0\) existiert mit:
+\begin{align*}
+\|x-y\|<\delta \ \Rightarrow \ \sup_{t\geq0}\|\Phi_t(x)-\Phi_t(y)\|<\epsilon.
+\end{align*}
+\par
+2. Eine Lösung \( t \in [0,\infty) \mapsto \Phi_t(x)\) heißt \textbf{asymptotisch stabil}, wenn ein \(\delta > 0\) existiert mit:
+\begin{align*}
+\|x-y\|<\delta \ \Rightarrow \ \lim_{t\to\infty}\|\Phi_t(x)-\Phi_t(y)\|=0.
+\end{align*}
+\par
+3. Eine Lösung heißt \textbf{instabil}, wenn sie nicht (Lyapunov )stabil ist.
+\end{definition}
+
+\begin{emphBox}{Aleksandr Lyapunov}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Alexander\_Michailowitsch\_Ljapunow}{Alexander Michailowitsch Ljapunow} (Geboren 6. Juni 1857 in Jaroslawl; Gestorben 3. November 1918 in Odessa) war ein russischer Mathematiker und Physiker.
+\end{emphBox}
+
+\par
+Es ist klar, dass der Begriff der asymptotischen Stabilität \emph{stärker} als der Begriff der Lyapunov Stabilität von Lösungen ist, da jede asymptotisch stabile Lösung auch schon Lyapunov stabil ist.
+Die Umkehrung gilt jedoch im Allgemeinen nicht.
+Dies wird durch das folgende Beispiel nochmal illustriert.
+\begin{example}{(Stabilitätsanalyse für den harmonischer Oszillator)}{odestability/stabilitaetsbegriffe:example-1}
+
+
+
+\par
+Der Phasenfluss für den harmonischen Oszillator ist, wie wir in \cref{ode/fluesse:ex:oscillations} gesehen haben, gegeben durch
+\begin{align*}
+\Phi(t, (p,x)) = \begin{pmatrix}
+p \cos(\omega t) - m x \sin(\omega t)\\
+\frac{p}{\omega m}\sin(\omega t) + x\cos(\omega t)
+\end{pmatrix}
+\end{align*}
+\par
+Wir suchen nun einen Fixpunkt \((p_r,x_r) \in U\) des Flusses der unabhängig ist vom Zeitpunkt \(t\).
+Man sieht leicht ein, dass eine \textbf{Ruhelage} sich bei \((p_r,x_r) = (0,0)^T \in U\) befindet, da \(\Phi(t,(0,0)) = (0,0)^T\) ist für alle \(t \in I\).
+Die gefundene Ruhelage ist \textbf{Lyapunov stabil}, denn wie wir im Phasenporträt in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} gesehen haben, ist jeder Orbit um die Ruhelage \((0,0)\) periodisch. Damit kann das dynamische System insgesamt nicht wegstreben von der Ruhelage.
+
+\par
+Mathematisch lässt sich diese Eigenschaft wie folgt zeigen.
+Für ein beliebiges \(\epsilon > 0\) sei \((p,y) \in U\) ein Punkt im Phasenraum mit periodischen Orbit \(O(p,y)\) um die Ruhelage \((p_r,x_r) = (0,0)^T \in U\), so dass dessen maximaler Abstand zur Ruhelage kleiner als \(\epsilon\) ist, d.h.
+\begin{align*}
+\sup_{t \geq 0} ||\Phi_t(p_r,x_r) - \Phi_t(p,y)|| < \epsilon
+\end{align*}
+\par
+Auf Grund der ersten Eigenschaft des Phasenflusses \(\Phi_0(p,y) = (p,y)\) gilt dann aber schon
+\begin{align*}
+||(p_r, x_r) - (p,y)|| = ||\Phi_0(p_r, x_r) - \Phi_0(p,y)|| < \epsilon.
+\end{align*}
+\par
+Wählen wir nun \(\delta \coloneqq \epsilon\), so haben wir gezeigt, dass die Ruhelage \((p_r, x_r) = (0,0)^T\) Lyapunov stabil ist.
+Sie ist jedoch auf Grund der Periodizität der Orbits um die Ruhelage \textbf{nicht asymptotisch stabil}, da für beliebige Punkte \((p,y) \in U\) mit \(||(p_r,x_r) - (p,y)|| < \delta\) für ein \(\delta > 0\) gilt
+\begin{align*}
+\lim_{t\to\infty}\|\Phi_t(p_r, x_r)-\Phi_t(p,y)\| \neq 0.
+\end{align*}\end{example}
+
+\par
+Im allgemeinen Fall der gedämpften Schwingungsgleichung in \cref{ode/fluesse:ex:oscillations} hängt die Stabilität der Ruhelage im Ursprung intuitiverweise von der Reibungskonstanten ab, wie folgende Bemerkung festhält.
+\begin{remark}{(Stabilität bei der gedämpften Schwingungsgleichung)}{odestability/stabilitaetsbegriffe:remark-2}
+
+
+
+\par
+Für den Fall der gedämpften Schwingungsgleichung in \eqref{equation:ode/fluesse:eq:schwingungsgleichung} lässt sich folgendes Stabilitätsverhalten der Ruhelage im Ursprung in Abhängigkeit der Reibungskonstanten \(r \in \R\) beobachten:
+\begin{enumerate}
+
+\item {} 
+\par
+Die Ruhelage ist \textbf{asymptotisch stabil} für den Fall mit positiver Reibung \(r>0\).
+
+\item {} 
+\par
+Die Ruhelage ist \textbf{Lyapunov stabil} für den reibungsfreien Fall \(r=0\).
+
+\item {} 
+\par
+Die Ruhelage ist \textbf{instabil} für den Fall einer negativen Reibung \(r < 0\), d.h. für einen externen Antrieb.
+
+\end{enumerate}
+\end{remark}
+
+
+\section{Stabilität von Ruhelagen}
+\label{\detokenize{odestability/ruhelagen:stabilitat-von-ruhelagen}}\label{\detokenize{odestability/ruhelagen::doc}}
+\par
+Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine \textbf{lineare} Differentialgleichungssysteme untersuchen.
+Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in \cite{Ten21} kennen gelernt.
+
+\par
+Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
+\begin{theorem}{}{odestability/ruhelagen:thm:stablin}
+
+
+
+\par
+Sei \(A\in \C^{n\times n}\) eine Matrix mit den Eigenwerten \(\lambda_1,\dots, \lambda_n\in \C\).
+Dann beschreibt der zugehörige Phasenfluss \(\Phi\) zum homogenen linearen Differentialgleichungssystem
+\begin{align*}
+\dot{x}(t) = Ax(t)
+\end{align*}
+\par
+eine Ruhelage in \(\mathbf{0} \in \C^n\).
+Diese ist sogar eindeutig, falls \(\lambda_i\neq 0, i=1,\ldots,n\) gilt.
+
+\par
+Für
+\begin{align*}
+\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)
+\end{align*}
+\par
+kann die Stabilität der Ruhelage wie folgt charakterisiert werden:
+\begin{enumerate}
+
+\item {} 
+\par
+Falls \(\gamma <0\) gilt, ist die Ruhelage \(\mathbf{0}\) \emph{asymptotisch stabil}
+
+\item {} 
+\par
+Falls \(\gamma >0\) gilt, ist die Ruhelage \(\mathbf{0}\) \emph{instabil}.
+
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+ Wir wissen, dass für einen beliebigen Startpunkt \(x_0 \in U\) im Phasenraum der Phasenfluss \(\Phi \colon I \times U \rightarrow U\) eine Lösung des Differentialgleichungssystems realisiert.
+Für homogene, lineare Differentialgleichungssysteme haben wir bereits in \cref{ode/repetition:s-lineare-dglsysteme}  Lösungen mittels des \emph{Matrixexponentials} hergeleitet.
+
+\par
+Sei \(J = S^{-1}AS\) die Jordansche Normalform von \(A\) mit Transformationsmatrizen \(S^{-1},S \in \C^{n \times n}\), so erhalten wir die Abschätzung
+\begin{align*}
+\|\Phi_t(x_0)\| &= \|e^{tA}x_0\| = \|S^{-1}e^{tJ}Sx_0\| = \|S^{-1}e^{tD}e^{tN}Sx_0\| \\
+&\leq \|S^{-1}\| \cdot \|e^{tD}\| \cdot \|e^{tN}\| \cdot \|S\| \cdot \|x_0\| \leq C_1 \cdot \|e^{tD}\| \cdot \|e^{t N}\|,
+\end{align*}
+\par
+für eine Konstante \(C_1 > 0\), die unabhängig von \(t\) ist.
+Hierbei haben wir ausgenutzt, dass sich die Jordannormalform \(J\) von \(A\) als Summe einer Diagonalmatrix \(D\) mit den Eigenwerten \(\lambda_i \in \C\), \(i=1,\ldots,n\) von \(A\) und einer nilpotenten Matrix \(N\) schreiben lässt als \(J = D + N\).
+Diese Matrizen kommutieren, d.h., \(D \cdot N = N \cdot D\).
+
+\par
+Wir sehen nun ein, dass \(e^{tN}\) wegen der Nilpotenz von \(N\) eine endliche Reihe bildet der Form
+\begin{align*}
+e^{tN} = \sum_{k=0}^m \frac{(tN)^k}{k!} = \sum_{k=0}^m t^k\frac{N^k}{k!},
+\end{align*}
+\par
+welches ein Polynom vom Grad \(m\) darstellt, wobei \(m \in \N\) der Nilpotenzindex der Matrix \(N\) ist.
+
+\par
+Sei nun \(\epsilon > 0\) beliebig klein gewählt.
+Dann lässt sich die Norm des Polynoms mit einer genügend großen Konstanten \(C_2 > 0\), die von \(\epsilon\) jedoch nicht von \(t\) abhängt, durch eine gewöhnliche Exponentialfunktion abschätzen mit
+\begin{align*}
+ \|e^{tN}\| = \| \sum_{k=0}^m t^k\frac{N^k}{k!} \| \leq \sum_{k=0}^m t^k \frac{\|N^k\|}{k!} \leq C_2  e^{t \epsilon}.
+\end{align*}
+\par
+Wählen wir nun \(\gamma \coloneqq \max_{i=1,\dots,n} \mathcal{Re}(\lambda_i)\), so folgt direkt, dass gilt
+\begin{align*}
+||e^{tD}|| \leq C_3 e^{t\gamma}.
+\end{align*}
+\par
+Insgesamt erhalten wir also für die Norm des Phasenflusses
+\begin{align}\label{equation:odestability/ruhelagen:eq:abschaetzungew}
+\|\Phi_t(x_0)\| \leq C_1 \cdot \|e^{tN}\| \cdot \|e^{tD}\| \leq C_1 \cdot C_2 e^{t \epsilon} \cdot C_3 e^{t\gamma} = C e^{t \epsilon} e^{t\gamma}.
+\end{align}
+\par
+Da \(\epsilon > 0\) beliebig klein ist, können wir \(|\epsilon| < |\gamma|\) wählen.
+Damit hängt das Verhalten der Norm des Flusses nur noch vom Vorzeichen von \(\gamma\) ab.
+Wir unterscheiden daher zwei Fälle:
+
+\par
+1. Wenn \(\gamma >0\) ist, so existiert zum Eigenwert \(\gamma\) von \(A\) ein zugehöriger Eigenvektor \(v\in U\), so dass die Eigenwertgleichung \(A v = \gamma v\) gilt.
+Nach \cref{ode/repetition:lem:mpotew} ist dann \(e^{t\gamma}\) ein Eigenwert des Matrixexponentials \(e^{tA}\) mit zugehörigem Eigenvektor \(v\).
+Insgesamt erhalten wir also
+\begin{align*}
+||\Phi_t(\alpha v)|| = ||e^{tA}\alpha v|| = ||\lambda e^{t\gamma} \alpha v|| \to \infty, \quad \text{ für } \ t \to \infty, \quad  \forall \alpha>0.\end{align*}
+\par
+Also enthält jede beliebig kleine Umgebung der Ruhelage \(0\) Punkte, für die die entsprechenden Lösungen divergieren.
+In diesem Fall ist die Ruhelage also \textbf{instabil}.
+
+\par
+2. Falls \(\gamma <0\) gilt, so gilt auch \(\gamma + \epsilon <0\) und wir können abschätzen,
+\begin{align*}
+0\leq \|\Phi_t(x_0)-0\|\leq C e^{t (\gamma + \epsilon)} \to 0 \quad \text{ für } \ t \to \infty.
+\end{align*}
+\par
+Dies liefert uns also \textbf{asymptotische Stabilität} der Ruhelage \(\mathbf{0}\).
+\end{proof}
+
+\par
+Wir haben also gesehen, dass im Fall eines homogenen, linearen Differentialgleichungssystems die \(\mathbf{0}\) immer eine Ruhelage des zugehörigen dynamischen Systems darstellt, deren Stabilität einzig vom Vorzeichen des größten Eigenwerts abhängt.
+
+
+\subsection{Linearisierung um Ruhelage}
+\label{\detokenize{odestability/ruhelagen:linearisierung-um-ruhelage}}\label{\detokenize{odestability/ruhelagen:s-linearisierung-ruhelage}}
+\par
+In diesem Abschnitt wollen wir unsere Erkentnisse zur Stabilitätsanalysie vom Fall eines linearen Differentialgleichungssystems auf den allgemeinen Fall übertragen, da man es in den meisten Anwendungen leider nur selten mit linearen Differentialgleichungen zu tun hat.
+Darüber hinaus ist es erstrebenswert Stabilitätsaussagen zu Differentialgleichungen zu machen, deren Lösungen man nicht explizit analytisch herleiten kann.
+Daher betrachten wir im Folgenden das Anfangswertproblem eines \textbf{allgemeinen Differentialgleichungssystem erster Ordnung} auf dem Phasenraum \(U\in \R^n\), das nicht notwendigerweise linear sein muss und für ein Vektorfeld \(F\in C^1(U;\R^n)\) wie folgt formuliert ist
+\begin{align}\label{equation:odestability/ruhelagen:eq:awpallg}
+\dot{x}(t) &= F(x(t)), \quad \forall t \in I \subset \R^+_0\\
+x(0) &= x_0.
+\end{align}
+\par
+Wir nehmen an, dass \(x_F \in U\) eine Ruhelage des dynamischen Systems ist, so dass dementsprechend \(F(x_F) = 0\) gilt.
+Durch einfache Translation der Koordinaten des Systems um \(x_F \in U\), können wir ohne Beschränkung der Allgemeinheit annehmen, dass die Ruhelage sich im Nullpunkt befindet.
+
+\par
+Im Folgenden definieren wir zwei wichtige Werkzeuge zur Untersuchung der Stabilität von Ruhelagen für allgemeine Differentialgleichungssysteme.
+\begin{definition}{(Linearisierung und Abweichung)}{odestability/ruhelagen:def:linearisierung}
+
+
+
+\par
+Sei \(F\in C^1(U;\R^n)\) ein Vektorfeld auf dem Phasenraum \(U \subset \R^n\) und \(0\) eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in \eqref{equation:odestability/ruhelagen:eq:awpallg} charakterisiert wird.
+Sei nun \((DF)(x)\) die Jacobi Matrix der Funktion \(F\) im Punkt \(x \in U\) (vgl. Kapitel 6.2 in \cite{Ten21}).
+Dann bezeichnen wir mit \(A := (DF)(0)\) die \textbf{Linearisierung} von \(F\) in der Ruhelage \(0 \in U\).
+Außerdem bezeichnen wir die Funktion \(R \in C^1(U; \R^n)\) mit
+\begin{align*}
+R(x) \ \coloneqq \ F(x) - Ax
+\end{align*}
+\par
+als die \textbf{Abweichung} (auch \textbf{Residuum} genannt) des Vektorfeldes \(F\) von seiner Linearisierung \(A\) in der Ruhelage.
+\end{definition}
+
+\par
+Mit diesen Hilfswerkzeugen werden wir im Folgenden zeigen, dass die Lösung des Differentialgleichungssystem in führender Ordnung durch die Linearisierung \(A\) von \(F\) kontrolliert werden, solange wir uns nah genug zur Ruhelage befinden. Dies wird durch das folgende Lemma ausgedrückt.
+\begin{lemma}{}{odestability/ruhelagen:lem:intexpglgn}
+
+
+
+\par
+Wir betrachten das Anfangswertproblem aus \eqref{equation:odestability/ruhelagen:eq:awpallg} auf dem Phasenraum \(U \subset \R^n\) für ein Vektorfeld \(F\in C^1(U;\R^n)\).
+Außerdem sei \(A \coloneqq (DF)(0)\) die Linearisierung des Vektorfelds in der Ruhelage \(0\) des dynamischen Systems und \(R(x) \coloneqq F(x) - Ax\) die Abweichung von \(F\) von seiner Linearisierung \(A\) im Nullpunkt.
+
+\par
+Dann lassen sich Lösungen des Differentialgleichungssystems mittels der Linearisierung \(A\) und der Abweichung \(R\) explizit angeben als
+\begin{align*}
+x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s, \quad \forall t \in I.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Wir setzen zunächst die unbekannte Lösung \(x(t)\) des Anfangswertproblems \eqref{equation:odestability/ruhelagen:eq:awpallg} in der allgemeinen Form
+\begin{align*}
+x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0
+\end{align*}
+\par
+an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion \(c(t)\) mittels \textbf{Variation der Konstanten} (vgl. Kapitel 8.2 in \cite{Ten21}).
+
+\par
+Mittels der Rechenregeln für das Matrixexponentials in \cref{ode/repetition:rem:matrixexponentialregeln} können wir die Ableitung der Funktion \(x\) mittels Produktregel angeben als
+\begin{align*}
+\dot{x}(s) = A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s).
+\end{align*}
+\par
+Aus der Definition des Residuums in \cref{odestability/ruhelagen:def:linearisierung} folgt aber auch
+\begin{align*}
+\dot{x}(s) = F(x(s)) = Ax(s) + R(x(s)).
+\end{align*}
+\par
+Vergleichen wir die beiden Gleichungen, so sieht man ein, dass
+\begin{align*}
+e^{As}\dot{c}(s) = R(x(s))
+\end{align*}
+\par
+gelten muss.
+Äquivalent können wir auch folgern, dass \(\dot{c}(s) = e^{-As}R(x(s))\) gilt.
+
+\par
+Nach dem Hauptsatz der Differential  und Integralrechnung (vgl. Theorem 5.3 in \cite{Ten21}) gilt dann für die unbekannte Funktion \(c\) der folgende Zusammenhang
+\begin{align*}
+c(t) = c(0) + \int_0^t \dot{c}(s)\, \mathrm{d}s = x_0+ \int_0^t e^{-As}R(x(s)) \, \mathrm{d}s.
+\end{align*}
+\par
+Setzen wir dies in die erste Gleichung unserer Ansatzfunktion ein und nutzen die Rechenregeln des Matrixexponnentials aus \cref{ode/repetition:rem:matrixexponentialregeln}  so erhalten wir schließlich die Aussage des Lemmas
+\begin{align*}
+x(t) = e^{At}x_0+ \int_0^t e^{A(t-s)}R(x(s)) \, \mathrm{d}s.
+\end{align*}\end{proof}
+
+\par
+Auf den ersten Blick nützt uns die Identität in \cref{odestability/ruhelagen:lem:intexpglgn} nicht viel, denn auch auf der rechten Seite taucht \(x(s)\), also die unbekannte Lösung des Anfangswertproblems \eqref{equation:odestability/ruhelagen:eq:awpallg} auf.
+Es stellt sich jedoch heraus, dass wir die \textbf{Gronwall Ungleichung} auf diese Integralgleichung anwenden können.
+Diese wichtige Abschätzung in der Theorie von Differentialgleichungen ähnelt Münchhausens Methode, sich an den eigenen Haaren aus dem Sumpf zu ziehen.
+
+\begin{emphBox}{Thomas Gronwall}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Thomas\_Hakon\_Gr\%C3\%B6nwall}{Thomas Hakon Gronwall} (Geboren 16. Januar 1877 in Dylta Bruk bei Axberg/Gemeinde Örebro; Gestorben 9. Mai 1932 in New York, NY) war ein schwedischer Mathematiker.
+\end{emphBox}
+\begin{lemma}{(Gronwall Ungleichung)}{odestability/ruhelagen:lemma:Gronwall}
+
+
+
+\par
+Für zwei stetige Funktionen \(f,g\in C([t_0,t_1]; \R^+)\) gelte für eine Konstante \(a \geq 0\) die Ungleichung
+\begin{align*}
+f(t) \leq a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad \forall t\in [t_0,t_1].
+\end{align*}
+\par
+Dann lässt sich der Wert der Funktion \(f\) durch die Funktion \(g\) wie folgt abschätzen
+\begin{align*}
+f(t) \leq a \exp{ \left(\int_{t_0}^t g(s)\, \mathrm{d}s \right)} \quad \forall t\in [t_0,t_1].
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Wir definieren zunächst eine Hilfsfunktion
+\begin{align*}
+h(t) \ \coloneqq \ a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s
+\end{align*}
+\par
+und bemerken, dass \(0 \leq f(t) \leq h(t)\) nach Voraussetzung gilt für alle \(t \in [t_0, t_1]\).
+Nun führen wir eine einfache Fallunterscheidung durch:
+
+\par
+1. Ist \(h(t)=0\), so folgt mit der Abschätzung \(f(t) \leq h(t)\) schon, dass \(f(t) = 0\) gelten muss, so dass die Behauptung des Lemmas trivialerweise erfüllt ist.
+
+\par
+2. Sei also im Folgenden \(h(t) > 0\).
+Aus dem Haupsatz der Integral  und Differentialrechnung wissen wir, dass \(h'(t) = f(t)g(t)\) gilt.
+Wegen \(f(t) \leq h(t)\) für alle \(t \in [t_0, t_1]\) folgt sofort, dass
+\begin{align*}
+f(t)g(t) \leq h(t)g(t) \quad \forall t \in [t_0,t_1].
+\end{align*}
+\par
+Kombinieren wir diese Abschätzung mit der Identität der Ableitung \(h'(t)\), so erhalten wir durch Umstellen
+\begin{align*}
+\frac{h'(t)}{h(t)} \leq g(t) \quad \forall t \in [t_0, t_1].
+\end{align*}
+\par
+Da wir \(h(t) > 0\) angenommen haben erhalten wir durch Integration beider Seiten die Abschätzung
+\begin{align*}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s \leq \int_{t_0}^t g(s) \, \mathrm{d}s\end{align*}
+\par
+für alle \(t \in [t_0, t_1]\).
+Für die linke Seite können wir das Integral explizit angeben als
+\begin{align*}
+\int_{t_0}^t \frac{h'(s)}{h(s)} \, \mathrm{d}s = \ln(h(t)) - \ln(h(t_0)) = \ln(h(t)) - \ln(a) = \ln\left(\frac{h(t)}{a}\right).
+\end{align*}
+\par
+Es gilt also nun
+\begin{align*}
+\ln \left(\frac{h(t)}{a}\right) \leq \int_{t_0}^t g(s)\, \mathrm{d}s.
+\end{align*}
+\par
+Durch Anwenden der Exponentialfunktion auf beiden Seiten und Ausnutzen der Voraussetzung \(f(t) \leq h(t)\) erhalten wir schließlich die Behauptung des Lemmas
+\begin{align*}
+ f(t) \leq h(t)\leq a \exp{\left( \int_{t_0}^t g(s)\, ds \right)} \quad \forall t \in [t_0,t_1].
+\end{align*}\end{proof}
+
+\par
+Wir wollen folgende Bemerkungen zur Gronwall Ungleichung festhalten.
+\begin{remark}{}{odestability/ruhelagen:remark-4}
+
+
+
+\par
+1. Die in \cref{odestability/ruhelagen:lemma:Gronwall} beschriebene Gronwall Ungleichung ist eigentlich ein Spezialfall für eine konstante Funktion \(a(t) \equiv a \geq 0\).
+Die ursprünglich bewiesene Aussage gilt auch für allgemeinere Funktionen.
+
+\par
+2. Man kann sich die Abschätzung in der Gronwall Ungleichung leicht merken wenn man Gleichheit der beiden Seiten annimmt.
+Die Integralgleichung
+\begin{align*}
+f(t) = a + \int_{t_0}^t f(s)g(s)\, \mathrm{d}s \quad t\in [t_0,t_1]
+\end{align*}
+\par
+entspricht nämlich dem \textbf{linearen Anfangswertproblem}
+\begin{align*}
+\dot{f}(t) &= f(t)\cdot g(t) \quad \forall t \in [t_0, t_1], \\
+f(t_0) &= a,
+\end{align*}
+\par
+welches für alle \(t \in [t_0, t_1]\) die folgende explizite Lösung besitzt
+\begin{align*}
+f(t) = a \exp{\left( \int_{t_0}^t g(s)\, \mathrm{d}s \right)}.
+\end{align*}\end{remark}
+
+\par
+Wir werden die Resultate der beiden Lemmata in den folgenden Abschnitten anwenden, um die Stabilität von Ruhelagen eines allgemeinen dynamischen Systems durch eine Linearisierung zu untersuchen.
+
+
+\subsection{Asymptotische Stabilität von Ruhelagen}
+\label{\detokenize{odestability/ruhelagen:asymptotische-stabilitat-von-ruhelagen}}
+\par
+Durch die explizite Darstellung von Lösungen allgemeiner Differentialgleichungssysteme basierend auf der Linearisierung und Abweichung des Vektorfeldes \(F \colon U \rightarrow \R^n\) in \cref{odestability/ruhelagen:lem:intexpglgn} und der Gronwall Ungleichung in \cref{odestability/ruhelagen:lemma:Gronwall} sind wir nun in der Lage die Stabilität einer Ruhelage eines dynamischen Systems zu analysieren.
+
+\par
+Wir formulieren direkt das Hauptresultat, dass uns ein hinreichendes Kriterium für \textbf{asymptotische Stabilität} der Ruhelage basierend auf den Eigenwerten der Linearisierung liefert.
+\begin{theorem}{(Asymptotische Stabilität von Ruhelagen)}{odestability/ruhelagen:thm:stabasymallg}
+
+
+
+\par
+Sei \(F \in C^1(U; \R^n)\) ein Vektorfeld auf dem offenen Phasenraum \(U \subset \R^n\).
+Eine Ruhelage \(x_F \in  U \subset \R^n\) des dynamischen Systems, das durch das allgemeine Differentialgleichungssystem
+\begin{align*}
+\dot{x}(t) = F(x(t)), \quad \forall t \in \R^+_0
+\end{align*}
+\par
+charakterisiert wird, ist \textbf{asymptotisch stabil} wenn für die Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) der Linearisierung \(A \, \coloneqq \, (Df)(x_F)\) gilt
+\begin{align*}
+\mathcal{Re}(\lambda_i)<0, \quad \text{für } i=1,\ldots,n.
+\end{align*}\end{theorem}
+
+\begin{proof}
+ Wie bereits in \cref{odestability/ruhelagen:s-linearisierung-ruhelage}  diskutiert können wir durch Translation der Koordinaten des dynamischen Systems annehmen, dass ohne Beschränkung der Allgemeinheit \(x_F = 0 \in U\) gilt.
+Da \(U\subseteq\R^n\) nach Vorraussetzung offen ist, können wir eine offene Kugel \(B_{{r^\ast}}(0) \coloneqq \{y \in U \colon ||y|| < {r^\ast}\}\) mit Radius \({r^\ast} > 0\) als Umgebung der Ruhelage \(0\) finden, so dass \(B_{r^\ast}(0) \subset U\) gilt.
+
+\par
+Wir nehmen im Folgenden an, dass der Realteil der Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) der Linearisierung \(A \, \coloneqq \, Df(0)\) echt negativ ist, d.h., für ein geeignetes \(\Lambda > 0\) gilt die Abschätzung
+\begin{align*}
+\mathcal{Re}(\lambda_i)< -\Lambda, \quad \text{für } i=1,\ldots,n.\end{align*}
+\par
+Dann gibt es analog zum Beweis von \cref{odestability/ruhelagen:thm:stablin} eine Konstante \(c>0\), so dass gilt
+\begin{align}\label{equation:odestability/ruhelagen:eq:normexp}
+\|e^{At}\| \leq c\cdot e^{-\Lambda t}\quad \forall t\in \R^+_0.
+\end{align}
+\par
+Hierbei haben wir ausgenutzt, dass wir die Konstante \(\epsilon > 0\) in \eqref{equation:odestability/ruhelagen:eq:abschaetzungew} so klein wählen können, dass \(\gamma + \epsilon < -\Lambda\) gilt.
+
+\par
+Wir können nun einen Radius \(r\in (0,{r^\ast})\) bestimmen, so dass die folgende Abschätzung gilt
+\begin{align}\label{equation:odestability/ruhelagen:eq:residuum}
+\|R(x)\| \leq \frac{\Lambda}{2c} \|x\|, \quad \forall \|x\| \leq r.
+\end{align}
+\par
+Dies liegt an der totalen Differenzierbarkeit des Vektorfelds \(F\) in der Ruhelage (vgl. Kapitel 6.2 in \cite{Ten21}), denn dies bedeutet, dass das Residuum in der Nähe der Ruhelage schnell genug gegen Null konvergiert, so dass gilt
+\begin{align*}
+\lim_{x\to 0} \frac{\|R(x)\|}{\|x\|} = \lim_{x\to 0}\frac{\|F(x)- (DF)(0)\cdot x\|}{\|x\|} = 0.
+\end{align*}
+\par
+Wir wollen im Folgenden zeigen, dass wenn der Anfangswert unserer unbekannten Lösung des Differentialgleichungssystems beschränkt ist durch
+\begin{align*}
+\|x(0)\| \leq \epsilon <\frac{r}{c},
+\end{align*}
+\par
+dann soll schon für die Norm der Lösung für beliebiges \(t \geq 0\) gelten
+\begin{align*}
+\|x(t)\| \leq c\epsilon e^{-\frac{\Lambda t}{2}}.
+\end{align*}
+\par
+Da \(c\epsilon e^{- \frac{\Lambda t}{2}} \leq c\epsilon < r <\tilde{r}\) gilt, liegt die Lösung somit noch in der offenen Kugel \(B_{{r^\ast}}(0) \subset U\) und konvergiert für \(t \rightarrow \infty\) gegen 0, was den Satz beweist.
+
+\par
+Nehmen wir also an, dass \(\|x(0)\| \leq \epsilon <\frac{r}{c}\) gelte.
+Nun können wir nach \cref{odestability/ruhelagen:lem:intexpglgn} die unbekannte Lösung durch ihre Linearisierung darstellen als
+\begin{align*}
+x(t) = e^{At}x_0 + \int_0^t e^{A(t-s)} R(x(s))\, \mathrm{d}s.
+\end{align*}
+\par
+Nehmen wir also die Norm der unbekannten Lösung in dieser Darstellung und nutzen die Abschätzungen \eqref{equation:odestability/ruhelagen:eq:normexp} und \eqref{equation:odestability/ruhelagen:eq:residuum}, so erhalten wir
+\begin{align*}
+\|x(t)\|\leq ce^{-\Lambda t}\|x_0\| + \int_0^tce^{-\Lambda (t-s)}\frac{\Lambda}{2c}\|x(s)\|\, \mathrm{d}s, \quad \forall \|x\| \leq r.
+\end{align*}
+\par
+Multiplizieren wir beide Seiten der Ungleichung mit \(e^{\Lambda t}\) und definieren uns eine Hilfsfunktion \(f(t):=e^{\Lambda t}\|x(t)\|\), dann erhalten wir
+\begin{align*}
+f(t)\leq \underbrace{c\|x_0\|}_{=:a} + \int_0^t \underbrace{\frac{\Lambda}{2}}_{=:g(s)} f(s)\, \mathrm{d}s.
+\end{align*}
+\par
+Für diese Form der Ungleichung bietet es sich an das \cref{odestability/ruhelagen:lemma:Gronwall} zur Gronwall Ungleichung anzuwenden, durch das wir schließlich folgendes Resultat bekommen
+\begin{align*}
+f(t) \leq c \|x_0\| \exp{\left( \frac{1}{2} \int_0^t \Lambda \, \mathrm{d}s \right) }
+\leq c \epsilon e^{\frac{\Lambda}{2} t} \leq r e^{\frac{\Lambda}{2} t}.
+\end{align*}
+\par
+Durch Multiplikation beider Seiten mit \(e^{-\Lambda t}\) führt dies zur finalen Abschätzung
+\begin{align*}
+ \|x(t)\|\leq re^{-\frac{\Lambda}{2}t}, \quad \forall t\in\R^+_0.
+\end{align*}
+\par
+Wir sehen also ein, dass die unbekannte Lösung für alle nicht negativen Zeiten in der offenen Kugel \(B_r(0) \subset B_{{r^\ast}}(0) \subset U\) enthalten ist und offensichtlich gegen Null konvergiert.
+Damit ist die Ruhelage \(0 \in U\) asymptotisch stabil.
+\end{proof}
+
+\par
+Folgende Bemerkung geht speziell auf ein Detail des Beweises ein, das eine Aussage zum Konvergenzradius der Lösungen eines dynamisches Systems zulässt.
+\begin{remark}{(Attraktionsbassin)}{odestability/ruhelagen:remark-6}
+
+
+
+\par
+Der Beweis von \cref{odestability/ruhelagen:thm:stabasymallg} liefert zusätzlich die Aussage, dass alle Punkte \(x\in U\) im Phasenraum mit
+\begin{align*}
+\|x\| < \frac{r}{c}
+\end{align*}
+\par
+zu Orbits gehören, die gegen die Ruhelage \(0 \in U\) konvergieren.
+Diesen attraktiven Einzugsbereich der Ruhelage nennt man auch das \textbf{Attraktionsbassin} der Ruhelage.
+\end{remark}
+
+
+\subsection{Lyapunov Stabilität von Ruhelagen}
+\label{\detokenize{odestability/ruhelagen:lyapunov-stabilitat-von-ruhelagen}}
+\par
+Während ein hinreichendes Kriterium für das Vorliegen \emph{asymptotischer Stabilität} die strikte Ungleichung \(Re(\lambda_i)<0\) für die Eigenwerte \(\lambda_i\) der Jacobi Matrix war, ist die Situation bezüglich der Lyapunov Stabilität einer Ruhelage \textbf{komplizierter}.
+Hierzu wollen wir ein Resultat für den Fall von linearen dynamischen Systemen im Folgenden formulieren.
+\begin{theorem}{(Lyapunov Stabilität von Ruhelagen)}{odestability/ruhelagen:thm:stablyaplinear}
+
+
+
+\par
+Sei \(A\in \R^{n\times n}\) eine Matrix mit den Eigenwerten \(\lambda_1,\dots, \lambda_n\in \C\).
+Besitzen die Eigenwerte \(\lambda_i \in \C, i=1,\ldots,n\) von \(A\) einen nicht positiven Realteil \(Re(\lambda_i) \leq 0\), und ist im Fall \(Re(\lambda_i)=0\) die geometrische Vielfachheit gleich der algebraischen Vielfachheit des Eigenwerts, dann ist \(0\in \R^n\) eine \textbf{Lyapunov stabile} Ruhelage des dynamischen Systems, dass durch das lineare Differentialgleichungssystem
+\begin{align*}
+\dot{x}(t) = Ax(t), \quad  \forall t \in I \subset \R^+_0
+\end{align*}
+\par
+charakterisiert wird.
+\end{theorem}
+
+\begin{proof}
+ Aus \cref{odestability/ruhelagen:thm:stablin} wissen wir bereits, dass im Fall eines linearen dynamischen Systems \(\vec{0} \in U\) eine Ruhelage im Phasenraum \(U \subset \R^n\) ist.
+Seien \(\lambda_1, \ldots, \lambda_k \in \C\) für \(k \leq n\) die paarweise verschiedenen Eigenwerte der Matrix \(A\).
+Wir betrachten wieder die Jordansche Normalform \(J = S^{-1}AS\) der Matrix \(A\) für Transformationsmatrizen \(S,S^{-1} \in \C^{n \times n}\) und
+\begin{align*}
+J=
+\begin{pmatrix}
+J_{r_1}(\lambda_1)& & & 0\\
+ & J_{r_2}(\lambda_2) & & \\
+ & & \ddots & \\
+ 0 & & & J_{r_k}(\lambda_k)
+\end{pmatrix}.
+\end{align*}
+\par
+Hierbei bezeichnen \(r_i \in \N, i=1,\ldots, k\) die algebraischen Vielfachheiten der zugehörigen Eigenwerte und jeder Jordanblock (vgl. Kapitel 2.7 in \cite{Ten21})) hat die Gestalt
+\begin{align*}
+ J_r(\lambda) \ \coloneqq \ \begin{pmatrix}
+\lambda & 1 & & 0\\
+ & \ddots & \ddots & \\
+ & & \ddots & 1\\
+ 0 & & & \lambda
+ \end{pmatrix} \in \C^{r\times r}
+\end{align*}
+\par
+Mit den Rechenregeln für das Matrixexponential aus \cref{ode/repetition:rem:matrixexponentialregeln} folgt
+\begin{align*}
+e^{Jt} = \begin{pmatrix}
+\exp{(J_{r_1}(\lambda_1)t)} & & 0\\
+ & \ddots & \\
+ 0& & \exp{(J_{r_k}(\lambda_k)t)}
+ \end{pmatrix}.
+\end{align*}
+\par
+Betrachten wir nun die Norm der Lösungen des homogenen, linearen Differentialgleichungssystems für einen Startwert \(x_0 \in U\) mit
+\begin{align*}
+\| \Phi_t(x_0) \| = \|e^{At}x_0\| = \|S^{-1}e^{Jt}S x_0\| \leq \|S^{-1}\| \|e^{Jt}\| \|S\| \|x_0\|,
+\end{align*}
+\par
+so sehen wir ein, dass die Ruhelage \(\vec{0} \in U\) \textbf{Lyapunov stabil} ist wenn für alle Jordanblöcke \(J_{r_i}(\lambda_i), i=1,\ldots,k\) von \(J\) der Ursprung \(0\in \C^{r_i}\) eine Lyapunov stabile Ruhelage des folgenden linearen Differentialgleichungssystems ist
+\begin{align*}
+ \dot{y}(t) = J_{r_i}(\lambda_i) y(t), \quad t \in I \subset \R^+_0.
+\end{align*}
+\par
+Dies ist bereits gegeben falls für einen Eigenwert \(Re(\lambda_i)<0\) gilt, denn damit folgt aus \cref{odestability/ruhelagen:thm:stablin} sogar schon \textbf{asymptotische Stabilität}, welche Lyapunov Stabilität induziert.
+
+\par
+Betrachten wir also nun einen komplexen Eigenwert \(\lambda_i \in \C\) von \(A\) mit \(Re(\lambda_i)=0\) und für den die geometrische Vielfachheit nach Vorraussetzung gleich der algebraischen Vielfachheit ist.
+In diesem Fall ist der ihm zugeordnete Jordanblock eine Diagonalmatrix auf deren Hauptdiagonale der Eigenwert \(\lambda_i \in \C\) steht, da alle Jordankästchen eindimensional sind.
+In diesem Fall sehen wir, dass die Norm des Matrixexponentials beschränkt ist und wir dadurch \textbf{Lyapunov Stabilität} der Ruhelage gezeigt haben, da gilt
+\begin{align*}
+\|e^{J_{r_i}(\lambda_i)t)}\| = |e^{\lambda_i t}| = |e^0e^{\mathcal{Im}(\lambda_i) t}| = |\cos{(\mathcal{Im}(\lambda_i)t)} + i \sin{(\mathcal{Im}(\lambda_i)t)}| = 1.
+\end{align*}
+\par
+Für diese Umformung haben wir die Definition der komplexen Exponentialfunktion genutzt, für die gilt:
+\begin{align*}
+e^z = e^{x+iy} = e^xe^iy = e^x(\cos(y) + i\sin(y)), \quad \text{für } z = x+iy \in \C.
+\end{align*}\end{proof}
+
+\par
+Das folgende Beispiel illustriert, dass eine Ruhelage instabil werden kann, wenn die geometrische Vielfachheit nicht mit der algebraischen Vielfachheit übereinstimmt für einen Eigenwert \(\lambda =0\) der Koeffizientenmatrix \(A\).
+\begin{example}{}{odestability/ruhelagen:example-8}
+
+
+
+\par
+Sei \(U \subset \R^2\) der Phasenraum und wir betrachten das homogene, lineare Differentialgleichungssystem
+\begin{align*}
+\dot{x}(t) = A x(t), \quad \forall t \in \R_0^+
+\end{align*}
+\par
+für eine Koeffizientenmatrix
+\begin{align*}
+A = \begin{pmatrix} 0&1\\0&0\end{pmatrix}.
+\end{align*}
+\par
+Wie man leicht nachrechnet besitzt diese Matrix den Eigenwert \(\lambda = 0\) mit algebraischer Vielfachheit \(2\) und geometrischer Vielfachheit \(1\) zum Eigenvektor \(v = (1,0)^T \in \R^2\).
+Die Vielfachheiten des Eigenwert \textbf{stimmen} also \textbf{nicht überein}.
+
+\par
+Aus \cref{odestability/ruhelagen:thm:stablin} wissen wir, dass eine Ruhelage in \(\vec{0} \in \R^2\) existiert.
+Man sieht jedoch leicht ein, dass sogar jeder Punkt \(x_0 = (y, 0) \in U\) eine Ruhelage des Systems darstellt, da diese Punkte ein Vielfaches des Eigenvektors zum Eigenwert \(\lambda = 0\) darstellen und somit im Kern der Matrix \(A\) liegen, d.h., für diese Punkte ist die rechte Seite des Differentialgleichungssystems \(\vec{0} \in \R^2\) und somit liegt eine Ruhelage vor.
+
+\par
+Wir wollen die Stabilität dieser Ruhelagen im Folgenden untersuchen.
+Hierzu betrachten wir die Norm des Phasenflusses \(\Phi \colon I \times U \rightarrow U\), der für einen gegebenen Anfangswert \(x_0 = (y,z) \in U\) mit \(z \neq 0\) der die Lösung des Differentialgleichungssystems beschreibt mit
+\begin{align*}
+\| \Phi_t(x_0) \| &= \| e^{At}x_0 \| = \| \sum_{k=0}^\infty \frac{(At)^k}{k!} x_0\| = \| [\underbrace{(At)^0}_{=I_2} + (At)^1] x_0\| \\
+&= \| \begin{pmatrix} 1 & t \\ 0 & 1\end{pmatrix}\begin{pmatrix} y \\ z \end{pmatrix} \| = \| \begin{pmatrix} y + tz \\ z\end{pmatrix} \| \overset{t\to \infty}{\longrightarrow} \infty.
+\end{align*}
+\par
+Wir sehen also, dass für jeden Anfangswert \(x_0 = (y,z)\) mit \(z \neq 0\) die Lösung des Differentialgleichungssystems divergiert und somit ist jede Ruhelage des dynamischen Systems \textbf{instabil}.
+\end{example}
+
+\par
+Leider kann man nicht wie im Fall der asymptotischen Stabilität vom linearen auf den nichtlinearen Fall schließen, wie das folgende Beispiel zeigt.
+\begin{example}{}{odestability/ruhelagen:example-9}
+
+
+
+\par
+Wir betrachten eine gewöhnliche Differentialgleichung 1. Ordnung der Form
+\begin{align*}
+\dot{x}(t) = \alpha x(t) + \beta x^3(t), \forall t \in \R^+_0.
+\end{align*}
+\par
+mit freien Parametern \(\alpha, \beta \in \R\).
+
+\par
+Wie man einsieht ist \(0\) eine Ruhelage des dynamischen Systems, das durch diese Differentialgleichung charakterisiert wird.
+Wir betrachten die Linearisierung der Differentialgleichung in der Ruhelage mit \(A := (DF)(0) = \alpha\) und erhalten
+\begin{align*}
+\dot{x}(t) = A x(t) = \alpha x(t), \quad \forall t \in \R^+_0.
+\end{align*}
+\par
+Folgende Fallunterscheidung zeigt nun das Stabilitätsverhalten der Ruhelage in Abhängigkeit der gewählten Parameter \(\alpha, \beta \in \R\):
+
+
+\begin{center}
+\centering
+\begin{tabularx}{\linewidth}[{\linewidth}]{|c|c|c|}\hline
+
+\par
+
+& 
+\par
+linearisierte Gleichung
+& 
+\par
+nicht lineare Gleichung
+\\
+\hline
+\par
+\(\alpha<0\)
+&
+\par
+asymptotisch stabil
+&
+\par
+asymptotisch stabil
+\\
+\hline
+\par
+\(\alpha>0\)
+&
+\par
+instabil
+&
+\par
+instabil
+\\
+\hline
+\par
+\(\alpha=0\)
+&
+\par
+Lyapunov stabil
+&
+\par
+asymptotisch stabil für \(\beta<0\)
+\\
+\hline
+\par
+
+&
+\par
+
+&
+\par
+stabil für \(\beta =0 \)
+\\
+\hline
+\par
+
+&
+\par
+
+&
+\par
+instabil \(\beta > 0\)
+\\
+\hline
+\end{tabularx}
+\end{center}
+
+\par
+Wie man sieht hängt die Stabilität im nichtlinearen Fall nicht nur vom Parameter \(\alpha\), sondern ebenfalls von \(\beta\) ab, was eine Stabilitätsanalyse deutlich komplizierter macht.
+\end{example}
+
+
