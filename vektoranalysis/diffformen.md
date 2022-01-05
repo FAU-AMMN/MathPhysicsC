@@ -566,7 +566,7 @@ Man bemerke, dass die oben definierten Abbildungen erneut **unabhängig** von de
 
 #### Algebraische Definition
 
-Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr anschaulich als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind.
+Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr als Kurven, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind. Die Motivation hierbei soll die Richtungsableitung aus {prf:ref}`def:direcdiv` sein und speziell die folgenden Eigenschaften.
 
 ````{prf:lemma}
 Es sei $\M$ eine glatte Mannigfaltigkeit, $p\in\M$ und $\gamma:[-1,1]\to\M$ eine glatte Kurve durch $p$, dann gilt für die Richtungsableitung $D_\gamma:C^\infty(\M)\to\R$, 
@@ -577,7 +577,13 @@ Es sei $\M$ eine glatte Mannigfaltigkeit, $p\in\M$ und $\gamma:[-1,1]\to\M$ eine
 
 ````
 
-````{prf:definition} Derivation
+````{prf:proof}
+Siehe Übung.
+````
+
+Die zweite Eigenschaft wird auch *Produktregel* oder *Leibnizregel* genannt. Wir wollen nun im folgenden nicht nur Richtungsableitungen betrachten, sondern allgemeine Funktionale, die diese Eigenschaft erfüllen.
+
+````{prf:definition} Derivation und algebraischer Tangentialraum
 Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$ ein Punkt der Mannigfaltigkeit.
 Wir nennen eine lineare Abbildung $D: C^\infty(\M) \to \R$ eine **Derivation** an $p$, falls sie die folgende Produktregel erfüllt, 
 
@@ -594,47 +600,70 @@ T^{\text{alg}}_p\M:=\{D\in C^\infty(\M)^\ast: D\text{ ist Derivation an }p\}
 wird als **algebraischer Tangentialraum** bezeichnet.
 ````
 
-Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum.
+Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum, da per Definition
+
+```{math}
+T^{\text{alg}}_p\M \subset C^\infty(\M)^\ast
+```
+
+gilt. Somit erbt der algebraischer Tangentialraum die Vektorraumoperationen von $C^\infty(\M)^\ast$ und es muss lediglich nachgeprüft werden, dass diese Teilmenge noch immer ein Vektorraum ist.
 
 ````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist $T^{\text{alg}}_p\M$ ein reeller Vektorraum.
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, dann ist $T^{\text{alg}}_p\M$ ein reeller Vektorraum.
 ````
 
 ````{prf:proof}
 Siehe Übung.
 ````
 
-Diese Definition des Tangentialraums ist äquivalent zu der geometrischen Variante.
+Wir der Name schon erkennen lässt haben Derivationen gewisse Eigenschaften, die von der Ableitungsoperation bekannt sind. So z.B. bildet jede Derivation konstante Funktionen auf $0$ ab.
 
 ````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$. 
+:label: lem:constder
 
-Dann existiert ein Isomorphismus 
+Es sei $\M$ eine glatte Mannigfaltigkeit, $p\in\M$ und $f\in C^\infty(\M)$ sei konstant, d.h., es existiert $c\in\R$, s.d., 
 
 ```{math}
-\Theta: T^{\text{geom}}_p\M &\to T^{\text{alg}}_p\M\\
-\gamma &\mapsto D_\gamma
+f(q) = c\quad\forall q\in\M,
 ```
 
-zwischen dem geometrischen und algebraischen Tangentialraum.
+dann gilt $D(f)=0$ für alle Derivationen $D\in T^{\text{alg}}_p\M$.
 ````
 
 ````{prf:proof}
-Die Identifikation lässt sich sehr einfach angeben.
-Ist nämlich $\gamma$ eine differenzierbare Kurve, so ist durch
+Es sei $D\in T^{\text{alg}}_p\M$, wir betrachten die Funktion 
 
 ```{math}
-D_\gamma(f):= (f\circ \gamma)^\prime(0)
+g:&\M\to \R\\
+&q\mapsto 1
 ```
 
-eine Derivation an $\gamma(0)$ gegeben. 
-Ist umgekehrt eine Derivation $D$ gegeben, so erhalten wir über
+also die konstante Einsfunktion. Dann gilt
 
 ```{math}
-\gamma_D(t):= \phi^{-1} (\phi(p) + t (D(\phi_1), \ldots, D(\phi_n)))
+D(g) = D(g\cdot g) = D(g)\,g(p) + g(p)\, D(g) = 2\,D(g)
 ```
 
-eine differenzierbare Kurve durch $p$. 
+und somit $D(g) = 0$. Per Annahme wissen wir $f= c\,g$ und unter Ausnutzung der Linearität von $D$ erhalten wir 
+
+```{math}
+D(f) = D(c\,g) = c\,D(g) = 0.
+```
+````
+
+Wir haben nun zwei verschiedene Arten gesehen den Tangentialraum einzuführen. Tatsächlich sind diese Definitionen äquivalent in dem Sinne, dass ein Isomorphismus zwischen dem geometrischen und algebraischen Tangentialraum existiert.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, dann gilt 
+
+```{math}
+T^{\text{geom}}_p\M \cong T^{\text{alg}}_p\M.
+```
+
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`Jnich2003` Kapitel 2.3.
 ````
 
 (sec:TPBasis)=
@@ -648,32 +677,168 @@ t\mapsto t e_i
 ```
 
 für $i=1,\ldots,n$, wobei $e_i$ den $i$-ten Einheitsvektor in $\R^n$ bezeichnet.
-Wir können diese Idee auf Mannigfaltigkeiten übertragen.
-Dazu wählen wir eine Karte $\phi:\M\to\R^n$, wobei man hier auch von
+Um diese Idee auf Mannigfaltigkeiten zu übertragen wählen wir eine Karte $\varphi:\M\to\R^n$, wobei man hier auch von
 
 ```{math}
-\phi = (\phi_1,\ldots,\phi_n) =: (x^1,\ldots,x^n)
+\phi = (\varphi_1,\ldots,\varphi_n) =: (x^1,\ldots,x^n)
 ```
 
-als **lokales Koordinatensystem** spricht.
-
-So erhalten wir Kurven
+als **lokales Koordinatensystem** spricht. Wir erhalten somit Kurven
 
 ```{math}
-\gamma_{x^i}(t):= p + \phi(t e_i)
+\gamma_{x^i}(t):= \varphi^{-1}(\varphi(p) + t e_i)
 ```
 
-und darüber die Derivationen
+und mithilfe der Richtungsableitung die Derivationen
 
 ```{math}
-\partial_{x^i}\rvert_p: C^\infty(\M) \to \R\\
-\partial_{x^i}\rvert_p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
+\partial_{x^i}^p: C^\infty(\M) \to \R\\
+\partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
 ```
 
-Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}\rvert_p$ als Derivation, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
+Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}^p$ als Derivation an $p\in\M$, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$. Diese partiellen Derivationen erhalten die Intuition, dass die partielle Ableitung in eine Richtung auch nur Änderungen in diese Richtung respektiert. Wir formalisieren diese Anschauung in folgendem Lemma.
 
 ````{prf:lemma}
-Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1}\revert_p,\ldots,\partial_{x^n}\}\revert_p$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
+:label: lem:partderkron
+
+Es sei $\M$ eine glatte Mannigfaltigkeit, $p\in\M$ und $(U,\phi)$ sei Karte mit $p\in U$, dann gilt 
+
+```{math}
+\partial_{x^i}^p(\varphi_j) = \delta_{ij}
+```
+
+wobei $\delta$ das Kronecker-Delta bezeichnet.
+````
+
+````{prf:proof}
+Wir betrachten zunächst die Funktion $\varphi_j \circ \gamma_{x^i}$ und erhalten für $t\in [-1,1]$
+
+```{math}
+\varphi_j \circ \gamma_{x^i}(t)
+&= \varphi_j \circ \varphi^{-1}(\phi(p) + t e_i)\\
+&= (\varphi(p) + t e_i)_j\\ 
+&=
+\begin{cases}
+\varphi(p) + t e_i &\text{ für } i=j\\
+\varphi_j(p)&\text{ sonst}
+\end{cases}.
+```
+
+Somit gilt für die partielle Derivation 
+
+```{math}
+\partial_{x^i}^p(\varphi_j)=
+\frac{d}{dt} \varphi_j \circ \gamma_{x^i}(t) = 
+\begin{cases}
+1&\text{ für } i=j\\
+0&\text{ sonst}
+\end{cases}.
+```
+
+````
+
+Das folgende Hauptresultat dieses Abschnitts erlaubt es uns beliebige Derivationen mithilfe der partiellen Derivationen darzustellen, da diese eine Basis des algebraischen Tangentialraums bilden.
+
+````{prf:theorem}
+Es sei $\M$ eine $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1}\rvert_p,\ldots,\partial_{x^n}\rvert_p\}$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
+````
+
+````{prf:proof}
+Es sei $(U,\varphi)$ eine Karte und o.B.d.A. nehmen wir an, dass $\varphi(p)=0$ gilt, was stets durch Translation des Koordinatensystems erreicht werden kann. Zusätzlich finden wir dann $r>0$ klein genug, s.d., $B_r(0)\subset \varphi(U)$ gilt und betrachten als Karte die Einschränkung von $\varphi$ auf $\tilde{U}:= \varphi^{-1}(B_r(0))$, $\tilde{\varphi} := \varphi\rvert_{\tilde{U}}$. Wegen der Kartenunabhängigkeit und der Tatsache, dass $(\tilde{U},\tilde{\varphi})$ auch eine Karte für $\M$ ist, mit $p\in \tilde{U}$ können wir diese Karte betrachten. 
+
+Da das Bild nun der Ball $B_r(0)$ ist dürfen wir Strahlen von $0$ zu einem beliebigen Punkt im Bild von $\tilde{\varphi}$ betrachten, wobei der gesamte Strahl selbst schon im Bild enthalten ist.
+
+Sei nun $f\in C^\infty(\M)$, dann betrachten wir $g:= f\circ \tilde{\varphi}^{-1}$ und somit gilt insbesondere $g\in C^\infty(\R^n)$. Für beliebiges $q\in\tilde{U}$ und $z:=\tilde{\varphi}(q)\in B_r(0)$ können wir dann die Einschränkung auf den eindimensionalen Strahl zwischen $0$ und $z$ betrachten, konkret 
+
+```{math}
+\tilde{g}:&[0,1]\to\R\\
+t&\mapsto g(t\cdot z)
+```
+
+wobei wir erneut erkennen, dass $\tilde{g}\in C^\infty([0,1])$. Insbesondere, können wir den Hauptsatz der Integralrechnung anwenden und erhalten 
+
+```{math}
+\tilde{g}(1) = \tilde{g}(0) + \int_{0}^1 \tilde{g}^\prime(t) dt.
+```
+
+Wir berechnen die Ableitung im Integral und erhalten, 
+
+```{math}
+\int_{0}^1 \tilde{g}^\prime(t) dt
+&=\int_{0}^1 \langle (\nabla g)(t\cdot z), z \rangle dt\\
+&=\sum_{i=1}^{n} \int_{0}^1  (\partial_i g)(t\cdot z)\,z_i dt.
+```
+
+Da
+
+```{math}
+\tilde{g}(1) = g(z)=f(q)
+```
+
+und 
+
+```{math}
+\tilde{g}(0) = g(0) = g(\varphi(p))=f(p)
+```
+
+gilt, folgt daraus
+
+```{math}
+f(q) = 
+f(p) + 
+\sum_{i=1}^{n} \varphi_i(q)\, \underbrace{\int_{0}^1  \partial_i (f\circ \varphi^{-1})(t\cdot \varphi(q)) dt}_{:=F_i(q)}.
+```
+
+An diesem Punkt, beachten wir, dass $f\circ \varphi^{-1} \in C^\infty(\R^n)$ eine klassisch differenzierbare Funktion ist während $f$ auf der Mannigfaltigkeit $\M$. Wenden wir nun die $j$te partielle Derivation auf $f$ an, erhalten wir unter Ausnutzung der Linearität von $\partial_{x^j}^p$
+
+```{math}
+\partial_{x^j}^p (f) = 
+\underbrace{\partial_{x^j}^p (f(p))}_{=0} + 
+\sum_{i=1}^{n} \partial_{x^j}^p(\varphi_i \cdot F_i) = 
+\sum_{i=1}^{n} \partial_{x^j}^p(\varphi_i \cdot F_i)
+```
+
+wobei wir {prf:ref}`lem:constder` und die Tatsache, dass $\varphi_i, F_i\in C^\infty(\M)$ gilt, benutzt haben. Weiterhin folgt 
+
+```{math}
+\partial_{x^j}^p(\varphi_i \cdot F_i(q)) = 
+\underbrace{\partial_{x^j}^p(\varphi)}_{=\delta_{ij}} F_i(p)+ \underbrace{\varphi_i(p)}_{=0} \partial_{x^j}^p(F_i)
+```
+
+wobei wir {prf:ref}`lem:partderkron` und $\varphi(p)=0$ ausgenutzt haben. Somit folgt 
+
+```{math}
+\partial_{x^j}^p (f) = F_j(p)
+```
+
+und damit insbesondere 
+
+```{math}
+f = f(p) + \sum_{i=1}^{n} \varphi_i \partial_{x^i}^p(f).
+```
+
+Dies führt nun darauf, dass die partiellen Derivationen ein Erzeugendensystem bilden, denn sei $D\in T^{\text{alg}}_p$ beliebig, dann gilt 
+
+```{math}
+D(f) = \underbrace{D(f(p))}_{=0} + \sum_{i=1}^n \partial_{x^i}^p(f) D(\varphi_i).
+```
+
+D.h., dass jede Derivation $D$ über eine Linearkombination aus partiellen Derivationen dargestellt werden kann, wobei die Faktoren durch $D(\varphi_i)$ gegeben sind. 
+
+Es bleibt die Eindeutigkeit zu zeigen, seien dazu Faktoren $\alpha_i$ gegeben, s.d. für jede Funktion $f\in C^\infty(\M)$ gilt
+
+```{math}
+D:= \sum_{i=1}^n \alpha_i \partial_{x^i}^p(f) = 0.
+```
+
+Erneut unter Benutzung von {prf:ref}`lem:partderkron` erhalten wir aber, dass 
+
+```{math}
+0 = D(\varphi_j) = \alpha_j 
+```
+
+für alle $j=1,\ldots,n$ und somit gilt die lineare Unabhängigkeit.
+
 ````
 
 #### Kotangentialraum
@@ -918,7 +1083,7 @@ f\mapsto [p\mapsto X(f)(p) := df_p(X)]
 
 #### Lokale Basis von Vektorfeldern
 
-Aus {ref}`sec:TPBasis` wissen wir bereits, dass wir für $p\in\M$ Tangentialvektoren $v\in T_p\M$ durch die Vektoren $\partial_{x^i}\rvert_p$ darstellen können. Im Kontext von Tangentialbündeln stellt sich auf natürliche Art die Frage, wie sich diese Vektoren verändern, wenn der Punkt $p$ variiert wird. Hierzu definieren wir folgende Abbildungen.
+Aus {ref}`sec:TPBasis` wissen wir bereits, dass wir für $p\in\M$ Tangentialvektoren $v\in T_p\M$ durch die Vektoren $\partial_{x^i}^p$ darstellen können. Im Kontext von Tangentialbündeln stellt sich auf natürliche Art die Frage, wie sich diese Vektoren verändern, wenn der Punkt $p$ variiert wird. Hierzu definieren wir folgende Abbildungen.
 
 ````{prf:definition}
 Es sei $\M$ eine glatte $n$-dimesnionale Mannigfaltigkeit und $(U,\phi)$ eine Karte, dann definieren wir die lokalen Koordinatenfelder 
