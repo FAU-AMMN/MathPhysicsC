@@ -1251,13 +1251,13 @@ Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist das **Kotangentialbündel** $
 definiert.
 ````
 
-Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialündeln aussehen soll. Für zwei Vektorbündel $E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}$ wissen wir, dass für jedes $p\in\M$ die Fasern $E_p, F_p$ endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
+Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialbündeln aussehen soll. Für zwei Vektorbündel $E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}$ wissen wir, dass für jedes $p\in\M$ die Fasern $E_p, F_p$ endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
 
 ```{math}
 E_p\otimes F_p
 ```
 
-betrachten und damit ein Bündel auf dem Totalraum 
+betrachten und damit ein Bündel auf dem Totalraum
 
 ```{math}
 E\otimes F:= \bigsqcup_{p\in\M} E_p\otimes F_p
@@ -1270,8 +1270,17 @@ betrachten. Die entsprechende Projektion $\pi_{E\otimes F}:E\otimes F\to\M$ ist 
 ```
 
 ````{prf:Lemma}
-Es sei $E\ovserset{\pi_E}{\to}{\M}$ ein Vektorbündel vom Rang $k$ und $F\ovserset{\pi_F}{\to}{\M}$ ein Vektorbündel vom Rang $l$, dann ist 
-$((E\otimes F),\M, \pi_{E\otimes F})$ ein Vektorbündel vom Rang $kl$.
+Es sei $E\overset{\pi_E}{\to}{\M}$ ein Vektorbündel vom Rang $k$ und $F\overset{\pi_F}{\to}{\M}$ ein Vektorbündel vom Rang $l$, dann ist 
+
+```{math}
+\pi_{E\otimes F}:(E\otimes F)\to \M
+```
+
+ein Vektorbündel vom Rang $kl$.
+````
+
+````{prf:proof}
+Siehe Übung.
 ````
 
 Die Definition des Tensorbündels lässt sich direkt auf mehrfache Tensorprodukte übertragen und führt uns direkt auf gemischte Tensorbündel.
