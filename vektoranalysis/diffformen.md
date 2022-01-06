@@ -155,7 +155,7 @@ es uns erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konze
 
 ### Karten und Atlanten auf topologischen Räumen
 
-Um den Ableitungsbegriff auf topologischen Räumen $\M$ formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung $\phi \colon U \rightarrow \phi(U) \subset \R^n$ die Bedingung, dass für jede Teilmenge $U \subset M$ gilt,
+Um den Ableitungsbegriff auf topologischen Räumen $\M$ formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung $\phi \colon U \rightarrow \phi(U) \subset \R^n$ die Bedingung, dass für jede Teilmenge $U \subset \M$ gilt,
 
 ```{math}
 \phi(U)\text{ ist offen} \ \Leftrightarrow \ U \text{ ist offen}.
@@ -264,7 +264,7 @@ Kartenwechsel.
 
 Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind, um von einer lokalen Identifikation des topologischen Raums zur nächsten zu gelangen.
 Wäre nun der Kartenwechsel $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen.
-Allerdings existieren durchaus Beispiele, in dnen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber der Kartenwechsel $\psi\circ\phi^{-1}$ nicht.
+Allerdings existieren durchaus Beispiele, in denen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber der Kartenwechsel $\psi\circ\phi^{-1}$ nicht.
 Deshalb führt man zusätzlich noch den folgenden Begriff ein.
 
 ````{prf:definition} Atlas
@@ -275,7 +275,7 @@ Eine Familie von Karten $\mathcal{A} = (U_i,\phi_i)_{i\in I}$ indiziert durch di
 \M = \bigcup_{i\in I} U_i.
 ```
 
-Wir nennen einen Atlas $k$-mal **differenzierbar** oder von der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i^{-1}\circ\phi_j, i,j\in I$ $k$-mal stetig differenzierbar ist.
+Wir nennen einen Atlas $k$-mal **differenzierbar** oder von der Klasse $C^k$, falls jeder Kartenwechsel $\phi_i\circ\phi_j^{-1}, i,j\in I$ $k$-mal stetig differenzierbar ist.
 
 ````
 
@@ -369,7 +369,7 @@ Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkei
 :label: lem:differenzierbarkeitKartenunabhaengig
 Es sei $\M$ eine glatte Mannigfaltigkeit und $\mathcal{A}$ ein Atlas auf $\M$.
 Außerdem sei $f:\M \to \R^m$ eine Funktion, $(U,\phi)\in \mathcal{A}$ eine Karte und $x \in U$ ein Punkt in der offenen Menge $U$.
-Ist $f\circ\phi^{-1}$ differenzierbar in $x$, so ist $f\circ\psi^{-1}$ auch differenzierbar in $x$ für jede Karte $(V,\psi)$ mit $x\in V$.
+Ist $f\circ\phi^{-1}$ differenzierbar in $x$, so ist $f\circ\psi^{-1}$ auch differenzierbar in $x$ für jede Karte $(V,\psi) \in \mathcal{A}$ mit $x\in V$.
 ````
 
 ````{prf:proof}
@@ -379,7 +379,7 @@ In der Hausaufgabe zu zeigen.
 ### Tangentialräume an Mannigfaltigkeiten
 
 Aus dem Kapitel {ref}`s:linearisierung_ruhelage` ist bereits das Konzept der *Linearisierung* bekannt.
-Anschaulich gesprochen haben wir eine diffenzierbare Funktion $f$ durch ihre Linearisierung ersetzt um ein einfacheres Problem zu erhalten.
+Anschaulich gesprochen haben wir eine differenzierbare Funktion $f$ durch ihre Linearisierung ersetzt um ein einfacheres Problem zu erhalten.
 Dieses Konzept soll nun auf glatte Mannigfaltigkeiten übertragen werden.
 
 Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit definieren.
@@ -566,9 +566,24 @@ Man bemerke, dass die oben definierten Abbildungen erneut **unabhängig** von de
 
 #### Algebraische Definition
 
-Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr anschaulich als Richtungsableitungen, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind.
+Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte Derivationen. Hierbei beschreiben wir Tangentialvektoren nun nicht mehr als Kurven, sondern als spezielle Funktionale, welche durch ihre Wirkung auf $C^\infty(\M)$ charakterisiert sind. Die Motivation hierbei soll die Richtungsableitung aus {prf:ref}`def:direcdiv` sein und speziell die folgenden Eigenschaften.
 
-````{prf:definition} Derivation
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit, $p\in\M$ und $\gamma:[-1,1]\to\M$ eine glatte Kurve durch $p$, dann gilt für die Richtungsableitung $D_\gamma:C^\infty(\M)\to\R$, 
+
+* $D_\gamma\in (C^\infty(\M))^\ast$,
+
+* Für $f,g\in C^\infty(\M)$ gilt $D_\gamma(fg) = D_\gamma(f) g(p) + f(p) D_\gamma(f)$.
+
+````
+
+````{prf:proof}
+Siehe Übung.
+````
+
+Die zweite Eigenschaft wird auch *Produktregel* oder *Leibnizregel* genannt. Wir wollen nun im folgenden nicht nur Richtungsableitungen betrachten, sondern allgemeine Funktionale, die diese Eigenschaft erfüllen.
+
+````{prf:definition} Derivation und algebraischer Tangentialraum
 Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$ ein Punkt der Mannigfaltigkeit.
 Wir nennen eine lineare Abbildung $D: C^\infty(\M) \to \R$ eine **Derivation** an $p$, falls sie die folgende Produktregel erfüllt, 
 
@@ -585,47 +600,70 @@ T^{\text{alg}}_p\M:=\{D\in C^\infty(\M)^\ast: D\text{ ist Derivation an }p\}
 wird als **algebraischer Tangentialraum** bezeichnet.
 ````
 
-Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum.
+Über die Menge der Derivation erhalten wir auf natürliche Art einen Vektorraum, da per Definition
+
+```{math}
+T^{\text{alg}}_p\M \subset C^\infty(\M)^\ast
+```
+
+gilt. Somit erbt der algebraischer Tangentialraum die Vektorraumoperationen von $C^\infty(\M)^\ast$ und es muss lediglich nachgeprüft werden, dass diese Teilmenge noch immer ein Vektorraum ist.
 
 ````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist $T^{\text{alg}}_p\M$ ein reeller Vektorraum.
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, dann ist $T^{\text{alg}}_p\M$ ein reeller Vektorraum.
 ````
 
 ````{prf:proof}
 Siehe Übung.
 ````
 
-Diese Definition des Tangentialraums ist äquivalent zu der geometrischen Variante.
+Wir der Name schon erkennen lässt haben Derivationen gewisse Eigenschaften, die von der Ableitungsoperation bekannt sind. So z.B. bildet jede Derivation konstante Funktionen auf $0$ ab.
 
 ````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$. 
+:label: lem:constder
 
-Dann existiert ein Isomorphismus 
+Es sei $\M$ eine glatte Mannigfaltigkeit, $p\in\M$ und $f\in C^\infty(\M)$ sei konstant, d.h., es existiert $c\in\R$, s.d., 
 
 ```{math}
-\Theta: T^{\text{geom}}_p\M &\to T^{\text{alg}}_p\M\\
-\gamma &\mapsto D_\gamma
+f(q) = c\quad\forall q\in\M,
 ```
 
-zwischen dem geometrischen und algebraischen Tangentialraum.
+dann gilt $D(f)=0$ für alle Derivationen $D\in T^{\text{alg}}_p\M$.
 ````
 
 ````{prf:proof}
-Die Identifikation lässt sich sehr einfach angeben.
-Ist nämlich $\gamma$ eine differenzierbare Kurve, so ist durch
+Es sei $D\in T^{\text{alg}}_p\M$, wir betrachten die Funktion 
 
 ```{math}
-D_\gamma(f):= (f\circ \gamma)^\prime(0)
+g:&\M\to \R\\
+&q\mapsto 1
 ```
 
-eine Derivation an $\gamma(0)$ gegeben. 
-Ist umgekehrt eine Derivation $D$ gegeben, so erhalten wir über
+also die konstante Einsfunktion. Dann gilt
 
 ```{math}
-\gamma_D(t):= \phi^{-1} (\phi(p) + t (D(\phi_1), \ldots, D(\phi_n)))
+D(g) = D(g\cdot g) = D(g)\,g(p) + g(p)\, D(g) = 2\,D(g)
 ```
 
-eine differenzierbare Kurve durch $p$. 
+und somit $D(g) = 0$. Per Annahme wissen wir $f= c\,g$ und unter Ausnutzung der Linearität von $D$ erhalten wir 
+
+```{math}
+D(f) = D(c\,g) = c\,D(g) = 0.
+```
+````
+
+Wir haben nun zwei verschiedene Arten gesehen den Tangentialraum einzuführen. Tatsächlich sind diese Definitionen äquivalent in dem Sinne, dass ein Isomorphismus zwischen dem geometrischen und algebraischen Tangentialraum existiert.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, dann gilt 
+
+```{math}
+T^{\text{geom}}_p\M \cong T^{\text{alg}}_p\M.
+```
+
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`Jnich2003` Kapitel 2.3.
 ````
 
 (sec:TPBasis)=
@@ -639,32 +677,170 @@ t\mapsto t e_i
 ```
 
 für $i=1,\ldots,n$, wobei $e_i$ den $i$-ten Einheitsvektor in $\R^n$ bezeichnet.
-Wir können diese Idee auf Mannigfaltigkeiten übertragen.
-Dazu wählen wir eine Karte $\phi:\M\to\R^n$, wobei man hier auch von
+Um diese Idee auf Mannigfaltigkeiten zu übertragen wählen wir eine Karte $\varphi:\M\to\R^n$, wobei man hier auch von
 
 ```{math}
-\phi = (\phi_1,\ldots,\phi_n) =: (x^1,\ldots,x^n)
+\phi = (\varphi_1,\ldots,\varphi_n) =: (x^1,\ldots,x^n)
 ```
 
-als **lokales Koordinatensystem** spricht.
-
-So erhalten wir Kurven
+als **lokales Koordinatensystem** spricht. Wir erhalten somit Kurven
 
 ```{math}
-\gamma_{x^i}(t):= p + \phi(t e_i)
+\gamma_{x^i}(t):= \varphi^{-1}(\varphi(p) + t e_i)
 ```
 
-und darüber die Derivationen
+und mithilfe der Richtungsableitung die Derivationen
 
 ```{math}
-\partial_{x^i}\revert_p: C^\infty(\M) \to \R\\
-\partial_{x^i}\revert_p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
+\partial_{x^i}^p: C^\infty(\M) \to \R\\
+\partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
 ```
 
-Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}\revert_p$ als Derivation, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
+Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}^p$ als Derivation an $p\in\M$, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$. Diese partiellen Derivationen erhalten die Intuition, dass die partielle Ableitung in eine Richtung auch nur Änderungen in diese Richtung respektiert. Wir formalisieren diese Anschauung in folgendem Lemma.
 
 ````{prf:lemma}
-Es sei $\M$ ein $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1}\revert_p,\ldots,\partial_{x^n}\}\revert_p$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
+:label: lem:partderkron
+
+Es sei $\M$ eine glatte Mannigfaltigkeit, $p\in\M$ und $(U,\phi)$ sei Karte mit $p\in U$, dann gilt 
+
+```{math}
+\partial_{x^i}^p(\varphi_j) = \delta_{ij}
+```
+
+wobei $\delta$ das Kronecker-Delta bezeichnet.
+````
+
+````{prf:proof}
+Wir betrachten zunächst die Funktion $\varphi_j \circ \gamma_{x^i}$ und erhalten für $t\in [-1,1]$
+
+```{math}
+\varphi_j \circ \gamma_{x^i}(t)
+&= \varphi_j \circ \varphi^{-1}(\phi(p) + t e_i)\\
+&= (\varphi(p) + t e_i)_j\\ 
+&=
+\begin{cases}
+\varphi(p) + t e_i &\text{ für } i=j\\
+\varphi_j(p)&\text{ sonst}
+\end{cases}.
+```
+
+Somit gilt für die partielle Derivation 
+
+```{math}
+\partial_{x^i}^p(\varphi_j)=
+\frac{d}{dt} \varphi_j \circ \gamma_{x^i}(t) = 
+\begin{cases}
+1&\text{ für } i=j\\
+0&\text{ sonst}
+\end{cases}.
+```
+
+````
+
+Das folgende Hauptresultat dieses Abschnitts erlaubt es uns beliebige Derivationen mithilfe der partiellen Derivationen darzustellen, da diese eine Basis des algebraischen Tangentialraums bilden.
+
+````{prf:theorem}
+:label: thm:tanbasis
+
+Es sei $\M$ eine $n$-dimensionale glatte Mannigfaltigkeit, dann bildet die Menge $\{\partial_{x^1}\rvert_p,\ldots,\partial_{x^n}\rvert_p\}$ eine Basis des Vektorraums $T^{\text{alg}}_p$. Insbesondere gilt $\dim(T^{\text{alg}}_p)=\dim(T^{\text{geom}}_p)=n$.
+````
+
+````{prf:proof}
+Es sei $(U,\varphi)$ eine Karte und o.B.d.A. nehmen wir an, dass $\varphi(p)=0$ gilt, was stets durch Translation des Koordinatensystems erreicht werden kann. Zusätzlich finden wir dann $r>0$ klein genug, s.d., $B_r(0)\subset \varphi(U)$ gilt und betrachten als Karte die Einschränkung von $\varphi$ auf $\tilde{U}:= \varphi^{-1}(B_r(0))$, $\tilde{\varphi} := \varphi\rvert_{\tilde{U}}$. Wegen der Kartenunabhängigkeit und der Tatsache, dass $(\tilde{U},\tilde{\varphi})$ auch eine Karte für $\M$ ist, mit $p\in \tilde{U}$ können wir diese Karte betrachten. 
+
+Da das Bild nun der Ball $B_r(0)$ ist dürfen wir Strahlen von $0$ zu einem beliebigen Punkt im Bild von $\tilde{\varphi}$ betrachten, wobei der gesamte Strahl selbst schon im Bild enthalten ist.
+
+Sei nun $f\in C^\infty(\M)$, dann betrachten wir $g:= f\circ \tilde{\varphi}^{-1}$ und somit gilt insbesondere $g\in C^\infty(\R^n)$. Für beliebiges $q\in\tilde{U}$ und $z:=\tilde{\varphi}(q)\in B_r(0)$ können wir dann die Einschränkung auf den eindimensionalen Strahl zwischen $0$ und $z$ betrachten, konkret 
+
+```{math}
+\tilde{g}:&[0,1]\to\R\\
+t&\mapsto g(t\cdot z)
+```
+
+wobei wir erneut erkennen, dass $\tilde{g}\in C^\infty([0,1])$. Insbesondere, können wir den Hauptsatz der Integralrechnung anwenden und erhalten 
+
+```{math}
+\tilde{g}(1) = \tilde{g}(0) + \int_{0}^1 \tilde{g}^\prime(t) dt.
+```
+
+Wir berechnen die Ableitung im Integral und erhalten, 
+
+```{math}
+\int_{0}^1 \tilde{g}^\prime(t) dt
+&=\int_{0}^1 \langle (\nabla g)(t\cdot z), z \rangle dt\\
+&=\sum_{i=1}^{n} \int_{0}^1  (\partial_i g)(t\cdot z)\,z_i dt.
+```
+
+Da
+
+```{math}
+\tilde{g}(1) = g(z)=f(q)
+```
+
+und 
+
+```{math}
+\tilde{g}(0) = g(0) = g(\varphi(p))=f(p)
+```
+
+gilt, folgt daraus
+
+```{math}
+f(q) = 
+f(p) + 
+\sum_{i=1}^{n} \varphi_i(q)\, \underbrace{\int_{0}^1  \partial_i (f\circ \varphi^{-1})(t\cdot \varphi(q)) dt}_{:=F_i(q)}.
+```
+
+An diesem Punkt, beachten wir, dass $f\circ \varphi^{-1} \in C^\infty(\R^n)$ eine klassisch differenzierbare Funktion ist während $f$ auf der Mannigfaltigkeit $\M$. Wenden wir nun die $j$te partielle Derivation auf $f$ an, erhalten wir unter Ausnutzung der Linearität von $\partial_{x^j}^p$
+
+```{math}
+\partial_{x^j}^p (f) = 
+\underbrace{\partial_{x^j}^p (f(p))}_{=0} + 
+\sum_{i=1}^{n} \partial_{x^j}^p(\varphi_i \cdot F_i) = 
+\sum_{i=1}^{n} \partial_{x^j}^p(\varphi_i \cdot F_i)
+```
+
+wobei wir {prf:ref}`lem:constder` und die Tatsache, dass $\varphi_i, F_i\in C^\infty(\M)$ gilt, benutzt haben. Weiterhin folgt 
+
+```{math}
+\partial_{x^j}^p(\varphi_i \cdot F_i(q)) = 
+\underbrace{\partial_{x^j}^p(\varphi)}_{=\delta_{ij}} F_i(p)+ \underbrace{\varphi_i(p)}_{=0} \partial_{x^j}^p(F_i)
+```
+
+wobei wir {prf:ref}`lem:partderkron` und $\varphi(p)=0$ ausgenutzt haben. Somit folgt 
+
+```{math}
+\partial_{x^j}^p (f) = F_j(p)
+```
+
+und damit insbesondere 
+
+```{math}
+f = f(p) + \sum_{i=1}^{n} \varphi_i \partial_{x^i}^p(f).
+```
+
+Dies führt nun darauf, dass die partiellen Derivationen ein Erzeugendensystem bilden, denn sei $D\in T^{\text{alg}}_p$ beliebig, dann gilt 
+
+```{math}
+D(f) = \underbrace{D(f(p))}_{=0} + \sum_{i=1}^n \partial_{x^i}^p(f) D(\varphi_i).
+```
+
+D.h., dass jede Derivation $D$ über eine Linearkombination aus partiellen Derivationen dargestellt werden kann, wobei die Faktoren durch $D(\varphi_i)$ gegeben sind. 
+
+Es bleibt die Eindeutigkeit zu zeigen, seien dazu Faktoren $\alpha_i$ gegeben, s.d. für jede Funktion $f\in C^\infty(\M)$ gilt
+
+```{math}
+D:= \sum_{i=1}^n \alpha_i \partial_{x^i}^p(f) = 0.
+```
+
+Erneut unter Benutzung von {prf:ref}`lem:partderkron` erhalten wir aber, dass 
+
+```{math}
+0 = D(\varphi_j) = \alpha_j 
+```
+
+für alle $j=1,\ldots,n$ und somit gilt die lineare Unabhängigkeit.
+
 ````
 
 #### Kotangentialraum
@@ -682,7 +858,7 @@ den algebraischen Dualraum des Tangentialraums, der sogenannte **Kotangentialrau
 ````
 
 ````{prf:remark}
-Ein Element $\delta\in T^\ast\M$ ist also eine lineare Abbildung 
+Ein Element $\delta\in T_p^\ast\M$ ist also eine lineare Abbildung 
 
 ```{math}
 \delta: (T_p^{\text{alg}}\M)\to\R,
@@ -713,89 +889,179 @@ und wir wählen die Abbildung $dx^i\in T^\ast_p$ gerade so, dass
 (dx^i)(v) = \alpha_i
 ```
 
-gilt. Wegen (Lemma duale Basis) ist dann $\{dx^1,\ldots, dx^n\}$ eine Basis von $T^\ast_p\M$.
+gilt.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $p\in\M$, dann gilt 
+
+```{math}
+\{dx^1,\ldots, dx^n\}
+```
+
+ist eine Basis von $T_p^\ast\M$.
+````
+
+````{prf:proof}
+Die Aussage folgt direkt aus {prf:ref}`lem:dualeBasis`.
+````
 
 ### Tangentialbündel
 
-Im folgenden bezeichne $T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}$ entweder den algebraischen oder den geometrischen Tangentialraum. Wir werden die Wahl an den entsprechenden Stellen spezifizieren.
-Wir haben bisher für jedes $p\in\M$ einen Vektorraum betrachtet, nämlich den Tangentialraum an $p$. Wir wollen nun eine globale Struktur betrachten die alle diese Vektorräume (d.h. für jedes $p\in\M$) zusammenfasst.
-
-Wir haben einen sogenannten **Basisraum** $B=\M$ aus welchem wir die Punkte $p$ entnehmen und für jedes einzelne $p$ erhalten wir einen Vektorraum
-$T_p\M$. Der topologischer Raum $E$ der alle diese Vektorräume enthält, nennt man in diesem Kontext **Totalraum**, er wird über die disjunkte Vereinigung
-
-```{math}
-E = T\M:= \bigsqcup_{p\in\M}  T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
+```{note}
+Im folgenden bezeichne $T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}$ entweder den algebraischen oder den geometrischen Tangentialraum, die konkrete Wahl wird an den entsprechenden Stellen spezifiziert.
 ```
 
-definiert. Der Trick bei der Definition des Totalraums das erzeugende Element an erster Stelle zu schreiben, erlaubt uns die Projektion
+Bisher haben wir für eine $n$-dimesnionale glatte Mannigfaltigkeit $\M$ für jedes einzele $p\in\M$ einen Vektorraum betrachtet, nämlich den Tangentialraum $T_p\M$, welcher wiedrum wegen {prf:ref}`thm:tanbasis` isomorph zum $\R^n$ ist. Wir interessieren uns jetzt dafür, wie sich Tangentialräume für verschiedene $p,q\in \M$ in Beziehung setzten lasse und wollen auch eine globale Struktur definieren welche alle Tangentialräume (d.h. für jedes $p\in\M$) zusammenfasst.
+
+Hierbei spricht man nun vom **Basisraum** $B=\M$, da die Punkte $p$ welche die Vektorräume erzeugen aus diesem Raum entnommen werden. Ein erster Ansatz für eine globale Struktur ist die Vereinigung
+
+```{math}
+\bigcup_{p\in\M} T_p\M.
+```
+
+Ist z.B. als Mannigfaltigkeit der Einheitskreis $\M = \mathbb{S}^1\subset\R^2$ gegeben und wählt man als Repräsentanten für jedes $p=(\cos(\alpha), \sin(\alpha))\in\M, \alpha\in [0,2\pi)$ die Kurve $\gamma_p(t) := p - t \cdot\big(1, \frac{\cos(\alpha)}{\sin(\alpha)}\big)$ so erhalten wir anschualich die in {numref}`fig:bundleA` visualisierte Menge.
+
+```{figure} ../img/bundleA.jpg
+---
+height: 300px
+name: "fig:bundleA"
+---
+Visualisierung der Tangentialräume am Einheitskreises.
+```
+
+Es fällt auf, dass sich zwar einzelene Kurven schneiden können, die Kurven selbst und die assozierten Vektorräume alledings nicht gleich sind. Um diese Tatsache zu verdeutlichen ist es praktisch die disjunkte Vereinigung
+
+```{math}
+\bigsqcup_{p\in\M} T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
+```
+
+zu betrachten. Für den Einheitskreis erhalten wir so den Zylinder in {numref}`fig:bundleB`.
+
+```{figure} ../img/bundleB.jpg
+---
+height: 300px
+name: "fig:bundleB"
+---
+Visualisierung der disjunkt vereinigten Tangentialräume am Einheitskreises.
+```
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit, die Menge
+
+```{math}
+T\M := \bigsqcup_{p\in\M}  T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
+```
+
+zusammen mit der Projektion 
+
 
 ```{math}
 \pi:T\M\to \M\\
 \{p\}\times T_p\M\mapsto p
 ```
 
-zu definieren. D.h. von jedem Element des Totalraums, können wir eindeutig zurück auf $\M$ projizieren. Weiterhin erkennen wir aber auch, dass für jedes $p\in\M$ der Raum $\pi^{-1}(p) = \{p\}\times T_p\M$ ein reeller $n$-dimensionaler Vektorraum ist.
+heißt **Tangentialbündel** von $\M$.
 
-Die Situation die wir so erzeugt haben, führt auf das abstrakte Konzept der **Vektorbündel**.
+````
+
+Insbesondere erkenn wir, dass wir mithilfe der Projektion $\pi$ jedem Element des Tangentialbündels eindeutig den Punkt $p\in\M$ zuordnen können, der den entsprechenden Tangentialraum erzeugt hat.
+
+````{prf:example}
+<br/>
+
+1\. Sei $\M=\R^n$, dann ist das Tangentialbündel gerade gegeben durch $T\M = \R^n\times\R^n = \R^{2n}$.
+
+<br/>
+
+2\. Wie bereits gesehen erhalten wir für $\M=\mathbb{S}^1$ als Tangentialbündel den unendlich hohen Zylinder $T\M = \mathbb{S}^1\times \R$.
+
+````
+
+In den bisher betrachten Beispielen, haben wir als Tangentialbündel jeweils eine Menge der Form $\M\times \R^n$ erhalten. Dies ist allerdings nicht immer der Fall, tatsächlich bilden diese Tangentialbündel eine spezielle Unterklasse.
 
 ````{prf:definition}
+Sei $\M$ eine glatte $n$-dimesnionale Mannigfaltigkeit, das Tangentialbündel heißt **trivial**, falls 
+
+```{math}
+T\M\cong \M\times\R^n
+```
+
+gilt. In diesem Fall heißt $\M$ **parallelisierbar**.
+````
+
+````{prf:remark}
+Es lässt sich zeigen, dass $\mathbb{S}^1, \mathbb{S}^3,\mathbb{S}^7$ die einzigen paralleslisierbaren Spähren sind, siehe {cite:p}`lee2003`. Die Tatsache, dass $\mathbb{S}^2$ nicht parallelsierbar ist wird beim Satz vom gekämmten Igel (??) erneut auftauchen.
+````
+
+Wir wollen nun zusätzlich charakteriseren, wie sich die Tangentialräume für unterschiedliche $p,q\in B$ zueinander verhalten, insbesondere wenn $p$ und $q$ nahe aneinander liegen. Hierbei hilft es das abstrakter Konzept eines **Vektorbündels** zu betrachten.
+
+````{prf:definition} Vektorbündel
 Es seien $\M$ der Basisraum und $E$ der Totalraum glatte Mannigfaltigkeiten und $\pi:E\to \M$ sei glatt und bijektiv. Weiterhin gelte
 
 * für jedes $p\in \M$ sei die sogenannte **Faser** $E_p:= \pi^{-1}(p)$ ein $n$-dimensionaler Vektorraum,
 
-* Zu jedem $p\in \M$ existiere eine offene Umgebung $U\subset \M$ und ein Diffeomorphimus $\psi: \pi^{-1}(U)\to U\times\R^n$, s.d., 
+* Zu jedem $p\in \M$ existiere eine offene Umgebung $U\subset \M$ und ein Diffeomorphimus $\Psi: \pi^{-1}(U)\to U\times\R^n$, s.d., 
 für alle $x\in U$
 
 ```{math}
-\text{pr}_U(\psi(x)) &= \pi(x)\quad\forall x\in \pi^{-1}(U)\\
-\psi\rvert_{E_q}&: \pi^{-1}(q) \to \{q\}\times \R^n \text{ ist ein Isomorphismus, für alle }q\in U.
+\text{pr}_U(\Psi(x)) &= \pi(x)\quad\forall x\in \pi^{-1}(U)\\
+\Psi\rvert_{E_q}&: \pi^{-1}(q) \to \{q\}\times \R^n \text{ ist ein Isomorphismus, für alle }q\in U.
 ```
 
-Dann heißt $(E,\M,\pi)$ **Vektorbündel** vom Rang $n$. Hierbei bezeichnet $\text{pr}_U(q, z):= u$ die Projektion auf die $U$ Komponente eines Vektors $(q,z)\in U\times\R^n$.
+Dann heißt $(E,\M,\pi)$ **Vektorbündel** vom Rang $n$. Hierbei bezeichnet $\text{pr}_U(q, z):= q$ die Projektion auf die $U$ Komponente eines Vektors $(q,z)\in U\times\R^n$.
 ````
 
 ````{prf:remark} Bündel-Notation
 Anstatt das Vektorbündel $(E,\M,\pi)$ als Tripel aufzuschreiben, ist es üblich von einem Bündel $E\overset{\pi}{\to}\M$ oder sogar $E\to\M$ zu sprechen. Die Abbildung $\pi$ wird im zweiten Fall nur implizit vorausgesetzt.
 ````
 
-Die Funktion $\psi$ heißt hier **lokale Trivialisierung**, denn sie erlaubt es uns den Totalraum $E$ lokal als Produktraum darzustellen. Die Idee des Vektorbündels kommt von der Anschauung, dass wir eine Familie von Vektorräumen haben, die durch einen anderen Raum parametrisiert sind. Die Parametrisierung ist hierbei durch die Funktion $\pi^{-1}$ charakterisiert.
-
-````{prf:example} Zylinder
-Wir wählen als Basisraum den Einheitskreis $\M:=\mathbb{S}^1\subset \R^2$. Für jeden Punkt auf dem Kreis wählen wir den Vektorraum $\R$, somit betrachten wir also eine konstante Abbildung 
+Die Funktion $\Psi$ heißt hier **lokale Trivialisierung**, denn sie erlaubt es uns den Totalraum $E$ lokal als Produktraum darzustellen. Analog zum Tangentialbündel nennen wir ein Vektorbündel **trivial**, falls eine Trivialsierung $\Psi:E\to \M\times\R^n$ existiert, s.d. also
 
 ```{math}
-\chi(p):= \R\text{ für alle }p\in \M.
+E \cong \M\times\R^n
 ```
 
-Damit definieren wir den Totalraum 
-
-```{math}
-E := \bigsqcup_{p\in\M} \chi(p) = \bigcup_{p\in\M} \{p\}\times \R = \M\times\R
-```
-
-und die Projektion $\pi:E\to\M$
-
-```{math}
-\pi(\{p\}\times \R):= \{p\}.
-```
-
-Wir erkennen, dass man in diesem Fall die Trivialisierung $\psi:=\mathrm{Id}$ wählen kann, welche nicht nur lokal sondern global gilt. 
-Vektorbündel, für welche eine lokale Trivialisierung auf ganz $\M$ existiert heißen **trivial**. 
-````
-
-Im obigen Beispiel ordnen wir jedem Punkt $p\in\mathbb{S}^1$ den Vektorraum $\{p\}\times\R$ zu. Diese Idee wurde in der Definition eines Vektorbündels verallgemeinert. Wir fordern nicht konkret, dass für jedes $q\in\M$ der Vektorraum $E_q$ gleich $\{q\}\times\R^n$ ist, allerdings fordern wir die Isomorphie $E_q\cong \{q\}\times\R^n$ gibt. A priori könnte es für jedes $q\in\M$ nun unterschiedliche Isomorphismen $\psi_q$ geben die keineswegs miteinander übereinstimmen. Deshalb kontrollieren wir zusätzlich wie unterschiedlich die Isomporphismen für verschiedene $q$ sind. Konkret fordern wir das lokal für $U\subset\M$ ein Diffeomorphismus $\phi:\pi^{-1}(U)\to U\times\R^n$ existiert.
-
-```{note}
-Die Grundidee hinter Vektorbündeln ist der Wunsch Teile des Totalraums $E$ mit Mengen $U\times\R^n$ zu identifizieren.
-```
+gilt.
 
 ````{prf:example}
 Möbius-Band.
 ````
 
+Wir wollen nun zeigen, dass das Tangentialbündel ein Vektorbündel ist. Dazu benötigen wir zunächst die Aussage, dass $T\M$ selbst eine glatte Mannigfaltigkeit ist.
+
 ````{prf:lemma}
-ToDo: $T\M$ ist glatte Mannigfaltigkeit.
+:label: lem:tanman
+
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, dann ist das Tangentialbündel $T\M$ eine glatte $2n$-dimensionale Mannigfaltigkeit. Insbesondere ist auch 
+
+```{math}
+\pi:T\M\to \M\\
+\{p\}\times T_p\M\mapsto p
+```
+
+eine glatte bijektive Abbildung.
 ````
+
+````{prf:proof}
+Wir werden lediglich die Idee skizzieren, für den vollständingen Beweis siehe {cite:p}`lee2003` Prposition 3.18. Wir benutzen hier die algebraische Definition des Tangentialraums.
+
+Es sei $(U,\varphi)$ eine Karte, wir betrachten die Menge $\pi^{-1}(U)\subset T\M$ und die Abbildung 
+
+```{math}
+\psi:\pi^{-1}(U) \to \phi(U)\times \R^{n}\subset\R^{2n}\\
+(p,v)\to (\varphi(p), v(\varphi))
+```
+
+wobei wir für $v\in T_p\M\subset (C^\infty(\M))^\ast$ die Notation 
+
+```{math}
+v(\varphi) := (v(\varphi_1),\ldots, v(\varphi_n))
+```
+
+benutzt haben. Es stellt sich dann heraus, dass so definierte Abbildungen $\psi$ Karten auf $T\M$ und tatsächlich auch eine Mannigfaltigkeit definieren. Insbsondere ist ein so definiertes $\psi$ ein Diffeomorphismus.
+````
+
+Mithilfe dieser Aussage können wir nun zeigen, dass $T\M$ ein Vektorbündel ist.
 
 ````{prf:lemma}
 Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit mit dem Tangentialraum 
@@ -815,7 +1081,29 @@ Dann ist $(T\M, \M, \pi)$ ein Vektorbündel vom Rang $n$.
 ````
 
 ````{prf:proof}
-Relativ lang, siehe hier [Skript Uni Hamburg](https://www.math.uni-hamburg.de/home/lindemann/material/DG2020L7_slides.pdf)
+Es sei $(U,\varphi)$ eine Karte für $\M$, dann definieren wir die Abbildung 
+
+```{math}
+\Psi: \pi^{-1}(U)\to U\times \R^n\\
+(p,v)\mapsto (p, v(\varphi)).
+```
+
+Wir erkennen sofort, dass $\Psi$ linear ist und, dass $(\text{pr}_U\circ\Psi)(p,v) = p = \pi(p,v)$ gilt. 
+Da $\phi$ ein Diffeomorphismus ist, ist auch 
+
+```{math}
+\phi\times\text{Id}:U\times \R^n\to \phi(U)\times\R^n\\
+(p,z)\mapsto (\phi(p), z)
+```
+
+ein Diffeomorphismus. Hier beobachten wir aber, dass 
+
+```{math}
+\big((\phi\times\text{Id})\circ \Psi\big)(p,v) = (\phi\times\text{Id})(p, v(\varphi)) = (\phi(p), v(\varphi))
+```
+
+gilt somit enstpricht $(\phi\times\text{Id})\circ \Psi$ gerade der Karte aus dem Beweis von {prf:ref}`lem:tanman` und ist somit auch ein Diffeomorphismus. Daraus folgt aber, dass $\Psi$ schon ein Diffeomorphismus sein muss.
+
 ````
 
 ### Vektorfelder
@@ -846,11 +1134,11 @@ Es sei $\M$ eine glatte Mannigfaltigkeit und $E\overset{\pi}{\to}\M$ ein Vektorb
 **lokaler glatter Schnitt**, falls 
 
 ```{math}
-\pi(\sigma(p)) = p\quad\text{ für alle }p\in \M.
+\pi(\sigma(p)) = p\quad\text{ für alle }p\in U.
 ```
 
 Die Menge der glatten Schnitte auf $U$ wird mit $\Gamma(E\rvert_U)$ bezeichnet. Für $U=\M$ heißt $\sigma$ **glatter Schnitt** und wir definieren 
-$\Gamma(E\rvert):=\Gamma(E\rvert_\M)$.
+$\Gamma(E):=\Gamma(E\rvert_\M)$.
 
 ````
 
@@ -860,9 +1148,7 @@ Für offenen Mengen im euklidischen kennen wir bereits den Begriff **Vektorfeld*
 F:U\to\R^n
 ```
 
-wobei $U\subset\R^n$ offen ist. Wir nehmen also Punkte $x\in\R^n$ und ordnen ihnen Vektoren $F(x)\in\R^n$ aus dem gleichen Raum zu.
-
-Betrachten wir statt offenen Mengen $U\subset\R^n$ nun glatte Mannigfaltigkeiten $\M$ so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen. Hierbei hilft uns nun der Tangentialraum $T\M$, welcher die richtige Wahl des Zielraums darstellt. Somit können wir Vektorfelder verallgemeinern indem wir als Schnitte des Tangenialraums auffassen.
+wobei $U\subset\R^n$ offen ist. Wir nehmen also Punkte $x\in\R^n$ und ordnen ihnen Vektoren $F(x)\in\R^n$ aus dem gleichen Raum zu. Betrachten wir statt offenen Mengen $U\subset\R^n$ nun glatte Mannigfaltigkeiten $\M$ so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen. Hierbei hilft uns nun der Tangentialraum $T\M$, welcher die richtige Wahl des Zielraums darstellt. Somit können wir Vektorfelder verallgemeinern indem wir als Schnitte des Tangenialraums auffassen.
 
 ````{prf:definition}
 Es sei $\M$ eine glatte Mannigfaltigkeit, ein glatter Schnitt 
@@ -871,13 +1157,13 @@ Es sei $\M$ eine glatte Mannigfaltigkeit, ein glatter Schnitt
 X:\M\to T\M
 ```
 
-heißt glattes Vektorfeld.
+heißt glattes Vektorfeld. Das Argument von $X$ wird hierbei meist als subskript notiert, d.h., $X_p = X(p)$.
 ````
 
 Für Tangentialbündel haben wir die Abbildung $\pi:T\M\to\M$ durch
 
 ```{math}
-\pi(\{p\}\times v):= p\quad\text{ für } (p,v)\in\{p\}\times T_p\M
+\pi(p,v):= p\quad\text{ für } (p,v)\in\{p\}\times T_p\M
 ```
 
 definiert. Ist $X$ nun ein glattes Vektorfeld, so gilt
@@ -886,37 +1172,37 @@ definiert. Ist $X$ nun ein glattes Vektorfeld, so gilt
 \pi(X(p)) = p
 ```
 
-und somit insbesondere $X(p)\in T_p\M$. Ein Vektorfeld ordnet also jedem Punkt $p\in\M$ ein Element seines Tangentialraums zu. Falls $\M$ eine offene Menge in $\R^n$ ist, ist dies insbesondere konsistent zur bekannten Definition von Vektorfeldern.
+und somit insbesondere $X_p\in T_p\M$. Ein Vektorfeld ordnet also jedem Punkt $p\in\M$ ein Element seines Tangentialraums zu. Falls $\M$ eine offene Menge in $\R^n$ ist, ist dies insbesondere konsistent zur bekannten Definition von Vektorfeldern.
 
 #### Wirkung von Vektorfeldern
 
-Von der algebraischen Definition des Tangentialraums ist das totale Diffential $df_p$ bekannt, welches für $D\in T^{\text{alg}}_p\M$ definiert ist durch
+Von der algebraischen Definition des Tangentialraums ist das totale Differential $df_p\in T^\ast_p\M$ bekannt, welches für $D\in T^{\text{alg}}_p\M$ definiert ist durch
 
 ```{math}
 df_p(D):= D(f)
 ```
 
-für eine Funktion $f\in C^\infty(M)$. Mithilfe dieses Konzepts können wir die Wirkung eines Vektorfelds defnieren.
+für eine Funktion $f\in C^\infty(M)$. Mithilfe dieses Konzepts können wir die Wirkung eines Vektorfelds definieren.
 
-````{definition} Wirkung
+````{prf:definition} Wirkung von Vektorfeldern
 Es sei $\M$ eine glatte Mannigfaltigkeit und $X\in\Gamma(T\M)$, die **Wirkung** von $X$ auf $C^\infty$ ist definiert durch 
 
 ```{math}
 X(\cdot):C^\infty(M)\to C^\infty(\M)\\
-f\mapsto [p\mapsto X(f)(p) := df_p(X)]
+f\mapsto [p\mapsto X_p(f) := df_p(X)].
 ```
 ````
 
 #### Lokale Basis von Vektorfeldern
 
-Aus {ref}`sec:TPBasis` wissen wir bereits, dass wir für $p\in\M$ Tangentialvektoren $v\in T_p\M$ durch die Vektoren $\partial_{x^i}\rvert_p$ darstellen können. Im Kontext von Tangentialbündeln stellt sich auf natürliche Art die Frage, wie sich diese Vektoren verändern, wenn der Punkt $p$ variiert wird. Hierzu definieren wir folgende Abbildungen.
+Aus {numref}`sec:TPBasis` wissen wir bereits, dass wir für $p\in\M$ Tangentialvektoren $v\in T_p\M$ durch die Vektoren $\partial_{x^i}^p$ darstellen können. Im Kontext von Tangentialbündeln stellt sich auf natürliche Art die Frage, wie sich diese Vektoren verändern, wenn der Punkt $p$ variiert wird. Hierzu definieren wir folgende Abbildungen.
 
 ````{prf:definition}
 Es sei $\M$ eine glatte $n$-dimesnionale Mannigfaltigkeit und $(U,\phi)$ eine Karte, dann definieren wir die lokalen Koordinatenfelder 
 für $i=1,\ldots,n$ durch
 
 ```{math}
-\partial_{x^{i}}&:\M\to\T\M\\
+\partial_{x^{i}}&:\M\to T\M\\
 \partial_{x^{i}}(p)&:= \partial_{x^{i}}\rvert_p
 ```
 ````
@@ -931,33 +1217,80 @@ X = \sum_{i=1}^n X^i \partial_{x^{i}}.
 ```
 ````
 
+````{prf:proof}
+Es sei $p\in\M$, dann haben wir wegen  {prf:ref}`thm:tanbasis` die Darstellung
+
+```{math}
+X_p = \sum_{i=1}^n X_p(\phi_i) \partial_{x^i}^p.
+```
+
+Mit der Defintion der Wirkung von Vektorfeldern folgt dann 
+
+```{math}
+X = \sum_{i=1}^n X(\phi_i) \partial_{x^i}.
+```
+````
+
 Aus dieser Darstellung folgt auch, dass lokal für eine Karte $(U,\phi)$ die Wirkung auf $f\in C^\infty(U)$ geschrieben werden kann als
 
 ```{math}
 X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.
 ```
 
-#### Koordinatenwechsel
-
-Die Darstellung eines Vektorfeldes über einer glatten Mannigfaltigkeit $\M$ durch Basisvektoren gilt nur lokal für eine Karte $(U,\phi)$. Falls wir nun eine zweite Karte $(V,\psi)$ betrachten mit $U\cap V\neq\emptyset$ stellt sich also die Frage wie die Darstellungen zusammenhängen. Das folgende Lemma beschreibt die Transformationsregel die in diesem Fall gilt.
-
-````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit und es seien $(U,\phi), (V,\psi)$ zwei Karten mit $U\cap V\neq \emptyset$, wobei 
-$(\partial_{x^i})_{i=1}^n$ das Koordinatnfeld für $\phi$ und $(\partial_{y^i})_{i=1}^n$ das Koordinatenfeld für $\psi$ sei. Weiterhin sei Funktion 
-
-```{math}
-D(\psi\circ\phi^{-1})(p)
-```
-die Jacobimatrix von $\psi\circ\phi^{-1}$ am Punkt $p\in U\cap V$. Dann gilt 
-
-```{math}
-D(\psi\circ\phi^{-1})(p) X(\phi) = X(\psi).
-```
-````
-
 ### Tensorfelder
 
-## Differnitlaformen
+Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen. Hierfür benötigen wir zunächst Kotangentialbündel, welches direkt über den Kotangentialraum definiert werden kann.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist das **Kotangentialbündel** $((T\M)^\ast, \M, \pi^\ast)$ über die Abbildung 
+
+```{math}
+\pi^{\ast}(p):= T^\ast\M = (T\M)^\ast
+```
+
+definiert.
+````
+
+Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialündeln aussehen soll. Für zwei Vektorbündel $E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}$ wissen wir, dass für jedes $p\in\M$ die Fasern $E_p, F_p$ endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
+
+```{math}
+E_p\otimes F_p
+```
+
+betrachten und damit ein Bündel auf dem Totalraum 
+
+```{math}
+E\otimes F:= \bigsqcup_{p\in\M} E_p\otimes F_p
+```
+
+betrachten. Die entsprechende Projektion $\pi_{E\otimes F}:E\otimes F\to\M$ ist gegeben durch
+
+```{math}
+\pi_{E\otimes F}^{-1}(p):= E_p\otimes F_p := (E\otimes F)_p.
+```
+
+````{prf:Lemma}
+Es sei $E\ovserset{\pi_E}{\to}{\M}$ ein Vektorbündel vom Rang $k$ und $F\ovserset{\pi_F}{\to}{\M}$ ein Vektorbündel vom Rang $l$, dann ist 
+$((E\otimes F),\M, \pi_{E\otimes F})$ ein Vektorbündel vom Rang $kl$.
+````
+
+Die Definition des Tensorbündels lässt sich direkt auf mehrfache Tensorprodukte übertragen und führt uns direkt auf gemischte Tensorbündel.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $r,s\in\N$, s.d. $r+s>0$, dann heißt 
+
+```{math}
+T^r_s\M := \bigsqcup_{p\in\M} T^r_s(T_p\M) \to \M
+```
+
+Tensorbündel der Stufe $(r,s)$. Ein **Tensorfeld** ist dann ein glatter Schnitt $A\in \Gammma(T^r_s\M)$.
+````
+
+```{danger}
+Lokale Darstellung.
+```
+
+## Differentialformen
 
 ### Einsformen
 
