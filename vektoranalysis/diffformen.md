@@ -155,7 +155,7 @@ es uns erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konze
 
 ### Karten und Atlanten auf topologischen Räumen
 
-Um den Ableitungsbegriff auf topologischen Räumen $\M$ formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung $\phi \colon U \rightarrow \phi(U) \subset \R^n$ die Bedingung, dass für jede Teilmenge $U \subset M$ gilt,
+Um den Ableitungsbegriff auf topologischen Räumen $\M$ formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung $\phi \colon U \rightarrow \phi(U) \subset \R^n$ die Bedingung, dass für jede Teilmenge $U \subset \M$ gilt,
 
 ```{math}
 \phi(U)\text{ ist offen} \ \Leftrightarrow \ U \text{ ist offen}.
@@ -264,7 +264,7 @@ Kartenwechsel.
 
 Wir erkennen also, dass Umparametrisierungen der Form $\psi\circ \phi^{-1}$ entscheidend sind, um von einer lokalen Identifikation des topologischen Raums zur nächsten zu gelangen.
 Wäre nun der Kartenwechsel $\psi\circ \phi^{-1}$ und respektive $\phi\circ \psi^{-1}$ differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen.
-Allerdings existieren durchaus Beispiele, in dnen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber der Kartenwechsel $\psi\circ\phi^{-1}$ nicht.
+Allerdings existieren durchaus Beispiele, in denen sowohl $f\circ\phi^{-1}$ als auch $f\circ\psi^{-1}$ differenzierbar sind, aber der Kartenwechsel $\psi\circ\phi^{-1}$ nicht.
 Deshalb führt man zusätzlich noch den folgenden Begriff ein.
 
 ````{prf:definition} Atlas
@@ -1251,7 +1251,7 @@ Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist das **Kotangentialbündel** $
 definiert.
 ````
 
-Um ein Tensorfeld definieen zu können müssen wir zunächst definieren, wie das Tensorprodukt von Tangentialündeln aussehen soll. Für zwei Vektorbündel $E\ovserset{\pi_E}{\to}{\M}, F\ovserset{\pi_F}{\to}{\M}$ wissen wir, dass für jedes $p\in\M$ die Fasern $E_p, F_p$ endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
+Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialündeln aussehen soll. Für zwei Vektorbündel $E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}$ wissen wir, dass für jedes $p\in\M$ die Fasern $E_p, F_p$ endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
 
 ```{math}
 E_p\otimes F_p
