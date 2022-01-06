@@ -921,7 +921,7 @@ Hierbei spricht man nun vom **Basisraum** $B=\M$, da die Punkte $p$ welche die V
 
 Ist z.B. als Mannigfaltigkeit der Einheitskreis $\M = \mathbb{S}^1\subset\R^2$ gegeben und wählt man als Repräsentanten für jedes $p=(\cos(\alpha), \sin(\alpha))\in\M, \alpha\in [0,2\pi)$ die Kurve $\gamma_p(t) := p - t \cdot\big(1, \frac{\cos(\alpha)}{\sin(\alpha)}\big)$ so erhalten wir anschualich die in {numref}`fig:bundleA` visualisierte Menge.
 
-```{figure} ../img/bundleA.jpg
+```{figure} ../img/bundlea.jpg
 ---
 height: 300px
 name: "fig:bundleA"
@@ -937,7 +937,7 @@ Es fällt auf, dass sich zwar einzelene Kurven schneiden können, die Kurven sel
 
 zu betrachten. Für den Einheitskreis erhalten wir so den Zylinder in {numref}`fig:bundleB`.
 
-```{figure} ../img/bundleB.jpg
+```{figure} ../img/bundleb.jpg
 ---
 height: 300px
 name: "fig:bundleB"
@@ -1292,7 +1292,7 @@ Es sei $\M$ eine glatte Mannigfaltigkeit und $r,s\in\N$, s.d. $r+s>0$, dann hei�
 T^r_s\M := \bigsqcup_{p\in\M} T^r_s(T_p\M) \to \M
 ```
 
-Tensorbündel der Stufe $(r,s)$. Ein **Tensorfeld** ist dann ein glatter Schnitt $A\in \Gammma(T^r_s\M)$.
+Tensorbündel der Stufe $(r,s)$. Ein **Tensorfeld** ist dann ein glatter Schnitt $A\in \Gamma(T^r_s\M)$.
 ````
 
 ```{danger}
