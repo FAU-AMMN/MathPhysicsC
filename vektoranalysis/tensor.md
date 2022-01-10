@@ -992,6 +992,7 @@ Die duale Paarung stellt eine *Verallgemeinerung des Skalarprodukts* dar.
 
 ````
 
+(s:symtensoren)=
 ## Symmetrie und Antisymmetrie von Tensoren
 
 Oft spielen gerade in der Physik spezielle Familien von Tensoren eine wichtige Rolle, nämlich *symmetrische* und *antisymmetrische Tensoren*.

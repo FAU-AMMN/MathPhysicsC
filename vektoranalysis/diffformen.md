@@ -1263,6 +1263,8 @@ für $i=1,\ldots,n$ durch
 Mithilfe dieser lokalen Koordiantenfelder können wir nun Vektorfelder lokal darstellen.
 
 ````{prf:lemma}
+:label: lem:localsections
+
 Es sei $\M$ eine glatte Mannigfaltigkeit und $(U,\phi)$ sei eine Karte, dann gilt für $X\in\Gamma(T\M\rvert_U)$ und die Koeffizientfunktionen $X^i:=X(\phi_i)\in C^\infty(U)$ 
 
 ```{math}
@@ -1292,16 +1294,32 @@ X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.
 
 ### Tensorfelder
 
-Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen. Hierfür benötigen wir zunächst Kotangentialbündel, welches direkt über den Kotangentialraum definiert werden kann.
+Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen. Hierbei benutzt man oft auch das Kotangentialbündel, welches direkt über den Kotangentialraum definiert werden kann.
 
 ````{prf:definition}
-Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist das **Kotangentialbündel** $((T\M)^\ast, \M, \pi^\ast)$ über die Abbildung 
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist das **Kotangentialbündel** $\pi^\ast (T\M)^\ast\to\M$ mit der Menge 
 
 ```{math}
-\pi^{\ast}(p):= T^\ast\M = (T\M)^\ast
+(T\M)^\ast := \bigsqcup_{p\in\M} T_p\M
+```
+
+und der Abbildung 
+
+```{math}
+\pi^{\ast}(p , v):= T_p^\ast\M = (T_p\M)^\ast
 ```
 
 definiert.
+````
+
+Auch in diesem Fall erhält man ein Vektorbündel.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist das Kotangentialbündel $\pi^\ast (T\M)^\ast\to\M$ ein Vektorbündel.
+````
+
+````{prf:proof}
+Siehe Übung.
 ````
 
 Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialbündeln aussehen soll. Für zwei Vektorbündel $E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}$ wissen wir, dass für jedes $p\in\M$ die Fasern $E_p, F_p$ endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
@@ -1323,6 +1341,8 @@ betrachten. Die entsprechende Projektion $\pi_{E\otimes F}:E\otimes F\to\M$ ist 
 ```
 
 ````{prf:Lemma}
+:label: lem:tensorbundle
+
 Es sei $E\overset{\pi_E}{\to}{\M}$ ein Vektorbündel vom Rang $k$ und $F\overset{\pi_F}{\to}{\M}$ ein Vektorbündel vom Rang $l$, dann ist 
 
 ```{math}
@@ -1339,25 +1359,111 @@ Siehe Übung.
 Die Definition des Tensorbündels lässt sich direkt auf mehrfache Tensorprodukte übertragen und führt uns direkt auf gemischte Tensorbündel.
 
 ````{prf:definition}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $r,s\in\N$, s.d. $r+s>0$, dann heißt 
+Es sei $\M$ eine glatte Mannigfaltigkeit, und $r,s\in\N_0$, s.d. $r+s>0$, dann heißt 
 
 ```{math}
 T^r_s\M := \bigsqcup_{p\in\M} T^r_s(T_p\M) \to \M
 ```
 
-Tensorbündel der Stufe $(r,s)$. Ein **Tensorfeld** ist dann ein glatter Schnitt $A\in \Gamma(T^r_s\M)$.
+Tensorbündel der Stufe $(r,s)$.
 ````
 
-```{danger}
-Lokale Darstellung.
+Mit den vorherigen Überlegungen können wir direkt Schlussfolgern, dass wir hier erneut ein Vektorbündel definiert haben.
+
+````{prf:corollary}
+Es sei $\M$ eine glatte Mannigfaltigkeit, und $r,s\in\N_0$, s.d. $r+s>0$, dann ist $\pi:T^r_s\M\to\M$ mit der kanonisch nach {prf:ref}`lem:tensorbundle` definierten Abbildung $\pi$ ein Vektorbündel.  
+````
+
+````{prf:proof}
+Folgt direkt aus {prf:ref}`lem:tensorbundle`.
+````
+
+Da wir die Struktur eines Vektorbündels definiert haben können wir nun auf natürliche Weise auch **Tensorfelder** als glatte Schnitte definieren.
+
+````{prf:definition} Tensorfelder
+Es sei $\M$ eine glatte Mannigfaltigkeit, und $r,s\in\N_0$, s.d. $r+s>0$, ein **Tensorfeld** ist ein glatter Schnitt $A\in \Gamma(T^r_s\M)$.
+````
+
+Dank der lokalen Darstellung von Vektorbündeln in {prf:ref}`lem:localsections` können wir die recht abstrakten Tensorfelder lokal sehr konkret Darstellen.
+
+````{prf:corollary}
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, $(U,\varphi)$ eine Karte mit lokalen Koordinaten $\varphi=(x^1,\ldots,x^n)$. Für $r,s\in\N_0$, s.d. $r+s>0$ und $A\in \Gamma(T^r_s\M)$ ein Tensorfeld existieren glatte Koeffizientenfunktionen $A^{i_1,\ldots, i_r}_{j_1,\ldots,j_s}\in C^\infty(\M)$ für $i_1,\ldots, i_r, j_1,\ldots, j_s\in \{1,\ldots,n\}$, s.d., 
+
+```{math}
+A = A^{i_1,\ldots,i_r}_{j_1,\ldots,j_s} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.
 ```
+````
+
+````{prf:proof}
+Folgt aus {prf:ref}`lem:localsections`.
+````
+
+Ähnlich zu den Überlegungen in {numref}`s:symtensoren` können wir auch hier das Tensorprodukt von Tensorfeldern betrachten.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit, für $r,l\in \N$ seien $A\in \Gamma(T^r_0\M), B\in \Gamma(T^l_0\M)$ zwei Tensorfelder und $f\in C^\infty(\M)$, dann sind $fA$ und $A\otimes B$ Tensorfelder mit lokalen Koeffezienten 
+
+```{math}
+(fA)_{i_1,\ldots i_{k}} = f A_{i_1,\ldots, i_k}\\
+(A\otimes B)_{i_1,\ldots,i_{l+r}} = A_{i_1,\ldots, i_l} B_{i_{l+1},\ldots, i_{l+k}}.
+```
+````
 
 ## Differentialformen
 
-### Einsformen
+In Kapitel ?? haben wir symmetrische und antisymmetrische Tensoren kennengelernt. Dieses Konzept werden wir nun auf Tensorfelder übetragen um somit Differntialformen zu erhalten. Hierfür betrachten wir für eine glatte Mannigfaltigkeit die Menge
 
+```{math}
+\Lambda^k T^\ast\M := \bigsqcup_{p\in\M} \Lambda^k (T^\ast_p\M)
+```
 
-## Differentialformen auf offenen Mengen
+der alternierenden Tensorfelder. Antisymmetrische Tensoren bilden direkt eine Teilmenge aller Tensoren und es bleibt lediglich zu zeigen, dass die Vektorraumstruktur erhalten bleibt. Die Situation hier ist nun anders, man benötigt den abstrakten Begriff des **Untervektorbündels**.
+
+````{prf:definition}
+Es seien $\pi_E:E\to B$ und $\pi_D:D\to B$ zwei Vektorbündel, wobei für jedes $p\in\M$ die Untervektorraumrelation 
+
+```{math}
+\pi_D^{-1}(p) = D_p\subset E_p = \pi_E^{-1}(p)
+```
+
+gelte, dann heißt $D$ Untervektorbündel von $E$.
+````
+
+```{figure} ../img/subbundle.png
+---
+height: 300px
+name: "fig:subbundle"
+---
+Visualisierung eines Untervektorbündels, siehe {cite:p}`lee2003` Kapitel 10.
+```
+
+In diesem Fall erhält man also ein Untervektorbündel.
+
+````{prf:lemma}
+Sei $\M$ eine glatte $n$-dimesnionale Mannigfaltigkeit, dann ist $\Lambda^k T^\ast\M$ ein glattes Untervektorbündel vom Rang $\begin{pmatrix} n k \end{pmatrix}$.
+````
+
+````{prf:proof}
+ToDo.
+````
+
+Dank der Bündelstruktur können wir erneut glatte Schnitte betrachten, welche nun auf das Konzept der Diffentialform führen.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann nennt man einen glatten Schnitt
+
+```{math}
+\omega\in \Gamma(\Lambda^k T^\ast\M)
+```
+
+eine $k$-Differentialform oder auch $k$-Form. Den Vektorraum der Differntialformen notieren wir durch 
+
+```{math}
+\Omega^k(\M) := \Gamma(\Lambda^k T^\ast\M).
+```
+````
+
+### Das äußere Produkt
 
 Eine Differentialform $\omega$ auf $U\subseteq\R^n$ ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.
 
@@ -1384,7 +1490,7 @@ $1$--Differentialformen machen also aus Vektorfeldern Funktionen, und für $k$ V
 dx_{i_1}(v^{(k)})&\ldots& dx_{i_k}(v^{(k)}) \end{pmatrix}
 ```
 definiert. Das Ergebnis ist also eine reelle Funktion auf $U$.\\
-Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformen.
+Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformten.
 
 Auf dem $\R$--Vektorraum
 ```{math}
