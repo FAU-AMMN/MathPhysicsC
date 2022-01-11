@@ -1006,15 +1006,7 @@ die Kurve
 \gamma_p(t) := p - t \cdot\big(1, \frac{\cos(\alpha)}{\sin(\alpha)}\big),
 ```
 
-und somit erhalten wir anschaulich die in {numref}`fig:bundleA` für einige Punkte visualisierte Menge.
-
-```{figure} ../img/BundleA.jpg
----
-height: 300px
-name: "fig:bundleA"
----
-Visualisierung der Tangentialräume einiger Punkte am Einheitskreises.
-```
+und somit erhalten wir anschaulich die in {numref}`fig:bundlea` für einige Punkte visualisierte Menge.
 
 Es fällt auf, dass sich zwar einzelne Kurven schneiden können, jedoch die Kurven selbst und die assoziierten Vektorräume nicht gleich sind.
 Um diese Tatsache zu verdeutlichen ist es praktisch die *disjunkte Vereinigung*
@@ -1024,17 +1016,25 @@ Um diese Tatsache zu verdeutlichen ist es praktisch die *disjunkte Vereinigung*
 ```
 
 zu betrachten.
-Für den Einheitskreis erhalten wir durch die Isomorphie $T_p\M \cong \R$ so den Zylinder in {numref}`fig:bundleB`.
+Für den Einheitskreis erhalten wir durch die Isomorphie $T_p\M \cong \R$ so den Zylinder in {numref}`fig:bundleb`.
 
-```{figure} ../img/BundleB.jpg
+````
+
+```{figure} ../img/bundlea.jpg
 ---
 height: 300px
-name: "fig:bundleB"
+name: "fig:bundlea"
+---
+Visualisierung der Tangentialräume einiger Punkte am Einheitskreises.
+```
+
+```{figure} ../img/bundleb.jpg
+---
+height: 300px
+name: "fig:bundleb"
 ---
 Visualisierung der disjunkt vereinigten Tangentialräume einiger Punkte am Einheitskreises.
 ```
-
-````
 
 Wir wollen diese globale Struktur der disjunkten Vereinigung formal definieren.
 
@@ -1081,7 +1081,7 @@ T\M = \mathbb{S}^1\times \R.
 
 ````
 
-In den bisher betrachten Beispielen haben wir als Tangentialbündel jeweils eine Menge der Form $\M\times \R^n$ erhalten. 
+In den bisher betrachten Beispielen haben wir als Tangentialbündel jeweils eine Menge der Form $\M\times \R^n$ erhalten.
 Dies ist jedoch nicht immer der Fall wie wir sehen werden.
 Tatsächlich bilden Tangentialbündel von dieser Form eine spezielle Unterklasse.
 

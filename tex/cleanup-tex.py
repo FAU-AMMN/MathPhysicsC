@@ -58,17 +58,18 @@ def graphics(content):
     # replace optional arguments
     content_new =  re.sub(r'\\includegraphics\[(.*?)]\{(.*?)\}', r'\\includegraphics{\2}', content, flags = re.M)
 
+    file_ending = '(.png|.jpg)'
     # path specification
-    content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)\\(.*?)\}.png\}',
-                         r'\\includegraphics{\3.png}', content_new, flags = re.M)
-    content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)/(.*?)\}.png\}',
-                         r'\\includegraphics{\3.png}', content_new, flags = re.M)
+    content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)\\(.*?)\}'+file_ending+'\}',
+                         r'\\includegraphics{\3\4}', content_new, flags = re.M)
+    content_new = re.sub(r'\\includegraphics\{\{(.*?)\_build\/jupyter\_execute(.*?)/(.*?)\}'+file_ending+'\}',
+                         r'\\includegraphics{\3\4}', content_new, flags = re.M)
 
-    content_new = re.sub(r'\\includegraphics\{\{(.*?)\}.png\}',
-                         r'\\includegraphics{\1.png}', content_new, flags = re.M)
+    content_new = re.sub(r'\\includegraphics\{\{(.*?)\}'+file_ending+'\}',
+                         r'\\includegraphics{\1\2}', content_new, flags = re.M)
 
-    content_new = re.sub(r'\\includegraphics\{(.*?).png\}',
-                         r'\\includegraphics{../_build/html/_images/\1.png}', content_new, flags = re.M)
+    content_new = re.sub(r'\\includegraphics\{(.*?)'+file_ending+'\}',
+                         r'\\includegraphics{../_build/html/_images/\1\2}', content_new, flags = re.M)
     content_new = re.sub(r'\\includegraphics\{(.*?)\}', replace_underscore, content_new, flags = re.M)
     return content_new
 
