@@ -1105,7 +1105,7 @@ Wir wollen uns nun mit der Frage beschäftigen, wie sich die Tangentialräume f�
 Hierbei hilft es das abstraktee Konzept eines **Vektorbündels** zu betrachten.
 
 ````{prf:definition} Vektorbündel
-Es sei $\M$ der Basisraum und $E$ der Totalraum glatter Mannigfaltigkeiten.
+Es seien $\M$ (der sog. Basisraum) und $E$ (der sog. Totalraum) zwei glatte Mannigfaltigkeiten und $\pi:E\to \M$ sei glatt und bijektiv. Weiterhin gelte
 Außerdem sei $\pi:E\to \M$ eine glatte und bijektive Abbildung.
 Weiterhin gelte
 
