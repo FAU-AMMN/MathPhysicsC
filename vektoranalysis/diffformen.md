@@ -1102,7 +1102,7 @@ Die Tatsache, dass $\mathbb{S}^2$ nicht parallelisierbar ist wird beim Satz vom 
 ````
 
 Wir wollen uns nun mit der Frage beschäftigen, wie sich die Tangentialräume für unterschiedliche Punkte $p,q\in B$ des Basisraums zueinander verhalten, insbesondere wenn $p$ und $q$ nahe beieinander liegen.
-Hierbei hilft es das abstraktee Konzept eines **Vektorbündels** zu betrachten.
+Hierbei hilft es das abstrakte Konzept eines **Vektorbündels** zu betrachten.
 
 ````{prf:definition} Vektorbündel
 Es sei $\M$ der Basisraum und $E$ der Totalraum glatter Mannigfaltigkeiten.
@@ -1229,9 +1229,10 @@ Daraus folgt aber, dass $\Psi$ schon ein Diffeomorphismus sein muss.
 
 ### Vektorfelder
 
-Wir führen zunächst sogenannte Schnitte auf Bündeln ein. Anschaulich abstrahieren wir hier das Konzept der Graphen von Funktionen.
-
-Es sei $f:\M\to\R^n$ eine Funktion$, dann ist ihr Graph gegeben durch
+Wir führen zunächst sogenannte Schnitte auf Bündeln ein.
+Anschaulich abstrahieren wir hierdurch das Konzept von Funktionsgraphen.
+Es sei $f:\M\to\R^n$ eine vektorwertige Funktion auf einer Mannigfaltigkeit $\M$.
+Dann ist ihr Graph gegeben durch
 
 ```{math}
 \{(p,f(p)): p\in\M\}\subset \M\times\R^n.
@@ -1245,8 +1246,9 @@ Hierbei sehen wir, dass $\M\times\R^n\overset{\pi}{\to}\M$ ein triviales Bündel
 
 Verallgemeinert betrachten führt diese Überlegung auf folgende Definition.
 
-````{prf:definition}
-Es sei $\M$ eine glatte Mannigfaltigkeit und $E\overset{\pi}{\to}\M$ ein Vektorbündel. Für $U\subset\M$ offen, heißt eine glatte Abbildung
+````{prf:definition} Glatter Schnitt
+Es sei $\M$ eine glatte Mannigfaltigkeit und $E\overset{\pi}{\to}\M$ ein Vektorbündel.
+Für eine offene Umgebung $U\subset\M$ heißt eine glatte Abbildung
 
 ```{math}
 \sigma: U\to E
@@ -1258,27 +1260,35 @@ Es sei $\M$ eine glatte Mannigfaltigkeit und $E\overset{\pi}{\to}\M$ ein Vektorb
 \pi(\sigma(p)) = p\quad\text{ für alle }p\in U.
 ```
 
-Die Menge der glatten Schnitte auf $U$ wird mit $\Gamma(E\rvert_U)$ bezeichnet. Für $U=\M$ heißt $\sigma$ **glatter Schnitt** und wir definieren 
-$\Gamma(E):=\Gamma(E\rvert_\M)$.
+Die Menge der glatten Schnitte auf $U$ wird mit $\Gamma(E\rvert_U)$ bezeichnet.
+Falls die Umgebung $U$ die ganze Mannigfaltigkeit ist, d.h., es gilt $U=\M$, dann heißt $\sigma$ **glatter Schnitt** und wir definieren $\Gamma(E):=\Gamma(E\rvert_\M)$.
 
 ````
 
-Für offenen Mengen im euklidischen kennen wir bereits den Begriff **Vektorfeld**, nämlich eine Funktion
+Für offenen Mengen im Euklidischen Raum kennen wir bereits den Begriff **Vektorfeld**.
+Hierbei handelt es sich nämlich um eine Funktion
 
 ```{math}
-F:U\to\R^n
+F:U\to\R^n,
 ```
 
-wobei $U\subset\R^n$ offen ist. Wir nehmen also Punkte $x\in\R^n$ und ordnen ihnen Vektoren $F(x)\in\R^n$ aus dem gleichen Raum zu. Betrachten wir statt offenen Mengen $U\subset\R^n$ nun glatte Mannigfaltigkeiten $\M$ so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen. Hierbei hilft uns nun der Tangentialraum $T\M$, welcher die richtige Wahl des Zielraums darstellt. Somit können wir Vektorfelder verallgemeinern indem wir als Schnitte des Tangenialraums auffassen.
+wobei $U\subset\R^n$ eine offene Umgebung ist.
+Wir nehmen in diesem Fall also Punkte $x\in\R^n$ und ordnen ihnen Vektoren $F(x)\in\R^n$ aus dem gleichen Raum zu.
 
-````{prf:definition}
-Es sei $\M$ eine glatte Mannigfaltigkeit, ein glatter Schnitt 
+Betrachten wir statt offener Mengen $U\subset\R^n$ nun glatte Mannigfaltigkeiten $\M$, so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen.
+Es stellt sich heraus, dass der Tangentialraum $T\M$ die richtige Wahl des Zielraums darstellt.
+Somit können wir das Konzept von Vektorfeldern verallgemeinern indem wir sie als Schnitte des Tangenialraums auffassen.
+
+````{prf:definition} Glatte Vektorfelder
+Es sei $\M$ eine glatte Mannigfaltigkeit.
+Wir nennen einen glatten Schnitt 
 
 ```{math}
 X:\M\to T\M
 ```
 
-heißt glattes Vektorfeld. Das Argument von $X$ wird hierbei meist als subskript notiert, d.h., $X_p = X(p)$.
+ein **glattes Vektorfeld**.
+Das Argument von $X$ wird hierbei meist als Subskript notiert, d.h., $X_p := X(p)$.
 ````
 
 Für Tangentialbündel haben wir die Abbildung $\pi:T\M\to\M$ durch
@@ -1287,53 +1297,62 @@ Für Tangentialbündel haben wir die Abbildung $\pi:T\M\to\M$ durch
 \pi(p,v):= p\quad\text{ für } (p,v)\in\{p\}\times T_p\M
 ```
 
-definiert. Ist $X$ nun ein glattes Vektorfeld, so gilt
+definiert.
+Ist $X$ nun ein glattes Vektorfeld, so gilt
 
 ```{math}
 \pi(X(p)) = p
 ```
 
-und somit insbesondere $X_p\in T_p\M$. Ein Vektorfeld ordnet also jedem Punkt $p\in\M$ ein Element seines Tangentialraums zu. Falls $\M$ eine offene Menge in $\R^n$ ist, ist dies insbesondere konsistent zur bekannten Definition von Vektorfeldern.
+und somit insbesondere $X_p\in T_p\M$.
+Ein Vektorfeld ordnet also jedem Punkt $p\in\M$ ein Element seines Tangentialraums zu.
+Falls $\M$ eine offene Menge in $\R^n$ ist, ist dies insbesondere **konsistent** zur bekannten Definition von Vektorfeldern in Euklidischen Räumen.
 
 #### Wirkung von Vektorfeldern
 
-Von der algebraischen Definition des Tangentialraums ist das totale Differential $df_p\in T^\ast_p\M$ bekannt, welches für $D\in T^{\text{alg}}_p\M$ definiert ist durch
+Von der algebraischen Definition des Tangentialraums ist das totale Differential $df_p\in T^\ast_p\M$ bekannt, welches für $D\in T^{\text{alg}}_p\M$ und eine Funktion $f\in C^\infty(M)$ definiert ist durch
 
 ```{math}
-df_p(D):= D(f)
+df_p(D):= D(f).
 ```
 
-für eine Funktion $f\in C^\infty(M)$. Mithilfe dieses Konzepts können wir die Wirkung eines Vektorfelds definieren.
+Mithilfe dieses mathematischen Werkzeugs können wir nun die Wirkung eines Vektorfelds definieren.
 
 ````{prf:definition} Wirkung von Vektorfeldern
-Es sei $\M$ eine glatte Mannigfaltigkeit und $X\in\Gamma(T\M)$, die **Wirkung** von $X$ auf $C^\infty$ ist definiert durch 
+:label: def:wirkung
+
+Es sei $\M$ eine glatte Mannigfaltigkeit und $X\in\Gamma(T\M)$.
+Die **Wirkung** von $X$ auf $C^\infty$ ist definiert durch 
 
 ```{math}
-X(\cdot):C^\infty(M)\to C^\infty(\M)\\
-f\mapsto [p\mapsto X_p(f) := df_p(X)].
+X(\cdot):C^\infty(M) &\to C^\infty(\M)\\
+f &\mapsto [p\mapsto X_p(f) := df_p(X)].
 ```
 ````
 
 #### Lokale Basis von Vektorfeldern
 
-Aus {numref}`sec:TPBasis` wissen wir bereits, dass wir für $p\in\M$ Tangentialvektoren $v\in T_p\M$ durch die Vektoren $\partial_{x^i}^p$ darstellen können. Im Kontext von Tangentialbündeln stellt sich auf natürliche Art die Frage, wie sich diese Vektoren verändern, wenn der Punkt $p$ variiert wird. Hierzu definieren wir folgende Abbildungen.
+Aus {numref}`sec:TPBasis` wissen wir bereits, dass wir für jeden Punkt $p\in\M$ die entsprechenden Tangentialvektoren $v\in T_p\M$ durch die partiellen Derivationen $\partial_{x^i}^p$ darstellen können.
+Im Kontext von Tangentialbündeln stellt sich die natürliche Frage, wie sich diese Vektoren verändern, wenn der Punkt $p\in\M$ variiert wird.
+Hierzu definieren wir zunächst folgende Abbildungen.
 
-````{prf:definition}
-Es sei $\M$ eine glatte $n$-dimesnionale Mannigfaltigkeit und $(U,\phi)$ eine Karte, dann definieren wir die lokalen Koordinatenfelder 
-für $i=1,\ldots,n$ durch
+````{prf:definition} Lokale Koordinatenfelder
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit und $(U,\phi)$ eine Karte.
+Dann definieren wir die sogenannten **lokalen Koordinatenfelder** für $i=1,\ldots,n$ durch
 
 ```{math}
 \partial_{x^{i}}&:\M\to T\M\\
-\partial_{x^{i}}(p)&:= \partial_{x^{i}}\rvert_p
+\partial_{x^{i}}(p)&:= \partial_{x^{i}}\rvert_p. 
 ```
 ````
 
-Mithilfe dieser lokalen Koordiantenfelder können wir nun Vektorfelder lokal darstellen.
+Mithilfe dieser lokalen Koordinatenfelder können wir nun Vektorfelder lokal darstellen.
 
 ````{prf:lemma}
 :label: lem:localsections
 
-Es sei $\M$ eine glatte Mannigfaltigkeit und $(U,\phi)$ sei eine Karte, dann gilt für $X\in\Gamma(T\M\rvert_U)$ und die Koeffizientfunktionen $X^i:=X(\phi_i)\in C^\infty(U)$ 
+Es sei $\M$ eine glatte Mannigfaltigkeit und $(U,\phi)$ sei eine Karte von $\M$. 
+Dann gilt für $X\in\Gamma(T\M\rvert_U)$ und die Koeffizientenfunktionen $X^i:=X(\phi_i)\in C^\infty(U)$, dass gilt
 
 ```{math}
 X = \sum_{i=1}^n X^i \partial_{x^{i}}.
@@ -1341,20 +1360,21 @@ X = \sum_{i=1}^n X^i \partial_{x^{i}}.
 ````
 
 ````{prf:proof}
-Es sei $p\in\M$, dann haben wir wegen  {prf:ref}`thm:tanbasis` die Darstellung
+Es sei $p\in\M$ ein beliebiger Punkt der Mannigfaltigkeit.
+Dann haben wir wegen {prf:ref}`thm:tanbasis` die Darstellung
 
 ```{math}
 X_p = \sum_{i=1}^n X_p(\phi_i) \partial_{x^i}^p.
 ```
 
-Mit der Defintion der Wirkung von Vektorfeldern folgt dann 
+Mit der {prf:ref}`def:wirkung` der Wirkung von Vektorfeldern folgt dann schon
 
 ```{math}
 X = \sum_{i=1}^n X(\phi_i) \partial_{x^i}.
 ```
 ````
 
-Aus dieser Darstellung folgt auch, dass lokal für eine Karte $(U,\phi)$ die Wirkung auf $f\in C^\infty(U)$ geschrieben werden kann als
+Aus der obigen Darstellung folgt auch, dass lokal für eine Karte $(U,\phi)$ die Wirkung auf $f\in C^\infty(U)$ geschrieben werden kann als
 
 ```{math}
 X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.
