@@ -709,8 +709,20 @@ und mithilfe der Richtungsableitung aus {prf:ref}`def:direcdiv` die Derivationen
 f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
 ```
 
+````{prf:definition} Partielle Derivation
+Sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit für $n\in\N$ und sei $f \in C^\infty(\M)$ eine glatte Funktion.
+Dann bezeichnen wir die Derivationen
+
+```{math}
+\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)), \quad i=1,\ldots,n
+```
+
+als **partielle Derivationen** von $f$ im Punkt $p \in \M$.
+
+````
+
 Wir interpretieren also im Folgenden das Symbol $\partial_{x^{i}}^p$ als Derivation an $p\in\M$, d.h., insbesondere als lineare Abbildung von $C^\infty(\M)$ nach $\R$.
-Diese **partiellen Derivationen** folgen der Intuition, dass die partielle Ableitung in eine Richtung auch nur Änderungen in diese Richtung respektiert.
+Diese partiellen Derivationen folgen der Intuition, dass die partielle Ableitung in eine Richtung auch nur Änderungen in diese Richtung respektiert.
 Wir formalisieren diese Anschauung in folgendem Lemma.
 
 ````{prf:lemma}
@@ -961,45 +973,74 @@ Die Aussage folgt direkt aus {prf:ref}`lem:dualeBasis`.
 ### Tangentialbündel
 
 ```{note}
-Im folgenden bezeichne $T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}$ entweder den algebraischen oder den geometrischen Tangentialraum, die konkrete Wahl wird an den entsprechenden Stellen spezifiziert.
+Im Folgenden bezeichne $T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}$ entweder den *algebraischen* oder den *geometrischen Tangentialraum*.
+Die konkrete Wahl wird an den entsprechenden Stellen (wenn nötig) spezifiziert.
 ```
 
-Bisher haben wir für eine $n$-dimesnionale glatte Mannigfaltigkeit $\M$ für jedes einzele $p\in\M$ einen Vektorraum betrachtet, nämlich den Tangentialraum $T_p\M$, welcher wiedrum wegen {prf:ref}`thm:tanbasis` isomorph zum $\R^n$ ist. Wir interessieren uns jetzt dafür, wie sich Tangentialräume für verschiedene $p,q\in \M$ in Beziehung setzten lasse und wollen auch eine globale Struktur definieren welche alle Tangentialräume (d.h. für jedes $p\in\M$) zusammenfasst.
+Bisher haben wir für eine $n$-dimensionale glatte Mannigfaltigkeit $\M$ für jeden einzelnen Punkt $p\in\M$ den zugehörigen Tangentialraum $T_p\M$ betrachtet, welcher wiederum wegen {prf:ref}`thm:tanbasis` isomorph zum $\R^n$ ist.
+Wir interessieren uns jetzt dafür, wie sich Tangentialräume für verschiedene Punkte $p,q\in \M$ in Beziehung setzen lassen.
+Darüber hinaus wollen wir eine globale Struktur definieren welche alle Tangentialräume (d.h. für jedes $p\in\M$) zusammenfasst.
 
-Hierbei spricht man nun vom **Basisraum** $B=\M$, da die Punkte $p$ welche die Vektorräume erzeugen aus diesem Raum entnommen werden. Ein erster Ansatz für eine globale Struktur ist die Vereinigung
+In diesem Kontext spricht man von der Mannigfaltigkeit häufig als dem **Basisraum** $B=\M$, da die Punkte $p \in \M$, welche die Vektorräume erzeugen, aus diesem Raum entnommen werden.
+Ein erster Ansatz für eine globale Struktur ist die Vereinigung
 
 ```{math}
 \bigcup_{p\in\M} T_p\M.
 ```
 
-Ist z.B. als Mannigfaltigkeit der Einheitskreis $\M = \mathbb{S}^1\subset\R^2$ gegeben und wählt man als Repräsentanten für jedes $p=(\cos(\alpha), \sin(\alpha))\in\M, \alpha\in [0,2\pi)$ die Kurve $\gamma_p(t) := p - t \cdot\big(1, \frac{\cos(\alpha)}{\sin(\alpha)}\big)$ so erhalten wir anschualich die in {numref}`fig:bundleA` visualisierte Menge.
+Wir wollen diese Idee im folgenden Beispiel veranschaulichen.
 
-```{figure} ../img/bundlea.jpg
+````{prf:example} Tangentialräume an Einheitskreis
+:label: ex:tangentialS1
+
+Sei als zu Grunde liegende Mannigfaltigkeit der Einheitskreis $\M = \mathbb{S}^1\subset\R^2$ gegeben.
+Wir wählen als Repräsentanten für jeden Punkt
+
+```{math}
+p=(\cos(\alpha), \sin(\alpha))\in\M, \quad \alpha\in (0,2\pi) \setminus \{\pi\}
+```
+
+die Kurve 
+
+```{math}
+\gamma_p(t) := p - t \cdot\big(1, \frac{\cos(\alpha)}{\sin(\alpha)}\big),
+```
+
+und somit erhalten wir anschaulich die in {numref}`fig:bundleA` für einige Punkte visualisierte Menge.
+
+```{figure} ../img/BundleA.jpg
 ---
 height: 300px
 name: "fig:bundleA"
 ---
-Visualisierung der Tangentialräume am Einheitskreises.
+Visualisierung der Tangentialräume einiger Punkte am Einheitskreises.
 ```
 
-Es fällt auf, dass sich zwar einzelene Kurven schneiden können, die Kurven selbst und die assozierten Vektorräume alledings nicht gleich sind. Um diese Tatsache zu verdeutlichen ist es praktisch die disjunkte Vereinigung
+Es fällt auf, dass sich zwar einzelne Kurven schneiden können, jedoch die Kurven selbst und die assoziierten Vektorräume nicht gleich sind.
+Um diese Tatsache zu verdeutlichen ist es praktisch die *disjunkte Vereinigung*
 
 ```{math}
-\bigsqcup_{p\in\M} T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
+\bigsqcup_{p\in\M} T_p\M := \bigcup_{p\in\M} \{p\} \times T_p\M \cong \bigcup_{p\in\M} \{p\} \times \R
 ```
 
-zu betrachten. Für den Einheitskreis erhalten wir so den Zylinder in {numref}`fig:bundleB`.
+zu betrachten.
+Für den Einheitskreis erhalten wir durch die Isomorphie $T_p\M \cong \R$ so den Zylinder in {numref}`fig:bundleB`.
 
-```{figure} ../img/bundleb.jpg
+```{figure} ../img/BundleB.jpg
 ---
 height: 300px
 name: "fig:bundleB"
 ---
-Visualisierung der disjunkt vereinigten Tangentialräume am Einheitskreises.
+Visualisierung der disjunkt vereinigten Tangentialräume einiger Punkte am Einheitskreises.
 ```
 
-````{prf:definition}
-Es sei $\M$ eine glatte Mannigfaltigkeit, die Menge
+````
+
+Wir wollen diese globale Struktur der disjunkten Vereinigung formal definieren.
+
+````{prf:definition} Tangentialbündel
+Es sei $\M$ eine glatte Mannigfaltigkeit.
+Dann heißt die Menge
 
 ```{math}
 T\M := \bigsqcup_{p\in\M}  T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
@@ -1007,102 +1048,124 @@ T\M := \bigsqcup_{p\in\M}  T_p\M = \bigcup_{p\in\M} \{p\} \times T_p\M
 
 zusammen mit der Projektion 
 
-
 ```{math}
-\pi:T\M\to \M\\
-\{p\}\times T_p\M\mapsto p
+\pi:T\M &\to \M\\
+\{p\}\times T_p\M &\mapsto p
 ```
 
-heißt **Tangentialbündel** von $\M$.
+das **Tangentialbündel** von $\M$.
 
 ````
 
-Insbesondere erkenn wir, dass wir mithilfe der Projektion $\pi$ jedem Element des Tangentialbündels eindeutig den Punkt $p\in\M$ zuordnen können, der den entsprechenden Tangentialraum erzeugt hat.
+Insbesondere erkennen wir, dass wir mit Hilfe der Projektion $\pi$ jedem Element des Tangentialbündels eindeutig den zu Grunde liegenden Punkt $p\in\M$ zuordnen können, der den entsprechenden Tangentialraum erzeugt hat.
 
-````{prf:example}
+Im Folgenden wollen wir uns zwei Beispiele für Tangentialbündel an Mannigfaltigkeiten ansehen.
+
+````{prf:example} Tangentialbündel
 <br/>
 
-1\. Sei $\M=\R^n$, dann ist das Tangentialbündel gerade gegeben durch $T\M = \R^n\times\R^n = \R^{2n}$.
+1\. Sei $\M=\R^n$.
+Dann ist das Tangentialbündel gerade gegeben durch 
+
+```{math}
+T\M = \R^n\times\R^n = \R^{2n}.
+```
 
 <br/>
 
-2\. Wie bereits gesehen erhalten wir für $\M=\mathbb{S}^1$ als Tangentialbündel den unendlich hohen Zylinder $T\M = \mathbb{S}^1\times \R$.
+2\. Wie bereits in {prf:ref}`ex:tangentialS1` gesehen erhalten wir für $\M=\mathbb{S}^1$ als Tangentialbündel den unendlich hohen Zylinder 
+
+```{math}
+T\M = \mathbb{S}^1\times \R.
+```
 
 ````
 
-In den bisher betrachten Beispielen, haben wir als Tangentialbündel jeweils eine Menge der Form $\M\times \R^n$ erhalten. Dies ist allerdings nicht immer der Fall, tatsächlich bilden diese Tangentialbündel eine spezielle Unterklasse.
+In den bisher betrachten Beispielen haben wir als Tangentialbündel jeweils eine Menge der Form $\M\times \R^n$ erhalten. 
+Dies ist jedoch nicht immer der Fall wie wir sehen werden.
+Tatsächlich bilden Tangentialbündel von dieser Form eine spezielle Unterklasse.
 
-````{prf:definition}
-Sei $\M$ eine glatte $n$-dimesnionale Mannigfaltigkeit, das Tangentialbündel heißt **trivial**, falls 
+````{prf:definition} Triviale Tangentialbündel und parallelisierbare Mannigfaltigkeiten
+Sei $\M$ eine glatte $n$-dimesnionale Mannigfaltigkeit.
+Das Tangentialbündel $T\M$ heißt **trivial**, falls gilt
 
 ```{math}
-T\M\cong \M\times\R^n
+T\M\cong \M\times\R^n.
 ```
 
-gilt. In diesem Fall heißt $\M$ **parallelisierbar**.
+In diesem Fall nennt man die Mannigfaltigkeit $\M$ auch **parallelisierbar**.
 ````
 
 ````{prf:remark}
-Es lässt sich zeigen, dass $\mathbb{S}^1, \mathbb{S}^3,\mathbb{S}^7$ die einzigen paralleslisierbaren Spähren sind, siehe {cite:p}`lee2003`. Die Tatsache, dass $\mathbb{S}^2$ nicht parallelsierbar ist wird beim Satz vom gekämmten Igel (??) erneut auftauchen.
+Es lässt sich zeigen, dass $\mathbb{S}^1, \mathbb{S}^3,\mathbb{S}^7$ die *einzigen* paralleslisierbaren Sphären sind (siehe {cite:p}`lee2003`).
+Die Tatsache, dass $\mathbb{S}^2$ nicht parallelisierbar ist wird beim Satz vom gekämmten Igel in `prf:ref`{TODO} erneut auftauchen.
 ````
 
-Wir wollen nun zusätzlich charakteriseren, wie sich die Tangentialräume für unterschiedliche $p,q\in B$ zueinander verhalten, insbesondere wenn $p$ und $q$ nahe aneinander liegen. Hierbei hilft es das abstrakter Konzept eines **Vektorbündels** zu betrachten.
+Wir wollen uns nun mit der Frage beschäftigen, wie sich die Tangentialräume für unterschiedliche Punkte $p,q\in B$ des Basisraums zueinander verhalten, insbesondere wenn $p$ und $q$ nahe beieinander liegen.
+Hierbei hilft es das abstraktee Konzept eines **Vektorbündels** zu betrachten.
 
 ````{prf:definition} Vektorbündel
-Es seien $\M$ der Basisraum und $E$ der Totalraum glatte Mannigfaltigkeiten und $\pi:E\to \M$ sei glatt und bijektiv. Weiterhin gelte
+Es sei $\M$ der Basisraum und $E$ der Totalraum glatter Mannigfaltigkeiten.
+Außerdem sei $\pi:E\to \M$ eine glatte und bijektive Abbildung.
+Weiterhin gelte
 
-* für jedes $p\in \M$ sei die sogenannte **Faser** $E_p:= \pi^{-1}(p)$ ein $n$-dimensionaler Vektorraum,
+* für jeden Punkt $p\in \M$ sei die sogenannte **Faser** $E_p:= \pi^{-1}(p)$ ein $n$-dimensionaler Vektorraum,
 
-* Zu jedem $p\in \M$ existiere eine offene Umgebung $U\subset \M$ und ein Diffeomorphimus $\Psi: \pi^{-1}(U)\to U\times\R^n$, s.d., 
-für alle $x\in U$
+* für jeden Punkt $p\in \M$ existiere eine offene Umgebung $U\subset \M$ und ein Diffeomorphimus $\Psi: \pi^{-1}(U)\to U\times\R^n$, so dass für alle $x\in U$ gilt
 
 ```{math}
 \text{pr}_U(\Psi(x)) &= \pi(x)\quad\forall x\in \pi^{-1}(U)\\
 \Psi\rvert_{E_q}&: \pi^{-1}(q) \to \{q\}\times \R^n \text{ ist ein Isomorphismus, für alle }q\in U.
 ```
 
-Dann heißt $(E,\M,\pi)$ **Vektorbündel** vom Rang $n$. Hierbei bezeichnet $\text{pr}_U(q, z):= q$ die Projektion auf die $U$ Komponente eines Vektors $(q,z)\in U\times\R^n$.
+Dann heißt $(E,\M,\pi)$ **Vektorbündel** vom Rang $n$.
+Hierbei bezeichnet $\text{pr}_U(q, z):= q$ die Projektion auf die $U$-Komponente eines Vektors $(q,z)\in U\times\R^n$.
 ````
 
 ````{prf:remark} Bündel-Notation
-Anstatt das Vektorbündel $(E,\M,\pi)$ als Tripel aufzuschreiben, ist es üblich von einem Bündel $E\overset{\pi}{\to}\M$ oder sogar $E\to\M$ zu sprechen. Die Abbildung $\pi$ wird im zweiten Fall nur implizit vorausgesetzt.
+Anstatt das Vektorbündel $(E,\M,\pi)$ als Tripel aufzuschreiben, ist es üblich von einem Bündel $E\overset{\pi}{\to}\M$ oder sogar $E\to\M$ zu sprechen. 
+Die Abbildung $\pi$ wird im zweiten Fall nur *implizit* vorausgesetzt.
 ````
 
-Die Funktion $\Psi$ heißt hier **lokale Trivialisierung**, denn sie erlaubt es uns den Totalraum $E$ lokal als Produktraum darzustellen. Analog zum Tangentialbündel nennen wir ein Vektorbündel **trivial**, falls eine Trivialsierung $\Psi:E\to \M\times\R^n$ existiert, s.d. also
+Die Funktion $\Psi$ nennt man in diesem Kontext **lokale Trivialisierung**, denn sie erlaubt es uns den Totalraum $E$ lokal als Produktraum darzustellen.
+Analog zum Tangentialbündel nennen wir ein Vektorbündel **trivial**, falls eine Trivialsierung $\Psi:E\to \M\times\R^n$ existiert, so dass gilt
 
 ```{math}
-E \cong \M\times\R^n
+E \cong \M\times\R^n.
 ```
-
-gilt.
 
 ````{prf:example}
 Möbius-Band.
 ````
 
-Wir wollen nun zeigen, dass das Tangentialbündel ein Vektorbündel ist. Dazu benötigen wir zunächst die Aussage, dass $T\M$ selbst eine glatte Mannigfaltigkeit ist.
+Wir wollen nun zeigen, dass das Tangentialbündel ein Vektorbündel ist.
+Dazu benötigen wir zunächst die Hilfsaussage des folgenden Lemmas, dass das Tangentialbündel $T\M$ selbst eine glatte Mannigfaltigkeit ist.
 
 ````{prf:lemma}
 :label: lem:tanman
 
-Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, dann ist das Tangentialbündel $T\M$ eine glatte $2n$-dimensionale Mannigfaltigkeit. Insbesondere ist auch 
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit.
+Dann ist das Tangentialbündel $T\M$ eine glatte $2n$-dimensionale Mannigfaltigkeit. 
+Insbesondere ist
 
 ```{math}
-\pi:T\M\to \M\\
-\{p\}\times T_p\M\mapsto p
+\pi:T\M &\to \M\\
+\{p\}\times T_p\M &\mapsto p
 ```
 
-eine glatte bijektive Abbildung.
+eine glatte und bijektive Abbildung.
 ````
 
 ````{prf:proof}
-Wir werden lediglich die Idee skizzieren, für den vollständingen Beweis siehe {cite:p}`lee2003` Prposition 3.18. Wir benutzen hier die algebraische Definition des Tangentialraums.
+Wir werden lediglich die Idee skizzieren, für den vollständingen Beweis siehe Proposition 3.18 in {cite:p}`lee2003`.
+Wir benutzen hier die algebraische Definition des Tangentialraums.
 
-Es sei $(U,\varphi)$ eine Karte, wir betrachten die Menge $\pi^{-1}(U)\subset T\M$ und die Abbildung 
+Es sei $(U,\varphi)$ eine Karte.
+Wir betrachten die Menge $\pi^{-1}(U)\subset T\M$ und die Abbildung 
 
 ```{math}
 \psi:\pi^{-1}(U) \to \phi(U)\times \R^{n}\subset\R^{2n}\\
-(p,v)\to (\varphi(p), v(\varphi))
+(p,v) &\mapsto (\varphi(p), v(\varphi)),
 ```
 
 wobei wir für $v\in T_p\M\subset (C^\infty(\M))^\ast$ die Notation 
@@ -1111,10 +1174,12 @@ wobei wir für $v\in T_p\M\subset (C^\infty(\M))^\ast$ die Notation
 v(\varphi) := (v(\varphi_1),\ldots, v(\varphi_n))
 ```
 
-benutzt haben. Es stellt sich dann heraus, dass so definierte Abbildungen $\psi$ Karten auf $T\M$ und tatsächlich auch eine Mannigfaltigkeit definieren. Insbsondere ist ein so definiertes $\psi$ ein Diffeomorphismus.
+benutzt haben.
+Es stellt sich dann heraus, dass so definierte Abbildungen $\psi$ Karten auf $T\M$ und somit tatsächlich auch eine Mannigfaltigkeit definieren.
+Insbsondere ist ein so definiertes $\psi$ ein Diffeomorphismus.
 ````
 
-Mithilfe dieser Aussage können wir nun zeigen, dass $T\M$ ein Vektorbündel ist.
+Mithilfe der obigen Aussage können wir nun zeigen, dass $T\M$ ein Vektorbündel ist.
 
 ````{prf:lemma}
 Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit mit dem Tangentialraum 
@@ -1134,28 +1199,31 @@ Dann ist $(T\M, \M, \pi)$ ein Vektorbündel vom Rang $n$.
 ````
 
 ````{prf:proof}
-Es sei $(U,\varphi)$ eine Karte für $\M$, dann definieren wir die Abbildung 
+Es sei $(U,\varphi)$ eine Karte für $\M$.
+Dann definieren wir die Abbildung 
 
 ```{math}
-\Psi: \pi^{-1}(U)\to U\times \R^n\\
-(p,v)\mapsto (p, v(\varphi)).
+\Psi: \pi^{-1}(U) &\to U\times \R^n\\
+(p,v) &\mapsto (p, v(\varphi)).
 ```
 
-Wir erkennen sofort, dass $\Psi$ linear ist und, dass $(\text{pr}_U\circ\Psi)(p,v) = p = \pi(p,v)$ gilt. 
-Da $\phi$ ein Diffeomorphismus ist, ist auch 
+Wir erkennen sofort, dass $\Psi$ linear ist und dass $(\text{pr}_U\circ\Psi)(p,v) = p = \pi(p,v)$ gilt. 
+Da $\phi$ ein Diffeomorphismus ist, ist 
 
 ```{math}
-\phi\times\text{Id}:U\times \R^n\to \phi(U)\times\R^n\\
-(p,z)\mapsto (\phi(p), z)
+\phi\times\text{Id}:U\times \R^n &\to \phi(U)\times\R^n\\
+(p,z) &\mapsto (\phi(p), z)
 ```
 
-ein Diffeomorphismus. Hier beobachten wir aber, dass 
+ebenfalls ein Diffeomorphismus.
+Hierbei bemerken wir aber, dass gilt
 
 ```{math}
-\big((\phi\times\text{Id})\circ \Psi\big)(p,v) = (\phi\times\text{Id})(p, v(\varphi)) = (\phi(p), v(\varphi))
+\big((\phi\times\text{Id})\circ \Psi\big)(p,v) = (\phi\times\text{Id})(p, v(\varphi)) = (\phi(p), v(\varphi)).
 ```
 
-gilt somit enstpricht $(\phi\times\text{Id})\circ \Psi$ gerade der Karte aus dem Beweis von {prf:ref}`lem:tanman` und ist somit auch ein Diffeomorphismus. Daraus folgt aber, dass $\Psi$ schon ein Diffeomorphismus sein muss.
+Somit entspricht $(\phi\times\text{Id})\circ \Psi$ gerade der Karte aus dem Beweis von {prf:ref}`lem:tanman` und ist somit auch ein Diffeomorphismus.
+Daraus folgt aber, dass $\Psi$ schon ein Diffeomorphismus sein muss.
 
 ````
 
