@@ -1013,25 +1013,35 @@ X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.
 Analog zum Kotangentialraum, können wir auch das Kotangentialbündel definieren.
 
 ````{prf:definition}
-Es sei $\pi:T\M\M$ eine glatte Mannigfaltigkeit, dann ist das **Kotangentialbündel** $\pi^\ast T^\ast\M\to\M$ mit der Menge 
+Es sei $\pi:T\M\to\M$ eine Tangentialbündel, dann ist das **Kotangentialbündel** $\pi^\ast: T^\ast\M\to\M$ mit der Menge 
 
 ```{math}
 T^\ast\M := \bigsqcup_{p\in\M} T_p\M
 ```
 
-und der Abbildung 
+und der Projektion
 
 ```{math}
-\pi^{\ast}:(p , v):= T_p^\ast\M = (T_p\M)^\ast
+(\pi^{\ast})^{-1}(p):= \{p\}\times T_p^\ast\M
 ```
 
 definiert.
 ````
 
+````{prf:remark}
+Per Definition ist eine Projektion $\pi^\ast$ surjektiv und besitzt eine Rechtsinverse $\pi^\ast$, weshalb obige Definition impliziert, dass für alle $p\in\M$ 
+
+```{math}
+\pi({p}\times T_p^\ast\M) = \pi((\pi^{\ast})^{-1}(p)) = p
+```
+
+gilt. Insbesondere hat aber jedes Element $x\in T^\ast\M$ eine Darstellung $x=\{p\}\times T_p^\ast\M$ für ein $p\in\M$, weshalb man $\pi$ wie oben angegen tatsächlich über die Inverse definieren kann.
+````
+
 Auch in diesem Fall erhält man ein Vektorbündel.
 
 ````{prf:lemma}
-Es sei $\M$ eine glatte Mannigfaltigkeit, dann ist das Kotangentialbündel $\pi^\ast T^\ast\M\to\M$ ein Vektorbündel.
+Es sei $\pi:T\M\to\M$ eine Tangentialbündel, dann ist das Kotangentialbündel $\pi^\ast:T^\ast\M\to\M$ ein Vektorbündel.
 ````
 
 ````{prf:proof}
@@ -1048,9 +1058,21 @@ Ein glatter Schnitt $\omega\in\Gamma(T^\ast\M)$ wir als 1-Differentialform bezei
 ```
 ````
 
-Diese 1-Formen sind die einfachsten Beispiele der allgmeinen Diffenerentialformen, welche wir in {numref}`s:difformen` untersuchen werden. Das Konzept des Kotangentialbündels und der Differentialform ist nun noch etwas abstrakt, allerdings erhalten wir mithilfe des totalen Differentials {prf:ref}`def:totdiff` erneut eine einfache Veranschalichung.
+Man kann hier analog lokale Koordinaten Kovektorfelder definierne indem man lokale Koordinaten betrachtet und die duale Basisdarstellung des Kotangentialraums benutzt.
 
-````{prf:lemma}
+````{prf:definition} Lokale Koordinatenfelder
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit und $(U,\phi)$ eine Karte.
+Dann definieren wir die sogenannten **lokalen Koordinaten Kovektorfelder** für $i=1,\ldots,n$ durch
+
+```{math}
+dx^{i}:\M&\to T\M\\
+p&\mapsto dx^{i}_p. 
+```
+````
+
+Die definierten 1-Formen sind die einfachsten Beispiele der allgmeinen Diffenerentialformen, welche wir in {numref}`s:difformen` untersuchen werden. Das Konzept des Kotangentialbündels und der Differentialform ist nun noch etwas abstrakt, allerdings erhalten wir mithilfe des totalen Differentials {prf:ref}`def:totdiff` erneut eine einfache Veranschalichung.
+
+````{prf:example}
 Es sei $\M$ eine glatte Mannigfaltigkeit und $f\in C^\infty(\M)$, dann ist die Abbildung 
 
 ```{math}
@@ -1058,29 +1080,78 @@ df:\M\to T^\ast\M\\
 p\mapsto (p, df_p)
 ```
 
-eine Differentialform.
+eine Differentialform, wobei $df_p\in T_p^\ast\M$ für eine Derivation $D\in T_p\M$ definiert ist durch 
 
-````
+```{math}
+df_p(D) := D(f),
+```
 
-````{prf:proof}
-Für die Glattheitseigenschaft verweisen wir auf {cite:p}`lee2003` Prop. 10.22., was zeigt, dass $df$ eine glatte Abbildung ist. Desweiteren sehen wir 
+weil $D$ als Derivation gerade eine lineare Abbildung $D:C^\infty\to\R$ ist.
+
+Für die Glattheitseigenschaft verweisen wir auf {cite:p}`lee2003` Prop. 10.22., was zeigt, dass $df$ eine glatte Abbildung ist. Desweiteren sehen wir, dass 
 
 ```{math}
 \pi^\ast(df(p)) = \pi^\ast((p,df_p)) = p 
 ```
 
-````
-
-Zusätzlich haben wir hier auch eine lokale Basisdarstellung als analoges Resultat zu {prf:ref}`lem:localsections` hier nun aber mit den Basiselementen des Kotangentialraums.
-
-````{prf:definition} Lokale Koordinatenfelder
-Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit und $(U,\phi)$ eine Karte.
-Dann definieren wir die sogenannten **lokalen Koordinatenfelder** für $i=1,\ldots,n$ durch
+und somit gilt per Definition diese Eigenschaft eines Schnittes. Sei nun $(U,\varphi)$ eine Karte mit lokalen Koordinaten $\varphi = (x^1,\ldots, x^n)$. Für $p\in\M$ und $D\in T_p\M$ Derivation gilt nach ??, dass 
 
 ```{math}
-\partial_{x^{i}}&:\M\to T\M\\
-\partial_{x^{i}}(p)&:= \partial_{x^{i}}\rvert_p. 
+D = \sum_{i=1}^n D(x^i)\, \partial_{x^i}^p = \sum_{i=1}^n dx^{i}(D)\, \partial_{x^i}^p,
 ```
+
+wobei hierbei $dx^{i}:T_p\M\to\R$ eine Element der dualen Basis ist. Daraus folgt für das totale Differential an $p$, $df_p:T_p\M\to\R$, per Defintion dass
+
+```{math}
+df_p(D) = \sum_{i=1}^n dx_p^{i}(D)\, df_p(\partial_{x^i}^p) = 
+\sum_{i=1}^n dx_p^{i}(D)\, \partial_{x^i}^p(f)
+```
+
+gilt. Somit gilt also lokal in $U$ 
+
+```{math}
+df = \sum_{i=1}^n dx^{i}\, \partial_{x^i}(f).
+```
+
+````
+
+Für den Fall, dass die Mannigfaltigkeit $\M$ eine offene Teilmene des $\R^n$ ist erhalten wir einen einfachen Zusammenhang zur klassischen Richtungsableitung.
+
+````{prf:example}
+Es sei $\M=U\subset\R^n$ eine offene Teilmenge, für jedes $p\in\M$ können wir den Tangentialraum dann mit dem $\R^n$ identifizieren und erhalten, dass das totale Differential an $p$ gegeben ist durch
+
+```{math}
+df_p:\R^n&\to\R\\
+v&\mapsto \langle \nabla f(p), v \rangle = \sum_{i=1}^n \partial_i f(p)\, v^i.
+```
+
+Insbsondere ist $dx^{i}$ in diesem Fall die Funktion welche einen Vektor auf seine Komponenten abbildet, somit gilt 
+
+```{math}
+dx^{i}(v) = v^i
+```
+
+und daher insgesamt wiederum 
+
+```{math}
+df = \sum_{i=1}^n \partial_i f, dx^{i}.
+```
+````
+
+Zusätzlich haben wir hier auch eine lokale Basisdarstellung als analoges Resultat zu {prf:ref}`lem:localsections` hier nun aber mit den Basiselementen des Kotangentialraums, bzw. den lokalen Koordinaten Kovektorfeldern.
+
+````{prf:lemma}
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit und $(U,\phi)$ eine KArte mit lokalen Koordinaten $\varphi=(x^1,\ldots, x^n)$,  dann gilt für jede Differentialform $\omega\in\Omega^1(U)$, dass 
+
+```{math}
+\omega = \sum_{i=1}^n f_i dx^i
+```
+
+wobei $f_i\in C^\infty(\M)$ gegeben ist durch $\omega(\partial_{x^i})$.
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`lee2003` Seite 282.
 ````
 
 ## Tensorfelder
