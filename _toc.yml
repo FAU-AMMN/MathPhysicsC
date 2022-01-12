@@ -18,5 +18,9 @@ chapters:
   sections:
   - file: vektoranalysis/multilinear.md
   - file: vektoranalysis/tensor.md
-  - file: vektoranalysis/diffformen.md
+- file: manifolds/manifolds.md
+  sections:
+  - file: manifolds/manifolds_prelim.md
+  - file: manifolds/tangential.md
+  - file: manifolds/diffformen.md
 - file: references
