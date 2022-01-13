@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Gewöhnliche Differentialgleichungen für dynamische Systeme &#8212; Mathematik für Physikstudierende C</title>
+    <title>4. Differentialformen auf Mannigfaltigkeiten &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.1. Einführung in dynamische Systeme" href="dynamicSystems.html" />
-    <link rel="prev" title="Mathematik für Physikstudierende C" href="../intro.html" />
+    <link rel="next" title="4.1. Differenzierbare Mannigfaltigkeit" href="manifolds_prelim.html" />
+    <link rel="prev" title="3.2. Tensoren und Tensorprodukte" href="../vektoranalysis/tensor.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -97,38 +97,38 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode/ode.html">
    1. Gewöhnliche Differentialgleichungen für dynamische Systeme
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="dynamicSystems.html">
+    <a class="reference internal" href="../ode/dynamicSystems.html">
      1.1. Einführung in dynamische Systeme
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="repetition.html">
+    <a class="reference internal" href="../ode/repetition.html">
      1.2. Wiederholung: Gewöhnliche Differentialgleichungen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="fluesse.html">
+    <a class="reference internal" href="../ode/fluesse.html">
      1.3. Phasenflüsse und Phasenportraits
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="hamilton.html">
+    <a class="reference internal" href="../ode/hamilton.html">
      1.4. Hamiltonsche Differentialgleichungen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="ex.html">
+    <a class="reference internal" href="../ode/ex.html">
      1.5. Aufgaben
     </a>
    </li>
@@ -178,28 +178,28 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../manifolds/manifolds.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    4. Differentialformen auf Mannigfaltigkeiten
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../manifolds/manifolds_prelim.html">
+    <a class="reference internal" href="manifolds_prelim.html">
      4.1. Differenzierbare Mannigfaltigkeit
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../manifolds/tangential.html">
+    <a class="reference internal" href="tangential.html">
      4.2. Tangentialräume und Tangentialbündel
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../manifolds/diffformen.html">
+    <a class="reference internal" href="diffformen.html">
      4.3. Differentialformen auf Mannigfaltigkeiten
     </a>
    </li>
@@ -251,7 +251,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/ode/ode.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/manifolds/manifolds.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -297,13 +297,8 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="gewohnliche-differentialgleichungen-fur-dynamische-systeme">
-<h1><span class="section-number">1. </span>Gewöhnliche Differentialgleichungen für dynamische Systeme<a class="headerlink" href="#gewohnliche-differentialgleichungen-fur-dynamische-systeme" title="Permalink to this headline">¶</a></h1>
-<p>In diesem ersten Kapitel der Vorlesung wollen wir weiterführende Konzepte zum Thema gewöhnlicher Differentialgleichungen einführen.
-Insbesondere wollen wir uns mit gewöhnlichen Differentialgleichungen für dynamische Systeme beschäftigen.
-Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 8 <span id="id1">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span> kennengelernt haben.
-Anschließend definieren wir zwei grundlegende mathematische Werkzeuge um dynamische Systeme zu charakterisieren, nämlich Flüsse und Phasenportraits.
-Zum Schluss wollen wir diese zur Untersuchung und Lösung von Hamiltonschen Differentialgleichungen nutzen, welche eine insbesondere in der klassischen Mechanik innerhalb der Physik eine wichtige Rolle spielen.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="differentialformen-auf-mannigfaltigkeiten">
+<h1><span class="section-number">4. </span>Differentialformen auf Mannigfaltigkeiten<a class="headerlink" href="#differentialformen-auf-mannigfaltigkeiten" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -321,7 +316,7 @@ Zum Schluss wollen wir diese zur Untersuchung und Lösung von Hamiltonschen Diff
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./ode"
+            path: "./manifolds"
         },
         predefinedOutput: true
     }
@@ -338,19 +333,19 @@ Zum Schluss wollen wir diese zur Untersuchung und Lösung von Hamiltonschen Diff
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../intro.html" title="previous page">
+        <a class="left-prev" href="../vektoranalysis/tensor.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Mathematik für Physikstudierende C</p>
+                <p class="prevnext-title"><span class="section-number">3.2. </span>Tensoren und Tensorprodukte</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="dynamicSystems.html" title="next page">
+        <a class="right-next" href="manifolds_prelim.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">1.1. </span>Einführung in dynamische Systeme</p>
+                <p class="prevnext-title"><span class="section-number">4.1. </span>Differenzierbare Mannigfaltigkeit</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

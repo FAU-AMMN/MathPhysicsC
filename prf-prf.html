@@ -174,16 +174,38 @@
      3.2. Tensoren und Tensorprodukte
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="manifolds/manifolds.html">
+   4. Differentialformen auf Mannigfaltigkeiten
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="vektoranalysis/diffformen.html">
-     3.3. Differentialformen auf Mannigfaltigkeiten
+    <a class="reference internal" href="manifolds/manifolds_prelim.html">
+     4.1. Differenzierbare Mannigfaltigkeit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="manifolds/tangential.html">
+     4.2. Tangentialräume und Tangentialbündel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="manifolds/diffformen.html">
+     4.3. Differentialformen auf Mannigfaltigkeiten
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="references.html">
-   4. Bibliography
+   5. Bibliography
   </a>
  </li>
 </ul>
@@ -266,6 +288,8 @@
    <a href="#cap-cor:isomorphieEndlichDimensional"><strong>cor:isomorphieEndlichDimensional</strong></a> | 
    <a href="#cap-cor:tensorMultilinearform"><strong>cor:tensorMultilinearform</strong></a> | 
    <a href="#cap-cor:tensorenLinearformen"><strong>cor:tensorenLinearformen</strong></a> | 
+   <a href="#cap-corollary-44"><strong>corollary-44</strong></a> | 
+   <a href="#cap-corollary-46"><strong>corollary-46</strong></a> | 
    <a href="#cap-corollary-6"><strong>corollary-6</strong></a> | 
    <a href="#cap-def:DGL"><strong>def:DGL</strong></a> | 
    <a href="#cap-def:Fluss"><strong>def:Fluss</strong></a> | 
@@ -286,29 +310,31 @@
    <a href="#cap-def:symmetrieTensor"><strong>def:symmetrieTensor</strong></a> | 
    <a href="#cap-def:tensor"><strong>def:tensor</strong></a> | 
    <a href="#cap-def:topologischerDualraum"><strong>def:topologischerDualraum</strong></a> | 
+   <a href="#cap-def:totdiff"><strong>def:totdiff</strong></a> | 
+   <a href="#cap-def:wirkung"><strong>def:wirkung</strong></a> | 
    <a href="#cap-definition-0"><strong>definition-0</strong></a> | 
+   <a href="#cap-definition-1"><strong>definition-1</strong></a> | 
    <a href="#cap-definition-10"><strong>definition-10</strong></a> | 
    <a href="#cap-definition-11"><strong>definition-11</strong></a> | 
    <a href="#cap-definition-12"><strong>definition-12</strong></a> | 
    <a href="#cap-definition-13"><strong>definition-13</strong></a> | 
    <a href="#cap-definition-14"><strong>definition-14</strong></a> | 
-   <a href="#cap-definition-18"><strong>definition-18</strong></a> | 
+   <a href="#cap-definition-15"><strong>definition-15</strong></a> | 
    <a href="#cap-definition-2"><strong>definition-2</strong></a> | 
+   <a href="#cap-definition-20"><strong>definition-20</strong></a> | 
    <a href="#cap-definition-22"><strong>definition-22</strong></a> | 
-   <a href="#cap-definition-25"><strong>definition-25</strong></a> | 
+   <a href="#cap-definition-24"><strong>definition-24</strong></a> | 
+   <a href="#cap-definition-29"><strong>definition-29</strong></a> | 
    <a href="#cap-definition-3"><strong>definition-3</strong></a> | 
-   <a href="#cap-definition-31"><strong>definition-31</strong></a> | 
+   <a href="#cap-definition-30"><strong>definition-30</strong></a> | 
+   <a href="#cap-definition-32"><strong>definition-32</strong></a> | 
    <a href="#cap-definition-34"><strong>definition-34</strong></a> | 
-   <a href="#cap-definition-36"><strong>definition-36</strong></a> | 
+   <a href="#cap-definition-37"><strong>definition-37</strong></a> | 
    <a href="#cap-definition-38"><strong>definition-38</strong></a> | 
    <a href="#cap-definition-4"><strong>definition-4</strong></a> | 
    <a href="#cap-definition-43"><strong>definition-43</strong></a> | 
-   <a href="#cap-definition-44"><strong>definition-44</strong></a> | 
    <a href="#cap-definition-45"><strong>definition-45</strong></a> | 
-   <a href="#cap-definition-46"><strong>definition-46</strong></a> | 
-   <a href="#cap-definition-48"><strong>definition-48</strong></a> | 
    <a href="#cap-definition-5"><strong>definition-5</strong></a> | 
-   <a href="#cap-definition-50"><strong>definition-50</strong></a> | 
    <a href="#cap-definition-6"><strong>definition-6</strong></a> | 
    <a href="#cap-definition-7"><strong>definition-7</strong></a> | 
    <a href="#cap-definition-8"><strong>definition-8</strong></a> | 
@@ -320,21 +346,22 @@
    <a href="#cap-ex:multilinear"><strong>ex:multilinear</strong></a> | 
    <a href="#cap-ex:nonho"><strong>ex:nonho</strong></a> | 
    <a href="#cap-ex:oscillations"><strong>ex:oscillations</strong></a> | 
+   <a href="#cap-ex:tangentialS1"><strong>ex:tangentialS1</strong></a> | 
    <a href="#cap-ex:tensorproduktVarianten"><strong>ex:tensorproduktVarianten</strong></a> | 
    <a href="#cap-ex:universelleEigenschaft"><strong>ex:universelleEigenschaft</strong></a> | 
+   <a href="#cap-example-0"><strong>example-0</strong></a> | 
    <a href="#cap-example-1"><strong>example-1</strong></a> | 
    <a href="#cap-example-12"><strong>example-12</strong></a> | 
-   <a href="#cap-example-17"><strong>example-17</strong></a> | 
-   <a href="#cap-example-19"><strong>example-19</strong></a> | 
    <a href="#cap-example-2"><strong>example-2</strong></a> | 
    <a href="#cap-example-21"><strong>example-21</strong></a> | 
    <a href="#cap-example-22"><strong>example-22</strong></a> | 
    <a href="#cap-example-23"><strong>example-23</strong></a> | 
    <a href="#cap-example-24"><strong>example-24</strong></a> | 
+   <a href="#cap-example-26"><strong>example-26</strong></a> | 
    <a href="#cap-example-27"><strong>example-27</strong></a> | 
    <a href="#cap-example-29"><strong>example-29</strong></a> | 
    <a href="#cap-example-3"><strong>example-3</strong></a> | 
-   <a href="#cap-example-35"><strong>example-35</strong></a> | 
+   <a href="#cap-example-39"><strong>example-39</strong></a> | 
    <a href="#cap-example-4"><strong>example-4</strong></a> | 
    <a href="#cap-example-40"><strong>example-40</strong></a> | 
    <a href="#cap-example-5"><strong>example-5</strong></a> | 
@@ -345,28 +372,30 @@
    <a href="#cap-geschlossen:exakt"><strong>geschlossen:exakt</strong></a> | 
    <a href="#cap-lem:LISO"><strong>lem:LISO</strong></a> | 
    <a href="#cap-lem:constder"><strong>lem:constder</strong></a> | 
+   <a href="#cap-lem:coordcovec"><strong>lem:coordcovec</strong></a> | 
    <a href="#cap-lem:differenzierbarkeitKartenunabhaengig"><strong>lem:differenzierbarkeitKartenunabhaengig</strong></a> | 
    <a href="#cap-lem:dualeBasis"><strong>lem:dualeBasis</strong></a> | 
    <a href="#cap-lem:intexpglgn"><strong>lem:intexpglgn</strong></a> | 
    <a href="#cap-lem:isomorphieKartesischesProdukt"><strong>lem:isomorphieKartesischesProdukt</strong></a> | 
    <a href="#cap-lem:isomorphismusTensorproduktraum"><strong>lem:isomorphismusTensorproduktraum</strong></a> | 
+   <a href="#cap-lem:localsections"><strong>lem:localsections</strong></a> | 
    <a href="#cap-lem:mpotew"><strong>lem:mpotew</strong></a> | 
    <a href="#cap-lem:natISO"><strong>lem:natISO</strong></a> | 
    <a href="#cap-lem:partderkron"><strong>lem:partderkron</strong></a> | 
+   <a href="#cap-lem:tanbundle"><strong>lem:tanbundle</strong></a> | 
    <a href="#cap-lem:tanman"><strong>lem:tanman</strong></a> | 
    <a href="#cap-lem:tensorStufe"><strong>lem:tensorStufe</strong></a> | 
+   <a href="#cap-lem:tensorbundle"><strong>lem:tensorbundle</strong></a> | 
+   <a href="#cap-lemma-1"><strong>lemma-1</strong></a> | 
    <a href="#cap-lemma-15"><strong>lemma-15</strong></a> | 
-   <a href="#cap-lemma-24"><strong>lemma-24</strong></a> | 
-   <a href="#cap-lemma-26"><strong>lemma-26</strong></a> | 
-   <a href="#cap-lemma-28"><strong>lemma-28</strong></a> | 
+   <a href="#cap-lemma-18"><strong>lemma-18</strong></a> | 
    <a href="#cap-lemma-3"><strong>lemma-3</strong></a> | 
    <a href="#cap-lemma-30"><strong>lemma-30</strong></a> | 
-   <a href="#cap-lemma-33"><strong>lemma-33</strong></a> | 
    <a href="#cap-lemma-35"><strong>lemma-35</strong></a> | 
+   <a href="#cap-lemma-36"><strong>lemma-36</strong></a> | 
    <a href="#cap-lemma-4"><strong>lemma-4</strong></a> | 
-   <a href="#cap-lemma-42"><strong>lemma-42</strong></a> | 
    <a href="#cap-lemma-47"><strong>lemma-47</strong></a> | 
-   <a href="#cap-lemma-49"><strong>lemma-49</strong></a> | 
+   <a href="#cap-lemma-7"><strong>lemma-7</strong></a> | 
    <a href="#cap-lemma-9"><strong>lemma-9</strong></a> | 
    <a href="#cap-lemma:Gronwall"><strong>lemma:Gronwall</strong></a> | 
    <a href="#cap-rem:doubledual"><strong>rem:doubledual</strong></a> | 
@@ -382,16 +411,18 @@
    <a href="#cap-remark-2"><strong>remark-2</strong></a> | 
    <a href="#cap-remark-20"><strong>remark-20</strong></a> | 
    <a href="#cap-remark-23"><strong>remark-23</strong></a> | 
+   <a href="#cap-remark-25"><strong>remark-25</strong></a> | 
    <a href="#cap-remark-26"><strong>remark-26</strong></a> | 
    <a href="#cap-remark-3"><strong>remark-3</strong></a> | 
    <a href="#cap-remark-32"><strong>remark-32</strong></a> | 
+   <a href="#cap-remark-35"><strong>remark-35</strong></a> | 
    <a href="#cap-remark-36"><strong>remark-36</strong></a> | 
-   <a href="#cap-remark-37"><strong>remark-37</strong></a> | 
    <a href="#cap-remark-39"><strong>remark-39</strong></a> | 
    <a href="#cap-remark-4"><strong>remark-4</strong></a> | 
    <a href="#cap-remark-6"><strong>remark-6</strong></a> | 
    <a href="#cap-remark-7"><strong>remark-7</strong></a> | 
    <a href="#cap-satz:picardlindeloef"><strong>satz:picardlindeloef</strong></a> | 
+   <a href="#cap-theorem-11"><strong>theorem-11</strong></a> | 
    <a href="#cap-theorem-37"><strong>theorem-37</strong></a> | 
    <a href="#cap-thm:dd"><strong>thm:dd</strong></a> | 
    <a href="#cap-thm:existenzTensorprodukt"><strong>thm:existenzTensorprodukt</strong></a> | 
@@ -411,7 +442,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#Antiderivation"><code class="xref">Antiderivation</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/diffformen.html#Antiderivation"><code class="xref">Antiderivation</code></a> <em>(manifolds/diffformen)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-aeussere Ableitung"><td></td><td>
@@ -419,7 +450,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#aeussere Ableitung"><code class="xref">aeussere Ableitung</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/diffformen.html#aeussere Ableitung"><code class="xref">aeussere Ableitung</code></a> <em>(manifolds/diffformen)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-cor:eindeutigkeitlinear"><td></td><td>
@@ -452,6 +483,22 @@
        <td></td>
        <td>
        <a href="vektoranalysis/tensor.html#cor:tensorenLinearformen"><code class="xref">cor:tensorenLinearformen</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-44"><td></td><td>
+       <strong>corollary-44</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#corollary-44"><code class="xref">corollary-44</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-46"><td></td><td>
+       <strong>corollary-46</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#corollary-46"><code class="xref">corollary-46</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>corollary</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-corollary-6"><td></td><td>
@@ -531,7 +578,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#def:direcdiv"><code class="xref">def:direcdiv</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#def:direcdiv"><code class="xref">def:direcdiv</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-def:fermionischeProjektion"><td></td><td>
@@ -587,7 +634,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#def:stetigkeitTopologie"><code class="xref">def:stetigkeitTopologie</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#def:stetigkeitTopologie"><code class="xref">def:stetigkeitTopologie</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-def:symmetrieTensor"><td></td><td>
@@ -614,12 +661,36 @@
        <a href="vektoranalysis/multilinear.html#def:topologischerDualraum"><code class="xref">def:topologischerDualraum</code></a> <em>(vektoranalysis/multilinear)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def:totdiff"><td></td><td>
+       <strong>def:totdiff</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#def:totdiff"><code class="xref">def:totdiff</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def:wirkung"><td></td><td>
+       <strong>def:wirkung</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#def:wirkung"><code class="xref">def:wirkung</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-0"><td></td><td>
        <strong>definition-0</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-0"><code class="xref">definition-0</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#definition-0"><code class="xref">definition-0</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-1"><td></td><td>
+       <strong>definition-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#definition-1"><code class="xref">definition-1</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-10"><td></td><td>
@@ -627,7 +698,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-10"><code class="xref">definition-10</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#definition-10"><code class="xref">definition-10</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-11"><td></td><td>
@@ -635,7 +706,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-11"><code class="xref">definition-11</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#definition-11"><code class="xref">definition-11</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-12"><td></td><td>
@@ -651,7 +722,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-13"><code class="xref">definition-13</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#definition-13"><code class="xref">definition-13</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-14"><td></td><td>
@@ -659,15 +730,15 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-14"><code class="xref">definition-14</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#definition-14"><code class="xref">definition-14</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-18"><td></td><td>
-       <strong>definition-18</strong></td><td></td></tr>
+     <tr class="cap" id="cap-definition-15"><td></td><td>
+       <strong>definition-15</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-18"><code class="xref">definition-18</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-15"><code class="xref">definition-15</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-2"><td></td><td>
@@ -678,20 +749,36 @@
        <a href="ode/hamilton.html#definition-2"><code class="xref">definition-2</code></a> <em>(ode/hamilton)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-20"><td></td><td>
+       <strong>definition-20</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#definition-20"><code class="xref">definition-20</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-22"><td></td><td>
        <strong>definition-22</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-22"><code class="xref">definition-22</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-22"><code class="xref">definition-22</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-25"><td></td><td>
-       <strong>definition-25</strong></td><td></td></tr>
+     <tr class="cap" id="cap-definition-24"><td></td><td>
+       <strong>definition-24</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-25"><code class="xref">definition-25</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-24"><code class="xref">definition-24</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-29"><td></td><td>
+       <strong>definition-29</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#definition-29"><code class="xref">definition-29</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-3"><td></td><td>
@@ -702,12 +789,20 @@
        <a href="ode/repetition.html#definition-3"><code class="xref">definition-3</code></a> <em>(ode/repetition)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-31"><td></td><td>
-       <strong>definition-31</strong></td><td></td></tr>
+     <tr class="cap" id="cap-definition-30"><td></td><td>
+       <strong>definition-30</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-31"><code class="xref">definition-31</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-30"><code class="xref">definition-30</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-32"><td></td><td>
+       <strong>definition-32</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#definition-32"><code class="xref">definition-32</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-34"><td></td><td>
@@ -715,15 +810,15 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-34"><code class="xref">definition-34</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-34"><code class="xref">definition-34</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-36"><td></td><td>
-       <strong>definition-36</strong></td><td></td></tr>
+     <tr class="cap" id="cap-definition-37"><td></td><td>
+       <strong>definition-37</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-36"><code class="xref">definition-36</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-37"><code class="xref">definition-37</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-38"><td></td><td>
@@ -731,7 +826,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-38"><code class="xref">definition-38</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-38"><code class="xref">definition-38</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-4"><td></td><td>
@@ -747,15 +842,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-43"><code class="xref">definition-43</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
-       <em>definition</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-44"><td></td><td>
-       <strong>definition-44</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#definition-44"><code class="xref">definition-44</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-43"><code class="xref">definition-43</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-45"><td></td><td>
@@ -763,23 +850,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-45"><code class="xref">definition-45</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
-       <em>definition</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-46"><td></td><td>
-       <strong>definition-46</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#definition-46"><code class="xref">definition-46</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
-       <em>definition</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-48"><td></td><td>
-       <strong>definition-48</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#definition-48"><code class="xref">definition-48</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-45"><code class="xref">definition-45</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-5"><td></td><td>
@@ -787,15 +858,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-5"><code class="xref">definition-5</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
-       <em>definition</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-50"><td></td><td>
-       <strong>definition-50</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#definition-50"><code class="xref">definition-50</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#definition-5"><code class="xref">definition-5</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-6"><td></td><td>
@@ -803,7 +866,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-6"><code class="xref">definition-6</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#definition-6"><code class="xref">definition-6</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-7"><td></td><td>
@@ -811,7 +874,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-7"><code class="xref">definition-7</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#definition-7"><code class="xref">definition-7</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-8"><td></td><td>
@@ -819,7 +882,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-8"><code class="xref">definition-8</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="ode/repetition.html#definition-8"><code class="xref">definition-8</code></a> <em>(ode/repetition)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-9"><td></td><td>
@@ -827,7 +890,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#definition-9"><code class="xref">definition-9</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#definition-9"><code class="xref">definition-9</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-ex:10.14"><td></td><td>
@@ -835,7 +898,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#ex:10.14"><code class="xref">ex:10.14</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/diffformen.html#ex:10.14"><code class="xref">ex:10.14</code></a> <em>(manifolds/diffformen)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-ex:bacteria"><td></td><td>
@@ -851,7 +914,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#ex:diskreteTopologie"><code class="xref">ex:diskreteTopologie</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#ex:diskreteTopologie"><code class="xref">ex:diskreteTopologie</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-ex:freefall"><td></td><td>
@@ -875,7 +938,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#ex:nonho"><code class="xref">ex:nonho</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#ex:nonho"><code class="xref">ex:nonho</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-ex:oscillations"><td></td><td>
@@ -884,6 +947,14 @@
        <td></td>
        <td>
        <a href="ode/fluesse.html#ex:oscillations"><code class="xref">ex:oscillations</code></a> <em>(ode/fluesse)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex:tangentialS1"><td></td><td>
+       <strong>ex:tangentialS1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#ex:tangentialS1"><code class="xref">ex:tangentialS1</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-ex:tensorproduktVarianten"><td></td><td>
@@ -902,6 +973,14 @@
        <a href="vektoranalysis/tensor.html#ex:universelleEigenschaft"><code class="xref">ex:universelleEigenschaft</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-0"><td></td><td>
+       <strong>example-0</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#example-0"><code class="xref">example-0</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-1"><td></td><td>
        <strong>example-1</strong></td><td></td></tr>
      <tr>
@@ -916,22 +995,6 @@
        <td></td>
        <td>
        <a href="vektoranalysis/multilinear.html#example-12"><code class="xref">example-12</code></a> <em>(vektoranalysis/multilinear)</em></td><td>
-       <em>example</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-example-17"><td></td><td>
-       <strong>example-17</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#example-17"><code class="xref">example-17</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
-       <em>example</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-example-19"><td></td><td>
-       <strong>example-19</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#example-19"><code class="xref">example-19</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-2"><td></td><td>
@@ -974,6 +1037,14 @@
        <a href="vektoranalysis/tensor.html#example-24"><code class="xref">example-24</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-26"><td></td><td>
+       <strong>example-26</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#example-26"><code class="xref">example-26</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-27"><td></td><td>
        <strong>example-27</strong></td><td></td></tr>
      <tr>
@@ -998,12 +1069,12 @@
        <a href="ode/hamilton.html#example-3"><code class="xref">example-3</code></a> <em>(ode/hamilton)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-example-35"><td></td><td>
-       <strong>example-35</strong></td><td></td></tr>
+     <tr class="cap" id="cap-example-39"><td></td><td>
+       <strong>example-39</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#example-35"><code class="xref">example-35</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#example-39"><code class="xref">example-39</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-4"><td></td><td>
@@ -1019,7 +1090,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#example-40"><code class="xref">example-40</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#example-40"><code class="xref">example-40</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-5"><td></td><td>
@@ -1067,7 +1138,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#geschlossen:exakt"><code class="xref">geschlossen:exakt</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/diffformen.html#geschlossen:exakt"><code class="xref">geschlossen:exakt</code></a> <em>(manifolds/diffformen)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:LISO"><td></td><td>
@@ -1083,7 +1154,15 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#lem:constder"><code class="xref">lem:constder</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#lem:constder"><code class="xref">lem:constder</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:coordcovec"><td></td><td>
+       <strong>lem:coordcovec</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#lem:coordcovec"><code class="xref">lem:coordcovec</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:differenzierbarkeitKartenunabhaengig"><td></td><td>
@@ -1091,7 +1170,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#lem:differenzierbarkeitKartenunabhaengig"><code class="xref">lem:differenzierbarkeitKartenunabhaengig</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/manifolds_prelim.html#lem:differenzierbarkeitKartenunabhaengig"><code class="xref">lem:differenzierbarkeitKartenunabhaengig</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:dualeBasis"><td></td><td>
@@ -1126,6 +1205,14 @@
        <a href="vektoranalysis/tensor.html#lem:isomorphismusTensorproduktraum"><code class="xref">lem:isomorphismusTensorproduktraum</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:localsections"><td></td><td>
+       <strong>lem:localsections</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#lem:localsections"><code class="xref">lem:localsections</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:mpotew"><td></td><td>
        <strong>lem:mpotew</strong></td><td></td></tr>
      <tr>
@@ -1147,7 +1234,15 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#lem:partderkron"><code class="xref">lem:partderkron</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#lem:partderkron"><code class="xref">lem:partderkron</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:tanbundle"><td></td><td>
+       <strong>lem:tanbundle</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#lem:tanbundle"><code class="xref">lem:tanbundle</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:tanman"><td></td><td>
@@ -1155,7 +1250,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#lem:tanman"><code class="xref">lem:tanman</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#lem:tanman"><code class="xref">lem:tanman</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:tensorStufe"><td></td><td>
@@ -1166,36 +1261,36 @@
        <a href="vektoranalysis/tensor.html#lem:tensorStufe"><code class="xref">lem:tensorStufe</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:tensorbundle"><td></td><td>
+       <strong>lem:tensorbundle</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#lem:tensorbundle"><code class="xref">lem:tensorbundle</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lemma-1"><td></td><td>
+       <strong>lemma-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/diffformen.html#lemma-1"><code class="xref">lemma-1</code></a> <em>(manifolds/diffformen)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-15"><td></td><td>
        <strong>lemma-15</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#lemma-15"><code class="xref">lemma-15</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="ode/repetition.html#lemma-15"><code class="xref">lemma-15</code></a> <em>(ode/repetition)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-lemma-24"><td></td><td>
-       <strong>lemma-24</strong></td><td></td></tr>
+     <tr class="cap" id="cap-lemma-18"><td></td><td>
+       <strong>lemma-18</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#lemma-24"><code class="xref">lemma-24</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
-       <em>lemma</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-lemma-26"><td></td><td>
-       <strong>lemma-26</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#lemma-26"><code class="xref">lemma-26</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
-       <em>lemma</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-lemma-28"><td></td><td>
-       <strong>lemma-28</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#lemma-28"><code class="xref">lemma-28</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#lemma-18"><code class="xref">lemma-18</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-3"><td></td><td>
@@ -1214,20 +1309,20 @@
        <a href="vektoranalysis/tensor.html#lemma-30"><code class="xref">lemma-30</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-lemma-33"><td></td><td>
-       <strong>lemma-33</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#lemma-33"><code class="xref">lemma-33</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
-       <em>lemma</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-35"><td></td><td>
        <strong>lemma-35</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
        <a href="vektoranalysis/tensor.html#lemma-35"><code class="xref">lemma-35</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lemma-36"><td></td><td>
+       <strong>lemma-36</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#lemma-36"><code class="xref">lemma-36</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-4"><td></td><td>
@@ -1238,28 +1333,20 @@
        <a href="vektoranalysis/multilinear.html#lemma-4"><code class="xref">lemma-4</code></a> <em>(vektoranalysis/multilinear)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-lemma-42"><td></td><td>
-       <strong>lemma-42</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#lemma-42"><code class="xref">lemma-42</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
-       <em>lemma</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-47"><td></td><td>
        <strong>lemma-47</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#lemma-47"><code class="xref">lemma-47</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#lemma-47"><code class="xref">lemma-47</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-lemma-49"><td></td><td>
-       <strong>lemma-49</strong></td><td></td></tr>
+     <tr class="cap" id="cap-lemma-7"><td></td><td>
+       <strong>lemma-7</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#lemma-49"><code class="xref">lemma-49</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#lemma-7"><code class="xref">lemma-7</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-9"><td></td><td>
@@ -1307,7 +1394,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#rem:tang"><code class="xref">rem:tang</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#rem:tang"><code class="xref">rem:tang</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-0"><td></td><td>
@@ -1363,7 +1450,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#remark-2"><code class="xref">remark-2</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="odestability/stabilitaetsbegriffe.html#remark-2"><code class="xref">remark-2</code></a> <em>(odestability/stabilitaetsbegriffe)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-20"><td></td><td>
@@ -1379,7 +1466,15 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#remark-23"><code class="xref">remark-23</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#remark-23"><code class="xref">remark-23</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-remark-25"><td></td><td>
+       <strong>remark-25</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#remark-25"><code class="xref">remark-25</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-26"><td></td><td>
@@ -1406,20 +1501,20 @@
        <a href="vektoranalysis/tensor.html#remark-32"><code class="xref">remark-32</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-remark-35"><td></td><td>
+       <strong>remark-35</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#remark-35"><code class="xref">remark-35</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-36"><td></td><td>
        <strong>remark-36</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
        <a href="vektoranalysis/tensor.html#remark-36"><code class="xref">remark-36</code></a> <em>(vektoranalysis/tensor)</em></td><td>
-       <em>remark</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-remark-37"><td></td><td>
-       <strong>remark-37</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="vektoranalysis/diffformen.html#remark-37"><code class="xref">remark-37</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-39"><td></td><td>
@@ -1462,6 +1557,14 @@
        <a href="ode/repetition.html#satz:picardlindeloef"><code class="xref">satz:picardlindeloef</code></a> <em>(ode/repetition)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-11"><td></td><td>
+       <strong>theorem-11</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="manifolds/tangential.html#theorem-11"><code class="xref">theorem-11</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-37"><td></td><td>
        <strong>theorem-37</strong></td><td></td></tr>
      <tr>
@@ -1475,7 +1578,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#thm:dd"><code class="xref">thm:dd</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/diffformen.html#thm:dd"><code class="xref">thm:dd</code></a> <em>(manifolds/diffformen)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-thm:existenzTensorprodukt"><td></td><td>
@@ -1539,7 +1642,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="vektoranalysis/diffformen.html#thm:tanbasis"><code class="xref">thm:tanbasis</code></a> <em>(vektoranalysis/diffformen)</em></td><td>
+       <a href="manifolds/tangential.html#thm:tanbasis"><code class="xref">thm:tanbasis</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>theorem</em></td></tr>
    </table>
 

@@ -1,0 +1,699 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.1. Differenzierbare Mannigfaltigkeit &#8212; Mathematik für Physikstudierende C</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.2. Tangentialräume und Tangentialbündel" href="tangential.html" />
+    <link rel="prev" title="4. Differentialformen auf Mannigfaltigkeiten" href="manifolds.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/FAU-DMM-Logo-rgb-10cm.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Mathematik für Physikstudierende C</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Mathematik für Physikstudierende C
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode/ode.html">
+   1. Gewöhnliche Differentialgleichungen für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/dynamicSystems.html">
+     1.1. Einführung in dynamische Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/repetition.html">
+     1.2. Wiederholung: Gewöhnliche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/fluesse.html">
+     1.3. Phasenflüsse und Phasenportraits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/hamilton.html">
+     1.4. Hamiltonsche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/ex.html">
+     1.5. Aufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../odestability/stabilitaetsanalyse.html">
+   2. Stabilitätsanalyse für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odestability/stabilitaetsbegriffe.html">
+     2.1. Stabilitätsbegriffe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odestability/ruhelagen.html">
+     2.2. Stabilität von Ruhelagen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vektoranalysis/vektoranalysis.html">
+   3. Vektoranalysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vektoranalysis/multilinear.html">
+     3.1. Multilinearformen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vektoranalysis/tensor.html">
+     3.2. Tensoren und Tensorprodukte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="manifolds.html">
+   4. Differentialformen auf Mannigfaltigkeiten
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     4.1. Differenzierbare Mannigfaltigkeit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tangential.html">
+     4.2. Tangentialräume und Tangentialbündel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="diffformen.html">
+     4.3. Differentialformen auf Mannigfaltigkeiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   5. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/manifolds/manifolds_prelim.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FAU-AMMN/MathPhysicsC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topologische-raume">
+   4.1.1. Topologische Räume
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mannigfaltigkeiten">
+   4.1.2. Mannigfaltigkeiten
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#motivation">
+     4.1.2.1. Motivation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#karten-und-atlanten-auf-topologischen-raumen">
+     4.1.2.2. Karten und Atlanten auf topologischen Räumen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#differenzierbare-mannigfaltigkeiten">
+     4.1.2.3. Differenzierbare Mannigfaltigkeiten
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="differenzierbare-mannigfaltigkeit">
+<h1><span class="section-number">4.1. </span>Differenzierbare Mannigfaltigkeit<a class="headerlink" href="#differenzierbare-mannigfaltigkeit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="topologische-raume">
+<h2><span class="section-number">4.1.1. </span>Topologische Räume<a class="headerlink" href="#topologische-raume" title="Permalink to this headline">¶</a></h2>
+<p>Wir haben bisher immer Mathematik auf <strong>metrischen</strong> oder gar <strong>normierten Vektorräumen</strong> betrieben, da uns diese Struktur für alle erklärten Konzepte am dienlichsten war (siehe Kapitel 4 &amp; 5 in <span id="id1">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span> und <a class="reference external" href="https://fau-ammn.github.io/MathDataScience2/normierte_raeume/normierte_raeume.html">MP-2 Skript</a>).
+Als Vorbereitung für <a class="reference internal" href="#s-mannigfaltigkeiten"><span class="std std-ref">Mannigfaltigkeiten</span></a> wollen wir von den metrischen Räumen zu allgemeineren Strukturen wechseln - den sogenannten <strong>topologischen Räumen</strong>.</p>
+<p>Das zentrale Konzept topologischer Räume ist die folgende Definition der <em>offene Mengen</em>.</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 4.1 </span> (Offene Mengen und topologischer Raum)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\M\)</span> eine Menge und <span class="math notranslate nohighlight">\(\tau \subset \mathcal{P}(M)\)</span> eine Teilmenge der Potenzmenge.
+Wir nennen das Tupel <span class="math notranslate nohighlight">\((\M,\tau)\)</span> <strong>topologischer Raum</strong>, falls die folgenden Eigenschaften erfüllt sind,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\emptyset, \M \in \tau\)</span>,</p></li>
+<li><p>für eine beliebige (insbesondere auch <em>unendlich große</em>) Indexmenge <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> seien <span class="math notranslate nohighlight">\(U_i\in\tau, i\in \mathcal{I}\)</span>. Dann gilt auch schon <span class="math notranslate nohighlight">\(\bigcup_{i\in I} U_i \in \tau\)</span>,</p></li>
+<li><p>für <em>endlich viele</em> <span class="math notranslate nohighlight">\(U_j\in\tau, j=1,\ldots, k\)</span> gilt auch schon <span class="math notranslate nohighlight">\(\bigcap_{j=1}^k U_j \in \tau\)</span>.</p></li>
+</ul>
+<p>Wir bezeichnen mit <span class="math notranslate nohighlight">\(\tau\)</span> die <strong>Topologie</strong> des Raumes und dessen Elemente <span class="math notranslate nohighlight">\(U\in\tau\)</span> heißen <strong>offene Mengen</strong>.
+Für jeden Punkt <span class="math notranslate nohighlight">\(x\in \M\)</span> nennen wir eine offene Menge <span class="math notranslate nohighlight">\(U(x) \in \tau\)</span> <strong>Nachbarschaft</strong> oder <strong>Umgebung</strong> um <span class="math notranslate nohighlight">\(x\)</span>, falls <span class="math notranslate nohighlight">\(x\in U(x)\)</span>.</p>
+<p>Analog zur Definition auf metrischen Räumen bezeichnen wir das Komplement <span class="math notranslate nohighlight">\(\M \setminus U\)</span> \einer offenen Menge <span class="math notranslate nohighlight">\(U\)</span> als <strong>abgeschlossen</strong>.</p>
+</div>
+</div><p>Es gibt viele interessante topologische Räume, die den Namen ihrer Entdecker tragen, wie zum Beispiel der <a class="reference external" href="https://de.wikipedia.org/wiki/Arens-Fort-Raum">Arens-Fort-Raum</a>, der <a class="reference external" href="https://de.wikipedia.org/wiki/Cantor-Raum">Cantor-Raum</a>, oder der <a class="reference external" href="https://de.wikipedia.org/wiki/Hilbertw%C3%BCrfel">Hilbertwürfel</a>.
+Im Folgenden wollen wir ein relativ generisches Beispiel für einen topologischen Raum betrachten.</p>
+<div class="proof example admonition" id="ex:diskreteTopologie">
+<p class="admonition-title"><span class="caption-number">Example 4.1 </span> (Diskrete Topologie)</p>
+<div class="example-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(M\)</span> eine beliebige Menge.
+Dann können wir eine Topologie <span class="math notranslate nohighlight">\(\tau\)</span> auf <span class="math notranslate nohighlight">\(\M\)</span> definieren, in dem wir alle Teilmengen von <span class="math notranslate nohighlight">\(\M\)</span> als offen definieren.
+In diesem Beispiel folgt trivialerweise, dass <span class="math notranslate nohighlight">\(\tau = \mathcal{P}(\M)\)</span> gilt.
+Dann ist <span class="math notranslate nohighlight">\((\M, \tau)\)</span> ein topologischer Raum.
+Diese Topologie nennt man <strong>diskrete Topologie</strong>, da für jeden diskreten Punkt <span class="math notranslate nohighlight">\(x \in \M\)</span> die Menge <span class="math notranslate nohighlight">\(\lbrace x \rbrace\)</span> offen ist.</p>
+<p>Die diskrete Topologie wird durch eine spezielle Metrik erzeugt, wie man im Folgenden einsieht.
+Seien <span class="math notranslate nohighlight">\(x,y \in M\)</span> Punkte der Menge und <span class="math notranslate nohighlight">\(d \colon \M \times \M \rightarrow \R^+_0\)</span> eine Metrik auf <span class="math notranslate nohighlight">\(\M\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}d(x,y) := \begin{cases} 0, \quad \text{ falls } x=y,\\ 1, \quad \text{ falls } x\neq y. \end{cases}\end{split}\]</div>
+<p>Über diese Metrik kann man nun <em>offene Umgebungen</em> von Punkten <span class="math notranslate nohighlight">\(x \in \M\)</span> wie folgt konstruieren,</p>
+<div class="math notranslate nohighlight">
+\[B_1(x) := \lbrace y \in \M : d(x,y) &lt; 1 \rbrace = \lbrace x \rbrace.\]</div>
+<p>Dies führt dazu, dass alle Teilmengen, die nur einen Punkt der Menge enthalten, offen sind.
+Über beliebige Vereinigung dieser Punktmengen, lassen sich dann alle Teilmengen der Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\M)\)</span> als offen definieren und man erhält somit die diskrete Topologie.</p>
+</div>
+</div><div class="proof remark admonition" id="remark-2">
+<p class="admonition-title"><span class="caption-number">Remark 4.1 </span> (Notation von topologischen Räumen)</p>
+<div class="remark-content section" id="proof-content">
+<p>Häufig spielt die konkrete Wahl einer Topologie <span class="math notranslate nohighlight">\(\tau \subset \mathcal{P}(\M)\)</span> keine Rolle für die mathematischen Aussagen, die man treffen möchte.
+Da wir jede beliebige Menge <span class="math notranslate nohighlight">\(\M\)</span> mit der diskreten Topologie aus <a class="reference internal" href="#ex:diskreteTopologie">Example 4.1</a> zu einem topologischen Raum <span class="math notranslate nohighlight">\((\M, \tau)\)</span> ausstatten können, wird die Angabe der konkreten Topologie <span class="math notranslate nohighlight">\(\tau\)</span> häufig ausgelassen.
+In solchen Fällen identifiziert man den topologischen Raum einfach mit der zu Grunde liegenden Menge <span class="math notranslate nohighlight">\(\M\)</span>, d.h., wir nennen <span class="math notranslate nohighlight">\(\M\)</span> einen topologischen Raum, wenn die konkrete Topologie im gewählten Kontext eindeutig ist oder keine Rolle spielt.</p>
+</div>
+</div><p>Viele mathematische Konzepte lassen sich von metrischen oder normierten Räumen auf topologische Räume übertragen, wie zum Beispiel der Begriff einer stetigen Funktion.</p>
+<div class="proof definition admonition" id="def:stetigkeitTopologie">
+<p class="admonition-title"><span class="caption-number">Definition 4.2 </span> (Stetige Funktionen auf topologischen Räumen)</p>
+<div class="definition-content section" id="proof-content">
+<p>Seien <span class="math notranslate nohighlight">\((\M_1, \tau_1)\)</span> und <span class="math notranslate nohighlight">\((\M_2, \tau_2)\)</span> topologische Räume und <span class="math notranslate nohighlight">\(f\)</span> eine Funktion mit</p>
+<div class="math notranslate nohighlight">
+\[f \colon (\M_1, \tau_1) \rightarrow (\M_2, \tau_2).\]</div>
+<p>Wir nennen <span class="math notranslate nohighlight">\(f\)</span> <strong>stetig</strong>, wenn die Urbilder offener Mengen in <span class="math notranslate nohighlight">\(\tau_2\)</span> unter <span class="math notranslate nohighlight">\(f\)</span> wieder offene Mengen in <span class="math notranslate nohighlight">\(\tau_1\)</span> ergeben, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[f \ \text{ stetig } \quad \Leftrightarrow \quad \forall \, O \in \tau_2 : f^{-1}(O) \in \tau_1.\]</div>
+</div>
+</div><p>Das folgende Diagramm zeigt die Relationen zwischen verschiedenen mathematischen Konzepten innerhalb einer hierarchischen Struktur.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gathered}
+\text{Skalarprodukt (Euklidischer / Unitärer Vektorraum)}\\
+\downarrow \text{induziert}\\
+\text{Norm (Normierter Vektorraum)}\\
+\downarrow \text{induziert}\\             
+\text{Metrik (Metrischer Vektorraum)}\\
+\downarrow \text{induziert}\\                 
+\text{Topologie (Topologischer Vektorraum)}
+\end{gathered}\end{split}\]</div>
+</div>
+<div class="section" id="mannigfaltigkeiten">
+<span id="s-mannigfaltigkeiten"></span><h2><span class="section-number">4.1.2. </span>Mannigfaltigkeiten<a class="headerlink" href="#mannigfaltigkeiten" title="Permalink to this headline">¶</a></h2>
+<p>In diesem Abschnitt führen wir das grundlegende Konzept von <a class="reference external" href="https://de.wikipedia.org/wiki/Mannigfaltigkeit">Mannigfaltigkeiten</a> als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum <span class="math notranslate nohighlight">\(\R^n\)</span> identifiziert werden kann.
+Mannigfaltigkeiten spielen insbesondere im mathematischen Teilgebiet der <a class="reference external" href="https://de.wikipedia.org/wiki/Differentialgeometrie">Differentialgeometrie</a> eine zentrale Rolle.</p>
+<div class="section" id="motivation">
+<h3><span class="section-number">4.1.2.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
+<p>Das wohl verständlichste Bild einer Mannigfaltigkeit ist die Oberfläche einer dreidimensionalen Kugel</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{S}^2 := \lbrace (x,y,z)\in\R^3 : x^2 + y^2 + z^2 = 1 \rbrace,\]</div>
+<p>wie sie zum Beispiel genutzt wird um die Erdoberfläche zu modellieren.
+Möchte man Mathematik auf solch einer Oberfläche betreiben, so benötigt man vollkommen andere Konzepte als in offenen Teilmengen des <span class="math notranslate nohighlight">\(\R^n\)</span>.
+Möchte man beispielsweise berechnen, wie weit man reisen muss, um von einem Punkt auf der Oberfläche zu einem anderen Punkt zu kommen, so benötigt man einen angepassten Abstandsbegriff, da die Euklidische Norm nur die direkte Entfernung messen würde, welche die Kugeloberfläche jedoch durchschneidet.
+Dies ist in folgender Abbildung visualisiert.</p>
+<div class="figure align-default" id="fig-kugel">
+<a class="reference internal image-reference" href="../_images/mannigfaltigkeit.png"><img alt="../_images/mannigfaltigkeit.png" src="../_images/mannigfaltigkeit.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kugeloberfläche <span class="math notranslate nohighlight">\(\mathbb{S}^2\)</span>.</span><a class="headerlink" href="#fig-kugel" title="Permalink to this image">¶</a></p>
+</div>
+<p>Aus dieser Anschauung wird klar, dass unser bisheriges Konzept von Differenzierbarkeit im Mehrdimensionalen aus dem <a class="reference external" href="https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html">MP-2 Skript</a> nicht ausreicht, um auf diesem Objekt geeignet Funktionen abzuleiten.
+Da man in vielen Bereichen der Physik und der Mathematik nicht nur auf offenen Teilmengen des <span class="math notranslate nohighlight">\(\R^n\)</span> ableiten möchte, benötigen wir ein analoges Prinzip für topologische Räume <span class="math notranslate nohighlight">\(\M := (\M, \tau)\)</span>.</p>
+<p><strong>Wie können wir den Ableitungsbegriff auf topologische Räume übertragen?</strong></p>
+<p>Die grundlegende Idee ist es, den topologischen Raum <span class="math notranslate nohighlight">\(\M\)</span> lokal mit einer Teilmenge des <span class="math notranslate nohighlight">\(\R^n\)</span> zu identifizieren.
+Für eine beliebige offene Teilmenge <span class="math notranslate nohighlight">\(U\subset \M\)</span> betrachten wir also eine Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\phi:U\rightarrow \R^n.\]</div>
+<p>Wir wollen fordern, dass es sich bei <span class="math notranslate nohighlight">\(\phi\)</span> um eine <em>injektive Abbildung</em> handelt, so dass eine inverse Abbildung <span class="math notranslate nohighlight">\(\phi^{-1}\)</span> existiert.
+Diese Umkehrabbildung müssen wir jedoch auf das Bild <span class="math notranslate nohighlight">\(\phi(U) \subset \R^n\)</span> einschränken, damit sie wohldefiniert ist.
+Damit erhalten wir eine <em>lokale Bijektion</em> <span class="math notranslate nohighlight">\(\phi^{-1}:\phi(U)\rightarrow U\)</span>.</p>
+<p>Betrachten wir nun eine Funktion <span class="math notranslate nohighlight">\(f \colon \M \rightarrow \R^m\)</span>, die Punkte des topologischen Raumes auf Punkte des <span class="math notranslate nohighlight">\(\R^m\)</span> abbildet.
+Wenn wir diese Funktion differenzieren möchten, so sehen wir ein, dass die Verknüpfung</p>
+<div class="math notranslate nohighlight">
+\[f \circ \phi^{-1} : \phi(U) \subset \R^n \to \R^m\]</div>
+<p>es uns erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konzept der mehrdimensionalen Differentiation im <span class="math notranslate nohighlight">\(\R^n\)</span> zurückzuführen.</p>
+</div>
+<div class="section" id="karten-und-atlanten-auf-topologischen-raumen">
+<h3><span class="section-number">4.1.2.2. </span>Karten und Atlanten auf topologischen Räumen<a class="headerlink" href="#karten-und-atlanten-auf-topologischen-raumen" title="Permalink to this headline">¶</a></h3>
+<p>Um den Ableitungsbegriff auf topologischen Räumen <span class="math notranslate nohighlight">\(\M\)</span> formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung <span class="math notranslate nohighlight">\(\phi \colon U \rightarrow \phi(U) \subset \R^n\)</span> die Bedingung, dass für jede Teilmenge <span class="math notranslate nohighlight">\(U \subset \M\)</span> gilt,</p>
+<div class="math notranslate nohighlight">
+\[\phi(U)\text{ ist offen} \ \Leftrightarrow \ U \text{ ist offen}.\]</div>
+<p>Diese Forderung bedeutet, dass offene Teilmengen in <span class="math notranslate nohighlight">\(U \subset \M\)</span> gerade mit offenen Teilmengen in <span class="math notranslate nohighlight">\(\phi(U) \subset \R^n\)</span> identifiziert werden.
+Wir wollen im Folgenden beide Implikationsrichtungen diskutieren.</p>
+<p>1. <span class="math notranslate nohighlight">\(\phi(U)\)</span> ist offen <span class="math notranslate nohighlight">\(\Rightarrow U \)</span> ist offen.</p>
+<p>Diese Implikation ist äquivalent zur Forderung, dass Urbilder offener Mengen selbst wieder offen sind.
+Mit <a class="reference internal" href="#def:stetigkeitTopologie">Definition 4.2</a> bedeutet dies wiederum, dass die Abbildung <span class="math notranslate nohighlight">\(\phi\)</span> stetig ist.</p>
+<p>2. <span class="math notranslate nohighlight">\(\phi(U)\)</span> ist offen <span class="math notranslate nohighlight">\(\Leftarrow U \)</span> ist offen.</p>
+<p>Analog zur obigen Überlegung sehen wir ein, dass diese Bedingung gerade aussagt, dass <span class="math notranslate nohighlight">\(\phi^{-1}\)</span> stetig ist.
+Diese Forderung ist nicht immer trivialerweise erfüllt.</p>
+<p>Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung <span class="math notranslate nohighlight">\(\phi\)</span> gibt, für die gilt, dass die Umkehrabbildung <span class="math notranslate nohighlight">\(\phi^{-1}\)</span> <em>nicht stetig</em> ist.</p>
+<div class="proof example admonition" id="ex:nonho">
+<p class="admonition-title"><span class="caption-number">Example 4.2 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Wir betrachten in diesem Beispiel die Funktion</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\phi:[0,2\pi)&amp;\to\R^2,\\
+t &amp;\mapsto \phi(t):= (\cos(t), \sin(t)).\end{split}\]</div>
+<p>Wir erkennen, dass <span class="math notranslate nohighlight">\(\phi([0,2\pi)) = \S^1\)</span> gerade der Einheitskreis ist, und dass <span class="math notranslate nohighlight">\(\phi:[0,2\pi)\to\S^1\)</span> bijektiv und stetig ist.
+Allerdings stellen wir fest, dass die Umkehrabbildung nicht stetig ist.
+Sei dazu <span class="math notranslate nohighlight">\((x_i)_{i\in\N}\)</span> eine Folge von Punkten auf dem Einheitskreis <span class="math notranslate nohighlight">\(\S^1\)</span>, deren <span class="math notranslate nohighlight">\(y\)</span>-Koordinate negativ ist und die gegen den Punkt <span class="math notranslate nohighlight">\(x = (1,0) \in \S^1\)</span> konvergieren, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[\lim_{i\rightarrow\infty} x_i =: x = (1,0) \in \S^1.\]</div>
+<p>Betrachten wir jedoch den Grenzwert der Folge von Funktionswerten <span class="math notranslate nohighlight">\((\phi^{-1}(x_i))_{i\in I}\)</span>, so sehen wir, dass</p>
+<div class="math notranslate nohighlight">
+\[\lim_{i\to\infty} \phi^{-1} (x_i) = 2\pi \neq 0 = \phi^{-1}(x)\]</div>
+<p>und somit ist <span class="math notranslate nohighlight">\(\phi^{-1}\)</span> offensichtlich nicht stetig.</p>
+</div>
+</div><div class="figure align-default" id="fig-nonh">
+<a class="reference internal image-reference" href="../_images/nonhomöo.jpg"><img alt="../_images/nonhomöo.jpg" src="../_images/nonhomöo.jpg" style="height: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Visualisierung einer unstetigen Umkehrabbildung für das <a class="reference internal" href="#ex:nonho">Example 4.2</a>.</span><a class="headerlink" href="#fig-nonh" title="Permalink to this image">¶</a></p>
+</div>
+<p>Insgesamt fordern wir also, dass <span class="math notranslate nohighlight">\(\phi:U\rightarrow\phi(U)\)</span> bijektiv ist und zusätzlich, dass sowohl <span class="math notranslate nohighlight">\(\phi\)</span> als auch die Umkehrabbildung <span class="math notranslate nohighlight">\(\phi^-1\)</span> stetig sind.
+Eine solche Abbildung definiert man unter dem Begriff <em>Homöomorphismus</em>.</p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 4.3 </span> (Homöomorphismus)</p>
+<div class="definition-content section" id="proof-content">
+<p>Seien <span class="math notranslate nohighlight">\(X\)</span> und <span class="math notranslate nohighlight">\(Y\)</span> topologische Räume.
+Dann nennen wir eine Abbildung <span class="math notranslate nohighlight">\(f \colon X \rightarrow Y\)</span> einen <strong>Homöomorphismus</strong>, wenn sie folgende Eigenschaften erfüllt:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(f\)</span> ist bijektiv</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> ist stetig</p></li>
+<li><p>die Umkehrfunktion <span class="math notranslate nohighlight">\(f^{-1}\)</span> ist ebenfalls stetig.</p></li>
+</ol>
+</div>
+</div><p>Speziell im Kontext von Mannigfaltigkeiten <span class="math notranslate nohighlight">\(\M\)</span>, als Spezialfall topologischer Räume (wie wir noch sehen werden), nennt man eine offene Menge zusammen mit einem Homöomorphismus eine <strong>Karte</strong> auf <span class="math notranslate nohighlight">\(\M\)</span>.</p>
+<div class="proof definition admonition" id="definition-6">
+<p class="admonition-title"><span class="caption-number">Definition 4.4 </span> (Karte)</p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> ein topologischer Raum und <span class="math notranslate nohighlight">\(U\subset\M\)</span> eine offene Menge.
+Sei außerdem <span class="math notranslate nohighlight">\(\phi:U\rightarrow \phi(U)\subset \R^n\)</span> ein Homöomorphismus.
+Dann heißt das Tupel <span class="math notranslate nohighlight">\((U,\phi)\)</span> <strong>Karte</strong> auf <span class="math notranslate nohighlight">\(\M\)</span>.</p>
+</div>
+</div><p>Um einen Ableitungsbegriff für Funktionen <span class="math notranslate nohighlight">\(f:\M\to\R^m\)</span> über eine Karte <span class="math notranslate nohighlight">\((U,\phi)\)</span> und der Verknüpfung <span class="math notranslate nohighlight">\(f\circ \phi^{-1}\)</span> zu definieren benötigen wir noch ein zusätzliches Konzept.
+Denn in der Situation, dass <span class="math notranslate nohighlight">\((V,\psi)\)</span> eine zweite Karte ist, deren offene Menge <span class="math notranslate nohighlight">\(V\)</span> einen nichtleeren Schnitt mit der offenen Menge <span class="math notranslate nohighlight">\(U\)</span> hat, d.h., <span class="math notranslate nohighlight">\(U\cap V \neq \emptyset\)</span>, erhalten wir genau auf dem Schnitt dieser Mengen zwei unterschiedliche Parametrisierungen,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f\circ \phi^{-1} = (f\circ\psi^{-1})\circ(\psi\circ \phi^{-1}),\\
+f\circ \psi^{-1} = (f\circ\phi^{-1})\circ(\phi\circ \psi^{-1}).\end{split}\]</div>
+<p>Um von einer Karte zur nächsten Karte zu kommen benötigen wir eine geeignete Abbildung.</p>
+<div class="proof definition admonition" id="definition-7">
+<p class="admonition-title"><span class="caption-number">Definition 4.5 </span> (Kartenwechsel)</p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> ein topologischer Raum und es seien <span class="math notranslate nohighlight">\((U,\phi)\)</span> und <span class="math notranslate nohighlight">\((V,\psi)\)</span> zwei Karten auf <span class="math notranslate nohighlight">\(\M\)</span> mit nicht-leerem Schnitt, d.h., <span class="math notranslate nohighlight">\(U\cap V\neq \emptyset\)</span>.
+Dann nennt man die Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\psi\circ\phi^{-1}: \phi(U\cap V)\rightarrow \psi(U\cap V)\]</div>
+<p>einen <strong>Kartenwechsel</strong> von <span class="math notranslate nohighlight">\((U,\phi)\)</span> nach <span class="math notranslate nohighlight">\((V,\psi)\)</span>.</p>
+</div>
+</div><div class="figure align-default" id="fig-chartchange">
+<a class="reference internal image-reference" href="../_images/chartchange.jpg"><img alt="../_images/chartchange.jpg" src="../_images/chartchange.jpg" style="height: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.3 </span><span class="caption-text">Kartenwechsel.</span><a class="headerlink" href="#fig-chartchange" title="Permalink to this image">¶</a></p>
+</div>
+<p>Wir erkennen also, dass Umparametrisierungen der Form <span class="math notranslate nohighlight">\(\psi\circ \phi^{-1}\)</span> entscheidend sind, um von einer lokalen Identifikation des topologischen Raums zur nächsten zu gelangen.
+Wäre nun der Kartenwechsel <span class="math notranslate nohighlight">\(\psi\circ \phi^{-1}\)</span> und respektive <span class="math notranslate nohighlight">\(\phi\circ \psi^{-1}\)</span> differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen.
+Allerdings existieren durchaus Beispiele, in denen sowohl <span class="math notranslate nohighlight">\(f\circ\phi^{-1}\)</span> als auch <span class="math notranslate nohighlight">\(f\circ\psi^{-1}\)</span> differenzierbar sind, aber der Kartenwechsel <span class="math notranslate nohighlight">\(\psi\circ\phi^{-1}\)</span> nicht.
+Deshalb führt man zusätzlich noch den folgenden Begriff ein.</p>
+<div class="proof definition admonition" id="definition-8">
+<p class="admonition-title"><span class="caption-number">Definition 4.6 </span> (Atlas)</p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> ein topologischer Raum.
+Eine Familie von Karten <span class="math notranslate nohighlight">\(\mathcal{A} = (U_i,\phi_i)_{i\in I}\)</span> indiziert durch die Indexmenge <span class="math notranslate nohighlight">\(I\)</span> heißt <strong>Atlas</strong>, falls die Vereinigung aller offenen Mengen eine Überdeckung des topologischen Raums darstellt, d.h., es gilt</p>
+<div class="math notranslate nohighlight">
+\[\M = \bigcup_{i\in I} U_i.\]</div>
+<p>Wir nennen einen Atlas <span class="math notranslate nohighlight">\(k\)</span>-mal <strong>differenzierbar</strong> oder von der Klasse <span class="math notranslate nohighlight">\(C^k\)</span>, falls jeder Kartenwechsel <span class="math notranslate nohighlight">\(\phi_i\circ\phi_j^{-1}, i,j\in I\)</span> <span class="math notranslate nohighlight">\(k\)</span>-mal stetig differenzierbar ist.</p>
+</div>
+</div><p>Die Begriffe <em>Karte</em> und <em>Atlas</em> stammen in der Tat aus mathematischen Überlegungen in der Kartographie.
+Man kann Teile der Erdoberfläche mit einer Karte auf eine Ebene <span class="math notranslate nohighlight">\(\R^2\)</span> abbilden.
+Nähert man sich dem Rand einer Karte, so möchte man zu einer anderen Karte wechseln, die das angrenzende Gebiet darstellt.</p>
+<p>So kann eine Mannigfaltigkeit durch einen vollständigen Satz von Karten vollständig beschrieben werden; man braucht dabei Regeln, wie sich beim Kartenwechsel die Karten überlappen.</p>
+</div>
+<div class="section" id="differenzierbare-mannigfaltigkeiten">
+<h3><span class="section-number">4.1.2.3. </span>Differenzierbare Mannigfaltigkeiten<a class="headerlink" href="#differenzierbare-mannigfaltigkeiten" title="Permalink to this headline">¶</a></h3>
+<p>Für einen topologischen Raum <span class="math notranslate nohighlight">\(\M\)</span> können mehrere Atlanten <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> existieren, weshalb es sinnvoll ist Äquivalenzklassen von Atlanten zu betrachten.</p>
+<div class="proof definition admonition" id="definition-9">
+<p class="admonition-title"><span class="caption-number">Definition 4.7 </span> (<span class="math notranslate nohighlight">\(C^k\)</span>-differenzierbare Struktur)</p>
+<div class="definition-content section" id="proof-content">
+<p>Für einen Index <span class="math notranslate nohighlight">\(k\in \N \cup \{\infty\}\)</span> heißen zwei differenzierbare Atlanten <span class="math notranslate nohighlight">\(\mathcal{A}_1, \mathcal{A}_2\)</span> der Klasse <span class="math notranslate nohighlight">\(C^k\)</span> <strong><span class="math notranslate nohighlight">\(k\)</span>-äquivalent</strong>, falls ihre Vereinigung <span class="math notranslate nohighlight">\(\mathcal{A}_1\cup \mathcal{A}_2\)</span> wieder ein Atlas der Klasse <span class="math notranslate nohighlight">\(C^k\)</span> ist.
+Dies bedeutet insbesondere, dass die Kartenwechsel durch die Vereinigung der beiden Atlanten weiterhin <span class="math notranslate nohighlight">\(k\)</span>-mal stetig differenzierbar bleiben.
+In diesem Fall notieren wir <span class="math notranslate nohighlight">\(\mathcal{A}_1\sim_k \mathcal{A}_2\)</span>.
+Die Äquivalenzklasse <span class="math notranslate nohighlight">\([\mathcal{A}]_{\sim_k}\)</span> nennt man eine <strong><span class="math notranslate nohighlight">\(C^k\)</span>-differenzierbare Struktur</strong>.</p>
+</div>
+</div><div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><a class="reference external" href="https://de.wikipedia.org/wiki/Felix_Hausdorff">Felix Hausdorff</a> (geboren am 8. November 1868 in Breslau; gestorben am 26. Januar 1942 in Bonn) war ein deutscher Mathematiker.</p>
+</div>
+<p>Bisher haben wir <span class="math notranslate nohighlight">\(\M\)</span> als allgemeinen topologischen Raum betrachtet.
+In vielen Anwendungen benötigt man aber weitere nützliche Eigenschaften des Raumes.
+Insbesondere wenn man <a class="reference external" href="https://de.wikipedia.org/wiki/Testfunktion">glatte Testfunktionen</a> und <a class="reference external" href="https://en.wikipedia.org/wiki/Partition_of_unity">die Zerlegung der Eins</a> benutzen möchte braucht man folgende zwei zusätzliche Eigenschaften.</p>
+<p>Wir definieren zunächst die Eigenschaft eines Hausdorff-Raums.</p>
+<div class="proof definition admonition" id="definition-10">
+<p class="admonition-title"><span class="caption-number">Definition 4.8 </span> (Hausdorff-Raum)</p>
+<div class="definition-content section" id="proof-content">
+<p>Ein topologischer Raum <span class="math notranslate nohighlight">\(\M\)</span> heißt <strong>Hausdorff-Raum</strong>, falls für je zwei unterschiedliche Punkte <span class="math notranslate nohighlight">\(x,y\in \M, x\neq y\)</span> offene Umgebungen <span class="math notranslate nohighlight">\(U(x), U(y) \subset \M\)</span> existieren, welche disjunkt sind, d.h., <span class="math notranslate nohighlight">\(U(x)\cap U(y) = \emptyset\)</span>.
+Man nennt <span class="math notranslate nohighlight">\(\M\)</span> dann auch einen <strong>separierten Raum</strong>.</p>
+</div>
+</div><p>Als zweite nützliche Eigenschaft fordern wir, dass unser topologischer Raum <span class="math notranslate nohighlight">\(\M\)</span> das zweite Abzählbarkeitsaxiom erfüllen soll.</p>
+<div class="proof definition admonition" id="definition-11">
+<p class="admonition-title"><span class="caption-number">Definition 4.9 </span> (Zweites Abzählbarkeitsaxiom)</p>
+<div class="definition-content section" id="proof-content">
+<p>Ein toplogischer Raum <span class="math notranslate nohighlight">\((\M, \tau)\)</span> erfüllt das <strong>zweite Abzählbarkeitsaxiom</strong>, falls <em>abzählbar</em> viele offene Mengen <span class="math notranslate nohighlight">\((V_i)_{i\in\N} \in \tau\)</span> existieren, so dass für jeden Punkt <span class="math notranslate nohighlight">\(x\in \M\)</span> und jede offene Umgebung <span class="math notranslate nohighlight">\(U(x) \in \tau\)</span> von <span class="math notranslate nohighlight">\(x\)</span> mindestens ein Index <span class="math notranslate nohighlight">\(k\in\N\)</span> existiert mit <span class="math notranslate nohighlight">\(V_k \subset U(x)\)</span>.
+Man nennt <span class="math notranslate nohighlight">\((\M, \tau)\)</span> dann auch <strong>zweitabzählbar</strong>.</p>
+</div>
+</div><p>Diese zwei Bedingung wirken zunächst abstrakt.
+Glücklicherweise werden sie jedoch von vielen üblichen topologischen Räumen erfüllt, wie zum Beispiel dem Euklidischen Raum <span class="math notranslate nohighlight">\(\R^n\)</span>.</p>
+<div class="proof remark admonition" id="remark-12">
+<p class="admonition-title"><span class="caption-number">Remark 4.2 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Falls der Begriff eines zweitabzählbaren Hausdorff-Raums zu unhandlich erscheint, kann man für die meisten Anwendungen in der Physik auch einfach <strong>metrische Räume</strong> betrachten, die diese beiden Eigenschaften implizieren.</p>
+</div>
+</div><p>Nun haben wir alle nötigen Voraussetzungen geschaffen um den Begriff einer Mannigfaltigkeit formal einzuführen.</p>
+<div class="proof definition admonition" id="definition-13">
+<p class="admonition-title"><span class="caption-number">Definition 4.10 </span> (Differenzierbare Mannigfaltigkeit)</p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> ein zweitabzählbarer Hausdorff-Raum und für <span class="math notranslate nohighlight">\(k\in\N\cup \{\infty\}\)</span> sei <span class="math notranslate nohighlight">\([\mathcal{A}]_{\sim_k}\)</span> eine <span class="math notranslate nohighlight">\(C^k\)</span>-differenzierbare Struktur.
+Dann nennen wir <span class="math notranslate nohighlight">\((\M,[\mathcal{A}]_{\sim_k})\)</span> eine <span class="math notranslate nohighlight">\(k\)</span>-<strong>mal differenzierbare Mannigfaltigkeit</strong>.
+Für den Spezialfall <span class="math notranslate nohighlight">\(k=\infty\)</span> sprechen wir auch von einer <strong>glatten Mannigfaltigkeit</strong>.</p>
+<p>Falls alle Karten auf <span class="math notranslate nohighlight">\(\M\)</span> nach <span class="math notranslate nohighlight">\(\R^n\)</span> abbilden, so nennt man die Mannigfaltigkeit <em><span class="math notranslate nohighlight">\(n\)</span>-dimensional</em>.</p>
+</div>
+</div><p>Ähnlich wie bei topologischen Räumen spricht man in den meisten Fällen nur von der Mannigfaltigkeit <span class="math notranslate nohighlight">\(\M\)</span>; die differenzierbare Struktur <span class="math notranslate nohighlight">\([\mathcal{A}]_{\sim_k}\)</span> wird dabei implizit vorausgesetzt.</p>
+<p>Basierend auf einer differenzierbaren Mannigfaltigkeit <span class="math notranslate nohighlight">\(\M\)</span> können wir nun differenzierbare Funktionen auf <span class="math notranslate nohighlight">\(\M\)</span> definieren.</p>
+<div class="proof definition admonition" id="definition-14">
+<p class="admonition-title"><span class="caption-number">Definition 4.11 </span> (Differenzierbare Funktion auf einer Mannigfaltigkeit)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\M\)</span> eine <span class="math notranslate nohighlight">\(k\)</span>-mal differenzierbare Mannigfaltigkeit <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> ein Atlas auf <span class="math notranslate nohighlight">\(\M\)</span>.
+Dann nennen wir eine Abbildung <span class="math notranslate nohighlight">\(f:\M\to\R^m\)</span> <strong><span class="math notranslate nohighlight">\(k\)</span>-mal differenzierbar</strong>, falls für jeden Punkt <span class="math notranslate nohighlight">\(x\in\M\)</span> eine differenzierbare Karte <span class="math notranslate nohighlight">\((U(x),\phi)\in\mathcal{A}\)</span> existiert, so dass <span class="math notranslate nohighlight">\(f\circ\phi^{-1} \in C^k(\phi(U(x)); \R^m)\)</span>.
+Insbesondere schreiben wir in diesem Fall <span class="math notranslate nohighlight">\(f\in C^k(\M; \R^m)\)</span>.</p>
+</div>
+</div><p>In vielen Anwendungen beschränkt man sich nur auf <em>glatte Mannigfaltigkeiten</em> und <em>glatte Funktionen</em> in <span class="math notranslate nohighlight">\(C^\infty(\M; \R^m)\)</span>.
+Wir werden im Folgenden der Einfachheit-halber auch dazu übergehen.</p>
+<div class="proof lemma admonition" id="lemma-15">
+<p class="admonition-title"><span class="caption-number">Lemma 4.1 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit.
+Dann ist <span class="math notranslate nohighlight">\(C^\infty(\M; \R^m)\)</span> ein reeller Vektorraum mit den Verknüpfungen</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(\lambda \cdot f)(x) := \lambda\cdot f(x)\text{ für } f\in C^\infty(\M; \R^m), \lambda\in\R,\\
+(f + g)(x) := f(x) + g(x)\quad\text{ für } f,g\in C^\infty(\M; \R^m).\end{split}\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
+</div>
+<p>Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.</p>
+<div class="proof lemma admonition" id="lem:differenzierbarkeitKartenunabhaengig">
+<p class="admonition-title"><span class="caption-number">Lemma 4.2 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> ein Atlas auf <span class="math notranslate nohighlight">\(\M\)</span>.
+Außerdem sei <span class="math notranslate nohighlight">\(f:\M \to \R^m\)</span> eine Funktion, <span class="math notranslate nohighlight">\((U,\phi)\in \mathcal{A}\)</span> eine Karte und <span class="math notranslate nohighlight">\(x \in U\)</span> ein Punkt in der offenen Menge <span class="math notranslate nohighlight">\(U\)</span>.
+Ist <span class="math notranslate nohighlight">\(f\circ\phi^{-1}\)</span> differenzierbar in <span class="math notranslate nohighlight">\(x\)</span>, so ist <span class="math notranslate nohighlight">\(f\circ\psi^{-1}\)</span> auch differenzierbar in <span class="math notranslate nohighlight">\(x\)</span> für jede Karte <span class="math notranslate nohighlight">\((V,\psi) \in \mathcal{A}\)</span> mit <span class="math notranslate nohighlight">\(x\in V\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./manifolds"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="manifolds.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">4. </span>Differentialformen auf Mannigfaltigkeiten</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="tangential.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">4.2. </span>Tangentialräume und Tangentialbündel</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By J. Laubmann, T. Roith, D. Tenbrinck<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z9NNSYF13N"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('config', 'G-Z9NNSYF13N');
+                </script>
+
+  </body>
+</html>
