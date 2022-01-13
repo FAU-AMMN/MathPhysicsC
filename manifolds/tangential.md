@@ -1141,7 +1141,9 @@ df = \sum_{i=1}^n \partial_i f, dx^{i}.
 Zusätzlich haben wir hier auch eine lokale Basisdarstellung als analoges Resultat zu {prf:ref}`lem:localsections` hier nun aber mit den Basiselementen des Kotangentialraums, bzw. den lokalen Koordinaten Kovektorfeldern.
 
 ````{prf:lemma}
-Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit und $(U,\phi)$ eine KArte mit lokalen Koordinaten $\varphi=(x^1,\ldots, x^n)$,  dann gilt für jede Differentialform $\omega\in\Omega^1(U)$, dass 
+:label: lem:coordcovec
+
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit und $(U,\phi)$ eine Karte mit lokalen Koordinaten $\varphi=(x^1,\ldots, x^n)$,  dann gilt für jede Differentialform $\omega\in\Omega^1(U)$, dass 
 
 ```{math}
 \omega = \sum_{i=1}^n f_i dx^i
@@ -1156,9 +1158,7 @@ Siehe z.B. {cite:p}`lee2003` Seite 282.
 
 ## Tensorfelder
 
-Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen.
-
-Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialbündeln aussehen soll. Für zwei Vektorbündel $E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}$ wissen wir, dass für jedes $p\in\M$ die Fasern $E_p, F_p$ endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
+Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen. Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialbündeln aussehen soll. Für zwei Vektorbündel $E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}$ wissen wir, dass für jedes $p\in\M$ die Fasern $E_p, F_p$ endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
 
 ```{math}
 E_p\otimes F_p
@@ -1204,7 +1204,13 @@ T^r_s\M := \bigsqcup_{p\in\M} T^r_s(T_p\M) \to \M
 Tensorbündel der Stufe $(r,s)$.
 ````
 
-Mit den vorherigen Überlegungen können wir direkt Schlussfolgern, dass wir hier erneut ein Vektorbündel definiert haben.
+Mit den vorherigen Überlegungen können wir direkt schlussfolgern, dass wir hier erneut ein Vektorbündel definiert haben. Insbesondere, da nach {prf:ref}`cor:tensorMultilinearform`
+
+```{math}
+T^r_s(T_p\M) \cong \underbrace{T_p\M\otimes\ldots T_p\M}_{r\text{ mal}}\otimes\underbrace{T_p^ast\M\otimes\ldots T_p\ast\M}_{s\text{ mal}}
+```
+
+gilt erhalten wir die Bündelstruktur über Anwendung von {prf:ref}`lem:tensorbundle`.
 
 ````{prf:corollary}
 Es sei $\M$ eine glatte Mannigfaltigkeit, und $r,s\in\N_0$, s.d. $r+s>0$, dann ist $\pi:T^r_s\M\to\M$ mit der kanonisch nach {prf:ref}`lem:tensorbundle` definierten Abbildung $\pi$ ein Vektorbündel.  
@@ -1231,7 +1237,7 @@ A = A^{i_1,\ldots,i_r}_{j_1,\ldots,j_s} \partial_{x_{i_1}}\otimes\ldots\otimes \
 ````
 
 ````{prf:proof}
-Folgt aus {prf:ref}`lem:localsections`.
+Folgt aus {prf:ref}`lem:localsections` und {prf:ref}`lem:coordcovec`,  für Details siehe {cite:p}`lee2003` Prop. 12.19.
 ````
 
 Ähnlich zu den Überlegungen in {numref}`s:symtensoren` können wir auch hier das Tensorprodukt von Tensorfeldern betrachten.
@@ -1243,4 +1249,8 @@ Es sei $\M$ eine glatte Mannigfaltigkeit, für $r,l\in \N$ seien $A\in \Gamma(T^
 (fA)_{i_1,\ldots i_{k}} = f A_{i_1,\ldots, i_k}\\
 (A\otimes B)_{i_1,\ldots,i_{l+r}} = A_{i_1,\ldots, i_l} B_{i_{l+1},\ldots, i_{l+k}}.
 ```
+````
+
+````{prf:proof}
+Siehe {cite:p}`lee2003` Prop. 12.22.
 ````
