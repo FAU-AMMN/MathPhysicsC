@@ -1008,7 +1008,7 @@ Aus der obigen Darstellung folgt auch, dass lokal für eine Karte $(U,\phi)$ die
 X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.
 ```
 
-(s:kotangbundel)
+(s:kotangbundel)=
 ## Das Kotangentialbündel
 
 Analog zum Kotangentialraum, können wir auch das Kotangentialbündel definieren.
