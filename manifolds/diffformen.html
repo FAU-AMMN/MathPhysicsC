@@ -311,6 +311,11 @@
    4.3.3. Die äußere Ableitung
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-pullback">
+   4.3.4. Der Pullback
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -498,6 +503,32 @@ dx_3\wedge dx_1.\end{split}\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Siehe z.B. <span id="id4">[<a class="reference internal" href="../references.html#id15">Lee03</a>]</span> Theorem 11.49.</p>
+</div>
+</div>
+<div class="section" id="der-pullback">
+<h2><span class="section-number">4.3.4. </span>Der Pullback<a class="headerlink" href="#der-pullback" title="Permalink to this headline">¶</a></h2>
+<p>Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte <strong>Pullback</strong>. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten <span class="math notranslate nohighlight">\(\M,\mathcal{N}\)</span> und eine glatte Funktion <span class="math notranslate nohighlight">\(F:M\to\mathcal{N}\)</span>. Das Ziel ist es nun eine Differentialform auf <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(\omega\in\Omega^k(\mathcal{N})\)</span> mithilfe von <span class="math notranslate nohighlight">\(F\)</span> auf eine Differentialform auf <span class="math notranslate nohighlight">\(\M\)</span> zurückzuziehen. Dies geschieht in dem wir eine neue Differentialform punktweise an <span class="math notranslate nohighlight">\(p\)</span> definieren am Punkt <span class="math notranslate nohighlight">\(F(p)\)</span>, konkret</p>
+<div class="math notranslate nohighlight">
+\[(F^\ast\omega)_p := \omega_F(p) \big(dF_p(v_1),\ldots,dF_p(v_k)\big).\]</div>
+<p>Die so definierte Abbildung bildet tatsächlich zwischen den passenden Räumen ab</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F^\ast:\Omega^k(\mathcal{N})\to\Omega^k(\mathcal{M})\\
+\omega\mapsto \big[ p\mapsto (F^\ast\omega)_p \big].\end{split}\]</div>
+<p>Zusätzlich erhält man folgende Eigenschaften.</p>
+<div class="proof lemma admonition" id="lemma-12">
+<p class="admonition-title"><span class="caption-number">Lemma 4.19 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es seien <span class="math notranslate nohighlight">\(\M,\mathcal{N}\)</span> glatte Mannigfaltigkeiten und <span class="math notranslate nohighlight">\(F\in C^\infty(\M,\mathcal{N})\)</span>, dann gilt,</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(F^\ast\)</span> ist linear,</p></li>
+<li><p><span class="math notranslate nohighlight">\(F^\ast(\omega\wedge\eta) = F^\ast(\omega) \wedge F^\ast(\eta)\)</span> für <span class="math notranslate nohighlight">\(\omega,\eta\in\Omega^k(\mathcal{N})\)</span>.</p></li>
+<li><p>Für lokale Koordinaten Kovektorfelder <span class="math notranslate nohighlight">\(dy^1,\ldots,dy^m\)</span> und <span class="math notranslate nohighlight">\(f\in C^\infty(\mathcal{N})\)</span> gilt</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[F^\ast(f dy^{i_1}\wedge\ldots\wedge dy^{i_k}) = (f \circ F) d(y^{i_1}\circ F)\wedge\ldots\wedge d(y^{i_k}\circ F).\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe <span id="id5">[<a class="reference internal" href="../references.html#id15">Lee03</a>]</span> Lemma 14.16.</p>
 </div>
 </div>
 </div>
