@@ -193,7 +193,6 @@ Wir betrachten im Folgenden Beispiele für $k$-lineare Abbildungen mit verschied
 **$k=1$**: In diesem einfachen Fall sind alle Linearformen $1$-linear.
 Daher ist der Raum der $1$-Linearformen gerade der algebraische Dualraum aus {prf:ref}`def:algebraischerDualraum`, d.h. es gilt $L^1(\V; \R) = \V^\ast$.
 
-<br/><br/>
 **$k=2$**: Es sei $\V=\R^n$ der Euklidische Vektorraum mit kanonischem innerem Produkt $\langle\cdot,\cdot\rangle$. 
 Für $A\in\R^{n,n}$ ist 
 
@@ -215,7 +214,6 @@ und _antisymmetrisch_ falls
 \varphi(x, y) = -\varphi(y, x), \quad \forall x, y\in \V.
 ```
 
-<br/><br/>
 **$k=n$**: Es sei $n\in \N$ und $\V=\R^n$ der Euklidische Vektorraum.
 Die $n$-lineare Abbildung
 

@@ -18,7 +18,11 @@ chapters:
   sections:
   - file: vektoranalysis/multilinear.md
   - file: vektoranalysis/tensor.md
-  - file: vektoranalysis/diffformen.md
+- file: manifolds/manifolds.md
+  sections:
+  - file: manifolds/manifolds_prelim.md
+  - file: manifolds/tangential.md
+  - file: manifolds/diffformen.md
 - file: masstheorie/intro_masstheorie.md
   sections:
   - file: masstheorie/masstheorie.md
