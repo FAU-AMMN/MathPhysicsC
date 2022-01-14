@@ -250,3 +250,40 @@ Es sei $U\subset\R^n$ eine offene sternförmige Menge, dann gilt für $\omega\in
 ````{prf:proof}
 Siehe z.B. {cite:p}`lee2003` Theorem 11.49.
 ````
+
+## Der Pullback
+
+Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte **Pullback**. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten $\M,\mathcal{N}$ und eine glatte Funktion $F:M\to\mathcal{N}$. Das Ziel ist es nun eine Differentialform auf $N$, $\omega\in\Omega^k(\mathcal{N})$ mithilfe von $F$ auf eine Differentialform auf $\M$ zurückzuziehen. Dies geschieht in dem wir eine neue Differentialform punktweise an $p$ definieren am Punkt $F(p)$, konkret
+
+```{math}
+(F^\ast\omega)_p := \omega_F(p) \big(dF_p(v_1),\ldots,dF_p(v_k)\big).
+```
+
+Die so definierte Abbildung bildet tatsächlich zwischen den passenden Räumen ab
+
+```{math}
+F^\ast:\Omega^k(\mathcal{N})\to\Omega^k(\mathcal{M})\\
+\omega\mapsto \big[ p\mapsto (F^\ast\omega)_p \big].
+```
+
+Zusätzlich erhält man folgende Eigenschaften.
+
+````{prf:lemma}
+Es seien $\M,\mathcal{N}$ glatte Mannigfaltigkeiten und $F\in C^\infty(\M,\mathcal{N})$, dann gilt, 
+
+1. $F^\ast$ ist linear,
+
+2. $F^\ast(\omega\wedge\eta) = F^\ast(\omega) \wedge F^\ast(\eta)$ für $\omega,\eta\in\Omega^k(\mathcal{N})$.
+
+3. Für lokale Koordinaten Kovektorfelder $dy^1,\ldots,dy^m$ und $f\in C^\infty(\mathcal{N})$ gilt 
+
+```{math}
+F^\ast(f dy^{i_1}\wedge\ldots\wedge dy^{i_k}) = (f \circ F) d(y^{i_1}\circ F)\wedge\ldots\wedge d(y^{i_k}\circ F).
+```
+````
+
+````{prf:proof}
+
+Siehe {cite:p}`lee2003` Lemma 14.16.
+
+````
