@@ -1008,6 +1008,7 @@ Aus der obigen Darstellung folgt auch, dass lokal für eine Karte $(U,\phi)$ die
 X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.
 ```
 
+(s:kotangbundel)
 ## Das Kotangentialbündel
 
 Analog zum Kotangentialraum, können wir auch das Kotangentialbündel definieren.
@@ -1073,6 +1074,8 @@ p&\mapsto dx^{i}_p.
 Die definierten 1-Formen sind die einfachsten Beispiele der allgmeinen Diffenerentialformen, welche wir in {numref}`s:difformen` untersuchen werden. Das Konzept des Kotangentialbündels und der Differentialform ist nun noch etwas abstrakt, allerdings erhalten wir mithilfe des totalen Differentials {prf:ref}`def:totdiff` erneut eine einfache Veranschalichung.
 
 ````{prf:example}
+:label: ex:totdiff
+
 Es sei $\M$ eine glatte Mannigfaltigkeit und $f\in C^\infty(\M)$, dann ist die Abbildung 
 
 ```{math}
@@ -1229,10 +1232,12 @@ Es sei $\M$ eine glatte Mannigfaltigkeit, und $r,s\in\N_0$, s.d. $r+s>0$, ein **
 Dank der lokalen Darstellung von Vektorbündeln in {prf:ref}`lem:localsections` können wir die recht abstrakten Tensorfelder lokal sehr konkret Darstellen.
 
 ````{prf:corollary}
-Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, $(U,\varphi)$ eine Karte mit lokalen Koordinaten $\varphi=(x^1,\ldots,x^n)$. Für $r,s\in\N_0$, s.d. $r+s>0$ und $A\in \Gamma(T^r_s\M)$ ein Tensorfeld existieren glatte Koeffizientenfunktionen $A^{i_1,\ldots, i_r}_{j_1,\ldots,j_s}\in C^\infty(\M)$ für $i_1,\ldots, i_r, j_1,\ldots, j_s\in \{1,\ldots,n\}$, s.d., 
+:label: cor:tensorfieldchart
+
+Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, $(U,\varphi)$ eine Karte mit lokalen Koordinaten $\varphi=(x^1,\ldots,x^n)$. Für $r,s\in\N_0$, s.d. $r+s>0$ und $A\in \Gamma(T^r_s\M)$ ein Tensorfeld existieren glatte Koeffizientenfunktionen $A^{i_1,\ldots, i_s}_{j_1,\ldots,j_r}\in C^\infty(\M)$ für $i_1,\ldots, i_s, j_1,\ldots, j_r\in \{1,\ldots,n\}$, s.d., 
 
 ```{math}
-A = A^{i_1,\ldots,i_r}_{j_1,\ldots,j_s} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.
+A = A^{i_1,\ldots,i_s}_{j_1,\ldots,j_r} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.
 ```
 ````
 
