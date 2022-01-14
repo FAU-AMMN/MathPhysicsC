@@ -1,13 +1,8 @@
 # Differentialformen auf Mannigfaltigkeiten
 
-In diesem Kapitel der Vektoranalysis werden wir nun [Differentialformen](https://de.wikipedia.org/wiki/Differentialform) einführen.
-Die entscheidende Neuerung im Vergleich zum vorangegangen Kapitel über Tensoren ist, dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen.
-Außerdem werden wir im Folgenden mit *glatten Funktion* arbeiten, d.h., mit Funktionen aus dem Raum $C^\infty(U,\R^n)$.
+Die vorhergehenden Abschnitte liefern nun die nötigen Grundlagen um **Differentialformen** zu betrachten. Insbesondere werden wir diese über eine Unterstruktur der bekannten Tensorfelder erhalten. Dieser Schritt isr konzeptionell sehr ähnlich zum Schritt von allgemeinen Tensoren zu den Antisymmetrischen, bzw. alternierenden Tensoren. Dieser Zusammenhang erklärt auch die Begrifflichkeit alternierende Differentialform welche in de Literatur häufig vorkommt.
 
-Um Differentialformen vernünftig einführen zu können benötigen wir allerdings einige zusätzliche mathematische Konzepte, die bisher noch nicht behandelt wurden.
-Wir definieren zunächst den Begriff des topologischen Raums als Verallgemeinerung von metrischen Vektorräumen.
-Anschließend sind wir in der Lage Mannigfaltigkeiten als spezielle topologische Räume zu definieren, die lokal dem Euklidischen Raum $\R^n$ ähneln, jedoch global verschieden sein können.
-Schließlich werden wir Tensorfelder und Differentialformen diskutieren.
+Differentialformen sind ein wichtiges Konzept in verschieden Bereichen der Mathematik und Physik. Auch wenn wir diese Thematik hier nicht betrachten, sei erwähnt, dass Differentialformen die Integration auf speziellen glatten Mannigfaltigkeiten erlauben.
 
 (s:difformen)=
 ## Differentialformen
@@ -41,14 +36,14 @@ Visualisierung eines Untervektorbündels, siehe {cite:p}`lee2003` Kapitel 10.
 In diesem Fall erhält man also ein Untervektorbündel.
 
 ````{prf:lemma}
-Sei $\M$ eine glatte $n$-dimesnionale Mannigfaltigkeit, dann ist $\Lambda^k T^\ast\M$ ein glattes Untervektorbündel vom Rang $\begin{pmatrix} n k \end{pmatrix}$.
+Sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit, dann ist $\Lambda^k T^\ast\M$ ein glattes Untervektorbündel vom Rang $\begin{pmatrix} n k \end{pmatrix}$.
 ````
 
 ````{prf:proof}
 ToDo.
 ````
 
-Dank der Bündelstruktur können wir erneut glatte Schnitte betrachten, welche nun auf das Konzept der Diffentialform führen.
+Dank der Bündelstruktur können wir erneut glatte Schnitte betrachten, welche nun auf das Konzept der Differentialform führen.
 
 ````{prf:definition}
 Es sei $\M$ eine glatte Mannigfaltigkeit, dann nennt man einen glatten Schnitt
@@ -57,7 +52,7 @@ Es sei $\M$ eine glatte Mannigfaltigkeit, dann nennt man einen glatten Schnitt
 \omega\in \Gamma(\Lambda^k T^\ast\M)
 ```
 
-eine $k$-Differentialform oder auch $k$-Form. Den Vektorraum der Differntialformen notieren wir durch 
+eine $k$-Differentialform oder auch $k$-Form. Den Vektorraum der Differentialformen notieren wir durch 
 
 ```{math}
 \Omega^k(\M) := \Gamma(\Lambda^k T^\ast\M).
@@ -66,62 +61,109 @@ eine $k$-Differentialform oder auch $k$-Form. Den Vektorraum der Differntialform
 
 ## Das äußere Produkt
 
-Eine Differentialform $\omega$ auf $U\subseteq\R^n$ ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.
+In {numref}`s:symtensoren` haben wir das äußere Produkt $\wedge$ kennengelernt, welches wir nun auf Differentialformen übertragen. Dazu seien $\omega\in \Omega^k(\M), \eta\in \Omega^l(\M)$ zwei Differentialformen für $k,l\in\N$, dann setzten wir
 
-Wir schreiben eine allgemeine *$k$--Form* $\omega$ in der *Grundform*
 ```{math}
-\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
-dx_{i_1}\wedge\ldots\wedge dx_{i_k}\in\Omega^k(U),
+\omega \wedge \eta:\M &\to \Lambda^{k+l}T^\ast\M\\
+p&\mapsto \omega_p \wedge \eta_p
 ```
-wobei
-* die $\omega_{i_1\ldots i_k}\in \Omega^0(U):=C^\infty(U,\R)$, also glatte reelle Funktionen auf $U$ sind,
 
-* und die $dx_i$ den Koordinatenfunktionen $x_i:\R^n\to\R$ zugeordnete $1$--Differentialformen sind ($dx_i\in\Omega^1(\R^n)$).
+was in der Tat eine Differentialform definiert, also $\omega\wedge\eta \in \Omega^{k+l}(\M)$. Zusätzlich überträgt sich auch die Darstellung in einer lokalen Karte von {prf:ref}`cor:tensorfieldchart` auf diese Situation, wobei das Tensorprodukt, durch das äußere Produkt ersetzt werden kann.
 
-* Den Raum der $k$--Differentialformen schreiben wir ab jetzt zur Unterscheidung vom Raum der äußeren $k$--Formen mit dem Symbol $\Omega$ statt $\Lambda$.
+````{prf:lemma}
+Es sei $\M$ eine glatte Mannigfaltigkeit, $(\varphi,U)$ eine Karte und $\omega\in\Omega^l(\M)$ eine Differentialform, dann gilt lokal in $U$ 
 
-%
-Die $dx_i$ sind durch ihre Wirkung auf ein Vektorfeld $v:U\to
-\R^n$ definiert, und $dx_i(v)( y) := v_i( y)$.
-$1$--Differentialformen machen also aus Vektorfeldern Funktionen, und für $k$ Vektorfelder $v^{(l)}:U\to\R^n$ ist für das $\omega$ aus der Grundform
 ```{math}
-\omega\left(v^{(1)},\ldots,v^{(k)}\right) := \sum_{1\leq i_1<\ldots<i_k\leq n}
-\omega_{i_1\ldots i_k}\cdot\det\begin{pmatrix} dx_{i_1}(v^{(1)})&\ldots& dx_{i_k}(v^{(1)})\\
-\vdots&&\vdots\\
-dx_{i_1}(v^{(k)})&\ldots& dx_{i_k}(v^{(k)}) \end{pmatrix}
+\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k},
 ```
-definiert. Das Ergebnis ist also eine reelle Funktion auf $U$.\\
-Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformten.
 
-Auf dem $\R$--Vektorraum
-```{math}
-\Omega^*(U) := \bigoplus_{k=0}^n\Omega^k(U)
-```
-der Differentialformen betrachten wir jetzt
-den *Differentialoperator* $d$, der durch
+wobei $\omega_{i_1\ldots i_k}\in C^\infty(\M)$ für alle $i_1,\ldots,i_k\in\{1,\ldots,n\}$ gilts
 
-* $df := \sum_{i=1}^n\frac{\partial f}{\partial x_i}dx_i$ für Funktionen
-$f\in C^\infty(U,\R) = \Omega^0(U)$
-
-* und $d\omega := \sum_{1\leq i_1<\ldots<i_k\leq n}d\omega_{i_1\ldots i_k}
-\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k}$ für $k$--Formen \linebreak
-$\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
-dx_1\wedge\ldots\wedge dx_{i_k}$
-
-definiert ist. $d$ verwandelt eine $k$--Form also in eine $(k+1)$--Form.
-%
-````{prf:definition}
-:label: aeussere Ableitung
-Die lineare Abbildung $d:\Omega^*(U)\to\Omega^*(U)$ heißt [**äußere Ableitung**](https://de.wikipedia.org/wiki/%C3%84u%C3%9Fere_Ableitung).
 ````
-%
+
+````{prf:proof}
+Siehe z.B. {cite:p}`lee2003` Kapitel 14.
+````
+
+````{prf:example}
+
+
+1\. Für $k=0$ und $\M$ eine glatte Mannigfaltigkeit erhalten wir 
+
+```{math}
+\Omega^0(\M) = C^\infty(\M).
+```
+
+<br/>
+
+2\. Für $k=1$ und $\M$ eine glatte Mannigfaltigkeit erhalten wir 
+
+```{math}
+\Omega^1(\M)
+```
+
+gerade die Kovektorfelder aus {numref}`s:kotangbundel`.
+
+<br/>
+
+3\. Für $k=3$ und $\M=\R^3$ ist z.B., 
+
+```{math}
+\omega(xy) := \sin(xy) dx\wedge dy
+```
+
+eine Differentialform.
+
+````
+
+## Die äußere Ableitung
+
+Wir wenden uns nun einer wichtigen Operation auf Differentialformen zu, der äußeren Ableitung. Aus {prf:ref}`ex:totdiff` kennen wir schon das totale Differential $df\in \Omega^1(\M)$, für eine glatte Funktion $f\in C^\infty(\M)$. Hierbei haben wir für ein glattes Vektorfeld $X\in \Gamma(T\M)$ die Abbildung
+
+```{math}
+df(X) := X(f)
+```
+
+definiert, wobei die rechte Seite über die Wirkung des Vektorfelds definiert ist. Wir können dieses Konzept verallgemeinern, indem wir die äußere Ableitung definieren.
+
+````{prf:definition}
+Es sei $\M$ eine glatte Mannigfaltigkeit und $f\in C^\infty(\M)$, dann definieren wir die lineare Abbildung 
+
+```{math}
+d:\Omega^k(\M)\to \Omega^{k+1}(\M)\\
+d(f\, dx^{i_1}\wedge\ldots\wedge dx^{i_k}):= df \wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k}.
+```
+````
+
+````{prf:remark}
+Beachte, dass die obige Abbildung nur jeweils für lokale Koordinaten definiert ist. Wegen der Kartenunabängigkeit führt dies aber auf eine eindeutig definierte Funktion, siehe z.B. {cite:p}`lee2003` Kapitel 14. Da wir $d$ auf den Elementen $dx^{i_1}\wedge\ldots\wedge dx^{i_k}$ definiert haben erhalten wir jeweils lokal eine eindeutige lineare Fortsetzung, da jedes $\omega\in \Omega^k(\M)$ lokal die Darstellung 
+
+```{math}
+\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+```
+
+hat und somit 
+
+```{math}
+d\omega &= \sum_{1\leq i_1,\ldots,i_k \leq n} d(\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k})\\ 
+&= \sum_{1\leq i_1,\ldots,i_k \leq n} d(\omega_{i_1\ldots i_k})\wedge
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+```
+````
 
 ````{prf:example} Äußere Ableitung
 :label: ex:10.14
-1. Für $\omega\in\Omega^0(\R^3)$ ist $d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
+
+1\. Für $\omega\in\Omega^0(\R^3)$ ist $d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
 \frac{\partial\omega}{\partial x_2}dx_2+\frac{\partial\omega}{\partial x_3}dx_3$.
 
-2. Für $\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)$ ist
+<br/>
+
+2\. Für $\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)$ ist
+
 ```{math}
 d\omega &=& (d\omega_1)\wedge dx_1+(d\omega_2)\wedge dx_2+(d\omega_3)\wedge
 dx_3\\
@@ -129,79 +171,82 @@ dx_3\\
 dx_1\wedge dx_2+ \left(\frac{\partial\omega_3}{\partial x_2}-\frac{\partial\omega_2}{\partial x_3}\right)
 dx_2\wedge dx_3\\
 && + \left(\frac{\partial\omega_1}{\partial x_3}-\frac{\partial\omega_3}{\partial x_1}\right)
-dx_3\wedge dx_1
+dx_3\wedge dx_1.
 ```
 
-3. Für $\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
+<br/>
+
+3\. Für $\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
 +\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)$ ist
 ```{math}
 d\omega = \left(\frac{\partial\omega_{12}}{\partial x_3} + \frac{\partial\omega_{23}}{\partial x_1}
 + \frac{\partial\omega_{31}}{\partial x_2}\right)dx_1\wedge dx_2\wedge dx_3.
 ```
 
-4. Für $\omega\in\Omega^3(\R^3)$ ist $d\omega=0$.
+<br/>
+
+4\. Für $\omega\in\Omega^3(\R^3)$ ist $d\omega=0$.
 ````
 
-%
-````{prf:theorem}
-:label: Antiderivation
-$d$ ist eine [**Antiderivation**](https://de.wikipedia.org/wiki/Derivation_(Mathematik)#Antiderivationen), d.h. für $\alpha\in\Omega^k(U)$ und $\beta\in\Omega^l(U)$ ist
+Für die äußere Ableitung können wir zusätzlich folgende Eigenschaften zeigen.
+
+````{prf:lemma}
+:label: lem:outeprop
+
+Es sei $\M$ eine glatte Mannigfaltigkeit, dann haben wir folgende Eigenschaften.
+
+<br/>
+
+1\. Für $f,g\in C^\infty(\M)$ gilt 
+
 ```{math}
-d(\alpha\wedge\beta) = (d\alpha)\wedge\beta+(-1)^k\alpha\wedge d\beta.
+(fg) = d(f)\,g + f\, d(g).
 ```
+
+<br/>
+
+2\. Für $\omega\in\Omega^k(\M),\eta\in\Omega^l(\M)$ gilt 
+
+```{math}
+d(\omega\wedge\eta) = (d\omega)\wedge \eta + (-1)^k \omega\wedge (d\eta).
+```
+
+<br/>
+
+3\. Es gilt $d\circ d = 0$.
 ````
 
-````{prf:proof}
-Wegen der Linearität von $d$ genügt es, diese Gleichung für Monome
-```{math}
-\alpha := f\underbrace{dx_{i_1}\wedge\ldots\wedge dx_{i_k}}_{\tilde
-{\alpha}},\ \beta := g\underbrace{dx_{j_1}\wedge\ldots\wedge dx_{j_l}}_
-{\tilde{\beta}},\ f,g\in C^\infty(U,\R)
-```
-zu beweisen.
-Es gilt
-```{math}
-d(\alpha\wedge\beta) &=& d(f\cdot g)\tilde{\alpha}\wedge
-\tilde{\beta} = \big((df)g+f(dg)\big)\,\tilde{\alpha}\wedge\tilde{\beta}\\
-&=& (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}
-```
-````
-%
-````{prf:theorem}
-:label: thm:dd
-Auf $\Omega^*(U)$ gilt
+````{prf:remark}
+Da $d$ Eigenschaft 2 erfüllt, nennt man $d$ auch Antiderivation.
 ````
 
-````{prf:proof}
-
-1. Für $f\in\Omega^0(U)$ ist
-```{math}
-ddf &=& d\left(\sum_{i=1}^n\frac{\partial f}
-{\partial x_i}dx_i\right) = \sum_{i=1}^n\sum_{l=1}^n\frac{\partial^2f}{\partial x_l\partial x_i}
-dx_l\wedge dx_i\\
-& =& \sum_{1\leq r< s\leq n}\left(\frac{\partial^2 f}{\partial x_r
-\partial x_s} - \frac{\partial^2f}{\partial x_s\partial x_r}\right)dx_r\wedge dx_s = 0,
-```
-da wir wegen der Glattheit von $f$ die partiellen Ableitungen vertauschen
-können.
-
-2. Für $\omega = \sum\omega_{i_1\ldots i_k}dx_{i_1}\wedge\ldots\wedge dx_{i_k}
-\in\Omega^k(U)$ ist\
-```{math}
-dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
-\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0,
-```
-denn gemäß Satz {prf:ref}`Antiderivation` wird die äußere Ableitung auf die
-1-Formen $d\omega_{i_1\ldots i_k}$ und $dx_{i_l}$ angewandt, und nach Teil 1.
-ist das Ergebnis Null.
-````
+Eine interessante Anwendung finden Differntialformen im sog. Poincaré-Lemma. Hierfür benötigen wir folgenden Begriffe
 
 ````{prf:definition}
-:label: geschlossen:exakt
-Eine Differentialform $v\in\Omega^*(U)$ heißt
-* **geschlossen**, wenn $dv=0$, ***exakt**, wenn $v=d\psi$ für ein $\psi\in\Omega^*(U)$ gilt.
+:label: def:geschlossenexakt
 
-%
-Nach Satz {prf:ref}`thm:dd` sind exakte Differentialformen geschlossen.\\ Für $k$--Formen auf konvexen offenen Teimengen $U\subseteq \R^n$ gilt für $k\ge 1$auch die Umkehrung (sog.
-[**Poincaré-Lemma**](https://de.wikipedia.org/wiki/Poincar%c3%a9-Lemma) ),  siehe Kapitel {prf:ref}`sect:Poinca`).
-%
+Es sei $\M$ eine glatte Mannigfaltigkeit, eine Differentialform $v\in\Omega^k(\M)$ heißt
+* **geschlossen**, wenn $dv=0$, 
+* **exakt**, wenn $v=d\eta$ für ein $\eta\in\Omega^{k-1}(\M)$ gilt.
+````
+
+Nach Satz {prf:ref}`lem:outer:prop` sind exakte Differentialformen geschlossen, da für $v=d\eta$ gilt,
+
+```{math}
+dv = d(d\eta) = (d\circ d)\eta = 0.
+```
+
+Das Poincaré-Lemma besagt nun, dass auf sternförmigen offenen Mengen $U\subseteq \R^n$ auch die Umkehrung gilt.
+
+````{prf:lemma} Poincaré-Lemma
+Es sei $U\subset\R^n$ eine offene sternförmige Menge, dann gilt für $\omega\in \Omega^k(\M)$, 
+
+```{math}
+\omega\text{ ist geschlossen}\Leftrightarrow \omega\text{ ist exakt.}
+```
+
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`lee2003` Theorem 11.49.
+````

@@ -1071,7 +1071,7 @@ Dann haben wir wegen <a class="reference internal" href="#thm:tanbasis">Theorem 
 </div>
 </div>
 <div class="section" id="das-kotangentialbundel">
-<h2><span class="section-number">4.2.4. </span>Das Kotangentialbündel<a class="headerlink" href="#das-kotangentialbundel" title="Permalink to this headline">¶</a></h2>
+<span id="s-kotangbundel"></span><h2><span class="section-number">4.2.4. </span>Das Kotangentialbündel<a class="headerlink" href="#das-kotangentialbundel" title="Permalink to this headline">¶</a></h2>
 <p>Analog zum Kotangentialraum, können wir auch das Kotangentialbündel definieren.</p>
 <div class="proof definition admonition" id="definition-34">
 <p class="admonition-title"><span class="caption-number">Definition 4.26 </span></p>
@@ -1120,7 +1120,7 @@ Dann definieren wir die sogenannten <strong>lokalen Koordinaten Kovektorfelder</
 p&amp;\mapsto dx^{i}_p. \end{split}\]</div>
 </div>
 </div><p>Die definierten 1-Formen sind die einfachsten Beispiele der allgmeinen Diffenerentialformen, welche wir in <a class="reference internal" href="diffformen.html#s-difformen"><span class="std std-numref">Section 4.3.1</span></a> untersuchen werden. Das Konzept des Kotangentialbündels und der Differentialform ist nun noch etwas abstrakt, allerdings erhalten wir mithilfe des totalen Differentials <a class="reference internal" href="#def:totdiff">Definition 4.18</a> erneut eine einfache Veranschalichung.</p>
-<div class="proof example admonition" id="example-39">
+<div class="proof example admonition" id="ex:totdiff">
 <p class="admonition-title"><span class="caption-number">Example 4.8 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(f\in C^\infty(\M)\)</span>, dann ist die Abbildung</p>
@@ -1223,12 +1223,12 @@ v&amp;\mapsto \langle \nabla f(p), v \rangle = \sum_{i=1}^n \partial_i f(p)\, v^
 <p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit, und <span class="math notranslate nohighlight">\(r,s\in\N_0\)</span>, s.d. <span class="math notranslate nohighlight">\(r+s&gt;0\)</span>, ein <strong>Tensorfeld</strong> ist ein glatter Schnitt <span class="math notranslate nohighlight">\(A\in \Gamma(T^r_s\M)\)</span>.</p>
 </div>
 </div><p>Dank der lokalen Darstellung von Vektorbündeln in <a class="reference internal" href="#lem:localsections">Lemma 4.10</a> können wir die recht abstrakten Tensorfelder lokal sehr konkret Darstellen.</p>
-<div class="proof corollary admonition" id="corollary-46">
+<div class="proof corollary admonition" id="cor:tensorfieldchart">
 <p class="admonition-title"><span class="caption-number">Corollary 4.2 </span></p>
 <div class="corollary-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit, <span class="math notranslate nohighlight">\((U,\varphi)\)</span> eine Karte mit lokalen Koordinaten <span class="math notranslate nohighlight">\(\varphi=(x^1,\ldots,x^n)\)</span>. Für <span class="math notranslate nohighlight">\(r,s\in\N_0\)</span>, s.d. <span class="math notranslate nohighlight">\(r+s&gt;0\)</span> und <span class="math notranslate nohighlight">\(A\in \Gamma(T^r_s\M)\)</span> ein Tensorfeld existieren glatte Koeffizientenfunktionen <span class="math notranslate nohighlight">\(A^{i_1,\ldots, i_r}_{j_1,\ldots,j_s}\in C^\infty(\M)\)</span> für <span class="math notranslate nohighlight">\(i_1,\ldots, i_r, j_1,\ldots, j_s\in \{1,\ldots,n\}\)</span>, s.d.,</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit, <span class="math notranslate nohighlight">\((U,\varphi)\)</span> eine Karte mit lokalen Koordinaten <span class="math notranslate nohighlight">\(\varphi=(x^1,\ldots,x^n)\)</span>. Für <span class="math notranslate nohighlight">\(r,s\in\N_0\)</span>, s.d. <span class="math notranslate nohighlight">\(r+s&gt;0\)</span> und <span class="math notranslate nohighlight">\(A\in \Gamma(T^r_s\M)\)</span> ein Tensorfeld existieren glatte Koeffizientenfunktionen <span class="math notranslate nohighlight">\(A^{i_1,\ldots, i_s}_{j_1,\ldots,j_r}\in C^\infty(\M)\)</span> für <span class="math notranslate nohighlight">\(i_1,\ldots, i_s, j_1,\ldots, j_r\in \{1,\ldots,n\}\)</span>, s.d.,</p>
 <div class="math notranslate nohighlight">
-\[A = A^{i_1,\ldots,i_r}_{j_1,\ldots,j_s} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.\]</div>
+\[A = A^{i_1,\ldots,i_s}_{j_1,\ldots,j_r} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Folgt aus <a class="reference internal" href="#lem:localsections">Lemma 4.10</a> und <a class="reference internal" href="#lem:coordcovec">Lemma 4.12</a>,  für Details siehe <span id="id10">[<a class="reference internal" href="../references.html#id15">Lee03</a>]</span> Prop. 12.19.</p>
