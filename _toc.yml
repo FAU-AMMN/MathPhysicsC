@@ -23,4 +23,7 @@ chapters:
   - file: manifolds/manifolds_prelim.md
   - file: manifolds/tangential.md
   - file: manifolds/diffformen.md
+- file: masstheorie/intro_masstheorie.md
+  sections:
+  - file: masstheorie/masstheorie.md
 - file: references
