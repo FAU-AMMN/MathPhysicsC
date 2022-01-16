@@ -200,7 +200,7 @@ Es sei $\M$ eine glatte Mannigfaltigkeit, dann haben wir folgende Eigenschaften.
 1\. Für $f,g\in C^\infty(\M)$ gilt 
 
 ```{math}
-(fg) = d(f)\,g + f\, d(g).
+d(fg) = d(f)\,g + f\, d(g).
 ```
 
 <br/>
@@ -253,10 +253,46 @@ Siehe z.B. {cite:p}`lee2003` Theorem 11.49.
 
 ## Der Pullback
 
-Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte **Pullback**. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten $\M,\mathcal{N}$ und eine glatte Funktion $F:M\to\mathcal{N}$. Das Ziel ist es nun eine Differentialform auf $N$, $\omega\in\Omega^k(\mathcal{N})$ mithilfe von $F$ auf eine Differentialform auf $\M$ zurückzuziehen. Dies geschieht in dem wir eine neue Differentialform punktweise an $p$ definieren am Punkt $F(p)$, konkret
+Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte **Pullback**. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten $\M,\mathcal{N}$ und eine glatte Funktion $F:M\to\mathcal{N}$. Das Ziel ist es nun eine Differentialform auf $N$, $\omega\in\Omega^k(\mathcal{N})$ mithilfe von $F$ auf eine Differentialform auf $\M$ zurückzuziehen. Ausgewertet an $p\in\M$ ergibt eine Differentialform $\eta\in\Omega^k(\M)$ ein Element aus $L^k(T_p^\ast\M)$,
 
 ```{math}
-(F^\ast\omega)_p := \omega_F(p) \big(dF_p(v_1),\ldots,dF_p(v_k)\big).
+\eta_p\in \Omega^k(T_p\M) \subset L^k(T_p^\ast\M)
+```
+
+also eine Linearform, welche auf $k$ Elemente $v_1,\ldots,v_k\in T_p^\ast\M$ des Kotangentialraums in $p$ an $\M$ wirkt. Haben wir nun a priori $\omega\in\Omega^k(\mathcal{N})$ gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über $F$ von $\M$ nach $\N$ vorschieben können, der sogennante **Pushforward**.
+
+````{prf:definition}
+Es seien $\M,\mathcal{N}$ zwei glatte Mannigfaltigkeiten und $F\in C^\infty(\M,\mathcal{N})$, dann definieren wir für $p\in\M$ 
+
+```{math}
+F_\ast:T_p\M\to T_{F(p)}\mathcal{N}\\
+D\mapsto \big[f\mapsto D(f\circ F)]
+```
+
+den sogenannten **Pushforward**.
+````
+
+Da wir nun Tangentialvektoren von $T_p\M$ auf $T_{F(p)}\mathcal{N}$ schieben können, sind wir in der Lage damit den Pullback von Kotangentialvektoren zu definieren. 
+
+````{prf:definition}
+Es seien $\M,\mathcal{N}$ zwei glatte Mannigfaltigkeiten und $F\in C^\infty(\M,\mathcal{N})$, dann definieren wir für $p\in\M$ 
+
+```{math}
+F^\ast: T_{F(p)}^\ast\mathcal{N}\to \big[T^p_\M\mapsto\R\big]\\
+v \mapsto \big[D\mapsto v(F_\ast(D)) \big]
+```
+
+den **Pullback**
+````
+
+````{prf:remark}
+Es gilt insbesondere, dass $F^\ast v \in T_p^\ast\M$ für jedes $v\in T_{F(p)}^\ast\mathcal{N}$.
+````
+
+Dieses Konzept können wir nun auf Formen übertragen in dem wir eine neue Differentialform punktweise an $p$ definieren am Punkt $F(p)$. Konkret seien $v_1,\ldots, v_k\in T_p\M$, dann definiere
+
+```{math}
+(F^\ast\omega)_p (v_1,\ldots,v_k) := \omega_F(p)\big(F_\ast(v_1),\ldots,F_\ast(v_k)\big).
 ```
 
 Die so definierte Abbildung bildet tatsächlich zwischen den passenden Räumen ab
@@ -284,6 +320,6 @@ F^\ast(f dy^{i_1}\wedge\ldots\wedge dy^{i_k}) = (f \circ F) d(y^{i_1}\circ F)\we
 
 ````{prf:proof}
 
-Siehe {cite:p}`lee2003` Lemma 14.16.
+Für 1. und 2. siehe Hausaufgaben, Für 3. siehe {cite:p}`lee2003` Lemma 14.16.
 
 ````
