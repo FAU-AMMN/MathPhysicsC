@@ -272,7 +272,7 @@ D\mapsto \big[f\mapsto D(f\circ F)]
 den sogenannten **Pushforward**.
 ````
 
-Da wir nun Tangentialvektoren von $T_p\M$ auf $T_{F(p)}\mathcal{N}$ schieben können, sind wir in der Lage damit den Pullback von Kotangentialvektoren zu definieren. 
+Da wir nun Tangentialvektoren von $T_p\M$ auf $T_{F(p)}\mathcal{N}$ schieben können, sind wir in der Lage damit den Pullback von Kotangentialvektoren zu definieren.
 
 ````{prf:definition}
 Es seien $\M,\mathcal{N}$ zwei glatte Mannigfaltigkeiten und $F\in C^\infty(\M,\mathcal{N})$, dann definieren wir für $p\in\M$ 
