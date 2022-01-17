@@ -1,34 +1,47 @@
 # Maßtheorie
 
-Ein [**Maß**](https://de.wikipedia.org/wiki/Ma%c3%9f_(Mathematik)) $\mu$ auf einer Menge $M$ wie z.B. dem $\R^n$
-ordnet geeigneten Teilmengen $A\subseteq M$
-Zahlen
+Wir wollen in diesem Kapitel formal die Maßtheorie einführen, die es uns erlaubt zu entscheiden welche Mengen messbar sind und wie sich das Volumen von Mengen in topologischen Räumen bestimmen lässt.
+Die hier beschriebenen Werkzeuge werden uns im nächsten Kapitel bei der Einführung des *Lebesgue-Integrals* als Verallgemeinerung des Riemann-Integrals sehr dienlich sein.
+
+Intuitiv ordnet ein [**Maß**](https://de.wikipedia.org/wiki/Ma%c3%9f_(Mathematik)) $\mu$, welches auf einer Menge $\Omega$ definiert ist, wie z.B. dem $\R^n$, allen geeigneten Teilmengen $A\subseteq \Omega$ nichtnegative reelle Zahlen zu, d.h.
+
 ```{math}
-\mu(A)\in[0,\infty]:=[0,\infty)\cup\{\infty\}
+\mu(A)\in[0,\infty] := [0,\infty)\cup\{\infty\}.
 ```
-zu, eben das Maß von $A$.
+
+Hierbei soll das Maß $\mu$ natürlich mit dem Volumen der Teilmenge $A$ zusammenhängen.
+Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die Menge $\Omega$ schon der gesamte $\R^n$ ist.
+
+Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.
 
 ## $\sigma$-Algebren und Maße
 
-Ein Mengensystem ist eine Menge von Mengen. Wir nennen die Potenzmengen $2^M \equiv\mathcal{P}(M)$ von $M$ die Menge aller möglichen Teilmengen von $M$. In der Maßtheorie sind Mengensysteme $\mathcal{A} \subseteq \mathcal{P}(M)$ zentral, nämlich die der *meßbaren* Teilmengen von $M$. Das sind die Mengen, denen ein Maß zugeordnet wird, also eine nicht negative Zahl oder Unendlich. Schauen wir uns also an, welche Eigenschaften ein Maß haben muss.
+Wir betrachten im Folgenden immer eine zu Grunde liegende Menge $\Omega$.
+Diese kann endlich, abzählbar unendlich oder auch überabzählbar unendlich sein.
+Wir betrachten nun die **Potenzmenge** $2^\Omega \equiv\mathcal{P}(\Omega)$ von $\Omega$, welche die Menge aller möglichen Teilmengen von $\Omega$ bildet.
+Solche Mengen von Mengen nennen wir häufig *Mengensysteme*.
+In der Maßtheorie sind bestimmte Mengensysteme $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ zentral, nämlich die der *meßbaren* Teilmengen von $\Omega$.
+Das sind die Mengen, denen ein Maß zugeordnet werden kann, also eine nichtnegative Zahl oder unendlich.
 
-Zunächst müssen wir festlegen, welche Teilmengen der Grundmenge $M$ überhaupt messbar sein sollen. Wir wählen also wie gesagt ein Mengensystem $\mathcal{A} \subseteq \mathcal{P}(M)$ in der Potenzmenge von $M$ aus.
-Am bequemsten wäre es, alles messen zu können, also $\mathcal{A} = \mathcal{P}(M)$, aber das ist nicht immer möglich. Wir fordern, dass $\mathcal{A}$ eine $\sigma$-Algebra ist.
+Zunächst müssen wir klären, welche Teilmengen der Grundmenge $\Omega$ überhaupt messbar sein sollen.
+Am Einfachsten wäre es natürlich, alle möglichen Teilmengen messen zu können, also als Mengensystem $\mathcal{A} = \mathcal{P}(M)$ zu betrachten.
+Wir wir sehen werden ist dies leider nicht immer möglich, denn es existieren *nichtmessbare Mengen*.
+Es hat sich herausgestellt, dass es vernünftig ist zu fordern, dass das Mengensystem $\mathcal{A}$ eine sogenannte $\sigma$-Algebra ist, welche wir in der folgenden Definition einführen werden.
 
-````{prf:definition}
+````{prf:definition} $\sigma$-Algebra und Maßraum
 :label: def:sigmaalgebra
-* $\mathcal{A} \subseteq \mathcal{P}(M)$ heißt **$\sigma$-Algebra (von $M$)**, wenn
+Ein Mengensystem $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ heißt **$\sigma$-Algebra (von $\Omega$)**, wenn die folgenden Eigenschaften erfüllt sind
 
-    a) $M\in \mathcal{A}$
+1. $\Omega\in \mathcal{A}$
 
-    b) $A\in \mathcal{A}$ impliziert, dass $A^c:=M\backslash A\in \mathcal{A}$
+2. $A\in \mathcal{A} \quad \Rightarrow \quad A^c:=\Omega \setminus A\in \mathcal{A}$
 
-    c) $A_n\in \mathcal{A}\ (n\in\N)$ impliziert, dass $\bigcup_{n\in \N} A_n\in \mathcal{A}$.
+3. $(A_n)_{n\in\N} \in \mathcal{A} \quad \Rightarrow \quad \bigcup_{n\in \N} A_n\in \mathcal{A}$.
 
-* Für eine $\sigma$-Algebra $\mathcal{A} \subseteq \mathcal{P}(M)$ von $M$ heißt das Paar ($M,\mathcal{A}$) **Messraum**, und die Menge $\mathcal{A}$ heißen *messbar*.
+Für eine $\sigma$-Algebra $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ von $\Omega$ nennen wir das Paar ($\Omega,\mathcal{A}$) **Maßraum** und die Mengen des Mengensystems $\mathcal{A}$ heißen **messbar**.
 ````
 
-Die kleinste $\sigma$-Algebra von $M$ ist damit \{\emptyset, M\}, die Größte $\mathcal{P}(M)$.
+Die kleinste $\sigma$-Algebra von $M$ ist damit $\{\emptyset, \Omega\}$, die Größte $\mathcal{P}(\Omega)$.
 
 Das Symbol $\sigma$ soll an den Begriff der Summe erinnern, entsprechend der
 dritten Forderung in Def. \ref{def:sigmaalgebra}, also der Stabilität unter abzählbarer Vereinigung.
@@ -73,10 +86,17 @@ Dieses Maß ist also nicht translationsinvariant. Es wird beispielsweise in der 
 6. Im Zusammenhang mit dem sog. Feynmanschen [**Pfadintegral**](https://de.wikipedia.org/wiki/Pfadintegral) der Quantenmechanik wird auf dem unendlich-dimensionalen Raum $M$ der Wege zwischen zwei Punkten des Konfigurationsraumes $\R^d$ ein [**Wahrscheinlichkeitsmaß**](https://de.wikipedia.org/wiki/Wahrscheinlichkeitsma%c3%9f) (also ein Maß $\mu$ auf $M$ mit $\mu (M)=1$) definiert. Dabei erhalten Wege, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein großes Gewicht.
 ````
 
-## Borel-$\sigma$-Algebren und -Maße
+## Borel-$\sigma$-Algebra und Borel-$\sigma$-Maß
 
 ````{prf:definition} Borel $\sigma$-Algebra
 S. 106 und 119 Schulz-Baldes
+Die **Borel $\sigma$-Algebra** auf einem topologischen Raum $(\Omega, \tau)$ ist die kleinste $\sigma$-Algebra auf der Menge $\Omega$, die die Topologie $\tau$ enthält, d.h.
+
+```{math}
+\B(\Omega) := \bigcap_{\substack{\mathcal{A} \text{ ist $\sigma$-Algebra}\\ \tau \subset \mathcal{A}}} \mathcal{A}
+```
+
+Man nennt die Borel-$\sigma$-Algebra auch **die von $\tau$ erzeugte $\sigma$-Algebra**.
 ````
 
 ````{prf:definition} Lokale Endlichkeit von Maßen
@@ -87,7 +107,7 @@ Wir nennen das Maß $\sigma$ **lokal endlich**, falls jeder Punkt $x \in \Omega$
 Es ist klar, dass das Lebesgue-Maß auf dem Raum $\R^n$ lokal endlich ist.
 
 ````{prf:definition} Borel-Maß
-Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf der Borelschen $\sigma$-Algebra eines topologischen Raums $\Omega$ heißt Borel-Maß.
+Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf der Borelschen $\sigma$-Algebra eines topologischen Raums $\Omega$ heißt **Borel-Maß**.
 ````
 
 ## Riemann- und Lebesgue-messbare Mengen
