@@ -93,10 +93,40 @@ Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf 
 ## Riemann- und Lebesgue-messbare Mengen
 
 ````{prf:definition} Mehrdimensionale Quader
+Seien $a = (a_1,\ldots,a_n) \in \R^n$ und $b = (b_1,\ldots,b_n) \in \R^n$ zwei Punkte im \R^n.
+Wir definieren zunächst folgende Anordnungsrelation mit
 
-S. 77 Schulz-Baldes
-S. 36 Knauf
+```{math}
+a < b \qquad \Leftrightarrow \qquad a_i < b_i \quad i=1,\ldots,n.
+```
+
+Analog können wir die Anordnungsrelationen $a \leq b, a > b$ und $a \geq b$ definieren und darüber im Folgenden **offene, halboffene** und **abgeschlossene Quader** im $\R^n$ respektive beschreiben durch
+
+```{math}
+(a,b) = \lbrace x \in \R^n : a < x < b \rbrace,\\
+(a,b] = \lbrace x \in \R^n : a < x \leq b \rbrace,\\
+[a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.
+```
+
 ````
+
+````{prf:definition} Mehrdimensionale Treppenfunktion
+Wir nennen eine Funktion $f \colon \R^n \rightarrow \C$ **Treppenfunktion**, falls es paarweise disjunkte Quader $Q_1, \ldots, Q_k \subset \R^n$ gibt, so dass die folgenden Eigenschaften gelten:
+
+1. Die Funktion $f$ ist konstant auf jedem der Quader, d.h.,
+```{math}
+f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,
+```
+
+2. Die Funktion ist überall Null außerhalb der Quader, d.h.,
+```{math}
+f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.
+```
+
+
+````
+
+Illustration hier von Quadern und Treppenfunktionen!
 
 ````{prf:definition} Ring
 Ein Mengensystem $\mathcal{R} \subset \mathcal{P}(\Omega)$ heißt **Ring** auf einer Menge $\Omega$, falls die folgenden Eigenschaften erfüllt sind:
