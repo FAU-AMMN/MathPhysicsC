@@ -78,7 +78,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{Jan 11, 2022}
+\date{Jan 17, 2022}
 \release{}
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -4123,30 +4123,32 @@ Diese wird auch \sphinxstylestrong{Grassmann\sphinxhyphen{}Algebra} oder \sphinx
 \end{sphinxadmonition}
 
 
-\section{Differentialformen auf Mannigfaltigkeiten}
-\label{\detokenize{vektoranalysis/diffformen:differentialformen-auf-mannigfaltigkeiten}}\label{\detokenize{vektoranalysis/diffformen::doc}}
+\chapter{Differentialformen auf Mannigfaltigkeiten}
+\label{\detokenize{manifolds/manifolds:differentialformen-auf-mannigfaltigkeiten}}\label{\detokenize{manifolds/manifolds::doc}}
 \sphinxAtStartPar
 In diesem Kapitel der Vektoranalysis werden wir nun \sphinxhref{https://de.wikipedia.org/wiki/Differentialform}{Differentialformen} einführen.
 Die entscheidende Neuerung im Vergleich zum vorangegangen Kapitel über Tensoren ist, dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen.
-Außerdem werden wir im Folgenden mit \sphinxstyleemphasis{glatten Funktion} arbeiten, d.h., mit Funktionen aus dem Raum \(C^\infty(U,\R^n)\).
 
 \sphinxAtStartPar
-Um Differentialformen vernünftig einführen zu können benötigen wir allerdings einige zusätzliche mathematische Konzepte, die bisher noch nicht behandelt wurden.
+Außerdem werden wir im Folgenden mit \sphinxstyleemphasis{glatten Funktion} arbeiten, d.h., mit Funktionen aus dem Raum \(C^\infty(U,\R^n)\).
 Wir definieren zunächst den Begriff des topologischen Raums als Verallgemeinerung von metrischen Vektorräumen.
 Anschließend sind wir in der Lage Mannigfaltigkeiten als spezielle topologische Räume zu definieren, die lokal dem Euklidischen Raum \(\R^n\) ähneln, jedoch global verschieden sein können.
 Schließlich werden wir Tensorfelder und Differentialformen diskutieren.
 
 
+\section{Differenzierbare Mannigfaltigkeit}
+\label{\detokenize{manifolds/manifolds_prelim:differenzierbare-mannigfaltigkeit}}\label{\detokenize{manifolds/manifolds_prelim::doc}}
+
 \subsection{Topologische Räume}
-\label{\detokenize{vektoranalysis/diffformen:topologische-raume}}
+\label{\detokenize{manifolds/manifolds_prelim:topologische-raume}}
 \sphinxAtStartPar
 Wir haben bisher immer Mathematik auf \sphinxstylestrong{metrischen} oder gar \sphinxstylestrong{normierten Vektorräumen} betrieben, da uns diese Struktur für alle erklärten Konzepte am dienlichsten war (siehe Kapitel 4 \& 5 in {[}\hyperlink{cite.references:id2}{Bur20}{]} und \sphinxhref{https://fau-ammn.github.io/MathDataScience2/normierte\_raeume/normierte\_raeume.html}{MP\sphinxhyphen{}2 Skript}).
-Als Vorbereitung für {\hyperref[\detokenize{vektoranalysis/diffformen:s-mannigfaltigkeiten}]{\sphinxcrossref{\DUrole{std,std-ref}{Mannigfaltigkeiten}}}} wollen wir von den metrischen Räumen zu allgemeineren Strukturen wechseln \sphinxhyphen{} den sogenannten \sphinxstylestrong{topologischen Räumen}.
+Als Vorbereitung für {\hyperref[\detokenize{manifolds/manifolds_prelim:s-mannigfaltigkeiten}]{\sphinxcrossref{\DUrole{std,std-ref}{Mannigfaltigkeiten}}}} wollen wir von den metrischen Räumen zu allgemeineren Strukturen wechseln \sphinxhyphen{} den sogenannten \sphinxstylestrong{topologischen Räumen}.
 
 \sphinxAtStartPar
 Das zentrale Konzept topologischer Räume ist die folgende Definition der \sphinxstyleemphasis{offene Mengen}.
-\label{vektoranalysis/diffformen:definition-0}
-\begin{sphinxadmonition}{note}{Definition 3.11 (Offene Mengen und topologischer Raum)}
+\label{manifolds/manifolds_prelim:definition-0}
+\begin{sphinxadmonition}{note}{Definition 4.1 (Offene Mengen und topologischer Raum)}
 
 
 
@@ -4179,8 +4181,8 @@ Analog zur Definition auf metrischen Räumen bezeichnen wir das Komplement \(\M 
 \sphinxAtStartPar
 Es gibt viele interessante topologische Räume, die den Namen ihrer Entdecker tragen, wie zum Beispiel der \sphinxhref{https://de.wikipedia.org/wiki/Arens-Fort-Raum}{Arens\sphinxhyphen{}Fort\sphinxhyphen{}Raum}, der \sphinxhref{https://de.wikipedia.org/wiki/Cantor-Raum}{Cantor\sphinxhyphen{}Raum}, oder der \sphinxhref{https://de.wikipedia.org/wiki/Hilbertw\%C3\%BCrfel}{Hilbertwürfel}.
 Im Folgenden wollen wir ein relativ generisches Beispiel für einen topologischen Raum betrachten.
-\label{vektoranalysis/diffformen:ex:diskreteTopologie}
-\begin{sphinxadmonition}{note}{Example 3.14 (Diskrete Topologie)}
+\label{manifolds/manifolds_prelim:ex:diskreteTopologie}
+\begin{sphinxadmonition}{note}{Example 4.1 (Diskrete Topologie)}
 
 
 
@@ -4206,21 +4208,21 @@ Seien \(x,y \in M\) Punkte der Menge und \(d \colon \M \times \M \rightarrow \R^
 Dies führt dazu, dass alle Teilmengen, die nur einen Punkt der Menge enthalten, offen sind.
 Über beliebige Vereinigung dieser Punktmengen, lassen sich dann alle Teilmengen der Potenzmenge \(\mathcal{P}(\M)\) als offen definieren und man erhält somit die diskrete Topologie.
 \end{sphinxadmonition}
-\label{vektoranalysis/diffformen:remark-2}
-\begin{sphinxadmonition}{note}{Remark 3.15 (Notation von topologischen Räumen)}
+\label{manifolds/manifolds_prelim:remark-2}
+\begin{sphinxadmonition}{note}{Remark 4.1 (Notation von topologischen Räumen)}
 
 
 
 \sphinxAtStartPar
 Häufig spielt die konkrete Wahl einer Topologie \(\tau \subset \mathcal{P}(\M)\) keine Rolle für die mathematischen Aussagen, die man treffen möchte.
-Da wir jede beliebige Menge \(\M\) mit der diskreten Topologie aus {\hyperref[\detokenize{vektoranalysis/diffformen:ex:diskreteTopologie}]{\sphinxcrossref{Example 3.14}}} zu einem topologischen Raum \((\M, \tau)\) ausstatten können, wird die Angabe der konkreten Topologie \(\tau\) häufig ausgelassen.
+Da wir jede beliebige Menge \(\M\) mit der diskreten Topologie aus {\hyperref[\detokenize{manifolds/manifolds_prelim:ex:diskreteTopologie}]{\sphinxcrossref{Example 4.1}}} zu einem topologischen Raum \((\M, \tau)\) ausstatten können, wird die Angabe der konkreten Topologie \(\tau\) häufig ausgelassen.
 In solchen Fällen identifiziert man den topologischen Raum einfach mit der zu Grunde liegenden Menge \(\M\), d.h., wir nennen \(\M\) einen topologischen Raum, wenn die konkrete Topologie im gewählten Kontext eindeutig ist oder keine Rolle spielt.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Viele mathematische Konzepte lassen sich von metrischen oder normierten Räumen auf topologische Räume übertragen, wie zum Beispiel der Begriff einer stetigen Funktion.
-\label{vektoranalysis/diffformen:def:stetigkeitTopologie}
-\begin{sphinxadmonition}{note}{Definition 3.12 (Stetige Funktionen auf topologischen Räumen)}
+\label{manifolds/manifolds_prelim:def:stetigkeitTopologie}
+\begin{sphinxadmonition}{note}{Definition 4.2 (Stetige Funktionen auf topologischen Räumen)}
 
 
 
@@ -4250,14 +4252,14 @@ Das folgende Diagramm zeigt die Relationen zwischen verschiedenen mathematischen
 \end{equation*}
 
 \subsection{Mannigfaltigkeiten}
-\label{\detokenize{vektoranalysis/diffformen:mannigfaltigkeiten}}\label{\detokenize{vektoranalysis/diffformen:s-mannigfaltigkeiten}}
+\label{\detokenize{manifolds/manifolds_prelim:mannigfaltigkeiten}}\label{\detokenize{manifolds/manifolds_prelim:s-mannigfaltigkeiten}}
 \sphinxAtStartPar
 In diesem Abschnitt führen wir das grundlegende Konzept von \sphinxhref{https://de.wikipedia.org/wiki/Mannigfaltigkeit}{Mannigfaltigkeiten} als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum \(\R^n\) identifiziert werden kann.
 Mannigfaltigkeiten spielen insbesondere im mathematischen Teilgebiet der \sphinxhref{https://de.wikipedia.org/wiki/Differentialgeometrie}{Differentialgeometrie} eine zentrale Rolle.
 
 
 \subsubsection{Motivation}
-\label{\detokenize{vektoranalysis/diffformen:motivation}}
+\label{\detokenize{manifolds/manifolds_prelim:motivation}}
 \sphinxAtStartPar
 Das wohl verständlichste Bild einer Mannigfaltigkeit ist die Oberfläche einer dreidimensionalen Kugel
 \begin{equation*}
@@ -4274,7 +4276,7 @@ Dies ist in folgender Abbildung visualisiert.
 \capstart
 
 \noindent\sphinxincludegraphics[height=300\sphinxpxdimen]{{mannigfaltigkeit}.png}
-\caption{Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kugeloberfläche \(\mathbb{S}^2\).}\label{\detokenize{vektoranalysis/diffformen:fig-kugel}}\end{figure}
+\caption{Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kugeloberfläche \(\mathbb{S}^2\).}\label{\detokenize{manifolds/manifolds_prelim:fig-kugel}}\end{figure}
 
 \sphinxAtStartPar
 Aus dieser Anschauung wird klar, dass unser bisheriges Konzept von Differenzierbarkeit im Mehrdimensionalen aus dem \sphinxhref{https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html}{MP\sphinxhyphen{}2 Skript} nicht ausreicht, um auf diesem Objekt geeignet Funktionen abzuleiten.
@@ -4305,7 +4307,7 @@ es uns erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konze
 
 
 \subsubsection{Karten und Atlanten auf topologischen Räumen}
-\label{\detokenize{vektoranalysis/diffformen:karten-und-atlanten-auf-topologischen-raumen}}
+\label{\detokenize{manifolds/manifolds_prelim:karten-und-atlanten-auf-topologischen-raumen}}
 \sphinxAtStartPar
 Um den Ableitungsbegriff auf topologischen Räumen \(\M\) formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung \(\phi \colon U \rightarrow \phi(U) \subset \R^n\) die Bedingung, dass für jede Teilmenge \(U \subset \M\) gilt,
 \begin{equation*}
@@ -4320,7 +4322,7 @@ Wir wollen im Folgenden beide Implikationsrichtungen diskutieren.
 
 \sphinxAtStartPar
 Diese Implikation ist äquivalent zur Forderung, dass Urbilder offener Mengen selbst wieder offen sind.
-Mit {\hyperref[\detokenize{vektoranalysis/diffformen:def:stetigkeitTopologie}]{\sphinxcrossref{Definition 3.12}}} bedeutet dies wiederum, dass die Abbildung \(\phi\) stetig ist.
+Mit {\hyperref[\detokenize{manifolds/manifolds_prelim:def:stetigkeitTopologie}]{\sphinxcrossref{Definition 4.2}}} bedeutet dies wiederum, dass die Abbildung \(\phi\) stetig ist.
 
 \sphinxAtStartPar
 2. \(\phi(U)\) ist offen \(\Leftarrow U \) ist offen.
@@ -4331,8 +4333,8 @@ Diese Forderung ist nicht immer trivialerweise erfüllt.
 
 \sphinxAtStartPar
 Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung \(\phi\) gibt, für die gilt, dass die Umkehrabbildung \(\phi^{-1}\) \sphinxstyleemphasis{nicht stetig} ist.
-\label{vektoranalysis/diffformen:ex:nonho}
-\begin{sphinxadmonition}{note}{Example 3.15}
+\label{manifolds/manifolds_prelim:ex:nonho}
+\begin{sphinxadmonition}{note}{Example 4.2}
 
 
 
@@ -4363,13 +4365,13 @@ und somit ist \(\phi^{-1}\) offensichtlich nicht stetig.
 \capstart
 
 \noindent\sphinxincludegraphics[height=450\sphinxpxdimen]{{nonhomöo}.jpg}
-\caption{Visualisierung einer unstetigen Umkehrabbildung für das {\hyperref[\detokenize{vektoranalysis/diffformen:ex:nonho}]{\sphinxcrossref{Example 3.15}}}.}\label{\detokenize{vektoranalysis/diffformen:fig-nonh}}\end{figure}
+\caption{Visualisierung einer unstetigen Umkehrabbildung für das {\hyperref[\detokenize{manifolds/manifolds_prelim:ex:nonho}]{\sphinxcrossref{Example 4.2}}}.}\label{\detokenize{manifolds/manifolds_prelim:fig-nonh}}\end{figure}
 
 \sphinxAtStartPar
 Insgesamt fordern wir also, dass \(\phi:U\rightarrow\phi(U)\) bijektiv ist und zusätzlich, dass sowohl \(\phi\) als auch die Umkehrabbildung \(\phi^-1\) stetig sind.
 Eine solche Abbildung definiert man unter dem Begriff \sphinxstyleemphasis{Homöomorphismus}.
-\label{vektoranalysis/diffformen:definition-5}
-\begin{sphinxadmonition}{note}{Definition 3.13 (Homöomorphismus)}
+\label{manifolds/manifolds_prelim:definition-5}
+\begin{sphinxadmonition}{note}{Definition 4.3 (Homöomorphismus)}
 
 
 
@@ -4395,8 +4397,8 @@ die Umkehrfunktion \(f^{-1}\) ist ebenfalls stetig.
 
 \sphinxAtStartPar
 Speziell im Kontext von Mannigfaltigkeiten \(\M\), als Spezialfall topologischer Räume (wie wir noch sehen werden), nennt man eine offene Menge zusammen mit einem Homöomorphismus eine \sphinxstylestrong{Karte} auf \(\M\).
-\label{vektoranalysis/diffformen:definition-6}
-\begin{sphinxadmonition}{note}{Definition 3.14 (Karte)}
+\label{manifolds/manifolds_prelim:definition-6}
+\begin{sphinxadmonition}{note}{Definition 4.4 (Karte)}
 
 
 
@@ -4415,8 +4417,8 @@ f\circ \psi^{-1} = (f\circ\phi^{-1})\circ(\phi\circ \psi^{-1}).\end{split}
 \end{equation*}
 \sphinxAtStartPar
 Um von einer Karte zur nächsten Karte zu kommen benötigen wir eine geeignete Abbildung.
-\label{vektoranalysis/diffformen:definition-7}
-\begin{sphinxadmonition}{note}{Definition 3.15 (Kartenwechsel)}
+\label{manifolds/manifolds_prelim:definition-7}
+\begin{sphinxadmonition}{note}{Definition 4.5 (Kartenwechsel)}
 
 
 
@@ -4435,15 +4437,15 @@ einen \sphinxstylestrong{Kartenwechsel} von \((U,\phi)\) nach \((V,\psi)\).
 \capstart
 
 \noindent\sphinxincludegraphics[height=450\sphinxpxdimen]{{chartchange}.jpg}
-\caption{Kartenwechsel.}\label{\detokenize{vektoranalysis/diffformen:fig-chartchange}}\end{figure}
+\caption{Kartenwechsel.}\label{\detokenize{manifolds/manifolds_prelim:fig-chartchange}}\end{figure}
 
 \sphinxAtStartPar
 Wir erkennen also, dass Umparametrisierungen der Form \(\psi\circ \phi^{-1}\) entscheidend sind, um von einer lokalen Identifikation des topologischen Raums zur nächsten zu gelangen.
 Wäre nun der Kartenwechsel \(\psi\circ \phi^{-1}\) und respektive \(\phi\circ \psi^{-1}\) differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen.
 Allerdings existieren durchaus Beispiele, in denen sowohl \(f\circ\phi^{-1}\) als auch \(f\circ\psi^{-1}\) differenzierbar sind, aber der Kartenwechsel \(\psi\circ\phi^{-1}\) nicht.
 Deshalb führt man zusätzlich noch den folgenden Begriff ein.
-\label{vektoranalysis/diffformen:definition-8}
-\begin{sphinxadmonition}{note}{Definition 3.16 (Atlas)}
+\label{manifolds/manifolds_prelim:definition-8}
+\begin{sphinxadmonition}{note}{Definition 4.6 (Atlas)}
 
 
 
@@ -4467,11 +4469,11 @@ So kann eine Mannigfaltigkeit durch einen vollständigen Satz von Karten vollst�
 
 
 \subsubsection{Differenzierbare Mannigfaltigkeiten}
-\label{\detokenize{vektoranalysis/diffformen:differenzierbare-mannigfaltigkeiten}}
+\label{\detokenize{manifolds/manifolds_prelim:differenzierbare-mannigfaltigkeiten}}
 \sphinxAtStartPar
 Für einen topologischen Raum \(\M\) können mehrere Atlanten \(\mathcal{A}\) existieren, weshalb es sinnvoll ist Äquivalenzklassen von Atlanten zu betrachten.
-\label{vektoranalysis/diffformen:definition-9}
-\begin{sphinxadmonition}{note}{Definition 3.17 (\protect\(C^k\protect\)\sphinxhyphen{}differenzierbare Struktur)}
+\label{manifolds/manifolds_prelim:definition-9}
+\begin{sphinxadmonition}{note}{Definition 4.7 (\protect\(C^k\protect\)\sphinxhyphen{}differenzierbare Struktur)}
 
 
 
@@ -4496,8 +4498,8 @@ Insbesondere wenn man \sphinxhref{https://de.wikipedia.org/wiki/Testfunktion}{gl
 
 \sphinxAtStartPar
 Wir definieren zunächst die Eigenschaft eines Hausdorff\sphinxhyphen{}Raums.
-\label{vektoranalysis/diffformen:definition-10}
-\begin{sphinxadmonition}{note}{Definition 3.18 (Hausdorff\sphinxhyphen{}Raum)}
+\label{manifolds/manifolds_prelim:definition-10}
+\begin{sphinxadmonition}{note}{Definition 4.8 (Hausdorff\sphinxhyphen{}Raum)}
 
 
 
@@ -4508,8 +4510,8 @@ Man nennt \(\M\) dann auch einen \sphinxstylestrong{separierten Raum}.
 
 \sphinxAtStartPar
 Als zweite nützliche Eigenschaft fordern wir, dass unser topologischer Raum \(\M\) das zweite Abzählbarkeitsaxiom erfüllen soll.
-\label{vektoranalysis/diffformen:definition-11}
-\begin{sphinxadmonition}{note}{Definition 3.19 (Zweites Abzählbarkeitsaxiom)}
+\label{manifolds/manifolds_prelim:definition-11}
+\begin{sphinxadmonition}{note}{Definition 4.9 (Zweites Abzählbarkeitsaxiom)}
 
 
 
@@ -4521,8 +4523,8 @@ Man nennt \((\M, \tau)\) dann auch \sphinxstylestrong{zweitabzählbar}.
 \sphinxAtStartPar
 Diese zwei Bedingung wirken zunächst abstrakt.
 Glücklicherweise werden sie jedoch von vielen üblichen topologischen Räumen erfüllt, wie zum Beispiel dem Euklidischen Raum \(\R^n\).
-\label{vektoranalysis/diffformen:remark-12}
-\begin{sphinxadmonition}{note}{Remark 3.16}
+\label{manifolds/manifolds_prelim:remark-12}
+\begin{sphinxadmonition}{note}{Remark 4.2}
 
 
 
@@ -4532,8 +4534,8 @@ Falls der Begriff eines zweitabzählbaren Hausdorff\sphinxhyphen{}Raums zu unhan
 
 \sphinxAtStartPar
 Nun haben wir alle nötigen Voraussetzungen geschaffen um den Begriff einer Mannigfaltigkeit formal einzuführen.
-\label{vektoranalysis/diffformen:definition-13}
-\begin{sphinxadmonition}{note}{Definition 3.20 (Differenzierbare Mannigfaltigkeit)}
+\label{manifolds/manifolds_prelim:definition-13}
+\begin{sphinxadmonition}{note}{Definition 4.10 (Differenzierbare Mannigfaltigkeit)}
 
 
 
@@ -4551,8 +4553,8 @@ Falls alle Karten auf \(\M\) nach \(\R^n\) abbilden, so nennt man die Mannigfalt
 
 \sphinxAtStartPar
 Basierend auf einer differenzierbaren Mannigfaltigkeit \(\M\) können wir nun differenzierbare Funktionen auf \(\M\) definieren.
-\label{vektoranalysis/diffformen:definition-14}
-\begin{sphinxadmonition}{note}{Definition 3.21 (Differenzierbare Funktion auf einer Mannigfaltigkeit)}
+\label{manifolds/manifolds_prelim:definition-14}
+\begin{sphinxadmonition}{note}{Definition 4.11 (Differenzierbare Funktion auf einer Mannigfaltigkeit)}
 
 
 
@@ -4565,8 +4567,8 @@ Insbesondere schreiben wir in diesem Fall \(f\in C^k(\M; \R^m)\).
 \sphinxAtStartPar
 In vielen Anwendungen beschränkt man sich nur auf \sphinxstyleemphasis{glatte Mannigfaltigkeiten} und \sphinxstyleemphasis{glatte Funktionen} in \(C^\infty(\M; \R^m)\).
 Wir werden im Folgenden der Einfachheit\sphinxhyphen{}halber auch dazu übergehen.
-\label{vektoranalysis/diffformen:lemma-15}
-\begin{sphinxadmonition}{note}{Lemma 3.11}
+\label{manifolds/manifolds_prelim:lemma-15}
+\begin{sphinxadmonition}{note}{Lemma 4.1}
 
 
 
@@ -4585,8 +4587,8 @@ Proof. In der Hausaufgabe zu zeigen.
 
 \sphinxAtStartPar
 Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.
-\label{vektoranalysis/diffformen:lem:differenzierbarkeitKartenunabhaengig}
-\begin{sphinxadmonition}{note}{Lemma 3.12}
+\label{manifolds/manifolds_prelim:lem:differenzierbarkeitKartenunabhaengig}
+\begin{sphinxadmonition}{note}{Lemma 4.2}
 
 
 
@@ -4602,8 +4604,11 @@ Proof. In der Hausaufgabe zu zeigen.
 \end{sphinxadmonition}
 
 
-\subsubsection{Tangentialräume an Mannigfaltigkeiten}
-\label{\detokenize{vektoranalysis/diffformen:tangentialraume-an-mannigfaltigkeiten}}
+\section{Tangentialräume und Tangentialbündel}
+\label{\detokenize{manifolds/tangential:tangentialraume-und-tangentialbundel}}\label{\detokenize{manifolds/tangential::doc}}
+
+\subsection{Tangentialräume an Mannigfaltigkeiten}
+\label{\detokenize{manifolds/tangential:tangentialraume-an-mannigfaltigkeiten}}
 \sphinxAtStartPar
 Aus dem Kapitel {\hyperref[\detokenize{odestability/ruhelagen:s-linearisierung-ruhelage}]{\sphinxcrossref{\DUrole{std,std-ref}{Linearisierung um Ruhelage}}}} ist bereits das Konzept der \sphinxstyleemphasis{Linearisierung} bekannt.
 Anschaulich gesprochen haben wir eine differenzierbare Funktion \(f\) durch ihre Linearisierung ersetzt um ein einfacheres Problem zu erhalten.
@@ -4611,15 +4616,15 @@ Dieses Konzept soll nun auf glatte Mannigfaltigkeiten übertragen werden.
 
 \sphinxAtStartPar
 Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit definieren.
-Und obwohl die Frage nach der Differenzierbarkeit einer Funktion nach {\hyperref[\detokenize{vektoranalysis/diffformen:lem:differenzierbarkeitKartenunabhaengig}]{\sphinxcrossref{Lemma 3.12}}} kartenunabhängig ist, so stellt sich heraus, dass der tatsächliche \sphinxstyleemphasis{Wert der Ableitung} einer Verknüpfung \(f \circ\phi^{-1}\) noch immer von der konkreten Wahl des Homöomorphismus \(\phi\) abhängt.
+Und obwohl die Frage nach der Differenzierbarkeit einer Funktion nach {\hyperref[\detokenize{manifolds/manifolds_prelim:lem:differenzierbarkeitKartenunabhaengig}]{\sphinxcrossref{Lemma 4.2}}} kartenunabhängig ist, so stellt sich heraus, dass der tatsächliche \sphinxstyleemphasis{Wert der Ableitung} einer Verknüpfung \(f \circ\phi^{-1}\) noch immer von der konkreten Wahl des Homöomorphismus \(\phi\) abhängt.
 Um auch hier die gewünschte Kartenunabhängigkeit zu erreichen, brauchen wir einen anderen Begriff der Differenzierbarkeit.
 Hierbei wird uns der sogenannte \sphinxstylestrong{Tangentialraum} helfen.
 Man kann ihn als eine Linearisierung der Mannigfaltigkeit \(\M\) an einem Punkt \(p\in\M\) interpretieren.
 
 \sphinxAtStartPar
 Das folgende Beispiel erklärt anschaulich den Tangentialraum an eine Mannigfaltigkeit.
-\label{vektoranalysis/diffformen:example-17}
-\begin{sphinxadmonition}{note}{Example 3.16}
+\label{manifolds/tangential:example-0}
+\begin{sphinxadmonition}{note}{Example 4.3}
 
 
 
@@ -4662,8 +4667,8 @@ Elemente dieses Raums sind dann je nach Kontext geometrisch oder algebraisch zu 
 \end{sphinxadmonition}
 
 
-\paragraph{Geometrische Definition}
-\label{\detokenize{vektoranalysis/diffformen:geometrische-definition}}
+\subsubsection{Geometrische Definition}
+\label{\detokenize{manifolds/tangential:geometrische-definition}}
 \sphinxAtStartPar
 Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der \sphinxstylestrong{Richtungsableitung} bekannt (siehe Kapitel 6.2.2 in {[}\hyperlink{cite.references:id12}{Ten21}{]}).
 Hierbei betrachtet man für eine Funktion \(F:\R^n\to\R\) den Strahl \(\gamma(t):= x + t\cdot v\), wobei \(x,v\in\R^n\) und den Grenzwert
@@ -4672,8 +4677,8 @@ Hierbei betrachtet man für eine Funktion \(F:\R^n\to\R\) den Strahl \(\gamma(t)
 \end{equation*}
 \sphinxAtStartPar
 Wir werden dieses Konzept nun auf glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeiten \(\M\) verallgemeinern, indem wir anstatt von Strahlen differenzierbare \sphinxstyleemphasis{Kurven} auf der Mannigfaltigkeit betrachten.
-\label{vektoranalysis/diffformen:definition-18}
-\begin{sphinxadmonition}{note}{Definition 3.22 (Differenzierbare Kurve)}
+\label{manifolds/tangential:definition-1}
+\begin{sphinxadmonition}{note}{Definition 4.12 (Differenzierbare Kurve)}
 
 
 
@@ -4695,8 +4700,8 @@ differenzierbar in \(0\) ist .
 \sphinxAtStartPar
 Wir werden im Folgenden ausschließlich die Ableitung der Kurve im Punkt \(t=0\) betrachten und sprechen deshalb verkürzt einfach nur von \sphinxstyleemphasis{differenzierbaren} Kurven.
 Zusätzlich sei zu bemerken, dass die obige Definition \sphinxstylestrong{nicht} von der Wahl der Karte abhängt.
-\label{vektoranalysis/diffformen:example-19}
-\begin{sphinxadmonition}{note}{Example 3.17}
+\label{manifolds/tangential:example-2}
+\begin{sphinxadmonition}{note}{Example 4.4}
 
 
 
@@ -4715,12 +4720,12 @@ die zu jedem Zeitpunkt die Temperatur des Ortes, an dem sich der Partikel befind
 \capstart
 
 \noindent\sphinxincludegraphics[width=350\sphinxpxdimen,height=300\sphinxpxdimen]{{velocity}.jpg}
-\caption{Visualisierung einer Kurve auf der oberen Hälfte der Einheitssphäre im \(\R^3\).}\label{\detokenize{vektoranalysis/diffformen:fig-velocity}}\end{figure}
+\caption{Visualisierung einer Kurve auf der oberen Hälfte der Einheitssphäre im \(\R^3\).}\label{\detokenize{manifolds/tangential:fig-velocity}}\end{figure}
 
 \sphinxAtStartPar
 Mit Hilfe von differenzierbaren Kurven auf Mannigfaltigkeiten können wir im Folgenden die Richtungsableitung an einer Mannigfaltigkeit definieren.
-\label{vektoranalysis/diffformen:def:direcdiv}
-\begin{sphinxadmonition}{note}{Definition 3.23 (Richtungsableitung an Mannigfaltigkeit)}
+\label{manifolds/tangential:def:direcdiv}
+\begin{sphinxadmonition}{note}{Definition 4.13 (Richtungsableitung an Mannigfaltigkeit)}
 
 
 
@@ -4751,8 +4756,8 @@ und für eine weitere differenzierbare Kurve \(\eta \colon (-1, 1) \rightarrow \
 \sphinxAtStartPar
 Wir erkennen also, dass der Wert der Richtungsableitung in der Tat von der Kurve \(\gamma\) abhängt.
 Dies führt auf einen natürlichen Äquivalenzbegriff von Kurven, wie die folgende Bemerkung beschreibt.
-\label{vektoranalysis/diffformen:rem:tang}
-\begin{sphinxadmonition}{note}{Remark 3.17 (Tangentialvektoren)}
+\label{manifolds/tangential:rem:tang}
+\begin{sphinxadmonition}{note}{Remark 4.3 (Tangentialvektoren)}
 
 
 
@@ -4771,8 +4776,8 @@ Insbesondere ist die Äquivalenzklasse unabhängig von der Wahl des Homöomorphi
 
 \sphinxAtStartPar
 Mittels der oben beschriebenen Äquivalenzrelation sind wir in der Lage den Begriff der \sphinxstyleemphasis{Tangentialvektoren} und des \sphinxstyleemphasis{Tangentialraums} zu definieren.
-\label{vektoranalysis/diffformen:definition-22}
-\begin{sphinxadmonition}{note}{Definition 3.24 (Geometrische Tangentialvektoren und Tangentialraum)}
+\label{manifolds/tangential:definition-5}
+\begin{sphinxadmonition}{note}{Definition 4.14 (Geometrische Tangentialvektoren und Tangentialraum)}
 
 
 
@@ -4791,8 +4796,8 @@ heißt \sphinxstylestrong{geometrischer Tangentialraum} der Mannigfaltigkeit \(\
 
 \sphinxAtStartPar
 Der Tangentialraum induziert sogar eine Vektorraumstruktur wie folgende Bemerkung festhält.
-\label{vektoranalysis/diffformen:remark-23}
-\begin{sphinxadmonition}{note}{Remark 3.18}
+\label{manifolds/tangential:remark-6}
+\begin{sphinxadmonition}{note}{Remark 4.4}
 
 
 
@@ -4817,14 +4822,14 @@ Man bemerke, dass die oben definierten Abbildungen erneut \sphinxstylestrong{una
 \end{sphinxadmonition}
 
 
-\paragraph{Algebraische Definition}
-\label{\detokenize{vektoranalysis/diffformen:algebraische-definition}}
+\subsubsection{Algebraische Definition}
+\label{\detokenize{manifolds/tangential:algebraische-definition}}
 \sphinxAtStartPar
 Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte \sphinxstyleemphasis{Derivationen}.
 Hierbei beschreiben wir Tangentialvektoren nun nicht mehr als Kurven, sondern als spezielle Funktionale, welche durch ihre Wirkung auf \(C^\infty(\M)\) charakterisiert sind.
-Die Motivation hierbei soll die Richtungsableitung aus {\hyperref[\detokenize{vektoranalysis/diffformen:def:direcdiv}]{\sphinxcrossref{Definition 3.23}}} sein und speziell die im folgenden Lemma beschriebenen Eigenschaften.
-\label{vektoranalysis/diffformen:lemma-24}
-\begin{sphinxadmonition}{note}{Lemma 3.13}
+Die Motivation hierbei soll die Richtungsableitung aus {\hyperref[\detokenize{manifolds/tangential:def:direcdiv}]{\sphinxcrossref{Definition 4.13}}} sein und speziell die im folgenden Lemma beschriebenen Eigenschaften.
+\label{manifolds/tangential:lemma-7}
+\begin{sphinxadmonition}{note}{Lemma 4.3}
 
 
 
@@ -4851,8 +4856,8 @@ Proof. Siehe Übung.
 \sphinxAtStartPar
 Die zweite Eigenschaft wird auch \sphinxstylestrong{Produktregel} oder \sphinxstylestrong{Leibnizregel} genannt.
 Wir wollen nun im Folgenden nicht nur Richtungsableitungen betrachten, sondern allgemeine Funktionale, die diese Eigenschaft erfüllen.
-\label{vektoranalysis/diffformen:definition-25}
-\begin{sphinxadmonition}{note}{Definition 3.25 (Derivation und algebraischer Tangentialraum)}
+\label{manifolds/tangential:definition-8}
+\begin{sphinxadmonition}{note}{Definition 4.15 (Derivation und algebraischer Tangentialraum)}
 
 
 
@@ -4879,8 +4884,8 @@ wird als \sphinxstylestrong{algebraischer Tangentialraum} bezeichnet.
 \sphinxAtStartPar
 gilt.
 Somit erbt der algebraischer Tangentialraum die Vektorraumoperationen von \(C^\infty(\M)^\ast\) und es muss lediglich nachgeprüft werden, dass diese Teilmenge noch immer ein Vektorraum, also inbesondere abgeschlossen ist.
-\label{vektoranalysis/diffformen:lemma-26}
-\begin{sphinxadmonition}{note}{Lemma 3.14}
+\label{manifolds/tangential:lemma-9}
+\begin{sphinxadmonition}{note}{Lemma 4.4}
 
 
 
@@ -4897,8 +4902,8 @@ Proof. Siehe Übung.
 \sphinxAtStartPar
 Wie der Name schon erkennen lässt haben Derivationen gewisse Eigenschaften, die von der Ableitungsoperation bekannt sind.
 So bildet zum Beispiel jede Derivation konstante Funktionen auf \(0\) ab, wie das folgende Lemma zeigt.
-\label{vektoranalysis/diffformen:lem:constder}
-\begin{sphinxadmonition}{note}{Lemma 3.15 (Derivation konstanter Funktionen)}
+\label{manifolds/tangential:lem:constder}
+\begin{sphinxadmonition}{note}{Lemma 4.5 (Derivation konstanter Funktionen)}
 
 
 
@@ -4935,8 +4940,8 @@ Wir können die konstante Funktion \(f\) nun darstellen als \(f= c\,g\) und unte
 \sphinxAtStartPar
 Wir haben nun zwei verschiedene Arten gesehen den Tangentialraum einzuführen.
 Tatsächlich sind diese Definitionen äquivalent in dem Sinn, dass ein Isomorphismus zwischen dem geometrischen und algebraischen Tangentialraum existiert.
-\label{vektoranalysis/diffformen:theorem-28}
-\begin{sphinxadmonition}{note}{Theorem 3.4 (Isomorphie zwischen alg. und geom. Tangentialraum)}
+\label{manifolds/tangential:theorem-11}
+\begin{sphinxadmonition}{note}{Theorem 4.1 (Isomorphie zwischen alg. und geom. Tangentialraum)}
 
 
 
@@ -4953,8 +4958,8 @@ Proof. Siehe z.B. Kapitel 2.3 in {[}\hyperlink{cite.references:id14}{Janich03}{]
 \end{sphinxadmonition}
 
 
-\paragraph{Basis des algebraische Tangentialraums}
-\label{\detokenize{vektoranalysis/diffformen:basis-des-algebraische-tangentialraums}}\label{\detokenize{vektoranalysis/diffformen:sec-tpbasis}}
+\subsubsection{Basis des algebraische Tangentialraums}
+\label{\detokenize{manifolds/tangential:basis-des-algebraische-tangentialraums}}\label{\detokenize{manifolds/tangential:sec-tpbasis}}
 \sphinxAtStartPar
 Wir wollen in diesem Abschnitt eine Basis des algebraischen Tangentialraums konstruieren.
 Im Euklidischen Raum können wir auf natürliche Art die Koordinatenrichtungen als Kurven wählen, also Funktionen der Form
@@ -4974,12 +4979,12 @@ Wir erhalten somit Kurven
 \begin{split}\gamma_{x^i}(t):= \varphi^{-1}(\varphi(p) + t e_i)\end{split}
 \end{equation*}
 \sphinxAtStartPar
-und mithilfe der Richtungsableitung aus {\hyperref[\detokenize{vektoranalysis/diffformen:def:direcdiv}]{\sphinxcrossref{Definition 3.23}}} die Derivationen
+und mithilfe der Richtungsableitung aus {\hyperref[\detokenize{manifolds/tangential:def:direcdiv}]{\sphinxcrossref{Definition 4.13}}} die Derivationen
 \begin{equation*}
 \begin{split}\partial_{x^i}^p: C^\infty(\M) &\to \R\\
 f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).\end{split}
-\end{equation*}\label{vektoranalysis/diffformen:definition-29}
-\begin{sphinxadmonition}{note}{Definition 3.26 (Partielle Derivation)}
+\end{equation*}\label{manifolds/tangential:definition-12}
+\begin{sphinxadmonition}{note}{Definition 4.16 (Partielle Derivation)}
 
 
 
@@ -4997,8 +5002,8 @@ als \sphinxstylestrong{partielle Derivationen} von \(f\) im Punkt \(p \in \M\).
 Wir interpretieren also im Folgenden das Symbol \(\partial_{x^{i}}^p\) als Derivation an \(p\in\M\), d.h., insbesondere als lineare Abbildung von \(C^\infty(\M)\) nach \(\R\).
 Diese partiellen Derivationen folgen der Intuition, dass die partielle Ableitung in eine Richtung auch nur Änderungen in diese Richtung respektiert.
 Wir formalisieren diese Anschauung in folgendem Lemma.
-\label{vektoranalysis/diffformen:lem:partderkron}
-\begin{sphinxadmonition}{note}{Lemma 3.16}
+\label{manifolds/tangential:lem:partderkron}
+\begin{sphinxadmonition}{note}{Lemma 4.6}
 
 
 
@@ -5038,8 +5043,8 @@ Somit gilt schon für die partielle Derivation
 
 \sphinxAtStartPar
 Das folgende Hauptresultat dieses Abschnitts erlaubt es uns beliebige Derivationen mithilfe der partiellen Derivationen darzustellen, da diese eine Basis des algebraischen Tangentialraums bilden.
-\label{vektoranalysis/diffformen:thm:tanbasis}
-\begin{sphinxadmonition}{note}{Theorem 3.5}
+\label{manifolds/tangential:thm:tanbasis}
+\begin{sphinxadmonition}{note}{Theorem 4.2}
 
 
 
@@ -5111,14 +5116,14 @@ Wenden wir nun die \(j\)\sphinxhyphen{}te partielle Derivation auf \(f\) an, erh
 \sum_{i=1}^{n} \partial_{x^j}^p(\varphi_i \cdot F_i)\end{split}
 \end{equation*}
 \sphinxAtStartPar
-wobei wir {\hyperref[\detokenize{vektoranalysis/diffformen:lem:constder}]{\sphinxcrossref{Lemma 3.15}}} und die Tatsache, dass \(\varphi_i, F_i\in C^\infty(\M)\) gilt, benutzt haben.
+wobei wir {\hyperref[\detokenize{manifolds/tangential:lem:constder}]{\sphinxcrossref{Lemma 4.5}}} und die Tatsache, dass \(\varphi_i, F_i\in C^\infty(\M)\) gilt, benutzt haben.
 Weiterhin gilt wegen der Leibnizregel
 \begin{equation*}
 \begin{split}\partial_{x^j}^p(\varphi_i \cdot F_i(q)) = 
 \underbrace{\partial_{x^j}^p(\varphi)}_{=\delta_{ij}} F_i(p)+ \underbrace{\varphi_i(p)}_{=0} \partial_{x^j}^p(F_i),\end{split}
 \end{equation*}
 \sphinxAtStartPar
-wobei wir {\hyperref[\detokenize{vektoranalysis/diffformen:lem:partderkron}]{\sphinxcrossref{Lemma 3.16}}} und \(\varphi(p)=0\) verwendet haben.
+wobei wir {\hyperref[\detokenize{manifolds/tangential:lem:partderkron}]{\sphinxcrossref{Lemma 4.6}}} und \(\varphi(p)=0\) verwendet haben.
 Somit folgt schon
 \begin{equation*}
 \begin{split}\partial_{x^j}^p (f) = F_j(p)\end{split}
@@ -5143,7 +5148,7 @@ Seien dazu Koeffizienten \(\alpha_i \in \R, i=1,\ldots,n\) gegeben, so dass für
 \begin{split}D:= \sum_{i=1}^n \alpha_i \partial_{x^i}^p(f) = 0.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Durch erneute Anwendung von {\hyperref[\detokenize{vektoranalysis/diffformen:lem:partderkron}]{\sphinxcrossref{Lemma 3.16}}} erhalten wir aber, dass
+Durch erneute Anwendung von {\hyperref[\detokenize{manifolds/tangential:lem:partderkron}]{\sphinxcrossref{Lemma 4.6}}} erhalten wir aber, dass
 \begin{equation*}
 \begin{split}0 = D(\varphi_j) = \alpha_j \end{split}
 \end{equation*}
@@ -5157,12 +5162,12 @@ Insgesamt bilden also die partiellen Deriviationen eine Basis des algebraischen 
 \end{equation*}\end{sphinxadmonition}
 
 
-\paragraph{Kotangentialraum}
-\label{\detokenize{vektoranalysis/diffformen:kotangentialraum}}
+\subsubsection{Kotangentialraum}
+\label{\detokenize{manifolds/tangential:kotangentialraum}}
 \sphinxAtStartPar
 Da wir den Tangentialraum \(T^{\text{alg}}_p\) als Vektorraum identifiziert haben, können wir auch dessen algebraischen Dualraum in der folgenden Definition betrachten.
-\label{vektoranalysis/diffformen:definition-32}
-\begin{sphinxadmonition}{note}{Definition 3.27 (Kotangentialraum)}
+\label{manifolds/tangential:definition-15}
+\begin{sphinxadmonition}{note}{Definition 4.17 (Kotangentialraum)}
 
 
 
@@ -5175,8 +5180,8 @@ Dann bezeichnen wir mit
 \sphinxAtStartPar
 den algebraischen Dualraum des Tangentialraums, welcher häufig \sphinxstylestrong{Kotangentialraum} genannt wird.
 \end{sphinxadmonition}
-\label{vektoranalysis/diffformen:remark-33}
-\begin{sphinxadmonition}{note}{Remark 3.19}
+\label{manifolds/tangential:remark-16}
+\begin{sphinxadmonition}{note}{Remark 4.5}
 
 
 
@@ -5191,8 +5196,8 @@ die eine Derivation \(D\in C^\infty(\M)^\ast\) auf eine reelle Zahl \(\delta(D)\
 
 \sphinxAtStartPar
 Die folgende Definition beschreibt ein wichtiges Element des Kotangentialraums.
-\label{vektoranalysis/diffformen:definition-34}
-\begin{sphinxadmonition}{note}{Definition 3.28 (Totales Differential)}
+\label{manifolds/tangential:def:totdiff}
+\begin{sphinxadmonition}{note}{Definition 4.18 (Totales Differential)}
 
 
 
@@ -5224,8 +5229,8 @@ Wir wählen nun Abbildungen \(\mathrm{d}x^i\in T^\ast_p\M, i=1,\ldots,n\) gerade
 \sphinxAtStartPar
 gilt.
 Das folgende Lemma zeigt, dass es sich hierbei um eine Basis von \(T^\ast_p\M\) handelt.
-\label{vektoranalysis/diffformen:lemma-35}
-\begin{sphinxadmonition}{note}{Lemma 3.17}
+\label{manifolds/tangential:lemma-18}
+\begin{sphinxadmonition}{note}{Lemma 4.7}
 
 
 
@@ -5245,8 +5250,8 @@ Proof. Die Aussage folgt direkt aus {\hyperref[\detokenize{vektoranalysis/multil
 \end{sphinxadmonition}
 
 
-\subsubsection{Tangentialbündel}
-\label{\detokenize{vektoranalysis/diffformen:tangentialbundel}}
+\subsection{Tangentialbündel}
+\label{\detokenize{manifolds/tangential:tangentialbundel}}
 \begin{sphinxadmonition}{note}{Note:}
 \sphinxAtStartPar
 Im Folgenden bezeichne \(T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}\) entweder den \sphinxstyleemphasis{algebraischen} oder den \sphinxstyleemphasis{geometrischen Tangentialraum}.
@@ -5254,7 +5259,7 @@ Die konkrete Wahl wird an den entsprechenden Stellen (wenn nötig) spezifiziert.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Bisher haben wir für eine \(n\)\sphinxhyphen{}dimensionale glatte Mannigfaltigkeit \(\M\) für jeden einzelnen Punkt \(p\in\M\) den zugehörigen Tangentialraum \(T_p\M\) betrachtet, welcher wiederum wegen {\hyperref[\detokenize{vektoranalysis/diffformen:thm:tanbasis}]{\sphinxcrossref{Theorem 3.5}}} isomorph zum \(\R^n\) ist.
+Bisher haben wir für eine \(n\)\sphinxhyphen{}dimensionale glatte Mannigfaltigkeit \(\M\) für jeden einzelnen Punkt \(p\in\M\) den zugehörigen Tangentialraum \(T_p\M\) betrachtet, welcher wiederum wegen {\hyperref[\detokenize{manifolds/tangential:thm:tanbasis}]{\sphinxcrossref{Theorem 4.2}}} isomorph zum \(\R^n\) ist.
 Wir interessieren uns jetzt dafür, wie sich Tangentialräume für verschiedene Punkte \(p,q\in \M\) in Beziehung setzen lassen.
 Darüber hinaus wollen wir eine globale Struktur definieren welche alle Tangentialräume (d.h. für jedes \(p\in\M\)) zusammenfasst.
 
@@ -5266,8 +5271,8 @@ Ein erster Ansatz für eine globale Struktur ist die Vereinigung
 \end{equation*}
 \sphinxAtStartPar
 Wir wollen diese Idee im folgenden Beispiel veranschaulichen.
-\label{vektoranalysis/diffformen:ex:tangentialS1}
-\begin{sphinxadmonition}{note}{Example 3.18 (Tangentialräume an Einheitskreis)}
+\label{manifolds/tangential:ex:tangentialS1}
+\begin{sphinxadmonition}{note}{Example 4.5 (Tangentialräume an Einheitskreis)}
 
 
 
@@ -5283,7 +5288,7 @@ die Kurve
 \begin{split}\gamma_p(t) := p - t \cdot\big(1, \frac{\cos(\alpha)}{\sin(\alpha)}\big),\end{split}
 \end{equation*}
 \sphinxAtStartPar
-und somit erhalten wir anschaulich die in \hyperref[\detokenize{vektoranalysis/diffformen:fig-bundlea}]{Fig.\@ \ref{\detokenize{vektoranalysis/diffformen:fig-bundlea}}} für einige Punkte visualisierte Menge.
+und somit erhalten wir anschaulich die in \hyperref[\detokenize{manifolds/tangential:fig-bundlea}]{Fig.\@ \ref{\detokenize{manifolds/tangential:fig-bundlea}}} für einige Punkte visualisierte Menge.
 
 \sphinxAtStartPar
 Es fällt auf, dass sich zwar einzelne Kurven schneiden können, jedoch die Kurven selbst und die assoziierten Vektorräume nicht gleich sind.
@@ -5293,7 +5298,7 @@ Um diese Tatsache zu verdeutlichen ist es praktisch die \sphinxstyleemphasis{dis
 \end{equation*}
 \sphinxAtStartPar
 zu betrachten.
-Für den Einheitskreis erhalten wir durch die Isomorphie \(T_p\M \cong \R\) so den Zylinder in \hyperref[\detokenize{vektoranalysis/diffformen:fig-bundleb}]{Fig.\@ \ref{\detokenize{vektoranalysis/diffformen:fig-bundleb}}}.
+Für den Einheitskreis erhalten wir durch die Isomorphie \(T_p\M \cong \R\) so den Zylinder in \hyperref[\detokenize{manifolds/tangential:fig-bundleb}]{Fig.\@ \ref{\detokenize{manifolds/tangential:fig-bundleb}}}.
 \end{sphinxadmonition}
 
 \begin{figure}[htbp]
@@ -5301,19 +5306,19 @@ Für den Einheitskreis erhalten wir durch die Isomorphie \(T_p\M \cong \R\) so d
 \capstart
 
 \noindent\sphinxincludegraphics[height=300\sphinxpxdimen]{{bundlea}.jpg}
-\caption{Visualisierung der Tangentialräume einiger Punkte am Einheitskreises.}\label{\detokenize{vektoranalysis/diffformen:fig-bundlea}}\end{figure}
+\caption{Visualisierung der Tangentialräume einiger Punkte am Einheitskreises.}\label{\detokenize{manifolds/tangential:fig-bundlea}}\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \capstart
 
 \noindent\sphinxincludegraphics[height=300\sphinxpxdimen]{{bundleb}.jpg}
-\caption{Visualisierung der disjunkt vereinigten Tangentialräume einiger Punkte am Einheitskreises.}\label{\detokenize{vektoranalysis/diffformen:fig-bundleb}}\end{figure}
+\caption{Visualisierung der disjunkt vereinigten Tangentialräume einiger Punkte am Einheitskreises.}\label{\detokenize{manifolds/tangential:fig-bundleb}}\end{figure}
 
 \sphinxAtStartPar
 Wir wollen diese globale Struktur der disjunkten Vereinigung formal definieren.
-\label{vektoranalysis/diffformen:definition-37}
-\begin{sphinxadmonition}{note}{Definition 3.29 (Tangentialbündel)}
+\label{manifolds/tangential:definition-20}
+\begin{sphinxadmonition}{note}{Definition 4.19 (Tangentialbündel)}
 
 
 
@@ -5338,8 +5343,8 @@ Insbesondere erkennen wir, dass wir mit Hilfe der Projektion \(\pi\) jedem Eleme
 
 \sphinxAtStartPar
 Im Folgenden wollen wir uns zwei Beispiele für Tangentialbündel an Mannigfaltigkeiten ansehen.
-\label{vektoranalysis/diffformen:example-38}
-\begin{sphinxadmonition}{note}{Example 3.19 (Tangentialbündel)}
+\label{manifolds/tangential:example-21}
+\begin{sphinxadmonition}{note}{Example 4.6 (Tangentialbündel)}
 
 
 
@@ -5354,7 +5359,7 @@ Dann ist das Tangentialbündel gerade gegeben durch
 
 
 \sphinxAtStartPar
-2. Wie bereits in {\hyperref[\detokenize{vektoranalysis/diffformen:ex:tangentialS1}]{\sphinxcrossref{Example 3.18}}} gesehen erhalten wir für \(\M=\mathbb{S}^1\) als Tangentialbündel den unendlich hohen Zylinder
+2. Wie bereits in {\hyperref[\detokenize{manifolds/tangential:ex:tangentialS1}]{\sphinxcrossref{Example 4.5}}} gesehen erhalten wir für \(\M=\mathbb{S}^1\) als Tangentialbündel den unendlich hohen Zylinder
 \begin{equation*}
 \begin{split}T\M = \mathbb{S}^1\times \R.\end{split}
 \end{equation*}\end{sphinxadmonition}
@@ -5363,8 +5368,8 @@ Dann ist das Tangentialbündel gerade gegeben durch
 In den bisher betrachten Beispielen haben wir als Tangentialbündel jeweils eine Menge der Form \(\M\times \R^n\) erhalten.
 Dies ist jedoch nicht immer der Fall wie wir sehen werden.
 Tatsächlich bilden Tangentialbündel von dieser Form eine spezielle Unterklasse.
-\label{vektoranalysis/diffformen:definition-39}
-\begin{sphinxadmonition}{note}{Definition 3.30 (Triviale Tangentialbündel und parallelisierbare Mannigfaltigkeiten)}
+\label{manifolds/tangential:definition-22}
+\begin{sphinxadmonition}{note}{Definition 4.20 (Triviale Tangentialbündel und parallelisierbare Mannigfaltigkeiten)}
 
 
 
@@ -5377,8 +5382,8 @@ Das Tangentialbündel \(T\M\) heißt \sphinxstylestrong{trivial}, falls gilt
 \sphinxAtStartPar
 In diesem Fall nennt man die Mannigfaltigkeit \(\M\) auch \sphinxstylestrong{parallelisierbar}.
 \end{sphinxadmonition}
-\label{vektoranalysis/diffformen:remark-40}
-\begin{sphinxadmonition}{note}{Remark 3.20}
+\label{manifolds/tangential:remark-23}
+\begin{sphinxadmonition}{note}{Remark 4.6}
 
 
 
@@ -5389,9 +5394,9 @@ Die Tatsache, dass \(\mathbb{S}^2\) nicht parallelisierbar ist wird beim Satz vo
 
 \sphinxAtStartPar
 Wir wollen uns nun mit der Frage beschäftigen, wie sich die Tangentialräume für unterschiedliche Punkte \(p,q\in B\) des Basisraums zueinander verhalten, insbesondere wenn \(p\) und \(q\) nahe beieinander liegen.
-Hierbei hilft es das abstraktee Konzept eines \sphinxstylestrong{Vektorbündels} zu betrachten.
-\label{vektoranalysis/diffformen:definition-41}
-\begin{sphinxadmonition}{note}{Definition 3.31 (Vektorbündel)}
+Hierbei hilft es das abstrakte Konzept eines \sphinxstylestrong{Vektorbündels} zu betrachten.
+\label{manifolds/tangential:definition-24}
+\begin{sphinxadmonition}{note}{Definition 4.21 (Vektorbündel)}
 
 
 
@@ -5417,8 +5422,8 @@ für jeden Punkt \(p\in \M\) existiere eine offene Umgebung \(U\subset \M\) und 
 Dann heißt \((E,\M,\pi)\) \sphinxstylestrong{Vektorbündel} vom Rang \(n\).
 Hierbei bezeichnet \(\text{pr}_U(q, z):= q\) die Projektion auf die \(U\)\sphinxhyphen{}Komponente eines Vektors \((q,z)\in U\times\R^n\).
 \end{sphinxadmonition}
-\label{vektoranalysis/diffformen:remark-42}
-\begin{sphinxadmonition}{note}{Remark 3.21 (Bündel\sphinxhyphen{}Notation)}
+\label{manifolds/tangential:remark-25}
+\begin{sphinxadmonition}{note}{Remark 4.7 (Bündel\sphinxhyphen{}Notation)}
 
 
 
@@ -5432,8 +5437,8 @@ Die Funktion \(\Psi\) nennt man in diesem Kontext \sphinxstylestrong{lokale Triv
 Analog zum Tangentialbündel nennen wir ein Vektorbündel \sphinxstylestrong{trivial}, falls eine Trivialsierung \(\Psi:E\to \M\times\R^n\) existiert, so dass gilt
 \begin{equation*}
 \begin{split}E \cong \M\times\R^n.\end{split}
-\end{equation*}\label{vektoranalysis/diffformen:example-43}
-\begin{sphinxadmonition}{note}{Example 3.20}
+\end{equation*}\label{manifolds/tangential:example-26}
+\begin{sphinxadmonition}{note}{Example 4.7}
 
 
 
@@ -5444,8 +5449,8 @@ Möbius\sphinxhyphen{}Band.
 \sphinxAtStartPar
 Wir wollen nun zeigen, dass das Tangentialbündel ein Vektorbündel ist.
 Dazu benötigen wir zunächst die Hilfsaussage des folgenden Lemmas, dass das Tangentialbündel \(T\M\) selbst eine glatte Mannigfaltigkeit ist.
-\label{vektoranalysis/diffformen:lem:tanman}
-\begin{sphinxadmonition}{note}{Lemma 3.18}
+\label{manifolds/tangential:lem:tanman}
+\begin{sphinxadmonition}{note}{Lemma 4.8}
 
 
 
@@ -5486,8 +5491,8 @@ Insbsondere ist ein so definiertes \(\psi\) ein Diffeomorphismus.
 
 \sphinxAtStartPar
 Mithilfe der obigen Aussage können wir nun zeigen, dass \(T\M\) ein Vektorbündel ist.
-\label{vektoranalysis/diffformen:lemma-45}
-\begin{sphinxadmonition}{note}{Lemma 3.19}
+\label{manifolds/tangential:lem:tanbundle}
+\begin{sphinxadmonition}{note}{Lemma 4.9}
 
 
 
@@ -5528,18 +5533,18 @@ Hierbei bemerken wir aber, dass gilt
 \begin{split}\big((\phi\times\text{Id})\circ \Psi\big)(p,v) = (\phi\times\text{Id})(p, v(\varphi)) = (\phi(p), v(\varphi)).\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Somit entspricht \((\phi\times\text{Id})\circ \Psi\) gerade der Karte aus dem Beweis von {\hyperref[\detokenize{vektoranalysis/diffformen:lem:tanman}]{\sphinxcrossref{Lemma 3.18}}} und ist somit auch ein Diffeomorphismus.
+Somit entspricht \((\phi\times\text{Id})\circ \Psi\) gerade der Karte aus dem Beweis von {\hyperref[\detokenize{manifolds/tangential:lem:tanman}]{\sphinxcrossref{Lemma 4.8}}} und ist somit auch ein Diffeomorphismus.
 Daraus folgt aber, dass \(\Psi\) schon ein Diffeomorphismus sein muss.
 \end{sphinxadmonition}
 
 
-\subsubsection{Vektorfelder}
-\label{\detokenize{vektoranalysis/diffformen:vektorfelder}}
+\subsection{Vektorfelder}
+\label{\detokenize{manifolds/tangential:vektorfelder}}
 \sphinxAtStartPar
-Wir führen zunächst sogenannte Schnitte auf Bündeln ein. Anschaulich abstrahieren wir hier das Konzept der Graphen von Funktionen.
-
-\sphinxAtStartPar
-Es sei \(f:\M\to\R^n\) eine Funktion\$, dann ist ihr Graph gegeben durch
+Wir führen zunächst sogenannte Schnitte auf Bündeln ein.
+Anschaulich abstrahieren wir hierdurch das Konzept von Funktionsgraphen.
+Es sei \(f:\M\to\R^n\) eine vektorwertige Funktion auf einer Mannigfaltigkeit \(\M\).
+Dann ist ihr Graph gegeben durch
 \begin{equation*}
 \begin{split}\{(p,f(p)): p\in\M\}\subset \M\times\R^n.\end{split}
 \end{equation*}
@@ -5550,13 +5555,14 @@ Hierbei sehen wir, dass \(\M\times\R^n\overset{\pi}{\to}\M\) ein triviales Bünd
 \end{equation*}
 \sphinxAtStartPar
 Verallgemeinert betrachten führt diese Überlegung auf folgende Definition.
-\label{vektoranalysis/diffformen:definition-46}
-\begin{sphinxadmonition}{note}{Definition 3.32}
+\label{manifolds/tangential:definition-29}
+\begin{sphinxadmonition}{note}{Definition 4.22 (Glatter Schnitt)}
 
 
 
 \sphinxAtStartPar
-Es sei \(\M\) eine glatte Mannigfaltigkeit und \(E\overset{\pi}{\to}\M\) ein Vektorbündel. Für \(U\subset\M\) offen, heißt eine glatte Abbildung
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \(E\overset{\pi}{\to}\M\) ein Vektorbündel.
+Für eine offene Umgebung \(U\subset\M\) heißt eine glatte Abbildung
 \begin{equation*}
 \begin{split}\sigma: U\to E\end{split}
 \end{equation*}
@@ -5566,29 +5572,38 @@ Es sei \(\M\) eine glatte Mannigfaltigkeit und \(E\overset{\pi}{\to}\M\) ein Vek
 \begin{split}\pi(\sigma(p)) = p\quad\text{ für alle }p\in U.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Die Menge der glatten Schnitte auf \(U\) wird mit \(\Gamma(E\rvert_U)\) bezeichnet. Für \(U=\M\) heißt \(\sigma\) \sphinxstylestrong{glatter Schnitt} und wir definieren
-\(\Gamma(E):=\Gamma(E\rvert_\M)\).
+Die Menge der glatten Schnitte auf \(U\) wird mit \(\Gamma(E\rvert_U)\) bezeichnet.
+Falls die Umgebung \(U\) die ganze Mannigfaltigkeit ist, d.h., es gilt \(U=\M\), dann heißt \(\sigma\) \sphinxstylestrong{glatter Schnitt} und wir definieren \(\Gamma(E):=\Gamma(E\rvert_\M)\).
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Für offenen Mengen im euklidischen kennen wir bereits den Begriff \sphinxstylestrong{Vektorfeld}, nämlich eine Funktion
+Für offenen Mengen im Euklidischen Raum kennen wir bereits den Begriff \sphinxstylestrong{Vektorfeld}.
+Hierbei handelt es sich nämlich um eine Funktion
 \begin{equation*}
-\begin{split}F:U\to\R^n\end{split}
+\begin{split}F:U\to\R^n,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-wobei \(U\subset\R^n\) offen ist. Wir nehmen also Punkte \(x\in\R^n\) und ordnen ihnen Vektoren \(F(x)\in\R^n\) aus dem gleichen Raum zu. Betrachten wir statt offenen Mengen \(U\subset\R^n\) nun glatte Mannigfaltigkeiten \(\M\) so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen. Hierbei hilft uns nun der Tangentialraum \(T\M\), welcher die richtige Wahl des Zielraums darstellt. Somit können wir Vektorfelder verallgemeinern indem wir als Schnitte des Tangenialraums auffassen.
-\label{vektoranalysis/diffformen:definition-47}
-\begin{sphinxadmonition}{note}{Definition 3.33}
+wobei \(U\subset\R^n\) eine offene Umgebung ist.
+Wir nehmen in diesem Fall also Punkte \(x\in\R^n\) und ordnen ihnen Vektoren \(F(x)\in\R^n\) aus dem gleichen Raum zu.
+
+\sphinxAtStartPar
+Betrachten wir statt offener Mengen \(U\subset\R^n\) nun glatte Mannigfaltigkeiten \(\M\), so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen.
+Es stellt sich heraus, dass der Tangentialraum \(T\M\) die richtige Wahl des Zielraums darstellt.
+Somit können wir das Konzept von Vektorfeldern verallgemeinern indem wir sie als Schnitte des Tangenialraums auffassen.
+\label{manifolds/tangential:definition-30}
+\begin{sphinxadmonition}{note}{Definition 4.23 (Glatte Vektorfelder)}
 
 
 
 \sphinxAtStartPar
-Es sei \(\M\) eine glatte Mannigfaltigkeit, ein glatter Schnitt
+Es sei \(\M\) eine glatte Mannigfaltigkeit.
+Wir nennen einen glatten Schnitt
 \begin{equation*}
 \begin{split}X:\M\to T\M\end{split}
 \end{equation*}
 \sphinxAtStartPar
-heißt glattes Vektorfeld. Das Argument von \(X\) wird hierbei meist als subskript notiert, d.h., \(X_p = X(p)\).
+ein \sphinxstylestrong{glattes Vektorfeld}.
+Das Argument von \(X\) wird hierbei meist als Subskript notiert, d.h., \(X_p := X(p)\).
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -5597,125 +5612,265 @@ Für Tangentialbündel haben wir die Abbildung \(\pi:T\M\to\M\) durch
 \begin{split}\pi(p,v):= p\quad\text{ für } (p,v)\in\{p\}\times T_p\M\end{split}
 \end{equation*}
 \sphinxAtStartPar
-definiert. Ist \(X\) nun ein glattes Vektorfeld, so gilt
+definiert.
+Ist \(X\) nun ein glattes Vektorfeld, so gilt
 \begin{equation*}
 \begin{split}\pi(X(p)) = p\end{split}
 \end{equation*}
 \sphinxAtStartPar
-und somit insbesondere \(X_p\in T_p\M\). Ein Vektorfeld ordnet also jedem Punkt \(p\in\M\) ein Element seines Tangentialraums zu. Falls \(\M\) eine offene Menge in \(\R^n\) ist, ist dies insbesondere konsistent zur bekannten Definition von Vektorfeldern.
+und somit insbesondere \(X_p\in T_p\M\).
+Ein Vektorfeld ordnet also jedem Punkt \(p\in\M\) ein Element seines Tangentialraums zu.
+Falls \(\M\) eine offene Menge in \(\R^n\) ist, ist dies insbesondere \sphinxstylestrong{konsistent} zur bekannten Definition von Vektorfeldern in Euklidischen Räumen.
 
 
-\paragraph{Wirkung von Vektorfeldern}
-\label{\detokenize{vektoranalysis/diffformen:wirkung-von-vektorfeldern}}
+\subsubsection{Wirkung von Vektorfeldern}
+\label{\detokenize{manifolds/tangential:wirkung-von-vektorfeldern}}
 \sphinxAtStartPar
-Von der algebraischen Definition des Tangentialraums ist das totale Differential \(df_p\in T^\ast_p\M\) bekannt, welches für \(D\in T^{\text{alg}}_p\M\) definiert ist durch
+Von der algebraischen Definition des Tangentialraums ist das totale Differential \(df_p\in T^\ast_p\M\) bekannt, welches für \(D\in T^{\text{alg}}_p\M\) und eine Funktion \(f\in C^\infty(M)\) definiert ist durch
 \begin{equation*}
-\begin{split}df_p(D):= D(f)\end{split}
+\begin{split}df_p(D):= D(f).\end{split}
 \end{equation*}
 \sphinxAtStartPar
-für eine Funktion \(f\in C^\infty(M)\). Mithilfe dieses Konzepts können wir die Wirkung eines Vektorfelds definieren.
-\label{vektoranalysis/diffformen:definition-48}
-\begin{sphinxadmonition}{note}{Definition 3.34 (Wirkung von Vektorfeldern)}
+Mithilfe dieses mathematischen Werkzeugs können wir nun die Wirkung eines Vektorfelds definieren.
+\label{manifolds/tangential:def:wirkung}
+\begin{sphinxadmonition}{note}{Definition 4.24 (Wirkung von Vektorfeldern)}
 
 
 
 \sphinxAtStartPar
-Es sei \(\M\) eine glatte Mannigfaltigkeit und \(X\in\Gamma(T\M)\), die \sphinxstylestrong{Wirkung} von \(X\) auf \(C^\infty\) ist definiert durch
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \(X\in\Gamma(T\M)\).
+Die \sphinxstylestrong{Wirkung} von \(X\) auf \(C^\infty\) ist definiert durch
 \begin{equation*}
-\begin{split}X(\cdot):C^\infty(M)\to C^\infty(\M)\\
-f\mapsto [p\mapsto X_p(f) := df_p(X)].\end{split}
+\begin{split}X(\cdot):C^\infty(M) &\to C^\infty(\M)\\
+f &\mapsto [p\mapsto X_p(f) := df_p(X)].\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 
-\paragraph{Lokale Basis von Vektorfeldern}
-\label{\detokenize{vektoranalysis/diffformen:lokale-basis-von-vektorfeldern}}
+\subsubsection{Lokale Basis von Vektorfeldern}
+\label{\detokenize{manifolds/tangential:lokale-basis-von-vektorfeldern}}
 \sphinxAtStartPar
-Aus \hyperref[\detokenize{vektoranalysis/diffformen:sec-tpbasis}]{Section \ref{\detokenize{vektoranalysis/diffformen:sec-tpbasis}}} wissen wir bereits, dass wir für \(p\in\M\) Tangentialvektoren \(v\in T_p\M\) durch die Vektoren \(\partial_{x^i}^p\) darstellen können. Im Kontext von Tangentialbündeln stellt sich auf natürliche Art die Frage, wie sich diese Vektoren verändern, wenn der Punkt \(p\) variiert wird. Hierzu definieren wir folgende Abbildungen.
-\label{vektoranalysis/diffformen:definition-49}
-\begin{sphinxadmonition}{note}{Definition 3.35}
+Aus \hyperref[\detokenize{manifolds/tangential:sec-tpbasis}]{Section \ref{\detokenize{manifolds/tangential:sec-tpbasis}}} wissen wir bereits, dass wir für jeden Punkt \(p\in\M\) die entsprechenden Tangentialvektoren \(v\in T_p\M\) durch die partiellen Derivationen \(\partial_{x^i}^p\) darstellen können.
+Im Kontext von Tangentialbündeln stellt sich die natürliche Frage, wie sich diese Vektoren verändern, wenn der Punkt \(p\in\M\) variiert wird.
+Hierzu definieren wir zunächst folgende Abbildungen.
+\label{manifolds/tangential:definition-32}
+\begin{sphinxadmonition}{note}{Definition 4.25 (Lokale Koordinatenfelder)}
 
 
 
 \sphinxAtStartPar
-Es sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimesnionale Mannigfaltigkeit und \((U,\phi)\) eine Karte, dann definieren wir die lokalen Koordinatenfelder
-für \(i=1,\ldots,n\) durch
+Es sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeit und \((U,\phi)\) eine Karte.
+Dann definieren wir die sogenannten \sphinxstylestrong{lokalen Koordinatenfelder} für \(i=1,\ldots,n\) durch
 \begin{equation*}
 \begin{split}\partial_{x^{i}}&:\M\to T\M\\
-\partial_{x^{i}}(p)&:= \partial_{x^{i}}\rvert_p\end{split}
+\partial_{x^{i}}(p)&:= \partial_{x^{i}}\rvert_p. \end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Mithilfe dieser lokalen Koordiantenfelder können wir nun Vektorfelder lokal darstellen.
-\label{vektoranalysis/diffformen:lem:localsections}
-\begin{sphinxadmonition}{note}{Lemma 3.20}
+Mithilfe dieser lokalen Koordinatenfelder können wir nun Vektorfelder lokal darstellen.
+\label{manifolds/tangential:lem:localsections}
+\begin{sphinxadmonition}{note}{Lemma 4.10}
 
 
 
 \sphinxAtStartPar
-Es sei \(\M\) eine glatte Mannigfaltigkeit und \((U,\phi)\) sei eine Karte, dann gilt für \(X\in\Gamma(T\M\rvert_U)\) und die Koeffizientfunktionen \(X^i:=X(\phi_i)\in C^\infty(U)\)
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \((U,\phi)\) sei eine Karte von \(\M\).
+Dann gilt für \(X\in\Gamma(T\M\rvert_U)\) und die Koeffizientenfunktionen \(X^i:=X(\phi_i)\in C^\infty(U)\), dass gilt
 \begin{equation*}
 \begin{split}X = \sum_{i=1}^n X^i \partial_{x^{i}}.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Es sei \(p\in\M\), dann haben wir wegen  {\hyperref[\detokenize{vektoranalysis/diffformen:thm:tanbasis}]{\sphinxcrossref{Theorem 3.5}}} die Darstellung
+Proof. Es sei \(p\in\M\) ein beliebiger Punkt der Mannigfaltigkeit.
+Dann haben wir wegen {\hyperref[\detokenize{manifolds/tangential:thm:tanbasis}]{\sphinxcrossref{Theorem 4.2}}} die Darstellung
 \begin{equation*}
 \begin{split}X_p = \sum_{i=1}^n X_p(\phi_i) \partial_{x^i}^p.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Mit der Defintion der Wirkung von Vektorfeldern folgt dann
+Mit der {\hyperref[\detokenize{manifolds/tangential:def:wirkung}]{\sphinxcrossref{Definition 4.24}}} der Wirkung von Vektorfeldern folgt dann schon
 \begin{equation*}
 \begin{split}X = \sum_{i=1}^n X(\phi_i) \partial_{x^i}.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Aus dieser Darstellung folgt auch, dass lokal für eine Karte \((U,\phi)\) die Wirkung auf \(f\in C^\infty(U)\) geschrieben werden kann als
+Aus der obigen Darstellung folgt auch, dass lokal für eine Karte \((U,\phi)\) die Wirkung auf \(f\in C^\infty(U)\) geschrieben werden kann als
 \begin{equation*}
 \begin{split}X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.\end{split}
 \end{equation*}
 
-\subsubsection{Tensorfelder}
-\label{\detokenize{vektoranalysis/diffformen:tensorfelder}}
+\subsection{Das Kotangentialbündel}
+\label{\detokenize{manifolds/tangential:das-kotangentialbundel}}\label{\detokenize{manifolds/tangential:s-kotangbundel}}
 \sphinxAtStartPar
-Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen. Hierbei benutzt man oft auch das Kotangentialbündel, welches direkt über den Kotangentialraum definiert werden kann.
-\label{vektoranalysis/diffformen:definition-51}
-\begin{sphinxadmonition}{note}{Definition 3.36}
+Analog zum Kotangentialraum, können wir auch das Kotangentialbündel definieren.
+\label{manifolds/tangential:definition-34}
+\begin{sphinxadmonition}{note}{Definition 4.26}
 
 
 
 \sphinxAtStartPar
-Es sei \(\M\) eine glatte Mannigfaltigkeit, dann ist das \sphinxstylestrong{Kotangentialbündel} \(\pi^\ast (T\M)^\ast\to\M\) mit der Menge
+Es sei \(\pi:T\M\to\M\) eine Tangentialbündel, dann ist das \sphinxstylestrong{Kotangentialbündel} \(\pi^\ast: T^\ast\M\to\M\) mit der Menge
 \begin{equation*}
-\begin{split}(T\M)^\ast := \bigsqcup_{p\in\M} T_p\M\end{split}
+\begin{split}T^\ast\M := \bigsqcup_{p\in\M} T_p\M\end{split}
 \end{equation*}
 \sphinxAtStartPar
-und der Abbildung
+und der Projektion
 \begin{equation*}
-\begin{split}\pi^{\ast}(p , v):= T_p^\ast\M = (T_p\M)^\ast\end{split}
+\begin{split}(\pi^{\ast})^{-1}(p):= \{p\}\times T_p^\ast\M\end{split}
 \end{equation*}
 \sphinxAtStartPar
 definiert.
 \end{sphinxadmonition}
+\label{manifolds/tangential:remark-35}
+\begin{sphinxadmonition}{note}{Remark 4.8}
+
+
+
+\sphinxAtStartPar
+Per Definition ist eine Projektion \(\pi^\ast\) surjektiv und besitzt eine Rechtsinverse \(\pi^\ast\), weshalb obige Definition impliziert, dass für alle \(p\in\M\)
+\begin{equation*}
+\begin{split}\pi({p}\times T_p^\ast\M) = \pi((\pi^{\ast})^{-1}(p)) = p\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gilt. Insbesondere hat aber jedes Element \(x\in T^\ast\M\) eine Darstellung \(x=\{p\}\times T_p^\ast\M\) für ein \(p\in\M\), weshalb man \(\pi\) wie oben angegen tatsächlich über die Inverse definieren kann.
+\end{sphinxadmonition}
 
 \sphinxAtStartPar
 Auch in diesem Fall erhält man ein Vektorbündel.
-\label{vektoranalysis/diffformen:lemma-52}
-\begin{sphinxadmonition}{note}{Lemma 3.21}
+\label{manifolds/tangential:lemma-36}
+\begin{sphinxadmonition}{note}{Lemma 4.11}
 
 
 
 \sphinxAtStartPar
-Es sei \(\M\) eine glatte Mannigfaltigkeit, dann ist das Kotangentialbündel \(\pi^\ast (T\M)^\ast\to\M\) ein Vektorbündel.
+Es sei \(\pi:T\M\to\M\) eine Tangentialbündel, dann ist das Kotangentialbündel \(\pi^\ast:T^\ast\M\to\M\) ein Vektorbündel.
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Siehe Übung.
+Proof. Der Beweis funktioniert analog zum Beweis von {\hyperref[\detokenize{manifolds/tangential:lem:tanbundle}]{\sphinxcrossref{Lemma 4.9}}}. Für die Details zur Argumentation weshalb auch \(T^\ast\M\) eine Mannigfaltigkeit ist, verweisen wir auf {[}\hyperlink{cite.references:id15}{Lee03}{]} Prop. 11.9.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialbündeln aussehen soll. Für zwei Vektorbündel \(E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}\) wissen wir, dass für jedes \(p\in\M\) die Fasern \(E_p, F_p\) endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
+Wir interessieren uns auch hier für glatte Schnitte, welche in diesem Kontext als 1\sphinxhyphen{}Differentialformen bezeichnet werden.
+\label{manifolds/tangential:definition-37}
+\begin{sphinxadmonition}{note}{Definition 4.27}
+
+
+
+\sphinxAtStartPar
+Ein glatter Schnitt \(\omega\in\Gamma(T^\ast\M)\) wir als 1\sphinxhyphen{}Differentialform bezeichnet, zusätzlich benutzen wir die Notation
+\begin{equation*}
+\begin{split}\Omega^1(\M) := \Gamma(T^\ast\M)\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Man kann hier analog lokale Koordinaten Kovektorfelder definierne indem man lokale Koordinaten betrachtet und die duale Basisdarstellung des Kotangentialraums benutzt.
+\label{manifolds/tangential:definition-38}
+\begin{sphinxadmonition}{note}{Definition 4.28 (Lokale Koordinatenfelder)}
+
+
+
+\sphinxAtStartPar
+Es sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeit und \((U,\phi)\) eine Karte.
+Dann definieren wir die sogenannten \sphinxstylestrong{lokalen Koordinaten Kovektorfelder} für \(i=1,\ldots,n\) durch
+\begin{equation*}
+\begin{split}dx^{i}:\M&\to T\M\\
+p&\mapsto dx^{i}_p. \end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Die definierten 1\sphinxhyphen{}Formen sind die einfachsten Beispiele der allgmeinen Diffenerentialformen, welche wir in \hyperref[\detokenize{manifolds/diffformen:s-difformen}]{Section \ref{\detokenize{manifolds/diffformen:s-difformen}}} untersuchen werden. Das Konzept des Kotangentialbündels und der Differentialform ist nun noch etwas abstrakt, allerdings erhalten wir mithilfe des totalen Differentials {\hyperref[\detokenize{manifolds/tangential:def:totdiff}]{\sphinxcrossref{Definition 4.18}}} erneut eine einfache Veranschalichung.
+\label{manifolds/tangential:ex:totdiff}
+\begin{sphinxadmonition}{note}{Example 4.8}
+
+
+
+\sphinxAtStartPar
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \(f\in C^\infty(\M)\), dann ist die Abbildung
+\begin{equation*}
+\begin{split}df:\M\to T^\ast\M\\
+p\mapsto (p, df_p)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine Differentialform, wobei \(df_p\in T_p^\ast\M\) für eine Derivation \(D\in T_p\M\) definiert ist durch
+\begin{equation*}
+\begin{split}df_p(D) := D(f),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+weil \(D\) als Derivation gerade eine lineare Abbildung \(D:C^\infty\to\R\) ist.
+
+\sphinxAtStartPar
+Für die Glattheitseigenschaft verweisen wir auf {[}\hyperlink{cite.references:id15}{Lee03}{]} Prop. 10.22., was zeigt, dass \(df\) eine glatte Abbildung ist. Desweiteren sehen wir, dass
+\begin{equation*}
+\begin{split}\pi^\ast(df(p)) = \pi^\ast((p,df_p)) = p \end{split}
+\end{equation*}
+\sphinxAtStartPar
+und somit gilt per Definition diese Eigenschaft eines Schnittes. Sei nun \((U,\varphi)\) eine Karte mit lokalen Koordinaten \(\varphi = (x^1,\ldots, x^n)\). Für \(p\in\M\) und \(D\in T_p\M\) Derivation gilt nach ??, dass
+\begin{equation*}
+\begin{split}D = \sum_{i=1}^n D(x^i)\, \partial_{x^i}^p = \sum_{i=1}^n dx^{i}(D)\, \partial_{x^i}^p,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei hierbei \(dx^{i}:T_p\M\to\R\) eine Element der dualen Basis ist. Daraus folgt für das totale Differential an \(p\), \(df_p:T_p\M\to\R\), per Defintion dass
+\begin{equation*}
+\begin{split}df_p(D) = \sum_{i=1}^n dx_p^{i}(D)\, df_p(\partial_{x^i}^p) = 
+\sum_{i=1}^n dx_p^{i}(D)\, \partial_{x^i}^p(f)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gilt. Somit gilt also lokal in \(U\)
+\begin{equation*}
+\begin{split}df = \sum_{i=1}^n dx^{i}\, \partial_{x^i}(f).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Für den Fall, dass die Mannigfaltigkeit \(\M\) eine offene Teilmene des \(\R^n\) ist erhalten wir einen einfachen Zusammenhang zur klassischen Richtungsableitung.
+\label{manifolds/tangential:example-40}
+\begin{sphinxadmonition}{note}{Example 4.9}
+
+
+
+\sphinxAtStartPar
+Es sei \(\M=U\subset\R^n\) eine offene Teilmenge, für jedes \(p\in\M\) können wir den Tangentialraum dann mit dem \(\R^n\) identifizieren und erhalten, dass das totale Differential an \(p\) gegeben ist durch
+\begin{equation*}
+\begin{split}df_p:\R^n&\to\R\\
+v&\mapsto \langle \nabla f(p), v \rangle = \sum_{i=1}^n \partial_i f(p)\, v^i.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Insbsondere ist \(dx^{i}\) in diesem Fall die Funktion welche einen Vektor auf seine Komponenten abbildet, somit gilt
+\begin{equation*}
+\begin{split}dx^{i}(v) = v^i\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und daher insgesamt wiederum
+\begin{equation*}
+\begin{split}df = \sum_{i=1}^n \partial_i f, dx^{i}.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Zusätzlich haben wir hier auch eine lokale Basisdarstellung als analoges Resultat zu {\hyperref[\detokenize{manifolds/tangential:lem:localsections}]{\sphinxcrossref{Lemma 4.10}}} hier nun aber mit den Basiselementen des Kotangentialraums, bzw. den lokalen Koordinaten Kovektorfeldern.
+\label{manifolds/tangential:lem:coordcovec}
+\begin{sphinxadmonition}{note}{Lemma 4.12}
+
+
+
+\sphinxAtStartPar
+Es sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeit und \((U,\phi)\) eine Karte mit lokalen Koordinaten \(\varphi=(x^1,\ldots, x^n)\),  dann gilt für jede Differentialform \(\omega\in\Omega^1(U)\), dass
+\begin{equation*}
+\begin{split}\omega = \sum_{i=1}^n f_i dx^i\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei \(f_i\in C^\infty(\M)\) gegeben ist durch \(\omega(\partial_{x^i})\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id15}{Lee03}{]} Seite 282.
+\end{sphinxadmonition}
+
+
+\subsection{Tensorfelder}
+\label{\detokenize{manifolds/tangential:tensorfelder}}
+\sphinxAtStartPar
+Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen. Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialbündeln aussehen soll. Für zwei Vektorbündel \(E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}\) wissen wir, dass für jedes \(p\in\M\) die Fasern \(E_p, F_p\) endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
 \begin{equation*}
 \begin{split}E_p\otimes F_p\end{split}
 \end{equation*}
@@ -5728,8 +5883,8 @@ betrachten und damit ein Bündel auf dem Totalraum
 betrachten. Die entsprechende Projektion \(\pi_{E\otimes F}:E\otimes F\to\M\) ist gegeben durch
 \begin{equation*}
 \begin{split}\pi_{E\otimes F}^{-1}(p):= E_p\otimes F_p := (E\otimes F)_p.\end{split}
-\end{equation*}\label{vektoranalysis/diffformen:lem:tensorbundle}
-\begin{sphinxadmonition}{note}{Lemma 3.22}
+\end{equation*}\label{manifolds/tangential:lem:tensorbundle}
+\begin{sphinxadmonition}{note}{Lemma 4.13}
 
 
 
@@ -5749,8 +5904,8 @@ Proof. Siehe Übung.
 
 \sphinxAtStartPar
 Die Definition des Tensorbündels lässt sich direkt auf mehrfache Tensorprodukte übertragen und führt uns direkt auf gemischte Tensorbündel.
-\label{vektoranalysis/diffformen:definition-54}
-\begin{sphinxadmonition}{note}{Definition 3.37}
+\label{manifolds/tangential:definition-43}
+\begin{sphinxadmonition}{note}{Definition 4.29}
 
 
 
@@ -5764,25 +5919,30 @@ Tensorbündel der Stufe \((r,s)\).
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Mit den vorherigen Überlegungen können wir direkt Schlussfolgern, dass wir hier erneut ein Vektorbündel definiert haben.
-\label{vektoranalysis/diffformen:corollary-55}
-\begin{sphinxadmonition}{note}{Corollary 3.5}
+Mit den vorherigen Überlegungen können wir direkt schlussfolgern, dass wir hier erneut ein Vektorbündel definiert haben. Insbesondere, da nach {\hyperref[\detokenize{vektoranalysis/tensor:cor:tensorMultilinearform}]{\sphinxcrossref{Corollary 3.4}}}
+\begin{equation*}
+\begin{split}T^r_s(T_p\M) \cong \underbrace{T_p\M\otimes\ldots T_p\M}_{r\text{ mal}}\otimes\underbrace{T_p^ast\M\otimes\ldots T_p\ast\M}_{s\text{ mal}}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gilt erhalten wir die Bündelstruktur über Anwendung von {\hyperref[\detokenize{manifolds/tangential:lem:tensorbundle}]{\sphinxcrossref{Lemma 4.13}}}.
+\label{manifolds/tangential:corollary-44}
+\begin{sphinxadmonition}{note}{Corollary 4.1}
 
 
 
 \sphinxAtStartPar
-Es sei \(\M\) eine glatte Mannigfaltigkeit, und \(r,s\in\N_0\), s.d. \(r+s>0\), dann ist \(\pi:T^r_s\M\to\M\) mit der kanonisch nach {\hyperref[\detokenize{vektoranalysis/diffformen:lem:tensorbundle}]{\sphinxcrossref{Lemma 3.22}}} definierten Abbildung \(\pi\) ein Vektorbündel.
+Es sei \(\M\) eine glatte Mannigfaltigkeit, und \(r,s\in\N_0\), s.d. \(r+s>0\), dann ist \(\pi:T^r_s\M\to\M\) mit der kanonisch nach {\hyperref[\detokenize{manifolds/tangential:lem:tensorbundle}]{\sphinxcrossref{Lemma 4.13}}} definierten Abbildung \(\pi\) ein Vektorbündel.
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Folgt direkt aus {\hyperref[\detokenize{vektoranalysis/diffformen:lem:tensorbundle}]{\sphinxcrossref{Lemma 3.22}}}.
+Proof. Folgt direkt aus {\hyperref[\detokenize{manifolds/tangential:lem:tensorbundle}]{\sphinxcrossref{Lemma 4.13}}}.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Da wir die Struktur eines Vektorbündels definiert haben können wir nun auf natürliche Weise auch \sphinxstylestrong{Tensorfelder} als glatte Schnitte definieren.
-\label{vektoranalysis/diffformen:definition-56}
-\begin{sphinxadmonition}{note}{Definition 3.38 (Tensorfelder)}
+\label{manifolds/tangential:definition-45}
+\begin{sphinxadmonition}{note}{Definition 4.30 (Tensorfelder)}
 
 
 
@@ -5791,27 +5951,27 @@ Es sei \(\M\) eine glatte Mannigfaltigkeit, und \(r,s\in\N_0\), s.d. \(r+s>0\), 
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Dank der lokalen Darstellung von Vektorbündeln in {\hyperref[\detokenize{vektoranalysis/diffformen:lem:localsections}]{\sphinxcrossref{Lemma 3.20}}} können wir die recht abstrakten Tensorfelder lokal sehr konkret Darstellen.
-\label{vektoranalysis/diffformen:corollary-57}
-\begin{sphinxadmonition}{note}{Corollary 3.6}
+Dank der lokalen Darstellung von Vektorbündeln in {\hyperref[\detokenize{manifolds/tangential:lem:localsections}]{\sphinxcrossref{Lemma 4.10}}} können wir die recht abstrakten Tensorfelder lokal sehr konkret Darstellen.
+\label{manifolds/tangential:cor:tensorfieldchart}
+\begin{sphinxadmonition}{note}{Corollary 4.2}
 
 
 
 \sphinxAtStartPar
-Es sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeit, \((U,\varphi)\) eine Karte mit lokalen Koordinaten \(\varphi=(x^1,\ldots,x^n)\). Für \(r,s\in\N_0\), s.d. \(r+s>0\) und \(A\in \Gamma(T^r_s\M)\) ein Tensorfeld existieren glatte Koeffizientenfunktionen \(A^{i_1,\ldots, i_r}_{j_1,\ldots,j_s}\in C^\infty(\M)\) für \(i_1,\ldots, i_r, j_1,\ldots, j_s\in \{1,\ldots,n\}\), s.d.,
+Es sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeit, \((U,\varphi)\) eine Karte mit lokalen Koordinaten \(\varphi=(x^1,\ldots,x^n)\). Für \(r,s\in\N_0\), s.d. \(r+s>0\) und \(A\in \Gamma(T^r_s\M)\) ein Tensorfeld existieren glatte Koeffizientenfunktionen \(A^{i_1,\ldots, i_s}_{j_1,\ldots,j_r}\in C^\infty(\M)\) für \(i_1,\ldots, i_s, j_1,\ldots, j_r\in \{1,\ldots,n\}\), s.d.,
 \begin{equation*}
-\begin{split}A = A^{i_1,\ldots,i_r}_{j_1,\ldots,j_s} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.\end{split}
+\begin{split}A = A^{i_1,\ldots,i_s}_{j_1,\ldots,j_r} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Folgt aus {\hyperref[\detokenize{vektoranalysis/diffformen:lem:localsections}]{\sphinxcrossref{Lemma 3.20}}}.
+Proof. Folgt aus {\hyperref[\detokenize{manifolds/tangential:lem:localsections}]{\sphinxcrossref{Lemma 4.10}}} und {\hyperref[\detokenize{manifolds/tangential:lem:coordcovec}]{\sphinxcrossref{Lemma 4.12}}},  für Details siehe {[}\hyperlink{cite.references:id15}{Lee03}{]} Prop. 12.19.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Ähnlich zu den Überlegungen in \hyperref[\detokenize{vektoranalysis/tensor:s-symtensoren}]{Section \ref{\detokenize{vektoranalysis/tensor:s-symtensoren}}} können wir auch hier das Tensorprodukt von Tensorfeldern betrachten.
-\label{vektoranalysis/diffformen:lemma-58}
-\begin{sphinxadmonition}{note}{Lemma 3.23}
+\label{manifolds/tangential:lemma-47}
+\begin{sphinxadmonition}{note}{Lemma 4.14}
 
 
 
@@ -5822,9 +5982,23 @@ Es sei \(\M\) eine glatte Mannigfaltigkeit, für \(r,l\in \N\) seien \(A\in \Gam
 (A\otimes B)_{i_1,\ldots,i_{l+r}} = A_{i_1,\ldots, i_l} B_{i_{l+1},\ldots, i_{l+k}}.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe {[}\hyperlink{cite.references:id15}{Lee03}{]} Prop. 12.22.
+\end{sphinxadmonition}
+
+
+\section{Differentialformen auf Mannigfaltigkeiten}
+\label{\detokenize{manifolds/diffformen:differentialformen-auf-mannigfaltigkeiten}}\label{\detokenize{manifolds/diffformen::doc}}
+\sphinxAtStartPar
+Die vorhergehenden Abschnitte liefern nun die nötigen Grundlagen um \sphinxstylestrong{Differentialformen} zu betrachten. Insbesondere werden wir diese über eine Unterstruktur der bekannten Tensorfelder erhalten. Dieser Schritt isr konzeptionell sehr ähnlich zum Schritt von allgemeinen Tensoren zu den Antisymmetrischen, bzw. alternierenden Tensoren. Dieser Zusammenhang erklärt auch die Begrifflichkeit alternierende Differentialform welche in de Literatur häufig vorkommt.
+
+\sphinxAtStartPar
+Differentialformen sind ein wichtiges Konzept in verschieden Bereichen der Mathematik und Physik. Auch wenn wir diese Thematik hier nicht betrachten, sei erwähnt, dass Differentialformen die Integration auf speziellen glatten Mannigfaltigkeiten erlauben.
+
 
 \subsection{Differentialformen}
-\label{\detokenize{vektoranalysis/diffformen:differentialformen}}
+\label{\detokenize{manifolds/diffformen:differentialformen}}\label{\detokenize{manifolds/diffformen:s-difformen}}
 \sphinxAtStartPar
 In Kapitel ?? haben wir symmetrische und antisymmetrische Tensoren kennengelernt. Dieses Konzept werden wir nun auf Tensorfelder übetragen um somit Differntialformen zu erhalten. Hierfür betrachten wir für eine glatte Mannigfaltigkeit die Menge
 \begin{equation*}
@@ -5832,8 +6006,8 @@ In Kapitel ?? haben wir symmetrische und antisymmetrische Tensoren kennengelernt
 \end{equation*}
 \sphinxAtStartPar
 der alternierenden Tensorfelder. Antisymmetrische Tensoren bilden direkt eine Teilmenge aller Tensoren und es bleibt lediglich zu zeigen, dass die Vektorraumstruktur erhalten bleibt. Die Situation hier ist nun anders, man benötigt den abstrakten Begriff des \sphinxstylestrong{Untervektorbündels}.
-\label{vektoranalysis/diffformen:definition-59}
-\begin{sphinxadmonition}{note}{Definition 3.39}
+\label{manifolds/diffformen:definition-0}
+\begin{sphinxadmonition}{note}{Definition 4.31}
 
 
 
@@ -5851,17 +6025,17 @@ gelte, dann heißt \(D\) Untervektorbündel von \(E\).
 \capstart
 
 \noindent\sphinxincludegraphics[height=300\sphinxpxdimen]{{subbundle}.png}
-\caption{Visualisierung eines Untervektorbündels, siehe {[}\hyperlink{cite.references:id15}{Lee03}{]} Kapitel 10.}\label{\detokenize{vektoranalysis/diffformen:fig-subbundle}}\end{figure}
+\caption{Visualisierung eines Untervektorbündels, siehe {[}\hyperlink{cite.references:id15}{Lee03}{]} Kapitel 10.}\label{\detokenize{manifolds/diffformen:fig-subbundle}}\end{figure}
 
 \sphinxAtStartPar
 In diesem Fall erhält man also ein Untervektorbündel.
-\label{vektoranalysis/diffformen:lemma-60}
-\begin{sphinxadmonition}{note}{Lemma 3.24}
+\label{manifolds/diffformen:lemma-1}
+\begin{sphinxadmonition}{note}{Lemma 4.15}
 
 
 
 \sphinxAtStartPar
-Sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimesnionale Mannigfaltigkeit, dann ist \(\Lambda^k T^\ast\M\) ein glattes Untervektorbündel vom Rang \(\begin{pmatrix} n k \end{pmatrix}\).
+Sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeit, dann ist \(\Lambda^k T^\ast\M\) ein glattes Untervektorbündel vom Rang \(\begin{pmatrix} n k \end{pmatrix}\).
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
@@ -5870,9 +6044,9 @@ Proof. ToDo.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Dank der Bündelstruktur können wir erneut glatte Schnitte betrachten, welche nun auf das Konzept der Diffentialform führen.
-\label{vektoranalysis/diffformen:definition-61}
-\begin{sphinxadmonition}{note}{Definition 3.40}
+Dank der Bündelstruktur können wir erneut glatte Schnitte betrachten, welche nun auf das Konzept der Differentialform führen.
+\label{manifolds/diffformen:definition-2}
+\begin{sphinxadmonition}{note}{Definition 4.32}
 
 
 
@@ -5882,103 +6056,125 @@ Es sei \(\M\) eine glatte Mannigfaltigkeit, dann nennt man einen glatten Schnitt
 \begin{split}\omega\in \Gamma(\Lambda^k T^\ast\M)\end{split}
 \end{equation*}
 \sphinxAtStartPar
-eine \(k\)\sphinxhyphen{}Differentialform oder auch \(k\)\sphinxhyphen{}Form. Den Vektorraum der Differntialformen notieren wir durch
+eine \(k\)\sphinxhyphen{}Differentialform oder auch \(k\)\sphinxhyphen{}Form. Den Vektorraum der Differentialformen notieren wir durch
 \begin{equation*}
 \begin{split}\Omega^k(\M) := \Gamma(\Lambda^k T^\ast\M).\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 
-\subsubsection{Das äußere Produkt}
-\label{\detokenize{vektoranalysis/diffformen:das-auszere-produkt}}
+\subsection{Das äußere Produkt}
+\label{\detokenize{manifolds/diffformen:das-auszere-produkt}}
 \sphinxAtStartPar
-Eine Differentialform \(\omega\) auf \(U\subseteq\R^n\) ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.
-
-\sphinxAtStartPar
-Wir schreiben eine allgemeine \sphinxstyleemphasis{\(k\)–Form} \(\omega\) in der \sphinxstyleemphasis{Grundform}
+In \hyperref[\detokenize{vektoranalysis/tensor:s-symtensoren}]{Section \ref{\detokenize{vektoranalysis/tensor:s-symtensoren}}} haben wir das äußere Produkt \(\wedge\) kennengelernt, welches wir nun auf Differentialformen übertragen. Dazu seien \(\omega\in \Omega^k(\M), \eta\in \Omega^l(\M)\) zwei Differentialformen für \(k,l\in\N\), dann setzten wir
 \begin{equation*}
-\begin{split}\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
-dx_{i_1}\wedge\ldots\wedge dx_{i_k}\in\Omega^k(U),\end{split}
+\begin{split}\omega \wedge \eta:\M &\to \Lambda^{k+l}T^\ast\M\\
+p&\mapsto \omega_p \wedge \eta_p\end{split}
 \end{equation*}
 \sphinxAtStartPar
-wobei
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-die \(\omega_{i_1\ldots i_k}\in \Omega^0(U):=C^\infty(U,\R)\), also glatte reelle Funktionen auf \(U\) sind,
+was in der Tat eine Differentialform definiert, also \(\omega\wedge\eta \in \Omega^{k+l}(\M)\). Zusätzlich überträgt sich auch die Darstellung in einer lokalen Karte von {\hyperref[\detokenize{manifolds/tangential:cor:tensorfieldchart}]{\sphinxcrossref{Corollary 4.2}}} auf diese Situation, wobei das Tensorprodukt, durch das äußere Produkt ersetzt werden kann.
+\label{manifolds/diffformen:lemma-3}
+\begin{sphinxadmonition}{note}{Lemma 4.16}
 
-\item {} 
-\sphinxAtStartPar
-und die \(dx_i\) den Koordinatenfunktionen \(x_i:\R^n\to\R\) zugeordnete \(1\)–Differentialformen sind (\(dx_i\in\Omega^1(\R^n)\)).
 
-\item {} 
-\sphinxAtStartPar
-Den Raum der \(k\)–Differentialformen schreiben wir ab jetzt zur Unterscheidung vom Raum der äußeren \(k\)–Formen mit dem Symbol \(\Omega\) statt \(\Lambda\).
-
-\end{itemize}
 
 \sphinxAtStartPar
-Die \(dx_i\) sind durch ihre Wirkung auf ein Vektorfeld \(v:U\to
-\R^n\) definiert, und \(dx_i(v)( y) := v_i( y)\).
-\(1\)–Differentialformen machen also aus Vektorfeldern Funktionen, und für \(k\) Vektorfelder \(v^{(l)}:U\to\R^n\) ist für das \(\omega\) aus der Grundform
+Es sei \(\M\) eine glatte Mannigfaltigkeit, \((\varphi,U)\) eine Karte und \(\omega\in\Omega^l(\M)\) eine Differentialform, dann gilt lokal in \(U\)
 \begin{equation*}
-\begin{split}\omega\left(v^{(1)},\ldots,v^{(k)}\right) := \sum_{1\leq i_1<\ldots<i_k\leq n}
-\omega_{i_1\ldots i_k}\cdot\det\begin{pmatrix} dx_{i_1}(v^{(1)})&\ldots& dx_{i_k}(v^{(1)})\\
-\vdots&&\vdots\\
-dx_{i_1}(v^{(k)})&\ldots& dx_{i_k}(v^{(k)}) \end{pmatrix}\end{split}
+\begin{split}\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k},\end{split}
 \end{equation*}
 \sphinxAtStartPar
-definiert. Das Ergebnis ist also eine reelle Funktion auf \(U\).\textbackslash{}
-Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformten.
-
-\sphinxAtStartPar
-Auf dem \(\R\)–Vektorraum
-\begin{equation*}
-\begin{split}\Omega^*(U) := \bigoplus_{k=0}^n\Omega^k(U)\end{split}
-\end{equation*}
-\sphinxAtStartPar
-der Differentialformen betrachten wir jetzt
-den \sphinxstyleemphasis{Differentialoperator} \(d\), der durch
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-\(df := \sum_{i=1}^n\frac{\partial f}{\partial x_i}dx_i\) für Funktionen
-\(f\in C^\infty(U,\R) = \Omega^0(U)\)
-
-\item {} 
-\sphinxAtStartPar
-und \(d\omega := \sum_{1\leq i_1<\ldots<i_k\leq n}d\omega_{i_1\ldots i_k}
-\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k}\) für \(k\)–Formen \textbackslash{}linebreak
-\(\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
-dx_1\wedge\ldots\wedge dx_{i_k}\)
-
-\end{itemize}
-
-\sphinxAtStartPar
-definiert ist. \(d\) verwandelt eine \(k\)–Form also in eine \((k+1)\)–Form.
-\label{vektoranalysis/diffformen:aeussere Ableitung}
-\begin{sphinxadmonition}{note}{Definition 3.41}
-
-
-
-\sphinxAtStartPar
-Die lineare Abbildung \(d:\Omega^*(U)\to\Omega^*(U)\) heißt \sphinxhref{https://de.wikipedia.org/wiki/\%C3\%84u\%C3\%9Fere\_Ableitung}{\sphinxstylestrong{äußere Ableitung}}.
+wobei \(\omega_{i_1\ldots i_k}\in C^\infty(\M)\) für alle \(i_1,\ldots,i_k\in\{1,\ldots,n\}\) gilts
 \end{sphinxadmonition}
-\label{vektoranalysis/diffformen:ex:10.14}
-\begin{sphinxadmonition}{note}{Example 3.21 (Äußere Ableitung)}
 
-
-\begin{enumerate}
-\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
-\item {} 
+\begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Für \(\omega\in\Omega^0(\R^3)\) ist \(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id15}{Lee03}{]} Kapitel 14.
+\end{sphinxadmonition}
+\label{manifolds/diffformen:example-4}
+\begin{sphinxadmonition}{note}{Example 4.10}
+
+
+
+\sphinxAtStartPar
+1. Für \(k=0\) und \(\M\) eine glatte Mannigfaltigkeit erhalten wir
+\begin{equation*}
+\begin{split}\Omega^0(\M) = C^\infty(\M).\end{split}
+\end{equation*}
+
+
+\sphinxAtStartPar
+2. Für \(k=1\) und \(\M\) eine glatte Mannigfaltigkeit erhalten wir
+\begin{equation*}
+\begin{split}\Omega^1(\M)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gerade die Kovektorfelder aus \hyperref[\detokenize{manifolds/tangential:s-kotangbundel}]{Section \ref{\detokenize{manifolds/tangential:s-kotangbundel}}}.
+
+
+
+\sphinxAtStartPar
+3. Für \(k=3\) und \(\M=\R^3\) ist z.B.,
+\begin{equation*}
+\begin{split}\omega(xy) := \sin(xy) dx\wedge dy\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine Differentialform.
+\end{sphinxadmonition}
+
+
+\subsection{Die äußere Ableitung}
+\label{\detokenize{manifolds/diffformen:die-auszere-ableitung}}
+\sphinxAtStartPar
+Wir wenden uns nun einer wichtigen Operation auf Differentialformen zu, der äußeren Ableitung. Aus {\hyperref[\detokenize{manifolds/tangential:ex:totdiff}]{\sphinxcrossref{Example 4.8}}} kennen wir schon das totale Differential \(df\in \Omega^1(\M)\), für eine glatte Funktion \(f\in C^\infty(\M)\). Hierbei haben wir für ein glattes Vektorfeld \(X\in \Gamma(T\M)\) die Abbildung
+\begin{equation*}
+\begin{split}df(X) := X(f)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+definiert, wobei die rechte Seite über die Wirkung des Vektorfelds definiert ist. Wir können dieses Konzept verallgemeinern, indem wir die äußere Ableitung definieren.
+\label{manifolds/diffformen:definition-5}
+\begin{sphinxadmonition}{note}{Definition 4.33}
+
+
+
+\sphinxAtStartPar
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \(f\in C^\infty(\M)\), dann definieren wir die lineare Abbildung
+\begin{equation*}
+\begin{split}d:\Omega^k(\M)\to \Omega^{k+1}(\M)\\
+d(f\, dx^{i_1}\wedge\ldots\wedge dx^{i_k}):= df \wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k}.\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{manifolds/diffformen:remark-6}
+\begin{sphinxadmonition}{note}{Remark 4.9}
+
+
+
+\sphinxAtStartPar
+Beachte, dass die obige Abbildung nur jeweils für lokale Koordinaten definiert ist. Wegen der Kartenunabängigkeit führt dies aber auf eine eindeutig definierte Funktion, siehe z.B. {[}\hyperlink{cite.references:id15}{Lee03}{]} Kapitel 14. Da wir \(d\) auf den Elementen \(dx^{i_1}\wedge\ldots\wedge dx^{i_k}\) definiert haben erhalten wir jeweils lokal eine eindeutige lineare Fortsetzung, da jedes \(\omega\in \Omega^k(\M)\) lokal die Darstellung
+\begin{equation*}
+\begin{split}\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+hat und somit
+\begin{equation*}
+\begin{split}d\omega &= \sum_{1\leq i_1,\ldots,i_k \leq n} d(\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k})\\ 
+&= \sum_{1\leq i_1,\ldots,i_k \leq n} d(\omega_{i_1\ldots i_k})\wedge
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{manifolds/diffformen:ex:10.14}
+\begin{sphinxadmonition}{note}{Example 4.11 (Äußere Ableitung)}
+
+
+
+\sphinxAtStartPar
+1. Für \(\omega\in\Omega^0(\R^3)\) ist \(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
 \frac{\partial\omega}{\partial x_2}dx_2+\frac{\partial\omega}{\partial x_3}dx_3\).
 
-\item {} 
-\sphinxAtStartPar
-Für \(\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)\) ist
 
-\end{enumerate}
+
+\sphinxAtStartPar
+2. Für \(\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)\) ist
 \begin{equation*}
 \begin{split}d\omega &=& (d\omega_1)\wedge dx_1+(d\omega_2)\wedge dx_2+(d\omega_3)\wedge
 dx_3\\
@@ -5986,111 +6182,597 @@ dx_3\\
 dx_1\wedge dx_2+ \left(\frac{\partial\omega_3}{\partial x_2}-\frac{\partial\omega_2}{\partial x_3}\right)
 dx_2\wedge dx_3\\
 && + \left(\frac{\partial\omega_1}{\partial x_3}-\frac{\partial\omega_3}{\partial x_1}\right)
-dx_3\wedge dx_1\end{split}
-\end{equation*}\begin{enumerate}
-\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
-\item {} 
-\sphinxAtStartPar
-Für \(\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
-+\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)\) ist
+dx_3\wedge dx_1.\end{split}
+\end{equation*}
 
-\end{enumerate}
+
+\sphinxAtStartPar
+3. Für \(\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
++\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)\) ist
 \begin{equation*}
 \begin{split}d\omega = \left(\frac{\partial\omega_{12}}{\partial x_3} + \frac{\partial\omega_{23}}{\partial x_1}
 + \frac{\partial\omega_{31}}{\partial x_2}\right)dx_1\wedge dx_2\wedge dx_3.\end{split}
-\end{equation*}\begin{enumerate}
-\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\end{equation*}
+
+
+\sphinxAtStartPar
+4. Für \(\omega\in\Omega^3(\R^3)\) ist \(d\omega=0\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Für die äußere Ableitung können wir zusätzlich folgende Eigenschaften zeigen.
+\label{manifolds/diffformen:lem:outeprop}
+\begin{sphinxadmonition}{note}{Lemma 4.17}
+
+
+
+\sphinxAtStartPar
+Es sei \(\M\) eine glatte Mannigfaltigkeit, dann haben wir folgende Eigenschaften.
+
+
+
+\sphinxAtStartPar
+1. Für \(f,g\in C^\infty(\M)\) gilt
+\begin{equation*}
+\begin{split}d(fg) = d(f)\,g + f\, d(g).\end{split}
+\end{equation*}
+
+
+\sphinxAtStartPar
+2. Für \(\omega\in\Omega^k(\M),\eta\in\Omega^l(\M)\) gilt
+\begin{equation*}
+\begin{split}d(\omega\wedge\eta) = (d\omega)\wedge \eta + (-1)^k \omega\wedge (d\eta).\end{split}
+\end{equation*}
+
+
+\sphinxAtStartPar
+3. Es gilt \(d\circ d = 0\).
+\end{sphinxadmonition}
+\label{manifolds/diffformen:remark-9}
+\begin{sphinxadmonition}{note}{Remark 4.10}
+
+
+
+\sphinxAtStartPar
+Da \(d\) Eigenschaft 2 erfüllt, nennt man \(d\) auch Antiderivation.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Eine interessante Anwendung finden Differntialformen im sog. Poincaré\sphinxhyphen{}Lemma. Hierfür benötigen wir folgenden Begriffe
+\label{manifolds/diffformen:def:geschlossenexakt}
+\begin{sphinxadmonition}{note}{Definition 4.34}
+
+
+
+\sphinxAtStartPar
+Es sei \(\M\) eine glatte Mannigfaltigkeit, eine Differentialform \(v\in\Omega^k(\M)\) heißt
+\begin{itemize}
 \item {} 
 \sphinxAtStartPar
-Für \(\omega\in\Omega^3(\R^3)\) ist \(d\omega=0\).
+\sphinxstylestrong{geschlossen}, wenn \(dv=0\),
 
-\end{enumerate}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{exakt}, wenn \(v=d\eta\) für ein \(\eta\in\Omega^{k-1}(\M)\) gilt.
+
+\end{itemize}
 \end{sphinxadmonition}
-\label{vektoranalysis/diffformen:Antiderivation}
-\begin{sphinxadmonition}{note}{Theorem 3.6}
+
+\sphinxAtStartPar
+Nach Satz \sphinxcode{\sphinxupquote{lem:outer:prop}} sind exakte Differentialformen geschlossen, da für \(v=d\eta\) gilt,
+\begin{equation*}
+\begin{split}dv = d(d\eta) = (d\circ d)\eta = 0.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Das Poincaré\sphinxhyphen{}Lemma besagt nun, dass auf sternförmigen offenen Mengen \(U\subseteq \R^n\) auch die Umkehrung gilt.
+\label{manifolds/diffformen:lemma-11}
+\begin{sphinxadmonition}{note}{Lemma 4.18 (Poincaré\sphinxhyphen{}Lemma)}
 
 
 
 \sphinxAtStartPar
-\(d\) ist eine \sphinxhref{https://de.wikipedia.org/wiki/Derivation\_(Mathematik)\#Antiderivationen}{\sphinxstylestrong{Antiderivation}}, d.h. für \(\alpha\in\Omega^k(U)\) und \(\beta\in\Omega^l(U)\) ist
+Es sei \(U\subset\R^n\) eine offene sternförmige Menge, dann gilt für \(\omega\in \Omega^k(\M)\),
 \begin{equation*}
-\begin{split}d(\alpha\wedge\beta) = (d\alpha)\wedge\beta+(-1)^k\alpha\wedge d\beta.\end{split}
+\begin{split}\omega\text{ ist geschlossen}\Leftrightarrow \omega\text{ ist exakt.}\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Wegen der Linearität von \(d\) genügt es, diese Gleichung für Monome
-\begin{equation*}
-\begin{split}\alpha := f\underbrace{dx_{i_1}\wedge\ldots\wedge dx_{i_k}}_{\tilde
-{\alpha}},\ \beta := g\underbrace{dx_{j_1}\wedge\ldots\wedge dx_{j_l}}_
-{\tilde{\beta}},\ f,g\in C^\infty(U,\R)\end{split}
-\end{equation*}
-\sphinxAtStartPar
-zu beweisen.
-Es gilt
-\begin{equation*}
-\begin{split}d(\alpha\wedge\beta) &=& d(f\cdot g)\tilde{\alpha}\wedge
-\tilde{\beta} = \big((df)g+f(dg)\big)\,\tilde{\alpha}\wedge\tilde{\beta}\\
-&=& (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}\end{split}
-\end{equation*}\end{sphinxadmonition}
-\label{vektoranalysis/diffformen:thm:dd}
-\begin{sphinxadmonition}{note}{Theorem 3.7}
-
-
-
-\sphinxAtStartPar
-Auf \(\Omega^*(U)\) gilt
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id15}{Lee03}{]} Theorem 11.49.
 \end{sphinxadmonition}
 
-\begin{sphinxadmonition}{note}
+
+\subsection{Der Pullback}
+\label{\detokenize{manifolds/diffformen:der-pullback}}
 \sphinxAtStartPar
-Proof. 1. Für \(f\in\Omega^0(U)\) ist
+Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte \sphinxstylestrong{Pullback}. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten \(\M,\mathcal{N}\) und eine glatte Funktion \(F:M\to\mathcal{N}\). Das Ziel ist es nun eine Differentialform auf \(N\), \(\omega\in\Omega^k(\mathcal{N})\) mithilfe von \(F\) auf eine Differentialform auf \(\M\) zurückzuziehen. Ausgewertet an \(p\in\M\) ergibt eine Differentialform \(\eta\in\Omega^k(\M)\) ein Element aus \(L^k(T_p^\ast\M)\),
 \begin{equation*}
-\begin{split}ddf &=& d\left(\sum_{i=1}^n\frac{\partial f}
-{\partial x_i}dx_i\right) = \sum_{i=1}^n\sum_{l=1}^n\frac{\partial^2f}{\partial x_l\partial x_i}
-dx_l\wedge dx_i\\
-& =& \sum_{1\leq r< s\leq n}\left(\frac{\partial^2 f}{\partial x_r
-\partial x_s} - \frac{\partial^2f}{\partial x_s\partial x_r}\right)dx_r\wedge dx_s = 0,\end{split}
+\begin{split}\eta_p\in \Omega^k(T_p\M) \subset L^k(T_p^\ast\M)\end{split}
 \end{equation*}
 \sphinxAtStartPar
-da wir wegen der Glattheit von \(f\) die partiellen Ableitungen vertauschen
-können.
+also eine Linearform, welche auf \(k\) Elemente \(v_1,\ldots,v_k\in T_p^\ast\M\) des Kotangentialraums in \(p\) an \(\M\) wirkt. Haben wir nun a priori \(\omega\in\Omega^k(\mathcal{N})\) gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über \(F\) von \(\M\) nach \(\N\) vorschieben können, der sogennante \sphinxstylestrong{Pushforward}.
+\label{manifolds/diffformen:definition-12}
+\begin{sphinxadmonition}{note}{Definition 4.35}
+
+
+
+\sphinxAtStartPar
+Es seien \(\M,\mathcal{N}\) zwei glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann definieren wir für \(p\in\M\)
+\begin{equation*}
+\begin{split}F_\ast:T_p\M\to T_{F(p)}\mathcal{N}\\
+D\mapsto \big[f\mapsto D(f\circ F)]\end{split}
+\end{equation*}
+\sphinxAtStartPar
+den sogenannten \sphinxstylestrong{Pushforward}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Da wir nun Tangentialvektoren von \(T_p\M\) auf \(T_{F(p)}\mathcal{N}\) schieben können, sind wir in der Lage damit den Pullback von Kotangentialvektoren zu definieren.
+\label{manifolds/diffformen:definition-13}
+\begin{sphinxadmonition}{note}{Definition 4.36}
+
+
+
+\sphinxAtStartPar
+Es seien \(\M,\mathcal{N}\) zwei glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann definieren wir für \(p\in\M\)
+\begin{equation*}
+\begin{split}F^\ast: T_{F(p)}^\ast\mathcal{N}\to \big[T^p_\M\mapsto\R\big]\\
+v \mapsto \big[D\mapsto v(F_\ast(D)) \big]\end{split}
+\end{equation*}
+\sphinxAtStartPar
+den \sphinxstylestrong{Pullback}
+\end{sphinxadmonition}
+\label{manifolds/diffformen:remark-14}
+\begin{sphinxadmonition}{note}{Remark 4.11}
+
+
+
+\sphinxAtStartPar
+Es gilt insbesondere, dass \(F^\ast v \in T_p^\ast\M\) für jedes \(v\in T_{F(p)}^\ast\mathcal{N}\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Dieses Konzept können wir nun auf Formen übertragen in dem wir eine neue Differentialform punktweise an \(p\) definieren am Punkt \(F(p)\). Konkret seien \(v_1,\ldots, v_k\in T_p\M\), dann definiere
+\begin{equation*}
+\begin{split}(F^\ast\omega)_p (v_1,\ldots,v_k) := \omega_F(p)\big(F_\ast(v_1),\ldots,F_\ast(v_k)\big).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Die so definierte Abbildung bildet tatsächlich zwischen den passenden Räumen ab
+\begin{equation*}
+\begin{split}F^\ast:\Omega^k(\mathcal{N})\to\Omega^k(\mathcal{M})\\
+\omega\mapsto \big[ p\mapsto (F^\ast\omega)_p \big].\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Zusätzlich erhält man folgende Eigenschaften.
+\label{manifolds/diffformen:lemma-15}
+\begin{sphinxadmonition}{note}{Lemma 4.19}
+
+
+
+\sphinxAtStartPar
+Es seien \(\M,\mathcal{N}\) glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann gilt,
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
 \sphinxAtStartPar
-Für \(\omega = \sum\omega_{i_1\ldots i_k}dx_{i_1}\wedge\ldots\wedge dx_{i_k}
-\in\Omega^k(U)\) ist\textbackslash{}
+\(F^\ast\) ist linear,
+
+\item {} 
+\sphinxAtStartPar
+\(F^\ast(\omega\wedge\eta) = F^\ast(\omega) \wedge F^\ast(\eta)\) für \(\omega,\eta\in\Omega^k(\mathcal{N})\).
+
+\item {} 
+\sphinxAtStartPar
+Für lokale Koordinaten Kovektorfelder \(dy^1,\ldots,dy^m\) und \(f\in C^\infty(\mathcal{N})\) gilt
 
 \end{enumerate}
 \begin{equation*}
-\begin{split}dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
-\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0,\end{split}
+\begin{split}F^\ast(f dy^{i_1}\wedge\ldots\wedge dy^{i_k}) = (f \circ F) d(y^{i_1}\circ F)\wedge\ldots\wedge d(y^{i_k}\circ F).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Für 1. und 2. siehe Hausaufgaben, Für 3. siehe {[}\hyperlink{cite.references:id15}{Lee03}{]} Lemma 14.16.
+\end{sphinxadmonition}
+
+
+\chapter{Maß\sphinxhyphen{} und Integrationstheorie}
+\label{\detokenize{masstheorie/intro_masstheorie:masz-und-integrationstheorie}}\label{\detokenize{masstheorie/intro_masstheorie::doc}}
+\sphinxAtStartPar
+Im ersten Semester haben wir bereits das \sphinxstyleemphasis{Riemann Integral} zur Berechnung des Flächeninhalts zwischen einer Funktion \(f \colon [a,b] \rightarrow \R\) und der x\sphinxhyphen{}Achse eingeführt (siehe Kapitel 7 in {[}\hyperlink{cite.references:id2}{Bur20}{]}).
+Die grundlegende Idee hierbei war es die x\sphinxhyphen{}Achse in (unterschiedlich große) Intervalle zu unterteilen und mittels dieser Zerlegung Rechtecke zwischen dem Graphen der Funktion und der x\sphinxhyphen{}Achse zu konstruieren.
+Durch das Produkt der Seitenlängen dieser Rechtecke lässt sich nämlich deren Flächeninhalt leicht berechnen und die Summe all dieser Flächeninhalte approximiert den wahren Flächeninhalt zwischen dem Graphen und \(f\) und der x\sphinxhyphen{}Achse.
+Dieses Vorgehen ist zur Erinnerung nochmal in Abbildung \hyperref[\detokenize{masstheorie/intro_masstheorie:fig-riemann-integral}]{Fig.\@ \ref{\detokenize{masstheorie/intro_masstheorie:fig-riemann-integral}}} illustriert.
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[height=300\sphinxpxdimen]{{ober_untersummen}.png}
+\caption{Illustration zweier Approximationen des Riemann Integrals einer Funktion durch den Flächeninhalt von Rechtecken. Die grünen und lila Rechtecke visualisieren die Unter\sphinxhyphen{} bzw. Obersummen bezüglich des in rot dargestellten Graphen der Funktion. Quelle: \sphinxhref{https://de.wikipedia.org/wiki/Riemannsches\_Integral}{Wikipedia; Riemannsches Integral}.}\label{\detokenize{masstheorie/intro_masstheorie:fig-riemann-integral}}\end{figure}
+
+\sphinxAtStartPar
+Da wir bisher nur die Integration von eindimensionalen Funktionen auf kompakten Intervallen kennengelernt haben, wollen wir in diesem Kapitel den Begriff des Integals auf mehrdimensionale Funktionen \(f \colon \R^n \rightarrow \R\) erweitern.
+Das Riemann Integral lässt sich problemlos auf mehrdimensionalen Funktionen verallgemeinern, indem man das Integral nicht durch den Flächeninhalt von Rechtecken approximiert, sondern hierfür das \sphinxstyleemphasis{Volumen von entsprechenden Quadern} \(Q \subset \R^n\) berechnet.
+Es lässt sich insbesondere zeigen, dass jede stetige mehrdimensionale Funktion auf einem (nicht\sphinxhyphen{}ausgeartetem) Quader Riemann integrierbar ist.
+
+\sphinxAtStartPar
+Es hat sich jedoch in der Entwicklung der Mathematik herausgestellt, dass der Begriff des Riemann Integrals zu starke Forderungen an die zu Grunde liegenden Funktionen stellt und damit wichtige und interessante Funktionsklassen nicht integrierbar waren.
+Als Beispiel hierfür seien \sphinxhref{https://de.wikipedia.org/wiki/Fraktal}{fraktale Mengen und Funktionen} genannt, welche auch zur Modellierung von Prozessen in der Natur genutzt werden.
+
+\sphinxAtStartPar
+Aus diesem Grund hat sich ein eigenes Feld innerhalb der modernen Analysis gebildet \sphinxhyphen{} die sogenannte \sphinxstylestrong{Maßtheorie}.
+Es widmet sich hauptsächlich der Untersuchung von Maßen zur Berechnung von Längen, Flächen und Volumina in unterschiedlichen mathematischen Strukturen und Räumen.
+Es wird klar, dass Integration und die Berechnung von Volumina eng miteinander zusammen hängen, denn ist \(A\subset\R^n\) eine (messbare) Teilmenge, dann ist ihr Maß gleich dem Integral ihrer charakteristischen Funktion, d.h.,
+\begin{equation*}
+\begin{split}\int_{\R^n} \mathbb{1}_A(x)\,\mathrm{d}x.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-denn gemäß Satz {\hyperref[\detokenize{vektoranalysis/diffformen:Antiderivation}]{\sphinxcrossref{Theorem 3.6}}} wird die äußere Ableitung auf die
-1\sphinxhyphen{}Formen \(d\omega_{i_1\ldots i_k}\) und \(dx_{i_l}\) angewandt, und nach Teil 1.
-ist das Ergebnis Null.
-\end{sphinxadmonition}
-\label{vektoranalysis/diffformen:geschlossen:exakt}
-\begin{sphinxadmonition}{note}{Definition 3.42}
+In einem gewissen Sinn sind Maße ein \sphinxstyleemphasis{fundamentaleres Konzept} als das der Integration, da sich jede Integration auf die Berechnung von Maßen stützt.
+
+\sphinxAtStartPar
+Eins der berühmtesten Beispiele zur Motivation der Maßtheorie ist im Folgenden erklärt.
+\label{masstheorie/intro_masstheorie:ex:dirichletFunktion}
+\begin{sphinxadmonition}{note}{Example 5.1 (Dirichlet\sphinxhyphen{}Funktion)}
 
 
 
 \sphinxAtStartPar
-Eine Differentialform \(v\in\Omega^*(U)\) heißt
+Wir betrachten das kompakte Intervall \([0,1] \subset \R\) und definieren hierauf die sogenannte \sphinxstylestrong{Dirichlet\sphinxhyphen{}Funktion} \(\mathbb{1}_\Q \colon [0,1] \rightarrow \{0,1\}\) mit
+\begin{equation*}
+\begin{split}\mathbb{1}_\Q(x) := \begin{cases} 1, \ \text{ falls } x \in \Q, \\ 0, \ \text{ sonst }.\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Diese Abbildung kann als \sphinxstyleemphasis{charakteristische Funktion} der rationalen Zahlen \(\Q\) aufgefasst werden.
+Man sieht leicht ein, dass diese Funktion \sphinxstylestrong{nicht Riemann\sphinxhyphen{}integrierbar} ist, da alle Untersummen stets \(0\) und alle Obersummen stets \(1\) sind.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Um eine Funktion wie die Dirichlet\sphinxhyphen{}Funktion in {\hyperref[\detokenize{masstheorie/intro_masstheorie:ex:dirichletFunktion}]{\sphinxcrossref{Example 5.1}}} zu integrieren sieht man zunächst ein, dass die rationalen Zahlen \(\Q\) in den reellen Zahlen \(\R\) als abzählbare Menge eine sogenannte \sphinxstyleemphasis{Nullmenge} im Sinne der Maßtheorie repräsentieren.
+Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einführen um diesen Umstand zu verstehen und einen verallgemeinerten Begriff des Integrals definieren, der diese Nullmenge berücksichtigt \sphinxhyphen{} das \sphinxstylestrong{Lebesgue Integral}.
+Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue\sphinxhyphen{}integrierbaren Funktionen eine Obermenge der Menge der Riemann\sphinxhyphen{}integrierbaren Funktionen ist.
+Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.
+
+
+\section{Maßtheorie}
+\label{\detokenize{masstheorie/masstheorie:masztheorie}}\label{\detokenize{masstheorie/masstheorie::doc}}
+\sphinxAtStartPar
+Ein \sphinxhref{https://de.wikipedia.org/wiki/Ma\%c3\%9f\_(Mathematik)}{\sphinxstylestrong{Maß}} \(\mu\) auf einer Menge \(M\) wie z.B. dem \(\R^n\)
+ordnet geeigneten Teilmengen \(A\subseteq M\)
+Zahlen
+\begin{equation*}
+\begin{split}\mu(A)\in[0,\infty]:=[0,\infty)\cup\{\infty\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+zu, eben das Maß von \(A\).
+
+
+\subsection{\protect\(\sigma\protect\)\sphinxhyphen{}Algebren und Maße}
+\label{\detokenize{masstheorie/masstheorie:sigma-algebren-und-masze}}
+\sphinxAtStartPar
+Ein Mengensystem ist eine Menge von Mengen. Wir nennen die Potenzmengen \(2^M \equiv\mathcal{P}(M)\) von \(M\) die Menge aller möglichen Teilmengen von \(M\). In der Maßtheorie sind Mengensysteme \(\mathcal{A} \subseteq \mathcal{P}(M)\) zentral, nämlich die der \sphinxstyleemphasis{meßbaren} Teilmengen von \(M\). Das sind die Mengen, denen ein Maß zugeordnet wird, also eine nicht negative Zahl oder Unendlich. Schauen wir uns also an, welche Eigenschaften ein Maß haben muss.
+
+\sphinxAtStartPar
+Zunächst müssen wir festlegen, welche Teilmengen der Grundmenge \(M\) überhaupt messbar sein sollen. Wir wählen also wie gesagt ein Mengensystem \(\mathcal{A} \subseteq \mathcal{P}(M)\) in der Potenzmenge von \(M\) aus.
+Am bequemsten wäre es, alles messen zu können, also \(\mathcal{A} = \mathcal{P}(M)\), aber das ist nicht immer möglich. Wir fordern, dass \(\mathcal{A}\) eine \(\sigma\)\sphinxhyphen{}Algebra ist.
+\label{masstheorie/masstheorie:def:sigmaalgebra}
+\begin{sphinxadmonition}{note}{Definition 5.1}
+
+
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-\sphinxstylestrong{geschlossen}, wenn \(dv=0\), *\sphinxstylestrong{exakt}, wenn \(v=d\psi\) für ein \(\psi\in\Omega^*(U)\) gilt.
-
-\end{itemize}
+\(\mathcal{A} \subseteq \mathcal{P}(M)\) heißt \sphinxstylestrong{\(\sigma\)\sphinxhyphen{}Algebra (von \(M\))}, wenn
 
 \sphinxAtStartPar
-Nach Satz {\hyperref[\detokenize{vektoranalysis/diffformen:thm:dd}]{\sphinxcrossref{Theorem 3.7}}} sind exakte Differentialformen geschlossen.\textbackslash{} Für \(k\)–Formen auf konvexen offenen Teimengen \(U\subseteq \R^n\) gilt für \(k\ge 1\)auch die Umkehrung (sog.
-\sphinxhref{https://de.wikipedia.org/wiki/Poincar\%c3\%a9-Lemma}{\sphinxstylestrong{Poincaré\sphinxhyphen{}Lemma}} ),  siehe Kapitel \sphinxcode{\sphinxupquote{sect:Poinca}}).
+a) \(M\in \mathcal{A}\)
+
+\sphinxAtStartPar
+b) \(A\in \mathcal{A}\) impliziert, dass \(A^c:=M\backslash A\in \mathcal{A}\)
+
+\sphinxAtStartPar
+c) \(A_n\in \mathcal{A}\ (n\in\N)\) impliziert, dass \(\bigcup_{n\in \N} A_n\in \mathcal{A}\).
+
+\item {} 
+\sphinxAtStartPar
+Für eine \(\sigma\)\sphinxhyphen{}Algebra \(\mathcal{A} \subseteq \mathcal{P}(M)\) von \(M\) heißt das Paar (\(M,\mathcal{A}\)) \sphinxstylestrong{Messraum}, und die Menge \(\mathcal{A}\) heißen \sphinxstyleemphasis{messbar}.
+
+\end{itemize}
 \end{sphinxadmonition}
 
+\sphinxAtStartPar
+Die kleinste \(\sigma\)\sphinxhyphen{}Algebra von \(M\) ist damit \{\textbackslash{}emptyset, M\}, die Größte \(\mathcal{P}(M)\).
+
+\sphinxAtStartPar
+Das Symbol \(\sigma\) soll an den Begriff der Summe erinnern, entsprechend der
+dritten Forderung in Def. \textbackslash{}ref\{def:sigmaalgebra\}, also der Stabilität unter abzählbarer Vereinigung.
+Sigma–Algebren sind offensichtlich auch unter dem Schnitt abzählbar vieler
+Mengenstabil \(A_n\in \mathcal{A}\ (n\in\N)\) impliziert, dass \(\bigcap_{n\in \N} A_n = \left(\bigcup_{n\in\N} A_n^c\right)^c\in \mathcal{A}\).
+\label{masstheorie/masstheorie:definition-1}
+\begin{sphinxadmonition}{note}{Definition 5.2}
+
+
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Für einen Messraum (\(M, \mathcal{A}\)) heißt eine Abbildung \(\mu: \mathcal{A}\to [0, \infty]\) \sphinxstylestrong{Maß}, wenn
+
+\sphinxAtStartPar
+a) \(\mu(\emptyset) = 0\)
+
+\sphinxAtStartPar
+b) Für disjunkte (das heißt \(A_m\cap A_n = \emptyset\ (m\neq n)\)) \(A_n\in \mathcal{A}\ (n\in\N)\) gilt: \(\mu\left( \bigcup_{n\in\N}A_n \right) = \sum_{n\in\N}\mu (A_n)\) \textbackslash{}quad (abzählbare oder \(\sigma\)\sphinxhyphen{}\sphinxstylestrong{Additivität}).
+
+\item {} 
+\sphinxAtStartPar
+Dann heißt das Tripel \((M, \mathcal{A}, \mu)\) \sphinxstylestrong{Maßraum}.
+
+\item {} 
+\sphinxAtStartPar
+Das Maß \(\mu\) heißt \sphinxstylestrong{endlich}, wenn \(\mu(M)<\infty\), und \sphinxstylestrong{Wahrscheinlichkeitsmaß}, wenn \(\mu(M)=1\).
+
+\end{itemize}
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:example-2}
+\begin{sphinxadmonition}{note}{Example 5.2}
+
+
+
+\sphinxAtStartPar
+Wichtige Maße sind z.B. die folgenden.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Das \sphinxhref{https://de.wikipedia.org/wiki/Z\%c3\%a4hlma\%c3\%9f\_(Ma\%c3\%9ftheorie)}{\sphinxstylestrong{Zählmaß}} \(m\) auf einer endlichen Menge \(M\), mit
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}m(A):=|A|\qquad (A\subseteq M).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Hier sind insbesondere alle Teilmengen messbar.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Das \sphinxstylestrong{Lebesgue–Maß} \(\lambda^n\) auf dem \(\R^n\), das wir bald kennen lernen, zeichnet sich dadurch aus, dass es einem verschobenen Körper das gleiche Volumen zuordnet wie dem unverschobenen, es also \sphinxstyleemphasis{translationsinvariant} ist, und der Einheitswürfel \([0,1]^n\) Maß \(1\) besitzt.
+
+\item {} 
+\sphinxAtStartPar
+Das \sphinxhref{https://de.wikipedia.org/wiki/Diracma\%c3\%9f}{\sphinxstylestrong{Dirac\sphinxhyphen{}Maß}} \(\delta_x\) ist im Punkt \(x\) des \(\R^n\) konzentriert, und für \(A\subset\R^n\) ist.
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}\delta_x(A)\equiv \int_A\delta_x := \begin{cases} 1, &  x \in A\\ 0, & \text{sonst.} \end{cases}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Dieses Maß ist also nicht translationsinvariant. Es wird beispielsweise in der Elektrodynamik benutzt, um eine bei \(x\) lokalisierte punktförmige Ladung zu beschreiben.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Wir wollen z.B. auch die Länge der Spur einer \sphinxstyleemphasis{Kurve} oder allgemeiner den Flächeninhalt einer \(d\)–dimensionalen Fläche im \(\R^n\) messen. Auch das dafür benutzte Maß \(\mu_d\) ist translations\sphinxhyphen{} und rotationsinvariant, es ordnet aber der \(d\)–dimensionalen Einheitsfläche \([0,1]^d\times\{0\} \subset\R^d\times\R^{n-d}=\R^n\) Maß 1 zu. Entsprechend hat aber für \(d<n\) der Einheitswürfel Maß \(\mu_d([0,1]^n)=\infty\).
+
+\item {} 
+\sphinxAtStartPar
+Man kann sogar sog. \sphinxhref{https://de.wikipedia.org/wiki/Hausdorff-Ma\%c3\%9f}{\sphinxstylestrong{Hausdorff\sphinxhyphen{}Maß}} \(\mu_d\) konstruieren, die Mengen beliebiger fraktaler Dimension \(d\in[0,n]\) messen. Genau genommen \sphinxstyleemphasis{definiert} man die Dimension der Menge \(A\subset \R^n\) durch \(d(A):=\inf\{d'>0\mid \mu_{d'}(A)=0\}.\)
+
+\item {} 
+\sphinxAtStartPar
+Im Zusammenhang mit dem sog. Feynmanschen \sphinxhref{https://de.wikipedia.org/wiki/Pfadintegral}{\sphinxstylestrong{Pfadintegral}} der Quantenmechanik wird auf dem unendlich\sphinxhyphen{}dimensionalen Raum \(M\) der Wege zwischen zwei Punkten des Konfigurationsraumes \(\R^d\) ein \sphinxhref{https://de.wikipedia.org/wiki/Wahrscheinlichkeitsma\%c3\%9f}{\sphinxstylestrong{Wahrscheinlichkeitsmaß}} (also ein Maß \(\mu\) auf \(M\) mit \(\mu (M)=1\)) definiert. Dabei erhalten Wege, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein großes Gewicht.
+
+\end{enumerate}
+\end{sphinxadmonition}
+
+
+\subsection{Borel\sphinxhyphen{}\protect\(\sigma\protect\)\sphinxhyphen{}Algebren und \sphinxhyphen{}Maße}
+\label{\detokenize{masstheorie/masstheorie:borel-sigma-algebren-und-masze}}\label{masstheorie/masstheorie:definition-3}
+\begin{sphinxadmonition}{note}{Definition 5.3 (Borel \protect\(\sigma\protect\)\sphinxhyphen{}Algebra)}
+
+
+
+\sphinxAtStartPar
+S. 106 und 119 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:definition-4}
+\begin{sphinxadmonition}{note}{Definition 5.4 (Lokale Endlichkeit von Maßen)}
+
+
+
+\sphinxAtStartPar
+Sei \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) ein Maß auf einem topologischem Raum \(\Omega\).
+Wir nennen das Maß \(\sigma\) \sphinxstylestrong{lokal endlich}, falls jeder Punkt \(x \in \Omega\) eine lokale Umgebung mit endlichem Maß besitzt.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Es ist klar, dass das Lebesgue\sphinxhyphen{}Maß auf dem Raum \(\R^n\) lokal endlich ist.
+\label{masstheorie/masstheorie:definition-5}
+\begin{sphinxadmonition}{note}{Definition 5.5 (Borel\sphinxhyphen{}Maß)}
+
+
+
+\sphinxAtStartPar
+Ein lokal endliches Maß \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) auf der Borelschen \(\sigma\)\sphinxhyphen{}Algebra eines topologischen Raums \(\Omega\) heißt Borel\sphinxhyphen{}Maß.
+\end{sphinxadmonition}
+
+
+\subsection{Riemann\sphinxhyphen{} und Lebesgue\sphinxhyphen{}messbare Mengen}
+\label{\detokenize{masstheorie/masstheorie:riemann-und-lebesgue-messbare-mengen}}\label{masstheorie/masstheorie:definition-6}
+\begin{sphinxadmonition}{note}{Definition 5.6 (Mehrdimensionale Quader)}
+
+
+
+\sphinxAtStartPar
+Seien \(a = (a_1,\ldots,a_n) \in \R^n\) und \(b = (b_1,\ldots,b_n) \in \R^n\) zwei Punkte im \textbackslash{}R\textasciicircum{}n.
+Wir definieren zunächst folgende Anordnungsrelation mit
+\begin{equation*}
+\begin{split}a < b \qquad \Leftrightarrow \qquad a_i < b_i \quad i=1,\ldots,n.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Analog können wir die Anordnungsrelationen \(a \leq b, a > b\) und \(a \geq b\) definieren und darüber im Folgenden \sphinxstylestrong{offene, halboffene} und \sphinxstylestrong{abgeschlossene Quader} im \(\R^n\) respektive beschreiben durch
+\begin{equation*}
+\begin{split}(a,b) = \lbrace x \in \R^n : a < x < b \rbrace,\\
+(a,b] = \lbrace x \in \R^n : a < x \leq b \rbrace,\\
+[a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{masstheorie/masstheorie:definition-7}
+\begin{sphinxadmonition}{note}{Definition 5.7 (Mehrdimensionale Treppenfunktion)}
+
+
+
+\sphinxAtStartPar
+Wir nennen eine Funktion \(f \colon \R^n \rightarrow \C\) \sphinxstylestrong{Treppenfunktion}, falls es paarweise disjunkte Quader \(Q_1, \ldots, Q_k \subset \R^n\) gibt, so dass die folgenden Eigenschaften gelten:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Die Funktion \(f\) ist konstant auf jedem der Quader, d.h.,
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Die Funktion ist überall Null außerhalb der Quader, d.h.,
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Illustration hier von Quadern und Treppenfunktionen!
+\label{masstheorie/masstheorie:definition-8}
+\begin{sphinxadmonition}{note}{Definition 5.8 (Ring)}
+
+
+
+\sphinxAtStartPar
+Ein Mengensystem \(\mathcal{R} \subset \mathcal{P}(\Omega)\) heißt \sphinxstylestrong{Ring} auf einer Menge \(\Omega\), falls die folgenden Eigenschaften erfüllt sind:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\(\emptyset \in \mathcal{R}\)
+
+\item {} 
+\sphinxAtStartPar
+\$A,B \textbackslash{}in \textbackslash{}mathcal\{R\} \textbackslash{}Rightarrow (A \textbackslash{}setminus B) \textbackslash{}in \textbackslash{}mathcal\{R\}
+
+\item {} 
+\sphinxAtStartPar
+\$A,B \textbackslash{}in \textbackslash{}mathcal\{R\} \textbackslash{}Rightarrow (A \textbackslash{}cup B) \textbackslash{}in \textbackslash{}mathcal\{R\}
+
+\end{enumerate}
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:lemma-9}
+\begin{sphinxadmonition}{note}{Lemma 5.1 (Der von halboffenen Quadern erzeugte Ring)}
+
+
+
+\sphinxAtStartPar
+S. 79 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:remark-10}
+\begin{sphinxadmonition}{note}{Remark 5.1 (Riemann\sphinxhyphen{}messbare Mengen)}
+
+
+
+\sphinxAtStartPar
+S. 78 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:example-11}
+\begin{sphinxadmonition}{note}{Example 5.3 (Riemann\sphinxhyphen{}Messbarkeit)}
+
+
+
+\sphinxAtStartPar
+Ein Beispiel messbar, eins nicht.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Verglichen mit der Reichhaltigkeit der Potenzmenge \(\mathcal{P}(\Omega)\) sind nur relativ wenige Mengen Riemann\sphinxhyphen{}messbar.
+\label{masstheorie/masstheorie:definition-12}
+\begin{sphinxadmonition}{note}{Definition 5.9 (Äußeres Lebesguesches Maß)}
+
+
+
+\sphinxAtStartPar
+S. 78 u. 89 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:theorem-13}
+\begin{sphinxadmonition}{note}{Theorem 5.1 (Eigenschaften des Lebesgue Maßes)}
+
+
+
+\sphinxAtStartPar
+S. 89 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:definition-14}
+\begin{sphinxadmonition}{note}{Definition 5.10 (Lebesgue\sphinxhyphen{}messbare Mengen)}
+
+
+
+\sphinxAtStartPar
+S. 92 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:example-15}
+\begin{sphinxadmonition}{note}{Example 5.4 (Lebesgue\sphinxhyphen{}messbare Mengen)}
+
+
+
+\sphinxAtStartPar
+S. 92 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:definition-16}
+\begin{sphinxadmonition}{note}{Definition 5.11 (Lebesgue\sphinxhyphen{}Nullmengen)}
+
+
+
+\sphinxAtStartPar
+S. 98 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:lemma-17}
+\begin{sphinxadmonition}{note}{Lemma 5.2 (Eigenschaften von Lebesgue\sphinxhyphen{}Nullmengen)}
+
+
+
+\sphinxAtStartPar
+S. 98 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:theorem-18}
+\begin{sphinxadmonition}{note}{Theorem 5.2 (Lebesgue\sphinxhyphen{}Messbarkeit von Teilmengen im \protect\(\R^n\protect\))}
+
+
+
+\sphinxAtStartPar
+Sowohl offene als auch abgeschlossene Teilmengen des \(\R^n\) sind Lebesgue\sphinxhyphen{}messbar.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. S. 99 Schulz\sphinxhyphen{}Baldes
+\end{sphinxadmonition}
+
+
+\section{Lebesgue\sphinxhyphen{}Integral}
+\label{\detokenize{masstheorie/lebesgue_integral:lebesgue-integral}}\label{\detokenize{masstheorie/lebesgue_integral::doc}}
+\sphinxAtStartPar
+S.121ff. Schulz\sphinxhyphen{}Baldes
+
+
+\section{Integrationstechniken}
+\label{\detokenize{masstheorie/integrationstechnik:integrationstechniken}}\label{\detokenize{masstheorie/integrationstechnik::doc}}
+
+\subsection{Satz von Fubini}
+\label{\detokenize{masstheorie/integrationstechnik:satz-von-fubini}}
+
+\subsection{Satz von Cavalieri}
+\label{\detokenize{masstheorie/integrationstechnik:satz-von-cavalieri}}
 
 \chapter{Bibliography}
 \label{\detokenize{references:bibliography}}\label{\detokenize{references::doc}}
@@ -6141,12 +6823,6 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \renewcommand{\indexname}{Proof Index}
 \begin{sphinxtheindex}
 \let\bigletter\sphinxstyleindexlettergroup
-\bigletter{Antiderivation}
-\item\relax\sphinxstyleindexentry{Antiderivation}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{Antiderivation}}
-\indexspace
-\bigletter{aeussere Ableitung}
-\item\relax\sphinxstyleindexentry{aeussere Ableitung}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{aeussere Ableitung}}
-\indexspace
 \bigletter{cor:eindeutigkeitlinear}
 \item\relax\sphinxstyleindexentry{cor:eindeutigkeitlinear}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{cor:eindeutigkeitlinear}}
 \indexspace
@@ -6159,11 +6835,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{cor:tensorenLinearformen}
 \item\relax\sphinxstyleindexentry{cor:tensorenLinearformen}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{cor:tensorenLinearformen}}
 \indexspace
-\bigletter{corollary\sphinxhyphen{}55}
-\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}55}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{corollary-55}}
+\bigletter{cor:tensorfieldchart}
+\item\relax\sphinxstyleindexentry{cor:tensorfieldchart}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{cor:tensorfieldchart}}
 \indexspace
-\bigletter{corollary\sphinxhyphen{}57}
-\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}57}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{corollary-57}}
+\bigletter{corollary\sphinxhyphen{}44}
+\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}44}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{corollary-44}}
 \indexspace
 \bigletter{corollary\sphinxhyphen{}6}
 \item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}6}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{corollary-6}}
@@ -6193,13 +6869,16 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{def:anfangswertproblem}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:anfangswertproblem}}
 \indexspace
 \bigletter{def:direcdiv}
-\item\relax\sphinxstyleindexentry{def:direcdiv}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{def:direcdiv}}
+\item\relax\sphinxstyleindexentry{def:direcdiv}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{def:direcdiv}}
 \indexspace
 \bigletter{def:fermionischeProjektion}
 \item\relax\sphinxstyleindexentry{def:fermionischeProjektion}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{def:fermionischeProjektion}}
 \indexspace
 \bigletter{def:gemischteTensoren}
 \item\relax\sphinxstyleindexentry{def:gemischteTensoren}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{def:gemischteTensoren}}
+\indexspace
+\bigletter{def:geschlossenexakt}
+\item\relax\sphinxstyleindexentry{def:geschlossenexakt}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{def:geschlossenexakt}}
 \indexspace
 \bigletter{def:hamiltonsch}
 \item\relax\sphinxstyleindexentry{def:hamiltonsch}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{def:hamiltonsch}}
@@ -6210,11 +6889,14 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{def:multilinear}
 \item\relax\sphinxstyleindexentry{def:multilinear}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{def:multilinear}}
 \indexspace
+\bigletter{def:sigmaalgebra}
+\item\relax\sphinxstyleindexentry{def:sigmaalgebra}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{def:sigmaalgebra}}
+\indexspace
 \bigletter{def:signumPermutation}
 \item\relax\sphinxstyleindexentry{def:signumPermutation}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{def:signumPermutation}}
 \indexspace
 \bigletter{def:stetigkeitTopologie}
-\item\relax\sphinxstyleindexentry{def:stetigkeitTopologie}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{def:stetigkeitTopologie}}
+\item\relax\sphinxstyleindexentry{def:stetigkeitTopologie}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{def:stetigkeitTopologie}}
 \indexspace
 \bigletter{def:symmetrieTensor}
 \item\relax\sphinxstyleindexentry{def:symmetrieTensor}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{def:symmetrieTensor}}
@@ -6225,110 +6907,107 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{def:topologischerDualraum}
 \item\relax\sphinxstyleindexentry{def:topologischerDualraum}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{def:topologischerDualraum}}
 \indexspace
+\bigletter{def:totdiff}
+\item\relax\sphinxstyleindexentry{def:totdiff}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{def:totdiff}}
+\indexspace
+\bigletter{def:wirkung}
+\item\relax\sphinxstyleindexentry{def:wirkung}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{def:wirkung}}
+\indexspace
 \bigletter{definition\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-0}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-0}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}1}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-1}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}10}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}10}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-10}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}10}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-10}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}11}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}11}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-11}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}11}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-11}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}12}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}12}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-12}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}12}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-12}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}13}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}13}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-13}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}13}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-13}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}14}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}14}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-14}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}14}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-14}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}18}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}18}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-18}}
+\bigletter{definition\sphinxhyphen{}15}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}15}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-15}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}16}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}16}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-16}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{definition-2}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{definition-2}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}20}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}20}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-20}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}22}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}22}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-22}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}22}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-22}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}25}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}25}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-25}}
+\bigletter{definition\sphinxhyphen{}24}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}24}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-24}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}29}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}29}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-29}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}29}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-29}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-3}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-3}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}30}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}30}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-30}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}32}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}32}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-32}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}32}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-32}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}34}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}34}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-34}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}34}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-34}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}37}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}37}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-37}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}37}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-37}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}39}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}39}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-39}}
+\bigletter{definition\sphinxhyphen{}38}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}38}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-38}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{definition-4}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-4}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}41}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}41}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-41}}
+\bigletter{definition\sphinxhyphen{}43}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}43}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-43}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}46}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}46}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-46}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}47}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}47}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-47}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}48}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}48}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-48}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}49}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}49}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-49}}
+\bigletter{definition\sphinxhyphen{}45}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}45}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-45}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}5}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-5}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}51}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}51}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-51}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}54}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}54}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-54}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}56}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}56}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-56}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}59}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}59}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-59}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-5}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}6}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-6}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}61}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}61}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-61}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}6}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-6}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}7}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-7}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-7}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}8}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-8}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-8}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{definition-9}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}9}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-9}}
 \indexspace
 \bigletter{ex:10.14}
-\item\relax\sphinxstyleindexentry{ex:10.14}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{ex:10.14}}
+\item\relax\sphinxstyleindexentry{ex:10.14}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{ex:10.14}}
 \indexspace
 \bigletter{ex:bacteria}
 \item\relax\sphinxstyleindexentry{ex:bacteria}\sphinxstyleindexextra{ode/dynamicSystems}\sphinxstyleindexpageref{ode/dynamicSystems:\detokenize{ex:bacteria}}
 \indexspace
+\bigletter{ex:dirichletFunktion}
+\item\relax\sphinxstyleindexentry{ex:dirichletFunktion}\sphinxstyleindexextra{masstheorie/intro\_masstheorie}\sphinxstyleindexpageref{masstheorie/intro_masstheorie:\detokenize{ex:dirichletFunktion}}
+\indexspace
 \bigletter{ex:diskreteTopologie}
-\item\relax\sphinxstyleindexentry{ex:diskreteTopologie}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{ex:diskreteTopologie}}
+\item\relax\sphinxstyleindexentry{ex:diskreteTopologie}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{ex:diskreteTopologie}}
 \indexspace
 \bigletter{ex:freefall}
 \item\relax\sphinxstyleindexentry{ex:freefall}\sphinxstyleindexextra{ode/dynamicSystems}\sphinxstyleindexpageref{ode/dynamicSystems:\detokenize{ex:freefall}}
@@ -6337,34 +7016,40 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{ex:multilinear}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{ex:multilinear}}
 \indexspace
 \bigletter{ex:nonho}
-\item\relax\sphinxstyleindexentry{ex:nonho}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{ex:nonho}}
+\item\relax\sphinxstyleindexentry{ex:nonho}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{ex:nonho}}
 \indexspace
 \bigletter{ex:oscillations}
 \item\relax\sphinxstyleindexentry{ex:oscillations}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{ex:oscillations}}
 \indexspace
 \bigletter{ex:tangentialS1}
-\item\relax\sphinxstyleindexentry{ex:tangentialS1}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{ex:tangentialS1}}
+\item\relax\sphinxstyleindexentry{ex:tangentialS1}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{ex:tangentialS1}}
 \indexspace
 \bigletter{ex:tensorproduktVarianten}
 \item\relax\sphinxstyleindexentry{ex:tensorproduktVarianten}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{ex:tensorproduktVarianten}}
 \indexspace
+\bigletter{ex:totdiff}
+\item\relax\sphinxstyleindexentry{ex:totdiff}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{ex:totdiff}}
+\indexspace
 \bigletter{ex:universelleEigenschaft}
 \item\relax\sphinxstyleindexentry{ex:universelleEigenschaft}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{ex:universelleEigenschaft}}
+\indexspace
+\bigletter{example\sphinxhyphen{}0}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{example-0}}
 \indexspace
 \bigletter{example\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{example-1}}
 \indexspace
+\bigletter{example\sphinxhyphen{}11}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}11}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{example-11}}
+\indexspace
 \bigletter{example\sphinxhyphen{}12}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}12}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-12}}
 \indexspace
-\bigletter{example\sphinxhyphen{}17}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}17}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{example-17}}
-\indexspace
-\bigletter{example\sphinxhyphen{}19}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}19}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{example-19}}
+\bigletter{example\sphinxhyphen{}15}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}15}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{example-15}}
 \indexspace
 \bigletter{example\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-2}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{example-2}}
 \indexspace
 \bigletter{example\sphinxhyphen{}21}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}21}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-21}}
@@ -6378,6 +7063,9 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{example\sphinxhyphen{}24}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}24}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-24}}
 \indexspace
+\bigletter{example\sphinxhyphen{}26}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}26}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{example-26}}
+\indexspace
 \bigletter{example\sphinxhyphen{}27}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}27}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-27}}
 \indexspace
@@ -6387,14 +7075,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{example\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{example-3}}
 \indexspace
-\bigletter{example\sphinxhyphen{}38}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}38}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{example-38}}
-\indexspace
 \bigletter{example\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{example-4}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{example-4}}
 \indexspace
-\bigletter{example\sphinxhyphen{}43}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}43}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{example-43}}
+\bigletter{example\sphinxhyphen{}40}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}40}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{example-40}}
 \indexspace
 \bigletter{example\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}5}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-5}}
@@ -6411,17 +7096,17 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{example\sphinxhyphen{}9}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-9}}
 \indexspace
-\bigletter{geschlossen:exakt}
-\item\relax\sphinxstyleindexentry{geschlossen:exakt}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{geschlossen:exakt}}
-\indexspace
 \bigletter{lem:LISO}
 \item\relax\sphinxstyleindexentry{lem:LISO}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:LISO}}
 \indexspace
 \bigletter{lem:constder}
-\item\relax\sphinxstyleindexentry{lem:constder}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lem:constder}}
+\item\relax\sphinxstyleindexentry{lem:constder}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:constder}}
+\indexspace
+\bigletter{lem:coordcovec}
+\item\relax\sphinxstyleindexentry{lem:coordcovec}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:coordcovec}}
 \indexspace
 \bigletter{lem:differenzierbarkeitKartenunabhaengig}
-\item\relax\sphinxstyleindexentry{lem:differenzierbarkeitKartenunabhaengig}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lem:differenzierbarkeitKartenunabhaengig}}
+\item\relax\sphinxstyleindexentry{lem:differenzierbarkeitKartenunabhaengig}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{lem:differenzierbarkeitKartenunabhaengig}}
 \indexspace
 \bigletter{lem:dualeBasis}
 \item\relax\sphinxstyleindexentry{lem:dualeBasis}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lem:dualeBasis}}
@@ -6436,7 +7121,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{lem:isomorphismusTensorproduktraum}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:isomorphismusTensorproduktraum}}
 \indexspace
 \bigletter{lem:localsections}
-\item\relax\sphinxstyleindexentry{lem:localsections}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lem:localsections}}
+\item\relax\sphinxstyleindexentry{lem:localsections}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:localsections}}
 \indexspace
 \bigletter{lem:mpotew}
 \item\relax\sphinxstyleindexentry{lem:mpotew}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{lem:mpotew}}
@@ -6444,53 +7129,62 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{lem:natISO}
 \item\relax\sphinxstyleindexentry{lem:natISO}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:natISO}}
 \indexspace
+\bigletter{lem:outeprop}
+\item\relax\sphinxstyleindexentry{lem:outeprop}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{lem:outeprop}}
+\indexspace
 \bigletter{lem:partderkron}
-\item\relax\sphinxstyleindexentry{lem:partderkron}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lem:partderkron}}
+\item\relax\sphinxstyleindexentry{lem:partderkron}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:partderkron}}
+\indexspace
+\bigletter{lem:tanbundle}
+\item\relax\sphinxstyleindexentry{lem:tanbundle}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:tanbundle}}
 \indexspace
 \bigletter{lem:tanman}
-\item\relax\sphinxstyleindexentry{lem:tanman}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lem:tanman}}
+\item\relax\sphinxstyleindexentry{lem:tanman}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:tanman}}
 \indexspace
 \bigletter{lem:tensorStufe}
 \item\relax\sphinxstyleindexentry{lem:tensorStufe}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:tensorStufe}}
 \indexspace
 \bigletter{lem:tensorbundle}
-\item\relax\sphinxstyleindexentry{lem:tensorbundle}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lem:tensorbundle}}
+\item\relax\sphinxstyleindexentry{lem:tensorbundle}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:tensorbundle}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}1}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}1}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{lemma-1}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}11}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}11}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{lemma-11}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}15}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}15}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lemma-15}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}15}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{lemma-15}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}24}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}24}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lemma-24}}
+\bigletter{lemma\sphinxhyphen{}17}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}17}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-17}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}26}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}26}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lemma-26}}
+\bigletter{lemma\sphinxhyphen{}18}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}18}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-18}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}3}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{lemma-3}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}3}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{lemma-3}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}30}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}30}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lemma-30}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}35}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}35}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lemma-35}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}35}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lemma-35}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}36}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}36}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-36}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}4}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}4}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-4}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}45}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}45}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lemma-45}}
+\bigletter{lemma\sphinxhyphen{}47}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}47}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-47}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}52}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}52}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lemma-52}}
-\indexspace
-\bigletter{lemma\sphinxhyphen{}58}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}58}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lemma-58}}
-\indexspace
-\bigletter{lemma\sphinxhyphen{}60}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}60}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{lemma-60}}
+\bigletter{lemma\sphinxhyphen{}7}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}7}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-7}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-9}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-9}}
 \indexspace
 \bigletter{lemma:Gronwall}
 \item\relax\sphinxstyleindexentry{lemma:Gronwall}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lemma:Gronwall}}
@@ -6505,7 +7199,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{rem:matrixexponentialregeln}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{rem:matrixexponentialregeln}}
 \indexspace
 \bigletter{rem:tang}
-\item\relax\sphinxstyleindexentry{rem:tang}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{rem:tang}}
+\item\relax\sphinxstyleindexentry{rem:tang}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{rem:tang}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}0}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}0}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-0}}
@@ -6513,26 +7207,32 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{remark\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-1}}
 \indexspace
+\bigletter{remark\sphinxhyphen{}10}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}10}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-10}}
+\indexspace
 \bigletter{remark\sphinxhyphen{}11}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}11}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-11}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}12}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}12}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{remark-12}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}12}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-12}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}14}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}14}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-14}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}16}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}16}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-16}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}16}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{remark-16}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{remark-2}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{remark-2}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}20}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}20}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-20}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}23}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}23}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{remark-23}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}23}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{remark-23}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}25}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}25}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{remark-25}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}26}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}26}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-26}}
@@ -6540,8 +7240,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{remark\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}3}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-3}}
 \indexspace
-\bigletter{remark\sphinxhyphen{}33}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}33}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{remark-33}}
+\bigletter{remark\sphinxhyphen{}32}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}32}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-32}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}35}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}35}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{remark-35}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}36}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}36}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-36}}
@@ -6552,29 +7255,29 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{remark\sphinxhyphen{}4}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}4}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-4}}
 \indexspace
-\bigletter{remark\sphinxhyphen{}40}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}40}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{remark-40}}
-\indexspace
-\bigletter{remark\sphinxhyphen{}42}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}42}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{remark-42}}
-\indexspace
 \bigletter{remark\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-6}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{remark-6}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}7}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}7}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-7}}
 \indexspace
+\bigletter{remark\sphinxhyphen{}9}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}9}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{remark-9}}
+\indexspace
 \bigletter{satz:picardlindeloef}
 \item\relax\sphinxstyleindexentry{satz:picardlindeloef}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}28}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}28}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{theorem-28}}
+\bigletter{theorem\sphinxhyphen{}11}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}11}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{theorem-11}}
+\indexspace
+\bigletter{theorem\sphinxhyphen{}13}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}13}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{theorem-13}}
+\indexspace
+\bigletter{theorem\sphinxhyphen{}18}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}18}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{theorem-18}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}37}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}37}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{theorem-37}}
-\indexspace
-\bigletter{thm:dd}
-\item\relax\sphinxstyleindexentry{thm:dd}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{thm:dd}}
 \indexspace
 \bigletter{thm:existenzTensorprodukt}
 \item\relax\sphinxstyleindexentry{thm:existenzTensorprodukt}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{thm:existenzTensorprodukt}}
@@ -6598,7 +7301,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{thm:stablyaplinear}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{thm:stablyaplinear}}
 \indexspace
 \bigletter{thm:tanbasis}
-\item\relax\sphinxstyleindexentry{thm:tanbasis}\sphinxstyleindexextra{vektoranalysis/diffformen}\sphinxstyleindexpageref{vektoranalysis/diffformen:\detokenize{thm:tanbasis}}
+\item\relax\sphinxstyleindexentry{thm:tanbasis}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{thm:tanbasis}}
 \end{sphinxtheindex}
 
 \renewcommand{\indexname}{Index}

@@ -6,7 +6,7 @@ Die grundlegende Idee hierbei war es die x-Achse in (unterschiedlich große) Int
 Durch das Produkt der Seitenlängen dieser Rechtecke lässt sich nämlich deren Flächeninhalt leicht berechnen und die Summe all dieser Flächeninhalte approximiert den wahren Flächeninhalt zwischen dem Graphen und $f$ und der x-Achse.
 Dieses Vorgehen ist zur Erinnerung nochmal in Abbildung {numref}`fig:riemann_integral` illustriert.
 
-```{figure} ../img/ober_untersummen.svg
+```{figure} ../img/ober_untersummen.png
 ---
 height: 300px
 name: "fig:riemann_integral"
