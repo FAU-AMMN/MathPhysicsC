@@ -185,9 +185,11 @@ for i, m in enumerate(m_chapters):
             chapter_name = chapter_name.group(1)
 
     if not chapter_name is None:
-        with open(path+"chapters\\" + chapter_name + extension, "w") as text_file:
+        chn = re.sub(r' ',r'', chapter_name, flags = re.M)
+        chn = re.sub(r'ß',r'ss', chn, flags = re.M)
+        with open(path+"chapters\\" + chn + extension, "w") as text_file:
             text_file.write(m)
-            chapters.append(chapter_name)
+            chapters.append(chn)
 
 content_main = re.search(r'((.|\n)*?)\\begin\{document\}', content_new, flags = re.M)
 with open(path+file_name+"_clean"+extension, "w") as text_file:    

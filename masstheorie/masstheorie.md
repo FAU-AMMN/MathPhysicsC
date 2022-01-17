@@ -45,7 +45,7 @@ Die kleinste $\sigma$-Algebra von $M$ ist damit $\{\emptyset, \Omega\}$, die Gr�
 
 Das Symbol $\sigma$ soll an den Begriff der Summe erinnern, entsprechend der
 dritten Forderung in Def. \ref{def:sigmaalgebra}, also der Stabilität unter abzählbarer Vereinigung.
-Sigma–Algebren sind offensichtlich auch unter dem Schnitt abz ̈ahlbar vieler
+Sigma–Algebren sind offensichtlich auch unter dem Schnitt abzählbar vieler
 Mengenstabil $A_n\in \mathcal{A}\ (n\in\N)$ impliziert, dass $\bigcap_{n\in \N} A_n = \left(\bigcup_{n\in\N} A_n^c\right)^c\in \mathcal{A}$.
 
 ````{prf:definition}
@@ -59,7 +59,6 @@ Mengenstabil $A_n\in \mathcal{A}\ (n\in\N)$ impliziert, dass $\bigcap_{n\in \N} 
 
 * Das Maß $\mu$ heißt **endlich**, wenn $\mu(M)<\infty$, und **Wahrscheinlichkeitsmaß**, wenn $\mu(M)=1$.
 ````
-
 
 ````{prf:example}
 Wichtige Maße sind z.B. die folgenden.
