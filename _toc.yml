@@ -26,4 +26,6 @@ chapters:
 - file: masstheorie/intro_masstheorie.md
   sections:
   - file: masstheorie/masstheorie.md
+  - file: masstheorie/lebesgue_integral.md
+  - file: masstheorie/integrationstechnik.md
 - file: references

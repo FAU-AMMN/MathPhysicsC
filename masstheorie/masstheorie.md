@@ -8,11 +8,9 @@ Zahlen
 ```
 zu, eben das Maß von $A$.
 
-## Mengensysteme
+## $\sigma$-Algebren und Maße
 
 Ein Mengensystem ist eine Menge von Mengen. Wir nennen die Potenzmengen $2^M \equiv\mathcal{P}(M)$ von $M$ die Menge aller möglichen Teilmengen von $M$. In der Maßtheorie sind Mengensysteme $\mathcal{A} \subseteq \mathcal{P}(M)$ zentral, nämlich die der *meßbaren* Teilmengen von $M$. Das sind die Mengen, denen ein Maß zugeordnet wird, also eine nicht negative Zahl oder Unendlich. Schauen wir uns also an, welche Eigenschaften ein Maß haben muss.
-
-### $\sigma$-Algebren und Maße
 
 Zunächst müssen wir festlegen, welche Teilmengen der Grundmenge $M$ überhaupt messbar sein sollen. Wir wählen also wie gesagt ein Mengensystem $\mathcal{A} \subseteq \mathcal{P}(M)$ in der Potenzmenge von $M$ aus.
 Am bequemsten wäre es, alles messen zu können, also $\mathcal{A} = \mathcal{P}(M)$, aber das ist nicht immer möglich. Wir fordern, dass $\mathcal{A}$ eine $\sigma$-Algebra ist.
@@ -73,4 +71,83 @@ Dieses Maß ist also nicht translationsinvariant. Es wird beispielsweise in der 
 5. Man kann sogar sog. [**Hausdorff-Maß**](https://de.wikipedia.org/wiki/Hausdorff-Ma%c3%9f) $\mu_d$ konstruieren, die Mengen beliebiger fraktaler Dimension $d\in[0,n]$ messen. Genau genommen *definiert* man die Dimension der Menge $A\subset \R^n$ durch $d(A):=\inf\{d'>0\mid \mu_{d'}(A)=0\}.$
 
 6. Im Zusammenhang mit dem sog. Feynmanschen [**Pfadintegral**](https://de.wikipedia.org/wiki/Pfadintegral) der Quantenmechanik wird auf dem unendlich-dimensionalen Raum $M$ der Wege zwischen zwei Punkten des Konfigurationsraumes $\R^d$ ein [**Wahrscheinlichkeitsmaß**](https://de.wikipedia.org/wiki/Wahrscheinlichkeitsma%c3%9f) (also ein Maß $\mu$ auf $M$ mit $\mu (M)=1$) definiert. Dabei erhalten Wege, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein großes Gewicht.
+````
+
+## Borel-$\sigma$-Algebren und -Maße
+
+````{prf:definition} Borel $\sigma$-Algebra
+S. 106 und 119 Schulz-Baldes
+````
+
+````{prf:definition} Lokale Endlichkeit von Maßen
+Sei $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ ein Maß auf einem topologischem Raum $\Omega$.
+Wir nennen das Maß $\sigma$ **lokal endlich**, falls jeder Punkt $x \in \Omega$ eine lokale Umgebung mit endlichem Maß besitzt.
+````
+
+Es ist klar, dass das Lebesgue-Maß auf dem Raum $\R^n$ lokal endlich ist.
+
+````{prf:definition} Borel-Maß
+Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf der Borelschen $\sigma$-Algebra eines topologischen Raums $\Omega$ heißt Borel-Maß.
+````
+
+## Riemann- und Lebesgue-messbare Mengen
+
+````{prf:definition} Mehrdimensionale Quader
+
+S. 77 Schulz-Baldes
+S. 36 Knauf
+````
+
+````{prf:definition} Ring
+Ein Mengensystem $\mathcal{R} \subset \mathcal{P}(\Omega)$ heißt **Ring** auf einer Menge $\Omega$, falls die folgenden Eigenschaften erfüllt sind:
+
+1. $\emptyset \in \mathcal{R}$
+2. $A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}
+3. $A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}
+````
+
+````{prf:lemma} Der von halboffenen Quadern erzeugte Ring
+S. 79 Schulz-Baldes
+````
+
+
+````{prf:remark} Riemann-messbare Mengen
+S. 78 Schulz-Baldes
+````
+
+````{prf:example} Riemann-Messbarkeit
+Ein Beispiel messbar, eins nicht.
+````
+
+Verglichen mit der Reichhaltigkeit der Potenzmenge $\mathcal{P}(\Omega)$ sind nur relativ wenige Mengen Riemann-messbar.
+
+````{prf:definition} Äußeres Lebesguesches Maß
+S. 78 u. 89 Schulz-Baldes
+````
+
+````{prf:theorem} Eigenschaften des Lebesgue Maßes
+S. 89 Schulz-Baldes
+````
+
+````{prf:definition} Lebesgue-messbare Mengen
+S. 92 Schulz-Baldes
+````
+
+````{prf:example} Lebesgue-messbare Mengen
+S. 92 Schulz-Baldes
+````
+
+````{prf:definition} Lebesgue-Nullmengen
+S. 98 Schulz-Baldes
+````
+
+````{prf:lemma} Eigenschaften von Lebesgue-Nullmengen
+S. 98 Schulz-Baldes
+````
+
+````{prf:theorem} Lebesgue-Messbarkeit von Teilmengen im $\R^n$
+Sowohl offene als auch abgeschlossene Teilmengen des $\R^n$ sind Lebesgue-messbar.
+````
+````{prf:proof}
+S. 99 Schulz-Baldes
 ````
