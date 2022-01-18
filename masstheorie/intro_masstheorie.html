@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Vektoranalysis &#8212; Mathematik für Physikstudierende C</title>
+    <title>5. Maß- und Integrationstheorie &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.1. Multilinearformen" href="multilinear.html" />
-    <link rel="prev" title="2.2. Stabilität von Ruhelagen" href="../odestability/ruhelagen.html" />
+    <link rel="next" title="5.1. Maßtheorie" href="masstheorie.html" />
+    <link rel="prev" title="4.3. Differentialformen auf Mannigfaltigkeiten" href="../manifolds/diffformen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -158,23 +158,23 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vektoranalysis/vektoranalysis.html">
    3. Vektoranalysis
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="multilinear.html">
+    <a class="reference internal" href="../vektoranalysis/multilinear.html">
      3.1. Multilinearformen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tensor.html">
+    <a class="reference internal" href="../vektoranalysis/tensor.html">
      3.2. Tensoren und Tensorprodukte
     </a>
    </li>
@@ -207,28 +207,28 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../masstheorie/intro_masstheorie.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    5. Maß- und Integrationstheorie
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../masstheorie/masstheorie.html">
+    <a class="reference internal" href="masstheorie.html">
      5.1. Maßtheorie
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../masstheorie/lebesgue_integral.html">
+    <a class="reference internal" href="lebesgue_integral.html">
      5.2. Lebesgue-Integral
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../masstheorie/integrationstechnik.html">
+    <a class="reference internal" href="integrationstechnik.html">
      5.3. Integrationstechniken
     </a>
    </li>
@@ -280,7 +280,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/vektoranalysis/vektoranalysis.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/masstheorie/intro_masstheorie.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -326,14 +326,41 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="vektoranalysis">
-<h1><span class="section-number">3. </span>Vektoranalysis<a class="headerlink" href="#vektoranalysis" title="Permalink to this headline">¶</a></h1>
-<p>In diesem Kapitel der Vorlesung führen wir wichtige Konzepte der <em>Vektoranalysis</em> ein.
-Insbesondere schaffen wir die mathematischen Grundlagen für eine spezielle Art der mehrdimensionalen Integration, das Integrieren über sogenannte <em>Untermannigfaltigkeiten</em> des <span class="math notranslate nohighlight">\(\R^n\)</span>.
-Um diese Integration durchführen zu können, entwickeln wir das Kalkül der <em>Differentialformen</em> auf Mannigfaltigkeiten.</p>
-<p>Dieses Kalkül lässt auch den geometrischen Gehalt physikalischer Theorien wie Elektrodynamik oder Allgemeine Relativitätstheorie klar hervortreten.
-So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mit Hilfe des Differentialformenkalkül elegant beschreiben.</p>
-<p>Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von Agricola und Friedrich <span id="id1">[<a class="reference internal" href="../references.html#id13">AF13</a>]</span>.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="masz-und-integrationstheorie">
+<h1><span class="section-number">5. </span>Maß- und Integrationstheorie<a class="headerlink" href="#masz-und-integrationstheorie" title="Permalink to this headline">¶</a></h1>
+<p>Im ersten Semester haben wir bereits das <em>Riemann Integral</em> zur Berechnung des Flächeninhalts zwischen einer Funktion <span class="math notranslate nohighlight">\(f \colon [a,b] \rightarrow \R\)</span> und der x-Achse eingeführt (siehe Kapitel 7 in <span id="id1">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span>).
+Die grundlegende Idee hierbei war es die x-Achse in (unterschiedlich große) Intervalle zu unterteilen und mittels dieser Zerlegung Rechtecke zwischen dem Graphen der Funktion und der x-Achse zu konstruieren.
+Durch das Produkt der Seitenlängen dieser Rechtecke lässt sich nämlich deren Flächeninhalt leicht berechnen und die Summe all dieser Flächeninhalte approximiert den wahren Flächeninhalt zwischen dem Graphen und <span class="math notranslate nohighlight">\(f\)</span> und der x-Achse.
+Dieses Vorgehen ist zur Erinnerung nochmal in Abbildung <a class="reference internal" href="#fig-riemann-integral"><span class="std std-numref">Fig. 5.1</span></a> illustriert.</p>
+<div class="figure align-default" id="fig-riemann-integral">
+<a class="reference internal image-reference" href="../_images/ober_untersummen.png"><img alt="../_images/ober_untersummen.png" src="../_images/ober_untersummen.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Illustration zweier Approximationen des Riemann Integrals einer Funktion durch den Flächeninhalt von Rechtecken. Die grünen und lila Rechtecke visualisieren die Unter- bzw. Obersummen bezüglich des in rot dargestellten Graphen der Funktion. Quelle: <a class="reference external" href="https://de.wikipedia.org/wiki/Riemannsches_Integral">Wikipedia; Riemannsches Integral</a>.</span><a class="headerlink" href="#fig-riemann-integral" title="Permalink to this image">¶</a></p>
+</div>
+<p>Da wir bisher nur die Integration von eindimensionalen Funktionen auf kompakten Intervallen kennengelernt haben, wollen wir in diesem Kapitel den Begriff des Integals auf mehrdimensionale Funktionen <span class="math notranslate nohighlight">\(f \colon \R^n \rightarrow \R\)</span> erweitern.
+Das Riemann Integral lässt sich problemlos auf mehrdimensionalen Funktionen verallgemeinern, indem man das Integral nicht durch den Flächeninhalt von Rechtecken approximiert, sondern hierfür das <em>Volumen von entsprechenden Quadern</em> <span class="math notranslate nohighlight">\(Q \subset \R^n\)</span> berechnet.
+Es lässt sich insbesondere zeigen, dass jede stetige mehrdimensionale Funktion auf einem (nicht-ausgeartetem) Quader Riemann integrierbar ist.</p>
+<p>Es hat sich jedoch in der Entwicklung der Mathematik herausgestellt, dass der Begriff des Riemann Integrals zu starke Forderungen an die zu Grunde liegenden Funktionen stellt und damit wichtige und interessante Funktionsklassen nicht integrierbar waren.
+Als Beispiel hierfür seien <a class="reference external" href="https://de.wikipedia.org/wiki/Fraktal">fraktale Mengen und Funktionen</a> genannt, welche auch zur Modellierung von Prozessen in der Natur genutzt werden.</p>
+<p>Aus diesem Grund hat sich ein eigenes Feld innerhalb der modernen Analysis gebildet - die sogenannte <strong>Maßtheorie</strong>.
+Es widmet sich hauptsächlich der Untersuchung von Maßen zur Berechnung von Längen, Flächen und Volumina in unterschiedlichen mathematischen Strukturen und Räumen.
+Es wird klar, dass Integration und die Berechnung von Volumina eng miteinander zusammen hängen, denn ist <span class="math notranslate nohighlight">\(A\subset\R^n\)</span> eine (messbare) Teilmenge, dann ist ihr Maß gleich dem Integral ihrer charakteristischen Funktion, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[\int_{\R^n} \mathbb{1}_A(x)\,\mathrm{d}x.\]</div>
+<p>In einem gewissen Sinn sind Maße ein <em>fundamentaleres Konzept</em> als das der Integration, da sich jede Integration auf die Berechnung von Maßen stützt.</p>
+<p>Eins der berühmtesten Beispiele zur Motivation der Maßtheorie ist im Folgenden erklärt.</p>
+<div class="proof example admonition" id="ex:dirichletFunktion">
+<p class="admonition-title"><span class="caption-number">Example 5.1 </span> (Dirichlet-Funktion)</p>
+<div class="example-content section" id="proof-content">
+<p>Wir betrachten das kompakte Intervall <span class="math notranslate nohighlight">\([0,1] \subset \R\)</span> und definieren hierauf die sogenannte <strong>Dirichlet-Funktion</strong> <span class="math notranslate nohighlight">\(\mathbb{1}_\Q \colon [0,1] \rightarrow \{0,1\}\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbb{1}_\Q(x) := \begin{cases} 1, \ \text{ falls } x \in \Q, \\ 0, \ \text{ sonst }.\end{cases}\end{split}\]</div>
+<p>Diese Abbildung kann als <em>charakteristische Funktion</em> der rationalen Zahlen <span class="math notranslate nohighlight">\(\Q\)</span> aufgefasst werden.
+Man sieht leicht ein, dass diese Funktion <strong>nicht Riemann-integrierbar</strong> ist, da alle Untersummen stets <span class="math notranslate nohighlight">\(0\)</span> und alle Obersummen stets <span class="math notranslate nohighlight">\(1\)</span> sind.</p>
+</div>
+</div><p>Um eine Funktion wie die Dirichlet-Funktion in <a class="reference internal" href="#ex:dirichletFunktion">Example 5.1</a> zu integrieren sieht man zunächst ein, dass die rationalen Zahlen <span class="math notranslate nohighlight">\(\Q\)</span> in den reellen Zahlen <span class="math notranslate nohighlight">\(\R\)</span> als abzählbare Menge eine sogenannte <em>Nullmenge</em> im Sinne der Maßtheorie repräsentieren.
+Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einführen um diesen Umstand zu verstehen und einen verallgemeinerten Begriff des Integrals definieren, der diese Nullmenge berücksichtigt - das <strong>Lebesgue Integral</strong>.
+Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue-integrierbaren Funktionen eine Obermenge der Menge der Riemann-integrierbaren Funktionen ist.
+Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -351,7 +378,7 @@ So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mi
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./vektoranalysis"
+            path: "./masstheorie"
         },
         predefinedOutput: true
     }
@@ -368,19 +395,19 @@ So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mi
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../odestability/ruhelagen.html" title="previous page">
+        <a class="left-prev" href="../manifolds/diffformen.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">2.2. </span>Stabilität von Ruhelagen</p>
+                <p class="prevnext-title"><span class="section-number">4.3. </span>Differentialformen auf Mannigfaltigkeiten</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="multilinear.html" title="next page">
+        <a class="right-next" href="masstheorie.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">3.1. </span>Multilinearformen</p>
+                <p class="prevnext-title"><span class="section-number">5.1. </span>Maßtheorie</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

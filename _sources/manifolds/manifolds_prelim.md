@@ -297,6 +297,8 @@ Insbesondere wenn man [glatte Testfunktionen](https://de.wikipedia.org/wiki/Test
 Wir definieren zunächst die Eigenschaft eines Hausdorff-Raums.
 
 ````{prf:definition} Hausdorff-Raum
+:label: def:hausdorffraum
+
 Ein topologischer Raum $\M$ heißt **Hausdorff-Raum**, falls für je zwei unterschiedliche Punkte $x,y\in \M, x\neq y$ offene Umgebungen $U(x), U(y) \subset \M$ existieren, welche disjunkt sind, d.h., $U(x)\cap U(y) = \emptyset$.
 Man nennt $\M$ dann auch einen **separierten Raum**.
 ````

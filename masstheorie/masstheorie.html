@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1. Maßtheorie &#8212; Mathematik für Physikstudierende C</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.2. Lebesgue-Integral" href="lebesgue_integral.html" />
+    <link rel="prev" title="5. Maß- und Integrationstheorie" href="intro_masstheorie.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/FAU-DMM-Logo-rgb-10cm.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Mathematik für Physikstudierende C</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Mathematik für Physikstudierende C
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode/ode.html">
+   1. Gewöhnliche Differentialgleichungen für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/dynamicSystems.html">
+     1.1. Einführung in dynamische Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/repetition.html">
+     1.2. Wiederholung: Gewöhnliche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/fluesse.html">
+     1.3. Phasenflüsse und Phasenportraits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/hamilton.html">
+     1.4. Hamiltonsche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/ex.html">
+     1.5. Aufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../odestability/stabilitaetsanalyse.html">
+   2. Stabilitätsanalyse für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odestability/stabilitaetsbegriffe.html">
+     2.1. Stabilitätsbegriffe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odestability/ruhelagen.html">
+     2.2. Stabilität von Ruhelagen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vektoranalysis/vektoranalysis.html">
+   3. Vektoranalysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vektoranalysis/multilinear.html">
+     3.1. Multilinearformen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vektoranalysis/tensor.html">
+     3.2. Tensoren und Tensorprodukte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../manifolds/manifolds.html">
+   4. Differentialformen auf Mannigfaltigkeiten
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifolds/manifolds_prelim.html">
+     4.1. Differenzierbare Mannigfaltigkeit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifolds/tangential.html">
+     4.2. Tangentialräume und Tangentialbündel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifolds/diffformen.html">
+     4.3. Differentialformen auf Mannigfaltigkeiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro_masstheorie.html">
+   5. Maß- und Integrationstheorie
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.1. Maßtheorie
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lebesgue_integral.html">
+     5.2. Lebesgue-Integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="integrationstechnik.html">
+     5.3. Integrationstechniken
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   6. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/masstheorie/masstheorie.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FAU-AMMN/MathPhysicsC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sigma-algebren-und-masze">
+   5.1.1.
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   -Algebren und Maße
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#borel-sigma-algebra-und-borel-masz">
+   5.1.2. Borel-
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   -Algebra und Borel-Maß
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#riemann-und-lebesgue-messbare-mengen">
+   5.1.3. Riemann- und Lebesgue-messbare Mengen
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="masztheorie">
+<h1><span class="section-number">5.1. </span>Maßtheorie<a class="headerlink" href="#masztheorie" title="Permalink to this headline">¶</a></h1>
+<p>Wir wollen in diesem Kapitel formal die Maßtheorie einführen, die es uns erlaubt zu entscheiden welche Mengen messbar sind und wie sich das Volumen von Mengen in topologischen Räumen bestimmen lässt.
+Die hier beschriebenen Werkzeuge werden uns im nächsten Kapitel bei der Einführung des <em>Lebesgue-Integrals</em> als Verallgemeinerung des Riemann-Integrals sehr dienlich sein.</p>
+<p>Intuitiv ordnet ein <a class="reference external" href="https://de.wikipedia.org/wiki/Ma%c3%9f_(Mathematik)"><strong>Maß</strong></a> <span class="math notranslate nohighlight">\(\mu\)</span>, welches auf einer Menge <span class="math notranslate nohighlight">\(\Omega\)</span> definiert ist, wie z.B. dem <span class="math notranslate nohighlight">\(\R^n\)</span>, allen geeigneten Teilmengen <span class="math notranslate nohighlight">\(A\subseteq \Omega\)</span> nichtnegative reelle Zahlen zu, d.h.</p>
+<div class="math notranslate nohighlight">
+\[\mu(A)\in[0,\infty] := [0,\infty)\cup\{\infty\}.\]</div>
+<p>Hierbei soll das Maß <span class="math notranslate nohighlight">\(\mu\)</span> natürlich mit dem Volumen der Teilmenge <span class="math notranslate nohighlight">\(A\)</span> zusammenhängen.
+Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die Menge <span class="math notranslate nohighlight">\(\Omega\)</span> schon der gesamte <span class="math notranslate nohighlight">\(\R^n\)</span> ist.</p>
+<p>Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.</p>
+<div class="section" id="sigma-algebren-und-masze">
+<h2><span class="section-number">5.1.1. </span><span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren und Maße<a class="headerlink" href="#sigma-algebren-und-masze" title="Permalink to this headline">¶</a></h2>
+<p>Wir betrachten im Folgenden immer eine zu Grunde liegende Menge <span class="math notranslate nohighlight">\(\Omega\)</span>.
+Diese kann endlich, abzählbar unendlich oder auch überabzählbar unendlich sein.
+Wir betrachten nun die <strong>Potenzmenge</strong> <span class="math notranslate nohighlight">\(2^\Omega \equiv\mathcal{P}(\Omega)\)</span> von <span class="math notranslate nohighlight">\(\Omega\)</span>, welche die Menge aller möglichen Teilmengen von <span class="math notranslate nohighlight">\(\Omega\)</span> bildet.
+Solche Mengen von Mengen nennen wir häufig <em>Mengensysteme</em>.
+In der Maßtheorie sind bestimmte Mengensysteme <span class="math notranslate nohighlight">\(\mathcal{A} \subseteq \mathcal{P}(\Omega)\)</span> zentral, nämlich die der <em>meßbaren</em> Teilmengen von <span class="math notranslate nohighlight">\(\Omega\)</span>.
+Das sind die Mengen, denen ein Maß zugeordnet werden kann, also eine nichtnegative Zahl oder unendlich.</p>
+<p>Zunächst müssen wir klären, welche Teilmengen der Grundmenge <span class="math notranslate nohighlight">\(\Omega\)</span> überhaupt messbar sein sollen.
+Am Einfachsten wäre es natürlich, alle möglichen Teilmengen messen zu können, also als Mengensystem <span class="math notranslate nohighlight">\(\mathcal{A} = \mathcal{P}(M)\)</span> zu betrachten.
+Wir wir sehen werden ist dies leider nicht immer möglich, denn es existieren <em>nichtmessbare Mengen</em>.
+Es hat sich herausgestellt, dass es vernünftig ist zu fordern, dass das Mengensystem <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> eine sogenannte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra ist, welche wir in der folgenden Definition einführen werden.</p>
+<div class="proof definition admonition" id="def:sigmaalgebra">
+<p class="admonition-title"><span class="caption-number">Definition 5.1 </span> (<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und Messraum)</p>
+<div class="definition-content section" id="proof-content">
+<p>Ein Mengensystem <span class="math notranslate nohighlight">\(\mathcal{A} \subseteq \mathcal{P}(\Omega)\)</span> heißt <strong><span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra (von <span class="math notranslate nohighlight">\(\Omega\)</span>)</strong>, wenn die folgenden Eigenschaften erfüllt sind</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Omega\in \mathcal{A}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A\in \mathcal{A} \quad \Rightarrow \quad A^c:=\Omega \setminus A\in \mathcal{A}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((A_n)_{n\in\N} \in \mathcal{A} \quad \Rightarrow \quad \bigcup_{n\in \N} A_n\in \mathcal{A}\)</span>.</p></li>
+</ol>
+<p>Für eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\mathcal{A} \subseteq \mathcal{P}(\Omega)\)</span> von <span class="math notranslate nohighlight">\(\Omega\)</span> nennen wir das Paar (<span class="math notranslate nohighlight">\(\Omega,\mathcal{A}\)</span>) <strong>Messraum</strong> und die Mengen des Mengensystems <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> heißen <strong>messbar</strong>.</p>
+</div>
+</div><p>Das Symbol <span class="math notranslate nohighlight">\(\sigma\)</span> erinnert uns an den Begriff der Summe, insbesondere wegen der dritten Eigenschaft in <a class="reference internal" href="#def:sigmaalgebra">Definition 5.1</a>, also der Abgeschlossenheit unter abzählbarer Vereinigung von Teilmengen.
+Aus diesen drei Eigenschaften lässt sich auch direkt zeigen, dass <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren ebenfalls unter <em>abzählbaren Schnitten</em> abgeschlossen sind, wie das folgende Lemma zeigt.</p>
+<div class="proof lemma admonition" id="lemma-1">
+<p class="admonition-title"><span class="caption-number">Lemma 5.1 </span> (Abgeschlossenheit unter abzählbaren Schnitten)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei (<span class="math notranslate nohighlight">\(\Omega,\mathcal{A}\)</span>) ein Messraum und es sei <span class="math notranslate nohighlight">\((A_n)n_\N\)</span> eine Familie von Elementen der <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> mit <span class="math notranslate nohighlight">\(A_n \in \mathcal{A}\)</span> für <span class="math notranslate nohighlight">\(n \in \N\)</span>.
+Dann sind abzählbare Schnitte dieser Mengen auch Elemente der <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[\bigcap_{n \in \N} A_n \in \mathcal{A}.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
+</div>
+<p>Aus der <a class="reference internal" href="#def:sigmaalgebra">Definition 5.1</a> kann man sich leicht zwei Spezialfälle von <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren überlegen.
+Es wird klar, dass das Mengensystem <span class="math notranslate nohighlight">\(\{\emptyset, \Omega\}\)</span> die kleinstmögliche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra bildet, wohingegen die Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span> die größtmögliche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra darstellt.</p>
+<p>Basierend auf dem Begriff einer <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und eines Messraums können wir nun formal einführen, was wir mathematisch unter einem Maß verstehen.</p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 5.2 </span> (Maß und Maßraum)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\((\Omega, \mathcal{A})\)</span> ein Messraum.
+Wir nennen eine Abbildung <span class="math notranslate nohighlight">\(\mu: \mathcal{A}\to [0, \infty]\)</span> <strong>Maß</strong>, wenn die folgenden beiden Eigenschaften erfüllt sind.</p>
+<ol class="simple">
+<li><p>Die leere Menge hat das Maß Null, d.h., <span class="math notranslate nohighlight">\(\mu(\emptyset) = 0\)</span>,</p></li>
+<li><p>Für eine Familie von disjunkten Mengen <span class="math notranslate nohighlight">\((A_n)_{n\in\N}\)</span> der <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> mit <span class="math notranslate nohighlight">\(A_i \cap A_j = \emptyset\)</span> für <span class="math notranslate nohighlight">\(i \neq j\)</span> gilt die sogenannte abzählbare oder <span class="math notranslate nohighlight">\(\sigma\)</span>-<strong>Additivität</strong>, d.h.,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\mu\left( \bigcup_{n\in\N}A_n \right) = \sum_{n\in\N}\mu (A_n).\]</div>
+<p>Wir nennen das Maß <span class="math notranslate nohighlight">\(\mu\)</span> <strong>endlich</strong>, wenn <span class="math notranslate nohighlight">\(\mu(\Omega)&lt;\infty\)</span>.
+Das Tripel aus zu Grunde liegender Menge, <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und Maß <span class="math notranslate nohighlight">\((\Omega, \mathcal{A}, \mu)\)</span> wird als <strong>Maßraum</strong> bezeichnet.</p>
+</div>
+</div><div class="proof remark admonition" id="rem:wahrscheinlichkeitsmass">
+<p class="admonition-title"><span class="caption-number">Remark 5.1 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Maße spielen insbesondere in der <em>Wahrscheinlichkeitstheorie</em> eine zentrale Rolle.
+Hier werden Sie die benötigt um die Wahrscheinlichkeit von Ereignismengen anzugeben.
+Dabei wird nicht nur gefordert, dass das Maß <span class="math notranslate nohighlight">\(\mu\)</span> endlich sein muss, sondern dass sogar <span class="math notranslate nohighlight">\(\mu(\Omega)=1\)</span> gilt, damit es sich um ein <strong>Wahrscheinlichkeitsmaß</strong> handelt.
+Diese finden vor allem in der Quantenmechanik Anwendung.</p>
+</div>
+</div><p>Aus den beiden grundlegenden Eigenschaften eines Maßes lassen sich weitere nützliche Eigenschaften herleiten, wie das folgende Lemma beschreibt.</p>
+<div class="proof lemma admonition" id="lemma-4">
+<p class="admonition-title"><span class="caption-number">Lemma 5.2 </span> (Eigenschaften von Maßen)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\((\Omega, \mathcal{A}, \mu)\)</span> ein Maßraum.
+Dann gelten die folgenden Eigenschaften für das Maß <span class="math notranslate nohighlight">\(\mu \colon \mathcal{A} \rightarrow [0,\infty]\)</span>.</p>
+<p>1. Für <span class="math notranslate nohighlight">\(A,B \in \mathcal{A}\)</span> mit <span class="math notranslate nohighlight">\(B \subset A\)</span> und <span class="math notranslate nohighlight">\(\mu(B) &lt; \infty\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\mu(A \setminus B) = \mu(A) - \mu(B) \qquad \text{(Subtraktivität)}\]</div>
+<p>2. Für <span class="math notranslate nohighlight">\(A,B \in \mathcal{A}\)</span> mit <span class="math notranslate nohighlight">\(B \subset A\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\mu(B) \leq \mu(A) \qquad \text{(Monotonie)}\]</div>
+<p>3. Für <span class="math notranslate nohighlight">\(A,B \in \mathcal{A}\)</span> gilt stets:</p>
+<div class="math notranslate nohighlight">
+\[\mu(A \cup B) = \mu(A) + \mu(B) - \mu(A \cap B).\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. In der Hausaufgabe zu zeigen.</p>
+</div>
+<p>Im Folgenden wollen wir ein paar Beispiele von geläufigen Maßen diskutieren.</p>
+<div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 5.2 </span> (Maße)</p>
+<div class="example-content section" id="proof-content">
+<p>Wichtige Maße in der Mathematik und Physik sind beispielsweise die folgenden.</p>
+<p>1. Das <a class="reference external" href="https://de.wikipedia.org/wiki/Z%c3%a4hlma%c3%9f_(Ma%c3%9ftheorie)"><strong>Zählmaß</strong></a> <span class="math notranslate nohighlight">\(m\)</span> auf einer <em>endlichen</em> Menge <span class="math notranslate nohighlight">\(M\)</span>, mit</p>
+<div class="math notranslate nohighlight">
+\[m(A):=|A|\qquad (A\subseteq M).\]</div>
+<p>Hier sind insbesondere alle Teilmengen messbar, d.h., <span class="math notranslate nohighlight">\((M, \mathcal{P}(M), m)\)</span> bildet einen Maßraum.</p>
+<p>2. Das <strong>Lebesgue–Maß</strong> <span class="math notranslate nohighlight">\(\lambda^n\)</span> auf dem <span class="math notranslate nohighlight">\(\R^n\)</span>, das wir bald kennen lernen, zeichnet sich dadurch aus, dass es einer verschobenen Menge das gleiche Volumen zuordnet wie einer unverschobenen.
+Es besitzt also die nützliche Eigenschaft <em>translations-</em> und <em>rotationsinvariant</em> zu sein.
+Dies gilt ebenfalls für Spiegelungen.
+Außerdem ordnet das Lebesgue-Maß dem Einheitswürfel <span class="math notranslate nohighlight">\([0,1]^n\)</span> das Maß <span class="math notranslate nohighlight">\(1\)</span> zu, was unserer Intuition entspricht.
+Andererseits stellt sich heraus, dass das Lebesgue-Maß nicht auf der gesamten Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\R^n)\)</span> definiert werden kann.</p>
+<p>3. Das <a class="reference external" href="https://de.wikipedia.org/wiki/Diracma%c3%9f"><strong>Dirac-Maß</strong></a> <span class="math notranslate nohighlight">\(\delta_x\)</span> ist im Punkt <span class="math notranslate nohighlight">\(x \in \R^n\)</span> konzentriert, und für jede Teilmenge <span class="math notranslate nohighlight">\(A\subset\R^n\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\delta_x(A) \equiv \int_A\delta_x := \begin{cases} 1, &amp;  \text{ falls } x \in A,\\ 0, &amp; \text{ sonst}. \end{cases}\end{split}\]</div>
+<p>Dieses Maß ist im Gegensatz zum Lebesgue-Maß nicht translationsinvariant, da es explizit von der Lage des Punkts <span class="math notranslate nohighlight">\(x\in\R^n\)</span> abhängt.
+Es wird beispielsweise in der Elektrodynamik benutzt, um eine in <span class="math notranslate nohighlight">\(x\)</span> lokalisierte, punktförmige Ladung zu beschreiben.</p>
+<p>4. Häufig möchte man die Länge einer <em>Kurve</em> oder allgemeiner den Flächeninhalt einer <span class="math notranslate nohighlight">\(d\)</span>-dimensionalen Fläche im <span class="math notranslate nohighlight">\(\R^n\)</span> messen.
+Auch das dafür benutzte Maß <span class="math notranslate nohighlight">\(\mu_d\)</span> ist translations- und rotationsinvariant, es ordnet aber der <span class="math notranslate nohighlight">\(d\)</span>-dimensionalen Einheitsfläche <span class="math notranslate nohighlight">\([0,1]^d\times\{0\} \subset\R^d\times\R^{n-d}=\R^n\)</span> das Maß <span class="math notranslate nohighlight">\(1\)</span> zu.
+Entsprechend hat aber für <span class="math notranslate nohighlight">\(d&lt;n\)</span> der Einheitswürfel das Maß <span class="math notranslate nohighlight">\(\mu_d([0,1]^n)=\infty\)</span>.</p>
+<p>5. Man kann sogar sogenannte <a class="reference external" href="https://de.wikipedia.org/wiki/Hausdorff-Ma%c3%9f"><strong>Hausdorff-Maße</strong></a> <span class="math notranslate nohighlight">\(\mu_d\)</span> konstruieren, die Mengen beliebiger fraktaler Dimension <span class="math notranslate nohighlight">\(d\in[0,n]\)</span> messen.
+Genau genommen <em>definiert</em> man hierbei die Dimension der Menge <span class="math notranslate nohighlight">\(A\subset \R^n\)</span> durch <span class="math notranslate nohighlight">\(d(A):=\inf\{d'&gt;0\mid \mu_{d'}(A)=0\}.\)</span></p>
+<p>6. Im Zusammenhang mit dem sogenannten Feynmanschen <a class="reference external" href="https://de.wikipedia.org/wiki/Pfadintegral"><strong>Pfadintegral</strong></a> der Quantenmechanik wird auf dem unendlich-dimensionalen Raum <span class="math notranslate nohighlight">\(\Omega\)</span> der Weg zwischen zwei Punkten des Konfigurationsraumes <span class="math notranslate nohighlight">\(\R^d\)</span> ein <em>Wahrscheinlichkeitsmaß</em> (siehe <a class="reference internal" href="#rem:wahrscheinlichkeitsmass">Remark 5.1</a>) definiert.
+Dabei erhalten Pfade, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein größeres Gewicht als beliebige Pfade.</p>
+</div>
+</div><p>Eine sehr nützliche Eigenschaft von gewissen Maßen auf topologischen Räumen ist die der Regularität, welche wir im Folgenden definieren wollen.</p>
+<div class="proof definition admonition" id="definition-6">
+<p class="admonition-title"><span class="caption-number">Definition 5.3 </span> (Regularität von Maßen)</p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\((\Omega, \tau)\)</span> ein topologischer Raum und <span class="math notranslate nohighlight">\((\Omega, \mathcal{A}, \mu)\)</span> ein entsprechender Maßraum auf <span class="math notranslate nohighlight">\(\Omega\)</span>, so dass gilt <span class="math notranslate nohighlight">\(\tau \subset \mathcal{A}\)</span>.
+Dann können wir die Regulariät des Maßes <span class="math notranslate nohighlight">\(\mu\)</span> wie folgt definieren.</p>
+<ol class="simple">
+<li><p>Wir nennen das Maß <span class="math notranslate nohighlight">\(\mu\)</span> von <strong>außen regulär</strong>, wenn zu jeder messbaren Menge <span class="math notranslate nohighlight">\(A \in \mathcal{A}\)</span> und jedem <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> eine offene Obermenge <span class="math notranslate nohighlight">\(U \in \tau\)</span> existiert mit <span class="math notranslate nohighlight">\(A \subset U\)</span>, so dass für das Maß <span class="math notranslate nohighlight">\(\mu(U\setminus A) &lt; \epsilon\)</span> gilt.</p></li>
+<li><p>Wir nennen das Maß <span class="math notranslate nohighlight">\(\mu\)</span> von <strong>innen regulär</strong>, wenn zu jeder messbaren Menge <span class="math notranslate nohighlight">\(A \in \mathcal{A}\)</span> und jedem <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> eine abgeschlossene Teilmenge <span class="math notranslate nohighlight">\(F \subset A\)</span> gibt, so dass für das Maß <span class="math notranslate nohighlight">\(\mu(A\setminus F) &lt; \epsilon\)</span> gilt.</p></li>
+</ol>
+</div>
+</div><p>Hier noch eine Abbildung oder ein Beispiel zu Regularität?</p>
+</div>
+<div class="section" id="borel-sigma-algebra-und-borel-masz">
+<h2><span class="section-number">5.1.2. </span>Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und Borel-Maß<a class="headerlink" href="#borel-sigma-algebra-und-borel-masz" title="Permalink to this headline">¶</a></h2>
+<p>Da es viele unterschiedliche Möglichkeiten gibt eine Menge in Teilmengen zu unterteilen wünscht man sich eine möglichst kanonische Wahl einer <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra.
+Es stellt sich heraus, dass die sogenannte Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra eine gute Wahl auf beliebigen topologischen Räumen definiert.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><a class="reference external" href="https://de.wikipedia.org/wiki/%C3%89mile_Borel">Émile Borel</a> (geboren am 7. Januar 1871 in Saint-Affrique; gestorben am 3. Februar 1956 in Paris) war ein französischer Mathematiker und Politiker.</p>
+</div>
+<div class="proof definition admonition" id="definition-7">
+<p class="admonition-title"><span class="caption-number">Definition 5.4 </span> (Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra)</p>
+<div class="definition-content section" id="proof-content">
+<p>Die <strong>Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra</strong> auf einem topologischen Raum <span class="math notranslate nohighlight">\((\Omega, \tau)\)</span> ist die kleinste <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra auf der Menge <span class="math notranslate nohighlight">\(\Omega\)</span>, die die Topologie <span class="math notranslate nohighlight">\(\tau\)</span> enthält, d.h.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\B(\Omega) := \bigcap_{\substack{\mathcal{A} \text{ ist $\sigma$-Algebra}\\ \tau \subset \mathcal{A}}} \mathcal{A}\end{split}\]</div>
+<p>Man nennt die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra auch <strong>die von <span class="math notranslate nohighlight">\(\tau\)</span> erzeugte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra</strong>.</p>
+</div>
+</div><p>Die folgende Bemerkung beschreibt die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra, wenn als zu Grunde liegende Menge die reellen Zahlen <span class="math notranslate nohighlight">\(\R\)</span> gewählt werden, wie es häufig in Anwendungen der Fall ist.</p>
+<div class="proof remark admonition" id="remark-8">
+<p class="admonition-title"><span class="caption-number">Remark 5.2 </span> (Borelsche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra von <span class="math notranslate nohighlight">\(\R\)</span>)</p>
+<div class="remark-content section" id="proof-content">
+<p>Wir untersuchen den topologischen Raum <span class="math notranslate nohighlight">\((\R, \tau)\)</span>, wobei die Topologie <span class="math notranslate nohighlight">\(\tau\)</span> gerade alle offenen Intervalle <span class="math notranslate nohighlight">\((a,b) \subset \R\)</span> mit rationalen Punkten <span class="math notranslate nohighlight">\(a,b \in \Q\)</span> enthält.
+Da dies die kanonische Topologie für die reellen Zahlen bildet sprcht man bei der von ihr erzeugten Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra als <em>die</em> Borelsche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra.</p>
+<p>Sie enthält alle wichtigen Teilmengen von <span class="math notranslate nohighlight">\(\R\)</span>, nämlich:</p>
+<ul class="simple">
+<li><p>alle <em>offenen, abgeschlossenen</em> und <em>kompakten</em> Mengen</p></li>
+<li><p>alle <em>Intervalle</em> der Form <span class="math notranslate nohighlight">\((a,b), [a,b], (a,b], [a,b]\)</span> für <span class="math notranslate nohighlight">\(a,b \in \R\)</span>, sowie alle Intervalle der Form <span class="math notranslate nohighlight">\((-\infty, b), (-\infty, b]\)</span> und <span class="math notranslate nohighlight">\((a, \infty), [a,\infty)\)</span></p></li>
+<li><p>alle <em>Punktmengen</em> der Form <span class="math notranslate nohighlight">\(\{a\}\)</span> für <span class="math notranslate nohighlight">\(a \in \R\)</span></p></li>
+<li><p>alle <em>endlichen</em> Teilmengen von <span class="math notranslate nohighlight">\(\R\)</span></p></li>
+<li><p>alle <em>unendlich abzählbaren</em> Teilmengen von <span class="math notranslate nohighlight">\(\R\)</span></p></li>
+</ul>
+<p>Wir bemerken, dass die Borelsche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra von <span class="math notranslate nohighlight">\(\R\)</span> <strong>nicht</strong> alle Teilmengen von <span class="math notranslate nohighlight">\(\R\)</span> enthält.
+Es lässt sich sogar zeigen, dass die borelsche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra von <span class="math notranslate nohighlight">\(\R\)</span> gleichmächtig zu <span class="math notranslate nohighlight">\(\R\)</span> ist, während die Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\R)\)</span> von <span class="math notranslate nohighlight">\(\R\)</span> eine echt größere Mächtigkeit als <span class="math notranslate nohighlight">\(\R\)</span> besitzt.</p>
+</div>
+</div><p>Für spezielle topologische Räume lässt sich eine wichtige Eigenschaft von Maßen über die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra definieren.</p>
+<div class="proof definition admonition" id="definition-9">
+<p class="admonition-title"><span class="caption-number">Definition 5.5 </span> (Lokale Endlichkeit von Maßen)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\((\Omega, \tau)\)</span> ein Haussdorf-Raum (siehe <a class="reference internal" href="../manifolds/manifolds_prelim.html#def:hausdorffraum">Definition 4.8</a>) und sei <span class="math notranslate nohighlight">\(\B(\Omega) = \sigma(\tau)\)</span> die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra, die durch <span class="math notranslate nohighlight">\(\tau\)</span> erzeugt wird.
+Wir nennen ein Maß <span class="math notranslate nohighlight">\(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\)</span> <strong>lokal endlich</strong>, falls jeder Punkt <span class="math notranslate nohighlight">\(x \in \Omega\)</span> eine lokale Umgebung mit endlichem Maß besitzt.</p>
+</div>
+</div><p>Die lokale Endlichkeit ist essentiell bei der Untersuchung von Maßen auf topologischen Räumen, weil sie für jeden Punkt die Existenz einer Umgebung mit endlichem Maß garantiert.
+Wie wir später sehen werden ist das Lebesgue-Maß auf dem Raum <span class="math notranslate nohighlight">\(\R^n\)</span> lokal endlich.</p>
+<p>Basierend auf der oben definierten Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra lässt sich nun das sogenannte Borel-Maß einführen.</p>
+<div class="proof definition admonition" id="definition-10">
+<p class="admonition-title"><span class="caption-number">Definition 5.6 </span> (Borel-Maß)</p>
+<div class="definition-content section" id="proof-content">
+<p>Ein lokal endliches Maß <span class="math notranslate nohighlight">\(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\)</span> auf der Borelschen <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra eines Hausdorff-Raums <span class="math notranslate nohighlight">\((\Omega,\tau)\)</span> heißt <strong>Borel-Maß</strong>.</p>
+</div>
+</div></div>
+<div class="section" id="riemann-und-lebesgue-messbare-mengen">
+<h2><span class="section-number">5.1.3. </span>Riemann- und Lebesgue-messbare Mengen<a class="headerlink" href="#riemann-und-lebesgue-messbare-mengen" title="Permalink to this headline">¶</a></h2>
+<div class="proof definition admonition" id="definition-11">
+<p class="admonition-title"><span class="caption-number">Definition 5.7 </span> (Mehrdimensionale Quader)</p>
+<div class="definition-content section" id="proof-content">
+<p>Seien <span class="math notranslate nohighlight">\(a = (a_1,\ldots,a_n) \in \R^n\)</span> und <span class="math notranslate nohighlight">\(b = (b_1,\ldots,b_n) \in \R^n\)</span> zwei Punkte im \R^n.
+Wir definieren zunächst folgende Anordnungsrelation mit</p>
+<div class="math notranslate nohighlight">
+\[a &lt; b \qquad \Leftrightarrow \qquad a_i &lt; b_i \quad i=1,\ldots,n.\]</div>
+<p>Analog können wir die Anordnungsrelationen <span class="math notranslate nohighlight">\(a \leq b, a &gt; b\)</span> und <span class="math notranslate nohighlight">\(a \geq b\)</span> definieren und darüber im Folgenden <strong>offene, halboffene</strong> und <strong>abgeschlossene Quader</strong> im <span class="math notranslate nohighlight">\(\R^n\)</span> respektive beschreiben durch</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(a,b) = \lbrace x \in \R^n : a &lt; x &lt; b \rbrace,\\
+(a,b] = \lbrace x \in \R^n : a &lt; x \leq b \rbrace,\\
+[a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.\end{split}\]</div>
+</div>
+</div><div class="proof definition admonition" id="definition-12">
+<p class="admonition-title"><span class="caption-number">Definition 5.8 </span> (Mehrdimensionale Treppenfunktion)</p>
+<div class="definition-content section" id="proof-content">
+<p>Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon \R^n \rightarrow \C\)</span> <strong>Treppenfunktion</strong>, falls es paarweise disjunkte Quader <span class="math notranslate nohighlight">\(Q_1, \ldots, Q_k \subset \R^n\)</span> gibt, so dass die folgenden Eigenschaften gelten:</p>
+<ol class="simple">
+<li><p>Die Funktion <span class="math notranslate nohighlight">\(f\)</span> ist konstant auf jedem der Quader, d.h.,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,\]</div>
+<ol class="simple">
+<li><p>Die Funktion ist überall Null außerhalb der Quader, d.h.,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.\]</div>
+</div>
+</div><p>Illustration hier von Quadern und Treppenfunktionen!</p>
+<div class="proof definition admonition" id="definition-13">
+<p class="admonition-title"><span class="caption-number">Definition 5.9 </span> (Ring)</p>
+<div class="definition-content section" id="proof-content">
+<p>Ein Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R} \subset \mathcal{P}(\Omega)\)</span> heißt <strong>Ring</strong> auf einer Menge <span class="math notranslate nohighlight">\(\Omega\)</span>, falls die folgenden Eigenschaften erfüllt sind:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\emptyset \in \mathcal{R}\)</span></p></li>
+<li><p>$A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}</p></li>
+<li><p>$A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}</p></li>
+</ol>
+</div>
+</div><div class="proof lemma admonition" id="lemma-14">
+<p class="admonition-title"><span class="caption-number">Lemma 5.3 </span> (Der von halboffenen Quadern erzeugte Ring)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Wir betrachten eine Teilmenge <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> der Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\R^n)\)</span>, die durch disjunkte, halboffene Quader des <span class="math notranslate nohighlight">\(\R^n\)</span> erzeugt wird mit</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{R} \coloneqq \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.\]</div>
+<p>Dann bildet das Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> einen Ring.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. S.80 Schulz-Baldes</p>
+</div>
+<div class="proof remark admonition" id="remark-15">
+<p class="admonition-title"><span class="caption-number">Remark 5.3 </span> (Riemann-messbare Mengen)</p>
+<div class="remark-content section" id="proof-content">
+<p>S. 78 Schulz-Baldes</p>
+</div>
+</div><div class="proof example admonition" id="example-16">
+<p class="admonition-title"><span class="caption-number">Example 5.3 </span> (Riemann-Messbarkeit)</p>
+<div class="example-content section" id="proof-content">
+<p>Ein Beispiel messbar, eins nicht.</p>
+</div>
+</div><p>Verglichen mit der Reichhaltigkeit der Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span> sind nur relativ wenige Mengen Riemann-messbar.</p>
+<div class="proof definition admonition" id="definition-17">
+<p class="admonition-title"><span class="caption-number">Definition 5.10 </span> (Äußeres Lebesguesches Maß)</p>
+<div class="definition-content section" id="proof-content">
+<p>S. 78 u. 89 Schulz-Baldes</p>
+</div>
+</div><div class="proof theorem admonition" id="theorem-18">
+<p class="admonition-title"><span class="caption-number">Theorem 5.1 </span> (Eigenschaften des Lebesgue Maßes)</p>
+<div class="theorem-content section" id="proof-content">
+<p>S. 89 Schulz-Baldes</p>
+</div>
+</div><div class="proof definition admonition" id="definition-19">
+<p class="admonition-title"><span class="caption-number">Definition 5.11 </span> (Lebesgue-messbare Mengen)</p>
+<div class="definition-content section" id="proof-content">
+<p>S. 92 Schulz-Baldes</p>
+</div>
+</div><div class="proof example admonition" id="example-20">
+<p class="admonition-title"><span class="caption-number">Example 5.4 </span> (Lebesgue-messbare Mengen)</p>
+<div class="example-content section" id="proof-content">
+<p>S. 92 Schulz-Baldes</p>
+</div>
+</div><div class="proof definition admonition" id="definition-21">
+<p class="admonition-title"><span class="caption-number">Definition 5.12 </span> (Lebesgue-Nullmengen)</p>
+<div class="definition-content section" id="proof-content">
+<p>S. 98 Schulz-Baldes</p>
+</div>
+</div><div class="proof lemma admonition" id="lemma-22">
+<p class="admonition-title"><span class="caption-number">Lemma 5.4 </span> (Eigenschaften von Lebesgue-Nullmengen)</p>
+<div class="lemma-content section" id="proof-content">
+<p>S. 98 Schulz-Baldes</p>
+</div>
+</div><div class="proof theorem admonition" id="theorem-23">
+<p class="admonition-title"><span class="caption-number">Theorem 5.2 </span> (Lebesgue-Messbarkeit von Teilmengen im <span class="math notranslate nohighlight">\(\R^n\)</span>)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sowohl offene als auch abgeschlossene Teilmengen des <span class="math notranslate nohighlight">\(\R^n\)</span> sind Lebesgue-messbar.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. S. 99 Schulz-Baldes</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./masstheorie"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="intro_masstheorie.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>Maß- und Integrationstheorie</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="lebesgue_integral.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">5.2. </span>Lebesgue-Integral</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By J. Laubmann, T. Roith, D. Tenbrinck<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z9NNSYF13N"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('config', 'G-Z9NNSYF13N');
+                </script>
+
+  </body>
+</html>
