@@ -28,7 +28,7 @@ Am Einfachsten wäre es natürlich, alle möglichen Teilmengen messen zu können
 Wir wir sehen werden ist dies leider nicht immer möglich, denn es existieren *nichtmessbare Mengen*.
 Es hat sich herausgestellt, dass es vernünftig ist zu fordern, dass das Mengensystem $\mathcal{A}$ eine sogenannte $\sigma$-Algebra ist, welche wir in der folgenden Definition einführen werden.
 
-````{prf:definition} $\sigma$-Algebra und Maßraum
+````{prf:definition} $\sigma$-Algebra und Messraum
 :label: def:sigmaalgebra
 Ein Mengensystem $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ heißt **$\sigma$-Algebra (von $\Omega$)**, wenn die folgenden Eigenschaften erfüllt sind
 
@@ -38,51 +38,119 @@ Ein Mengensystem $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ heißt **$\sigma$-A
 
 3. $(A_n)_{n\in\N} \in \mathcal{A} \quad \Rightarrow \quad \bigcup_{n\in \N} A_n\in \mathcal{A}$.
 
-Für eine $\sigma$-Algebra $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ von $\Omega$ nennen wir das Paar ($\Omega,\mathcal{A}$) **Maßraum** und die Mengen des Mengensystems $\mathcal{A}$ heißen **messbar**.
+Für eine $\sigma$-Algebra $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ von $\Omega$ nennen wir das Paar ($\Omega,\mathcal{A}$) **Messraum** und die Mengen des Mengensystems $\mathcal{A}$ heißen **messbar**.
 ````
 
-Die kleinste $\sigma$-Algebra von $M$ ist damit $\{\emptyset, \Omega\}$, die Größte $\mathcal{P}(\Omega)$.
+Das Symbol $\sigma$ erinnert uns an den Begriff der Summe, insbesondere wegen der dritten Eigenschaft in {prf:ref}`def:sigmaalgebra`, also der Abgeschlossenheit unter abzählbarer Vereinigung von Teilmengen.
+Aus diesen drei Eigenschaften lässt sich auch direkt zeigen, dass $\sigma$-Algebren ebenfalls unter *abzählbaren Schnitten* abgeschlossen sind, wie das folgende Lemma zeigt.
 
-Das Symbol $\sigma$ soll an den Begriff der Summe erinnern, entsprechend der
-dritten Forderung in Def. \ref{def:sigmaalgebra}, also der Stabilität unter abzählbarer Vereinigung.
-Sigma–Algebren sind offensichtlich auch unter dem Schnitt abzählbar vieler
-Mengenstabil $A_n\in \mathcal{A}\ (n\in\N)$ impliziert, dass $\bigcap_{n\in \N} A_n = \left(\bigcup_{n\in\N} A_n^c\right)^c\in \mathcal{A}$.
+````{prf:lemma} Abgeschlossenheit unter abzählbaren Schnitten
+Es sei ($\Omega,\mathcal{A}$) ein Messraum und es sei $(A_n)n_\N$ eine Familie von Elementen der $\sigma$-Algebra $\mathcal{A}$ mit $A_n \in \mathcal{A}$ für $n \in \N$.
+Dann sind abzählbare Schnitte dieser Mengen auch Elemente der $\sigma$-Algebra $\mathcal{A}$, d.h.,
 
-````{prf:definition}
-* Für einen Messraum ($M, \mathcal{A}$) heißt eine Abbildung $\mu: \mathcal{A}\to [0, \infty]$ **Maß**, wenn
-
-    a) $\mu(\emptyset) = 0$
-
-    b) Für disjunkte (das heißt $A_m\cap A_n = \emptyset\ (m\neq n)$) $A_n\in \mathcal{A}\ (n\in\N)$ gilt: $\mu\left( \bigcup_{n\in\N}A_n \right) = \sum_{n\in\N}\mu (A_n)$ \quad (abzählbare oder $\sigma$-**Additivität**).
-
-* Dann heißt das Tripel $(M, \mathcal{A}, \mu)$ **Maßraum**.
-
-* Das Maß $\mu$ heißt **endlich**, wenn $\mu(M)<\infty$, und **Wahrscheinlichkeitsmaß**, wenn $\mu(M)=1$.
+```{math}
+\bigcap_{n \in \N} A_n \in \mathcal{A}.
+```
 ````
 
-````{prf:example}
-Wichtige Maße sind z.B. die folgenden.
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
+````
 
-1. Das [**Zählmaß**](https://de.wikipedia.org/wiki/Z%c3%a4hlma%c3%9f_(Ma%c3%9ftheorie)) $m$ auf einer endlichen Menge $M$, mit 
+Aus der {prf:ref}`def:sigmaalgebra` kann man sich leicht zwei Spezialfälle von $\sigma$-Algebren überlegen.
+Es wird klar, dass das Mengensystem $\{\emptyset, \Omega\}$ die kleinstmögliche $\sigma$-Algebra bildet, wohingegen die Potenzmenge $\mathcal{P}(\Omega)$ die größtmögliche $\sigma$-Algebra darstellt.
+
+Basierend auf dem Begriff einer $\sigma$-Algebra und eines Messraums können wir nun formal einführen, was wir mathematisch unter einem Maß verstehen.
+
+````{prf:definition} Maß und Maßraum
+Sei $(\Omega, \mathcal{A})$ ein Messraum.
+Wir nennen eine Abbildung $\mu: \mathcal{A}\to [0, \infty]$ **Maß**, wenn die folgenden beiden Eigenschaften erfüllt sind.
+
+1. Die leere Menge hat das Maß Null, d.h., $\mu(\emptyset) = 0$,
+
+2. Für eine Familie von disjunkten Mengen $(A_n)_{n\in\N}$ der $\sigma$-Algebra $\mathcal{A}$ mit $A_i \cap A_j = \emptyset$ für $i \neq j$ gilt die sogenannte abzählbare oder $\sigma$-**Additivität**, d.h.,
+
+```{math}
+\mu\left( \bigcup_{n\in\N}A_n \right) = \sum_{n\in\N}\mu (A_n).
+```
+
+Wir nennen das Maß $\mu$ **endlich**, wenn $\mu(\Omega)<\infty$.
+Das Tripel aus zu Grunde liegender Menge, $\sigma$-Algebra und Maß $(\Omega, \mathcal{A}, \mu)$ wird als **Maßraum** bezeichnet.
+
+````
+
+````{prf:remark}
+:label: rem:wahrscheinlichkeitsmass
+
+Maße spielen insbesondere in der *Wahrscheinlichkeitstheorie* eine zentrale Rolle.
+Hier werden Sie die benötigt um die Wahrscheinlichkeit von Ereignismengen anzugeben.
+Dabei wird nicht nur gefordert, dass das Maß $\mu$ endlich sein muss, sondern dass sogar $\mu(\Omega)=1$ gilt, damit es sich um ein **Wahrscheinlichkeitsmaß** handelt.
+Diese finden vor allem in der Quantenmechanik Anwendung.
+````
+
+Aus den beiden grundlegenden Eigenschaften eines Maßes lassen sich weitere nützliche Eigenschaften herleiten, wie das folgende Lemma beschreibt.
+
+````{prf:lemma} Eigenschaften von Maßen
+Sei $(\Omega, \mathcal{A}, \mu)$ ein Maßraum.
+Dann gelten die folgenden Eigenschaften für das Maß $\mu \colon \mathcal{A} \rightarrow [0,\infty]$.
+
+1\. Für $A,B \in \mathcal{A}$ mit $B \subset A$ und $\mu(B) < \infty$ gilt:
+
+```{math}
+\mu(A \setminus B) = \mu(A) - \mu(B) \qquad \text{(Subtraktivität)}
+```
+
+2\. Für $A,B \in \mathcal{A}$ mit $B \subset A$ gilt:
+
+```{math}
+\mu(B) \leq \mu(A) \qquad \text{(Monotonie)}
+```
+
+3\. Für $A,B \in \mathcal{A}$ gilt stets:
+
+```{math}
+\mu(A \cup B) = \mu(A) + \mu(B) - \mu(A \cap B).
+```
+
+````
+
+Im Folgenden wollen wir ein paar Beispiele von geläufigen Maßen diskutieren.
+
+````{prf:example} Maße
+Wichtige Maße in der Mathematik und Physik sind beispielsweise die folgenden.
+
+1\. Das [**Zählmaß**](https://de.wikipedia.org/wiki/Z%c3%a4hlma%c3%9f_(Ma%c3%9ftheorie)) $m$ auf einer *endlichen* Menge $M$, mit
+
 ```{math}
 m(A):=|A|\qquad (A\subseteq M).
 ```
-Hier sind insbesondere alle Teilmengen messbar.
 
-2. Das **Lebesgue--Maß** $\lambda^n$ auf dem $\R^n$, das wir bald kennen lernen, zeichnet sich dadurch aus, dass es einem verschobenen Körper das gleiche Volumen zuordnet wie dem unverschobenen, es also *translationsinvariant* ist, und der Einheitswürfel $[0,1]^n$ Maß $1$ besitzt.
+Hier sind insbesondere alle Teilmengen messbar, d.h., $(M, \mathcal{P}(M), m)$ bildet einen Maßraum.
 
-3. Das [**Dirac-Maß**](https://de.wikipedia.org/wiki/Diracma%c3%9f) $\delta_x$ ist im Punkt $x$ des $\R^n$ konzentriert, und für $A\subset\R^n$ ist.
+2\. Das **Lebesgue--Maß** $\lambda^n$ auf dem $\R^n$, das wir bald kennen lernen, zeichnet sich dadurch aus, dass es einer verschobenen Menge das gleiche Volumen zuordnet wie einer unverschobenen.
+Es besitzt also die nützliche Eigenschaft *translations-* und *rotationsinvariant* zu sein.
+Dies gilt ebenfalls für Spiegelungen.
+Außerdem ordnet das Lebesgue-Maß dem Einheitswürfel $[0,1]^n$ das Maß $1$ zu, was unserer Intuition entspricht.
+Andererseits stellt sich heraus, dass das Lebesgue-Maß nicht auf der gesamten Potenzmenge $\mathcal{P}(\R^n)$ definiert werden kann.
+
+3\. Das [**Dirac-Maß**](https://de.wikipedia.org/wiki/Diracma%c3%9f) $\delta_x$ ist im Punkt $x \in \R^n$ konzentriert, und für jede Teilmenge $A\subset\R^n$ gilt
+
 ```{math}
-\delta_x(A)\equiv \int_A\delta_x := \begin{cases} 1, &  x \in A\\ 0, & \text{sonst.} \end{cases}
-
+\delta_x(A) \equiv \int_A\delta_x := \begin{cases} 1, &  \text{ falls } x \in A,\\ 0, & \text{ sonst}. \end{cases}
 ```
-Dieses Maß ist also nicht translationsinvariant. Es wird beispielsweise in der Elektrodynamik benutzt, um eine bei $x$ lokalisierte punktförmige Ladung zu beschreiben.
 
-4. Wir wollen z.B. auch die Länge der Spur einer *Kurve* oder allgemeiner den Flächeninhalt einer $d$--dimensionalen Fläche im $\R^n$ messen. Auch das dafür benutzte Maß $\mu_d$ ist translations- und rotationsinvariant, es ordnet aber der $d$--dimensionalen Einheitsfläche $[0,1]^d\times\{0\} \subset\R^d\times\R^{n-d}=\R^n$ Maß 1 zu. Entsprechend hat aber für $d<n$ der Einheitswürfel Maß $\mu_d([0,1]^n)=\infty$.
+Dieses Maß ist im Gegensatz zum Lebesgue-Maß nicht translationsinvariant, da es explizit von der Lage des Punkts $x\in\R^n$ abhängt.
+Es wird beispielsweise in der Elektrodynamik benutzt, um eine in $x$ lokalisierte, punktförmige Ladung zu beschreiben.
 
-5. Man kann sogar sog. [**Hausdorff-Maß**](https://de.wikipedia.org/wiki/Hausdorff-Ma%c3%9f) $\mu_d$ konstruieren, die Mengen beliebiger fraktaler Dimension $d\in[0,n]$ messen. Genau genommen *definiert* man die Dimension der Menge $A\subset \R^n$ durch $d(A):=\inf\{d'>0\mid \mu_{d'}(A)=0\}.$
+4\. Häufig möchte man die Länge einer *Kurve* oder allgemeiner den Flächeninhalt einer $d$-dimensionalen Fläche im $\R^n$ messen.
+Auch das dafür benutzte Maß $\mu_d$ ist translations- und rotationsinvariant, es ordnet aber der $d$-dimensionalen Einheitsfläche $[0,1]^d\times\{0\} \subset\R^d\times\R^{n-d}=\R^n$ das Maß $1$ zu.
+Entsprechend hat aber für $d<n$ der Einheitswürfel das Maß $\mu_d([0,1]^n)=\infty$.
 
-6. Im Zusammenhang mit dem sog. Feynmanschen [**Pfadintegral**](https://de.wikipedia.org/wiki/Pfadintegral) der Quantenmechanik wird auf dem unendlich-dimensionalen Raum $M$ der Wege zwischen zwei Punkten des Konfigurationsraumes $\R^d$ ein [**Wahrscheinlichkeitsmaß**](https://de.wikipedia.org/wiki/Wahrscheinlichkeitsma%c3%9f) (also ein Maß $\mu$ auf $M$ mit $\mu (M)=1$) definiert. Dabei erhalten Wege, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein großes Gewicht.
+5\. Man kann sogar sogenannte [**Hausdorff-Maße**](https://de.wikipedia.org/wiki/Hausdorff-Ma%c3%9f) $\mu_d$ konstruieren, die Mengen beliebiger fraktaler Dimension $d\in[0,n]$ messen.
+Genau genommen *definiert* man hierbei die Dimension der Menge $A\subset \R^n$ durch $d(A):=\inf\{d'>0\mid \mu_{d'}(A)=0\}.$
+
+6\. Im Zusammenhang mit dem sogenannten Feynmanschen [**Pfadintegral**](https://de.wikipedia.org/wiki/Pfadintegral) der Quantenmechanik wird auf dem unendlich-dimensionalen Raum $\Omega$ der Weg zwischen zwei Punkten des Konfigurationsraumes $\R^d$ ein *Wahrscheinlichkeitsmaß* (siehe {prf:ref}`rem:wahrscheinlichkeitsmass`) definiert.
+Dabei erhalten Pfade, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein größeres Gewicht als beliebige Pfade.
 ````
 
 ## Borel-$\sigma$-Algebra und Borel-$\sigma$-Maß
