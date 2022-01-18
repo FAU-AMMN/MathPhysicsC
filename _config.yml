@@ -52,6 +52,7 @@ sphinx:
           "bmat" : ["\\left[\\begin{array}"]
           "emat" : ["\\end{array}\\right]"]
           "R"    : ["\\mathbb{R}"]
+          "B"    : ["\\mathcal{B}"]
           "norm" : ["{\\Vert#1\\Vert}",1]
           "abs" : ["{|#1|}",1]
           "coloneqq": ["{:=}"]

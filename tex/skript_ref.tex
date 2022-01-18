@@ -78,7 +78,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{Jan 11, 2022}
+\date{Jan 17, 2022}
 
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 
@@ -3985,29 +3985,31 @@ Diese wird auch \textbf{Grassmann Algebra} oder \textbf{äußere Algebra} genann
 \end{remark}
 
 
-\section{Differentialformen auf Mannigfaltigkeiten}
-\label{\detokenize{vektoranalysis/diffformen:differentialformen-auf-mannigfaltigkeiten}}\label{\detokenize{vektoranalysis/diffformen::doc}}
+\chapter{Differentialformen auf Mannigfaltigkeiten}
+\label{\detokenize{manifolds/manifolds:differentialformen-auf-mannigfaltigkeiten}}\label{\detokenize{manifolds/manifolds::doc}}
 \par
 In diesem Kapitel der Vektoranalysis werden wir nun \href{https://de.wikipedia.org/wiki/Differentialform}{Differentialformen} einführen.
 Die entscheidende Neuerung im Vergleich zum vorangegangen Kapitel über Tensoren ist, dass wir zusätzlich zur Vektorraumstruktur nun ein Konzept von Räumlichkeit einführen.
-Außerdem werden wir im Folgenden mit \emph{glatten Funktion} arbeiten, d.h., mit Funktionen aus dem Raum \(C^\infty(U,\R^n)\).
 
 \par
-Um Differentialformen vernünftig einführen zu können benötigen wir allerdings einige zusätzliche mathematische Konzepte, die bisher noch nicht behandelt wurden.
+Außerdem werden wir im Folgenden mit \emph{glatten Funktion} arbeiten, d.h., mit Funktionen aus dem Raum \(C^\infty(U,\R^n)\).
 Wir definieren zunächst den Begriff des topologischen Raums als Verallgemeinerung von metrischen Vektorräumen.
 Anschließend sind wir in der Lage Mannigfaltigkeiten als spezielle topologische Räume zu definieren, die lokal dem Euklidischen Raum \(\R^n\) ähneln, jedoch global verschieden sein können.
 Schließlich werden wir Tensorfelder und Differentialformen diskutieren.
 
 
+\section{Differenzierbare Mannigfaltigkeit}
+\label{\detokenize{manifolds/manifolds_prelim:differenzierbare-mannigfaltigkeit}}\label{\detokenize{manifolds/manifolds_prelim::doc}}
+
 \subsection{Topologische Räume}
-\label{\detokenize{vektoranalysis/diffformen:topologische-raume}}
+\label{\detokenize{manifolds/manifolds_prelim:topologische-raume}}
 \par
 Wir haben bisher immer Mathematik auf \textbf{metrischen} oder gar \textbf{normierten Vektorräumen} betrieben, da uns diese Struktur für alle erklärten Konzepte am dienlichsten war (siehe Kapitel 4 \& 5 in \cite{Bur20} und \href{https://fau-ammn.github.io/MathDataScience2/normierte\_raeume/normierte\_raeume.html}{MP 2 Skript}).
-Als Vorbereitung für \cref{vektoranalysis/diffformen:s-mannigfaltigkeiten}  wollen wir von den metrischen Räumen zu allgemeineren Strukturen wechseln   den sogenannten \textbf{topologischen Räumen}.
+Als Vorbereitung für \cref{manifolds/manifolds_prelim:s-mannigfaltigkeiten}  wollen wir von den metrischen Räumen zu allgemeineren Strukturen wechseln   den sogenannten \textbf{topologischen Räumen}.
 
 \par
 Das zentrale Konzept topologischer Räume ist die folgende Definition der \emph{offene Mengen}.
-\begin{definition}{}{vektoranalysis/diffformen:definition-0}
+\begin{definition}{(Offene Mengen und topologischer Raum)}{manifolds/manifolds_prelim:definition-0}
 
 
 
@@ -4040,7 +4042,7 @@ Analog zur Definition auf metrischen Räumen bezeichnen wir das Komplement \(\M 
 \par
 Es gibt viele interessante topologische Räume, die den Namen ihrer Entdecker tragen, wie zum Beispiel der \href{https://de.wikipedia.org/wiki/Arens-Fort-Raum}{Arens Fort Raum}, der \href{https://de.wikipedia.org/wiki/Cantor-Raum}{Cantor Raum}, oder der \href{https://de.wikipedia.org/wiki/Hilbertw\%C3\%BCrfel}{Hilbertwürfel}.
 Im Folgenden wollen wir ein relativ generisches Beispiel für einen topologischen Raum betrachten.
-\begin{example}{}{vektoranalysis/diffformen:ex:diskreteTopologie}
+\begin{example}{(Diskrete Topologie)}{manifolds/manifolds_prelim:ex:diskreteTopologie}
 
 
 
@@ -4066,19 +4068,19 @@ B_1(x) := \lbrace y \in \M : d(x,y) < 1 \rbrace = \lbrace x \rbrace.
 Dies führt dazu, dass alle Teilmengen, die nur einen Punkt der Menge enthalten, offen sind.
 Über beliebige Vereinigung dieser Punktmengen, lassen sich dann alle Teilmengen der Potenzmenge \(\mathcal{P}(\M)\) als offen definieren und man erhält somit die diskrete Topologie.
 \end{example}
-\begin{remark}{}{vektoranalysis/diffformen:remark-2}
+\begin{remark}{(Notation von topologischen Räumen)}{manifolds/manifolds_prelim:remark-2}
 
 
 
 \par
 Häufig spielt die konkrete Wahl einer Topologie \(\tau \subset \mathcal{P}(\M)\) keine Rolle für die mathematischen Aussagen, die man treffen möchte.
-Da wir jede beliebige Menge \(\M\) mit der diskreten Topologie aus \cref{vektoranalysis/diffformen:ex:diskreteTopologie} zu einem topologischen Raum \((\M, \tau)\) ausstatten können, wird die Angabe der konkreten Topologie \(\tau\) häufig ausgelassen.
+Da wir jede beliebige Menge \(\M\) mit der diskreten Topologie aus \cref{manifolds/manifolds_prelim:ex:diskreteTopologie} zu einem topologischen Raum \((\M, \tau)\) ausstatten können, wird die Angabe der konkreten Topologie \(\tau\) häufig ausgelassen.
 In solchen Fällen identifiziert man den topologischen Raum einfach mit der zu Grunde liegenden Menge \(\M\), d.h., wir nennen \(\M\) einen topologischen Raum, wenn die konkrete Topologie im gewählten Kontext eindeutig ist oder keine Rolle spielt.
 \end{remark}
 
 \par
 Viele mathematische Konzepte lassen sich von metrischen oder normierten Räumen auf topologische Räume übertragen, wie zum Beispiel der Begriff einer stetigen Funktion.
-\begin{definition}{}{vektoranalysis/diffformen:def:stetigkeitTopologie}
+\begin{definition}{(Stetige Funktionen auf topologischen Räumen)}{manifolds/manifolds_prelim:def:stetigkeitTopologie}
 
 
 
@@ -4108,14 +4110,14 @@ Das folgende Diagramm zeigt die Relationen zwischen verschiedenen mathematischen
 \end{align*}
 
 \subsection{Mannigfaltigkeiten}
-\label{\detokenize{vektoranalysis/diffformen:mannigfaltigkeiten}}\label{\detokenize{vektoranalysis/diffformen:s-mannigfaltigkeiten}}
+\label{\detokenize{manifolds/manifolds_prelim:mannigfaltigkeiten}}\label{\detokenize{manifolds/manifolds_prelim:s-mannigfaltigkeiten}}
 \par
 In diesem Abschnitt führen wir das grundlegende Konzept von \href{https://de.wikipedia.org/wiki/Mannigfaltigkeit}{Mannigfaltigkeiten} als Spezialfall eines topologischen Raums ein, der lokal mit dem Euklidischen Raum \(\R^n\) identifiziert werden kann.
 Mannigfaltigkeiten spielen insbesondere im mathematischen Teilgebiet der \href{https://de.wikipedia.org/wiki/Differentialgeometrie}{Differentialgeometrie} eine zentrale Rolle.
 
 
 \subsubsection{Motivation}
-\label{\detokenize{vektoranalysis/diffformen:motivation}}
+\label{\detokenize{manifolds/manifolds_prelim:motivation}}
 \par
 Das wohl verständlichste Bild einer Mannigfaltigkeit ist die Oberfläche einer dreidimensionalen Kugel
 \begin{align*}
@@ -4132,7 +4134,7 @@ Dies ist in folgender Abbildung visualisiert.
 
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/mannigfaltigkeit.png}
-\caption{Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kugeloberfläche \(\mathbb{S}^2\).}\label{\detokenize{vektoranalysis/diffformen:fig-kugel}}\end{figure}
+\caption{Visualisierung zweier unterschiedlicher Abstandsbegriffe für Punkte auf der Kugeloberfläche \(\mathbb{S}^2\).}\label{\detokenize{manifolds/manifolds_prelim:fig-kugel}}\end{figure}
 
 \par
 Aus dieser Anschauung wird klar, dass unser bisheriges Konzept von Differenzierbarkeit im Mehrdimensionalen aus dem \href{https://fau-ammn.github.io/MathDataScience2/ableitungen/ableitungen.html}{MP 2 Skript} nicht ausreicht, um auf diesem Objekt geeignet Funktionen abzuleiten.
@@ -4163,7 +4165,7 @@ es uns erlaubt, das Problem der Ableitung in topologischen Räumen auf das Konze
 
 
 \subsubsection{Karten und Atlanten auf topologischen Räumen}
-\label{\detokenize{vektoranalysis/diffformen:karten-und-atlanten-auf-topologischen-raumen}}
+\label{\detokenize{manifolds/manifolds_prelim:karten-und-atlanten-auf-topologischen-raumen}}
 \par
 Um den Ableitungsbegriff auf topologischen Räumen \(\M\) formal definieren zu können, benötigen wir zusätzlich zur Bijektivität der Abbildung \(\phi \colon U \rightarrow \phi(U) \subset \R^n\) die Bedingung, dass für jede Teilmenge \(U \subset \M\) gilt,
 \begin{align*}
@@ -4178,7 +4180,7 @@ Wir wollen im Folgenden beide Implikationsrichtungen diskutieren.
 
 \par
 Diese Implikation ist äquivalent zur Forderung, dass Urbilder offener Mengen selbst wieder offen sind.
-Mit \cref{vektoranalysis/diffformen:def:stetigkeitTopologie} bedeutet dies wiederum, dass die Abbildung \(\phi\) stetig ist.
+Mit \cref{manifolds/manifolds_prelim:def:stetigkeitTopologie} bedeutet dies wiederum, dass die Abbildung \(\phi\) stetig ist.
 
 \par
 2. \(\phi(U)\) ist offen \(\Leftarrow U \) ist offen.
@@ -4189,7 +4191,7 @@ Diese Forderung ist nicht immer trivialerweise erfüllt.
 
 \par
 Das folgende Beispiel zeigt, dass es tatsächlich stetige bijektive Abbildung \(\phi\) gibt, für die gilt, dass die Umkehrabbildung \(\phi^{-1}\) \emph{nicht stetig} ist.
-\begin{example}{}{vektoranalysis/diffformen:ex:nonho}
+\begin{example}{}{manifolds/manifolds_prelim:ex:nonho}
 
 
 
@@ -4220,12 +4222,12 @@ und somit ist \(\phi^{-1}\) offensichtlich nicht stetig.
 
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/nonhomöo.jpg}
-\caption{Visualisierung einer unstetigen Umkehrabbildung für das \cref{vektoranalysis/diffformen:ex:nonho} }\label{\detokenize{vektoranalysis/diffformen:fig-nonh}}\end{figure}
+\caption{Visualisierung einer unstetigen Umkehrabbildung für das \cref{manifolds/manifolds_prelim:ex:nonho} }\label{\detokenize{manifolds/manifolds_prelim:fig-nonh}}\end{figure}
 
 \par
 Insgesamt fordern wir also, dass \(\phi:U\rightarrow\phi(U)\) bijektiv ist und zusätzlich, dass sowohl \(\phi\) als auch die Umkehrabbildung \(\phi^-1\) stetig sind.
 Eine solche Abbildung definiert man unter dem Begriff \emph{Homöomorphismus}.
-\begin{definition}{}{vektoranalysis/diffformen:definition-5}
+\begin{definition}{(Homöomorphismus)}{manifolds/manifolds_prelim:definition-5}
 
 
 
@@ -4251,7 +4253,7 @@ die Umkehrfunktion \(f^{-1}\) ist ebenfalls stetig.
 
 \par
 Speziell im Kontext von Mannigfaltigkeiten \(\M\), als Spezialfall topologischer Räume (wie wir noch sehen werden), nennt man eine offene Menge zusammen mit einem Homöomorphismus eine \textbf{Karte} auf \(\M\).
-\begin{definition}{}{vektoranalysis/diffformen:definition-6}
+\begin{definition}{(Karte)}{manifolds/manifolds_prelim:definition-6}
 
 
 
@@ -4270,7 +4272,7 @@ f\circ \psi^{-1} = (f\circ\phi^{-1})\circ(\phi\circ \psi^{-1}).
 \end{align*}
 \par
 Um von einer Karte zur nächsten Karte zu kommen benötigen wir eine geeignete Abbildung.
-\begin{definition}{}{vektoranalysis/diffformen:definition-7}
+\begin{definition}{(Kartenwechsel)}{manifolds/manifolds_prelim:definition-7}
 
 
 
@@ -4289,14 +4291,14 @@ einen \textbf{Kartenwechsel} von \((U,\phi)\) nach \((V,\psi)\).
 
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/chartchange.jpg}
-\caption{Kartenwechsel.}\label{\detokenize{vektoranalysis/diffformen:fig-chartchange}}\end{figure}
+\caption{Kartenwechsel.}\label{\detokenize{manifolds/manifolds_prelim:fig-chartchange}}\end{figure}
 
 \par
 Wir erkennen also, dass Umparametrisierungen der Form \(\psi\circ \phi^{-1}\) entscheidend sind, um von einer lokalen Identifikation des topologischen Raums zur nächsten zu gelangen.
 Wäre nun der Kartenwechsel \(\psi\circ \phi^{-1}\) und respektive \(\phi\circ \psi^{-1}\) differenzierbar, so könnte man die jeweiligen Ableitungen leicht durch die Kettenregel ineinander umrechnen.
 Allerdings existieren durchaus Beispiele, in denen sowohl \(f\circ\phi^{-1}\) als auch \(f\circ\psi^{-1}\) differenzierbar sind, aber der Kartenwechsel \(\psi\circ\phi^{-1}\) nicht.
 Deshalb führt man zusätzlich noch den folgenden Begriff ein.
-\begin{definition}{}{vektoranalysis/diffformen:definition-8}
+\begin{definition}{(Atlas)}{manifolds/manifolds_prelim:definition-8}
 
 
 
@@ -4320,10 +4322,10 @@ So kann eine Mannigfaltigkeit durch einen vollständigen Satz von Karten vollst�
 
 
 \subsubsection{Differenzierbare Mannigfaltigkeiten}
-\label{\detokenize{vektoranalysis/diffformen:differenzierbare-mannigfaltigkeiten}}
+\label{\detokenize{manifolds/manifolds_prelim:differenzierbare-mannigfaltigkeiten}}
 \par
 Für einen topologischen Raum \(\M\) können mehrere Atlanten \(\mathcal{A}\) existieren, weshalb es sinnvoll ist Äquivalenzklassen von Atlanten zu betrachten.
-\begin{definition}{}{vektoranalysis/diffformen:definition-9}
+\begin{definition}{(\protect\(C^k\protect\) differenzierbare Struktur)}{manifolds/manifolds_prelim:definition-9}
 
 
 
@@ -4347,7 +4349,7 @@ Insbesondere wenn man \href{https://de.wikipedia.org/wiki/Testfunktion}{glatte T
 
 \par
 Wir definieren zunächst die Eigenschaft eines Hausdorff Raums.
-\begin{definition}{}{vektoranalysis/diffformen:definition-10}
+\begin{definition}{(Hausdorff Raum)}{manifolds/manifolds_prelim:definition-10}
 
 
 
@@ -4358,7 +4360,7 @@ Man nennt \(\M\) dann auch einen \textbf{separierten Raum}.
 
 \par
 Als zweite nützliche Eigenschaft fordern wir, dass unser topologischer Raum \(\M\) das zweite Abzählbarkeitsaxiom erfüllen soll.
-\begin{definition}{}{vektoranalysis/diffformen:definition-11}
+\begin{definition}{(Zweites Abzählbarkeitsaxiom)}{manifolds/manifolds_prelim:definition-11}
 
 
 
@@ -4370,7 +4372,7 @@ Man nennt \((\M, \tau)\) dann auch \textbf{zweitabzählbar}.
 \par
 Diese zwei Bedingung wirken zunächst abstrakt.
 Glücklicherweise werden sie jedoch von vielen üblichen topologischen Räumen erfüllt, wie zum Beispiel dem Euklidischen Raum \(\R^n\).
-\begin{remark}{}{vektoranalysis/diffformen:remark-12}
+\begin{remark}{}{manifolds/manifolds_prelim:remark-12}
 
 
 
@@ -4380,7 +4382,7 @@ Falls der Begriff eines zweitabzählbaren Hausdorff Raums zu unhandlich erschein
 
 \par
 Nun haben wir alle nötigen Voraussetzungen geschaffen um den Begriff einer Mannigfaltigkeit formal einzuführen.
-\begin{definition}{}{vektoranalysis/diffformen:definition-13}
+\begin{definition}{}{manifolds/manifolds_prelim:definition-13}
 
 
 
@@ -4398,7 +4400,7 @@ Falls alle Karten auf \(\M\) nach \(\R^n\) abbilden, so nennt man die Mannigfalt
 
 \par
 Basierend auf einer differenzierbaren Mannigfaltigkeit \(\M\) können wir nun differenzierbare Funktionen auf \(\M\) definieren.
-\begin{definition}{}{vektoranalysis/diffformen:definition-14}
+\begin{definition}{}{manifolds/manifolds_prelim:definition-14}
 
 
 
@@ -4411,7 +4413,7 @@ Insbesondere schreiben wir in diesem Fall \(f\in C^k(\M; \R^m)\).
 \par
 In vielen Anwendungen beschränkt man sich nur auf \emph{glatte Mannigfaltigkeiten} und \emph{glatte Funktionen} in \(C^\infty(\M; \R^m)\).
 Wir werden im Folgenden der Einfachheit halber auch dazu übergehen.
-\begin{lemma}{}{vektoranalysis/diffformen:lemma-15}
+\begin{lemma}{}{manifolds/manifolds_prelim:lemma-15}
 
 
 
@@ -4429,7 +4431,7 @@ Dann ist \(C^\infty(\M; \R^m)\) ein reeller Vektorraum mit den Verknüpfungen
 
 \par
 Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.
-\begin{lemma}{}{vektoranalysis/diffformen:lem:differenzierbarkeitKartenunabhaengig}
+\begin{lemma}{}{manifolds/manifolds_prelim:lem:differenzierbarkeitKartenunabhaengig}
 
 
 
@@ -4444,8 +4446,11 @@ Ist \(f\circ\phi^{-1}\) differenzierbar in \(x\), so ist \(f\circ\psi^{-1}\) auc
 \end{proof}
 
 
-\subsubsection{Tangentialräume an Mannigfaltigkeiten}
-\label{\detokenize{vektoranalysis/diffformen:tangentialraume-an-mannigfaltigkeiten}}
+\section{Tangentialräume und Tangentialbündel}
+\label{\detokenize{manifolds/tangential:tangentialraume-und-tangentialbundel}}\label{\detokenize{manifolds/tangential::doc}}
+
+\subsection{Tangentialräume an Mannigfaltigkeiten}
+\label{\detokenize{manifolds/tangential:tangentialraume-an-mannigfaltigkeiten}}
 \par
 Aus dem Kapitel \cref{odestability/ruhelagen:s-linearisierung-ruhelage}  ist bereits das Konzept der \emph{Linearisierung} bekannt.
 Anschaulich gesprochen haben wir eine differenzierbare Funktion \(f\) durch ihre Linearisierung ersetzt um ein einfacheres Problem zu erhalten.
@@ -4453,14 +4458,14 @@ Dieses Konzept soll nun auf glatte Mannigfaltigkeiten übertragen werden.
 
 \par
 Wir haben bereits erkannt, wie wir den Begriff der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit definieren.
-Und obwohl die Frage nach der Differenzierbarkeit einer Funktion nach \cref{vektoranalysis/diffformen:lem:differenzierbarkeitKartenunabhaengig} kartenunabhängig ist, so stellt sich heraus, dass der tatsächliche \emph{Wert der Ableitung} einer Verknüpfung \(f \circ\phi^{-1}\) noch immer von der konkreten Wahl des Homöomorphismus \(\phi\) abhängt.
+Und obwohl die Frage nach der Differenzierbarkeit einer Funktion nach \cref{manifolds/manifolds_prelim:lem:differenzierbarkeitKartenunabhaengig} kartenunabhängig ist, so stellt sich heraus, dass der tatsächliche \emph{Wert der Ableitung} einer Verknüpfung \(f \circ\phi^{-1}\) noch immer von der konkreten Wahl des Homöomorphismus \(\phi\) abhängt.
 Um auch hier die gewünschte Kartenunabhängigkeit zu erreichen, brauchen wir einen anderen Begriff der Differenzierbarkeit.
 Hierbei wird uns der sogenannte \textbf{Tangentialraum} helfen.
 Man kann ihn als eine Linearisierung der Mannigfaltigkeit \(\M\) an einem Punkt \(p\in\M\) interpretieren.
 
 \par
 Das folgende Beispiel erklärt anschaulich den Tangentialraum an eine Mannigfaltigkeit.
-\begin{example}{}{vektoranalysis/diffformen:example-17}
+\begin{example}{}{manifolds/tangential:example-0}
 
 
 
@@ -4503,8 +4508,8 @@ Elemente dieses Raums sind dann je nach Kontext geometrisch oder algebraisch zu 
 \end{emphBox}
 
 
-\paragraph{Geometrische Definition}
-\label{\detokenize{vektoranalysis/diffformen:geometrische-definition}}
+\subsubsection{Geometrische Definition}
+\label{\detokenize{manifolds/tangential:geometrische-definition}}
 \par
 Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der \textbf{Richtungsableitung} bekannt (siehe Kapitel 6.2.2 in \cite{Ten21}).
 Hierbei betrachtet man für eine Funktion \(F:\R^n\to\R\) den Strahl \(\gamma(t):= x + t\cdot v\), wobei \(x,v\in\R^n\) und den Grenzwert
@@ -4513,7 +4518,7 @@ Hierbei betrachtet man für eine Funktion \(F:\R^n\to\R\) den Strahl \(\gamma(t)
 \end{align*}
 \par
 Wir werden dieses Konzept nun auf glatte \(n\) dimensionale Mannigfaltigkeiten \(\M\) verallgemeinern, indem wir anstatt von Strahlen differenzierbare \emph{Kurven} auf der Mannigfaltigkeit betrachten.
-\begin{definition}{}{vektoranalysis/diffformen:definition-18}
+\begin{definition}{}{manifolds/tangential:definition-1}
 
 
 
@@ -4535,7 +4540,7 @@ differenzierbar in \(0\) ist .
 \par
 Wir werden im Folgenden ausschließlich die Ableitung der Kurve im Punkt \(t=0\) betrachten und sprechen deshalb verkürzt einfach nur von \emph{differenzierbaren} Kurven.
 Zusätzlich sei zu bemerken, dass die obige Definition \textbf{nicht} von der Wahl der Karte abhängt.
-\begin{example}{}{vektoranalysis/diffformen:example-19}
+\begin{example}{}{manifolds/tangential:example-2}
 
 
 
@@ -4554,11 +4559,11 @@ die zu jedem Zeitpunkt die Temperatur des Ortes, an dem sich der Partikel befind
 
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/velocity.jpg}
-\caption{Visualisierung einer Kurve auf der oberen Hälfte der Einheitssphäre im \(\R^3\).}\label{\detokenize{vektoranalysis/diffformen:fig-velocity}}\end{figure}
+\caption{Visualisierung einer Kurve auf der oberen Hälfte der Einheitssphäre im \(\R^3\).}\label{\detokenize{manifolds/tangential:fig-velocity}}\end{figure}
 
 \par
 Mit Hilfe von differenzierbaren Kurven auf Mannigfaltigkeiten können wir im Folgenden die Richtungsableitung an einer Mannigfaltigkeit definieren.
-\begin{definition}{}{vektoranalysis/diffformen:def:direcdiv}
+\begin{definition}{}{manifolds/tangential:def:direcdiv}
 
 
 
@@ -4589,7 +4594,7 @@ D_\eta(f) = \frac{d}{dt}(f\circ \eta)\big\rvert_{t=0} =
 \par
 Wir erkennen also, dass der Wert der Richtungsableitung in der Tat von der Kurve \(\gamma\) abhängt.
 Dies führt auf einen natürlichen Äquivalenzbegriff von Kurven, wie die folgende Bemerkung beschreibt.
-\begin{remark}{}{vektoranalysis/diffformen:rem:tang}
+\begin{remark}{(Tangentialvektoren)}{manifolds/tangential:rem:tang}
 
 
 
@@ -4608,7 +4613,7 @@ Insbesondere ist die Äquivalenzklasse unabhängig von der Wahl des Homöomorphi
 
 \par
 Mittels der oben beschriebenen Äquivalenzrelation sind wir in der Lage den Begriff der \emph{Tangentialvektoren} und des \emph{Tangentialraums} zu definieren.
-\begin{definition}{}{vektoranalysis/diffformen:definition-22}
+\begin{definition}{}{manifolds/tangential:definition-5}
 
 
 
@@ -4627,7 +4632,7 @@ heißt \textbf{geometrischer Tangentialraum} der Mannigfaltigkeit \(\M\) am Punk
 
 \par
 Der Tangentialraum induziert sogar eine Vektorraumstruktur wie folgende Bemerkung festhält.
-\begin{remark}{}{vektoranalysis/diffformen:remark-23}
+\begin{remark}{}{manifolds/tangential:remark-6}
 
 
 
@@ -4652,13 +4657,13 @@ Man bemerke, dass die oben definierten Abbildungen erneut \textbf{unabhängig} v
 \end{remark}
 
 
-\paragraph{Algebraische Definition}
-\label{\detokenize{vektoranalysis/diffformen:algebraische-definition}}
+\subsubsection{Algebraische Definition}
+\label{\detokenize{manifolds/tangential:algebraische-definition}}
 \par
 Alternativ zur geometrischen Herleitung lässt sich der Tangentialraum auch algebraisch definieren über sogenannte \emph{Derivationen}.
 Hierbei beschreiben wir Tangentialvektoren nun nicht mehr als Kurven, sondern als spezielle Funktionale, welche durch ihre Wirkung auf \(C^\infty(\M)\) charakterisiert sind.
-Die Motivation hierbei soll die Richtungsableitung aus \cref{vektoranalysis/diffformen:def:direcdiv} sein und speziell die im folgenden Lemma beschriebenen Eigenschaften.
-\begin{lemma}{}{vektoranalysis/diffformen:lemma-24}
+Die Motivation hierbei soll die Richtungsableitung aus \cref{manifolds/tangential:def:direcdiv} sein und speziell die im folgenden Lemma beschriebenen Eigenschaften.
+\begin{lemma}{}{manifolds/tangential:lemma-7}
 
 
 
@@ -4684,7 +4689,7 @@ Für \(f,g\in C^\infty(\M)\) gilt: \(\ D_\gamma(fg) = D_\gamma(f) g(p) + f(p) D_
 \par
 Die zweite Eigenschaft wird auch \textbf{Produktregel} oder \textbf{Leibnizregel} genannt.
 Wir wollen nun im Folgenden nicht nur Richtungsableitungen betrachten, sondern allgemeine Funktionale, die diese Eigenschaft erfüllen.
-\begin{definition}{}{vektoranalysis/diffformen:definition-25}
+\begin{definition}{}{manifolds/tangential:definition-8}
 
 
 
@@ -4711,7 +4716,7 @@ T^{\text{alg}}_p\M \subset (C^\infty(\M))^\ast
 \par
 gilt.
 Somit erbt der algebraischer Tangentialraum die Vektorraumoperationen von \(C^\infty(\M)^\ast\) und es muss lediglich nachgeprüft werden, dass diese Teilmenge noch immer ein Vektorraum, also inbesondere abgeschlossen ist.
-\begin{lemma}{}{vektoranalysis/diffformen:lemma-26}
+\begin{lemma}{}{manifolds/tangential:lemma-9}
 
 
 
@@ -4727,7 +4732,7 @@ Dann ist \(T^{\text{alg}}_p\M\) ein reeller Vektorraum.
 \par
 Wie der Name schon erkennen lässt haben Derivationen gewisse Eigenschaften, die von der Ableitungsoperation bekannt sind.
 So bildet zum Beispiel jede Derivation konstante Funktionen auf \(0\) ab, wie das folgende Lemma zeigt.
-\begin{lemma}{}{vektoranalysis/diffformen:lem:constder}
+\begin{lemma}{(Derivation konstanter Funktionen)}{manifolds/tangential:lem:constder}
 
 
 
@@ -4763,7 +4768,7 @@ D(f) = D(c\,g) = c\,D(g) = 0.
 \par
 Wir haben nun zwei verschiedene Arten gesehen den Tangentialraum einzuführen.
 Tatsächlich sind diese Definitionen äquivalent in dem Sinn, dass ein Isomorphismus zwischen dem geometrischen und algebraischen Tangentialraum existiert.
-\begin{theorem}{(Isomorphie zwischen alg. und geom. Tangentialraum)}{vektoranalysis/diffformen:theorem-28}
+\begin{theorem}{(Isomorphie zwischen alg. und geom. Tangentialraum)}{manifolds/tangential:theorem-11}
 
 
 
@@ -4779,8 +4784,8 @@ T^{\text{geom}}_p\M \ \cong \ T^{\text{alg}}_p\M.
 \end{proof}
 
 
-\paragraph{Basis des algebraische Tangentialraums}
-\label{\detokenize{vektoranalysis/diffformen:basis-des-algebraische-tangentialraums}}\label{\detokenize{vektoranalysis/diffformen:sec-tpbasis}}
+\subsubsection{Basis des algebraische Tangentialraums}
+\label{\detokenize{manifolds/tangential:basis-des-algebraische-tangentialraums}}\label{\detokenize{manifolds/tangential:sec-tpbasis}}
 \par
 Wir wollen in diesem Abschnitt eine Basis des algebraischen Tangentialraums konstruieren.
 Im Euklidischen Raum können wir auf natürliche Art die Koordinatenrichtungen als Kurven wählen, also Funktionen der Form
@@ -4800,11 +4805,11 @@ Wir erhalten somit Kurven
 \gamma_{x^i}(t):= \varphi^{-1}(\varphi(p) + t e_i)
 \end{align*}
 \par
-und mithilfe der Richtungsableitung aus \cref{vektoranalysis/diffformen:def:direcdiv} die Derivationen
+und mithilfe der Richtungsableitung aus \cref{manifolds/tangential:def:direcdiv} die Derivationen
 \begin{align*}
 \partial_{x^i}^p: C^\infty(\M) &\to \R\\
 f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
-\end{align*}\begin{definition}{}{vektoranalysis/diffformen:definition-29}
+\end{align*}\begin{definition}{}{manifolds/tangential:definition-12}
 
 
 
@@ -4822,7 +4827,7 @@ als \textbf{partielle Derivationen} von \(f\) im Punkt \(p \in \M\).
 Wir interpretieren also im Folgenden das Symbol \(\partial_{x^{i}}^p\) als Derivation an \(p\in\M\), d.h., insbesondere als lineare Abbildung von \(C^\infty(\M)\) nach \(\R\).
 Diese partiellen Derivationen folgen der Intuition, dass die partielle Ableitung in eine Richtung auch nur Änderungen in diese Richtung respektiert.
 Wir formalisieren diese Anschauung in folgendem Lemma.
-\begin{lemma}{}{vektoranalysis/diffformen:lem:partderkron}
+\begin{lemma}{}{manifolds/tangential:lem:partderkron}
 
 
 
@@ -4861,7 +4866,7 @@ Somit gilt schon für die partielle Derivation
 
 \par
 Das folgende Hauptresultat dieses Abschnitts erlaubt es uns beliebige Derivationen mithilfe der partiellen Derivationen darzustellen, da diese eine Basis des algebraischen Tangentialraums bilden.
-\begin{theorem}{}{vektoranalysis/diffformen:thm:tanbasis}
+\begin{theorem}{}{manifolds/tangential:thm:tanbasis}
 
 
 
@@ -4932,14 +4937,14 @@ Wenden wir nun die \(j\) te partielle Derivation auf \(f\) an, erhalten wir unte
 \sum_{i=1}^{n} \partial_{x^j}^p(\varphi_i \cdot F_i)
 \end{align*}
 \par
-wobei wir \cref{vektoranalysis/diffformen:lem:constder} und die Tatsache, dass \(\varphi_i, F_i\in C^\infty(\M)\) gilt, benutzt haben.
+wobei wir \cref{manifolds/tangential:lem:constder} und die Tatsache, dass \(\varphi_i, F_i\in C^\infty(\M)\) gilt, benutzt haben.
 Weiterhin gilt wegen der Leibnizregel
 \begin{align*}
 \partial_{x^j}^p(\varphi_i \cdot F_i(q)) = 
 \underbrace{\partial_{x^j}^p(\varphi)}_{=\delta_{ij}} F_i(p)+ \underbrace{\varphi_i(p)}_{=0} \partial_{x^j}^p(F_i),
 \end{align*}
 \par
-wobei wir \cref{vektoranalysis/diffformen:lem:partderkron} und \(\varphi(p)=0\) verwendet haben.
+wobei wir \cref{manifolds/tangential:lem:partderkron} und \(\varphi(p)=0\) verwendet haben.
 Somit folgt schon
 \begin{align*}
 \partial_{x^j}^p (f) = F_j(p)
@@ -4964,7 +4969,7 @@ Seien dazu Koeffizienten \(\alpha_i \in \R, i=1,\ldots,n\) gegeben, so dass für
 D:= \sum_{i=1}^n \alpha_i \partial_{x^i}^p(f) = 0.
 \end{align*}
 \par
-Durch erneute Anwendung von \cref{vektoranalysis/diffformen:lem:partderkron} erhalten wir aber, dass
+Durch erneute Anwendung von \cref{manifolds/tangential:lem:partderkron} erhalten wir aber, dass
 \begin{align*}
 0 = D(\varphi_j) = \alpha_j\end{align*}
 \par
@@ -4977,11 +4982,11 @@ Insgesamt bilden also die partiellen Deriviationen eine Basis des algebraischen 
 \end{align*}\end{proof}
 
 
-\paragraph{Kotangentialraum}
-\label{\detokenize{vektoranalysis/diffformen:kotangentialraum}}
+\subsubsection{Kotangentialraum}
+\label{\detokenize{manifolds/tangential:kotangentialraum}}
 \par
 Da wir den Tangentialraum \(T^{\text{alg}}_p\) als Vektorraum identifiziert haben, können wir auch dessen algebraischen Dualraum in der folgenden Definition betrachten.
-\begin{definition}{}{vektoranalysis/diffformen:definition-32}
+\begin{definition}{}{manifolds/tangential:definition-15}
 
 
 
@@ -4994,7 +4999,7 @@ T_p^\ast\M:= (T_p^{\text{alg}}\M)^\ast
 \par
 den algebraischen Dualraum des Tangentialraums, welcher häufig \textbf{Kotangentialraum} genannt wird.
 \end{definition}
-\begin{remark}{}{vektoranalysis/diffformen:remark-33}
+\begin{remark}{}{manifolds/tangential:remark-16}
 
 
 
@@ -5009,7 +5014,7 @@ die eine Derivation \(D\in C^\infty(\M)^\ast\) auf eine reelle Zahl \(\delta(D)\
 
 \par
 Die folgende Definition beschreibt ein wichtiges Element des Kotangentialraums.
-\begin{definition}{}{vektoranalysis/diffformen:definition-34}
+\begin{definition}{}{manifolds/tangential:def:totdiff}
 
 
 
@@ -5041,7 +5046,7 @@ Wir wählen nun Abbildungen \(\mathrm{d}x^i\in T^\ast_p\M, i=1,\ldots,n\) gerade
 \par
 gilt.
 Das folgende Lemma zeigt, dass es sich hierbei um eine Basis von \(T^\ast_p\M\) handelt.
-\begin{lemma}{}{vektoranalysis/diffformen:lemma-35}
+\begin{lemma}{}{manifolds/tangential:lemma-18}
 
 
 
@@ -5060,8 +5065,8 @@ eine Basis von \(T_p^\ast\M\).
 \end{proof}
 
 
-\subsubsection{Tangentialbündel}
-\label{\detokenize{vektoranalysis/diffformen:tangentialbundel}}
+\subsection{Tangentialbündel}
+\label{\detokenize{manifolds/tangential:tangentialbundel}}
 \begin{emphBox}{}{}{Note:}
 \par
 Im Folgenden bezeichne \(T_p\M\in\{T^{\text{alg}}_p\M, T^{\text{geom}}_p\M \}\) entweder den \emph{algebraischen} oder den \emph{geometrischen Tangentialraum}.
@@ -5069,7 +5074,7 @@ Die konkrete Wahl wird an den entsprechenden Stellen (wenn nötig) spezifiziert.
 \end{emphBox}
 
 \par
-Bisher haben wir für eine \(n\) dimensionale glatte Mannigfaltigkeit \(\M\) für jeden einzelnen Punkt \(p\in\M\) den zugehörigen Tangentialraum \(T_p\M\) betrachtet, welcher wiederum wegen \cref{vektoranalysis/diffformen:thm:tanbasis} isomorph zum \(\R^n\) ist.
+Bisher haben wir für eine \(n\) dimensionale glatte Mannigfaltigkeit \(\M\) für jeden einzelnen Punkt \(p\in\M\) den zugehörigen Tangentialraum \(T_p\M\) betrachtet, welcher wiederum wegen \cref{manifolds/tangential:thm:tanbasis} isomorph zum \(\R^n\) ist.
 Wir interessieren uns jetzt dafür, wie sich Tangentialräume für verschiedene Punkte \(p,q\in \M\) in Beziehung setzen lassen.
 Darüber hinaus wollen wir eine globale Struktur definieren welche alle Tangentialräume (d.h. für jedes \(p\in\M\)) zusammenfasst.
 
@@ -5081,7 +5086,7 @@ Ein erster Ansatz für eine globale Struktur ist die Vereinigung
 \end{align*}
 \par
 Wir wollen diese Idee im folgenden Beispiel veranschaulichen.
-\begin{example}{}{vektoranalysis/diffformen:ex:tangentialS1}
+\begin{example}{(Tangentialräume an Einheitskreis)}{manifolds/tangential:ex:tangentialS1}
 
 
 
@@ -5097,7 +5102,7 @@ die Kurve
 \gamma_p(t) := p - t \cdot\big(1, \frac{\cos(\alpha)}{\sin(\alpha)}\big),
 \end{align*}
 \par
-und somit erhalten wir anschaulich die in \hyperref[\detokenize{vektoranalysis/diffformen:fig-bundlea}]{Fig.\@ \ref{\detokenize{vektoranalysis/diffformen:fig-bundlea}}} für einige Punkte visualisierte Menge.
+und somit erhalten wir anschaulich die in \hyperref[\detokenize{manifolds/tangential:fig-bundlea}]{Fig.\@ \ref{\detokenize{manifolds/tangential:fig-bundlea}}} für einige Punkte visualisierte Menge.
 
 \par
 Es fällt auf, dass sich zwar einzelne Kurven schneiden können, jedoch die Kurven selbst und die assoziierten Vektorräume nicht gleich sind.
@@ -5107,7 +5112,7 @@ Um diese Tatsache zu verdeutlichen ist es praktisch die \emph{disjunkte Vereinig
 \end{align*}
 \par
 zu betrachten.
-Für den Einheitskreis erhalten wir durch die Isomorphie \(T_p\M \cong \R\) so den Zylinder in \hyperref[\detokenize{vektoranalysis/diffformen:fig-bundleb}]{Fig.\@ \ref{\detokenize{vektoranalysis/diffformen:fig-bundleb}}}.
+Für den Einheitskreis erhalten wir durch die Isomorphie \(T_p\M \cong \R\) so den Zylinder in \hyperref[\detokenize{manifolds/tangential:fig-bundleb}]{Fig.\@ \ref{\detokenize{manifolds/tangential:fig-bundleb}}}.
 \end{example}
 
 \begin{figure}[htbp]
@@ -5115,18 +5120,18 @@ Für den Einheitskreis erhalten wir durch die Isomorphie \(T_p\M \cong \R\) so d
 
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/bundlea.jpg}
-\caption{Visualisierung der Tangentialräume einiger Punkte am Einheitskreises.}\label{\detokenize{vektoranalysis/diffformen:fig-bundlea}}\end{figure}
+\caption{Visualisierung der Tangentialräume einiger Punkte am Einheitskreises.}\label{\detokenize{manifolds/tangential:fig-bundlea}}\end{figure}
 
 \begin{figure}[htbp]
 \centering
 
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/bundleb.jpg}
-\caption{Visualisierung der disjunkt vereinigten Tangentialräume einiger Punkte am Einheitskreises.}\label{\detokenize{vektoranalysis/diffformen:fig-bundleb}}\end{figure}
+\caption{Visualisierung der disjunkt vereinigten Tangentialräume einiger Punkte am Einheitskreises.}\label{\detokenize{manifolds/tangential:fig-bundleb}}\end{figure}
 
 \par
 Wir wollen diese globale Struktur der disjunkten Vereinigung formal definieren.
-\begin{definition}{}{vektoranalysis/diffformen:definition-37}
+\begin{definition}{}{manifolds/tangential:definition-20}
 
 
 
@@ -5151,7 +5156,7 @@ Insbesondere erkennen wir, dass wir mit Hilfe der Projektion \(\pi\) jedem Eleme
 
 \par
 Im Folgenden wollen wir uns zwei Beispiele für Tangentialbündel an Mannigfaltigkeiten ansehen.
-\begin{example}{}{vektoranalysis/diffformen:example-38}
+\begin{example}{(Tangentialbündel)}{manifolds/tangential:example-21}
 
 
 
@@ -5166,7 +5171,7 @@ T\M = \R^n\times\R^n = \R^{2n}.
 
 
 \par
-2. Wie bereits in \cref{vektoranalysis/diffformen:ex:tangentialS1} gesehen erhalten wir für \(\M=\mathbb{S}^1\) als Tangentialbündel den unendlich hohen Zylinder
+2. Wie bereits in \cref{manifolds/tangential:ex:tangentialS1} gesehen erhalten wir für \(\M=\mathbb{S}^1\) als Tangentialbündel den unendlich hohen Zylinder
 \begin{align*}
 T\M = \mathbb{S}^1\times \R.
 \end{align*}\end{example}
@@ -5175,7 +5180,7 @@ T\M = \mathbb{S}^1\times \R.
 In den bisher betrachten Beispielen haben wir als Tangentialbündel jeweils eine Menge der Form \(\M\times \R^n\) erhalten.
 Dies ist jedoch nicht immer der Fall wie wir sehen werden.
 Tatsächlich bilden Tangentialbündel von dieser Form eine spezielle Unterklasse.
-\begin{definition}{}{vektoranalysis/diffformen:definition-39}
+\begin{definition}{}{manifolds/tangential:definition-22}
 
 
 
@@ -5188,7 +5193,7 @@ T\M\cong \M\times\R^n.
 \par
 In diesem Fall nennt man die Mannigfaltigkeit \(\M\) auch \textbf{parallelisierbar}.
 \end{definition}
-\begin{remark}{}{vektoranalysis/diffformen:remark-40}
+\begin{remark}{}{manifolds/tangential:remark-23}
 
 
 
@@ -5199,8 +5204,8 @@ Die Tatsache, dass \(\mathbb{S}^2\) nicht parallelisierbar ist wird beim Satz vo
 
 \par
 Wir wollen uns nun mit der Frage beschäftigen, wie sich die Tangentialräume für unterschiedliche Punkte \(p,q\in B\) des Basisraums zueinander verhalten, insbesondere wenn \(p\) und \(q\) nahe beieinander liegen.
-Hierbei hilft es das abstraktee Konzept eines \textbf{Vektorbündels} zu betrachten.
-\begin{definition}{}{vektoranalysis/diffformen:definition-41}
+Hierbei hilft es das abstrakte Konzept eines \textbf{Vektorbündels} zu betrachten.
+\begin{definition}{}{manifolds/tangential:definition-24}
 
 
 
@@ -5226,7 +5231,7 @@ für jeden Punkt \(p\in \M\) existiere eine offene Umgebung \(U\subset \M\) und 
 Dann heißt \((E,\M,\pi)\) \textbf{Vektorbündel} vom Rang \(n\).
 Hierbei bezeichnet \(\text{pr}_U(q, z):= q\) die Projektion auf die \(U\) Komponente eines Vektors \((q,z)\in U\times\R^n\).
 \end{definition}
-\begin{remark}{}{vektoranalysis/diffformen:remark-42}
+\begin{remark}{(Bündel Notation)}{manifolds/tangential:remark-25}
 
 
 
@@ -5240,7 +5245,7 @@ Die Funktion \(\Psi\) nennt man in diesem Kontext \textbf{lokale Trivialisierung
 Analog zum Tangentialbündel nennen wir ein Vektorbündel \textbf{trivial}, falls eine Trivialsierung \(\Psi:E\to \M\times\R^n\) existiert, so dass gilt
 \begin{align*}
 E \cong \M\times\R^n.
-\end{align*}\begin{example}{}{vektoranalysis/diffformen:example-43}
+\end{align*}\begin{example}{}{manifolds/tangential:example-26}
 
 
 
@@ -5251,7 +5256,7 @@ Möbius Band.
 \par
 Wir wollen nun zeigen, dass das Tangentialbündel ein Vektorbündel ist.
 Dazu benötigen wir zunächst die Hilfsaussage des folgenden Lemmas, dass das Tangentialbündel \(T\M\) selbst eine glatte Mannigfaltigkeit ist.
-\begin{lemma}{}{vektoranalysis/diffformen:lem:tanman}
+\begin{lemma}{}{manifolds/tangential:lem:tanman}
 
 
 
@@ -5291,7 +5296,7 @@ Insbsondere ist ein so definiertes \(\psi\) ein Diffeomorphismus.
 
 \par
 Mithilfe der obigen Aussage können wir nun zeigen, dass \(T\M\) ein Vektorbündel ist.
-\begin{lemma}{}{vektoranalysis/diffformen:lemma-45}
+\begin{lemma}{}{manifolds/tangential:lem:tanbundle}
 
 
 
@@ -5331,18 +5336,18 @@ Hierbei bemerken wir aber, dass gilt
 \big((\phi\times\text{Id})\circ \Psi\big)(p,v) = (\phi\times\text{Id})(p, v(\varphi)) = (\phi(p), v(\varphi)).
 \end{align*}
 \par
-Somit entspricht \((\phi\times\text{Id})\circ \Psi\) gerade der Karte aus dem Beweis von \cref{vektoranalysis/diffformen:lem:tanman} und ist somit auch ein Diffeomorphismus.
+Somit entspricht \((\phi\times\text{Id})\circ \Psi\) gerade der Karte aus dem Beweis von \cref{manifolds/tangential:lem:tanman} und ist somit auch ein Diffeomorphismus.
 Daraus folgt aber, dass \(\Psi\) schon ein Diffeomorphismus sein muss.
 \end{proof}
 
 
-\subsubsection{Vektorfelder}
-\label{\detokenize{vektoranalysis/diffformen:vektorfelder}}
+\subsection{Vektorfelder}
+\label{\detokenize{manifolds/tangential:vektorfelder}}
 \par
-Wir führen zunächst sogenannte Schnitte auf Bündeln ein. Anschaulich abstrahieren wir hier das Konzept der Graphen von Funktionen.
-
-\par
-Es sei \(f:\M\to\R^n\) eine Funktion\$, dann ist ihr Graph gegeben durch
+Wir führen zunächst sogenannte Schnitte auf Bündeln ein.
+Anschaulich abstrahieren wir hierdurch das Konzept von Funktionsgraphen.
+Es sei \(f:\M\to\R^n\) eine vektorwertige Funktion auf einer Mannigfaltigkeit \(\M\).
+Dann ist ihr Graph gegeben durch
 \begin{align*}
 \{(p,f(p)): p\in\M\}\subset \M\times\R^n.
 \end{align*}
@@ -5353,12 +5358,13 @@ Hierbei sehen wir, dass \(\M\times\R^n\overset{\pi}{\to}\M\) ein triviales Bünd
 \end{align*}
 \par
 Verallgemeinert betrachten führt diese Überlegung auf folgende Definition.
-\begin{definition}{}{vektoranalysis/diffformen:definition-46}
+\begin{definition}{}{manifolds/tangential:definition-29}
 
 
 
 \par
-Es sei \(\M\) eine glatte Mannigfaltigkeit und \(E\overset{\pi}{\to}\M\) ein Vektorbündel. Für \(U\subset\M\) offen, heißt eine glatte Abbildung
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \(E\overset{\pi}{\to}\M\) ein Vektorbündel.
+Für eine offene Umgebung \(U\subset\M\) heißt eine glatte Abbildung
 \begin{align*}
 \sigma: U\to E
 \end{align*}
@@ -5368,28 +5374,37 @@ Es sei \(\M\) eine glatte Mannigfaltigkeit und \(E\overset{\pi}{\to}\M\) ein Vek
 \pi(\sigma(p)) = p\quad\text{ für alle }p\in U.
 \end{align*}
 \par
-Die Menge der glatten Schnitte auf \(U\) wird mit \(\Gamma(E\rvert_U)\) bezeichnet. Für \(U=\M\) heißt \(\sigma\) \textbf{glatter Schnitt} und wir definieren
-\(\Gamma(E):=\Gamma(E\rvert_\M)\).
+Die Menge der glatten Schnitte auf \(U\) wird mit \(\Gamma(E\rvert_U)\) bezeichnet.
+Falls die Umgebung \(U\) die ganze Mannigfaltigkeit ist, d.h., es gilt \(U=\M\), dann heißt \(\sigma\) \textbf{glatter Schnitt} und wir definieren \(\Gamma(E):=\Gamma(E\rvert_\M)\).
 \end{definition}
 
 \par
-Für offenen Mengen im euklidischen kennen wir bereits den Begriff \textbf{Vektorfeld}, nämlich eine Funktion
+Für offenen Mengen im Euklidischen Raum kennen wir bereits den Begriff \textbf{Vektorfeld}.
+Hierbei handelt es sich nämlich um eine Funktion
 \begin{align*}
-F:U\to\R^n
+F:U\to\R^n,
 \end{align*}
 \par
-wobei \(U\subset\R^n\) offen ist. Wir nehmen also Punkte \(x\in\R^n\) und ordnen ihnen Vektoren \(F(x)\in\R^n\) aus dem gleichen Raum zu. Betrachten wir statt offenen Mengen \(U\subset\R^n\) nun glatte Mannigfaltigkeiten \(\M\) so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen. Hierbei hilft uns nun der Tangentialraum \(T\M\), welcher die richtige Wahl des Zielraums darstellt. Somit können wir Vektorfelder verallgemeinern indem wir als Schnitte des Tangenialraums auffassen.
-\begin{definition}{}{vektoranalysis/diffformen:definition-47}
+wobei \(U\subset\R^n\) eine offene Umgebung ist.
+Wir nehmen in diesem Fall also Punkte \(x\in\R^n\) und ordnen ihnen Vektoren \(F(x)\in\R^n\) aus dem gleichen Raum zu.
+
+\par
+Betrachten wir statt offener Mengen \(U\subset\R^n\) nun glatte Mannigfaltigkeiten \(\M\), so stellt sich a priori die Frage in welchen Raum Vektorfelder abbilden sollen.
+Es stellt sich heraus, dass der Tangentialraum \(T\M\) die richtige Wahl des Zielraums darstellt.
+Somit können wir das Konzept von Vektorfeldern verallgemeinern indem wir sie als Schnitte des Tangenialraums auffassen.
+\begin{definition}{}{manifolds/tangential:definition-30}
 
 
 
 \par
-Es sei \(\M\) eine glatte Mannigfaltigkeit, ein glatter Schnitt
+Es sei \(\M\) eine glatte Mannigfaltigkeit.
+Wir nennen einen glatten Schnitt
 \begin{align*}
 X:\M\to T\M
 \end{align*}
 \par
-heißt glattes Vektorfeld. Das Argument von \(X\) wird hierbei meist als subskript notiert, d.h., \(X_p = X(p)\).
+ein \textbf{glattes Vektorfeld}.
+Das Argument von \(X\) wird hierbei meist als Subskript notiert, d.h., \(X_p := X(p)\).
 \end{definition}
 
 \par
@@ -5398,118 +5413,248 @@ Für Tangentialbündel haben wir die Abbildung \(\pi:T\M\to\M\) durch
 \pi(p,v):= p\quad\text{ für } (p,v)\in\{p\}\times T_p\M
 \end{align*}
 \par
-definiert. Ist \(X\) nun ein glattes Vektorfeld, so gilt
+definiert.
+Ist \(X\) nun ein glattes Vektorfeld, so gilt
 \begin{align*}
 \pi(X(p)) = p
 \end{align*}
 \par
-und somit insbesondere \(X_p\in T_p\M\). Ein Vektorfeld ordnet also jedem Punkt \(p\in\M\) ein Element seines Tangentialraums zu. Falls \(\M\) eine offene Menge in \(\R^n\) ist, ist dies insbesondere konsistent zur bekannten Definition von Vektorfeldern.
+und somit insbesondere \(X_p\in T_p\M\).
+Ein Vektorfeld ordnet also jedem Punkt \(p\in\M\) ein Element seines Tangentialraums zu.
+Falls \(\M\) eine offene Menge in \(\R^n\) ist, ist dies insbesondere \textbf{konsistent} zur bekannten Definition von Vektorfeldern in Euklidischen Räumen.
 
 
-\paragraph{Wirkung von Vektorfeldern}
-\label{\detokenize{vektoranalysis/diffformen:wirkung-von-vektorfeldern}}
+\subsubsection{Wirkung von Vektorfeldern}
+\label{\detokenize{manifolds/tangential:wirkung-von-vektorfeldern}}
 \par
-Von der algebraischen Definition des Tangentialraums ist das totale Differential \(df_p\in T^\ast_p\M\) bekannt, welches für \(D\in T^{\text{alg}}_p\M\) definiert ist durch
+Von der algebraischen Definition des Tangentialraums ist das totale Differential \(df_p\in T^\ast_p\M\) bekannt, welches für \(D\in T^{\text{alg}}_p\M\) und eine Funktion \(f\in C^\infty(M)\) definiert ist durch
 \begin{align*}
-df_p(D):= D(f)
+df_p(D):= D(f).
 \end{align*}
 \par
-für eine Funktion \(f\in C^\infty(M)\). Mithilfe dieses Konzepts können wir die Wirkung eines Vektorfelds definieren.
-\begin{definition}{}{vektoranalysis/diffformen:definition-48}
+Mithilfe dieses mathematischen Werkzeugs können wir nun die Wirkung eines Vektorfelds definieren.
+\begin{definition}{}{manifolds/tangential:def:wirkung}
 
 
 
 \par
-Es sei \(\M\) eine glatte Mannigfaltigkeit und \(X\in\Gamma(T\M)\), die \textbf{Wirkung} von \(X\) auf \(C^\infty\) ist definiert durch
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \(X\in\Gamma(T\M)\).
+Die \textbf{Wirkung} von \(X\) auf \(C^\infty\) ist definiert durch
 \begin{align*}
-X(\cdot):C^\infty(M)\to C^\infty(\M)\\
-f\mapsto [p\mapsto X_p(f) := df_p(X)].
+X(\cdot):C^\infty(M) &\to C^\infty(\M)\\
+f &\mapsto [p\mapsto X_p(f) := df_p(X)].
 \end{align*}\end{definition}
 
 
-\paragraph{Lokale Basis von Vektorfeldern}
-\label{\detokenize{vektoranalysis/diffformen:lokale-basis-von-vektorfeldern}}
+\subsubsection{Lokale Basis von Vektorfeldern}
+\label{\detokenize{manifolds/tangential:lokale-basis-von-vektorfeldern}}
 \par
-Aus \hyperref[\detokenize{vektoranalysis/diffformen:sec-tpbasis}]{Section \ref{\detokenize{vektoranalysis/diffformen:sec-tpbasis}}} wissen wir bereits, dass wir für \(p\in\M\) Tangentialvektoren \(v\in T_p\M\) durch die Vektoren \(\partial_{x^i}^p\) darstellen können. Im Kontext von Tangentialbündeln stellt sich auf natürliche Art die Frage, wie sich diese Vektoren verändern, wenn der Punkt \(p\) variiert wird. Hierzu definieren wir folgende Abbildungen.
-\begin{definition}{}{vektoranalysis/diffformen:definition-49}
+Aus \hyperref[\detokenize{manifolds/tangential:sec-tpbasis}]{Section \ref{\detokenize{manifolds/tangential:sec-tpbasis}}} wissen wir bereits, dass wir für jeden Punkt \(p\in\M\) die entsprechenden Tangentialvektoren \(v\in T_p\M\) durch die partiellen Derivationen \(\partial_{x^i}^p\) darstellen können.
+Im Kontext von Tangentialbündeln stellt sich die natürliche Frage, wie sich diese Vektoren verändern, wenn der Punkt \(p\in\M\) variiert wird.
+Hierzu definieren wir zunächst folgende Abbildungen.
+\begin{definition}{}{manifolds/tangential:definition-32}
 
 
 
 \par
-Es sei \(\M\) eine glatte \(n\) dimesnionale Mannigfaltigkeit und \((U,\phi)\) eine Karte, dann definieren wir die lokalen Koordinatenfelder
-für \(i=1,\ldots,n\) durch
+Es sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit und \((U,\phi)\) eine Karte.
+Dann definieren wir die sogenannten \textbf{lokalen Koordinatenfelder} für \(i=1,\ldots,n\) durch
 \begin{align*}
 \partial_{x^{i}}&:\M\to T\M\\
-\partial_{x^{i}}(p)&:= \partial_{x^{i}}\rvert_p
-\end{align*}\end{definition}
+\partial_{x^{i}}(p)&:= \partial_{x^{i}}\rvert_p.\end{align*}\end{definition}
 
 \par
-Mithilfe dieser lokalen Koordiantenfelder können wir nun Vektorfelder lokal darstellen.
-\begin{lemma}{}{vektoranalysis/diffformen:lem:localsections}
+Mithilfe dieser lokalen Koordinatenfelder können wir nun Vektorfelder lokal darstellen.
+\begin{lemma}{}{manifolds/tangential:lem:localsections}
 
 
 
 \par
-Es sei \(\M\) eine glatte Mannigfaltigkeit und \((U,\phi)\) sei eine Karte, dann gilt für \(X\in\Gamma(T\M\rvert_U)\) und die Koeffizientfunktionen \(X^i:=X(\phi_i)\in C^\infty(U)\)
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \((U,\phi)\) sei eine Karte von \(\M\).
+Dann gilt für \(X\in\Gamma(T\M\rvert_U)\) und die Koeffizientenfunktionen \(X^i:=X(\phi_i)\in C^\infty(U)\), dass gilt
 \begin{align*}
 X = \sum_{i=1}^n X^i \partial_{x^{i}}.
 \end{align*}\end{lemma}
 
 \begin{proof}
- Es sei \(p\in\M\), dann haben wir wegen  \cref{vektoranalysis/diffformen:thm:tanbasis} die Darstellung
+ Es sei \(p\in\M\) ein beliebiger Punkt der Mannigfaltigkeit.
+Dann haben wir wegen \cref{manifolds/tangential:thm:tanbasis} die Darstellung
 \begin{align*}
 X_p = \sum_{i=1}^n X_p(\phi_i) \partial_{x^i}^p.
 \end{align*}
 \par
-Mit der Defintion der Wirkung von Vektorfeldern folgt dann
+Mit der \cref{manifolds/tangential:def:wirkung} der Wirkung von Vektorfeldern folgt dann schon
 \begin{align*}
 X = \sum_{i=1}^n X(\phi_i) \partial_{x^i}.
 \end{align*}\end{proof}
 
 \par
-Aus dieser Darstellung folgt auch, dass lokal für eine Karte \((U,\phi)\) die Wirkung auf \(f\in C^\infty(U)\) geschrieben werden kann als
+Aus der obigen Darstellung folgt auch, dass lokal für eine Karte \((U,\phi)\) die Wirkung auf \(f\in C^\infty(U)\) geschrieben werden kann als
 \begin{align*}
 X(f) := \sum_{i=1}^n X^i \frac{\partial f}{\partial_{x^i}}.
 \end{align*}
 
-\subsubsection{Tensorfelder}
-\label{\detokenize{vektoranalysis/diffformen:tensorfelder}}
+\subsection{Das Kotangentialbündel}
+\label{\detokenize{manifolds/tangential:das-kotangentialbundel}}\label{\detokenize{manifolds/tangential:s-kotangbundel}}
 \par
-Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen. Hierbei benutzt man oft auch das Kotangentialbündel, welches direkt über den Kotangentialraum definiert werden kann.
-\begin{definition}{}{vektoranalysis/diffformen:definition-51}
+Analog zum Kotangentialraum, können wir auch das Kotangentialbündel definieren.
+\begin{definition}{}{manifolds/tangential:definition-34}
 
 
 
 \par
-Es sei \(\M\) eine glatte Mannigfaltigkeit, dann ist das \textbf{Kotangentialbündel} \(\pi^\ast (T\M)^\ast\to\M\) mit der Menge
+Es sei \(\pi:T\M\to\M\) eine Tangentialbündel, dann ist das \textbf{Kotangentialbündel} \(\pi^\ast: T^\ast\M\to\M\) mit der Menge
 \begin{align*}
-(T\M)^\ast := \bigsqcup_{p\in\M} T_p\M
+T^\ast\M := \bigsqcup_{p\in\M} T_p\M
 \end{align*}
 \par
-und der Abbildung
+und der Projektion
 \begin{align*}
-\pi^{\ast}(p , v):= T_p^\ast\M = (T_p\M)^\ast
+(\pi^{\ast})^{-1}(p):= \{p\}\times T_p^\ast\M
 \end{align*}
 \par
 definiert.
 \end{definition}
+\begin{remark}{}{manifolds/tangential:remark-35}
+
+
+
+\par
+Per Definition ist eine Projektion \(\pi^\ast\) surjektiv und besitzt eine Rechtsinverse \(\pi^\ast\), weshalb obige Definition impliziert, dass für alle \(p\in\M\)
+\begin{align*}
+\pi({p}\times T_p^\ast\M) = \pi((\pi^{\ast})^{-1}(p)) = p
+\end{align*}
+\par
+gilt. Insbesondere hat aber jedes Element \(x\in T^\ast\M\) eine Darstellung \(x=\{p\}\times T_p^\ast\M\) für ein \(p\in\M\), weshalb man \(\pi\) wie oben angegen tatsächlich über die Inverse definieren kann.
+\end{remark}
 
 \par
 Auch in diesem Fall erhält man ein Vektorbündel.
-\begin{lemma}{}{vektoranalysis/diffformen:lemma-52}
+\begin{lemma}{}{manifolds/tangential:lemma-36}
 
 
 
 \par
-Es sei \(\M\) eine glatte Mannigfaltigkeit, dann ist das Kotangentialbündel \(\pi^\ast (T\M)^\ast\to\M\) ein Vektorbündel.
+Es sei \(\pi:T\M\to\M\) eine Tangentialbündel, dann ist das Kotangentialbündel \(\pi^\ast:T^\ast\M\to\M\) ein Vektorbündel.
 \end{lemma}
 
 \begin{proof}
- Siehe Übung.
+ Der Beweis funktioniert analog zum Beweis von \cref{manifolds/tangential:lem:tanbundle}  Für die Details zur Argumentation weshalb auch \(T^\ast\M\) eine Mannigfaltigkeit ist, verweisen wir auf \cite{Lee03} Prop. 11.9.
 \end{proof}
 
 \par
-Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialbündeln aussehen soll. Für zwei Vektorbündel \(E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}\) wissen wir, dass für jedes \(p\in\M\) die Fasern \(E_p, F_p\) endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
+Wir interessieren uns auch hier für glatte Schnitte, welche in diesem Kontext als 1 Differentialformen bezeichnet werden.
+\begin{definition}{}{manifolds/tangential:definition-37}
+
+
+
+\par
+Ein glatter Schnitt \(\omega\in\Gamma(T^\ast\M)\) wir als 1 Differentialform bezeichnet, zusätzlich benutzen wir die Notation
+\begin{align*}
+\Omega^1(\M) := \Gamma(T^\ast\M)
+\end{align*}\end{definition}
+
+\par
+Man kann hier analog lokale Koordinaten Kovektorfelder definierne indem man lokale Koordinaten betrachtet und die duale Basisdarstellung des Kotangentialraums benutzt.
+\begin{definition}{}{manifolds/tangential:definition-38}
+
+
+
+\par
+Es sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit und \((U,\phi)\) eine Karte.
+Dann definieren wir die sogenannten \textbf{lokalen Koordinaten Kovektorfelder} für \(i=1,\ldots,n\) durch
+\begin{align*}
+dx^{i}:\M&\to T\M\\
+p&\mapsto dx^{i}_p.\end{align*}\end{definition}
+
+\par
+Die definierten 1 Formen sind die einfachsten Beispiele der allgmeinen Diffenerentialformen, welche wir in \hyperref[\detokenize{manifolds/diffformen:s-difformen}]{Section \ref{\detokenize{manifolds/diffformen:s-difformen}}} untersuchen werden. Das Konzept des Kotangentialbündels und der Differentialform ist nun noch etwas abstrakt, allerdings erhalten wir mithilfe des totalen Differentials \cref{manifolds/tangential:def:totdiff} erneut eine einfache Veranschalichung.
+\begin{example}{}{manifolds/tangential:ex:totdiff}
+
+
+
+\par
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \(f\in C^\infty(\M)\), dann ist die Abbildung
+\begin{align*}
+df:\M\to T^\ast\M\\
+p\mapsto (p, df_p)
+\end{align*}
+\par
+eine Differentialform, wobei \(df_p\in T_p^\ast\M\) für eine Derivation \(D\in T_p\M\) definiert ist durch
+\begin{align*}
+df_p(D) := D(f),
+\end{align*}
+\par
+weil \(D\) als Derivation gerade eine lineare Abbildung \(D:C^\infty\to\R\) ist.
+
+\par
+Für die Glattheitseigenschaft verweisen wir auf \cite{Lee03} Prop. 10.22., was zeigt, dass \(df\) eine glatte Abbildung ist. Desweiteren sehen wir, dass
+\begin{align*}
+\pi^\ast(df(p)) = \pi^\ast((p,df_p)) = p\end{align*}
+\par
+und somit gilt per Definition diese Eigenschaft eines Schnittes. Sei nun \((U,\varphi)\) eine Karte mit lokalen Koordinaten \(\varphi = (x^1,\ldots, x^n)\). Für \(p\in\M\) und \(D\in T_p\M\) Derivation gilt nach ??, dass
+\begin{align*}
+D = \sum_{i=1}^n D(x^i)\, \partial_{x^i}^p = \sum_{i=1}^n dx^{i}(D)\, \partial_{x^i}^p,
+\end{align*}
+\par
+wobei hierbei \(dx^{i}:T_p\M\to\R\) eine Element der dualen Basis ist. Daraus folgt für das totale Differential an \(p\), \(df_p:T_p\M\to\R\), per Defintion dass
+\begin{align*}
+df_p(D) = \sum_{i=1}^n dx_p^{i}(D)\, df_p(\partial_{x^i}^p) = 
+\sum_{i=1}^n dx_p^{i}(D)\, \partial_{x^i}^p(f)
+\end{align*}
+\par
+gilt. Somit gilt also lokal in \(U\)
+\begin{align*}
+df = \sum_{i=1}^n dx^{i}\, \partial_{x^i}(f).
+\end{align*}\end{example}
+
+\par
+Für den Fall, dass die Mannigfaltigkeit \(\M\) eine offene Teilmene des \(\R^n\) ist erhalten wir einen einfachen Zusammenhang zur klassischen Richtungsableitung.
+\begin{example}{}{manifolds/tangential:example-40}
+
+
+
+\par
+Es sei \(\M=U\subset\R^n\) eine offene Teilmenge, für jedes \(p\in\M\) können wir den Tangentialraum dann mit dem \(\R^n\) identifizieren und erhalten, dass das totale Differential an \(p\) gegeben ist durch
+\begin{align*}
+df_p:\R^n&\to\R\\
+v&\mapsto \langle \nabla f(p), v \rangle = \sum_{i=1}^n \partial_i f(p)\, v^i.
+\end{align*}
+\par
+Insbsondere ist \(dx^{i}\) in diesem Fall die Funktion welche einen Vektor auf seine Komponenten abbildet, somit gilt
+\begin{align*}
+dx^{i}(v) = v^i
+\end{align*}
+\par
+und daher insgesamt wiederum
+\begin{align*}
+df = \sum_{i=1}^n \partial_i f, dx^{i}.
+\end{align*}\end{example}
+
+\par
+Zusätzlich haben wir hier auch eine lokale Basisdarstellung als analoges Resultat zu \cref{manifolds/tangential:lem:localsections} hier nun aber mit den Basiselementen des Kotangentialraums, bzw. den lokalen Koordinaten Kovektorfeldern.
+\begin{lemma}{}{manifolds/tangential:lem:coordcovec}
+
+
+
+\par
+Es sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit und \((U,\phi)\) eine Karte mit lokalen Koordinaten \(\varphi=(x^1,\ldots, x^n)\),  dann gilt für jede Differentialform \(\omega\in\Omega^1(U)\), dass
+\begin{align*}
+\omega = \sum_{i=1}^n f_i dx^i
+\end{align*}
+\par
+wobei \(f_i\in C^\infty(\M)\) gegeben ist durch \(\omega(\partial_{x^i})\).
+\end{lemma}
+
+\begin{proof}
+ Siehe z.B. \cite{Lee03} Seite 282.
+\end{proof}
+
+
+\subsection{Tensorfelder}
+\label{\detokenize{manifolds/tangential:tensorfelder}}
+\par
+Als natürliche Verallgemeinerung wollen wir nun das Konzept der Felder auf Mannigfaltigkeiten von Vektoren auf Tensoren übertragen. Um ein Tensorfeld definieren zu können müssen wir zunächst klären, wie das Tensorprodukt von Tangentialbündeln aussehen soll. Für zwei Vektorbündel \(E\overset{\pi_E}{\to}{\M}, F\overset{\pi_F}{\to}{\M}\) wissen wir, dass für jedes \(p\in\M\) die Fasern \(E_p, F_p\) endlichdimensionale Vektorräume sind. Insbeonsdere können wir also das Tensorprodukt
 \begin{align*}
 E_p\otimes F_p
 \end{align*}
@@ -5522,7 +5667,7 @@ E\otimes F:= \bigsqcup_{p\in\M} E_p\otimes F_p
 betrachten. Die entsprechende Projektion \(\pi_{E\otimes F}:E\otimes F\to\M\) ist gegeben durch
 \begin{align*}
 \pi_{E\otimes F}^{-1}(p):= E_p\otimes F_p := (E\otimes F)_p.
-\end{align*}\begin{lemma}{}{vektoranalysis/diffformen:lem:tensorbundle}
+\end{align*}\begin{lemma}{}{manifolds/tangential:lem:tensorbundle}
 
 
 
@@ -5541,7 +5686,7 @@ ein Vektorbündel vom Rang \(kl\).
 
 \par
 Die Definition des Tensorbündels lässt sich direkt auf mehrfache Tensorprodukte übertragen und führt uns direkt auf gemischte Tensorbündel.
-\begin{definition}{}{vektoranalysis/diffformen:definition-54}
+\begin{definition}{}{manifolds/tangential:definition-43}
 
 
 
@@ -5555,23 +5700,27 @@ Tensorbündel der Stufe \((r,s)\).
 \end{definition}
 
 \par
-Mit den vorherigen Überlegungen können wir direkt Schlussfolgern, dass wir hier erneut ein Vektorbündel definiert haben.
-\label{vektoranalysis/diffformen:corollary-55}
-\begin{emphBox}{}{}{Corollary 3.5}
+Mit den vorherigen Überlegungen können wir direkt schlussfolgern, dass wir hier erneut ein Vektorbündel definiert haben. Insbesondere, da nach \cref{vektoranalysis/tensor:cor:tensorMultilinearform} \begin{align*}
+T^r_s(T_p\M) \cong \underbrace{T_p\M\otimes\ldots T_p\M}_{r\text{ mal}}\otimes\underbrace{T_p^ast\M\otimes\ldots T_p\ast\M}_{s\text{ mal}}
+\end{align*}
+\par
+gilt erhalten wir die Bündelstruktur über Anwendung von \cref{manifolds/tangential:lem:tensorbundle} 
+\label{manifolds/tangential:corollary-44}
+\begin{emphBox}{}{}{Corollary 4.1}
 
 
 
 \par
-Es sei \(\M\) eine glatte Mannigfaltigkeit, und \(r,s\in\N_0\), s.d. \(r+s>0\), dann ist \(\pi:T^r_s\M\to\M\) mit der kanonisch nach \cref{vektoranalysis/diffformen:lem:tensorbundle} definierten Abbildung \(\pi\) ein Vektorbündel.
+Es sei \(\M\) eine glatte Mannigfaltigkeit, und \(r,s\in\N_0\), s.d. \(r+s>0\), dann ist \(\pi:T^r_s\M\to\M\) mit der kanonisch nach \cref{manifolds/tangential:lem:tensorbundle} definierten Abbildung \(\pi\) ein Vektorbündel.
 \end{emphBox}
 
 \begin{proof}
- Folgt direkt aus \cref{vektoranalysis/diffformen:lem:tensorbundle} 
+ Folgt direkt aus \cref{manifolds/tangential:lem:tensorbundle} 
 \end{proof}
 
 \par
 Da wir die Struktur eines Vektorbündels definiert haben können wir nun auf natürliche Weise auch \textbf{Tensorfelder} als glatte Schnitte definieren.
-\begin{definition}{}{vektoranalysis/diffformen:definition-56}
+\begin{definition}{}{manifolds/tangential:definition-45}
 
 
 
@@ -5580,25 +5729,25 @@ Es sei \(\M\) eine glatte Mannigfaltigkeit, und \(r,s\in\N_0\), s.d. \(r+s>0\), 
 \end{definition}
 
 \par
-Dank der lokalen Darstellung von Vektorbündeln in \cref{vektoranalysis/diffformen:lem:localsections} können wir die recht abstrakten Tensorfelder lokal sehr konkret Darstellen.
-\label{vektoranalysis/diffformen:corollary-57}
-\begin{emphBox}{}{}{Corollary 3.6}
+Dank der lokalen Darstellung von Vektorbündeln in \cref{manifolds/tangential:lem:localsections} können wir die recht abstrakten Tensorfelder lokal sehr konkret Darstellen.
+\label{manifolds/tangential:cor:tensorfieldchart}
+\begin{emphBox}{}{}{Corollary 4.2}
 
 
 
 \par
-Es sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit, \((U,\varphi)\) eine Karte mit lokalen Koordinaten \(\varphi=(x^1,\ldots,x^n)\). Für \(r,s\in\N_0\), s.d. \(r+s>0\) und \(A\in \Gamma(T^r_s\M)\) ein Tensorfeld existieren glatte Koeffizientenfunktionen \(A^{i_1,\ldots, i_r}_{j_1,\ldots,j_s}\in C^\infty(\M)\) für \(i_1,\ldots, i_r, j_1,\ldots, j_s\in \{1,\ldots,n\}\), s.d.,
+Es sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit, \((U,\varphi)\) eine Karte mit lokalen Koordinaten \(\varphi=(x^1,\ldots,x^n)\). Für \(r,s\in\N_0\), s.d. \(r+s>0\) und \(A\in \Gamma(T^r_s\M)\) ein Tensorfeld existieren glatte Koeffizientenfunktionen \(A^{i_1,\ldots, i_s}_{j_1,\ldots,j_r}\in C^\infty(\M)\) für \(i_1,\ldots, i_s, j_1,\ldots, j_r\in \{1,\ldots,n\}\), s.d.,
 \begin{align*}
-A = A^{i_1,\ldots,i_r}_{j_1,\ldots,j_s} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.
+A = A^{i_1,\ldots,i_s}_{j_1,\ldots,j_r} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.
 \end{align*}\end{emphBox}
 
 \begin{proof}
- Folgt aus \cref{vektoranalysis/diffformen:lem:localsections} 
+ Folgt aus \cref{manifolds/tangential:lem:localsections} und \cref{manifolds/tangential:lem:coordcovec}   für Details siehe \cite{Lee03} Prop. 12.19.
 \end{proof}
 
 \par
 Ähnlich zu den Überlegungen in \hyperref[\detokenize{vektoranalysis/tensor:s-symtensoren}]{Section \ref{\detokenize{vektoranalysis/tensor:s-symtensoren}}} können wir auch hier das Tensorprodukt von Tensorfeldern betrachten.
-\begin{lemma}{}{vektoranalysis/diffformen:lemma-58}
+\begin{lemma}{}{manifolds/tangential:lemma-47}
 
 
 
@@ -5609,9 +5758,22 @@ Es sei \(\M\) eine glatte Mannigfaltigkeit, für \(r,l\in \N\) seien \(A\in \Gam
 (A\otimes B)_{i_1,\ldots,i_{l+r}} = A_{i_1,\ldots, i_l} B_{i_{l+1},\ldots, i_{l+k}}.
 \end{align*}\end{lemma}
 
+\begin{proof}
+ Siehe \cite{Lee03} Prop. 12.22.
+\end{proof}
+
+
+\section{Differentialformen auf Mannigfaltigkeiten}
+\label{\detokenize{manifolds/diffformen:differentialformen-auf-mannigfaltigkeiten}}\label{\detokenize{manifolds/diffformen::doc}}
+\par
+Die vorhergehenden Abschnitte liefern nun die nötigen Grundlagen um \textbf{Differentialformen} zu betrachten. Insbesondere werden wir diese über eine Unterstruktur der bekannten Tensorfelder erhalten. Dieser Schritt isr konzeptionell sehr ähnlich zum Schritt von allgemeinen Tensoren zu den Antisymmetrischen, bzw. alternierenden Tensoren. Dieser Zusammenhang erklärt auch die Begrifflichkeit alternierende Differentialform welche in de Literatur häufig vorkommt.
+
+\par
+Differentialformen sind ein wichtiges Konzept in verschieden Bereichen der Mathematik und Physik. Auch wenn wir diese Thematik hier nicht betrachten, sei erwähnt, dass Differentialformen die Integration auf speziellen glatten Mannigfaltigkeiten erlauben.
+
 
 \subsection{Differentialformen}
-\label{\detokenize{vektoranalysis/diffformen:differentialformen}}
+\label{\detokenize{manifolds/diffformen:differentialformen}}\label{\detokenize{manifolds/diffformen:s-difformen}}
 \par
 In Kapitel ?? haben wir symmetrische und antisymmetrische Tensoren kennengelernt. Dieses Konzept werden wir nun auf Tensorfelder übetragen um somit Differntialformen zu erhalten. Hierfür betrachten wir für eine glatte Mannigfaltigkeit die Menge
 \begin{align*}
@@ -5619,7 +5781,7 @@ In Kapitel ?? haben wir symmetrische und antisymmetrische Tensoren kennengelernt
 \end{align*}
 \par
 der alternierenden Tensorfelder. Antisymmetrische Tensoren bilden direkt eine Teilmenge aller Tensoren und es bleibt lediglich zu zeigen, dass die Vektorraumstruktur erhalten bleibt. Die Situation hier ist nun anders, man benötigt den abstrakten Begriff des \textbf{Untervektorbündels}.
-\begin{definition}{}{vektoranalysis/diffformen:definition-59}
+\begin{definition}{}{manifolds/diffformen:definition-0}
 
 
 
@@ -5637,16 +5799,16 @@ gelte, dann heißt \(D\) Untervektorbündel von \(E\).
 
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/subbundle.png}
-\caption{Visualisierung eines Untervektorbündels, siehe \cite{Lee03} Kapitel 10.}\label{\detokenize{vektoranalysis/diffformen:fig-subbundle}}\end{figure}
+\caption{Visualisierung eines Untervektorbündels, siehe \cite{Lee03} Kapitel 10.}\label{\detokenize{manifolds/diffformen:fig-subbundle}}\end{figure}
 
 \par
 In diesem Fall erhält man also ein Untervektorbündel.
-\begin{lemma}{}{vektoranalysis/diffformen:lemma-60}
+\begin{lemma}{}{manifolds/diffformen:lemma-1}
 
 
 
 \par
-Sei \(\M\) eine glatte \(n\) dimesnionale Mannigfaltigkeit, dann ist \(\Lambda^k T^\ast\M\) ein glattes Untervektorbündel vom Rang \(\begin{pmatrix} n k \end{pmatrix}\).
+Sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit, dann ist \(\Lambda^k T^\ast\M\) ein glattes Untervektorbündel vom Rang \(\begin{pmatrix} n k \end{pmatrix}\).
 \end{lemma}
 
 \begin{proof}
@@ -5654,8 +5816,8 @@ Sei \(\M\) eine glatte \(n\) dimesnionale Mannigfaltigkeit, dann ist \(\Lambda^k
 \end{proof}
 
 \par
-Dank der Bündelstruktur können wir erneut glatte Schnitte betrachten, welche nun auf das Konzept der Diffentialform führen.
-\begin{definition}{}{vektoranalysis/diffformen:definition-61}
+Dank der Bündelstruktur können wir erneut glatte Schnitte betrachten, welche nun auf das Konzept der Differentialform führen.
+\begin{definition}{}{manifolds/diffformen:definition-2}
 
 
 
@@ -5665,101 +5827,119 @@ Es sei \(\M\) eine glatte Mannigfaltigkeit, dann nennt man einen glatten Schnitt
 \omega\in \Gamma(\Lambda^k T^\ast\M)
 \end{align*}
 \par
-eine \(k\) Differentialform oder auch \(k\) Form. Den Vektorraum der Differntialformen notieren wir durch
+eine \(k\) Differentialform oder auch \(k\) Form. Den Vektorraum der Differentialformen notieren wir durch
 \begin{align*}
 \Omega^k(\M) := \Gamma(\Lambda^k T^\ast\M).
 \end{align*}\end{definition}
 
 
-\subsubsection{Das äußere Produkt}
-\label{\detokenize{vektoranalysis/diffformen:das-auszere-produkt}}
+\subsection{Das äußere Produkt}
+\label{\detokenize{manifolds/diffformen:das-auszere-produkt}}
 \par
-Eine Differentialform \(\omega\) auf \(U\subseteq\R^n\) ist eine von Ort zu Ort variierende äußere Form, deren Variation wir als glatt voraussetzen.
-
-\par
-Wir schreiben eine allgemeine \emph{\(k\)–Form} \(\omega\) in der \emph{Grundform}
+In \hyperref[\detokenize{vektoranalysis/tensor:s-symtensoren}]{Section \ref{\detokenize{vektoranalysis/tensor:s-symtensoren}}} haben wir das äußere Produkt \(\wedge\) kennengelernt, welches wir nun auf Differentialformen übertragen. Dazu seien \(\omega\in \Omega^k(\M), \eta\in \Omega^l(\M)\) zwei Differentialformen für \(k,l\in\N\), dann setzten wir
 \begin{align*}
-\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
-dx_{i_1}\wedge\ldots\wedge dx_{i_k}\in\Omega^k(U),
+\omega \wedge \eta:\M &\to \Lambda^{k+l}T^\ast\M\\
+p&\mapsto \omega_p \wedge \eta_p
 \end{align*}
 \par
-wobei
-\begin{itemize}
-\item {} 
-\par
-die \(\omega_{i_1\ldots i_k}\in \Omega^0(U):=C^\infty(U,\R)\), also glatte reelle Funktionen auf \(U\) sind,
+was in der Tat eine Differentialform definiert, also \(\omega\wedge\eta \in \Omega^{k+l}(\M)\). Zusätzlich überträgt sich auch die Darstellung in einer lokalen Karte von \cref{manifolds/tangential:cor:tensorfieldchart} auf diese Situation, wobei das Tensorprodukt, durch das äußere Produkt ersetzt werden kann.
+\begin{lemma}{}{manifolds/diffformen:lemma-3}
 
-\item {} 
-\par
-und die \(dx_i\) den Koordinatenfunktionen \(x_i:\R^n\to\R\) zugeordnete \(1\)–Differentialformen sind (\(dx_i\in\Omega^1(\R^n)\)).
 
-\item {} 
-\par
-Den Raum der \(k\)–Differentialformen schreiben wir ab jetzt zur Unterscheidung vom Raum der äußeren \(k\)–Formen mit dem Symbol \(\Omega\) statt \(\Lambda\).
-
-\end{itemize}
 
 \par
-Die \(dx_i\) sind durch ihre Wirkung auf ein Vektorfeld \(v:U\to
-\R^n\) definiert, und \(dx_i(v)( y) := v_i( y)\).
-\(1\)–Differentialformen machen also aus Vektorfeldern Funktionen, und für \(k\) Vektorfelder \(v^{(l)}:U\to\R^n\) ist für das \(\omega\) aus der Grundform
+Es sei \(\M\) eine glatte Mannigfaltigkeit, \((\varphi,U)\) eine Karte und \(\omega\in\Omega^l(\M)\) eine Differentialform, dann gilt lokal in \(U\)
 \begin{align*}
-\omega\left(v^{(1)},\ldots,v^{(k)}\right) := \sum_{1\leq i_1<\ldots<i_k\leq n}
-\omega_{i_1\ldots i_k}\cdot\det\begin{pmatrix} dx_{i_1}(v^{(1)})&\ldots& dx_{i_k}(v^{(1)})\\
-\vdots&&\vdots\\
-dx_{i_1}(v^{(k)})&\ldots& dx_{i_k}(v^{(k)}) \end{pmatrix}
+\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k},
 \end{align*}
 \par
-definiert. Das Ergebnis ist also eine reelle Funktion auf \(U\).\textbackslash{}
-Die Rechenregeln übertragen sich von den äußeren Formen auf die Differentialformten.
+wobei \(\omega_{i_1\ldots i_k}\in C^\infty(\M)\) für alle \(i_1,\ldots,i_k\in\{1,\ldots,n\}\) gilts
+\end{lemma}
+
+\begin{proof}
+ Siehe z.B. \cite{Lee03} Kapitel 14.
+\end{proof}
+\begin{example}{}{manifolds/diffformen:example-4}
+
+
 
 \par
-Auf dem \(\R\)–Vektorraum
+1. Für \(k=0\) und \(\M\) eine glatte Mannigfaltigkeit erhalten wir
 \begin{align*}
-\Omega^*(U) := \bigoplus_{k=0}^n\Omega^k(U)
+\Omega^0(\M) = C^\infty(\M).
+\end{align*}
+
+
+\par
+2. Für \(k=1\) und \(\M\) eine glatte Mannigfaltigkeit erhalten wir
+\begin{align*}
+\Omega^1(\M)
 \end{align*}
 \par
-der Differentialformen betrachten wir jetzt
-den \emph{Differentialoperator} \(d\), der durch
-\begin{itemize}
-\item {} 
-\par
-\(df := \sum_{i=1}^n\frac{\partial f}{\partial x_i}dx_i\) für Funktionen
-\(f\in C^\infty(U,\R) = \Omega^0(U)\)
-
-\item {} 
-\par
-und \(d\omega := \sum_{1\leq i_1<\ldots<i_k\leq n}d\omega_{i_1\ldots i_k}
-\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k}\) für \(k\)–Formen \textbackslash{}linebreak
-\(\omega = \sum_{1\leq i_1<\ldots<i_k\leq n}\omega_{i_1\ldots i_k}
-dx_1\wedge\ldots\wedge dx_{i_k}\)
-
-\end{itemize}
-
-\par
-definiert ist. \(d\) verwandelt eine \(k\)–Form also in eine \((k+1)\)–Form.
-\begin{definition}{}{vektoranalysis/diffformen:aeussere Ableitung}
+gerade die Kovektorfelder aus \hyperref[\detokenize{manifolds/tangential:s-kotangbundel}]{Section \ref{\detokenize{manifolds/tangential:s-kotangbundel}}}.
 
 
 
 \par
-Die lineare Abbildung \(d:\Omega^*(U)\to\Omega^*(U)\) heißt \href{https://de.wikipedia.org/wiki/\%C3\%84u\%C3\%9Fere\_Ableitung}{\textbf{äußere Ableitung}}.
-\end{definition}
-\begin{example}{}{vektoranalysis/diffformen:ex:10.14}
-
-
-\begin{enumerate}
-
-\item {} 
+3. Für \(k=3\) und \(\M=\R^3\) ist z.B.,
+\begin{align*}
+\omega(xy) := \sin(xy) dx\wedge dy
+\end{align*}
 \par
-Für \(\omega\in\Omega^0(\R^3)\) ist \(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
+eine Differentialform.
+\end{example}
+
+
+\subsection{Die äußere Ableitung}
+\label{\detokenize{manifolds/diffformen:die-auszere-ableitung}}
+\par
+Wir wenden uns nun einer wichtigen Operation auf Differentialformen zu, der äußeren Ableitung. Aus \cref{manifolds/tangential:ex:totdiff} kennen wir schon das totale Differential \(df\in \Omega^1(\M)\), für eine glatte Funktion \(f\in C^\infty(\M)\). Hierbei haben wir für ein glattes Vektorfeld \(X\in \Gamma(T\M)\) die Abbildung
+\begin{align*}
+df(X) := X(f)
+\end{align*}
+\par
+definiert, wobei die rechte Seite über die Wirkung des Vektorfelds definiert ist. Wir können dieses Konzept verallgemeinern, indem wir die äußere Ableitung definieren.
+\begin{definition}{}{manifolds/diffformen:definition-5}
+
+
+
+\par
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \(f\in C^\infty(\M)\), dann definieren wir die lineare Abbildung
+\begin{align*}
+d:\Omega^k(\M)\to \Omega^{k+1}(\M)\\
+d(f\, dx^{i_1}\wedge\ldots\wedge dx^{i_k}):= df \wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k}.
+\end{align*}\end{definition}
+\begin{remark}{}{manifolds/diffformen:remark-6}
+
+
+
+\par
+Beachte, dass die obige Abbildung nur jeweils für lokale Koordinaten definiert ist. Wegen der Kartenunabängigkeit führt dies aber auf eine eindeutig definierte Funktion, siehe z.B. \cite{Lee03} Kapitel 14. Da wir \(d\) auf den Elementen \(dx^{i_1}\wedge\ldots\wedge dx^{i_k}\) definiert haben erhalten wir jeweils lokal eine eindeutige lineare Fortsetzung, da jedes \(\omega\in \Omega^k(\M)\) lokal die Darstellung
+\begin{align*}
+\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+\end{align*}
+\par
+hat und somit
+\begin{align*}
+d\omega &= \sum_{1\leq i_1,\ldots,i_k \leq n} d(\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k})\\ 
+&= \sum_{1\leq i_1,\ldots,i_k \leq n} d(\omega_{i_1\ldots i_k})\wedge
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+\end{align*}\end{remark}
+\begin{example}{}{manifolds/diffformen:ex:10.14}
+
+
+
+\par
+1. Für \(\omega\in\Omega^0(\R^3)\) ist \(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
 \frac{\partial\omega}{\partial x_2}dx_2+\frac{\partial\omega}{\partial x_3}dx_3\).
 
-\item {} 
-\par
-Für \(\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)\) ist
 
-\end{enumerate}
+
+\par
+2. Für \(\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)\) ist
 \begin{align*}
 d\omega &=& (d\omega_1)\wedge dx_1+(d\omega_2)\wedge dx_2+(d\omega_3)\wedge
 dx_3\\
@@ -5767,106 +5947,566 @@ dx_3\\
 dx_1\wedge dx_2+ \left(\frac{\partial\omega_3}{\partial x_2}-\frac{\partial\omega_2}{\partial x_3}\right)
 dx_2\wedge dx_3\\
 && + \left(\frac{\partial\omega_1}{\partial x_3}-\frac{\partial\omega_3}{\partial x_1}\right)
-dx_3\wedge dx_1
-\end{align*}\begin{enumerate}
+dx_3\wedge dx_1.
+\end{align*}
 
-\item {} 
+
 \par
-Für \(\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
+3. Für \(\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
 +\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)\) ist
-
-\end{enumerate}
 \begin{align*}
 d\omega = \left(\frac{\partial\omega_{12}}{\partial x_3} + \frac{\partial\omega_{23}}{\partial x_1}
 + \frac{\partial\omega_{31}}{\partial x_2}\right)dx_1\wedge dx_2\wedge dx_3.
-\end{align*}\begin{enumerate}
+\end{align*}
+
+
+\par
+4. Für \(\omega\in\Omega^3(\R^3)\) ist \(d\omega=0\).
+\end{example}
+
+\par
+Für die äußere Ableitung können wir zusätzlich folgende Eigenschaften zeigen.
+\begin{lemma}{}{manifolds/diffformen:lem:outeprop}
+
+
+
+\par
+Es sei \(\M\) eine glatte Mannigfaltigkeit, dann haben wir folgende Eigenschaften.
+
+
+
+\par
+1. Für \(f,g\in C^\infty(\M)\) gilt
+\begin{align*}
+d(fg) = d(f)\,g + f\, d(g).
+\end{align*}
+
+
+\par
+2. Für \(\omega\in\Omega^k(\M),\eta\in\Omega^l(\M)\) gilt
+\begin{align*}
+d(\omega\wedge\eta) = (d\omega)\wedge \eta + (-1)^k \omega\wedge (d\eta).
+\end{align*}
+
+
+\par
+3. Es gilt \(d\circ d = 0\).
+\end{lemma}
+\begin{remark}{}{manifolds/diffformen:remark-9}
+
+
+
+\par
+Da \(d\) Eigenschaft 2 erfüllt, nennt man \(d\) auch Antiderivation.
+\end{remark}
+
+\par
+Eine interessante Anwendung finden Differntialformen im sog. Poincaré Lemma. Hierfür benötigen wir folgenden Begriffe
+\begin{definition}{}{manifolds/diffformen:def:geschlossenexakt}
+
+
+
+\par
+Es sei \(\M\) eine glatte Mannigfaltigkeit, eine Differentialform \(v\in\Omega^k(\M)\) heißt
+\begin{itemize}
+\item {} 
+\par
+\textbf{geschlossen}, wenn \(dv=0\),
 
 \item {} 
 \par
-Für \(\omega\in\Omega^3(\R^3)\) ist \(d\omega=0\).
+\textbf{exakt}, wenn \(v=d\eta\) für ein \(\eta\in\Omega^{k-1}(\M)\) gilt.
 
-\end{enumerate}
-\end{example}
-\begin{theorem}{}{vektoranalysis/diffformen:Antiderivation}
-
-
+\end{itemize}
+\end{definition}
 
 \par
-\(d\) ist eine \href{https://de.wikipedia.org/wiki/Derivation\_(Mathematik)\#Antiderivationen}{\textbf{Antiderivation}}, d.h. für \(\alpha\in\Omega^k(U)\) und \(\beta\in\Omega^l(U)\) ist
+Nach Satz {lem:outer:prop broken reference} sind exakte Differentialformen geschlossen, da für \(v=d\eta\) gilt,
 \begin{align*}
-d(\alpha\wedge\beta) = (d\alpha)\wedge\beta+(-1)^k\alpha\wedge d\beta.
-\end{align*}\end{theorem}
-
-\begin{proof}
- Wegen der Linearität von \(d\) genügt es, diese Gleichung für Monome
-\begin{align*}
-\alpha := f\underbrace{dx_{i_1}\wedge\ldots\wedge dx_{i_k}}_{\tilde
-{\alpha}},\ \beta := g\underbrace{dx_{j_1}\wedge\ldots\wedge dx_{j_l}}_
-{\tilde{\beta}},\ f,g\in C^\infty(U,\R)
+dv = d(d\eta) = (d\circ d)\eta = 0.
 \end{align*}
 \par
-zu beweisen.
-Es gilt
-\begin{align*}
-d(\alpha\wedge\beta) &=& d(f\cdot g)\tilde{\alpha}\wedge
-\tilde{\beta} = \big((df)g+f(dg)\big)\,\tilde{\alpha}\wedge\tilde{\beta}\\
-&=& (df)\tilde{\alpha}\wedge g\tilde{\beta}+ (-1)^kf\tilde{\alpha}
-\end{align*}\end{proof}
-\begin{theorem}{}{vektoranalysis/diffformen:thm:dd}
+Das Poincaré Lemma besagt nun, dass auf sternförmigen offenen Mengen \(U\subseteq \R^n\) auch die Umkehrung gilt.
+\begin{lemma}{}{manifolds/diffformen:lemma-11}
 
 
 
 \par
-Auf \(\Omega^*(U)\) gilt
-\end{theorem}
+Es sei \(U\subset\R^n\) eine offene sternförmige Menge, dann gilt für \(\omega\in \Omega^k(\M)\),
+\begin{align*}
+\omega\text{ ist geschlossen}\Leftrightarrow \omega\text{ ist exakt.}
+\end{align*}\end{lemma}
 
 \begin{proof}
- 1. Für \(f\in\Omega^0(U)\) ist
+ Siehe z.B. \cite{Lee03} Theorem 11.49.
+\end{proof}
+
+
+\subsection{Der Pullback}
+\label{\detokenize{manifolds/diffformen:der-pullback}}
+\par
+Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte \textbf{Pullback}. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten \(\M,\mathcal{N}\) und eine glatte Funktion \(F:M\to\mathcal{N}\). Das Ziel ist es nun eine Differentialform auf \(N\), \(\omega\in\Omega^k(\mathcal{N})\) mithilfe von \(F\) auf eine Differentialform auf \(\M\) zurückzuziehen. Ausgewertet an \(p\in\M\) ergibt eine Differentialform \(\eta\in\Omega^k(\M)\) ein Element aus \(L^k(T_p^\ast\M)\),
 \begin{align*}
-ddf &=& d\left(\sum_{i=1}^n\frac{\partial f}
-{\partial x_i}dx_i\right) = \sum_{i=1}^n\sum_{l=1}^n\frac{\partial^2f}{\partial x_l\partial x_i}
-dx_l\wedge dx_i\\
-& =& \sum_{1\leq r< s\leq n}\left(\frac{\partial^2 f}{\partial x_r
-\partial x_s} - \frac{\partial^2f}{\partial x_s\partial x_r}\right)dx_r\wedge dx_s = 0,
+\eta_p\in \Omega^k(T_p\M) \subset L^k(T_p^\ast\M)
 \end{align*}
 \par
-da wir wegen der Glattheit von \(f\) die partiellen Ableitungen vertauschen
-können.
+also eine Linearform, welche auf \(k\) Elemente \(v_1,\ldots,v_k\in T_p^\ast\M\) des Kotangentialraums in \(p\) an \(\M\) wirkt. Haben wir nun a priori \(\omega\in\Omega^k(\mathcal{N})\) gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über \(F\) von \(\M\) nach \(\N\) vorschieben können, der sogennante \textbf{Pushforward}.
+\begin{definition}{}{manifolds/diffformen:definition-12}
+
+
+
+\par
+Es seien \(\M,\mathcal{N}\) zwei glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann definieren wir für \(p\in\M\)
+\begin{align*}
+F_\ast:T_p\M\to T_{F(p)}\mathcal{N}\\
+D\mapsto \big[f\mapsto D(f\circ F)]
+\end{align*}
+\par
+den sogenannten \textbf{Pushforward}.
+\end{definition}
+
+\par
+Da wir nun Tangentialvektoren von \(T_p\M\) auf \(T_{F(p)}\mathcal{N}\) schieben können, sind wir in der Lage damit den Pullback von Kotangentialvektoren zu definieren.
+\begin{definition}{}{manifolds/diffformen:definition-13}
+
+
+
+\par
+Es seien \(\M,\mathcal{N}\) zwei glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann definieren wir für \(p\in\M\)
+\begin{align*}
+F^\ast: T_{F(p)}^\ast\mathcal{N}\to \big[T^p_\M\mapsto\R\big]\\
+v \mapsto \big[D\mapsto v(F_\ast(D)) \big]
+\end{align*}
+\par
+den \textbf{Pullback}
+\end{definition}
+\begin{remark}{}{manifolds/diffformen:remark-14}
+
+
+
+\par
+Es gilt insbesondere, dass \(F^\ast v \in T_p^\ast\M\) für jedes \(v\in T_{F(p)}^\ast\mathcal{N}\).
+\end{remark}
+
+\par
+Dieses Konzept können wir nun auf Formen übertragen in dem wir eine neue Differentialform punktweise an \(p\) definieren am Punkt \(F(p)\). Konkret seien \(v_1,\ldots, v_k\in T_p\M\), dann definiere
+\begin{align*}
+(F^\ast\omega)_p (v_1,\ldots,v_k) := \omega_F(p)\big(F_\ast(v_1),\ldots,F_\ast(v_k)\big).
+\end{align*}
+\par
+Die so definierte Abbildung bildet tatsächlich zwischen den passenden Räumen ab
+\begin{align*}
+F^\ast:\Omega^k(\mathcal{N})\to\Omega^k(\mathcal{M})\\
+\omega\mapsto \big[ p\mapsto (F^\ast\omega)_p \big].
+\end{align*}
+\par
+Zusätzlich erhält man folgende Eigenschaften.
+\begin{lemma}{}{manifolds/diffformen:lemma-15}
+
+
+
+\par
+Es seien \(\M,\mathcal{N}\) glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann gilt,
 \begin{enumerate}
 
 \item {} 
 \par
-Für \(\omega = \sum\omega_{i_1\ldots i_k}dx_{i_1}\wedge\ldots\wedge dx_{i_k}
-\in\Omega^k(U)\) ist\textbackslash{}
+\(F^\ast\) ist linear,
+
+\item {} 
+\par
+\(F^\ast(\omega\wedge\eta) = F^\ast(\omega) \wedge F^\ast(\eta)\) für \(\omega,\eta\in\Omega^k(\mathcal{N})\).
+
+\item {} 
+\par
+Für lokale Koordinaten Kovektorfelder \(dy^1,\ldots,dy^m\) und \(f\in C^\infty(\mathcal{N})\) gilt
 
 \end{enumerate}
 \begin{align*}
-dd\omega = \sum(\underbrace{dd\omega_{i_1\ldots i_k}}_0)
-\wedge dx_{i_1}\wedge\ldots\wedge dx_{i_k} = 0,
+F^\ast(f dy^{i_1}\wedge\ldots\wedge dy^{i_k}) = (f \circ F) d(y^{i_1}\circ F)\wedge\ldots\wedge d(y^{i_k}\circ F).
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Für 1. und 2. siehe Hausaufgaben, Für 3. siehe \cite{Lee03} Lemma 14.16.
+\end{proof}
+
+
+\chapter{Maß  und Integrationstheorie}
+\label{\detokenize{masstheorie/intro_masstheorie:masz-und-integrationstheorie}}\label{\detokenize{masstheorie/intro_masstheorie::doc}}
+\par
+Im ersten Semester haben wir bereits das \emph{Riemann Integral} zur Berechnung des Flächeninhalts zwischen einer Funktion \(f \colon [a,b] \rightarrow \R\) und der x Achse eingeführt (siehe Kapitel 7 in \cite{Bur20}).
+Die grundlegende Idee hierbei war es die x Achse in (unterschiedlich große) Intervalle zu unterteilen und mittels dieser Zerlegung Rechtecke zwischen dem Graphen der Funktion und der x Achse zu konstruieren.
+Durch das Produkt der Seitenlängen dieser Rechtecke lässt sich nämlich deren Flächeninhalt leicht berechnen und die Summe all dieser Flächeninhalte approximiert den wahren Flächeninhalt zwischen dem Graphen und \(f\) und der x Achse.
+Dieses Vorgehen ist zur Erinnerung nochmal in Abbildung \hyperref[\detokenize{masstheorie/intro_masstheorie:fig-riemann-integral}]{Fig.\@ \ref{\detokenize{masstheorie/intro_masstheorie:fig-riemann-integral}}} illustriert.
+
+\begin{figure}[htbp]
+\centering
+
+
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/ober\string_untersummen.png}
+\caption{Illustration zweier Approximationen des Riemann Integrals einer Funktion durch den Flächeninhalt von Rechtecken. Die grünen und lila Rechtecke visualisieren die Unter  bzw. Obersummen bezüglich des in rot dargestellten Graphen der Funktion. Quelle: \href{https://de.wikipedia.org/wiki/Riemannsches\_Integral}{Wikipedia; Riemannsches Integral}.}\label{\detokenize{masstheorie/intro_masstheorie:fig-riemann-integral}}\end{figure}
+
+\par
+Da wir bisher nur die Integration von eindimensionalen Funktionen auf kompakten Intervallen kennengelernt haben, wollen wir in diesem Kapitel den Begriff des Integals auf mehrdimensionale Funktionen \(f \colon \R^n \rightarrow \R\) erweitern.
+Das Riemann Integral lässt sich problemlos auf mehrdimensionalen Funktionen verallgemeinern, indem man das Integral nicht durch den Flächeninhalt von Rechtecken approximiert, sondern hierfür das \emph{Volumen von entsprechenden Quadern} \(Q \subset \R^n\) berechnet.
+Es lässt sich insbesondere zeigen, dass jede stetige mehrdimensionale Funktion auf einem (nicht ausgeartetem) Quader Riemann integrierbar ist.
+
+\par
+Es hat sich jedoch in der Entwicklung der Mathematik herausgestellt, dass der Begriff des Riemann Integrals zu starke Forderungen an die zu Grunde liegenden Funktionen stellt und damit wichtige und interessante Funktionsklassen nicht integrierbar waren.
+Als Beispiel hierfür seien \href{https://de.wikipedia.org/wiki/Fraktal}{fraktale Mengen und Funktionen} genannt, welche auch zur Modellierung von Prozessen in der Natur genutzt werden.
+
+\par
+Aus diesem Grund hat sich ein eigenes Feld innerhalb der modernen Analysis gebildet   die sogenannte \textbf{Maßtheorie}.
+Es widmet sich hauptsächlich der Untersuchung von Maßen zur Berechnung von Längen, Flächen und Volumina in unterschiedlichen mathematischen Strukturen und Räumen.
+Es wird klar, dass Integration und die Berechnung von Volumina eng miteinander zusammen hängen, denn ist \(A\subset\R^n\) eine (messbare) Teilmenge, dann ist ihr Maß gleich dem Integral ihrer charakteristischen Funktion, d.h.,
+\begin{align*}
+\int_{\R^n} \mathbb{1}_A(x)\,\mathrm{d}x.
 \end{align*}
 \par
-denn gemäß Satz \cref{vektoranalysis/diffformen:Antiderivation} wird die äußere Ableitung auf die
-1 Formen \(d\omega_{i_1\ldots i_k}\) und \(dx_{i_l}\) angewandt, und nach Teil 1.
-ist das Ergebnis Null.
-\end{proof}
-\begin{definition}{}{vektoranalysis/diffformen:geschlossen:exakt}
+In einem gewissen Sinn sind Maße ein \emph{fundamentaleres Konzept} als das der Integration, da sich jede Integration auf die Berechnung von Maßen stützt.
+
+\par
+Eins der berühmtesten Beispiele zur Motivation der Maßtheorie ist im Folgenden erklärt.
+\begin{example}{(Dirichlet Funktion)}{masstheorie/intro_masstheorie:ex:dirichletFunktion}
 
 
 
 \par
-Eine Differentialform \(v\in\Omega^*(U)\) heißt
+Wir betrachten das kompakte Intervall \([0,1] \subset \R\) und definieren hierauf die sogenannte \textbf{Dirichlet Funktion} \(\mathbb{1}_\Q \colon [0,1] \rightarrow \{0,1\}\) mit
+\begin{align*}
+\mathbb{1}_\Q(x) := \begin{cases} 1, \ \text{ falls } x \in \Q, \\ 0, \ \text{ sonst }.\end{cases}
+\end{align*}
+\par
+Diese Abbildung kann als \emph{charakteristische Funktion} der rationalen Zahlen \(\Q\) aufgefasst werden.
+Man sieht leicht ein, dass diese Funktion \textbf{nicht Riemann integrierbar} ist, da alle Untersummen stets \(0\) und alle Obersummen stets \(1\) sind.
+\end{example}
+
+\par
+Um eine Funktion wie die Dirichlet Funktion in \cref{masstheorie/intro_masstheorie:ex:dirichletFunktion} zu integrieren sieht man zunächst ein, dass die rationalen Zahlen \(\Q\) in den reellen Zahlen \(\R\) als abzählbare Menge eine sogenannte \emph{Nullmenge} im Sinne der Maßtheorie repräsentieren.
+Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einführen um diesen Umstand zu verstehen und einen verallgemeinerten Begriff des Integrals definieren, der diese Nullmenge berücksichtigt   das \textbf{Lebesgue Integral}.
+Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue integrierbaren Funktionen eine Obermenge der Menge der Riemann integrierbaren Funktionen ist.
+Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.
+
+
+\section{Maßtheorie}
+\label{\detokenize{masstheorie/masstheorie:masztheorie}}\label{\detokenize{masstheorie/masstheorie::doc}}
+\par
+Ein \href{https://de.wikipedia.org/wiki/Ma\%c3\%9f\_(Mathematik)}{\textbf{Maß}} \(\mu\) auf einer Menge \(M\) wie z.B. dem \(\R^n\)
+ordnet geeigneten Teilmengen \(A\subseteq M\)
+Zahlen
+\begin{align*}
+\mu(A)\in[0,\infty]:=[0,\infty)\cup\{\infty\}
+\end{align*}
+\par
+zu, eben das Maß von \(A\).
+
+
+\subsection{\protect\(\sigma\protect\) Algebren und Maße}
+\label{\detokenize{masstheorie/masstheorie:sigma-algebren-und-masze}}
+\par
+Ein Mengensystem ist eine Menge von Mengen. Wir nennen die Potenzmengen \(2^M \equiv\mathcal{P}(M)\) von \(M\) die Menge aller möglichen Teilmengen von \(M\). In der Maßtheorie sind Mengensysteme \(\mathcal{A} \subseteq \mathcal{P}(M)\) zentral, nämlich die der \emph{meßbaren} Teilmengen von \(M\). Das sind die Mengen, denen ein Maß zugeordnet wird, also eine nicht negative Zahl oder Unendlich. Schauen wir uns also an, welche Eigenschaften ein Maß haben muss.
+
+\par
+Zunächst müssen wir festlegen, welche Teilmengen der Grundmenge \(M\) überhaupt messbar sein sollen. Wir wählen also wie gesagt ein Mengensystem \(\mathcal{A} \subseteq \mathcal{P}(M)\) in der Potenzmenge von \(M\) aus.
+Am bequemsten wäre es, alles messen zu können, also \(\mathcal{A} = \mathcal{P}(M)\), aber das ist nicht immer möglich. Wir fordern, dass \(\mathcal{A}\) eine \(\sigma\) Algebra ist.
+\begin{definition}{}{masstheorie/masstheorie:def:sigmaalgebra}
+
+
 \begin{itemize}
 \item {} 
 \par
-\textbf{geschlossen}, wenn \(dv=0\), *\textbf{exakt}, wenn \(v=d\psi\) für ein \(\psi\in\Omega^*(U)\) gilt.
-
-\end{itemize}
+\(\mathcal{A} \subseteq \mathcal{P}(M)\) heißt \textbf{\(\sigma\) Algebra (von \(M\))}, wenn
 
 \par
-Nach Satz \cref{vektoranalysis/diffformen:thm:dd} sind exakte Differentialformen geschlossen.\textbackslash{} Für \(k\)–Formen auf konvexen offenen Teimengen \(U\subseteq \R^n\) gilt für \(k\ge 1\)auch die Umkehrung (sog.
-\href{https://de.wikipedia.org/wiki/Poincar\%c3\%a9-Lemma}{\textbf{Poincaré Lemma}} ),  siehe Kapitel {sect:Poinca broken reference}).
+a) \(M\in \mathcal{A}\)
+
+\par
+b) \(A\in \mathcal{A}\) impliziert, dass \(A^c:=M\backslash A\in \mathcal{A}\)
+
+\par
+c) \(A_n\in \mathcal{A}\ (n\in\N)\) impliziert, dass \(\bigcup_{n\in \N} A_n\in \mathcal{A}\).
+
+\item {} 
+\par
+Für eine \(\sigma\) Algebra \(\mathcal{A} \subseteq \mathcal{P}(M)\) von \(M\) heißt das Paar (\(M,\mathcal{A}\)) \textbf{Messraum}, und die Menge \(\mathcal{A}\) heißen \emph{messbar}.
+
+\end{itemize}
 \end{definition}
 
+\par
+Die kleinste \(\sigma\) Algebra von \(M\) ist damit \{\textbackslash{}emptyset, M\}, die Größte \(\mathcal{P}(M)\).
+
+\par
+Das Symbol \(\sigma\) soll an den Begriff der Summe erinnern, entsprechend der
+dritten Forderung in Def. \textbackslash{}ref\{def:sigmaalgebra\}, also der Stabilität unter abzählbarer Vereinigung.
+Sigma–Algebren sind offensichtlich auch unter dem Schnitt abzählbar vieler
+Mengenstabil \(A_n\in \mathcal{A}\ (n\in\N)\) impliziert, dass \(\bigcap_{n\in \N} A_n = \left(\bigcup_{n\in\N} A_n^c\right)^c\in \mathcal{A}\).
+\begin{definition}{}{masstheorie/masstheorie:definition-1}
+
+
+\begin{itemize}
+\item {} 
+\par
+Für einen Messraum (\(M, \mathcal{A}\)) heißt eine Abbildung \(\mu: \mathcal{A}\to [0, \infty]\) \textbf{Maß}, wenn
+
+\par
+a) \(\mu(\emptyset) = 0\)
+
+\par
+b) Für disjunkte (das heißt \(A_m\cap A_n = \emptyset\ (m\neq n)\)) \(A_n\in \mathcal{A}\ (n\in\N)\) gilt: \(\mu\left( \bigcup_{n\in\N}A_n \right) = \sum_{n\in\N}\mu (A_n)\) \textbackslash{}quad (abzählbare oder \(\sigma\) \textbf{Additivität}).
+
+\item {} 
+\par
+Dann heißt das Tripel \((M, \mathcal{A}, \mu)\) \textbf{Maßraum}.
+
+\item {} 
+\par
+Das Maß \(\mu\) heißt \textbf{endlich}, wenn \(\mu(M)<\infty\), und \textbf{Wahrscheinlichkeitsmaß}, wenn \(\mu(M)=1\).
+
+\end{itemize}
+\end{definition}
+\begin{example}{}{masstheorie/masstheorie:example-2}
+
+
+
+\par
+Wichtige Maße sind z.B. die folgenden.
+\begin{enumerate}
+
+\item {} 
+\par
+Das \href{https://de.wikipedia.org/wiki/Z\%c3\%a4hlma\%c3\%9f\_(Ma\%c3\%9ftheorie)}{\textbf{Zählmaß}} \(m\) auf einer endlichen Menge \(M\), mit
+
+\end{enumerate}
+\begin{align*}
+m(A):=|A|\qquad (A\subseteq M).
+\end{align*}
+\par
+Hier sind insbesondere alle Teilmengen messbar.
+\begin{enumerate}
+
+\item {} 
+\par
+Das \textbf{Lebesgue–Maß} \(\lambda^n\) auf dem \(\R^n\), das wir bald kennen lernen, zeichnet sich dadurch aus, dass es einem verschobenen Körper das gleiche Volumen zuordnet wie dem unverschobenen, es also \emph{translationsinvariant} ist, und der Einheitswürfel \([0,1]^n\) Maß \(1\) besitzt.
+
+\item {} 
+\par
+Das \href{https://de.wikipedia.org/wiki/Diracma\%c3\%9f}{\textbf{Dirac Maß}} \(\delta_x\) ist im Punkt \(x\) des \(\R^n\) konzentriert, und für \(A\subset\R^n\) ist.
+
+\end{enumerate}
+\begin{align*}
+\delta_x(A)\equiv \int_A\delta_x := \begin{cases} 1, &  x \in A\\ 0, & \text{sonst.} \end{cases}
+
+\end{align*}
+\par
+Dieses Maß ist also nicht translationsinvariant. Es wird beispielsweise in der Elektrodynamik benutzt, um eine bei \(x\) lokalisierte punktförmige Ladung zu beschreiben.
+\begin{enumerate}
+
+\item {} 
+\par
+Wir wollen z.B. auch die Länge der Spur einer \emph{Kurve} oder allgemeiner den Flächeninhalt einer \(d\)–dimensionalen Fläche im \(\R^n\) messen. Auch das dafür benutzte Maß \(\mu_d\) ist translations  und rotationsinvariant, es ordnet aber der \(d\)–dimensionalen Einheitsfläche \([0,1]^d\times\{0\} \subset\R^d\times\R^{n-d}=\R^n\) Maß 1 zu. Entsprechend hat aber für \(d<n\) der Einheitswürfel Maß \(\mu_d([0,1]^n)=\infty\).
+
+\item {} 
+\par
+Man kann sogar sog. \href{https://de.wikipedia.org/wiki/Hausdorff-Ma\%c3\%9f}{\textbf{Hausdorff Maß}} \(\mu_d\) konstruieren, die Mengen beliebiger fraktaler Dimension \(d\in[0,n]\) messen. Genau genommen \emph{definiert} man die Dimension der Menge \(A\subset \R^n\) durch \(d(A):=\inf\{d'>0\mid \mu_{d'}(A)=0\}.\)
+
+\item {} 
+\par
+Im Zusammenhang mit dem sog. Feynmanschen \href{https://de.wikipedia.org/wiki/Pfadintegral}{\textbf{Pfadintegral}} der Quantenmechanik wird auf dem unendlich dimensionalen Raum \(M\) der Wege zwischen zwei Punkten des Konfigurationsraumes \(\R^d\) ein \href{https://de.wikipedia.org/wiki/Wahrscheinlichkeitsma\%c3\%9f}{\textbf{Wahrscheinlichkeitsmaß}} (also ein Maß \(\mu\) auf \(M\) mit \(\mu (M)=1\)) definiert. Dabei erhalten Wege, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein großes Gewicht.
+
+\end{enumerate}
+\end{example}
+
+
+\subsection{Borel \protect\(\sigma\protect\) Algebren und  Maße}
+\begin{definition}{(Borel \protect\(\sigma\protect\) Algebra)}{\detokenize{masstheorie/masstheorie:borel-sigma-algebren-und-masze}}\label{masstheorie/masstheorie:definition-3}
+
+
+
+\par
+S. 106 und 119 Schulz Baldes
+\end{definition}
+\begin{definition}{(Lokale Endlichkeit von Maßen)}{masstheorie/masstheorie:definition-4}
+
+
+
+\par
+Sei \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) ein Maß auf einem topologischem Raum \(\Omega\).
+Wir nennen das Maß \(\sigma\) \textbf{lokal endlich}, falls jeder Punkt \(x \in \Omega\) eine lokale Umgebung mit endlichem Maß besitzt.
+\end{definition}
+
+\par
+Es ist klar, dass das Lebesgue Maß auf dem Raum \(\R^n\) lokal endlich ist.
+\begin{definition}{(Borel Maß)}{masstheorie/masstheorie:definition-5}
+
+
+
+\par
+Ein lokal endliches Maß \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) auf der Borelschen \(\sigma\) Algebra eines topologischen Raums \(\Omega\) heißt Borel Maß.
+\end{definition}
+
+
+\subsection{Riemann  und Lebesgue messbare Mengen}
+\begin{definition}{(Mehrdimensionale Quader)}{\detokenize{masstheorie/masstheorie:riemann-und-lebesgue-messbare-mengen}}\label{masstheorie/masstheorie:definition-6}
+
+
+
+\par
+Seien \(a = (a_1,\ldots,a_n) \in \R^n\) und \(b = (b_1,\ldots,b_n) \in \R^n\) zwei Punkte im \textbackslash{}R\textasciicircum{}n.
+Wir definieren zunächst folgende Anordnungsrelation mit
+\begin{align*}
+a < b \qquad \Leftrightarrow \qquad a_i < b_i \quad i=1,\ldots,n.
+\end{align*}
+\par
+Analog können wir die Anordnungsrelationen \(a \leq b, a > b\) und \(a \geq b\) definieren und darüber im Folgenden \textbf{offene, halboffene} und \textbf{abgeschlossene Quader} im \(\R^n\) respektive beschreiben durch
+\begin{align*}
+(a,b) = \lbrace x \in \R^n : a < x < b \rbrace,\\
+(a,b] = \lbrace x \in \R^n : a < x \leq b \rbrace,\\
+[a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.
+\end{align*}\end{definition}
+\begin{definition}{(Mehrdimensionale Treppenfunktion)}{masstheorie/masstheorie:definition-7}
+
+
+
+\par
+Wir nennen eine Funktion \(f \colon \R^n \rightarrow \C\) \textbf{Treppenfunktion}, falls es paarweise disjunkte Quader \(Q_1, \ldots, Q_k \subset \R^n\) gibt, so dass die folgenden Eigenschaften gelten:
+\begin{enumerate}
+
+\item {} 
+\par
+Die Funktion \(f\) ist konstant auf jedem der Quader, d.h.,
+
+\end{enumerate}
+\begin{align*}
+f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,
+\end{align*}\begin{enumerate}
+
+\item {} 
+\par
+Die Funktion ist überall Null außerhalb der Quader, d.h.,
+
+\end{enumerate}
+\begin{align*}
+f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.
+\end{align*}\end{definition}
+
+\par
+Illustration hier von Quadern und Treppenfunktionen!
+\begin{definition}{(Ring)}{masstheorie/masstheorie:definition-8}
+
+
+
+\par
+Ein Mengensystem \(\mathcal{R} \subset \mathcal{P}(\Omega)\) heißt \textbf{Ring} auf einer Menge \(\Omega\), falls die folgenden Eigenschaften erfüllt sind:
+\begin{enumerate}
+
+\item {} 
+\par
+\(\emptyset \in \mathcal{R}\)
+
+\item {} 
+\par
+\$A,B \textbackslash{}in \textbackslash{}mathcal\{R\} \textbackslash{}Rightarrow (A \textbackslash{}setminus B) \textbackslash{}in \textbackslash{}mathcal\{R\}
+
+\item {} 
+\par
+\$A,B \textbackslash{}in \textbackslash{}mathcal\{R\} \textbackslash{}Rightarrow (A \textbackslash{}cup B) \textbackslash{}in \textbackslash{}mathcal\{R\}
+
+\end{enumerate}
+\end{definition}
+\begin{lemma}{(Der von halboffenen Quadern erzeugte Ring)}{masstheorie/masstheorie:lemma-9}
+
+
+
+\par
+S. 79 Schulz Baldes
+\end{lemma}
+\begin{remark}{(Riemann messbare Mengen)}{masstheorie/masstheorie:remark-10}
+
+
+
+\par
+S. 78 Schulz Baldes
+\end{remark}
+\begin{example}{(Riemann Messbarkeit)}{masstheorie/masstheorie:example-11}
+
+
+
+\par
+Ein Beispiel messbar, eins nicht.
+\end{example}
+
+\par
+Verglichen mit der Reichhaltigkeit der Potenzmenge \(\mathcal{P}(\Omega)\) sind nur relativ wenige Mengen Riemann messbar.
+\begin{definition}{(Äußeres Lebesguesches Maß)}{masstheorie/masstheorie:definition-12}
+
+
+
+\par
+S. 78 u. 89 Schulz Baldes
+\end{definition}
+\begin{theorem}{(Eigenschaften des Lebesgue Maßes)}{masstheorie/masstheorie:theorem-13}
+
+
+
+\par
+S. 89 Schulz Baldes
+\end{theorem}
+\begin{definition}{}{masstheorie/masstheorie:definition-14}
+
+
+
+\par
+S. 92 Schulz Baldes
+\end{definition}
+\begin{example}{(Lebesgue messbare Mengen)}{masstheorie/masstheorie:example-15}
+
+
+
+\par
+S. 92 Schulz Baldes
+\end{example}
+\begin{definition}{}{masstheorie/masstheorie:definition-16}
+
+
+
+\par
+S. 98 Schulz Baldes
+\end{definition}
+\begin{lemma}{(Eigenschaften von Lebesgue Nullmengen)}{masstheorie/masstheorie:lemma-17}
+
+
+
+\par
+S. 98 Schulz Baldes
+\end{lemma}
+\begin{theorem}{(Lebesgue Messbarkeit von Teilmengen im \protect\(\R^n\protect\))}{masstheorie/masstheorie:theorem-18}
+
+
+
+\par
+Sowohl offene als auch abgeschlossene Teilmengen des \(\R^n\) sind Lebesgue messbar.
+\end{theorem}
+
+\begin{proof}
+ S. 99 Schulz Baldes
+\end{proof}
+
+
+\section{Lebesgue Integral}
+\label{\detokenize{masstheorie/lebesgue_integral:lebesgue-integral}}\label{\detokenize{masstheorie/lebesgue_integral::doc}}
+\par
+S.121ff. Schulz Baldes
+
+
+\section{Integrationstechniken}
+\label{\detokenize{masstheorie/integrationstechnik:integrationstechniken}}\label{\detokenize{masstheorie/integrationstechnik::doc}}
+
+\subsection{Satz von Fubini}
+\label{\detokenize{masstheorie/integrationstechnik:satz-von-fubini}}
+
+\subsection{Satz von Cavalieri}
+\label{\detokenize{masstheorie/integrationstechnik:satz-von-cavalieri}}
 
 \chapter{Bibliography}
 \label{\detokenize{references:bibliography}}\label{\detokenize{references::doc}}
