@@ -114,6 +114,10 @@ Dann gelten die folgenden Eigenschaften für das Maß $\mu \colon \mathcal{A} \r
 
 ````
 
+````{prf:proof}
+In der Hausaufgabe zu zeigen.
+````
+
 Im Folgenden wollen wir ein paar Beispiele von geläufigen Maßen diskutieren.
 
 ````{prf:example} Maße
@@ -153,11 +157,30 @@ Genau genommen *definiert* man hierbei die Dimension der Menge $A\subset \R^n$ d
 Dabei erhalten Pfade, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein größeres Gewicht als beliebige Pfade.
 ````
 
-## Borel-$\sigma$-Algebra und Borel-$\sigma$-Maß
+Eine sehr nützliche Eigenschaft von gewissen Maßen auf topologischen Räumen ist die der Regularität, welche wir im Folgenden definieren wollen.
 
-````{prf:definition} Borel $\sigma$-Algebra
-S. 106 und 119 Schulz-Baldes
-Die **Borel $\sigma$-Algebra** auf einem topologischen Raum $(\Omega, \tau)$ ist die kleinste $\sigma$-Algebra auf der Menge $\Omega$, die die Topologie $\tau$ enthält, d.h.
+````{prf:definition} Regularität von Maßen
+Es sei $(\Omega, \tau)$ ein topologischer Raum und $(\Omega, \mathcal{A}, \mu)$ ein entsprechender Maßraum auf $\Omega$, so dass gilt $\tau \subset \mathcal{A}$.
+Dann können wir die Regulariät des Maßes $\mu$ wie folgt definieren.
+
+1. Wir nennen das Maß $\mu$ von **außen regulär**, wenn zu jeder messbaren Menge $A \in \mathcal{A}$ und jedem $\epsilon > 0$ eine offene Obermenge $U \in \tau$ existiert mit $A \subset U$, so dass für das Maß $\mu(U\setminus A) < \epsilon$ gilt.
+
+2. Wir nennen das Maß $\mu$ von **innen regulär**, wenn zu jeder messbaren Menge $A \in \mathcal{A}$ und jedem $\epsilon > 0$ eine abgeschlossene Teilmenge $F \subset A$ gibt, so dass für das Maß $\mu(A\setminus F) < \epsilon$ gilt.
+````
+
+Hier noch eine Abbildung oder ein Beispiel zu Regularität?
+
+## Borel-$\sigma$-Algebra und Borel-Maß
+
+Da es viele unterschiedliche Möglichkeiten gibt eine Menge in Teilmengen zu unterteilen wünscht man sich eine möglichst kanonische Wahl einer $\sigma$-Algebra.
+Es stellt sich heraus, dass die sogenannte Borel-$\sigma$-Algebra eine gute Wahl auf beliebigen topologischen Räumen definiert.
+
+```{margin}
+[Émile Borel](https://de.wikipedia.org/wiki/%C3%89mile_Borel) (geboren am 7. Januar 1871 in Saint-Affrique; gestorben am 3. Februar 1956 in Paris) war ein französischer Mathematiker und Politiker.
+```
+
+````{prf:definition} Borel-$\sigma$-Algebra
+Die **Borel-$\sigma$-Algebra** auf einem topologischen Raum $(\Omega, \tau)$ ist die kleinste $\sigma$-Algebra auf der Menge $\Omega$, die die Topologie $\tau$ enthält, d.h.
 
 ```{math}
 \B(\Omega) := \bigcap_{\substack{\mathcal{A} \text{ ist $\sigma$-Algebra}\\ \tau \subset \mathcal{A}}} \mathcal{A}
@@ -166,15 +189,20 @@ Die **Borel $\sigma$-Algebra** auf einem topologischen Raum $(\Omega, \tau)$ ist
 Man nennt die Borel-$\sigma$-Algebra auch **die von $\tau$ erzeugte $\sigma$-Algebra**.
 ````
 
+Für spezielle topologische Räume lässt sich eine wichtige Eigenschaft über die Borel-$\sigma$-Algebra definieren.
+
 ````{prf:definition} Lokale Endlichkeit von Maßen
-Sei $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ ein Maß auf einem topologischem Raum $\Omega$.
-Wir nennen das Maß $\sigma$ **lokal endlich**, falls jeder Punkt $x \in \Omega$ eine lokale Umgebung mit endlichem Maß besitzt.
+Sei $(\Omega, \tau)$ ein Haussdorf-Raum (siehe {prf:ref}`def:hausdorffraum`) und sei $\B(\Omega) = \sigma(\tau)$ die Borel-$\sigma$-Algebra, die durch $\tau$ erzeugt wird.
+Wir nennen ein Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ **lokal endlich**, falls jeder Punkt $x \in \Omega$ eine lokale Umgebung mit endlichem Maß besitzt.
 ````
 
-Es ist klar, dass das Lebesgue-Maß auf dem Raum $\R^n$ lokal endlich ist.
+Die lokale Endlichkeit ist eine wichtige Eigenschaft bei der Untersuchung von Maßen auf topologischen Räumen, weil sie für jeden Punkt die Existenz einer Umgebung mit endlichem Maß garantiert.
+Wie wir später sehen werden ist das Lebesgue-Maß auf dem Raum $\R^n$ lokal endlich.
+
+Basierend auf der oben definierten Borel-$\sigma$-Algebra lässt sich nun das sogenannte Borel-Maß einführen.
 
 ````{prf:definition} Borel-Maß
-Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf der Borelschen $\sigma$-Algebra eines topologischen Raums $\Omega$ heißt **Borel-Maß**.
+Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf der Borelschen $\sigma$-Algebra eines Hausdorff-Raums $(\Omega,\tau)$ heißt **Borel-Maß**.
 ````
 
 ## Riemann- und Lebesgue-messbare Mengen
@@ -201,15 +229,16 @@ Analog können wir die Anordnungsrelationen $a \leq b, a > b$ und $a \geq b$ def
 Wir nennen eine Funktion $f \colon \R^n \rightarrow \C$ **Treppenfunktion**, falls es paarweise disjunkte Quader $Q_1, \ldots, Q_k \subset \R^n$ gibt, so dass die folgenden Eigenschaften gelten:
 
 1. Die Funktion $f$ ist konstant auf jedem der Quader, d.h.,
+
 ```{math}
 f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,
 ```
 
 2. Die Funktion ist überall Null außerhalb der Quader, d.h.,
+
 ```{math}
 f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.
 ```
-
 
 ````
 
@@ -224,9 +253,18 @@ Ein Mengensystem $\mathcal{R} \subset \mathcal{P}(\Omega)$ heißt **Ring** auf e
 ````
 
 ````{prf:lemma} Der von halboffenen Quadern erzeugte Ring
-S. 79 Schulz-Baldes
+Wir betrachten eine Teilmenge $\mathcal{R}$ der Potenzmenge $\mathcal{P}(\R^n)$, die durch disjunkte, halboffene Quader des $\R^n$ erzeugt wird mit
+
+```{math}
+\mathcal{R} \coloneqq \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.
+```
+
+Dann bildet das Mengensystem $\mathcal{R}$ einen Ring.
 ````
 
+````{prf:proof}
+S.80 Schulz-Baldes
+````
 
 ````{prf:remark} Riemann-messbare Mengen
 S. 78 Schulz-Baldes
