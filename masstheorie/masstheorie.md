@@ -189,14 +189,32 @@ Die **Borel-$\sigma$-Algebra** auf einem topologischen Raum $(\Omega, \tau)$ ist
 Man nennt die Borel-$\sigma$-Algebra auch **die von $\tau$ erzeugte $\sigma$-Algebra**.
 ````
 
-Für spezielle topologische Räume lässt sich eine wichtige Eigenschaft über die Borel-$\sigma$-Algebra definieren.
+Die folgende Bemerkung beschreibt die Borel-$\sigma$-Algebra, wenn als zu Grunde liegende Menge die reellen Zahlen $\R$ gewählt werden, wie es häufig in Anwendungen der Fall ist.
+
+````{prf:remark} Borelsche $\sigma$-Algebra von $\R$
+Wir untersuchen den topologischen Raum $(\R, \tau)$, wobei die Topologie $\tau$ gerade alle offenen Intervalle $(a,b) \subset \R$ mit rationalen Punkten $a,b \in \Q$ enthält.
+Da dies die kanonische Topologie für die reellen Zahlen bildet sprcht man bei der von ihr erzeugten Borel-$\sigma$-Algebra als *die* Borelsche $\sigma$-Algebra.
+
+Sie enthält alle wichtigen Teilmengen von $\R$, nämlich:
+
+* alle *offenen, abgeschlossenen* und *kompakten* Mengen
+* alle *Intervalle* der Form $(a,b), [a,b], (a,b], [a,b]$ für $a,b \in \R$, sowie alle Intervalle der Form $(-\infty, b), (-\infty, b]$ und $(a, \infty), [a,\infty)$
+* alle *Punktmengen* der Form $\{a\}$ für $a \in \R$
+* alle *endlichen* Teilmengen von $\R$
+* alle *unendlich abzählbaren* Teilmengen von $\R$
+
+Wir bemerken, dass die Borelsche $\sigma$-Algebra von $\R$ **nicht** alle Teilmengen von $\R$ enthält.
+Es lässt sich sogar zeigen, dass die borelsche $\sigma$-Algebra von $\R$ gleichmächtig zu $\R$ ist, während die Potenzmenge $\mathcal{P}(\R)$ von $\R$ eine echt größere Mächtigkeit als $\R$ besitzt.
+````
+
+Für spezielle topologische Räume lässt sich eine wichtige Eigenschaft von Maßen über die Borel-$\sigma$-Algebra definieren.
 
 ````{prf:definition} Lokale Endlichkeit von Maßen
 Sei $(\Omega, \tau)$ ein Haussdorf-Raum (siehe {prf:ref}`def:hausdorffraum`) und sei $\B(\Omega) = \sigma(\tau)$ die Borel-$\sigma$-Algebra, die durch $\tau$ erzeugt wird.
 Wir nennen ein Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ **lokal endlich**, falls jeder Punkt $x \in \Omega$ eine lokale Umgebung mit endlichem Maß besitzt.
 ````
 
-Die lokale Endlichkeit ist eine wichtige Eigenschaft bei der Untersuchung von Maßen auf topologischen Räumen, weil sie für jeden Punkt die Existenz einer Umgebung mit endlichem Maß garantiert.
+Die lokale Endlichkeit ist essentiell bei der Untersuchung von Maßen auf topologischen Räumen, weil sie für jeden Punkt die Existenz einer Umgebung mit endlichem Maß garantiert.
 Wie wir später sehen werden ist das Lebesgue-Maß auf dem Raum $\R^n$ lokal endlich.
 
 Basierend auf der oben definierten Borel-$\sigma$-Algebra lässt sich nun das sogenannte Borel-Maß einführen.
