@@ -63,6 +63,8 @@ Es wird klar, dass das Mengensystem $\{\emptyset, \Omega\}$ die kleinstmögliche
 Basierend auf dem Begriff einer $\sigma$-Algebra und eines Messraums können wir nun formal einführen, was wir mathematisch unter einem Maß verstehen.
 
 ````{prf:definition} Maß und Maßraum
+:label: def:mass
+
 Sei $(\Omega, \mathcal{A})$ ein Messraum.
 Wir nennen eine Abbildung $\mu: \mathcal{A}\to [0, \infty]$ **Maß**, wenn die folgenden beiden Eigenschaften erfüllt sind.
 
@@ -254,13 +256,13 @@ Das **Volumen eines halboffenen Quaders** $Q := (a,b] \subset \R^n$ lässt sich 
 ````{prf:definition} Mehrdimensionale Treppenfunktion
 Wir nennen eine Funktion $f \colon \R^n \rightarrow \C$ **Treppenfunktion**, falls es paarweise disjunkte Quader $Q_1, \ldots, Q_k \subset \R^n$ gibt, so dass die folgenden Eigenschaften gelten:
 
-1. Die Funktion $f$ ist konstant auf jedem der Quader, d.h.,
+1\. Die Funktion $f$ ist konstant auf jedem der Quader, d.h.,
 
 ```{math}
 f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,
 ```
 
-2. Die Funktion ist überall Null außerhalb der Quader, d.h.,
+2\. Die Funktion ist überall Null außerhalb der Quader, d.h.,
 
 ```{math}
 f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.
@@ -295,10 +297,10 @@ Um zu zeigen, dass es sich bei dem Mengensystem $\mathcal{R}$ um einen Ring hand
 
 1\. Wir müssen zunächst zeigen, dass die leere Menge im Mengensystem $\mathcal{R}$ enthalten ist, d.h., dass gilt $\emptyset \in \mathcal{R}$.
 Wählen wir hierzu einen beliebigen Punkt $a \in \R^n$, dann können wir den $n$-dimensionalen halboffenen Quader $Q_a := (a,a] \in \mathcal{R}$ betrachten.
-Es ist klar, dass dieser Quader keinen Punkt aus $\R^n$ enhält (auch nicht den Punkt $a$!) und somit die leere Menge beschreibt.
+Es ist klar, dass dieser Quader keinen Punkt aus $\R^n$ enhält (auch nicht den Punkt $a$) und somit die leere Menge beschreibt.
 Daher gilt schon $\emptyset = Q_a \in \mathcal{R}$.
 
-2\. Als nächstes müssen wir zeigen, dass für zwei Mengen $A,B \in \mathcal{R}$ gilt, dass auch die Mengendifferenz in $\mathcal{R}$ enthalten ist, d.h., dass gilt $\Rightarrow (A \setminus B) \in \mathcal{R}$.
+2\. Als nächstes müssen wir zeigen, dass für zwei Mengen $A,B \in \mathcal{R}$ gilt, dass auch die Mengendifferenz in $\mathcal{R}$ enthalten ist, d.h., dass gilt $(A \setminus B) \in \mathcal{R}$.
 Da die Mengen $A$ und $B$ aus dem Mengensystem $\mathcal{R}$ stammen, existiert also eine endliche Zerlegung in disjunkte halboffene Quader der beiden Mengen mit
 
 ```{math}
@@ -308,17 +310,57 @@ A = \bigsqcup_{i=1}^k Q_i, \qquad B = \bigsqcup_{j=1}^m Q'_j.
 Dann können wir die Mengendifferenz also schreiben als
 
 ```{math}
-B\setminus A = \bigsqcup_{i=1}^k Q_i \setminus \bigsqcup_{j=1}^m Q'_j.
+B\setminus A = \bigsqcup_{i=1}^k Q_i \setminus \bigsqcup_{j=1}^m Q'_j = \bigsqcup_{i=1}^k (\ldots((Q_i \setminus Q'_1) \setminus Q'_2)\ldots) \setminus Q'_m.
 ```
+
+Um diesen Term zu vereinfachen wollen wir im Folgenden zeigen, dass die Mengendifferenz $C \setminus D$ zweier halboffener Quader $C, D \subset \R^n$ wieder eine Menge ergeben, die sich als Vereinigung disjunkter halboffenen Quader beschreiben lässt.
+Hierbei können wir $3$ unterschiedliche Fälle unterscheiden:
+
+a) Für den Fall $C \cap D = \emptyset$ ist die Behauptung trivial, da dann einfach $C \setminus D = C$ gilt und die Menge somit als Vereinigung halboffener Quader, in dem Fall nur $C$, geschrieben werden kann.
+
+b) Ebenfalls trivial ist der Fall $C \subset D$, da hierbei gilt $C \setminus D = \emptyset$.
+Wie für die erste Eigenschaft eines Rings oben gezeigt können wir die leere Menge einfach als halboffenen Quader $Q_a := (a,a]$ für einen beliebigen Punkt $a \in \R^n$ darstellen und somit gilt die Behauptung auch hier.
+
+c) Betrachten wir nun den Fall $D \subsetneq C$. **ToDo**
+
+d) Zuletzt diskutieren wir den Fall $C \not \subset D, D \not \subset C, C \cap D \neq \emptyset$. **ToDo**
+
+Wir wissen also nun, dass der innerste Term $Q_i \setminus Q'_1$ in [eq:mengendifferenz] als Mengendifferenz von zwei halboffenen Quadern
+Induktiv lässt sich nun zeigen, dass der Term $(\ldots((Q_i \setminus Q'_1) \setminus Q'_2)\ldots) \setminus Q'_m$ in [eq:mengendifferenz] als Vereinigung von geeigneten disjunkten halboffenen Quadern schreiben lässt mit:
+
+```{math}
+(\ldots((Q_i \setminus Q'_1) \setminus Q'_2)\ldots) \setminus Q'_m = \bigsqcup_{l=1}^{L_i} Q_l^i.
+```
+
+Und somit folgt insgesamt, dass
+
+```{math}
+A \setminus B = \bigsqcup_{i=1}^k (\ldots((Q_i \setminus Q'_1) \setminus Q'_2)\ldots) \setminus Q'_m = \bigsqcup_{i=1}^k \bigsqcup_{l=1}^{L_i} Q_l^i
+```
+
+und damit gilt offensichtlich $(A \setminus B) \in \mathcal{R}$.
+
+3\. Zuletzt zeigen wir, dass für zwei Mengen $A,B \in \mathcal{R}$ gilt, dass auch die Vereinigung in $\mathcal{R}$ enthalten ist, d.h., dass gilt $(A \cup B) \in \mathcal{R}$.
+Da $A$ und $B$ a priori nicht disjunkt sein müssen, versuchen wir die Vereinigung so umzuschreiben, dass sie aus disjunkten halboffenen Quadern besteht.
+Hierzu sehen wir ein, dass gilt
+
+```{math}
+A \cup B = (A \setminus B) \sqcup B = \bigsqcup_{i=1}^k \bigsqcup_{l=1}^{L_i} Q_l^i \sqcup B.
+```
+
+Hierbei haben wir die Aussage 2\. oben benutzt, nämlich dass sich die Mengendifferenz zweier halboffener Quader als Vereinigung geeigneter halboffener disjunkter Quader schreiben lässt.
+Somit erhalten wir insgesamt, dass $(A \cup B) \in \mathcal{R}$ gilt.
+
+Damit haben wir gezeigt, dass das Mengensystem $\mathcal{R}$, welches durch disjunkte halboffene Quader im $\R^n$ erzeugt wird, einen Ring bildet.
 
 ````
 
-Mittels der eingeführten Quader in {prf:ref}`def:quader` und können wir nun formal definieren, wann Teilmengen des $\R^n$ Jordan-messbar sind.
-Das Jordan-Maß ist das zu Grunde liegende Maß für das Riemann-Integral in mehreren Dimensionen.
+Mittels der eingeführten Quader in {prf:ref}`def:quader` können wir nun formal definieren, wann Teilmengen des $\R^n$ Jordan-messbar sind.
+Das hieraus resultierende Jordan-Maß ist die zu Grunde liegende Abbildung für das Riemann-Integral in mehreren Dimensionen.
 
 ````{prf:definition} Jordan-Maß
 Sei $A \subset \R^n$ eine Teilmenge.
-Wir betrachten die folgenden Ober- und Untersummen für die Teilmenge $A$:
+Wir betrachten die folgenden *endlichen* Ober- und Untersummen für die Teilmenge $A$:
 
 ```{math}
 O(A) &:= \inf \left\{ \sum_{i=1}^k \mu^n(Q_i) \, : \, Q_i \text{ ist halboffener disjunkter Quader}, A \subset \bigsqcup_{i=1,\ldots,k} Q_i\right\}, \\
@@ -332,6 +374,12 @@ Für Jordan-messbare Mengen $A$ ist dann das **Jordan-Maß** $\mu^n$ gegeben dur
 \mu^n(A) = O(A) = U(A).
 ```
 
+````
+
+````{prf:remark}
+Die Menge der Jordan-messbaren Mengen bildet keine $\sigma$-Algebra und daher ist das Jordan-Maß kein Maß im Sinne der {prf:ref}`def:mass`, sondern lediglich ein sogenanntes **Prämaß**.
+Das zu Grunde liegende Problem ist, dass abzählbare Vereinigungen von Jordan-messbaren Mengen nicht notwendigerweise Jordan-messbar sein müssen.
+Dies sieht man beispielsweise mit Hilfe der Dirichlet-Funktion in {prf:ref}`bsp:dirichlet` ein.
 ````
 
 ````{prf:example} Jordan-messbare Mengen
