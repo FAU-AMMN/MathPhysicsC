@@ -223,10 +223,12 @@ Basierend auf der oben definierten Borel-$\sigma$-Algebra lässt sich nun das so
 Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf der Borelschen $\sigma$-Algebra eines Hausdorff-Raums $(\Omega,\tau)$ heißt **Borel-Maß**.
 ````
 
-## Riemann- und Lebesgue-messbare Mengen
+## Jordan- und Lebesgue-messbare Mengen
 
 ````{prf:definition} Mehrdimensionale Quader
-Seien $a = (a_1,\ldots,a_n) \in \R^n$ und $b = (b_1,\ldots,b_n) \in \R^n$ zwei Punkte im \R^n.
+:label: def:quader
+
+Seien $a = (a_1,\ldots,a_n) \in \R^n$ und $b = (b_1,\ldots,b_n) \in \R^n$ zwei Punkte im $\R^n$.
 Wir definieren zunächst folgende Anordnungsrelation mit
 
 ```{math}
@@ -239,6 +241,12 @@ Analog können wir die Anordnungsrelationen $a \leq b, a > b$ und $a \geq b$ def
 (a,b) = \lbrace x \in \R^n : a < x < b \rbrace,\\
 (a,b] = \lbrace x \in \R^n : a < x \leq b \rbrace,\\
 [a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.
+```
+
+Das **Volumen eines halboffenen Quaders** $Q := (a,b] \subset \R^n$ lässt sich mittels einer Funktion $\mu^n \colon \R^n \rightarrow [0,\infty)$ berechnen als
+
+```{math}
+\mu^n(Q) := \prod_{i=1}^n (b_i - a_i).
 ```
 
 ````
@@ -260,39 +268,77 @@ f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.
 
 ````
 
-Illustration hier von Quadern und Treppenfunktionen!
+Illustration hier von Quadern und Treppenfunktionen (siehe S.37 in Knauf)!
 
 ````{prf:definition} Ring
+:label: def:ring
+
 Ein Mengensystem $\mathcal{R} \subset \mathcal{P}(\Omega)$ heißt **Ring** auf einer Menge $\Omega$, falls die folgenden Eigenschaften erfüllt sind:
 
 1. $\emptyset \in \mathcal{R}$
-2. $A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}
-3. $A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}
+2. $A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}$
+3. $A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}$
 ````
 
 ````{prf:lemma} Der von halboffenen Quadern erzeugte Ring
 Wir betrachten eine Teilmenge $\mathcal{R}$ der Potenzmenge $\mathcal{P}(\R^n)$, die durch disjunkte, halboffene Quader des $\R^n$ erzeugt wird mit
 
 ```{math}
-\mathcal{R} \coloneqq \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.
+\mathcal{R} := \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.
 ```
 
 Dann bildet das Mengensystem $\mathcal{R}$ einen Ring.
 ````
 
 ````{prf:proof}
-S.80 Schulz-Baldes
+Um zu zeigen, dass es sich bei dem Mengensystem $\mathcal{R}$ um einen Ring handelt müssen wir die Eigenschaften aus {prf:ref}`def:ring` nachweisen.
+
+1\. Wir müssen zunächst zeigen, dass die leere Menge im Mengensystem $\mathcal{R}$ enthalten ist, d.h., dass gilt $\emptyset \in \mathcal{R}$.
+Wählen wir hierzu einen beliebigen Punkt $a \in \R^n$, dann können wir den $n$-dimensionalen halboffenen Quader $Q_a := (a,a] \in \mathcal{R}$ betrachten.
+Es ist klar, dass dieser Quader keinen Punkt aus $\R^n$ enhält (auch nicht den Punkt $a$!) und somit die leere Menge beschreibt.
+Daher gilt schon $\emptyset = Q_a \in \mathcal{R}$.
+
+2\. Als nächstes müssen wir zeigen, dass für zwei Mengen $A,B \in \mathcal{R}$ gilt, dass auch die Mengendifferenz in $\mathcal{R}$ enthalten ist, d.h., dass gilt $\Rightarrow (A \setminus B) \in \mathcal{R}$.
+Da die Mengen $A$ und $B$ aus dem Mengensystem $\mathcal{R}$ stammen, existiert also eine endliche Zerlegung in disjunkte halboffene Quader der beiden Mengen mit
+
+```{math}
+A = \bigsqcup_{i=1}^k Q_i, \qquad B = \bigsqcup_{j=1}^m Q'_j.
+```
+
+Dann können wir die Mengendifferenz also schreiben als
+
+```{math}
+B\setminus A = \bigsqcup_{i=1}^k Q_i \setminus \bigsqcup_{j=1}^m Q'_j.
+```
+
 ````
 
-````{prf:remark} Riemann-messbare Mengen
-S. 78 Schulz-Baldes
+Mittels der eingeführten Quader in {prf:ref}`def:quader` und können wir nun formal definieren, wann Teilmengen des $\R^n$ Jordan-messbar sind.
+Das Jordan-Maß ist das zu Grunde liegende Maß für das Riemann-Integral in mehreren Dimensionen.
+
+````{prf:definition} Jordan-Maß
+Sei $A \subset \R^n$ eine Teilmenge.
+Wir betrachten die folgenden Ober- und Untersummen für die Teilmenge $A$:
+
+```{math}
+O(A) &:= \inf \left\{ \sum_{i=1}^k \mu^n(Q_i) \, : \, Q_i \text{ ist halboffener disjunkter Quader}, A \subset \bigsqcup_{i=1,\ldots,k} Q_i\right\}, \\
+U(A) &:= \sup \left\{ \sum_{i=1}^k \mu^n(Q_i) \, : \, Q_i \text{ ist halboffener disjunkter Quader}, \bigsqcup_{i=1,\ldots,k} Q_i \subset A\right\}.
+```
+
+Wir nennen die Teilmenge $A \subset \R^n$ **Jordan-messbar**, genau dann wenn $A$ beschränkt ist und die Ober- und Untersumme übereinstimmen, d.h., es gilt $O(A) = U(A)$.
+Für Jordan-messbare Mengen $A$ ist dann das **Jordan-Maß** $\mu^n$ gegeben durch:
+
+```{math}
+\mu^n(A) = O(A) = U(A).
+```
+
 ````
 
-````{prf:example} Riemann-Messbarkeit
+````{prf:example} Jordan-messbare Mengen
 Ein Beispiel messbar, eins nicht.
 ````
 
-Verglichen mit der Reichhaltigkeit der Potenzmenge $\mathcal{P}(\Omega)$ sind nur relativ wenige Mengen Riemann-messbar.
+Verglichen mit der Reichhaltigkeit der Potenzmenge $\mathcal{P}(\Omega)$ sind nur relativ wenige Mengen Jordan-messbar.
 
 ````{prf:definition} Äußeres Lebesguesches Maß
 S. 78 u. 89 Schulz-Baldes
