@@ -245,7 +245,7 @@ Analog können wir die Anordnungsrelationen $a \leq b, a > b$ und $a \geq b$ def
 [a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.
 ```
 
-Das **Volumen eines halboffenen Quaders** $Q := (a,b] \subset \R^n$ lässt sich mittels einer Funktion $\mu^n \colon \R^n \rightarrow [0,\infty)$ berechnen als
+Das *Volumen* eines halboffenen Quaders $Q := (a,b] \subset \R^n$ lässt sich mittels einer Funktion $\mu^n \colon \R^n \rightarrow [0,\infty)$, den sogenannten **Lebesgue-Inhalt**, berechnen als
 
 ```{math}
 \mu^n(Q) := \prod_{i=1}^n (b_i - a_i).
@@ -356,10 +356,67 @@ Damit haben wir gezeigt, dass das Mengensystem $\mathcal{R}$, welches durch disj
 ````
 
 Mittels der eingeführten Quader in {prf:ref}`def:quader` können wir nun formal definieren, wann Teilmengen des $\R^n$ Jordan-messbar sind.
-Das hieraus resultierende Jordan-Maß ist die zu Grunde liegende Abbildung für das Riemann-Integral in mehreren Dimensionen.
 
 ````{prf:definition} Jordan-Maß
-Sei $A \subset \R^n$ eine Teilmenge.
+Sei $A = \bigsqcup_{i=1}^k Q_i \in \mathcal{R}$.
+Dann definieren wir das **Jordan-Maß** $\mu^n \colon \mathcal{R} \rightarrow [0,\infty)$ von $A$ als
+
+```{math}
+\mu^n(A) := \sum_{i=1}^k \mu^n(Q_i).
+```
+
+````
+
+````{prf:theorem} Eigenschaften des Jordan-Maßes
+
+Das Jordan-Maß $\mu^n \colon \mathcal{R} \rightarrow [0,\infty)$ hat folgende Eigenschaften:
+
+1\. \mu^n(\emptyset) = 0
+
+2\. Seien $A_1, \ldots, A_k \in \mathcal{R}$ disjunkte Mengen.
+Dann gilt:
+
+```{math}
+\mu^n \left( \bigsqcup_{i=1,\ldots,k} A_i \right) = \sum_{i=1}^k \mu^n(A_i) \qquad (\text{endliche Additivität})
+```
+
+3\. Für zwei Mengen $A, B \in \mathcal{R}$ mit $A \subset B$ gilt:
+
+```{math}
+\mu^n(A) \leq \mu^n(B) \qquad (\text{Monotonie}).
+```
+
+4\. Für zwei Mengen $A, B \in \mathcal{R}$ gilt:
+
+```{math}
+\mu^n(A \cup B) + \mu^n(A \cap B) = \mu^n(A) + \mu^n(B).
+```
+
+5\. Für beliebige Mengen $A_1, \ldots, A_k \in \mathcal{R}$ gilt:
+
+```{math}
+\mu^n\left( \bigcup_{i=1,\ldots,k} A_i\right) \leq \sum_{i=1}^k \mu^n(A_i) \qquad (\text{endliche Subadditivität}).
+```
+
+6\. Sei $(A_n)_{k\in\N}$ eine Folge von disjunkten Mengen in $\mathcal{R}$ und sei $B \in \mathcal{R}$, so dass $\bigcup_{k=1}^\infty A_k \subset B$.
+Dann gilt:
+
+```{math}
+\sum_{k=1}^\infty  \mu^n(A_k) \leq \mu(B).
+```
+
+````
+
+````{prf:proof}
+S. 84-85 in Schulz-Baldes 
+````
+
+Das oben eingeführte Jordan-Maß ist die zu Grunde liegende Abbildung für das Riemann-Integral in mehreren Dimensionen.
+Dieses ist definiert für Jordan-messbare Mengen.
+
+````{prf:definition} Jordan-messbare Mengen
+
+Sei $A \subset \R^n$ eine beliebige Teilmenge.
 Wir betrachten die folgenden *endlichen* Ober- und Untersummen für die Teilmenge $A$:
 
 ```{math}
@@ -368,7 +425,7 @@ U(A) &:= \sup \left\{ \sum_{i=1}^k \mu^n(Q_i) \, : \, Q_i \text{ ist halboffener
 ```
 
 Wir nennen die Teilmenge $A \subset \R^n$ **Jordan-messbar**, genau dann wenn $A$ beschränkt ist und die Ober- und Untersumme übereinstimmen, d.h., es gilt $O(A) = U(A)$.
-Für Jordan-messbare Mengen $A$ ist dann das **Jordan-Maß** $\mu^n$ gegeben durch:
+Für Jordan-messbare Mengen $A$ ist dann das Jordan-Maß $\mu^n$ gegeben durch:
 
 ```{math}
 \mu^n(A) = O(A) = U(A).
@@ -376,9 +433,23 @@ Für Jordan-messbare Mengen $A$ ist dann das **Jordan-Maß** $\mu^n$ gegeben dur
 
 ````
 
+````{prf:theorem}
+Seien $Q$ und $(Q_k)_{k\in\N}$ halboffene Quader mit $Q \subset \bigcup_{k=1}^\infty Q_k$.
+Dann gilt
+
+```{math}
+\mu^n(Q) \leq \sum_{k=1}^\infty \mu^n(Q_k).
+```
+
+````
+
+````{prf:proof}
+S.87-S.88 in Schulz-Baldes
+````
+
 ````{prf:remark}
 Die Menge der Jordan-messbaren Mengen bildet keine $\sigma$-Algebra und daher ist das Jordan-Maß kein Maß im Sinne der {prf:ref}`def:mass`, sondern lediglich ein sogenanntes **Prämaß**.
-Das zu Grunde liegende Problem ist, dass abzählbare Vereinigungen von Jordan-messbaren Mengen nicht notwendigerweise Jordan-messbar sein müssen.
+Das zu Grunde liegende Problem ist, dass abzählbare unendliche Vereinigungen von Jordan-messbaren Mengen nicht notwendigerweise Jordan-messbar sein müssen.
 Dies sieht man beispielsweise mit Hilfe der Dirichlet-Funktion in {prf:ref}`bsp:dirichlet` ein.
 ````
 
@@ -388,16 +459,74 @@ Ein Beispiel messbar, eins nicht.
 
 Verglichen mit der Reichhaltigkeit der Potenzmenge $\mathcal{P}(\Omega)$ sind nur relativ wenige Mengen Jordan-messbar.
 
+### Das Lebesgue Maß
+
 ````{prf:definition} Äußeres Lebesguesches Maß
-S. 78 u. 89 Schulz-Baldes
+
+Wir definieren das **äußere Lebesgue Maß** $\mu^* \colon \mathcal{P}(\R^n) \rightarrow [0,\infty]$ einer Menge $A \subset \R^n$ als
+
+```{math}
+\mu^*(A) = \inf \left\{ \sum_{k=1}^\infty \mu^n(Q_k) \, : \, Q_k \text{ sind halboffene Quader mit } A \subset \bigcup_{k=1}^\infty Q_k \right}.
+```
+
 ````
 
-````{prf:theorem} Eigenschaften des Lebesgue Maßes
-S. 89 Schulz-Baldes
+````{prf:theorem} Eigenschaften des äußeren Lebesgue Maßes 
+Das äußere Lebesgue Maß $\mu^*$ hat folgende Eigenschaften:
+
+1\. \mu^*(\emptyset) = 0
+
+2\. Für zwei Mengen $A, B \in \R^n$ mit $A \subset B$ gilt:
+
+```{math}
+\mu^*(A) \leq \mu^*(B) \qquad (\text{Monotonie}).
+```
+
+3\. Für eine Folge $(A_k)_{k\in\N}$ von Teilmengen des $\R^n$ gilt:
+
+```{math}
+\mu^*\left( \bigcup_{k=1}^\infty A_k \right) \leq \sum_{k=1}^\infty \mu^*(A_k) \qquad (\sigma-\text{Subadditivität}).
+```
+
+4\. Für jeden halboffenen Quader $Q$ gilt:
+
+```{math}
+\mu^*(Q) = \mu^n(Q).
+```
+
+5\. Für jede Teilmenge $A \subset \R^n$ und jeden halboffenen Quader $Q$ gilt:
+
+```{math}
+\mu^*(A) = \mu^*(A \emptyset Q) + \mu^*(A \cap Q).
+```
+
 ````
 
-````{prf:definition} Lebesgue-messbare Mengen
-S. 92 Schulz-Baldes
+````{prf:proof}
+S.90-91 Schulz-Baldes
+````
+
+Auf Carathéodory zurückgehende Konstruktion:
+
+````{prf:definition} Lebesgue-Maß
+Wir nennen eine Teilmenge $A \subset \R^n$ **Lebesgue-messbar**, genau dann wenn für alle Teilmengen $E \subset \R^n$ gilt:
+
+```{math}
+\mu^*(E) = \mu^*(E \cap A) + \mu^*(E \emptyset A).
+```
+
+Wir notieren die Menge der Lebesgue-messbaren Mengen als
+
+```{math}
+\mathcal{A} = \lbrace A \subset \R^n : A \text{ ist Lebesgue-messbar }
+```
+
+Wir definieren das **Lebesgue Maß** $\mu \colon \mathcal{A} \rightarrow [0,\infty]$ messbarer Mengen durch
+
+```{math}
+\mu(A) = \mu^*(A).
+```
+
 ````
 
 ````{prf:example} Lebesgue-messbare Mengen
