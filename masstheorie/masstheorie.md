@@ -227,6 +227,9 @@ Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf 
 
 ## Jordan- und Lebesgue-messbare Mengen
 
+Bei der Einführung des Riemann Integrals verwendet man Intervalle zur Unterteilung des Definitionsbereichs.
+Diese Partitionierung einer Menge lässt sich im $\R^n$ auf mehrdimensionale Quader verallgemeinern.
+
 ````{prf:definition} Mehrdimensionale Quader
 :label: def:quader
 
@@ -253,6 +256,8 @@ Das *Volumen* eines halboffenen Quaders $Q := (a,b] \subset \R^n$ lässt sich mi
 
 ````
 
+Basierend auf mehrdimensionalen Quadern kann man analog zur reellen Analysis nun auch mehrdimensionale Treppenfunktionen einführen.
+
 ````{prf:definition} Mehrdimensionale Treppenfunktion
 Wir nennen eine Funktion $f \colon \R^n \rightarrow \C$ **Treppenfunktion**, falls es paarweise disjunkte Quader $Q_1, \ldots, Q_k \subset \R^n$ gibt, so dass die folgenden Eigenschaften gelten:
 
@@ -271,6 +276,9 @@ f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.
 ````
 
 Illustration hier von Quadern und Treppenfunktionen (siehe S.37 in Knauf)!
+
+Es stellt sich heraus, dass die Menge der halboffenen, diskunkten Quader eine besondere mathematische Struktur bilden, nämlich einen Ring.
+Diesen wollen wir zunächst definieren.
 
 ````{prf:definition} Ring
 :label: def:ring
@@ -355,7 +363,11 @@ Damit haben wir gezeigt, dass das Mengensystem $\mathcal{R}$, welches durch disj
 
 ````
 
-Mittels der eingeführten Quader in {prf:ref}`def:quader` können wir nun formal definieren, wann Teilmengen des $\R^n$ Jordan-messbar sind.
+### Das Jordan-Maß
+
+Mittels der eingeführten Quader in {prf:ref}`def:quader` können wir in diesem Abschnitt formal definieren, wann Teilmengen des $\R^n$ Jordan-messbar sind.
+Dazu benötigen wir zunächst eine Abbildung die einem Element $A$ des von halboffenen Quadern Rings $\mathcal{R}$ ein Volumen zuordnet.
+Hierzu führen wir das sogenannte Jordan-Maß zunächst ein.
 
 ````{prf:definition} Jordan-Maß
 Sei $A = \bigsqcup_{i=1}^k Q_i \in \mathcal{R}$.
@@ -367,11 +379,13 @@ Dann definieren wir das **Jordan-Maß** $\mu^n \colon \mathcal{R} \rightarrow [0
 
 ````
 
+Im folgenden Theorem beschreiben wir die mathematischen Eigenschaften der Jordan-Maß genannten Abbildung.
+
 ````{prf:theorem} Eigenschaften des Jordan-Maßes
 
 Das Jordan-Maß $\mu^n \colon \mathcal{R} \rightarrow [0,\infty)$ hat folgende Eigenschaften:
 
-1\. \mu^n(\emptyset) = 0
+1\. $\mu^n(\emptyset) = 0$
 
 2\. Seien $A_1, \ldots, A_k \in \mathcal{R}$ disjunkte Mengen.
 Dann gilt:
@@ -412,7 +426,8 @@ S. 84-85 in Schulz-Baldes
 ````
 
 Das oben eingeführte Jordan-Maß ist die zu Grunde liegende Abbildung für das Riemann-Integral in mehreren Dimensionen.
-Dieses ist definiert für Jordan-messbare Mengen.
+A priori haben wir diese Abbildung nur auf Elementen des Rings $\mathcal{R}$ der halboffenen Quader definiert.
+Um dieses auf beliebige Teilmengen des $\R^n$ zu erweitern benötigen wir zunächst die Definition von Jordan-messbare Mengen.
 
 ````{prf:definition} Jordan-messbare Mengen
 
@@ -449,32 +464,36 @@ S.87-S.88 in Schulz-Baldes
 
 ````{prf:remark}
 Die Menge der Jordan-messbaren Mengen bildet keine $\sigma$-Algebra und daher ist das Jordan-Maß kein Maß im Sinne der {prf:ref}`def:mass`, sondern lediglich ein sogenanntes **Prämaß**.
-Das zu Grunde liegende Problem ist, dass abzählbare unendliche Vereinigungen von Jordan-messbaren Mengen nicht notwendigerweise Jordan-messbar sein müssen.
-Dies sieht man beispielsweise mit Hilfe der Dirichlet-Funktion in {prf:ref}`bsp:dirichlet` ein.
+Das zu Grunde liegende Problem ist, dass abzählbare unendliche Vereinigungen von Jordan-messbaren Mengen, im Gegensatz zu endlichen Vereinigungen, nicht notwendigerweise Jordan-messbar sein müssen.
+Dies sieht man beispielsweise mit Hilfe der Dirichlet-Funktion in {prf:ref}`ex:dirichletFunktion` ein.
 ````
 
 ````{prf:example} Jordan-messbare Mengen
-Ein Beispiel messbar, eins nicht.
+**ToDo:** Ein Beispiel messbar, eins nicht.
 ````
 
-Verglichen mit der Reichhaltigkeit der Potenzmenge $\mathcal{P}(\Omega)$ sind nur relativ wenige Mengen Jordan-messbar.
+### Das Lebesgue-Maß
 
-### Das Lebesgue Maß
+Verglichen mit der Reichhaltigkeit der Potenzmenge $\mathcal{P}(\R^n)$ sind nur relativ wenige Mengen Jordan-messbar.
+Daher wollen wir in diesem Abschnitt das Jordan-Maß auf geeignete Weise erweitern.
+Wir führen darum zunächst das sogenannte äußere Lebesgue-Maß ein.
 
-````{prf:definition} Äußeres Lebesguesches Maß
+````{prf:definition} Äußeres Lebesgue-Maß
 
-Wir definieren das **äußere Lebesgue Maß** $\mu^* \colon \mathcal{P}(\R^n) \rightarrow [0,\infty]$ einer Menge $A \subset \R^n$ als
+Wir definieren das **äußere Lebesgue-Maß** $\mu^* \colon \mathcal{P}(\R^n) \rightarrow [0,\infty]$ einer Menge $A \subset \R^n$ als
 
 ```{math}
-\mu^*(A) = \inf \left\{ \sum_{k=1}^\infty \mu^n(Q_k) \, : \, Q_k \text{ sind halboffene Quader mit } A \subset \bigcup_{k=1}^\infty Q_k \right}.
+\mu^*(A) = \inf \left\{ \sum_{k=1}^\infty \mu^n(Q_k) : Q_k \text{ sind halboffene Quader mit } A \subset \bigcup_{k=1}^\infty Q_k \right\}.
 ```
 
 ````
 
-````{prf:theorem} Eigenschaften des äußeren Lebesgue Maßes 
-Das äußere Lebesgue Maß $\mu^*$ hat folgende Eigenschaften:
+Im folgenden Theorem beschreiben wir die mathematischen Eigenschaften des äußeren Lebesgue-Maßes.
 
-1\. \mu^*(\emptyset) = 0
+````{prf:theorem} Eigenschaften des äußeren Lebesgue-Maßes
+Das äußere Lebesgue-Maß $\mu^*$ hat folgende Eigenschaften:
+
+1\. $\mu^*(\emptyset) = 0$
 
 2\. Für zwei Mengen $A, B \in \R^n$ mit $A \subset B$ gilt:
 
@@ -485,7 +504,7 @@ Das äußere Lebesgue Maß $\mu^*$ hat folgende Eigenschaften:
 3\. Für eine Folge $(A_k)_{k\in\N}$ von Teilmengen des $\R^n$ gilt:
 
 ```{math}
-\mu^*\left( \bigcup_{k=1}^\infty A_k \right) \leq \sum_{k=1}^\infty \mu^*(A_k) \qquad (\sigma-\text{Subadditivität}).
+\mu^*\left( \bigcup_{k=1}^\infty A_k \right) \leq \sum_{k=1}^\infty \mu^*(A_k) \qquad (\sigma\!-\!\text{Subadditivität}).
 ```
 
 4\. Für jeden halboffenen Quader $Q$ gilt:
@@ -497,7 +516,7 @@ Das äußere Lebesgue Maß $\mu^*$ hat folgende Eigenschaften:
 5\. Für jede Teilmenge $A \subset \R^n$ und jeden halboffenen Quader $Q$ gilt:
 
 ```{math}
-\mu^*(A) = \mu^*(A \emptyset Q) + \mu^*(A \cap Q).
+\mu^*(A) = \mu^*(A \setminus Q) + \mu^*(A \cap Q).
 ```
 
 ````
@@ -512,16 +531,16 @@ Auf Carathéodory zurückgehende Konstruktion:
 Wir nennen eine Teilmenge $A \subset \R^n$ **Lebesgue-messbar**, genau dann wenn für alle Teilmengen $E \subset \R^n$ gilt:
 
 ```{math}
-\mu^*(E) = \mu^*(E \cap A) + \mu^*(E \emptyset A).
+\mu^*(E) = \mu^*(E \cap A) + \mu^*(E \setminus A).
 ```
 
 Wir notieren die Menge der Lebesgue-messbaren Mengen als
 
 ```{math}
-\mathcal{A} = \lbrace A \subset \R^n : A \text{ ist Lebesgue-messbar }
+\mathcal{A} = \lbrace A \subset \R^n : A \text{ ist Lebesgue-messbar } \rbrace
 ```
 
-Wir definieren das **Lebesgue Maß** $\mu \colon \mathcal{A} \rightarrow [0,\infty]$ messbarer Mengen durch
+Wir definieren das **Lebesgue-Maß** $\mu \colon \mathcal{A} \rightarrow [0,\infty]$ messbarer Mengen durch
 
 ```{math}
 \mu(A) = \mu^*(A).
@@ -534,16 +553,81 @@ S. 92 Schulz-Baldes
 ````
 
 ````{prf:definition} Lebesgue-Nullmengen
-S. 98 Schulz-Baldes
+Wir nennen eine Teilmenge $N \subset \R^n$ eine **(Lebesgue-)Nullmenge**, falls ihr äußeres Lebesgue-Maß Null ist, d.h., es gilt
+
+```{math}
+\mu^*(N) = 0.
+```
+
 ````
 
 ````{prf:lemma} Eigenschaften von Lebesgue-Nullmengen
-S. 98 Schulz-Baldes
+:label: lem:eigenschaftenNullmengen
+
+Für Lebesgue-Nullmengen gelten die folgenden Eigenschaften:
+
+1\. Jede Nullmenge ist Lebesgue-messbar mit $\mu(N) = 0$.
+
+2\. Sei $(N_n)_{n\in\N}$ eine Familie von Nullmengen.
+Dann ist auch $\bigcup_{n\in\N} N_n$ eine Nullmenge.
+
+3\. Alle abzählbare Mengen sind Nullmengen.
+
+4\. Alle Teilmengen von Nullmengen sind Nullmengen.
+````
+
+````{prf:proof}
+<br/>
+
+1\. Für alle Teilmengen $E \subset \R^n$ gilt wegen der *Monotonie-Eigenschaft* des äußeren Lebesgue-Maßes
+
+```{math}
+\mu^*(E) \geq \mu^*(E\setminus N), \qquad \mu^*(N) \geq \mu^*(N \cap E).
+```
+
+Sei also $E \subset \R^n$ eine beliebige Teilmenge.
+Da $N$ nach Voraussetzung eine Lebesgue-Nullmenge ist gilt 
+
+```{math}
+\mu^*(E) = \mu^*(E) + \mu^*(N) \geq \mu^*(E\setminus N) + \mu^*(N \cap E).
+```
+
+Andererseits können wir wegen der *$\sigma$-Subadditivität* des äußeren Lebesgue-Maßes folgende Abschätzung treffen
+
+```{math}
+\mu^*(E) = \mu^*((E\setminus N) \cup (E \cap N)) \leq \mu^*(E\setminus N) + \mu^*(E \cap N).
+```
+
+Also muss schon Gleichheit gelten, d.h., es gilt für beliebige Teilmengen $E \subset \R^n$
+
+```{math}
+\mu^*(E) = \mu^*(E\setminus N) + \mu^*(E \cap N).
+```
+
+Per Definition ist die Nullmenge $N$ also Lebesgue-messbar und es gilt $\mu(N) = \mu^*(N) = 0$.
+
+2\. Auf Grund der *$\sigma$-Subadditivität* des äußeren Lebesgue-Maßes folgt direkt
+
+```{math}
+0 \leq \mu^* \left( \bigcup_{n\in\N} N_n \right) \leq \sum_{n\in\N} \mu^*(N_n) = 0.
+```
+
+Da $\mu^* \left( \bigcup_{n\in\N} N_n \right)$ gilt ist also $\bigcup_{n\in\N} N_n$ auch eine Nullmenge.
+
+3\. **ToDo**
+
+4\. **ToDo**
+````
+
+````{prf:remark} Rationale Zahlen als Nullmenge
+Insbesondere die dritte Eigenschaft aus {prf:ref}`lem:eigenschaftenNullmengen` ist für uns interessant, da sie impliziert, dass die Menge der rationalen Zahlen $\Q \subset \R$ als abzählbare Menge eine Nullmenge in den reellen Zahlen darstellt.
+Dies löst unser anfängliches Problem in {prf:ref}`ex:dirichletFunktion`, wie wir noch sehen werden.
 ````
 
 ````{prf:theorem} Lebesgue-Messbarkeit von Teilmengen im $\R^n$
 Sowohl offene als auch abgeschlossene Teilmengen des $\R^n$ sind Lebesgue-messbar.
 ````
+
 ````{prf:proof}
 S. 99 Schulz-Baldes
 ````
