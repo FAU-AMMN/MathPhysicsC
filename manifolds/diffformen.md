@@ -30,7 +30,7 @@ gelte, dann heißt $D$ Untervektorbündel von $E$.
 height: 300px
 name: "fig:subbundle"
 ---
-Visualisierung eines Untervektorbündels, siehe {cite:p}`lee2003` Kapitel 10.
+Visualisierung eines Untervektorbündels, siehe Kapitel 10 in {cite:p}`lee2003`.
 ```
 
 In diesem Fall erhält man also ein Untervektorbündel.
