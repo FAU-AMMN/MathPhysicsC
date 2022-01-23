@@ -162,6 +162,8 @@ Dabei erhalten Pfade, die in der Nähe von Lösungskurven der DGL der Klassische
 Eine sehr nützliche Eigenschaft von gewissen Maßen auf topologischen Räumen ist die der Regularität, welche wir im Folgenden definieren wollen.
 
 ````{prf:definition} Regularität von Maßen
+:label: def:regularitaet
+
 Es sei $(\Omega, \tau)$ ein topologischer Raum und $(\Omega, \mathcal{A}, \mu)$ ein entsprechender Maßraum auf $\Omega$, so dass gilt $\tau \subset \mathcal{A}$.
 Dann können wir die Regulariät des Maßes $\mu$ wie folgt definieren.
 
@@ -243,9 +245,9 @@ a < b \qquad \Leftrightarrow \qquad a_i < b_i \quad i=1,\ldots,n.
 Analog können wir die Anordnungsrelationen $a \leq b, a > b$ und $a \geq b$ definieren und darüber im Folgenden **offene, halboffene** und **abgeschlossene Quader** im $\R^n$ respektive beschreiben durch
 
 ```{math}
-(a,b) = \lbrace x \in \R^n : a < x < b \rbrace,\\
-(a,b] = \lbrace x \in \R^n : a < x \leq b \rbrace,\\
-[a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.
+(a,b) &= \lbrace x \in \R^n : a < x < b \rbrace,\\
+(a,b] &= \lbrace x \in \R^n : a < x \leq b \rbrace,\\
+[a,b] &= \lbrace x \in \R^n : a \leq x \leq b \rbrace.
 ```
 
 Das *Volumen* eines halboffenen Quaders $Q := (a,b] \subset \R^n$ lässt sich mittels einer Funktion $\mu^n \colon \R^n \rightarrow [0,\infty)$, den sogenannten **Lebesgue-Inhalt**, berechnen als
@@ -255,27 +257,6 @@ Das *Volumen* eines halboffenen Quaders $Q := (a,b] \subset \R^n$ lässt sich mi
 ```
 
 ````
-
-Basierend auf mehrdimensionalen Quadern kann man analog zur reellen Analysis nun auch mehrdimensionale Treppenfunktionen einführen.
-
-````{prf:definition} Mehrdimensionale Treppenfunktion
-Wir nennen eine Funktion $f \colon \R^n \rightarrow \C$ **Treppenfunktion**, falls es paarweise disjunkte Quader $Q_1, \ldots, Q_k \subset \R^n$ gibt, so dass die folgenden Eigenschaften gelten:
-
-1\. Die Funktion $f$ ist konstant auf jedem der Quader, d.h.,
-
-```{math}
-f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,
-```
-
-2\. Die Funktion ist überall Null außerhalb der Quader, d.h.,
-
-```{math}
-f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.
-```
-
-````
-
-Illustration hier von Quadern und Treppenfunktionen (siehe S.37 in Knauf)!
 
 Es stellt sich heraus, dass die Menge der halboffenen, diskunkten Quader eine besondere mathematische Struktur bilden, nämlich einen Ring.
 Diesen wollen wir zunächst definieren.
@@ -318,6 +299,7 @@ A = \bigsqcup_{i=1}^k Q_i, \qquad B = \bigsqcup_{j=1}^m Q'_j.
 Dann können wir die Mengendifferenz also schreiben als
 
 ```{math}
+:label: eq:mengendifferenz
 B\setminus A = \bigsqcup_{i=1}^k Q_i \setminus \bigsqcup_{j=1}^m Q'_j = \bigsqcup_{i=1}^k (\ldots((Q_i \setminus Q'_1) \setminus Q'_2)\ldots) \setminus Q'_m.
 ```
 
@@ -525,6 +507,34 @@ Das äußere Lebesgue-Maß $\mu^*$ hat folgende Eigenschaften:
 S.90-91 Schulz-Baldes
 ````
 
+Eine besondere Eigenschaft des äußeren Lebesgue Maßes ist es, dass es *bewegungsinvariant* ist, d.h., dass es unter Translationen und Rotationen den gleichen Wert behält.
+Dies ist für viele Anwendungen eine fundamentale Eigenschaft.
+Die folgende Bemerkung hält die Wirkung von geometrischen Transformationen auf das äußere Lebesgue Maß fest.
+
+````{prf:remark} Wirkung von Transformationen auf das äußere Lebesgue Maß
+
+1\. Sei $A \subset \R^n$ eine beliebige Teilmenge und $a \in \R^n$ ein beliebiger Vektor.
+Dann ist das äußere Lebesgue Maß **translationsinvariant** unter der Wirkung von $a$, d.h., es gilt
+
+```{math}
+\mu^*(A + a) = \mu^*(A).
+```
+
+Außerdem gilt, dass die Teilmenge $A$ genau dann Lebesgue-messbar ist, wenn die verschobene Teilmenge $A + a$ Lebesgue-messbar ist.
+
+2\. Sei $A \subset \R^n$ eine beliebige Teilmenge und $M \in \R^{n\times n}$ eine beliebige Matrix.
+Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wirkung der linearen Transformation $M$
+
+```{math}
+\mu^*(MA) = |\!\operatorname{det}(M)| \, \mu^*(A).
+```
+
+Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. **Rotationen** und **Spiegelungen**) ist, da für diese Transformationen $|\!\operatorname{det}(M)| = 1$ gilt (siehe Kapitel 3.6 in {cite:p}`tenbrinck_2021`).
+
+Außerdem gilt, dass die Teilmenge $A$ genau dann Lebesgue-messbar ist, wenn die linear transformierte Teilmenge $MA$ Lebesgue-messbar ist.
+
+````
+
 Auf Carathéodory zurückgehende Konstruktion:
 
 ````{prf:definition} Lebesgue-Maß
@@ -546,10 +556,6 @@ Wir definieren das **Lebesgue-Maß** $\mu \colon \mathcal{A} \rightarrow [0,\inf
 \mu(A) = \mu^*(A).
 ```
 
-````
-
-````{prf:example} Lebesgue-messbare Mengen
-S. 92 Schulz-Baldes
 ````
 
 ````{prf:definition} Lebesgue-Nullmengen
@@ -625,9 +631,91 @@ Dies löst unser anfängliches Problem in {prf:ref}`ex:dirichletFunktion`, wie w
 ````
 
 ````{prf:theorem} Lebesgue-Messbarkeit von Teilmengen im $\R^n$
+:label: theorem:lebesgueOffenAbgeschlossen
+
 Sowohl offene als auch abgeschlossene Teilmengen des $\R^n$ sind Lebesgue-messbar.
 ````
 
 ````{prf:proof}
 S. 99 Schulz-Baldes
+````
+
+````{prf:theorem} Regularität des Lebesgue Maßes
+
+Das Lebesgue Maß ist von außen und innen regulär im Sinne von {prf:ref}`def:regularitaet`, d.h., für jede Lebesgue-messbare Teilmenge $A \subset \R^n$ gilt
+
+1\. für jedes $\epsilon > 0$ existiert eine offene Menge $U$ mit $A \subset U$ für die gilt $\mu(U \setminus A) < \epsilon$,
+
+2\. für jedes $\epsilon > 0$ existiert eine abgeschlossene Menge $F$ mit $F \subset A$ für die gilt $\mu(A \setminus F) < \epsilon$.
+
+````
+
+````{prf:proof}
+Schulz-Baldes S.101f.
+````
+
+````{prf:theorem} Charakterisierung Lebesgue-messbarer Mengen
+
+Die folgenden drei Aussagen sind äquivalent, so dass sie eine Charakterisierung der Lebesgue-messbaren Mengen darstellen.
+
+1\. Eine Teilmenge $A \subset \R^n$ ist Lebesgue messbar.
+
+2\. Für jedes $\epsilon > 0$ existiert eine offene Menge $U$ und eine abgeschlossene Menge $F$, so dass $F \subset A \subset U$ und es gilt $\mu(U \setminus F) < \epsilon$.
+
+3\. Für jedes $\epsilon > 0$ existiert eine offene Menge $U$ mit $A \subset U$ für die gilt $\mu(U \setminus A) < \epsilon$.
+
+````
+
+````{prf:proof}
+Schulz-Baldes S.104
+````
+
+Man kann für die Borel-$\sigma$-Algebra von $\R^n$ zeigen, dass gilt
+
+```{math}
+\B(\R^n) = \sigma(\lbrace A \subset \R^n \text{ offen }\rbrace) ) = \sigma(\lbrace A \subset \R^n \text{ abgeschlossen }\rbrace)
+```
+
+Die letzte Gleichung gilt, da $\sigma$-Algebren abgeschlossen unter Komplementbildung sind.
+Zusammen mit {prf:ref}`theorem:lebesgueOffenAbgeschlossen` folgt dann schon, dass die Borel-$\sigma$-Algebra $\B(\R^n)$ eine Teilmenge der Lebesgue messbaren Mengen ist.
+Der folgende Satz zeigt, dass es eine echte Teilmenge ist indem er den Unterschied der Mengen als Lebesgue Nullmengen charaterisiert.
+
+````{prf:theorem}
+Eine Teilmenge $A \subset \R^n$ ist genau dann Lebesgue-messbar, wenn eine Teilmenge $B \in \B(\R^n)$ und eine Nullmenge $N \subset \R^n$ existiert, so dass $A = B \sqcup N$ ist.
+````
+
+````{prf:proof}
+Schulz-Baldes S.107
+````
+
+Man könnte sich an dieser Stelle fragen, ob nicht eventuell alle Teilmengen des $\R^n$ Lebesgue-messbar sind, was einen Großteil der Theorie unnötig machen würde.
+Hierzu sei folgender wichtiger **Satz von Vitali** erwähnt, der explizit nichtmessbare Mengen konstruiert.
+
+```{margin}
+[Giuseppe Vitali](https://de.wikipedia.org/wiki/Giuseppe_Vitali) (geborgen am 26. August 1875 in Ravenna; gestorben am 29. Februar 1932 in Bologna) war ein italienischer Mathematiker.
+```
+
+````{prf:theorem} Nichtmessbare Teilmengen des $\R^n$
+Es sei zunächst folgende *Äquivalenzrelation* für zwei Vektoren $x, y \in \R^n$ gegeben.
+
+```{math}
+x \sim y \quad \Leftrightarrow \quad x -y \in \Q^n.
+```
+
+Die Menge aller Äquivalenzklassen $[x]_\sim$ mit 
+
+```{math}
+[x]_\sim := \lbrace y \in \R^n : x \sim y \rbrace \subset \R^n
+```
+
+bildet eine *Partition* von $\R^n$.
+
+Mittels des [Auswahlaxiom](https://de.wikipedia.org/wiki/Auswahlaxiom) kann man nun eine sogenannte *Vitali-Menge* $V\subset [0,1]$ auswählen, die einen Repräsentanten jeder Äquivalenzklasse enthält, d.h., für jede Äquivalenzklasse $[x]_\sim$ enthält die Menge $V \cap [x]_\sim$ nur ein einziges Element.
+
+Dann ist die Vitali-Menge $V$ nicht Lebesgue-messbar.
+
+````
+
+````{prf:proof}
+**ToDo:** Referenz!
 ````
