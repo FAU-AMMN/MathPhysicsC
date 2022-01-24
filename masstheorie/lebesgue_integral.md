@@ -90,7 +90,45 @@ d.h., es gilt
 Schulz-Baldes S.127
 ````
 
-````{prf:definition} Lebesgue-integrierbare Funktionen
+
+````{prf:definition} Lebesgue-Integral für nichtnegative Funktionen
+1\. Für Lebesgue-messbare Mengen $A_i, i=1,\ldots,N$ und nicht-negative Koeffizienten $\alpha_i, i=1,\ldots,N$ definieren wir das **Lebesgue-Integral** einer positiven *Treppenfunktion* $T = \sum_{i=1}^N \alpha_i \chi_{A_i}$ als
+
+```{math}
+\int \mu(\mathrm{d}x) f(x) = \sum_{i=1}^N \alpha_i \mu(A_i).
+```
+
+2\. Sei $(T_n)_{n\in\N}$ eine monoton wachsende Folge von Treppenfunktionen mit
+
+```{math}
+T_n|_{D^c} = 0 \qquad \text{ und } \qquad T_n \nearrow f
+```
+
+und $f \colon D \rightarrow \overline{R}$ eine positive, *Lebesgue-messbare Funktion*.
+Dann ist das **Lebesgue-Integral** von $f$ definiert als
+
+```{math}
+\int_D \mu(\mathrm{d}x) f(x) = \lim_{n\rightarrow \infty} \int \mu(\mathrm{d}x) f_n(x) = \sup_n \int \mu(\mathrm{d}x) f_n(x) \in [0,\infty].
+```
+
+````
+
+````{prf:theorem} Eigenschaften des Lebesgue-Integrals
+Das Lebesgue-Integral ist *wohldefiniert*, d.h., sein Wert ist unabhängig von der gewählten Folge von Treppenfunktionen $(T_n)_{n\in\N}$.
+Darüber hinaus ist das Lebesgue-Integral *linear* und *monoton*, d.h., für nichtnegative, Lebesgue-messbare Funktionen $f,g \geq 0$ gilt
+
+```{math}
+\int \mu(\mathrm{d}x)(f(x) + \lambda g(x)) = \left( \int \mu(\mathrm{d}x) f(x) \right) + \lambda \left( \int \mu(\mathrm{d}x) g(x) \right)\\
+f \leq g \quad \Rightarrow \quad \int \mu(\mathrm{d}x) f(x) \leq \int \mu(\mathrm{d}x) g(x).
+```
+
+````
+
+````{prf:proof}
+Schulz-Baldes S.130-133
+````
+
+````{prf:definition} Allgemeines Lebesgue-Integral
 Sei $f \colon \R^n \rightarrow \R$ eine Lebesgue-messbare Funktion.
 Wir nennen die Funktion $f$ **Lebesgue-integrierbar**, genau dann wenn gilt
 
@@ -125,4 +163,14 @@ Das Lebesgue-Integral ist eine linearer und monotoner Operator auf der Menge der
 
 ````{prf:proof}
 Schulz-Baldes S.137
+````
+
+````{prf:definition}
+Seien $f,g \colon \R^n \rightarrow \overline{\R}$ Lebesgue-messbare Funktionen.
+Wir sagen $f = g$ **fast sicher** bezüglich des Lebesgue-Maßes genau dann, wenn eine Lebesgue-Nullmenge $N$ existiert, so dass gilt
+
+```{math}
+f(x) = g(x) \quad \forall x \in \R^n \setminus N.
+```
+
 ````
