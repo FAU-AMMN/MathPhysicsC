@@ -250,7 +250,7 @@ Analog können wir die Anordnungsrelationen $a \leq b, a > b$ und $a \geq b$ def
 [a,b] &= \lbrace x \in \R^n : a \leq x \leq b \rbrace.
 ```
 
-Das *Volumen* eines halboffenen Quaders $Q := (a,b] \subset \R^n$ lässt sich mittels einer Funktion $\mu^n \colon \R^n \rightarrow [0,\infty)$, den sogenannten **Lebesgue-Inhalt**, berechnen als
+Das *Volumen* eines halboffenen Quaders $Q := (a,b] \subset \R^n$ definieren wir über
 
 ```{math}
 \mu^n(Q) := \prod_{i=1}^n (b_i - a_i).
