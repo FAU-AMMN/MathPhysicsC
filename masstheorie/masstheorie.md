@@ -227,22 +227,21 @@ Basierend auf der oben definierten Borel-$\sigma$-Algebra lässt sich nun das so
 Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf der Borelschen $\sigma$-Algebra eines Hausdorff-Raums $(\Omega,\tau)$ heißt **Borel-Maß**.
 ````
 
-## Jordan- und Lebesgue-messbare Mengen
+## Das Lebesgue Maß
 
 Bei der Einführung des Riemann Integrals verwendet man Intervalle zur Unterteilung des Definitionsbereichs.
-Diese Partitionierung einer Menge lässt sich im $\R^n$ auf mehrdimensionale Quader verallgemeinern.
+Diese Partitionierung einer Menge lässt sich im $\R^n$ auf mehrdimensionale Quader verallgemeinern. Für $a = (a_1,\ldots,a_n) \in \R^n$ und $b = (b_1,\ldots,b_n) \in \R^n$ verwenden wir hierbei die Anordnungsrelation
+
+```{math}
+a < b \qquad \Leftrightarrow \qquad a_i < b_i \quad i=1,\ldots,n
+```
+
+und analog für $a \leq b, a > b$ und $a \geq b$.
 
 ````{prf:definition} Mehrdimensionale Quader
 :label: def:quader
 
-Seien $a = (a_1,\ldots,a_n) \in \R^n$ und $b = (b_1,\ldots,b_n) \in \R^n$ zwei Punkte im $\R^n$.
-Wir definieren zunächst folgende Anordnungsrelation mit
-
-```{math}
-a < b \qquad \Leftrightarrow \qquad a_i < b_i \quad i=1,\ldots,n.
-```
-
-Analog können wir die Anordnungsrelationen $a \leq b, a > b$ und $a \geq b$ definieren und darüber im Folgenden **offene, halboffene** und **abgeschlossene Quader** im $\R^n$ respektive beschreiben durch
+ und darüber im Folgenden **offene, halboffene** und **abgeschlossene Quader** im $\R^n$ respektive beschreiben durch
 
 ```{math}
 (a,b) &= \lbrace x \in \R^n : a < x < b \rbrace,\\
@@ -253,18 +252,68 @@ Analog können wir die Anordnungsrelationen $a \leq b, a > b$ und $a \geq b$ def
 Das *Volumen* eines halboffenen Quaders $Q := (a,b] \subset \R^n$ definieren wir über
 
 ```{math}
-\mu^n(Q) := \prod_{i=1}^n (b_i - a_i).
+\lambda^n(Q) := \prod_{i=1}^n (b_i - a_i).
 ```
-
 ````
 
-Es stellt sich heraus, dass die Menge der halboffenen, diskunkten Quader eine besondere mathematische Struktur bilden, nämlich einen Ring.
-Diesen wollen wir zunächst definieren.
+Wir wollen im Folgenden das Teilmengensystem $\mathcal{R}\subset\ 2^{\R^n}$ aller halboffenen Quader betrachten,
+
+```{math}
+\mathcal{R}_Q := \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.
+```
+
+Wir fordern hierbei nicht, dass nur disjunkte Quader vereinigt werden dürfen. Jedoch kann man direkt herleiten, dass man jede Vereinigung von Quadern in eine disjunkte Umschreiben kann. Seien dazu $Q_1,\ldots,Q_k\subset\R^n$ halboffene Quader, wir erkennen, dass der Rand eines Quaders $Q_i=(a^i,b^i]$ genau $2n$ Hyperebenen der Form
+
+```{math}
+x_j = a^i_j\\
+x_j = b^i_j
+```
+
+für $j=1,\ldots,n$ aufspannt. Weiterhin, können wir einen anderen Quader $Q_m=(a^k,b^k)$ mit einer Hyperebene $x_l=c\in\R$ zerteilen, im Falle $a^k_l < c < b^k_l$, indem wir zwei neue Quader definieren mit 
+
+```{math}
+\alpha^m:=(a^m_1,\ldots,c,\ldots,a^m_n)\\
+\beta^m:=(b^m_1,\ldots,c,\ldots,b^m_n)
+Q_m^1=(a^m,\beta^m]\\
+Q_m^2=(\alpha^m,b^m].
+```
+
+Iterativ gehen wir folgendermaßen vor:
+
+1. Betrachten den ersten Quader $Q_1$, zerteilen alle Quader $Q_i$ an allen seinen Hyperebenen und erhalte so neue Quader $W^1_j$.
+
+2. Im $i+1$ten Schritt betrachte die Hyperebenen des Quaders $Q_{i+1}$ und zerteile damit alle Quader $W^i_j$ aus dem vorherigen Schritt und erhalte damit neue Quader $W^{i+1}_j$.
+
+Führen wir diesen Prozess bis $i=k$ durch, so erhalten wir folgendes Resultat, welches in {numref}`fig:disRect` visualisiert ist.
+
+```{figure} ../img/DisRect.jpg
+---
+width: 400px
+name: "fig:disRect"
+---
+Nicht disjunkte Quader werden in System disjunkter Quader überführt. Man erkennt insbesondere, dass die Vereinigung gleich bleibt und, dass sich jeder einzelne ursprüngliche Quader, aus den neuen Quadern zusammensetzbar ist. 
+```
+
+````{prf:lemma}
+Es seien $Q_1,\ldots,Q_k\subset\R^d$ halboffene Quader, dann existieren paarweise disjunkte halboffene Quader $W_1,\ldots, W_M$ mit Indexmengen $J_i\subset\{1,\ldots,M\}$, s.d. 
+
+```{math}
+\bigcup_{i=1}^k Q_i = \bigcup_{j=^1}^M W_j
+```
+
+und für jedes $i\in{1,\ldots,n\}$ gilt
+
+```{math}
+\bigcup_{j\in J_i} W_j = Q_i.
+```
+````
+
+Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen sogenannten Mengen-Ring.
 
 ````{prf:definition} Ring
 :label: def:ring
 
-Ein Mengensystem $\mathcal{R} \subset \mathcal{P}(\Omega)$ heißt **Ring** auf einer Menge $\Omega$, falls die folgenden Eigenschaften erfüllt sind:
+Ein Mengensystem $\mathcal{R} \subset 2^{\Omega}$ heißt **Mengen-Ring** (im maßtheoretischen Sinne) auf einer Menge $\Omega$, falls die folgenden Eigenschaften erfüllt sind:
 
 1. $\emptyset \in \mathcal{R}$
 2. $A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}$
@@ -272,13 +321,7 @@ Ein Mengensystem $\mathcal{R} \subset \mathcal{P}(\Omega)$ heißt **Ring** auf e
 ````
 
 ````{prf:lemma} Der von halboffenen Quadern erzeugte Ring
-Wir betrachten eine Teilmenge $\mathcal{R}$ der Potenzmenge $\mathcal{P}(\R^n)$, die durch disjunkte, halboffene Quader des $\R^n$ erzeugt wird mit
-
-```{math}
-\mathcal{R} := \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.
-```
-
-Dann bildet das Mengensystem $\mathcal{R}$ einen Ring.
+Das System der halboffenen Quadern $\mathcal{R}_Q$ bildet einen Mengenring.
 ````
 
 ````{prf:proof}
