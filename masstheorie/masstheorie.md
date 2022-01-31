@@ -229,6 +229,10 @@ Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf 
 
 ## Das Lebesgue Maß
 
+```{margin} Henri Lebesgue
+[Henri Léon Lebesgue](https://en.wikipedia.org/wiki/Henri_Lebesgue) (Geboren 28. Juni 1875 in Beauvais; Gestorben 26. Juli 1941 in Paris) war ein französischer Mathematiker.
+```
+
 Bei der Einführung des Riemann Integrals verwendet man Intervalle zur Unterteilung des Definitionsbereichs.
 Diese Partitionierung einer Menge lässt sich im $\R^n$ auf mehrdimensionale Quader verallgemeinern. Für $a = (a_1,\ldots,a_n) \in \R^n$ und $b = (b_1,\ldots,b_n) \in \R^n$ verwenden wir hierbei die Anordnungsrelation
 
@@ -639,7 +643,7 @@ die Menge $A$ lässt sich also als abzählbare Vereinigung von Jordan-messbaren 
 
 ````
 
-### Das Lebesgue-Maß
+### Das äußere Lebesgue-Maß
 
 Wir der letzte Abschnitt zeigt ist der Begriff der Jordan-messbarkeit einerseits zu einschränkend (siehe {prf:ref}`ex:jordan`) und andererseits führt er nicht auf eine $\sigma$-Algebra. Wir werden diesen Begriff nun erweitern indem wir uns zunächst nur auf den äußeren Inhalt konzentrieren.
 
@@ -677,15 +681,17 @@ Mit diesem Resultat können wir die folgende Aussage beweisen.
 ````{prf:theorem}
 :label: thm:lebesgue
 
-Seien $Q$ und $(Q_k)_{k\in\N}$ halboffene Quader mit $Q \subset \bigcup_{k=1}^\infty Q_k$.
+Es sei $J\in\mathcal{R}_{\text{Q}}$ und $(Q_k)_{k\in\N}$ Folge halboffene Quader mit $J \subset \bigcup_{k=1}^\infty Q_k$.
 Dann gilt
 
 ```{math}
-\lambda^n(Q) \leq \sum_{k=1}^\infty \lambda^n(Q_k).
+\lambda^n(J) = \iota(J) = \leq \sum_{k=1}^\infty \lambda^n(Q_k).
 ```
 ````
 
 ````{prf:proof}
+Wir zeigen die Aussage zunächst für $J=Q$ wobei $Q$ ein halboffener Quader ist.
+
 **Idee:** Verkleinere $Q$ und vergrößere die $Q_i$ um Heine-Borel anwenden zu können.
 
 Es sei $\varepsilon>0$ gegeben. Für $Q=(a,b]$ können wir einen kleineren halboffenen Quader $Q_\varepsilon$ wählen, s.d. 
@@ -734,11 +740,32 @@ Für endlich viele Quader können wir nun die Eigenschaften aus {prf:ref}`thm:le
 
 Da $\varepsilon>0$ beliebig war folgt die Aussage indem wir $\varepsilon$ gegen $0$ schicken.
 
+
+Sei nun $J\in\mathcal{R}_{\text{Q}}$, wobei $W_1,\ldots,W_N$ paarweise disjunkte halboffene Quader existieren, s.d., 
+
+```{math}
+J = \bigcup_{i=1}^N W_i.
+```
+
+Dann sehen wir, dass für jedes $i=1,\ldots,N$ die Folge $(Q_k\cap W_i)_{k\in\N}$ erneut eine Folge halboffener Quader mit
+
+```{math}
+W_i \subset \bigcup_{k\in\N} Q_k\cap W_i
+```
+
+ist und daher können wir den ersten Fall anwenden. Somit folgt
+
+```{math}
+\iota(J) = \sum_{i=1}^N \lambda^n(W_i) \leq \sum_{i=1}^N \sum_{k=1}^\infty \lambda^n(W_i\cap Q_k) = 
+\sum_{k=1}^\infty\sum_{i=1}^N \lambda^n(W_i\cap Q_k) = \sum_{k=1}^\infty \lambda^n(Q_k).
+```
 ````
 
 Analog zum Lebesgue-Inhalt auf $\mathcal{R}_\text{Q}$ in {prf:ref}`thm:lebesguevolume` können wir auch für das äußere Lebesgue-Maß ähnliche Eigenschaften zeigen.
 
 ````{prf:theorem} Eigenschaften des äußeren Lebesgue-Maßes
+:label: thm:outerlebesgue
+
 Das äußere Lebesgue-Maß $\lambda^*$ hat folgende Eigenschaften:
 
 1\. $\lambda^*(\emptyset) = 0$
@@ -755,10 +782,10 @@ Das äußere Lebesgue-Maß $\lambda^*$ hat folgende Eigenschaften:
 \lambda^*\left( \bigcup_{k=1}^\infty A_k \right) \leq \sum_{k=1}^\infty \lambda^*(A_k) \qquad (\sigma\!-\!\text{Subadditivität}).
 ```
 
-4\. Für jeden halboffenen Quader $Q$ gilt:
+4\. Für $J\in\mathcal{R}_{\text{Q}}$ gilt,
 
 ```{math}
-\lambda^*(Q) = \lambda^n(Q).
+\lambda^*(J) = \iota(J).
 ```
 
 5\. Für jede Teilmenge $A \subset \R^n$ und jeden halboffenen Quader $Q$ gilt:
@@ -822,7 +849,7 @@ Die Aussage folgt indem wir $\varepsilon$ gegen 0 schicken.
 
 **Ad 4.** 
 
-Es sei $Q$ ein halboffener Quader, per Definition folgt direkt 
+Es sei $J\in\mathcal{R}_{\text{Q}}$, per Definition folgt direkt 
 
 ```{math}
 \lambda^\ast(Q)\leq \iota^\ast(Q).
@@ -853,11 +880,34 @@ und damit
 &\geq \lambda^n(A).
 ```
 
-folgt aus der Tatsache, dass $\mathcal{R}_\text{Q}$ ein Mengen-Ring ist, dass paarweise disjunkte Q 
+Durch die Abschätzung nah oben und nach unten folgt dann 
 
+```{math}
+\lambda^n(A) = \lambda^n(A\cap Q) + \lambda^n(A\setminus Q).
+```
+
+Als nächsten Schritt betrachten wir eine Folge halboffener Quader $(Q_i)_{i\in\N}\mathcal{C}(A)$ und erhalten dann 
+
+```{math}
+\sum_{i=1}^\infty \lambda^n(Q_i) &= 
+\sum_{i=1}^\infty \lambda^n(Q_i\cap Q) + \lambda^n(Q_i\setminus Q)\\
+&\overset{2.}{\geq}
+\lambda^n(A\cap Q) + \lambda^n(A\setminus Q)
+&\overset{2.}{\geq}
+\lambda^n(A).
+```
+
+Nehmen wir das Infimum über $\mathcal{C}(A)$ folgt 
+
+```{math}
+\lambda^n(A) \geq \lambda^n(A\cap Q) + \lambda^n(A\setminus Q) \geq 
+\lambda^n(A)
+```
+
+und daher die Behauptung.
 ````
 
-Als Korollar erhalten wr sofort eine Abschätzung für das äußere Lebesgue-Maß sowohl von oben durch den äußeren Jordan-Inhalt als auch von unten durch den inneren Jordan-Inhalt.
+Als Korollar von {prf:ref}`thm:lebesgue` und den vorherigen Eigenschaften erhalten wir eine Abschätzung für das äußere Lebesgue-Maß sowohl von oben durch den äußeren Jordan-Inhalt als auch von unten durch den inneren Jordan-Inhalt.
 
 ````{prf:corollary}
 Es sei $A\subset\R^n$, dann gilt 
@@ -874,22 +924,49 @@ Für jedes Element $J\in\mathcal{R}_{\text{Q}}$ und beliebige halboffene Quader 
 J\subset A\subset \bigcup_{i\in\N} Q_i
 ```
 
-folgt aus der Monotonie
+folgt aus {prf:ref}`thm:lebesgue`
 
+```{math}
+\lambda^n(J)\leq \sum_{i=1}^\infty Q_i.
+```
+
+Dies gilt für jedes $J\in \mathcal{R}_{\text{Q}}$ mit $J\subset A$ und daher insbesondere auch für das Supremum, daher
+
+```{math}
+\iota_\ast(A) \leq \sum_{i=1}^\infty Q_i.
+```
+
+Diese Aussage gilt wiederum für eine beliebige Folge halboffener Quader welche $A$ überdecken und daher auch für das Infimum, also
+
+```{math}
+\iota_\ast(A) \leq \lambda^\ast(A).
+```
+
+Die andere Ungleichung folgt per Definition da jede endliche Überdeckung mit halboffenen Quadern (welche im Infimum für $\iota^\ast$ betrachtet werden) auch im Infimum über abzählbare Überdeckungen berücksichtigt wird, daher 
+
+```{math}
+\lambda^\ast(A)\leq\iota^\ast(A).
+```
 ````
 
+Die obige Eigenschaft liefert zusätzlich die Aussage, dass für Jordan-messbare Mengen $A$ gilt
+
+```{math}
+\iota(A)\leq\lambda^\ast(A)\leq\iota(A)\Rightarrow \lambda^\ast(A) = \iota(A).
+```
+
+````{prf:remark} Wirkung von Transformationen auf das äußere Lebesgue Maß
+:label: rem:transinvariance
 
 Eine besondere Eigenschaft des äußeren Lebesgue Maßes ist es, dass es *bewegungsinvariant* ist, d.h., dass es unter Translationen und Rotationen den gleichen Wert behält.
 Dies ist für viele Anwendungen eine fundamentale Eigenschaft.
 Die folgende Bemerkung hält die Wirkung von geometrischen Transformationen auf das äußere Lebesgue Maß fest.
 
-````{prf:remark} Wirkung von Transformationen auf das äußere Lebesgue Maß
-
 1\. Sei $A \subset \R^n$ eine beliebige Teilmenge und $a \in \R^n$ ein beliebiger Vektor.
 Dann ist das äußere Lebesgue Maß **translationsinvariant** unter der Wirkung von $a$, d.h., es gilt
 
 ```{math}
-\mu^*(A + a) = \mu^*(A).
+\lambda^*(A + a) = \lambda^*(A).
 ```
 
 Außerdem gilt, dass die Teilmenge $A$ genau dann Lebesgue-messbar ist, wenn die verschobene Teilmenge $A + a$ Lebesgue-messbar ist.
@@ -898,7 +975,7 @@ Außerdem gilt, dass die Teilmenge $A$ genau dann Lebesgue-messbar ist, wenn die
 Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wirkung der linearen Transformation $M$
 
 ```{math}
-\mu^*(MA) = |\!\operatorname{det}(M)| \, \mu^*(A).
+\lambda^*(MA) = |\!\operatorname{det}(M)| \, \lambda^*(A).
 ```
 
 Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. **Rotationen** und **Spiegelungen**) ist, da für diese Transformationen $|\!\operatorname{det}(M)| = 1$ gilt (siehe Kapitel 3.6 in {cite:p}`tenbrinck_2021`).
@@ -907,13 +984,328 @@ Außerdem gilt, dass die Teilmenge $A$ genau dann Lebesgue-messbar ist, wenn die
 
 ````
 
-Auf Carathéodory zurückgehende Konstruktion:
+### Nullmengen
+
+Eine relevante Klasse von Teilmengen des $\R^n$ bilden sogenannten **Lebesgue-Nullmengen**.
+
+````{prf:definition} Lebesgue-Nullmengen
+Eine Teilmenge $N \subset \R^n$ eine **(Lebesgue-)Nullmenge**, falls ihr äußeres Lebesgue-Maß Null ist, d.h., es gilt
+
+```{math}
+\lambda^*(N) = 0.
+```
+
+````
+
+Für die Klasse der Nullmengen können wir folgende Eigenschaften zeigen.
+
+````{prf:lemma} Eigenschaften von Lebesgue-Nullmengen
+:label: lem:eigenschaftenNullmengen
+
+Für Lebesgue-Nullmengen gelten die folgenden Eigenschaften:
+
+1. Sei $(N_n)_{n\in\N}$ eine Familie von Nullmengen.
+Dann ist auch $\bigcup_{n\in\N} N_n$ eine Nullmenge.
+
+2. Alle abzählbare Mengen sind Nullmengen.
+
+3. Alle Teilmengen von Nullmengen sind Nullmengen.
+````
+
+````{prf:proof}
+<br/>
+
+
+**Ad 1.**
+
+Auf Grund der *$\sigma$-Subadditivität* des äußeren Lebesgue-Maßes folgt direkt
+
+```{math}
+0 \leq \mu^* \left( \bigcup_{n\in\N} N_n \right) \leq \sum_{n\in\N} \mu^*(N_n) = 0.
+```
+
+Da $\mu^* \left( \bigcup_{n\in\N} N_n \right)$ gilt ist also $\bigcup_{n\in\N} N_n$ auch eine Nullmenge.
+
+**Ad 2.**
+
+Es sei $A\subset\R^d$ eine abzählbare Menge, d.h., es existiert eine Folge $(a_k)_{k\in\N}\subset\R^d$, s.d., 
+
+```{math}
+A = \bigcup_{k\in\N} a_k.
+```
+
+Es sei nun $\varepsilon>0$ gegeben, dann wählen wir die Folge halboffener Quader 
+
+```{math}
+Q_k := (a_k - \frac{\varepsilon}{2^k},a_k]
+```
+
+s.d., 
+
+```{math}
+A\subset \bigcup_{k\in\N} Q_k.
+```
+
+Dann folgt aber,
+
+```{math}
+\lambda^\ast(A) \leq \sum_{k\in\N} \lambda^n(Q_k) = \sum_{k\in\N} \frac{\varepsilon}{2^k} = \varepsilon.
+```
+
+Wir können nun $\varepsilon$ gegen 0 schicken und erhalte die Aussage.
+
+**Ad 3.**
+
+Es sei $N$ eine Nullmenge und $A\subset N$, dann folgt aus der Monotonie 
+
+```{math}
+0\leq \lambda^\ast(A)\leq \lambda^\ast(N) = 0.
+```
+````
+
+Intuitiv könnten man meinen, dass lediglich abzählbare MEngen Lebesgue Nullmengen sind, dies ist jedoch nicht der Fall. Ein Beispiel ist die [canto-Menge](https://de.wikipedia.org/wiki/Cantor-Menge) welche überabzählbar ist, aber Lebesgue-Maß null hat.
+
+### Das äußere Maß ist kein Maß
+
+Für das äußere Lebesgue Maß kann man einige Eigenchaften zeigen (siehe {prf:ref}`thm:outerlebesgue`) welche zwar eine Maß erinnern. Der größte Unterschied bisher ist, dass wir nur $\sigma$-Subadditivität und nicht $\sigma$-Additivität zeigen konnten. Insbesondere arbeitet das äußere Maß auf der gesamten Potenzmenge $2^{\R^d}$ und nicht auf einer kleineren $\sigma$-Algebra, man könnte also vermuten, dass diese Menge zu groß ist um $\sigma$-Additivität zeigen zu können, was tatsächlich der Fall ist.
+
+Um das zu sehen betrachten wir die sogenannte Vitali Menge auf $\R$.
+
+```{margin} Giuseppe Vitali
+[Giuseppe Vitali](https://de.wikipedia.org/wiki/Giuseppe_Vitali) (geboren 26. August 1875 in Ravenna; gestorben 29. Februar 1932 in Bologna) war ein italienischer Mathematiker.
+```
+
+Für zwei Punkte $x,y\in\R$ definiert man die Äquivalenzrelation
+
+```{math}
+x \sim y \quad \Leftrightarrow \quad x-y \in \Q.
+```
+
+d.h. zwei Punkte gehören der selben Äquivalenzklasse an sofern ihre Differenz rational ist. Es gilt also
+
+```{math}
+[x] = \{y: y-x\in\Q\}
+```
+
+jede Klasse $[x]$ ist abzählbar und $[0] = \Q$. Falls $[x]\cap [y]\neq \emptyset$, so folgt, dass ein $z\in[x]\cap [y]$ existiert und damit
+
+```{math}
+\left.
+\begin{matrix}
+z-x\in\Q\\
+z-y\in\Q\\
+\end{matrix}
+\right\}
+\Rightarrow x-y\in\Q\Rightarrow [x]=[y],
+```
+
+daher sind zwei Äquivalenzklassen entweder gleich oder disjunkt. Da aber
+
+```{math}
+\R = \bigcup_{x\in\R} [x]
+```
+
+gilt, muss es überabzählbar viele disjunkte Äquivalenzklassen geben, ansonsten wäre $\R$ selbst abzählbar. Mithilfe des [Auswahl-Axioms](https://de.wikipedia.org/wiki/Auswahlaxiom) können wir nun für jede einzelne Äquivalenzklasse einen Repräsentanten wählen, wobei wir die Menge der Repräsentanten $V$ als **Vitali-Menge** bezeichnen. Zwei Elemente $x,y\in V, x\neq y$ unterscheiden sich stets um eine irrationale Zahl, denn
+
+```{math}
+x-y\in\Q \Rightarrow [x] = [y]
+```
+
+ist ein Widerspruch zur Konstruktion.
+
+Es sei nun $(q_k)_{k\in\N}$ eine Abzählung der rationalen Zahlen und definiere die verschobenen Vitali Mengen
+
+```{math}
+V_k :=\{x+q_k: x\in V\}.
+```
+
+````{prf:lemma}
+Mit den obigen Definitionen gilt 
+
+1. $\lambda^\ast(V) = \lambda^\ast(V_k)$ für alle $k\in\N$,
+
+2. $V_k\cap V_l=\emptyset$ für $k\neq l$,
+
+3. $\bigcup_{k\in\N} V_k = \R$.
+````
+
+````{prf:proof}
+<br/>
+
+**Ad 1.**
+
+Diese Tatsache folgt, da das äußere Lebesgue-Maß Translationsinvariant ist, siehe {prf:ref}`rem:transinvariance`.
+
+**Ad 2.**
+
+Für $x,y\in V$ gilt
+
+```{math}
+x + q_k = y + q_l&\Rightarrow x-y\in\Q\\
+\Rightarrow [x]=[y]&\Rightarrow x=y\\
+\Rightarrow q_k=q_l&\Rightarrow k=l
+```
+
+wobei wir in der zweiten Zeile erneut ausnutzen, dass die Elemente aus $V$ jeweils disjunkte Äquivalenzklassen erzeugen. 
+
+**Ad 3.**
+
+Trivialerweise gilt 
+
+```{math}
+\bigcup_{k\in\N} V_k \subset \R.
+```
+
+Andererseits sei $x\in\R$ dann existiert $v\in V$ s.d. $[v] = [x]$. Somit gilt $x-v\in\Q$ und es existiert $k\in\N$, s.d. 
+
+```{math}
+q_k = x-v.
+```
+
+Somit folgt $x=v+q_k\in V_k$ und daher $x\in\bigcup_{k\in\N} V_k$.
+````
+
+Mithilfe einer Vitali-Menge können wir nun die $\sigma$-Additivität des äußeren Lebesgue-Maßes zum Widerspruch führen.
+
+````{prf:lemma}
+Das äußere Lebesgue-Maß $\lambda^\ast$ ist nicht $\sigma$-Additiv auf $2^{\R}$.
+````
+
+````{prf:proof}
+
+**Annahme**: Das äußere Lebesgue-Maß sei $\sigma$-Additiv auf $2^{\R}$.
+
+Die Mengen $V_k$ sind paarweise disjunkt und überdecken $\R$, daher folgt 
+
+```{math}
+0<\lambda^\ast(\R) = \lambda^\ast(\bigcup_{k\in\N} V_k) = \sum_{k\in\N} \lambda^\ast(V_k) = \sum_{k\in\N} \lambda^\ast(V)
+```
+
+und daher $\lambda^\ast(V)>0$. Diese Folgerung wollen wir nun zum Widerspruch führen. Dazu betrachten wir die folge halboffener Quader $Q_k:=(k,k]$ und erkennen unter Ausnutzung **endlicher** Additivität, dass
+
+```{math}
+\lambda^\ast(V) \geq \lambda^\ast\left(V \cap \bigcup_{k=1}^N Q_k\right) = 
+\sum_{k=1}^N \lambda^\ast(V\cap Q_k).
+```
+
+Somit folgt mithilfe der $\sigma$-Subadditivität
+
+```{math}
+\lambda^\ast(V) \geq \sum_{k=1}^\infty \lambda^\ast(V\cap Q_k) \geq
+\lambda^\ast\left(\bigcup_{k\in\N} V\cap Q_k\right) = \lambda^\ast(V).
+```
+
+Da wir $\lambda^\ast(V)>0$ folgern konnten, muss daher ein $N\in\N$ existieren, s.d.,
+
+```{math}
+\lambda^\ast(V\cap Q_N) >0.
+```
+
+Analog zum Beweis, dass die $V_k$ paarweise disjunkt sind, folgert man auch, dass die Mengen $\frac{1}{m}+(V\cap Q_N)$ für verschieden $m\in\N$ paarweise disjunkt sind und wegen der Translationsinvarianz folgt
+
+```{math}
+\lambda^\ast(\frac{1}{m}+(V\cap Q_N)) = \lambda^\ast((V\cap Q_N)) >0.
+```
+
+Wir erkennen allerdings, dass 
+
+```{math}
+\bigcup_{m\in\N} \frac{1}{m}+(V\cap Q_N) \subset (-N,N+1]
+```
+und nutzen wir nun erneut die angenommene $\sigma$-Additivität so erhalten wir
+
+```{math}
+\infty = \sum_{m=1}^\infty \lambda^\ast(\frac{1}{m}+(V\cap Q_N)) = 
+\lambda^\ast\left(\bigcup_{m\in\N}  \frac{1}{m}+(V\cap Q_N) \right)\leq 
+\lambda^\ast((-N,N+1]) = 2N + 1
+```
+
+und somit 
+
+```{math}
+\infty \leq 2N + 1
+```
+
+was ein Widerspruch ist. Daher ist die Annahme der $\sigma$-Additivität falsch.
+````
+
+Ähnliche Konstruktionen können auch allgemein für $\R^n$ durchgeführt werden. Man hat allgemein die Aussage, dass $\lambda^\ast$ auf $\R^n$ **kein** Maß ist.
+
+### Das Lebesgue-Maße
+
+Der vorherige Abschnitt zeigt, dass die Potenzmenge $2^{\R^n}$ zu groß ist, d.h. auf dieser $\sigma$-Algebra ist $\lambda^\ast$ kein Maß. Deshalb wollen wir nun eine Klasse messbarer Mengen definieren, welche dann eine kleinere $\sigma$-Algebra liefert.
+
+````{prf:remark} Das Jordan-Konzept
+Eine mögliche Idee um messbare Mengen zu definieren haben wir bereits beim Jordan-Inhalt kennengelernt. Hierbei wird zusätzlich zum äußeren Mein inneres definiert. Beim Übergang vom äußeren Jordan-Inhalt zum äußeren Lebesgue-Maß werden endliche Vereinigungen durch unendliche ersetzt, weshalb man versuchen könnte, das nun auch hier zu tun, indem man das innere Lebesgue-Maß auch über unendliche Vereinigungen definiert 
+
+```{math}
+\lambda_\ast(A) := \sup\left\{\sum_{i=1}^\infty Q_i: \bigcup_{i\in\N} Q_i \subset A, Q_i\text{ disjunkte halboffener Quader}\right\}.
+```
+
+Offensichtlich folgt mit dieser Definition
+
+```{math}
+\iota_\ast(A)\leq \lambda_\ast(A)
+```
+
+da das Supremum über mehr Ausschöpfungen gebildet wird. Nun sei aber $Q_i$ eine beliebiger Folge halboffener Quader, welche $A$ von innen ausschöpfen, dann gilt für jedes $N\in\N$
+
+```{math}
+\iota_\ast(A) \geq \sum_{i=1}^N \lambda^n(Q_i)
+```
+
+und daher 
+
+```{math}
+\iota_\ast(A)\geq \sum_{i=1}^\infty \lambda^n(Q_i).
+```
+
+Diese Ungleichung erhalten wir deshalb so einfach, da für jedes $N\in\N$ auch $\bigcup_{i=1}^N Q_i\subset A$ gilt. Beim äußern Maßen konnten wir aber andersherum nicht einfach aus $A\subset \bigcup_{i=1}^\infty W_i$ auch $A\subset \bigcup_{i=1}^N W_i$ folgern. 
+
+Da die obige Ungleichung für beliebig Folgen halboffener Quader gilt, folgt
+
+```{math}
+\iota_\ast(A) \geq \lambda_\ast(A).
+```
+
+Wir erkennen also, dass für das innere Maß keinen Unterschied macht ob wir endliche oder unendliche Vereinigungen betrachten.
+
+Würden wir Messbarkeit über die Bedingung
+
+```{math}
+\lambda_\ast(A)=\lambda^\ast(A)
+```
+
+definieren erhielten wir erneut keine $\sigma$-Algebra. Denn für die Menge $A=[0,1]\setminus\Q$ gilt
+
+```{math}
+J\in\mathcal{R}_{\text{Q}}, J\subset A\Rightarrow J=\emptyset
+```
+
+und daher $\lambda_\ast(J) = 0$. Der Trick die Menge mit kleinen Quadern zu approximieren wie beim äußeren Maß funktioniert auch nicht, da wir in diesem Fall jeweils die Teilmengen Bedingung verletzt wäre. 
+
+Es gilt aber 
+
+```{math}
+\lambda^\ast(A) = \lambda^\ast([0,1]) - \underbrace{\lambda^\ast(\Q)}_{=0} = 1
+```
+
+und daher wäre $A$ nicht messbar, obwohl sowohl $\Q$, als auch $[0,1]$ messbar wären. Damit hätten wir erneut keine $\sigma$-Algebra konstruiert.
+
+````
+
+Es gibt verschiedene Ansätze Lebesgue-Messbarkeit zu definieren (welche alle äquivalent sind), wir wählen im Folgenden das Konzept von
+Carathéodory.
+
+```{margin} Constantin Carathéodory
+[Constantin Carathéodory](https://de.wikipedia.org/wiki/Constantin_Carath%C3%A9odory) (Geboren 13. September 1873 in Berlin; Gestorben 2. Februar 1950 in München) war ein Mathematiker griechischer Herkunft.
+```
 
 ````{prf:definition} Lebesgue-Maß
 Wir nennen eine Teilmenge $A \subset \R^n$ **Lebesgue-messbar**, genau dann wenn für alle Teilmengen $E \subset \R^n$ gilt:
 
 ```{math}
-\mu^*(E) = \mu^*(E \cap A) + \mu^*(E \setminus A).
+\lambda^*(E) = \lambda^*(E \cap A) + \lambda^*(E \setminus A).
 ```
 
 Wir notieren die Menge der Lebesgue-messbaren Mengen als
@@ -922,95 +1314,125 @@ Wir notieren die Menge der Lebesgue-messbaren Mengen als
 \mathcal{A} = \lbrace A \subset \R^n : A \text{ ist Lebesgue-messbar } \rbrace
 ```
 
-Wir definieren das **Lebesgue-Maß** $\mu \colon \mathcal{A} \rightarrow [0,\infty]$ messbarer Mengen durch
+Wir definieren das **Lebesgue-Maß** $\lambda \colon \mathcal{A} \rightarrow [0,\infty]$ messbarer Mengen durch
 
 ```{math}
-\mu(A) = \mu^*(A).
+\lambda(A) = \lambda^*(A).
 ```
 
 ````
 
-````{prf:definition} Lebesgue-Nullmengen
-Wir nennen eine Teilmenge $N \subset \R^n$ eine **(Lebesgue-)Nullmenge**, falls ihr äußeres Lebesgue-Maß Null ist, d.h., es gilt
+````{prf:remark}
+Es ist wichtig zu bemerken, dass diese Bedingung eine Einschränkung ist, da das äußere Lebesgue-Maß **nicht** additiv ist auf $2^{\R^n}$, es gilt lediglich 
 
 ```{math}
-\mu^*(N) = 0.
+\lambda^*(E) \leq \lambda^*(E \cap A) + \lambda^*(E \setminus A).
 ```
 
+für alle $A,E\subset\R^d$. Aus diesem Grund scheint die Einschränkung sinnvoll zu sein um Additivität zu erhalten. 
 ````
 
-````{prf:lemma} Eigenschaften von Lebesgue-Nullmengen
-:label: lem:eigenschaftenNullmengen
+Wir betrachten im Folgenden verschiedene Beispiele messbarer Mengen, was zeigt, dass $\mathcal{A}\neq \emptyset$.
 
-Für Lebesgue-Nullmengen gelten die folgenden Eigenschaften:
+````{prf:lemma} Lebesgue-messbare Mengen
+:label: thm:lebesguemes
 
-1\. Jede Nullmenge ist Lebesgue-messbar mit $\mu(N) = 0$.
+1. Jede Lebesgue-Nullmenge ist Lebesgue-messbar, insbesondere ist $\emptyset$ Lebesgue-messbar.
 
-2\. Sei $(N_n)_{n\in\N}$ eine Familie von Nullmengen.
-Dann ist auch $\bigcup_{n\in\N} N_n$ eine Nullmenge.
+2. Jeder halboffene Quader ist messbar.
 
-3\. Alle abzählbare Mengen sind Nullmengen.
-
-4\. Alle Teilmengen von Nullmengen sind Nullmengen.
 ````
 
 ````{prf:proof}
-<br/>
+** Ad 1.**
 
-1\. Für alle Teilmengen $E \subset \R^n$ gilt wegen der *Monotonie-Eigenschaft* des äußeren Lebesgue-Maßes
-
-```{math}
-\mu^*(E) \geq \mu^*(E\setminus N), \qquad \mu^*(N) \geq \mu^*(N \cap E).
-```
-
-Sei also $E \subset \R^n$ eine beliebige Teilmenge.
-Da $N$ nach Voraussetzung eine Lebesgue-Nullmenge ist gilt 
+Es sei $N$ eine Lebesgue-Nullmenge und $E\subset\R^d$, dann gilt
 
 ```{math}
-\mu^*(E) = \mu^*(E) + \mu^*(N) \geq \mu^*(E\setminus N) + \mu^*(N \cap E).
+\lambda^\ast(E) \leq \underbrace{\lambda^\ast(E\cap\N)}_{=0} + \lambda^\ast(E\setminus N)\leq
+ \lambda^\ast(E)
 ```
 
-Andererseits können wir wegen der *$\sigma$-Subadditivität* des äußeren Lebesgue-Maßes folgende Abschätzung treffen
+und daher $\lambda^\ast(E) = \lambda^\ast(E\cap\N) + \lambda^\ast(E\setminus N)$.
 
-```{math}
-\mu^*(E) = \mu^*((E\setminus N) \cup (E \cap N)) \leq \mu^*(E\setminus N) + \mu^*(E \cap N).
-```
+**Ad 2.**
 
-Also muss schon Gleichheit gelten, d.h., es gilt für beliebige Teilmengen $E \subset \R^n$
+Folgt aus {prf:ref}`thm:outerlebesgue` Eigenschaft 4.
 
-```{math}
-\mu^*(E) = \mu^*(E\setminus N) + \mu^*(E \cap N).
-```
-
-Per Definition ist die Nullmenge $N$ also Lebesgue-messbar und es gilt $\mu(N) = \mu^*(N) = 0$.
-
-2\. Auf Grund der *$\sigma$-Subadditivität* des äußeren Lebesgue-Maßes folgt direkt
-
-```{math}
-0 \leq \mu^* \left( \bigcup_{n\in\N} N_n \right) \leq \sum_{n\in\N} \mu^*(N_n) = 0.
-```
-
-Da $\mu^* \left( \bigcup_{n\in\N} N_n \right)$ gilt ist also $\bigcup_{n\in\N} N_n$ auch eine Nullmenge.
-
-3\. **ToDo**
-
-4\. **ToDo**
 ````
 
-````{prf:remark} Rationale Zahlen als Nullmenge
-Insbesondere die dritte Eigenschaft aus {prf:ref}`lem:eigenschaftenNullmengen` ist für uns interessant, da sie impliziert, dass die Menge der rationalen Zahlen $\Q \subset \R$ als abzählbare Menge eine Nullmenge in den reellen Zahlen darstellt.
-Dies löst unser anfängliches Problem in {prf:ref}`ex:dirichletFunktion`, wie wir noch sehen werden.
-````
+Weiterhin erhält man über den Begriff der Lebesgue-messbarkeit endlich die erhoffte $\sigma$-Algebra Struktur.
 
-````{prf:theorem} Lebesgue-Messbarkeit von Teilmengen im $\R^n$
-:label: theorem:lebesgueOffenAbgeschlossen
-
-Sowohl offene als auch abgeschlossene Teilmengen des $\R^n$ sind Lebesgue-messbar.
+````{prf:lemma}
+Die Klasse der Lebesgue-messbaren Mengen $\mathcal{A}$ bildet eine $\sigma$-Algebra.
 ````
 
 ````{prf:proof}
-S. 99 Schulz-Baldes
+1\. Von {prf:ref}`thm:lebesguemes` erhalten wir zunächst, dass $\emptyset\in\mathcal{A}$.
+
+2\. Weiterhin sei $A\in\mathcal{A}$ messbar und $E\subset\R^d$ beliebig, dann gilt
+
+```{math}
+\lambda^\ast(E) = \lambda^\ast(\underbrace{A\cap E}_{=E\setminus A^C}) + \lambda^\ast(\underbrace{E\setminus A}_{=E\cap A^C}) = 
+\lambda^\ast(E\setminus A^C) + \lambda^\ast(E\cap A^c) 
+```
+
+und daher ist auch $A^C\in\mathcal{A}$.
+
+3\. Wir zeigen zunächst, dass $\mathcal{A}$ unter endlichen Vereinigungen, Schnitten und Differenzen abgeschlossen ist. 
+
+Es seien $A,B\in\mathcal{A}$ und $E\subset\R^d$ dann gilt 
+
+```{math}
+\lambda^\ast(E) &= \lambda^\ast(E\cap A) + \underbrace{\lambda^\ast(E\setminus A)}_{\text{wende Messbarkeit von} B\text{ an}}\\
+&=\lambda^\ast(E\cap A) + \lambda^\ast((E\setminus A)\cap B) + \lambda^\ast((E\setminus A)\setminus B)\\
+&=
+\underbrace{\lambda^\ast(E\cap (A\cup B)\cap A) + \lambda^\ast((E\cap A\cup B)\setminus A)}_{\text{wende Messbarket von } A \text{ an}} + \lambda^\ast(E\setminus(A\cup B))\\
+&=
+\lambda^\ast(E\cap (A\cup B)) + \lambda^\ast(E\setminus(A\cup B))
+```
+
+und daher ist $A\cup B$ messbar. Weiterhin folgt $A\cap B = (A^C\cup B^C)^C\in\mathcal{A}$ und daher auch $A\cap B\in\mathcal{A}$. Außerdem gilt $A\setminus B = A\cap B^C$ und somit auch $A\setminus B\in\mathcal{A}$.
+
+4\. Sei nun $A_i\in\mathcal{A}$ für $i\in\N$ eine **disjunkte** Folge von Mengen. Unter Ausnutzung von $A_1\in\mathcal{A}$ haben wir für $E\subset\R^d$
+
+```{math}
+j
+```
+
+
+
+
 ````
+
+
+````{prf:lemma}
+:label: thm:lebesguemes
+
+Offene und abgeschlossene Teilmengen des $\R^n$ sind Lebesgue-messbar.
+
+````
+
+````{prf:proof}
+Es sei $U\subset\R^d$ offen, wir betrachten die Menge
+
+```{math}
+\bigcup_{a,b\in \Q^d, (a,b]\subset U} (a,b]\subset U
+```
+
+Sei nun $x\in U$, dann existiert auch $a,b\in\Q^d$, s.d. $x\in(a,b]\subset U$ und somit $x\in\bigcup_{a,b\in \Q^d, (a,b]\subset U}$, woraus wir schließen
+
+```{math}
+\bigcup_{a,b\in \Q^d, (a,b]\subset U} (a,b] = U.
+```
+
+Somit ist $U$ abzählbare Vereinigung messbarer Mengen und daher selbst messbar. 
+
+Abgeschlossene Mengen sind als Komplemente offener und daher messbarer Mengen, selbst messbar.
+````
+
+
+
 
 ````{prf:theorem} Regularität des Lebesgue Maßes
 
@@ -1063,30 +1485,8 @@ Schulz-Baldes S.107
 Man könnte sich an dieser Stelle fragen, ob nicht eventuell alle Teilmengen des $\R^n$ Lebesgue-messbar sind, was einen Großteil der Theorie unnötig machen würde.
 Hierzu sei folgender wichtiger **Satz von Vitali** erwähnt, der explizit nichtmessbare Mengen konstruiert.
 
-```{margin}
-[Giuseppe Vitali](https://de.wikipedia.org/wiki/Giuseppe_Vitali) (geborgen am 26. August 1875 in Ravenna; gestorben am 29. Februar 1932 in Bologna) war ein italienischer Mathematiker.
-```
 
-````{prf:theorem} Nichtmessbare Teilmengen des $\R^n$
-Es sei zunächst folgende *Äquivalenzrelation* für zwei Vektoren $x, y \in \R^n$ gegeben.
 
-```{math}
-x \sim y \quad \Leftrightarrow \quad x -y \in \Q^n.
-```
-
-Die Menge aller Äquivalenzklassen $[x]_\sim$ mit 
-
-```{math}
-[x]_\sim := \lbrace y \in \R^n : x \sim y \rbrace \subset \R^n
-```
-
-bildet eine *Partition* von $\R^n$.
-
-Mittels des [Auswahlaxiom](https://de.wikipedia.org/wiki/Auswahlaxiom) kann man nun eine sogenannte *Vitali-Menge* $V\subset [0,1]$ auswählen, die einen Repräsentanten jeder Äquivalenzklasse enthält, d.h., für jede Äquivalenzklasse $[x]_\sim$ enthält die Menge $V \cap [x]_\sim$ nur ein einziges Element.
-
-Dann ist die Vitali-Menge $V$ nicht Lebesgue-messbar.
-
-````
 
 ````{prf:proof}
 **ToDo:** Referenz!
