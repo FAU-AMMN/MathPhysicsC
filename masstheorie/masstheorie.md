@@ -174,7 +174,7 @@ Dann können wir die Regulariät des Maßes $\mu$ wie folgt definieren.
 
 Hier noch eine Abbildung oder ein Beispiel zu Regularität?
 
-## Borel-$\sigma$-Algebra und Borel-Maß
+## Borel-Maße
 
 Da es viele unterschiedliche Möglichkeiten gibt eine Menge in Teilmengen zu unterteilen wünscht man sich eine möglichst kanonische Wahl einer $\sigma$-Algebra.
 Es stellt sich heraus, dass die sogenannte Borel-$\sigma$-Algebra eine gute Wahl auf beliebigen topologischen Räumen definiert.
@@ -249,17 +249,17 @@ und analog für $a \leq b, a > b$ und $a \geq b$.
 [a,b] &= \lbrace x \in \R^n : a \leq x \leq b \rbrace.
 ```
 
-Das *Volumen* eines halboffenen Quaders $Q := (a,b] \subset \R^n$ definieren wir über
+Das **Volumen** bzw. der Lebesgue-Inhalt eines halboffenen Quaders $Q := (a,b] \subset \R^n$ definieren wir über
 
 ```{math}
 \lambda^n(Q) := \prod_{i=1}^n (b_i - a_i).
 ```
 ````
 
-Wir wollen im Folgenden das Teilmengensystem $\mathcal{R}\subset\ 2^{\R^n}$ aller halboffenen Quader betrachten,
+Wir wollen im Folgenden das Teilmengensystem $\mathcal{R}_{\text{Q}}\subset\ 2^{\R^n}$ aller halboffenen Quader betrachten,
 
 ```{math}
-\mathcal{R}_Q := \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.
+\mathcal{R}_{\text{Q}} := \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.
 ```
 
 Wir fordern hierbei nicht, dass nur disjunkte Quader vereinigt werden dürfen. Jedoch kann man direkt herleiten, dass man jede Vereinigung von Quadern in eine disjunkte Umschreiben kann. Seien dazu $Q_1,\ldots,Q_k\subset\R^n$ halboffene Quader, wir erkennen, dass der Rand eines Quaders $Q_i=(a^i,b^i]$ genau $2n$ Hyperebenen der Form
@@ -269,13 +269,13 @@ x_j = a^i_j\\
 x_j = b^i_j
 ```
 
-für $j=1,\ldots,n$ aufspannt. Weiterhin, können wir einen anderen Quader $Q_m=(a^k,b^k)$ mit einer Hyperebene $x_l=c\in\R$ zerteilen, im Falle $a^k_l < c < b^k_l$, indem wir zwei neue Quader definieren mit 
+für $j=1,\ldots,n$ aufspannt. Weiterhin, können wir einen anderen Quader $Q_m=(a^k,b^k)$ mit einer Hyperebene $x_l=c\in\R$ zerteilen, im Falle $a^k_l < c < b^k_l$, indem wir zwei neue Quader definieren mit
 
 ```{math}
-\alpha^m:=(a^m_1,\ldots,c,\ldots,a^m_n)\\
-\beta^m:=(b^m_1,\ldots,c,\ldots,b^m_n)
-Q_m^1=(a^m,\beta^m]\\
-Q_m^2=(\alpha^m,b^m].
+\alpha^m&:=(a^m_1,\ldots,c,\ldots,a^m_n)\\
+\beta^m&:=(b^m_1,\ldots,c,\ldots,b^m_n)\\
+Q_m^1&=(a^m,\beta^m]\\
+Q_m^2&=(\alpha^m,b^m].
 ```
 
 Iterativ gehen wir folgendermaßen vor:
@@ -284,24 +284,27 @@ Iterativ gehen wir folgendermaßen vor:
 
 2. Im $i+1$ten Schritt betrachte die Hyperebenen des Quaders $Q_{i+1}$ und zerteile damit alle Quader $W^i_j$ aus dem vorherigen Schritt und erhalte damit neue Quader $W^{i+1}_j$.
 
-Führen wir diesen Prozess bis $i=k$ durch, so erhalten wir folgendes Resultat, welches in {numref}`fig:disRect` visualisiert ist.
+Führen wir diesen Prozess bis $i=k$ durch, so erhalten wir folgendes Resultat, welches in {numref}`fig:disrect` visualisiert ist.
 
 ```{figure} ../img/DisRect.jpg
 ---
 width: 400px
-name: "fig:disRect"
+name: "fig:disrect"
 ---
+
 Nicht disjunkte Quader werden in System disjunkter Quader überführt. Man erkennt insbesondere, dass die Vereinigung gleich bleibt und, dass sich jeder einzelne ursprüngliche Quader, aus den neuen Quadern zusammensetzbar ist. 
 ```
 
 ````{prf:lemma}
+:label: lem:disRect
+
 Es seien $Q_1,\ldots,Q_k\subset\R^d$ halboffene Quader, dann existieren paarweise disjunkte halboffene Quader $W_1,\ldots, W_M$ mit Indexmengen $J_i\subset\{1,\ldots,M\}$, s.d. 
 
 ```{math}
 \bigcup_{i=1}^k Q_i = \bigcup_{j=^1}^M W_j
 ```
 
-und für jedes $i\in{1,\ldots,n\}$ gilt
+und für jedes $i\in\{1,\ldots,n\}$ gilt
 
 ```{math}
 \bigcup_{j\in J_i} W_j = Q_i.
@@ -321,234 +324,560 @@ Ein Mengensystem $\mathcal{R} \subset 2^{\Omega}$ heißt **Mengen-Ring** (im ma�
 ````
 
 ````{prf:lemma} Der von halboffenen Quadern erzeugte Ring
-Das System der halboffenen Quadern $\mathcal{R}_Q$ bildet einen Mengenring.
+Das System der halboffenen Quadern $\mathcal{R}_{\text{Q}}$ bildet einen Mengenring.
 ````
 
 ````{prf:proof}
-Um zu zeigen, dass es sich bei dem Mengensystem $\mathcal{R}$ um einen Ring handelt müssen wir die Eigenschaften aus {prf:ref}`def:ring` nachweisen.
+Um zu zeigen, dass es sich bei dem Mengensystem $\mathcal{R}_{\text{Q}}$ um einen Ring handelt müssen wir die Eigenschaften aus {prf:ref}`def:ring` nachweisen.
 
-1\. Wir müssen zunächst zeigen, dass die leere Menge im Mengensystem $\mathcal{R}$ enthalten ist, d.h., dass gilt $\emptyset \in \mathcal{R}$.
-Wählen wir hierzu einen beliebigen Punkt $a \in \R^n$, dann können wir den $n$-dimensionalen halboffenen Quader $Q_a := (a,a] \in \mathcal{R}$ betrachten.
-Es ist klar, dass dieser Quader keinen Punkt aus $\R^n$ enhält (auch nicht den Punkt $a$) und somit die leere Menge beschreibt.
-Daher gilt schon $\emptyset = Q_a \in \mathcal{R}$.
+1\. Für einen beliebigen Punkt $a \in \R^n$ gilt $\emptyset = (a,a] \in \mathcal{R}_{\text{Q}}$.
 
-2\. Als nächstes müssen wir zeigen, dass für zwei Mengen $A,B \in \mathcal{R}$ gilt, dass auch die Mengendifferenz in $\mathcal{R}$ enthalten ist, d.h., dass gilt $(A \setminus B) \in \mathcal{R}$.
-Da die Mengen $A$ und $B$ aus dem Mengensystem $\mathcal{R}$ stammen, existiert also eine endliche Zerlegung in disjunkte halboffene Quader der beiden Mengen mit
+2\. Als nächstes müssen wir zeigen, dass für zwei Mengen $A,B \in \mathcal{R}_{\text{Q}}$ gilt, dass auch die Mengendifferenz in $\mathcal{R}_{\text{Q}}$ enthalten ist, d.h., dass gilt $(A \setminus B) \in \mathcal{R}_{\text{Q}}$. Nach {prf:ref}``disRect` existieren paarweise disjunkte halboffene Quader $S_j$, $j=1,\ldots,n$, und Indexmengen $I_A,I_B\subset\{1,\ldots,n\}$, s.d., 
 
 ```{math}
-A = \bigsqcup_{i=1}^k Q_i, \qquad B = \bigsqcup_{j=1}^m Q'_j.
+A = \bigcup_{j\in I_A} S_j\\
+B = \bigcup_{j\in I_B} S_j.
 ```
 
-Dann können wir die Mengendifferenz also schreiben als
+Somit gilt dann 
 
 ```{math}
-:label: eq:mengendifferenz
-B\setminus A = \bigsqcup_{i=1}^k Q_i \setminus \bigsqcup_{j=1}^m Q'_j = \bigsqcup_{i=1}^k (\ldots((Q_i \setminus Q'_1) \setminus Q'_2)\ldots) \setminus Q'_m.
+A\setminus B &= \left(\bigcup_{j\in I_A} S_j\right) \setminus \left(\bigcup_{j\in I_B} S_j\right)\\ 
+&= \bigcup_{j\in I_A\setminus I_B} S_j
 ```
 
-Um diesen Term zu vereinfachen wollen wir im Folgenden zeigen, dass die Mengendifferenz $C \setminus D$ zweier halboffener Quader $C, D \subset \R^n$ wieder eine Menge ergeben, die sich als Vereinigung disjunkter halboffenen Quader beschreiben lässt.
-Hierbei können wir $3$ unterschiedliche Fälle unterscheiden:
+was wieder eine Vereinigung von halboffenen Quadern ist und deshalb gilt $A\setminus B\in \mathcal{R}_{\text{Q}}$.
 
-a) Für den Fall $C \cap D = \emptyset$ ist die Behauptung trivial, da dann einfach $C \setminus D = C$ gilt und die Menge somit als Vereinigung halboffener Quader, in dem Fall nur $C$, geschrieben werden kann.
-
-b) Ebenfalls trivial ist der Fall $C \subset D$, da hierbei gilt $C \setminus D = \emptyset$.
-Wie für die erste Eigenschaft eines Rings oben gezeigt können wir die leere Menge einfach als halboffenen Quader $Q_a := (a,a]$ für einen beliebigen Punkt $a \in \R^n$ darstellen und somit gilt die Behauptung auch hier.
-
-c) Betrachten wir nun den Fall $D \subsetneq C$. **ToDo**
-
-d) Zuletzt diskutieren wir den Fall $C \not \subset D, D \not \subset C, C \cap D \neq \emptyset$. **ToDo**
-
-Wir wissen also nun, dass der innerste Term $Q_i \setminus Q'_1$ in [eq:mengendifferenz] als Mengendifferenz von zwei halboffenen Quadern
-Induktiv lässt sich nun zeigen, dass der Term $(\ldots((Q_i \setminus Q'_1) \setminus Q'_2)\ldots) \setminus Q'_m$ in [eq:mengendifferenz] als Vereinigung von geeigneten disjunkten halboffenen Quadern schreiben lässt mit:
+3\. Zuletzt erkennen wir für zwei Mengen $A,B \in \mathcal{R}_{\text{Q}}$, dass mit der Zerlegung aus 2. gilt
 
 ```{math}
-(\ldots((Q_i \setminus Q'_1) \setminus Q'_2)\ldots) \setminus Q'_m = \bigsqcup_{l=1}^{L_i} Q_l^i.
+A\cup B = \bigcup_{j=1}^n S_j
 ```
 
-Und somit folgt insgesamt, dass
+und somit ist auch $A\cup B\in\mathcal{R}_{\text{Q}}$ als Vereinigung halboffener Quader.
 
-```{math}
-A \setminus B = \bigsqcup_{i=1}^k (\ldots((Q_i \setminus Q'_1) \setminus Q'_2)\ldots) \setminus Q'_m = \bigsqcup_{i=1}^k \bigsqcup_{l=1}^{L_i} Q_l^i
-```
-
-und damit gilt offensichtlich $(A \setminus B) \in \mathcal{R}$.
-
-3\. Zuletzt zeigen wir, dass für zwei Mengen $A,B \in \mathcal{R}$ gilt, dass auch die Vereinigung in $\mathcal{R}$ enthalten ist, d.h., dass gilt $(A \cup B) \in \mathcal{R}$.
-Da $A$ und $B$ a priori nicht disjunkt sein müssen, versuchen wir die Vereinigung so umzuschreiben, dass sie aus disjunkten halboffenen Quadern besteht.
-Hierzu sehen wir ein, dass gilt
-
-```{math}
-A \cup B = (A \setminus B) \sqcup B = \bigsqcup_{i=1}^k \bigsqcup_{l=1}^{L_i} Q_l^i \sqcup B.
-```
-
-Hierbei haben wir die Aussage 2\. oben benutzt, nämlich dass sich die Mengendifferenz zweier halboffener Quader als Vereinigung geeigneter halboffener disjunkter Quader schreiben lässt.
-Somit erhalten wir insgesamt, dass $(A \cup B) \in \mathcal{R}$ gilt.
-
-Damit haben wir gezeigt, dass das Mengensystem $\mathcal{R}$, welches durch disjunkte halboffene Quader im $\R^n$ erzeugt wird, einen Ring bildet.
+Damit haben wir gezeigt, dass das Mengensystem $\mathcal{R}_{\text{Q}}$, welches durch disjunkte halboffene Quader im $\R^n$ erzeugt wird, einen Ring bildet.
 
 ````
 
-### Das Jordan-Maß
+Wir können den Lebesgue-Inhalt nun auf Elemente von $\mathcal{R}_{\text{Q}}$ fortsetzen
 
-Mittels der eingeführten Quader in {prf:ref}`def:quader` können wir in diesem Abschnitt formal definieren, wann Teilmengen des $\R^n$ Jordan-messbar sind.
-Dazu benötigen wir zunächst eine Abbildung die einem Element $A$ des von halboffenen Quadern Rings $\mathcal{R}$ ein Volumen zuordnet.
-Hierzu führen wir das sogenannte Jordan-Maß zunächst ein.
-
-````{prf:definition} Jordan-Maß
-Sei $A = \bigsqcup_{i=1}^k Q_i \in \mathcal{R}$.
-Dann definieren wir das **Jordan-Maß** $\mu^n \colon \mathcal{R} \rightarrow [0,\infty)$ von $A$ als
+````{prf:definition}
+Es sei $A\in\mathcal{R}_{\text{Q}}$ mit $A=\bigcup_{i=1}^n$ wobei $Q_1,\ldots,Q_n$ **paarweise disjunkte** halboffene Quader sind, dann setzen wir
 
 ```{math}
-\mu^n(A) := \sum_{i=1}^k \mu^n(Q_i).
+\lambda^n(A):=\sum_{i=1}^{n} \lambda^n(Q_i).
 ```
-
 ````
 
-Im folgenden Theorem beschreiben wir die mathematischen Eigenschaften der Jordan-Maß genannten Abbildung.
+````{prf:remark}
+Man erkennt leicht, dass der Wert $\lambda^n(A)$ **nicht** von der Wahl der Zerlegung $Q_1,\ldots,Q_n$ abhängt, der Lebesgue-Inhalt ist also wohldefiniert.
+````
 
-````{prf:theorem} Eigenschaften des Jordan-Maßes
+Für den Lebesgue-Inhalt auf $\mathcal{R}$ können wir folgende Eigenschaften zeigen.
 
-Das Jordan-Maß $\mu^n \colon \mathcal{R} \rightarrow [0,\infty)$ hat folgende Eigenschaften:
+````{prf:theorem}
+:label: thm:lebesguevolume
 
-1\. $\mu^n(\emptyset) = 0$
+Der Lebesgue-Inhalt $\lambda^n$ auf $\mathcal{R}$ hat folgende Eigenschaften:
+
+1\. $\lambda^n(\emptyset) = 0$
 
 2\. Seien $A_1, \ldots, A_k \in \mathcal{R}$ disjunkte Mengen.
 Dann gilt:
 
 ```{math}
-\mu^n \left( \bigsqcup_{i=1,\ldots,k} A_i \right) = \sum_{i=1}^k \mu^n(A_i) \qquad (\text{endliche Additivität})
+\lambda^n \left( \bigcup_{i=1,\ldots,k} A_i \right) = \sum_{i=1}^k \lambda^n(A_i) \qquad (\text{endliche Additivität})
 ```
 
 3\. Für zwei Mengen $A, B \in \mathcal{R}$ mit $A \subset B$ gilt:
 
 ```{math}
-\mu^n(A) \leq \mu^n(B) \qquad (\text{Monotonie}).
+\lambda^n(A) \leq \lambda^n(B) \qquad (\text{Monotonie}).
 ```
 
 4\. Für zwei Mengen $A, B \in \mathcal{R}$ gilt:
 
 ```{math}
-\mu^n(A \cup B) + \mu^n(A \cap B) = \mu^n(A) + \mu^n(B).
+\lambda^n(A \cup B) + \lambda^n(A \cap B) = \lambda^n(A) + \lambda^n(B).
 ```
 
 5\. Für beliebige Mengen $A_1, \ldots, A_k \in \mathcal{R}$ gilt:
 
 ```{math}
-\mu^n\left( \bigcup_{i=1,\ldots,k} A_i\right) \leq \sum_{i=1}^k \mu^n(A_i) \qquad (\text{endliche Subadditivität}).
+\lambda^n\left( \bigcup_{i=1,\ldots,k} A_i\right) \leq \sum_{i=1}^k \lambda^n(A_i) \qquad (\text{endliche Subadditivität}).
 ```
 
-6\. Sei $(A_n)_{k\in\N}$ eine Folge von disjunkten Mengen in $\mathcal{R}$ und sei $B \in \mathcal{R}$, so dass $\bigcup_{k=1}^\infty A_k \subset B$.
-Dann gilt:
+6\. Sei $(A_n)_{k\in\N}$ eine Folge von disjunkten Mengen in $\mathcal{R}$ und sei $B \in \mathcal{R}$, so dass $\bigcup_{k=1}^\infty A_k \subset B$, dann gilt
 
 ```{math}
-\sum_{k=1}^\infty  \mu^n(A_k) \leq \mu(B).
+\sum_{k=1}^\infty  \lambda^n(A_k) \leq \mu(B).
 ```
 
 ````
 
 ````{prf:proof}
-S. 84-85 in Schulz-Baldes 
+**Ad 1.**
+
+Für $a\in\R^d$ haben wir 
+
+```{math}
+\lambda^n(\emptyset) = \lambda^n((a,a]) = \Pi_{i=1}^n (a_i - a_i) = 0.
+```
+
+**Ad 2.**
+
+Für disjunkte Mengen $A_1,\ldots, A_k\in\mathcal{R}$ wählen wir für jedes $i\in\{1,\ldots,k\}$ paarweise disjunkte Quader 
+$Q^i_1,\ldots, Q^i_{n_i}$, welche nach {prf:ref}`lem:disRect` existieren, s.d., 
+
+```{math}
+A_i = \bigcup_{j=1}^{n_i} Q^i_j.
+```
+
+Da die $A_i$ paarweise disjunkt sind, gilt insbesondere 
+
+```{math}
+Q^i_j \cap Q^r_s = \emptyset
+```
+
+für $(i,j)\neq (r,s)$. Somit haben wir 
+
+```{math}
+\lambda^n\left(\bigcup_{i=1}^k A_i \right) &= \lambda^n\left(\bigcup_{i=1}^k \bigcup_{j=1}^{n_i} Q^i_j \right) 
+\\&=
+\sum_{i=1}^k \sum_{j=1}^{n_i} \lambda^n(Q^i_j)
+\\&= 
+\sum_{i=1}^k \lambda^n(A_i).
+```
+
+**Ad 3.**
+
+Es sei $A\subset B$, dann können wir $B$ disjunkt zerlegen mit 
+
+```{math}
+B = A \cup B\setminus A
+```
+
+und sehen dann unter Ausnutzung von 2.
+
+```{math}
+\lambda^n(B) = \lambda^n((A\cap B)\cup B\setminus B) \overset{2.}{=} 
+\lambda^n(A) + \underbrace{\lambda(B\setminus A)}_{\geq 0} \geq \lambda^n(A).
+```
+
+**Ad 4.**
+
+Für zwei Mengen $A,B\in\mathcal{R}_{\text{Q}}$ sehen wir, dass  
+
+```{math}
+A\cup B = A \cup (B\setminus A),
+```
+
+gilt, wobei die Mengen auf der rechten Seite paarweise disjunkt sind. Mit 2. haben wir dann
+
+```{math}
+\lambda^n(A\cup B) + \lambda^n(A\cap B)
+&= \lambda^n(A) + \lambda^n(B\setminus A) + \lambda^n(A\cap B)
+\\&= 
+\lambda^n(A) + \lambda^n(B).
+```
+
+**Ad 5.**
+
+Nach 4. gilt für zwei Mengen $A,B\in\mathcal{R}$,
+
+```{math}
+\lambda^n(A\cup B) = \lambda^n(A) + \lambda^n(B) - \lambda^n(A\cap B) \leq \lambda^n(A) + \lambda^n(B).
+```
+
+Diese Eigenschaft lässt sich direkt auf endliche viele Mengen $A_1,\ldots,A_k\in\mathcal{R}$ übertragen.
+
+**Ad 6.** 
+
+Es sei $(A_i)_{i\in\N}\subset \mathcal{R}_{\text{Q}}$ eine Folge paarweiser disjunkter Mengen, s.d., 
+```{math}
+\bigcup_{i\in\N} A_i\subset B\in \mathcal{R}_{\text{Q}}.
+```
+Dann gilt für $N\in\N$
+
+```{math}
+\sum_{i=1}^N \lambda^n(A_i) 
+\overset{2.}{=} \lambda^n\left(\bigcup_{i=1}^N\right) 
+\overset{3.}{\leq} \lambda^n\left(\bigcup_{i=1}^\infty\right)
+\overset{3.}{\leq} \lambda^n(B).
+```
+
+Somit gilt mit $N\to\infty$
+
+```{math}
+\sum_{i=1}^\infty \lambda^n(A_i) \leq \lambda^n(B).
+```
+
 ````
 
-Das oben eingeführte Jordan-Maß ist die zu Grunde liegende Abbildung für das Riemann-Integral in mehreren Dimensionen.
-A priori haben wir diese Abbildung nur auf Elementen des Rings $\mathcal{R}$ der halboffenen Quader definiert.
-Um dieses auf beliebige Teilmengen des $\R^n$ zu erweitern benötigen wir zunächst die Definition von Jordan-messbare Mengen.
+### Der Jordan-Inhalt und Jordan-messbare Mengen
+
+Wir haben bisher einen Inhalt auf $\mathcal{R}_{\text{R}}$ definiert. Diese Klasse an Mengen ist aber relativ klein, weshalb der Begriff ausgedehnt werden soll. Eine Möglichkeit hier ist die Idee des Riemann-Integrals mit Ober- und Untersummen zu benutzen. Es stellt aber auch hier heraus, dass der Begriff zu einschränkend ist. Insbesondere führt deses Konzept **nicht** auf ein Maß. Wir werden es im Folgenden trotzdem betrachten.
 
 ````{prf:definition} Jordan-messbare Mengen
 
 Sei $A \subset \R^n$ eine beliebige Teilmenge.
-Wir betrachten die folgenden *endlichen* Ober- und Untersummen für die Teilmenge $A$:
+Wir betrachten die folgenden **endlichen** Ober- und Untersummen für die Teilmenge $A$,
 
 ```{math}
-O(A) &:= \inf \left\{ \sum_{i=1}^k \mu^n(Q_i) \, : \, Q_i \text{ ist halboffener disjunkter Quader}, A \subset \bigsqcup_{i=1,\ldots,k} Q_i\right\}, \\
-U(A) &:= \sup \left\{ \sum_{i=1}^k \mu^n(Q_i) \, : \, Q_i \text{ ist halboffener disjunkter Quader}, \bigsqcup_{i=1,\ldots,k} Q_i \subset A\right\}.
+\iota^\ast(A) &:= \inf \left\{ \lambda^n(O) \, : A \subset O \in\mathcal{R}_{\text{R}}\right\},\\
+\iota_\ast(A) &:= \sup \left\{ \lambda^n(U \, : A \supset U\in\mathcal{R}_{\text{R}} \right\}.
 ```
 
-Wir nennen die Teilmenge $A \subset \R^n$ **Jordan-messbar**, genau dann wenn $A$ beschränkt ist und die Ober- und Untersumme übereinstimmen, d.h., es gilt $O(A) = U(A)$.
-Für Jordan-messbare Mengen $A$ ist dann das Jordan-Maß $\mu^n$ gegeben durch:
+Wir nennen die Teilmenge $A \subset \R^n$ **Jordan-messbar**, genau dann wenn $A$ beschränkt ist und die Ober- und Untersumme übereinstimmen, d.h., es gilt $\iota(A) = \iota(A)$.
+Für Jordan-messbare Mengen $A$ ist dann der Jordan-Inhalt $\iota$ gegeben durch:
 
 ```{math}
-\mu^n(A) = O(A) = U(A).
-```
-
-````
-
-````{prf:theorem}
-Seien $Q$ und $(Q_k)_{k\in\N}$ halboffene Quader mit $Q \subset \bigcup_{k=1}^\infty Q_k$.
-Dann gilt
-
-```{math}
-\mu^n(Q) \leq \sum_{k=1}^\infty \mu^n(Q_k).
+\iota(A) = \iota^\ast(A) = \iota_\ast(A).
 ```
 
 ````
 
-````{prf:proof}
-S.87-S.88 in Schulz-Baldes
+```{figure} ../img/jordanmeasure.jpg
+---
+width: 400px
+name: "fig:disRect"
+---
+
+Visualisierung einer Approximation für das äußere (blau) und das inner (orange) Maß.
+```
+
+Die Klasse der Jordan-messbaren Mengen ist erneut recht klein. Insbesondere hat dieses Konzept erneut Schwierigkeiten mit abzählbar unendlich großen Mengen umzugehen wie folgendes Beispiel zeigt.
+
+````{prf:example}
+:label: ex:jordan
+
+Wir betrachten die Menge 
+
+```{math}
+A = (0,1]\cap \mathbb{Q}
+```
+
+der rationalen Zahlen im Intervall $[0,1]$. Wir betrachten zunächst das äußere Maß und dazu eine Menge 
+
+```{math}
+J = \bigcup_{i=1}^N Q_i \supset A,
+```
+
+mit halboffenen Quader $Q_1,\ldots,Q_N$. Da aber $J$ und $(0,1]$ jeweils Elemente aus $\mathcal{R}_{\text{Q}}$ sind gilt auch 
+$L = (0,1]\setminus J \in\mathcal{R}$. Wäre nun $L$ nicht leer, so gäbe es per Definition der halboffenen Quader eine offene Umgebung 
+
+```{math}
+U\subset L.
+```
+
+Da aber $A$ dicht in $(0,1]$ liegt und somit auch $J$ führt dies auf einen Widerspruch. Deshalb folgt $L=\emptyset$ und daher 
+
+```{math}
+(0,1]\subset J \Rightarrow 1\leq \iota^\ast(A).
+```
+
+Für das innere Maß betrachten wir 
+
+```{math}
+J = \bigcup_{i=1}^N Q_i \subset A,
+```
+
+angenommen $J$ wäre nicht leer, dann folgt dass eine offenen Umgebung $U$ existiert s.d. 
+
+```{math}
+U\subset J.
+```
+
+Da aber auch die irrationalen Zahlen $\R\setminus \mathbb{Q}$ dicht in $\R$ liegen folgt daher 
+
+```{math}
+\left[U\cap\R\setminus \mathbb{Q} \neq \emptyset\right] 
+\Rightarrow 
+\left[J \cap \R\setminus \mathbb{Q} \neq \emptyset\right]
+\Rightarrow 
+\left[J\not\subset \mathbb{Q}\right]
+```
+
+was im Widerspruch zu $J\subset A$ steht, daher gilt 
+
+```{math}
+J=\emptyset\Rightarrow \iota_\ast(J) = 0
+```
+
+und somit 
+
+```{math}
+\iota_\ast(J) \neq \iota^\ast(J).
+```
 ````
 
-````{prf:remark}
-Die Menge der Jordan-messbaren Mengen bildet keine $\sigma$-Algebra und daher ist das Jordan-Maß kein Maß im Sinne der {prf:ref}`def:mass`, sondern lediglich ein sogenanntes **Prämaß**.
-Das zu Grunde liegende Problem ist, dass abzählbare unendliche Vereinigungen von Jordan-messbaren Mengen, im Gegensatz zu endlichen Vereinigungen, nicht notwendigerweise Jordan-messbar sein müssen.
-Dies sieht man beispielsweise mit Hilfe der Dirichlet-Funktion in {prf:ref}`ex:dirichletFunktion` ein.
-````
+Die Menge der Jordan-messbaren Mengen bildet weiterhin keine $\sigma$-Algebra und daher ist der Jordan-Inhalt kein Maß im Sinne von {prf:ref}`def:mass`. Dies ist an folgendem Beispiel ersichtlich.
 
-````{prf:example} Jordan-messbare Mengen
-**ToDo:** Ein Beispiel messbar, eins nicht.
+````{prf:example}
+Wir wollen den Jordan-Inhalt einer Punktmengen $\{a\}$ für $a\in\R$ berechnen. Mit der Argumentation aus {prf:ref}`ex:jordan` erkennen wir, dass das innere Maß gleich null ist, also
+
+```{math}
+\iota_\ast(\{a\}) = 0.
+```
+
+Für das äußere Maß wählen wir eine Folge von offenen Quadern $Q_i:= (a-1/i, a] \supset \{a\}$ und erkennen, dass 
+
+```{math}
+\iota^\ast(\{a\})\leq \lim_{i\to\infty} \lambda^n(Q_i) = \lim_{i\to\infty} 1/i = 0
+```
+
+und damit ist jede Punktmenge Jordan-messbar. 
+
+Da aber $\mathbb{Q}$ abzählbar ist, können wir eine Folge $(q_i)_{i\in\N}$ finden, s.d. 
+
+```{math}
+A = (0,1]\cap \mathbb{Q} = \bigcup_{i\in\N} \{q_i\},
+```
+
+die Menge $A$ lässt sich also als abzählbare Vereinigung von Jordan-messbaren Mengen darstellen. Aus {prf:ref}`ex:jordan` wissen wir aber, dass $A$ nicht Jordan-messbar ist und somit bildet die Klassen der Jordan-messbaren Menge **keine** $\sigma$-Algebra.
+
 ````
 
 ### Das Lebesgue-Maß
 
-Verglichen mit der Reichhaltigkeit der Potenzmenge $\mathcal{P}(\R^n)$ sind nur relativ wenige Mengen Jordan-messbar.
-Daher wollen wir in diesem Abschnitt das Jordan-Maß auf geeignete Weise erweitern.
-Wir führen darum zunächst das sogenannte äußere Lebesgue-Maß ein.
+Wir der letzte Abschnitt zeigt ist der Begriff der Jordan-messbarkeit einerseits zu einschränkend (siehe {prf:ref}`ex:jordan`) und andererseits führt er nicht auf eine $\sigma$-Algebra. Wir werden diesen Begriff nun erweitern indem wir uns zunächst nur auf den äußeren Inhalt konzentrieren.
+
+```{note}
+Der innere und äußere Inhalt sind intuitiv nicht gleichberechtigt, da das Problem asymmetrisch ist. Konkret ist Subadditivität die inhärente Eigenschaft eines Maßes, da Mengenvereinigungen mehrfach auftretenden Elemente nicht berücksichtigen, während die Addition in $\R$ für positive Zahlen stets ein größeres Ergebnis liefert. Das äußere Maß ist auf natürliche Weise subadditiv und deshalb zu bevorzugen.
+```
 
 ````{prf:definition} Äußeres Lebesgue-Maß
 
-Wir definieren das **äußere Lebesgue-Maß** $\mu^* \colon \mathcal{P}(\R^n) \rightarrow [0,\infty]$ einer Menge $A \subset \R^n$ als
+Das **äußere Lebesgue-Maß** $\lambda^* \colon 2^{\R^n} \rightarrow [0,\infty]$ ist definiert durch
 
 ```{math}
-\mu^*(A) = \inf \left\{ \sum_{k=1}^\infty \mu^n(Q_k) : Q_k \text{ sind halboffene Quader mit } A \subset \bigcup_{k=1}^\infty Q_k \right\}.
+\lambda^*(A) = \inf \left\{ \sum_{k=1}^\infty \mu^n(Q_k) : Q_k \text{ sind halboffene Quader mit } A \subset \bigcup_{k=1}^\infty Q_k \right\}.
 ```
 
 ````
 
-Im folgenden Theorem beschreiben wir die mathematischen Eigenschaften des äußeren Lebesgue-Maßes.
+Im Vergleich zum Jordan-Inhalt lassen wir nun also unendliche Vereinigungen zu und werten dann Reihen aus überw elche das Infimum gebildet wird. Die erste wichtig Aussage in diesem Kontext geht auf Lebesgue zurück. Der Beweis des Satzes benutzt den Satz von Heine-Borel.
+
+````{prf:theorem} Heine-Borel
+:label: thm:heineborel
+
+Für eine Menge $\Omega\subset\R^n$ sind die folgenden beiden Aussagen äquivalent:
+
+1. $\Omega$ ist beschränkt und abgeschlossen.
+2. Jede offene Überdeckung von $\Omega$ enthält eine endliche Teilüberdeckung.
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`forster_2017`.
+````
+
+Mit diesem Resultat können wir die folgende Aussage beweisen.
+
+````{prf:theorem}
+:label: thm:lebesgue
+
+Seien $Q$ und $(Q_k)_{k\in\N}$ halboffene Quader mit $Q \subset \bigcup_{k=1}^\infty Q_k$.
+Dann gilt
+
+```{math}
+\lambda^n(Q) \leq \sum_{k=1}^\infty \lambda^n(Q_k).
+```
+````
+
+````{prf:proof}
+**Idee:** Verkleinere $Q$ und vergrößere die $Q_i$ um Heine-Borel anwenden zu können.
+
+Es sei $\varepsilon>0$ gegeben. Für $Q=(a,b]$ können wir einen kleineren halboffenen Quader $Q_\varepsilon$ wählen, s.d. 
+
+```{math}
+\overline{Q_\varepsilon} \subset Q\\
+\lambda^n(Q_\varepsilon) > \lambda^n(Q) - \varepsilon.
+```
+
+Beachte, dass der Quader so gewählt wird, dass auch sein Abschluss noch in $Q$ enthalten ist, die zweite Bedingung gibt eine unter Schranke an wie klein der Quader gewählt werden darf. Man kann leicht nachrechnen, dass ein solcher Quader existiert. 
+
+Weiterhin wählen wir für jeden Quader $Q_k$ einen größeren Quader $Q_k^\varepsilon$, s.d., 
+
+```{math}
+\text{Int}(Q_k^\varepsilon)\supset Q_k\\
+\lambda^n(Q_k^\varepsilon) < \lambda^n(Q_k) + \frac{\varepsilon}{2^k},
+```
+
+wobei $\text{Int}(\cdot)$ das Innere einer Menge bezeichnet.
+
+Mit dieser Konstruktion gilt 
+
+```{math}
+\overline{Q_\varepsilon} \subset Q\subset \bigcup_{k\in\N} Q_k \subset 
+\bigcup_{k\in\N}\text{Int}(Q_k^\varepsilon)
+```
+
+daher bilden die Mengen $\text{Int}(Q_k^\varepsilon)$ eine abzählbare offenen Überdeckung der kompakten Menge $\overline{Q_\varepsilon}$. 
+Nach dem Satz von Heine-Borel ({prf:ref}`thm:heineborel`) existiert somit eine endliche Teilüberdeckung und daher ein $N\in\N$, s.d.,
+
+```{math}
+\overline{Q_\varepsilon}\subset \bigcup_{k=1}^N\text{Int}(Q_k^\varepsilon).
+```
+
+Für endlich viele Quader können wir nun die Eigenschaften aus {prf:ref}`thm:lebesguevolume` benutzen und folgern
+
+```{math}
+\lambda^n(Q) -\varepsilon &< \lambda^n(Q_\varepsilon) \leq 
+\lambda^n\left(\bigcup_{k=1}^N\text{Int}(Q_k^\varepsilon\right) 
+\\&\leq 
+\sum_{k=1}^N \lambda^n(Q_k^\varepsilon) < 
+\sum_{k=1}^N \lambda^n(Q_k) + \frac{\varepsilon}{2^k} 
+\\&\leq
+\sum_{k=1}^\infty \lambda^n(Q_k) + \frac{\varepsilon}{2^k} = \sum_{k=1}^\infty \lambda^n(Q_k) +\varepsilon.
+```
+
+Da $\varepsilon>0$ beliebig war folgt die Aussage indem wir $\varepsilon$ gegen $0$ schicken.
+
+````
+
+Analog zum Lebesgue-Inhalt auf $\mathcal{R}_\text{Q}$ in {prf:ref}`thm:lebesguevolume` können wir auch für das äußere Lebesgue-Maß ähnliche Eigenschaften zeigen.
 
 ````{prf:theorem} Eigenschaften des äußeren Lebesgue-Maßes
-Das äußere Lebesgue-Maß $\mu^*$ hat folgende Eigenschaften:
+Das äußere Lebesgue-Maß $\lambda^*$ hat folgende Eigenschaften:
 
-1\. $\mu^*(\emptyset) = 0$
+1\. $\lambda^*(\emptyset) = 0$
 
 2\. Für zwei Mengen $A, B \in \R^n$ mit $A \subset B$ gilt:
 
 ```{math}
-\mu^*(A) \leq \mu^*(B) \qquad (\text{Monotonie}).
+\lambda^*(A) \leq \lambda^*(B) \qquad (\text{Monotonie}).
 ```
 
 3\. Für eine Folge $(A_k)_{k\in\N}$ von Teilmengen des $\R^n$ gilt:
 
 ```{math}
-\mu^*\left( \bigcup_{k=1}^\infty A_k \right) \leq \sum_{k=1}^\infty \mu^*(A_k) \qquad (\sigma\!-\!\text{Subadditivität}).
+\lambda^*\left( \bigcup_{k=1}^\infty A_k \right) \leq \sum_{k=1}^\infty \lambda^*(A_k) \qquad (\sigma\!-\!\text{Subadditivität}).
 ```
 
 4\. Für jeden halboffenen Quader $Q$ gilt:
 
 ```{math}
-\mu^*(Q) = \mu^n(Q).
+\lambda^*(Q) = \lambda^n(Q).
 ```
 
 5\. Für jede Teilmenge $A \subset \R^n$ und jeden halboffenen Quader $Q$ gilt:
 
 ```{math}
-\mu^*(A) = \mu^*(A \setminus Q) + \mu^*(A \cap Q).
+\lambda^*(A) = \lambda^*(A \setminus Q) + \lambda^*(A \cap Q).
 ```
 
 ````
 
 ````{prf:proof}
-S.90-91 Schulz-Baldes
+**Ad 1.**
+
+Da $\emptyset$ ein halboffener Quader ist gilt 
+
+```{math}
+0\leq \lambda^\ast(\emptyset) \leq \lambda^n(\emptyset) = 0.
+```
+
+**Ad 2.**
+
+Es bezeichne
+
+```{math}
+\mathcal{C}(B) = \{ (Q_i)_{i\in\N}: Q_i \text{ ist halboffener Quader, für }i\in\N, B\subset \bigcup_{i\in\N} Q_i  \}
+```
+
+die Menge der möglichen Quaderüberdeckungen. Aus $A\subset B$ folgt dann $\mathcal{C}(B) \subset \mathcal{C}(A)$, da jede Überdeckung für $B$ auch eine Überdeckung für $A$ ist und daher 
+
+```{math}
+\lambda^\ast(A) = \inf_{\sum_{i=1}^\infty:(Q_i)_{i\in\N}\in \mathcal{C}(A)} \leq 
+\inf_{\sum_{i=1}^\infty:(Q_i)_{i\in\N}\in \mathcal{C}(B)} = \lambda^\ast(B).
+```
+
+**Ad 3.**
+
+Sei $\varepsilon>0$ gegeben. Per Definition des Infimums existiert für jede Menge $A_k$ eine Folge von halboffenen Quadern $Q_k^i, i\in\N$, s.d. 
+
+```{math}
+A_k \subset \bigcup_{i\in\N} Q_i\\
+\lambda^\ast(A_k) > \sum_{i=1}^\infty \lambda^n(Q_k^i) - \frac{\varepsilon}{2^k}.
+```
+
+Dann folgt aber auch, dass 
+
+```{math}
+\bigcup_{k\in\N} A_k \subset \bigcup_{k\in\N}\bigcup_{i\in\N} Q_k^i
+```
+
+und da die rechte Seite erneut eine Quaderüberdeckung ist folgt per Definition
+
+```{math}
+\lambda^\ast\left(\bigcup_{k\in\N} A_k\right) 
+&\leq \sum_{k=1}^\infty\sum_{i=1}^\infty \lambda^n(Q_k^i)\\
+&<
+\sum_{k=1}^\infty \lambda^\ast(A_k) - \frac{\varepsilon}{2^k} =
+\sum_{k=1}^\infty \lambda^\ast(A_k) - \varepsilon.
+```
+
+Die Aussage folgt indem wir $\varepsilon$ gegen 0 schicken.
+
+**Ad 4.** 
+
+Es sei $Q$ ein halboffener Quader, per Definition folgt direkt 
+
+```{math}
+\lambda^\ast(Q)\leq \iota^\ast(Q).
+```
+
+Mit {prf:ref}`thm:lebesgue` folgt aber auch 
+
+```{math}
+\iota^\ast(Q)\leq \lambda^\ast(Q).
+```
+
+**Ad 5.**
+
+Es seien zunächst $A$ und $Q$ halboffene Quader, dann ist auch $A\cap Q$ ein halboffener Quader und wir finden paarweise disjunkte halboffene Quader $Q_0,\ldots,Q_N$, s.d.
+
+```{math}
+A\cap Q = Q_0\\
+A = \bigcup_{i=1}^N Q_i
+```
+
+und damit 
+
+```{math}
+\lambda^n(A) &= \lambda^n\left(\bigcup_{i=0}^N Q_i\right)\\
+&= 
+\lambda^n(A\cap Q) + \lambda^n\left(\bigcup_{i=1}^N Q_i\right)\\
+&\geq \lambda^n(A\cap Q) + \lambda^n(A\setminus Q) \\
+&\geq \lambda^n(A).
+```
+
+folgt aus der Tatsache, dass $\mathcal{R}_\text{Q}$ ein Mengen-Ring ist, dass paarweise disjunkte Q 
+
 ````
+
+Als Korollar erhalten wr sofort eine Abschätzung für das äußere Lebesgue-Maß sowohl von oben durch den äußeren Jordan-Inhalt als auch von unten durch den inneren Jordan-Inhalt.
+
+````{prf:corollary}
+Es sei $A\subset\R^n$, dann gilt 
+
+```{math}
+\iota_\ast(A) \leq \lambda^\ast(A) \leq \iota^\ast(A).
+```
+````
+
+````{prf:proof}
+Für jedes Element $J\in\mathcal{R}_{\text{Q}}$ und beliebige halboffene Quader $Q_i,\i\in\N$, s.d.,
+
+```{math}
+J\subset A\subset \bigcup_{i\in\N} Q_i
+```
+
+folgt aus der Monotonie
+
+````
+
 
 Eine besondere Eigenschaft des äußeren Lebesgue Maßes ist es, dass es *bewegungsinvariant* ist, d.h., dass es unter Translationen und Rotationen den gleichen Wert behält.
 Dies ist für viele Anwendungen eine fundamentale Eigenschaft.
