@@ -1,5 +1,43 @@
 # Integrationstechniken
 
+In diesem Abschnitt beschäftigen wir uns mit Rechenmethoden und Rechenregeln, die es uns erlauben Funktionen mehrerer Variablen bezüglich des Lebesgue-Maßes zu integrieren. Insbesondere lernen wir dadurch Verfahren kennen um Volumina und Flächen zu berechnen. Um diese Regeln formal zu zeigen benötigen wir zunächst etwas Theorie.
+
+## Produktmaße
+
+Für zwei Messräume $(\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)$ wollen wir nun einen Produktraum erhalten. Hierbei werden wir auf Konzepte des **Tensorproduktes** zurückgreifen und benutzen deshalb die gleiche Notation. Wir definieren dann die Produkt-$\sigma$-Algebra,
+
+```{math}
+\Sigma_1\otimes\Sigma_2 := \sigma\left( \{A_1\times A_2: A_1\in\Sigma_1, A_2\in\Sigma_2 \}.
+```
+
+Wir arbeiten nicht auf Vektorräumen darum konstruieren wir **kein** Tensorprodukt im Sinnen von Kapitel ??, aber die grundlegenden Konzepte
+sind ähnlich, weshalb es üblich ist, hier diese Notation zu verwenden. Weiterhin erkenn wir, dass mit dieser Konstruktion $\Sigma_1\otimes\Sigma_2 $ eine $\sigma$-Algebra auf $\Omega_1\times\Omega_2$ ist.
+
+````{prf:definition} Produktmaß
+Es seien $(\Omega_1,\Sigma_1,\mu_1), (\Omega_2,\Sigma_2,\mu_2)$ zwei Maßräume, dann heißt ein Maß $\mu$ auf dem Messraum $(\Sigma_1\otimes\Sigma_2, \Omega_1\times\Omega_2)$ **Produktmaß**, falls 
+
+```{math}
+\mu(A_1\times A_2) = \mu_1(A_1)\mu_2(A_2)\quad\forall A_1\in\Sigma_1, A_2\in\Sigma_2.
+```
+
+````
+
+Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogennate $\sigma$-Endlichkeit.
+
+````{prf:definition}
+Es sei $(\Omega,\Sigma,\mu)$ ein Maßraum, das Maß $\mu$ heißt $\sigma$**-endlich**, falls ene Folge von Mengen $A_i\in\Sigma,i\in\N$ existiert, s.d., $\mu(A_i)<\infty$ und 
+
+```{math}
+\bigcup_{i\in\N} A_i = \Omega.
+```
+````
+
+````{prf:remark}
+Das wichtigste Beispiel für uns ist das Lebesgue-Maß auf $\R^d$ welches bezüglich der Borelschen $\sigma$-Algebra zwar nicht endlich aber $\sigma$-endlich ist. Insbesondere ist es damit auch $\sigma$-endlcih bezüglich der Lebesgue $\sigma$-Algebra $\mathcal{A}$.
+````
+
+## Der Satz von Fubini
+
 Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen.
 Um diesen zentralen Satz zu formulieren benötigen wir jedoch zunächst den Begriff von doppelintegrierbaren Funktionen.
 
@@ -132,6 +170,8 @@ Dann ist $f$ Lebesgue-integrierbar.
 ````{prf:proof}
 Schulz-Baldes S.166
 ````
+
+## Die Jacobische Transformationsformel
 
 Abschließend wollen wir noch ein wichtiges Theorem formulieren, dass für die mehrdimensionale Integration sehr nützlich ist.
 
