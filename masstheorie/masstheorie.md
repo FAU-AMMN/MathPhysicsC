@@ -1487,6 +1487,16 @@ Somit ist $U$ abzählbare Vereinigung messbarer Mengen und daher selbst messbar.
 Abgeschlossene Mengen sind als Komplemente offener und daher messbarer Mengen, selbst messbar.
 ````
 
+Da wir nun eine $\sigma$-Algebra zu Verfügung haben können wir ein Maß definieren.
+
+````{prf:defintion} Lebesgue-Maß
+Wir definieren das Lebesgue-Maß $\lambda^n:\mathcal{A}\to[0,\infty]$ über die Einschränkung des äußeren Maßes, d.h.,
+
+```{math}
+\lambda^n(A):= \lambda^\ast(A)\text{ für } A\in\mathcal{A}.
+```
+````
+
 ```{danger}
 ToDo
 ```

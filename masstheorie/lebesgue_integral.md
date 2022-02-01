@@ -1,63 +1,79 @@
 # Lebesgue-Integral
 
-S.121-145. Schulz-Baldes
-
-Wir beginnen mit der Definition von verschiedenen Klassen von messbaren Funktionen.
-Hierzu wollen wir uns die in [] hergeleitete Maßtheorie zu Nutze machen.
-
-````{prf:definition} Messbare Funktionen
-Es sei $\Omega \subset \R^n$ eine Borel-messbare Teilmenge.
-Wir betrachten eine Funktion
+Anhand des in ?? konstruirten MAßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion $f:\Omega\to\R$ zu zerteilen. Dies führt auf das Problem, dass man Urbildern
 
 ```{math}
-f \colon D \rightarrow \overline{R} = \R \cup \lbrace -\infty, \infty \rbrace.
+f^{-1}(I)
 ```
 
-Dann können wir $f$ im Folgenden in verschiedene Klassen einteilen.
+für Mengen $I\subset\R$ ein Maß zuordnen muss. Dies soll im Folgenden mithilfe des Lebesgue-Maßes geschehen. Um $f^{-1}(I)$ allerdings im Lebesgue-Maß auswerten zu können, müssen wir voraussetzen, dass diese Menge messbar ist. Dies führt auf spezielle Anforderungen an die Funktion $f$.
 
-1\. Wir nennen $f$ **Borel-messbar** genau dann, wenn die Urbilder aller Borel-messbaren Teilmengen von $\B(\overline{R})$ unter $f$ auch wieder Borel-messbarbare Teilmengen in $\B(\R^n)$ sind, d.h., wenn gilt
+## Messbare Funktionen
 
-```{math}
-\forall B \in \B(\overline{\R}): f^{-1}(B) \in \B(\R^n).
-```
+Wir beginnen mit der Definition von messbaren Funktionen. Wir benutzen hierbei den Begriff eines **Messraums** der anders als ein MAßraum nur eine Grundmenge und eine $\sigma$-Algebra voraussetzt und kein Maß beinhaltet.
 
-2\. Wir nennen $f$ **Lebesgue-messbar** genau dann, wenn die Urbilder aller Borel-messbaren Teilmengen von $\B(\overline{R})$ unter $f$ Lebesgue-messbare Teilmengen von $\R^n$ sind, d.h., wenn gilt
-
-```{math}
-\forall B \in \B(\overline{\R}): f^{-1}(B) \subset \R^n \text{ ist Lebesgue-messbar}.
-```
-
-3\. Wir nennen $f$ **Treppenfunktion** genau dann, wenn sie sich als stückweise konstante Funktion mit Hilfe von Indikatorfunktionen von Lebesgue-messbaren Mengen darstellen lässt, d.h., es existiert ein $N \in \N$ eine endliche Menge von Lebesgue-messbaren Teilmengen $A_i, i=1,\ldots,N$ und Koeffizienten $\alpha_i \in \overline{\R}$, so dass 
+````{prf:definition} Messbarkeit von Funktionen
+Es seien $(\Omega_1,\Sigma_1), (\Omega_1,\Sigma_1)$ zwei Messräume und $f:\Omega_1\to\Omega_2$ eine Funktion, dann nennen wir $f$ **messbar**, falls
 
 ```{math}
-f = \sum_{i=1}^N \alpha_i \chi_{A_i},
-```
-
-wobei $\chi_A$ die *Indikatorfunktion* einer Teilmenge $A \subset \R^n$ ist mit:
-
-```{math}
-\chi_A(x) = \begin{cases} 1, \quad x \in A, \\ 0, \quad x \not \in A. \end{cases}
+f^{-1}(A)\in\Sigma_1\quad\forall A\in\Sigma_2
 ```
 
 ````
 
+Für ein Teilmengensystem $\mathcal{C}\subset 2^{\Omega_2}$ benutzten wir auch die Schreibweise
+
+```{math}
+f^{-1}(\mathcal{C}) = \{ f^{-1}(C): C\in\mathcal{C}\},
+```
+
+womit sich die Messbarkeit einer Funktion äquivalent auch durch die Bedingung
+
+```{math}
+f^{-1}(\Sigma_2)\subset\Sigma_1
+```
+
+schreiben lässt. In diesem Kapitel wollen wir speziell Funktionen $f:\Omega\to\overline{\R}$ betrachten wobei $\Omega\subset\R^d$. Hierbei nennen wir $f$ **Borel-messbar**, falls
+
+```{math}
+f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{B}(\R^d).
+```
+
+Analog nennen wir $f$ **Lebesgue-messbar**, falls
+
+```{math}
+f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{A}.
+```
+
+Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem $\sigma$-Operator vertauschen lässt, wobei für $\mathcal{C}\subset 2^\Omega$ die Menge $\sigma(\mathcal{C})$ gerade die kleinste $\sigma$-Algebra ist welche $\mathcal{C}$ enthält siehe ??.
+
 ````{prf:lemma}
-Jede stetige Funktion $f \colon \R^n \rightarrow \overline{R}$ ist Borel-messbar. 
+Es sei $f:\Omega_1\to\Omega_2$ eine Funktion und $\mathcal{C}\subset 2^{\Omega_2}$ ein Teilmengensystem, dann gilt
+
+```{math}
+f^{-1}(\sigma(\mathcal{C})) = \sigma(f^{-1}(\mathcal{C})).
+```
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.122
+ToDo
+[Vorlesung](https://www.fau.tv/clip/id/40563) ab 29:52.
 ````
 
-````{prf:remark}
-Es lässt sich zeigen, dass alle Treppenfunktionen und Borel-messbaren Funktionen (und mit `prf:ref`{lem:stetigBorelMessbar} auch stetige Funktionen) schon Lebesgue-messbar sind.
+Mit diesem Lemma können wir folgende Beziehungen zeigen.
+
+````{prf:lemma}
+1. Borel-messbare Funktionen sind Lebesgue-messbar
+2. Stetige Funktionen sind Borel-messbar. 
 ````
 
-Verallgemeinerung auf Messräume?
+````{prf:proof}
+ToDo
+[Vorlesung](https://www.fau.tv/clip/id/40563) ab 17:12
+````
 
-Illustration hier von Treppenfunktionen (siehe S.37 in Knauf)!
+## Charakterisierung über Niveaumengen
 
-Erweiterung einer Funktion, die auf einer Lebesgue-messbaren Menge $\Omega \subset \R^n$ definiert ist auf ganzen Raum durch Fortsetzung mit Null.
 
 ````{prf:remark}
 
@@ -69,6 +85,10 @@ Erweiterung einer Funktion, die auf einer Lebesgue-messbaren Menge $\Omega \subs
 Dann sind $\inf(f_n), \sup(f_n), \lim\inf (f_n)$ und $\lim\sup (f_n)$ auch messbar.
 
 ````
+
+## Das Lebesgue-Integral
+
+ToDo Definition
 
 ````{prf:theorem}
 Sei $f \colon \Omega \subset \R^n \rightarrow [0,\infty]$ eine Lebesgue-messbare Funktion.
@@ -87,7 +107,7 @@ d.h., es gilt
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.127
+ToDo
 ````
 
 
@@ -125,7 +145,7 @@ f \leq g \quad \Rightarrow \quad \int \mu(\mathrm{d}x) f(x) \leq \int \mu(\mathr
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.130-133
+ToDo
 ````
 
 ````{prf:definition} Allgemeines Lebesgue-Integral
@@ -162,7 +182,7 @@ Das Lebesgue-Integral ist eine linearer und monotoner Operator auf der Menge der
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.137
+ToDo
 ````
 
 ````{prf:definition}
