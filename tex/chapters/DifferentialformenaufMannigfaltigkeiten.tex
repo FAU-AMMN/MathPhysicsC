@@ -362,7 +362,7 @@ Insbesondere wenn man \href{https://de.wikipedia.org/wiki/Testfunktion}{glatte T
 
 \par
 Wir definieren zunächst die Eigenschaft eines Hausdorff Raums.
-\begin{definition}{(Hausdorff Raum)}{manifolds/manifolds_prelim:definition-10}
+\begin{definition}{(Hausdorff Raum)}{manifolds/manifolds_prelim:def:hausdorffraum}
 
 
 
@@ -1812,7 +1812,7 @@ gelte, dann heißt \(D\) Untervektorbündel von \(E\).
 
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/subbundle.png}
-\caption{Visualisierung eines Untervektorbündels, siehe \cite{Lee03} Kapitel 10.}\label{\detokenize{manifolds/diffformen:fig-subbundle}}\end{figure}
+\caption{Visualisierung eines Untervektorbündels, siehe Kapitel 10 in \cite{Lee03}.}\label{\detokenize{manifolds/diffformen:fig-subbundle}}\end{figure}
 
 \par
 In diesem Fall erhält man also ein Untervektorbündel.
@@ -2114,7 +2114,7 @@ F^\ast:\Omega^k(\mathcal{N})\to\Omega^k(\mathcal{M})\\
 \end{align*}
 \par
 Zusätzlich erhält man folgende Eigenschaften.
-\begin{lemma}{}{manifolds/diffformen:lemma-15}
+\begin{lemma}{}{manifolds/diffformen:lem:pullbackprop}
 
 
 
@@ -2142,5 +2142,78 @@ F^\ast(f dy^{i_1}\wedge\ldots\wedge dy^{i_k}) = (f \circ F) d(y^{i_1}\circ F)\we
 \begin{proof}
  Für 1. und 2. siehe Hausaufgaben, Für 3. siehe \cite{Lee03} Lemma 14.16.
 \end{proof}
+
+\par
+Im Falle, dass die Mannigfaltigkeiten gleich dem \(\R^n\) bzw. \(\R^m\) sind, also \(\M=\R^n, \mathcal{N}=\R^m\) können wir den Pullback leicht explizit berechnen. Dazu sei \(F:\R^n\to\R^m\) eine glatte Abbildung, \(x_1,\ldots,x_n\) seien Koordinaten für \(\R^n\) und \(y_1,\ldots,y_m\) seien Koordinaten für \(\R^m\).
+
+\par
+Zunächst erkennen wir für den Pushforward, \(F_\ast:T_p\M\to T_{F(p)}\mathcal{N}\) dass für \(p\in\M\) gilt,
+\begin{align*}
+F_\ast(\partial_{x_i^p}) = \sum_{j=1}^m \partial_i F_j\, \partial_{y_j^{F(p)}}
+\end{align*}
+\par
+wobei \(\partial_i F_j\) die \(i\) te partielle Ableitung (im klassichen Sinne) der \(j\) ten Komponente von \(F\) ist.
+
+\par
+Betrachten wir also den Pullback eines Kovektorfeldes \(dy^k\) ausgewertet an einem Tangentialvektor \(D\in T_p\M\)
+\begin{align*}
+D = \sum_{i=^1}^n dx_i^p(D)\, \partial_{x_i^p}
+\end{align*}
+\par
+erhalten wir unter Ausnutzung der Linearität
+\begin{align*}
+F^\ast(dy^k)_{p}(D) &= dy^k(F_\ast(D)) = 
+dy^k\big(\sum_{i=^1}^n dx_i^p(D)\, F^\ast(\partial_{x_i^p})\big)\\
+&=
+\sum_{i=^1}^n \sum_{j=1}^m dx_i^p(D)\,\partial_i F_j\, dy^k(\partial_{y_j}^{F(p)}).
+\end{align*}
+\par
+Da die Terme \(dy^k(\partial_{y_j})\) gleich dem Kronecker Delta sind,
+\begin{align*}
+dy^k(\partial_{y_j}^{F(p)}) = \delta_{kj}
+\end{align*}
+\par
+führt dies auf,
+\begin{align*}
+F^\ast(dy^k)_{p}(D) =
+\sum_{i=1}^n dx_i^p(D)\,\partial_i F_k.
+\end{align*}
+\par
+Für das äußere Produkt von \(l\) verschiedenen Kovektorfeldern \(dy^{k_1},\ldots, dy^{k_l}\) und einer glatten Funktion \(f\in C^\infty(\M)\) gilt mit Eigenschaft 2. von \cref{manifolds/diffformen:lem:pullbackprop} \begin{align*}
+F^\ast(f\, dy^{k_1}\wedge\ldots\wedge dy^{k_l})_{p} =
+f(F(p))\, F^\ast(dy^{k_1})\wedge\ldots\wedge F^\ast(dy^{k_l}).
+\end{align*}
+\par
+Da wir die Terme \(F^\ast(dy^{k_i})\) berechnen können liefert dies ein einfaches Schema um den Pullback einer Differentialform auf \(\R^m\) zu berechnen.
+\begin{example}{}{manifolds/diffformen:example-16}
+
+
+
+\par
+Es sei \(\omega\in \Omega^3(\R^4)\) eine Differentialform gegeben durch
+\begin{align*}
+\omega(y_1,y_2,y_3,y_4) = dy_1\wedge dy_2\wedge dy_3 + \cos(y_1)dy_1\wedge dy_2 \wedge dy_4
+\end{align*}
+\par
+und \(F:\R^3\to\R^4\) eine glatte Abbildung gegeben durch
+\begin{align*}
+F(x_1,x_2,x_3) := (x_1, x_3, \sin(x_2), x_3^2).
+\end{align*}
+\par
+Dann berechnen wir
+\begin{align*}
+F^\ast(dy_1) &= \sum_{i=1}^3 \,\partial_i F_1 dx_i = dx_1\\
+F^\ast(dy_2) &= \sum_{i=1}^3 \,\partial_i F_2 dx_i = dx_3\\
+F^\ast(dy_3) &= \sum_{i=1}^3 \,\partial_i F_3 dx_i = \cos(x_2)\,dx_2\\
+F^\ast(dy_4) &= \sum_{i=1}^3 \,\partial_i F_4 dx_i = 2x_3\,dx_3\\
+\end{align*}
+\par
+und erhalten damit
+\begin{align*}
+F^\ast(\omega)_{(x_1,x_2,x_3)} &= F^\ast(dy_1)\wedge F^\ast(dy_2)\wedge F^\ast(dy_3) + 
+\cos(F_1(x_1,x_2,x_3)) F^\ast(dy_1)\wedge F^\ast(dy_2)\wedge F^\ast(dy_4)\\
+&= dx_1 \wedge dx_3\wedge \cos(x_2)\,dx_2 + \cos(x_1)\, 2x_3\,dx_1\wedge dx_3\wedge dx_3\\
+&=  -\cos(x_2)\,dx_1 \wedge dx_2\wedge dx_3.
+\end{align*}\end{example}
 
 
