@@ -44,6 +44,8 @@
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -316,24 +318,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#satz-von-fubini">
-   5.3.1. Satz von Fubini
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#satz-von-cavalieri">
-   5.3.2. Satz von Cavalieri
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -344,11 +328,101 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="integrationstechniken">
 <h1><span class="section-number">5.3. </span>Integrationstechniken<a class="headerlink" href="#integrationstechniken" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="satz-von-fubini">
-<h2><span class="section-number">5.3.1. </span>Satz von Fubini<a class="headerlink" href="#satz-von-fubini" title="Permalink to this headline">¶</a></h2>
+<p>Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen.
+Um diesen zentralen Satz zu formulieren benötigen wir jedoch zunächst den Begriff von doppelintegrierbaren Funktionen.</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 5.18 </span> (Doppelintegrierbare Funktion)</p>
+<div class="definition-content section" id="proof-content">
+<p>Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon \R^n \times \R^k \rightarrow \overline{\R}\)</span> <strong>doppelintegrierbar</strong> oder <strong>iteriert integrierbar</strong>,
+wenn die folgende Aussagen gelten:</p>
+<p>1. Für fast alle Punkte <span class="math notranslate nohighlight">\(x \in \R^n\)</span> ist die Funktion</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f_x \colon \R^k &amp;\rightarrow \overline{\R},\\
+f_x(y) &amp;:= f(x,y).\end{split}\]</div>
+<p>über <span class="math notranslate nohighlight">\(\R^k\)</span> Lebesgue-integrierbar.
+In diesem Fall definieren wir eine Funktion</p>
+<div class="math notranslate nohighlight">
+\[F(x) := \int_{\R^k} f_x(y) \, \mu_k(\mathrm{d}y).\]</div>
+<p>2. Die Funktion <span class="math notranslate nohighlight">\(F \colon \R^k \rightarrow \overline{\R}\)</span> ist über <span class="math notranslate nohighlight">\(\R^n\)</span> Lebesgue-integrierbar.
+In diesem Fall können wir das <strong>Doppelintegral</strong> von <span class="math notranslate nohighlight">\(f\)</span> berechnen als</p>
+<div class="math notranslate nohighlight">
+\[\mu_n(\mu_k(f)) := \int_{\R^n}\int_{\R^k} f(x,y) \, \mu_n(\mathrm{d}x) \mu_k(\mathrm{d}y) = \int_{\R^k} F(x) \, \mu_k(\mathrm{d}y).\]</div>
+<p>3. Die beiden ersten Aussagen gelten auch für vertauschte Rollen der Variablen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>.</p>
 </div>
-<div class="section" id="satz-von-cavalieri">
-<h2><span class="section-number">5.3.2. </span>Satz von Cavalieri<a class="headerlink" href="#satz-von-cavalieri" title="Permalink to this headline">¶</a></h2>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.153f.</p>
+</div>
+<div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 5.8 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Die Aussage aus <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">lem:doppelintegrierbar</span></code> gilt analog für nichtnegative Funktionenfolgen <span class="math notranslate nohighlight">\((f_j)_{j\in\N}\)</span>, die von oben gegen die Funktion <span class="math notranslate nohighlight">\(f\)</span> konvergieren.</p>
+</div>
+</div><div class="proof theorem admonition" id="theorem-2">
+<p class="admonition-title"><span class="caption-number">Theorem 5.10 </span> (Das Prinzip von Cavalieri)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(A \subset \R^{n+k}\)</span> eine messbare Menge für die gilt <span class="math notranslate nohighlight">\(\mu_{n+k}(A) &lt; \infty\)</span>.</p>
+<p>Dann gilt, dass die Menge</p>
+<div class="math notranslate nohighlight">
+\[A_x := \lbrace y \in \R^k | (x,y) \in A \rbrace\]</div>
+<p>ebenfalls messbar ist mit endlichem Maß <span class="math notranslate nohighlight">\(\mu_k(A_x)\)</span>.</p>
+<p>Außerdem ist jede Funktion <span class="math notranslate nohighlight">\(x \mapsto \mu_k(A_x)\)</span> messbar und es gilt</p>
+<div class="math notranslate nohighlight">
+\[\mu_{n+k}(A) = \int \mu_n(\mathrm{d}x) \mu_k(A_x).\]</div>
+<p>Die Aussage gilt für Vertauschung der Variablen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> analog.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.156-160</p>
+</div>
+<div class="proof remark admonition" id="remark-3">
+<p class="admonition-title"><span class="caption-number">Remark 5.9 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Das Prinzip von Cavalieri besagt, dass jede charakteristische Funktion <span class="math notranslate nohighlight">\(\chi_A\)</span> einer messbaren Menge <span class="math notranslate nohighlight">\(A\)</span> doppelintegrierbar ist und es gilt</p>
+<div class="math notranslate nohighlight">
+\[\mu_{n+k}(\chi_A) = \mu_n(\mu_k(\chi_A)) = \mu_k(\mu_n(\chi_A)). \]</div>
+</div>
+</div><div class="proof theorem admonition" id="theorem-4">
+<p class="admonition-title"><span class="caption-number">Theorem 5.11 </span> (Satz von Fubini-Tonelli)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(f \colon \R^{n} \times \R^k \rightarrow \overline{\R}\)</span> eine Lebesgue-integrierbare Funktion.
+Dann ist <span class="math notranslate nohighlight">\(f\)</span> doppelintegrierbar und es gilt</p>
+<div class="math notranslate nohighlight">
+\[\mu_{n+k}(f) = \mu_n(\mu_k(f)) = \mu_k(\mu_n(f)). \]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. S.164</p>
+</div>
+<div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 5.5 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Aus Doppelintegrierbarkeit einer Funktion folgt nicht notwendigerweise deren Lebesgue-Integrierbarkeit.</p>
+<p>(Website)[https://www.geometrie-und-logik.de/studium/analysis-la-ws-2020/saetze-ueber-lebesgueintegrierbare-funktionen/]</p>
+</div>
+</div><p>Die Aussage gilt jedoch unter einer zusätzlichen Voraussetzung.</p>
+<div class="proof theorem admonition" id="theorem-6">
+<p class="admonition-title"><span class="caption-number">Theorem 5.12 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(f \colon \R^{n} \times \R^k \rightarrow \overline{\R}\)</span> eine doppelintegrierbare Funktion, die <em>nichtnegativ</em> ist, d.h., es gilt <span class="math notranslate nohighlight">\(f \geq 0\)</span>.
+Dann ist <span class="math notranslate nohighlight">\(f\)</span> Lebesgue-integrierbar.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.166</p>
+</div>
+<p>Abschließend wollen wir noch ein wichtiges Theorem formulieren, dass für die mehrdimensionale Integration sehr nützlich ist.</p>
+<div class="proof theorem admonition" id="theorem-7">
+<p class="admonition-title"><span class="caption-number">Theorem 5.13 </span> (Jacobische Transformationsformel)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Seien <span class="math notranslate nohighlight">\(U, V \subset \R^n\)</span> offene Teilmengen und die Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\Phi \colon U \rightarrow V := \Phi(U)\]</div>
+<p>sei ein <span class="math notranslate nohighlight">\(C^1\)</span>-Diffeomorphismus, d.h., dass die Abbildung <span class="math notranslate nohighlight">\(\Phi\)</span> invertierbar ist, und dass sowohl <span class="math notranslate nohighlight">\(\Phi\)</span> als auch die Umkehrabbildung <span class="math notranslate nohighlight">\(\Phi^{-1}\)</span> stetig differenzierbar sind.
+Sei außerdem <span class="math notranslate nohighlight">\(f \colon V \rightarrow \R\)</span> eine Lebesgue-integrierbare Funktion.</p>
+<p>Dann gilt, dass die Verknüpfung <span class="math notranslate nohighlight">\(f \circ \Phi \colon U \rightarrow \R\)</span> auch Lebesgue-integrierbar ist und es gilt die folgende Integrationsregel</p>
+<div class="math notranslate nohighlight">
+\[\int_{\Phi(U)} f(y) \mu(\mathrm{d}y) = \int_U (f \circ \Phi)(x) \cdot |\det(D\Phi(x))|\mu(\mathrm{d}x). \]</div>
+<p>Hierbei nennt man <span class="math notranslate nohighlight">\(\det(D\Phi(x))\)</span> die <strong>Jacobi-Determinante</strong>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.168-174</p>
 </div>
 </div>
 

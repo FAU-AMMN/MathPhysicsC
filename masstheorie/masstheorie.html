@@ -333,18 +333,41 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#borel-sigma-algebra-und-borel-masz">
-   5.1.2. Borel-
-   <span class="math notranslate nohighlight">
-    \(\sigma\)
-   </span>
-   -Algebra und Borel-Maß
+  <a class="reference internal nav-link" href="#borel-masze">
+   5.1.2. Borel-Maße
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#riemann-und-lebesgue-messbare-mengen">
-   5.1.3. Riemann- und Lebesgue-messbare Mengen
+  <a class="reference internal nav-link" href="#das-lebesgue-masz">
+   5.1.3. Das Lebesgue Maß
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#der-jordan-inhalt-und-jordan-messbare-mengen">
+     5.1.3.1. Der Jordan-Inhalt und Jordan-messbare Mengen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#das-auszere-lebesgue-masz">
+     5.1.3.2. Das äußere Lebesgue-Maß
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nullmengen">
+     5.1.3.3. Nullmengen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#das-auszere-masz-ist-kein-masz">
+     5.1.3.4. Das äußere Maß ist kein Maß
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#das-lebesgue-masze">
+     5.1.3.5. Das Lebesgue-Maße
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -406,7 +429,7 @@ Dann sind abzählbare Schnitte dieser Mengen auch Elemente der <span class="math
 <p>Aus der <a class="reference internal" href="#def:sigmaalgebra">Definition 5.1</a> kann man sich leicht zwei Spezialfälle von <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren überlegen.
 Es wird klar, dass das Mengensystem <span class="math notranslate nohighlight">\(\{\emptyset, \Omega\}\)</span> die kleinstmögliche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra bildet, wohingegen die Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span> die größtmögliche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra darstellt.</p>
 <p>Basierend auf dem Begriff einer <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und eines Messraums können wir nun formal einführen, was wir mathematisch unter einem Maß verstehen.</p>
-<div class="proof definition admonition" id="definition-2">
+<div class="proof definition admonition" id="def:mass">
 <p class="admonition-title"><span class="caption-number">Definition 5.2 </span> (Maß und Maßraum)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\((\Omega, \mathcal{A})\)</span> ein Messraum.
@@ -475,7 +498,7 @@ Genau genommen <em>definiert</em> man hierbei die Dimension der Menge <span clas
 Dabei erhalten Pfade, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein größeres Gewicht als beliebige Pfade.</p>
 </div>
 </div><p>Eine sehr nützliche Eigenschaft von gewissen Maßen auf topologischen Räumen ist die der Regularität, welche wir im Folgenden definieren wollen.</p>
-<div class="proof definition admonition" id="definition-6">
+<div class="proof definition admonition" id="def:regularitaet">
 <p class="admonition-title"><span class="caption-number">Definition 5.3 </span> (Regularität von Maßen)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\((\Omega, \tau)\)</span> ein topologischer Raum und <span class="math notranslate nohighlight">\((\Omega, \mathcal{A}, \mu)\)</span> ein entsprechender Maßraum auf <span class="math notranslate nohighlight">\(\Omega\)</span>, so dass gilt <span class="math notranslate nohighlight">\(\tau \subset \mathcal{A}\)</span>.
@@ -487,8 +510,8 @@ Dann können wir die Regulariät des Maßes <span class="math notranslate nohigh
 </div>
 </div><p>Hier noch eine Abbildung oder ein Beispiel zu Regularität?</p>
 </div>
-<div class="section" id="borel-sigma-algebra-und-borel-masz">
-<h2><span class="section-number">5.1.2. </span>Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und Borel-Maß<a class="headerlink" href="#borel-sigma-algebra-und-borel-masz" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="borel-masze">
+<h2><span class="section-number">5.1.2. </span>Borel-Maße<a class="headerlink" href="#borel-masze" title="Permalink to this headline">¶</a></h2>
 <p>Da es viele unterschiedliche Möglichkeiten gibt eine Menge in Teilmengen zu unterteilen wünscht man sich eine möglichst kanonische Wahl einer <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra.
 Es stellt sich heraus, dass die sogenannte Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra eine gute Wahl auf beliebigen topologischen Räumen definiert.</p>
 <div class="margin sidebar">
@@ -536,106 +559,820 @@ Wie wir später sehen werden ist das Lebesgue-Maß auf dem Raum <span class="mat
 <p>Ein lokal endliches Maß <span class="math notranslate nohighlight">\(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\)</span> auf der Borelschen <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra eines Hausdorff-Raums <span class="math notranslate nohighlight">\((\Omega,\tau)\)</span> heißt <strong>Borel-Maß</strong>.</p>
 </div>
 </div></div>
-<div class="section" id="riemann-und-lebesgue-messbare-mengen">
-<h2><span class="section-number">5.1.3. </span>Riemann- und Lebesgue-messbare Mengen<a class="headerlink" href="#riemann-und-lebesgue-messbare-mengen" title="Permalink to this headline">¶</a></h2>
-<div class="proof definition admonition" id="definition-11">
+<div class="section" id="das-lebesgue-masz">
+<h2><span class="section-number">5.1.3. </span>Das Lebesgue Maß<a class="headerlink" href="#das-lebesgue-masz" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title">Henri Lebesgue</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Henri_Lebesgue">Henri Léon Lebesgue</a> (Geboren 28. Juni 1875 in Beauvais; Gestorben 26. Juli 1941 in Paris) war ein französischer Mathematiker.</p>
+</div>
+<p>Bei der Einführung des Riemann Integrals verwendet man Intervalle zur Unterteilung des Definitionsbereichs.
+Diese Partitionierung einer Menge lässt sich im <span class="math notranslate nohighlight">\(\R^n\)</span> auf mehrdimensionale Quader verallgemeinern. Für <span class="math notranslate nohighlight">\(a = (a_1,\ldots,a_n) \in \R^n\)</span> und <span class="math notranslate nohighlight">\(b = (b_1,\ldots,b_n) \in \R^n\)</span> verwenden wir hierbei die Anordnungsrelation</p>
+<div class="math notranslate nohighlight">
+\[a &lt; b \qquad \Leftrightarrow \qquad a_i &lt; b_i \quad i=1,\ldots,n\]</div>
+<p>und analog für <span class="math notranslate nohighlight">\(a \leq b, a &gt; b\)</span> und <span class="math notranslate nohighlight">\(a \geq b\)</span>.</p>
+<div class="proof definition admonition" id="def:quader">
 <p class="admonition-title"><span class="caption-number">Definition 5.7 </span> (Mehrdimensionale Quader)</p>
 <div class="definition-content section" id="proof-content">
-<p>Seien <span class="math notranslate nohighlight">\(a = (a_1,\ldots,a_n) \in \R^n\)</span> und <span class="math notranslate nohighlight">\(b = (b_1,\ldots,b_n) \in \R^n\)</span> zwei Punkte im \R^n.
-Wir definieren zunächst folgende Anordnungsrelation mit</p>
+<p>und darüber im Folgenden <strong>offene, halboffene</strong> und <strong>abgeschlossene Quader</strong> im <span class="math notranslate nohighlight">\(\R^n\)</span> respektive beschreiben durch</p>
 <div class="math notranslate nohighlight">
-\[a &lt; b \qquad \Leftrightarrow \qquad a_i &lt; b_i \quad i=1,\ldots,n.\]</div>
-<p>Analog können wir die Anordnungsrelationen <span class="math notranslate nohighlight">\(a \leq b, a &gt; b\)</span> und <span class="math notranslate nohighlight">\(a \geq b\)</span> definieren und darüber im Folgenden <strong>offene, halboffene</strong> und <strong>abgeschlossene Quader</strong> im <span class="math notranslate nohighlight">\(\R^n\)</span> respektive beschreiben durch</p>
+\[\begin{split}(a,b) &amp;= \lbrace x \in \R^n : a &lt; x &lt; b \rbrace,\\
+(a,b] &amp;= \lbrace x \in \R^n : a &lt; x \leq b \rbrace,\\
+[a,b] &amp;= \lbrace x \in \R^n : a \leq x \leq b \rbrace.\end{split}\]</div>
+<p>Das <strong>Volumen</strong> bzw. der Lebesgue-Inhalt eines halboffenen Quaders <span class="math notranslate nohighlight">\(Q := (a,b] \subset \R^n\)</span> definieren wir über</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}(a,b) = \lbrace x \in \R^n : a &lt; x &lt; b \rbrace,\\
-(a,b] = \lbrace x \in \R^n : a &lt; x \leq b \rbrace,\\
-[a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.\end{split}\]</div>
+\[\lambda^n(Q) := \prod_{i=1}^n (b_i - a_i).\]</div>
 </div>
-</div><div class="proof definition admonition" id="definition-12">
-<p class="admonition-title"><span class="caption-number">Definition 5.8 </span> (Mehrdimensionale Treppenfunktion)</p>
-<div class="definition-content section" id="proof-content">
-<p>Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon \R^n \rightarrow \C\)</span> <strong>Treppenfunktion</strong>, falls es paarweise disjunkte Quader <span class="math notranslate nohighlight">\(Q_1, \ldots, Q_k \subset \R^n\)</span> gibt, so dass die folgenden Eigenschaften gelten:</p>
-<ol class="simple">
-<li><p>Die Funktion <span class="math notranslate nohighlight">\(f\)</span> ist konstant auf jedem der Quader, d.h.,</p></li>
-</ol>
+</div><p>Wir wollen im Folgenden das Teilmengensystem <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\subset\ 2^{\R^n}\)</span> aller halboffenen Quader betrachten,</p>
 <div class="math notranslate nohighlight">
-\[f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,\]</div>
-<ol class="simple">
-<li><p>Die Funktion ist überall Null außerhalb der Quader, d.h.,</p></li>
-</ol>
+\[\mathcal{R}_{\text{Q}} := \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.\]</div>
+<p>Wir fordern hierbei nicht, dass nur disjunkte Quader vereinigt werden dürfen. Jedoch kann man direkt herleiten, dass man jede Vereinigung von Quadern in eine disjunkte Umschreiben kann. Seien dazu <span class="math notranslate nohighlight">\(Q_1,\ldots,Q_k\subset\R^n\)</span> halboffene Quader, wir erkennen, dass der Rand eines Quaders <span class="math notranslate nohighlight">\(Q_i=(a^i,b^i]\)</span> genau <span class="math notranslate nohighlight">\(2n\)</span> Hyperebenen der Form</p>
 <div class="math notranslate nohighlight">
-\[f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.\]</div>
+\[\begin{split}x_j = a^i_j\\
+x_j = b^i_j\end{split}\]</div>
+<p>für <span class="math notranslate nohighlight">\(j=1,\ldots,n\)</span> aufspannt. Weiterhin, können wir einen anderen Quader <span class="math notranslate nohighlight">\(Q_m=(a^k,b^k)\)</span> mit einer Hyperebene <span class="math notranslate nohighlight">\(x_l=c\in\R\)</span> zerteilen, im Falle <span class="math notranslate nohighlight">\(a^k_l &lt; c &lt; b^k_l\)</span>, indem wir zwei neue Quader definieren mit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\alpha^m&amp;:=(a^m_1,\ldots,c,\ldots,a^m_n)\\
+\beta^m&amp;:=(b^m_1,\ldots,c,\ldots,b^m_n)\\
+Q_m^1&amp;=(a^m,\beta^m]\\
+Q_m^2&amp;=(\alpha^m,b^m].\end{split}\]</div>
+<p>Iterativ gehen wir folgendermaßen vor:</p>
+<ol class="simple">
+<li><p>Betrachten den ersten Quader <span class="math notranslate nohighlight">\(Q_1\)</span>, zerteilen alle Quader <span class="math notranslate nohighlight">\(Q_i\)</span> an allen seinen Hyperebenen und erhalte so neue Quader <span class="math notranslate nohighlight">\(W^1_j\)</span>.</p></li>
+<li><p>Im <span class="math notranslate nohighlight">\(i+1\)</span>ten Schritt betrachte die Hyperebenen des Quaders <span class="math notranslate nohighlight">\(Q_{i+1}\)</span> und zerteile damit alle Quader <span class="math notranslate nohighlight">\(W^i_j\)</span> aus dem vorherigen Schritt und erhalte damit neue Quader <span class="math notranslate nohighlight">\(W^{i+1}_j\)</span>.</p></li>
+</ol>
+<p>Führen wir diesen Prozess bis <span class="math notranslate nohighlight">\(i=k\)</span> durch, so erhalten wir folgendes Resultat, welches in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:disrect</span></code> visualisiert ist.</p>
+<div class="figure align-default" id="fig-disrect">
+<a class="reference internal image-reference" href="../_images/DisRect.jpg"><img alt="../_images/DisRect.jpg" src="../_images/DisRect.jpg" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Nicht disjunkte Quader werden in System disjunkter Quader überführt. Man erkennt insbesondere, dass die Vereinigung gleich bleibt und, dass sich jeder einzelne ursprüngliche Quader, aus den neuen Quadern zusammensetzbar ist.</span><a class="headerlink" href="#fig-disrect" title="Permalink to this image">¶</a></p>
 </div>
-</div><p>Illustration hier von Quadern und Treppenfunktionen!</p>
-<div class="proof definition admonition" id="definition-13">
-<p class="admonition-title"><span class="caption-number">Definition 5.9 </span> (Ring)</p>
+<div class="proof lemma admonition" id="lem:disRect">
+<p class="admonition-title"><span class="caption-number">Lemma 5.3 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es seien <span class="math notranslate nohighlight">\(Q_1,\ldots,Q_k\subset\R^d\)</span> halboffene Quader, dann existieren paarweise disjunkte halboffene Quader <span class="math notranslate nohighlight">\(W_1,\ldots, W_M\)</span> mit Indexmengen <span class="math notranslate nohighlight">\(J_i\subset\{1,\ldots,M\}\)</span>, s.d.</p>
+<div class="math notranslate nohighlight">
+\[\bigcup_{i=1}^k Q_i = \bigcup_{j=^1}^M W_j\]</div>
+<p>und für jedes <span class="math notranslate nohighlight">\(i\in\{1,\ldots,n\}\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[\bigcup_{j\in J_i} W_j = Q_i.\]</div>
+</div>
+</div><p>Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen sogenannten Mengen-Ring.</p>
+<div class="proof definition admonition" id="def:ring">
+<p class="admonition-title"><span class="caption-number">Definition 5.8 </span> (Ring)</p>
 <div class="definition-content section" id="proof-content">
-<p>Ein Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R} \subset \mathcal{P}(\Omega)\)</span> heißt <strong>Ring</strong> auf einer Menge <span class="math notranslate nohighlight">\(\Omega\)</span>, falls die folgenden Eigenschaften erfüllt sind:</p>
+<p>Ein Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R} \subset 2^{\Omega}\)</span> heißt <strong>Mengen-Ring</strong> (im maßtheoretischen Sinne) auf einer Menge <span class="math notranslate nohighlight">\(\Omega\)</span>, falls die folgenden Eigenschaften erfüllt sind:</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\emptyset \in \mathcal{R}\)</span></p></li>
-<li><p>$A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}</p></li>
-<li><p>$A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}</p></li>
+<li><p><span class="math notranslate nohighlight">\(A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}\)</span></p></li>
 </ol>
 </div>
 </div><div class="proof lemma admonition" id="lemma-14">
-<p class="admonition-title"><span class="caption-number">Lemma 5.3 </span> (Der von halboffenen Quadern erzeugte Ring)</p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.4 </span> (Der von halboffenen Quadern erzeugte Ring)</p>
 <div class="lemma-content section" id="proof-content">
-<p>Wir betrachten eine Teilmenge <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> der Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\R^n)\)</span>, die durch disjunkte, halboffene Quader des <span class="math notranslate nohighlight">\(\R^n\)</span> erzeugt wird mit</p>
-<div class="math notranslate nohighlight">
-\[\mathcal{R} \coloneqq \left\{ \bigsqcup_{i=1,\ldots,k} Q_i \colon Q_i \text{ ist halboffener Quader im } \R^n \right\}.\]</div>
-<p>Dann bildet das Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> einen Ring.</p>
+<p>Das System der halboffenen Quadern <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> bildet einen Mengenring.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. S.80 Schulz-Baldes</p>
+<p>Proof. Um zu zeigen, dass es sich bei dem Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> um einen Ring handelt müssen wir die Eigenschaften aus <a class="reference internal" href="#def:ring">Definition 5.8</a> nachweisen.</p>
+<p>1. Für einen beliebigen Punkt <span class="math notranslate nohighlight">\(a \in \R^n\)</span> gilt <span class="math notranslate nohighlight">\(\emptyset = (a,a] \in \mathcal{R}_{\text{Q}}\)</span>.</p>
+<p>2. Als nächstes müssen wir zeigen, dass für zwei Mengen <span class="math notranslate nohighlight">\(A,B \in \mathcal{R}_{\text{Q}}\)</span> gilt, dass auch die Mengendifferenz in <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> enthalten ist, d.h., dass gilt <span class="math notranslate nohighlight">\((A \setminus B) \in \mathcal{R}_{\text{Q}}\)</span>. Nach {prf:ref}``disRect` existieren paarweise disjunkte halboffene Quader <span class="math notranslate nohighlight">\(S_j\)</span>, <span class="math notranslate nohighlight">\(j=1,\ldots,n\)</span>, und Indexmengen <span class="math notranslate nohighlight">\(I_A,I_B\subset\{1,\ldots,n\}\)</span>, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A = \bigcup_{j\in I_A} S_j\\
+B = \bigcup_{j\in I_B} S_j.\end{split}\]</div>
+<p>Somit gilt dann</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A\setminus B &amp;= \left(\bigcup_{j\in I_A} S_j\right) \setminus \left(\bigcup_{j\in I_B} S_j\right)\\ 
+&amp;= \bigcup_{j\in I_A\setminus I_B} S_j\end{split}\]</div>
+<p>was wieder eine Vereinigung von halboffenen Quadern ist und deshalb gilt <span class="math notranslate nohighlight">\(A\setminus B\in \mathcal{R}_{\text{Q}}\)</span>.</p>
+<p>3. Zuletzt erkennen wir für zwei Mengen <span class="math notranslate nohighlight">\(A,B \in \mathcal{R}_{\text{Q}}\)</span>, dass mit der Zerlegung aus 2. gilt</p>
+<div class="math notranslate nohighlight">
+\[A\cup B = \bigcup_{j=1}^n S_j\]</div>
+<p>und somit ist auch <span class="math notranslate nohighlight">\(A\cup B\in\mathcal{R}_{\text{Q}}\)</span> als Vereinigung halboffener Quader.</p>
+<p>Damit haben wir gezeigt, dass das Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span>, welches durch disjunkte halboffene Quader im <span class="math notranslate nohighlight">\(\R^n\)</span> erzeugt wird, einen Ring bildet.</p>
 </div>
-<div class="proof remark admonition" id="remark-15">
-<p class="admonition-title"><span class="caption-number">Remark 5.3 </span> (Riemann-messbare Mengen)</p>
+<p>Wir können den Lebesgue-Inhalt nun auf Elemente von <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> fortsetzen</p>
+<div class="proof definition admonition" id="definition-15">
+<p class="admonition-title"><span class="caption-number">Definition 5.9 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(A\in\mathcal{R}_{\text{Q}}\)</span> mit <span class="math notranslate nohighlight">\(A=\bigcup_{i=1}^n\)</span> wobei <span class="math notranslate nohighlight">\(Q_1,\ldots,Q_n\)</span> <strong>paarweise disjunkte</strong> halboffene Quader sind, dann setzen wir</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(A):=\sum_{i=1}^{n} \lambda^n(Q_i).\]</div>
+</div>
+</div><div class="proof remark admonition" id="remark-16">
+<p class="admonition-title"><span class="caption-number">Remark 5.3 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>S. 78 Schulz-Baldes</p>
+<p>Man erkennt leicht, dass der Wert <span class="math notranslate nohighlight">\(\lambda^n(A)\)</span> <strong>nicht</strong> von der Wahl der Zerlegung <span class="math notranslate nohighlight">\(Q_1,\ldots,Q_n\)</span> abhängt, der Lebesgue-Inhalt ist also wohldefiniert.</p>
 </div>
-</div><div class="proof example admonition" id="example-16">
-<p class="admonition-title"><span class="caption-number">Example 5.3 </span> (Riemann-Messbarkeit)</p>
-<div class="example-content section" id="proof-content">
-<p>Ein Beispiel messbar, eins nicht.</p>
-</div>
-</div><p>Verglichen mit der Reichhaltigkeit der Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span> sind nur relativ wenige Mengen Riemann-messbar.</p>
-<div class="proof definition admonition" id="definition-17">
-<p class="admonition-title"><span class="caption-number">Definition 5.10 </span> (Äußeres Lebesguesches Maß)</p>
-<div class="definition-content section" id="proof-content">
-<p>S. 78 u. 89 Schulz-Baldes</p>
-</div>
-</div><div class="proof theorem admonition" id="theorem-18">
-<p class="admonition-title"><span class="caption-number">Theorem 5.1 </span> (Eigenschaften des Lebesgue Maßes)</p>
+</div><p>Für den Lebesgue-Inhalt auf <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> können wir folgende Eigenschaften zeigen.</p>
+<div class="proof theorem admonition" id="thm:lebesguevolume">
+<p class="admonition-title"><span class="caption-number">Theorem 5.1 </span></p>
 <div class="theorem-content section" id="proof-content">
-<p>S. 89 Schulz-Baldes</p>
+<p>Der Lebesgue-Inhalt <span class="math notranslate nohighlight">\(\lambda^n\)</span> auf <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> hat folgende Eigenschaften:</p>
+<p>1. <span class="math notranslate nohighlight">\(\lambda^n(\emptyset) = 0\)</span></p>
+<p>2. Seien <span class="math notranslate nohighlight">\(A_1, \ldots, A_k \in \mathcal{R}\)</span> disjunkte Mengen.
+Dann gilt:</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n \left( \bigcup_{i=1,\ldots,k} A_i \right) = \sum_{i=1}^k \lambda^n(A_i) \qquad (\text{endliche Additivität})\]</div>
+<p>3. Für zwei Mengen <span class="math notranslate nohighlight">\(A, B \in \mathcal{R}\)</span> mit <span class="math notranslate nohighlight">\(A \subset B\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(A) \leq \lambda^n(B) \qquad (\text{Monotonie}).\]</div>
+<p>4. Für zwei Mengen <span class="math notranslate nohighlight">\(A, B \in \mathcal{R}\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(A \cup B) + \lambda^n(A \cap B) = \lambda^n(A) + \lambda^n(B).\]</div>
+<p>5. Für beliebige Mengen <span class="math notranslate nohighlight">\(A_1, \ldots, A_k \in \mathcal{R}\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n\left( \bigcup_{i=1,\ldots,k} A_i\right) \leq \sum_{i=1}^k \lambda^n(A_i) \qquad (\text{endliche Subadditivität}).\]</div>
+<p>6. Sei <span class="math notranslate nohighlight">\((A_n)_{k\in\N}\)</span> eine Folge von disjunkten Mengen in <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> und sei <span class="math notranslate nohighlight">\(B \in \mathcal{R}\)</span>, so dass <span class="math notranslate nohighlight">\(\bigcup_{k=1}^\infty A_k \subset B\)</span>, dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k=1}^\infty  \lambda^n(A_k) \leq \mu(B).\]</div>
 </div>
-</div><div class="proof definition admonition" id="definition-19">
-<p class="admonition-title"><span class="caption-number">Definition 5.11 </span> (Lebesgue-messbare Mengen)</p>
+</div><div class="proof admonition" id="proof">
+<p>Proof. <strong>Ad 1.</strong></p>
+<p>Für <span class="math notranslate nohighlight">\(a\in\R^d\)</span> haben wir</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(\emptyset) = \lambda^n((a,a]) = \Pi_{i=1}^n (a_i - a_i) = 0.\]</div>
+<p><strong>Ad 2.</strong></p>
+<p>Für disjunkte Mengen <span class="math notranslate nohighlight">\(A_1,\ldots, A_k\in\mathcal{R}\)</span> wählen wir für jedes <span class="math notranslate nohighlight">\(i\in\{1,\ldots,k\}\)</span> paarweise disjunkte Quader
+<span class="math notranslate nohighlight">\(Q^i_1,\ldots, Q^i_{n_i}\)</span>, welche nach <a class="reference internal" href="#lem:disRect">Lemma 5.3</a> existieren, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[A_i = \bigcup_{j=1}^{n_i} Q^i_j.\]</div>
+<p>Da die <span class="math notranslate nohighlight">\(A_i\)</span> paarweise disjunkt sind, gilt insbesondere</p>
+<div class="math notranslate nohighlight">
+\[Q^i_j \cap Q^r_s = \emptyset\]</div>
+<p>für <span class="math notranslate nohighlight">\((i,j)\neq (r,s)\)</span>. Somit haben wir</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^n\left(\bigcup_{i=1}^k A_i \right) &amp;= \lambda^n\left(\bigcup_{i=1}^k \bigcup_{j=1}^{n_i} Q^i_j \right) 
+\\&amp;=
+\sum_{i=1}^k \sum_{j=1}^{n_i} \lambda^n(Q^i_j)
+\\&amp;= 
+\sum_{i=1}^k \lambda^n(A_i).\end{split}\]</div>
+<p><strong>Ad 3.</strong></p>
+<p>Es sei <span class="math notranslate nohighlight">\(A\subset B\)</span>, dann können wir <span class="math notranslate nohighlight">\(B\)</span> disjunkt zerlegen mit</p>
+<div class="math notranslate nohighlight">
+\[B = A \cup B\setminus A\]</div>
+<p>und sehen dann unter Ausnutzung von 2.</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(B) = \lambda^n((A\cap B)\cup B\setminus B) \overset{2.}{=} 
+\lambda^n(A) + \underbrace{\lambda(B\setminus A)}_{\geq 0} \geq \lambda^n(A).\]</div>
+<p><strong>Ad 4.</strong></p>
+<p>Für zwei Mengen <span class="math notranslate nohighlight">\(A,B\in\mathcal{R}_{\text{Q}}\)</span> sehen wir, dass</p>
+<div class="math notranslate nohighlight">
+\[A\cup B = A \cup (B\setminus A),\]</div>
+<p>gilt, wobei die Mengen auf der rechten Seite paarweise disjunkt sind. Mit 2. haben wir dann</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^n(A\cup B) + \lambda^n(A\cap B)
+&amp;= \lambda^n(A) + \lambda^n(B\setminus A) + \lambda^n(A\cap B)
+\\&amp;= 
+\lambda^n(A) + \lambda^n(B).\end{split}\]</div>
+<p><strong>Ad 5.</strong></p>
+<p>Nach 4. gilt für zwei Mengen <span class="math notranslate nohighlight">\(A,B\in\mathcal{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(A\cup B) = \lambda^n(A) + \lambda^n(B) - \lambda^n(A\cap B) \leq \lambda^n(A) + \lambda^n(B).\]</div>
+<p>Diese Eigenschaft lässt sich direkt auf endliche viele Mengen <span class="math notranslate nohighlight">\(A_1,\ldots,A_k\in\mathcal{R}\)</span> übertragen.</p>
+<p><strong>Ad 6.</strong></p>
+<p>Es sei <span class="math notranslate nohighlight">\((A_i)_{i\in\N}\subset \mathcal{R}_{\text{Q}}\)</span> eine Folge paarweiser disjunkter Mengen, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[\bigcup_{i\in\N} A_i\subset B\in \mathcal{R}_{\text{Q}}.\]</div>
+<p>Dann gilt für <span class="math notranslate nohighlight">\(N\in\N\)</span></p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^N \lambda^n(A_i) 
+\overset{2.}{=} \lambda^n\left(\bigcup_{i=1}^N\right) 
+\overset{3.}{\leq} \lambda^n\left(\bigcup_{i=1}^\infty\right)
+\overset{3.}{\leq} \lambda^n(B).\]</div>
+<p>Somit gilt mit <span class="math notranslate nohighlight">\(N\to\infty\)</span></p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^\infty \lambda^n(A_i) \leq \lambda^n(B).\]</div>
+</div>
+<div class="section" id="der-jordan-inhalt-und-jordan-messbare-mengen">
+<h3><span class="section-number">5.1.3.1. </span>Der Jordan-Inhalt und Jordan-messbare Mengen<a class="headerlink" href="#der-jordan-inhalt-und-jordan-messbare-mengen" title="Permalink to this headline">¶</a></h3>
+<p>Wir haben bisher einen Inhalt auf <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{R}}\)</span> definiert. Diese Klasse an Mengen ist aber relativ klein, weshalb der Begriff ausgedehnt werden soll. Eine Möglichkeit hier ist die Idee des Riemann-Integrals mit Ober- und Untersummen zu benutzen. Es stellt aber auch hier heraus, dass der Begriff zu einschränkend ist. Insbesondere führt deses Konzept <strong>nicht</strong> auf ein Maß. Wir werden es im Folgenden trotzdem betrachten.</p>
+<div class="proof definition admonition" id="definition-18">
+<p class="admonition-title"><span class="caption-number">Definition 5.10 </span> (Jordan-messbare Mengen)</p>
 <div class="definition-content section" id="proof-content">
-<p>S. 92 Schulz-Baldes</p>
+<p>Sei <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> eine beliebige Teilmenge.
+Wir betrachten die folgenden <strong>endlichen</strong> Ober- und Untersummen für die Teilmenge <span class="math notranslate nohighlight">\(A\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\iota^\ast(A) &amp;:= \inf \left\{ \lambda^n(O) \, : A \subset O \in\mathcal{R}_{\text{R}}\right\},\\
+\iota_\ast(A) &amp;:= \sup \left\{ \lambda^n(U \, : A \supset U\in\mathcal{R}_{\text{R}} \right\}.\end{split}\]</div>
+<p>Wir nennen die Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> <strong>Jordan-messbar</strong>, genau dann wenn <span class="math notranslate nohighlight">\(A\)</span> beschränkt ist und die Ober- und Untersumme übereinstimmen, d.h., es gilt <span class="math notranslate nohighlight">\(\iota(A) = \iota(A)\)</span>.
+Für Jordan-messbare Mengen <span class="math notranslate nohighlight">\(A\)</span> ist dann der Jordan-Inhalt <span class="math notranslate nohighlight">\(\iota\)</span> gegeben durch:</p>
+<div class="math notranslate nohighlight">
+\[\iota(A) = \iota^\ast(A) = \iota_\ast(A).\]</div>
 </div>
-</div><div class="proof example admonition" id="example-20">
-<p class="admonition-title"><span class="caption-number">Example 5.4 </span> (Lebesgue-messbare Mengen)</p>
+</div><div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/jordanmeasure.jpg"><img alt="../_images/jordanmeasure.jpg" src="../_images/jordanmeasure.jpg" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Visualisierung einer Approximation für das äußere (blau) und das inner (orange) Maß.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Die Klasse der Jordan-messbaren Mengen ist erneut recht klein. Insbesondere hat dieses Konzept erneut Schwierigkeiten mit abzählbar unendlich großen Mengen umzugehen wie folgendes Beispiel zeigt.</p>
+<div class="proof example admonition" id="ex:jordan">
+<p class="admonition-title"><span class="caption-number">Example 5.3 </span></p>
 <div class="example-content section" id="proof-content">
-<p>S. 92 Schulz-Baldes</p>
+<p>Wir betrachten die Menge</p>
+<div class="math notranslate nohighlight">
+\[A = (0,1]\cap \mathbb{Q}\]</div>
+<p>der rationalen Zahlen im Intervall <span class="math notranslate nohighlight">\([0,1]\)</span>. Wir betrachten zunächst das äußere Maß und dazu eine Menge</p>
+<div class="math notranslate nohighlight">
+\[J = \bigcup_{i=1}^N Q_i \supset A,\]</div>
+<p>mit halboffenen Quader <span class="math notranslate nohighlight">\(Q_1,\ldots,Q_N\)</span>. Da aber <span class="math notranslate nohighlight">\(J\)</span> und <span class="math notranslate nohighlight">\((0,1]\)</span> jeweils Elemente aus <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> sind gilt auch
+<span class="math notranslate nohighlight">\(L = (0,1]\setminus J \in\mathcal{R}\)</span>. Wäre nun <span class="math notranslate nohighlight">\(L\)</span> nicht leer, so gäbe es per Definition der halboffenen Quader eine offene Umgebung</p>
+<div class="math notranslate nohighlight">
+\[U\subset L.\]</div>
+<p>Da aber <span class="math notranslate nohighlight">\(A\)</span> dicht in <span class="math notranslate nohighlight">\((0,1]\)</span> liegt und somit auch <span class="math notranslate nohighlight">\(J\)</span> führt dies auf einen Widerspruch. Deshalb folgt <span class="math notranslate nohighlight">\(L=\emptyset\)</span> und daher</p>
+<div class="math notranslate nohighlight">
+\[(0,1]\subset J \Rightarrow 1\leq \iota^\ast(A).\]</div>
+<p>Für das innere Maß betrachten wir</p>
+<div class="math notranslate nohighlight">
+\[J = \bigcup_{i=1}^N Q_i \subset A,\]</div>
+<p>angenommen <span class="math notranslate nohighlight">\(J\)</span> wäre nicht leer, dann folgt dass eine offenen Umgebung <span class="math notranslate nohighlight">\(U\)</span> existiert s.d.</p>
+<div class="math notranslate nohighlight">
+\[U\subset J.\]</div>
+<p>Da aber auch die irrationalen Zahlen <span class="math notranslate nohighlight">\(\R\setminus \mathbb{Q}\)</span> dicht in <span class="math notranslate nohighlight">\(\R\)</span> liegen folgt daher</p>
+<div class="math notranslate nohighlight">
+\[\left[U\cap\R\setminus \mathbb{Q} \neq \emptyset\right] 
+\Rightarrow 
+\left[J \cap \R\setminus \mathbb{Q} \neq \emptyset\right]
+\Rightarrow 
+\left[J\not\subset \mathbb{Q}\right]\]</div>
+<p>was im Widerspruch zu <span class="math notranslate nohighlight">\(J\subset A\)</span> steht, daher gilt</p>
+<div class="math notranslate nohighlight">
+\[J=\emptyset\Rightarrow \iota_\ast(J) = 0\]</div>
+<p>und somit</p>
+<div class="math notranslate nohighlight">
+\[\iota_\ast(J) \neq \iota^\ast(J).\]</div>
 </div>
-</div><div class="proof definition admonition" id="definition-21">
+</div><p>Die Menge der Jordan-messbaren Mengen bildet weiterhin keine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und daher ist der Jordan-Inhalt kein Maß im Sinne von <a class="reference internal" href="#def:mass">Definition 5.2</a>. Dies ist an folgendem Beispiel ersichtlich.</p>
+<div class="proof example admonition" id="example-20">
+<p class="admonition-title"><span class="caption-number">Example 5.4 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Wir wollen den Jordan-Inhalt einer Punktmengen <span class="math notranslate nohighlight">\(\{a\}\)</span> für <span class="math notranslate nohighlight">\(a\in\R\)</span> berechnen. Mit der Argumentation aus <a class="reference internal" href="#ex:jordan">Example 5.3</a> erkennen wir, dass das innere Maß gleich null ist, also</p>
+<div class="math notranslate nohighlight">
+\[\iota_\ast(\{a\}) = 0.\]</div>
+<p>Für das äußere Maß wählen wir eine Folge von offenen Quadern <span class="math notranslate nohighlight">\(Q_i:= (a-1/i, a] \supset \{a\}\)</span> und erkennen, dass</p>
+<div class="math notranslate nohighlight">
+\[\iota^\ast(\{a\})\leq \lim_{i\to\infty} \lambda^n(Q_i) = \lim_{i\to\infty} 1/i = 0\]</div>
+<p>und damit ist jede Punktmenge Jordan-messbar.</p>
+<p>Da aber <span class="math notranslate nohighlight">\(\mathbb{Q}\)</span> abzählbar ist, können wir eine Folge <span class="math notranslate nohighlight">\((q_i)_{i\in\N}\)</span> finden, s.d.</p>
+<div class="math notranslate nohighlight">
+\[A = (0,1]\cap \mathbb{Q} = \bigcup_{i\in\N} \{q_i\},\]</div>
+<p>die Menge <span class="math notranslate nohighlight">\(A\)</span> lässt sich also als abzählbare Vereinigung von Jordan-messbaren Mengen darstellen. Aus <a class="reference internal" href="#ex:jordan">Example 5.3</a> wissen wir aber, dass <span class="math notranslate nohighlight">\(A\)</span> nicht Jordan-messbar ist und somit bildet die Klassen der Jordan-messbaren Menge <strong>keine</strong> <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra.</p>
+</div>
+</div></div>
+<div class="section" id="das-auszere-lebesgue-masz">
+<h3><span class="section-number">5.1.3.2. </span>Das äußere Lebesgue-Maß<a class="headerlink" href="#das-auszere-lebesgue-masz" title="Permalink to this headline">¶</a></h3>
+<p>Wir der letzte Abschnitt zeigt ist der Begriff der Jordan-messbarkeit einerseits zu einschränkend (siehe <a class="reference internal" href="#ex:jordan">Example 5.3</a>) und andererseits führt er nicht auf eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra. Wir werden diesen Begriff nun erweitern indem wir uns zunächst nur auf den äußeren Inhalt konzentrieren.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Der innere und äußere Inhalt sind intuitiv nicht gleichberechtigt, da das Problem asymmetrisch ist. Konkret ist Subadditivität die inhärente Eigenschaft eines Maßes, da Mengenvereinigungen mehrfach auftretenden Elemente nicht berücksichtigen, während die Addition in <span class="math notranslate nohighlight">\(\R\)</span> für positive Zahlen stets ein größeres Ergebnis liefert. Das äußere Maß ist auf natürliche Weise subadditiv und deshalb zu bevorzugen.</p>
+</div>
+<div class="proof definition admonition" id="definition-21">
+<p class="admonition-title"><span class="caption-number">Definition 5.11 </span> (Äußeres Lebesgue-Maß)</p>
+<div class="definition-content section" id="proof-content">
+<p>Das <strong>äußere Lebesgue-Maß</strong> <span class="math notranslate nohighlight">\(\lambda^* \colon 2^{\R^n} \rightarrow [0,\infty]\)</span> ist definiert durch</p>
+<div class="math notranslate nohighlight">
+\[\lambda^*(A) = \inf \left\{ \sum_{k=1}^\infty \mu^n(Q_k) : Q_k \text{ sind halboffene Quader mit } A \subset \bigcup_{k=1}^\infty Q_k \right\}.\]</div>
+</div>
+</div><p>Im Vergleich zum Jordan-Inhalt lassen wir nun also unendliche Vereinigungen zu und werten dann Reihen aus überw elche das Infimum gebildet wird. Die erste wichtig Aussage in diesem Kontext geht auf Lebesgue zurück. Der Beweis des Satzes benutzt den Satz von Heine-Borel.</p>
+<div class="proof theorem admonition" id="thm:heineborel">
+<p class="admonition-title"><span class="caption-number">Theorem 5.2 </span> (Heine-Borel)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Für eine Menge <span class="math notranslate nohighlight">\(\Omega\subset\R^n\)</span> sind die folgenden beiden Aussagen äquivalent:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> ist beschränkt und abgeschlossen.</p></li>
+<li><p>Jede offene Überdeckung von <span class="math notranslate nohighlight">\(\Omega\)</span> enthält eine endliche Teilüberdeckung.</p></li>
+</ol>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe z.B. <span id="id2">[<a class="reference internal" href="../references.html#id4">For17</a>]</span>.</p>
+</div>
+<p>Mit diesem Resultat können wir die folgende Aussage beweisen.</p>
+<div class="proof theorem admonition" id="thm:lebesgue">
+<p class="admonition-title"><span class="caption-number">Theorem 5.3 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(J\in\mathcal{R}_{\text{Q}}\)</span> und <span class="math notranslate nohighlight">\((Q_k)_{k\in\N}\)</span> Folge halboffene Quader mit <span class="math notranslate nohighlight">\(J \subset \bigcup_{k=1}^\infty Q_k\)</span>.
+Dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(J) = \iota(J) = \leq \sum_{k=1}^\infty \lambda^n(Q_k).\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Wir zeigen die Aussage zunächst für <span class="math notranslate nohighlight">\(J=Q\)</span> wobei <span class="math notranslate nohighlight">\(Q\)</span> ein halboffener Quader ist.</p>
+<p><strong>Idee:</strong> Verkleinere <span class="math notranslate nohighlight">\(Q\)</span> und vergrößere die <span class="math notranslate nohighlight">\(Q_i\)</span> um Heine-Borel anwenden zu können.</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> gegeben. Für <span class="math notranslate nohighlight">\(Q=(a,b]\)</span> können wir einen kleineren halboffenen Quader <span class="math notranslate nohighlight">\(Q_\varepsilon\)</span> wählen, s.d.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\overline{Q_\varepsilon} \subset Q\\
+\lambda^n(Q_\varepsilon) &gt; \lambda^n(Q) - \varepsilon.\end{split}\]</div>
+<p>Beachte, dass der Quader so gewählt wird, dass auch sein Abschluss noch in <span class="math notranslate nohighlight">\(Q\)</span> enthalten ist, die zweite Bedingung gibt eine unter Schranke an wie klein der Quader gewählt werden darf. Man kann leicht nachrechnen, dass ein solcher Quader existiert.</p>
+<p>Weiterhin wählen wir für jeden Quader <span class="math notranslate nohighlight">\(Q_k\)</span> einen größeren Quader <span class="math notranslate nohighlight">\(Q_k^\varepsilon\)</span>, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{Int}(Q_k^\varepsilon)\supset Q_k\\
+\lambda^n(Q_k^\varepsilon) &lt; \lambda^n(Q_k) + \frac{\varepsilon}{2^k},\end{split}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\text{Int}(\cdot)\)</span> das Innere einer Menge bezeichnet.</p>
+<p>Mit dieser Konstruktion gilt</p>
+<div class="math notranslate nohighlight">
+\[\overline{Q_\varepsilon} \subset Q\subset \bigcup_{k\in\N} Q_k \subset 
+\bigcup_{k\in\N}\text{Int}(Q_k^\varepsilon)\]</div>
+<p>daher bilden die Mengen <span class="math notranslate nohighlight">\(\text{Int}(Q_k^\varepsilon)\)</span> eine abzählbare offenen Überdeckung der kompakten Menge <span class="math notranslate nohighlight">\(\overline{Q_\varepsilon}\)</span>.
+Nach dem Satz von Heine-Borel (<a class="reference internal" href="#thm:heineborel">Theorem 5.2</a>) existiert somit eine endliche Teilüberdeckung und daher ein <span class="math notranslate nohighlight">\(N\in\N\)</span>, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[\overline{Q_\varepsilon}\subset \bigcup_{k=1}^N\text{Int}(Q_k^\varepsilon).\]</div>
+<p>Für endlich viele Quader können wir nun die Eigenschaften aus <a class="reference internal" href="#thm:lebesguevolume">Theorem 5.1</a> benutzen und folgern</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^n(Q) -\varepsilon &amp;&lt; \lambda^n(Q_\varepsilon) \leq 
+\lambda^n\left(\bigcup_{k=1}^N\text{Int}(Q_k^\varepsilon\right) 
+\\&amp;\leq 
+\sum_{k=1}^N \lambda^n(Q_k^\varepsilon) &lt; 
+\sum_{k=1}^N \lambda^n(Q_k) + \frac{\varepsilon}{2^k} 
+\\&amp;\leq
+\sum_{k=1}^\infty \lambda^n(Q_k) + \frac{\varepsilon}{2^k} = \sum_{k=1}^\infty \lambda^n(Q_k) +\varepsilon.\end{split}\]</div>
+<p>Da <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> beliebig war folgt die Aussage indem wir <span class="math notranslate nohighlight">\(\varepsilon\)</span> gegen <span class="math notranslate nohighlight">\(0\)</span> schicken.</p>
+<p>Sei nun <span class="math notranslate nohighlight">\(J\in\mathcal{R}_{\text{Q}}\)</span>, wobei <span class="math notranslate nohighlight">\(W_1,\ldots,W_N\)</span> paarweise disjunkte halboffene Quader existieren, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[J = \bigcup_{i=1}^N W_i.\]</div>
+<p>Dann sehen wir, dass für jedes <span class="math notranslate nohighlight">\(i=1,\ldots,N\)</span> die Folge <span class="math notranslate nohighlight">\((Q_k\cap W_i)_{k\in\N}\)</span> erneut eine Folge halboffener Quader mit</p>
+<div class="math notranslate nohighlight">
+\[W_i \subset \bigcup_{k\in\N} Q_k\cap W_i\]</div>
+<p>ist und daher können wir den ersten Fall anwenden. Somit folgt</p>
+<div class="math notranslate nohighlight">
+\[\iota(J) = \sum_{i=1}^N \lambda^n(W_i) \leq \sum_{i=1}^N \sum_{k=1}^\infty \lambda^n(W_i\cap Q_k) = 
+\sum_{k=1}^\infty\sum_{i=1}^N \lambda^n(W_i\cap Q_k) = \sum_{k=1}^\infty \lambda^n(Q_k).\]</div>
+</div>
+<p>Analog zum Lebesgue-Inhalt auf <span class="math notranslate nohighlight">\(\mathcal{R}_\text{Q}\)</span> in <a class="reference internal" href="#thm:lebesguevolume">Theorem 5.1</a> können wir auch für das äußere Lebesgue-Maß ähnliche Eigenschaften zeigen.</p>
+<div class="proof theorem admonition" id="thm:outerlebesgue">
+<p class="admonition-title"><span class="caption-number">Theorem 5.4 </span> (Eigenschaften des äußeren Lebesgue-Maßes)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Das äußere Lebesgue-Maß <span class="math notranslate nohighlight">\(\lambda^*\)</span> hat folgende Eigenschaften:</p>
+<p>1. <span class="math notranslate nohighlight">\(\lambda^*(\emptyset) = 0\)</span></p>
+<p>2. Für zwei Mengen <span class="math notranslate nohighlight">\(A, B \in \R^n\)</span> mit <span class="math notranslate nohighlight">\(A \subset B\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\lambda^*(A) \leq \lambda^*(B) \qquad (\text{Monotonie}).\]</div>
+<p>3. Für eine Folge <span class="math notranslate nohighlight">\((A_k)_{k\in\N}\)</span> von Teilmengen des <span class="math notranslate nohighlight">\(\R^n\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\lambda^*\left( \bigcup_{k=1}^\infty A_k \right) \leq \sum_{k=1}^\infty \lambda^*(A_k) \qquad (\sigma\!-\!\text{Subadditivität}).\]</div>
+<p>4. Für <span class="math notranslate nohighlight">\(J\in\mathcal{R}_{\text{Q}}\)</span> gilt,</p>
+<div class="math notranslate nohighlight">
+\[\lambda^*(J) = \iota(J).\]</div>
+<p>5. Für jede Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> und jeden halboffenen Quader <span class="math notranslate nohighlight">\(Q\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\lambda^*(A) = \lambda^*(A \setminus Q) + \lambda^*(A \cap Q).\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. <strong>Ad 1.</strong></p>
+<p>Da <span class="math notranslate nohighlight">\(\emptyset\)</span> ein halboffener Quader ist gilt</p>
+<div class="math notranslate nohighlight">
+\[0\leq \lambda^\ast(\emptyset) \leq \lambda^n(\emptyset) = 0.\]</div>
+<p><strong>Ad 2.</strong></p>
+<p>Es bezeichne</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{C}(B) = \{ (Q_i)_{i\in\N}: Q_i \text{ ist halboffener Quader, für }i\in\N, B\subset \bigcup_{i\in\N} Q_i  \}\]</div>
+<p>die Menge der möglichen Quaderüberdeckungen. Aus <span class="math notranslate nohighlight">\(A\subset B\)</span> folgt dann <span class="math notranslate nohighlight">\(\mathcal{C}(B) \subset \mathcal{C}(A)\)</span>, da jede Überdeckung für <span class="math notranslate nohighlight">\(B\)</span> auch eine Überdeckung für <span class="math notranslate nohighlight">\(A\)</span> ist und daher</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(A) = \inf_{\sum_{i=1}^\infty:(Q_i)_{i\in\N}\in \mathcal{C}(A)} \leq 
+\inf_{\sum_{i=1}^\infty:(Q_i)_{i\in\N}\in \mathcal{C}(B)} = \lambda^\ast(B).\]</div>
+<p><strong>Ad 3.</strong></p>
+<p>Sei <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> gegeben. Per Definition des Infimums existiert für jede Menge <span class="math notranslate nohighlight">\(A_k\)</span> eine Folge von halboffenen Quadern <span class="math notranslate nohighlight">\(Q_k^i, i\in\N\)</span>, s.d.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A_k \subset \bigcup_{i\in\N} Q_i\\
+\lambda^\ast(A_k) &gt; \sum_{i=1}^\infty \lambda^n(Q_k^i) - \frac{\varepsilon}{2^k}.\end{split}\]</div>
+<p>Dann folgt aber auch, dass</p>
+<div class="math notranslate nohighlight">
+\[\bigcup_{k\in\N} A_k \subset \bigcup_{k\in\N}\bigcup_{i\in\N} Q_k^i\]</div>
+<p>und da die rechte Seite erneut eine Quaderüberdeckung ist folgt per Definition</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^\ast\left(\bigcup_{k\in\N} A_k\right) 
+&amp;\leq \sum_{k=1}^\infty\sum_{i=1}^\infty \lambda^n(Q_k^i)\\
+&amp;&lt;
+\sum_{k=1}^\infty \lambda^\ast(A_k) - \frac{\varepsilon}{2^k} =
+\sum_{k=1}^\infty \lambda^\ast(A_k) - \varepsilon.\end{split}\]</div>
+<p>Die Aussage folgt indem wir <span class="math notranslate nohighlight">\(\varepsilon\)</span> gegen 0 schicken.</p>
+<p><strong>Ad 4.</strong></p>
+<p>Es sei <span class="math notranslate nohighlight">\(J\in\mathcal{R}_{\text{Q}}\)</span>, per Definition folgt direkt</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(Q)\leq \iota^\ast(Q).\]</div>
+<p>Mit <a class="reference internal" href="#thm:lebesgue">Theorem 5.3</a> folgt aber auch</p>
+<div class="math notranslate nohighlight">
+\[\iota^\ast(Q)\leq \lambda^\ast(Q).\]</div>
+<p><strong>Ad 5.</strong></p>
+<p>Es seien zunächst <span class="math notranslate nohighlight">\(A\)</span> und <span class="math notranslate nohighlight">\(Q\)</span> halboffene Quader, dann ist auch <span class="math notranslate nohighlight">\(A\cap Q\)</span> ein halboffener Quader und wir finden paarweise disjunkte halboffene Quader <span class="math notranslate nohighlight">\(Q_0,\ldots,Q_N\)</span>, s.d.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A\cap Q = Q_0\\
+A = \bigcup_{i=1}^N Q_i\end{split}\]</div>
+<p>und damit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^n(A) &amp;= \lambda^n\left(\bigcup_{i=0}^N Q_i\right)\\
+&amp;= 
+\lambda^n(A\cap Q) + \lambda^n\left(\bigcup_{i=1}^N Q_i\right)\\
+&amp;\geq \lambda^n(A\cap Q) + \lambda^n(A\setminus Q) \\
+&amp;\geq \lambda^n(A).\end{split}\]</div>
+<p>Durch die Abschätzung nah oben und nach unten folgt dann</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(A) = \lambda^n(A\cap Q) + \lambda^n(A\setminus Q).\]</div>
+<p>Als nächsten Schritt betrachten wir eine Folge halboffener Quader <span class="math notranslate nohighlight">\((Q_i)_{i\in\N}\mathcal{C}(A)\)</span> und erhalten dann</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\sum_{i=1}^\infty \lambda^n(Q_i) &amp;= 
+\sum_{i=1}^\infty \lambda^n(Q_i\cap Q) + \lambda^n(Q_i\setminus Q)\\
+&amp;\overset{2.}{\geq}
+\lambda^n(A\cap Q) + \lambda^n(A\setminus Q)
+&amp;\overset{2.}{\geq}
+\lambda^n(A).\end{split}\]</div>
+<p>Nehmen wir das Infimum über <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> folgt</p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(A) \geq \lambda^n(A\cap Q) + \lambda^n(A\setminus Q) \geq 
+\lambda^n(A)\]</div>
+<p>und daher die Behauptung.</p>
+</div>
+<p>Als Korollar von <a class="reference internal" href="#thm:lebesgue">Theorem 5.3</a> und den vorherigen Eigenschaften erhalten wir eine Abschätzung für das äußere Lebesgue-Maß sowohl von oben durch den äußeren Jordan-Inhalt als auch von unten durch den inneren Jordan-Inhalt.</p>
+<div class="proof corollary admonition" id="corollary-25">
+<p class="admonition-title"><span class="caption-number">Corollary 5.1 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(A\subset\R^n\)</span>, dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\iota_\ast(A) \leq \lambda^\ast(A) \leq \iota^\ast(A).\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Für jedes Element <span class="math notranslate nohighlight">\(J\in\mathcal{R}_{\text{Q}}\)</span> und beliebige halboffene Quader <span class="math notranslate nohighlight">\(Q_i,\i\in\N\)</span>, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[J\subset A\subset \bigcup_{i\in\N} Q_i\]</div>
+<p>folgt aus <a class="reference internal" href="#thm:lebesgue">Theorem 5.3</a></p>
+<div class="math notranslate nohighlight">
+\[\lambda^n(J)\leq \sum_{i=1}^\infty Q_i.\]</div>
+<p>Dies gilt für jedes <span class="math notranslate nohighlight">\(J\in \mathcal{R}_{\text{Q}}\)</span> mit <span class="math notranslate nohighlight">\(J\subset A\)</span> und daher insbesondere auch für das Supremum, daher</p>
+<div class="math notranslate nohighlight">
+\[\iota_\ast(A) \leq \sum_{i=1}^\infty Q_i.\]</div>
+<p>Diese Aussage gilt wiederum für eine beliebige Folge halboffener Quader welche <span class="math notranslate nohighlight">\(A\)</span> überdecken und daher auch für das Infimum, also</p>
+<div class="math notranslate nohighlight">
+\[\iota_\ast(A) \leq \lambda^\ast(A).\]</div>
+<p>Die andere Ungleichung folgt per Definition da jede endliche Überdeckung mit halboffenen Quadern (welche im Infimum für <span class="math notranslate nohighlight">\(\iota^\ast\)</span> betrachtet werden) auch im Infimum über abzählbare Überdeckungen berücksichtigt wird, daher</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(A)\leq\iota^\ast(A).\]</div>
+</div>
+<p>Die obige Eigenschaft liefert zusätzlich die Aussage, dass für Jordan-messbare Mengen <span class="math notranslate nohighlight">\(A\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[\iota(A)\leq\lambda^\ast(A)\leq\iota(A)\Rightarrow \lambda^\ast(A) = \iota(A).\]</div>
+<div class="proof remark admonition" id="rem:transinvariance">
+<p class="admonition-title"><span class="caption-number">Remark 5.4 </span> (Wirkung von Transformationen auf das äußere Lebesgue Maß)</p>
+<div class="remark-content section" id="proof-content">
+<p>Eine besondere Eigenschaft des äußeren Lebesgue Maßes ist es, dass es <em>bewegungsinvariant</em> ist, d.h., dass es unter Translationen und Rotationen den gleichen Wert behält.
+Dies ist für viele Anwendungen eine fundamentale Eigenschaft.
+Die folgende Bemerkung hält die Wirkung von geometrischen Transformationen auf das äußere Lebesgue Maß fest.</p>
+<p>1. Sei <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> eine beliebige Teilmenge und <span class="math notranslate nohighlight">\(a \in \R^n\)</span> ein beliebiger Vektor.
+Dann ist das äußere Lebesgue Maß <strong>translationsinvariant</strong> unter der Wirkung von <span class="math notranslate nohighlight">\(a\)</span>, d.h., es gilt</p>
+<div class="math notranslate nohighlight">
+\[\lambda^*(A + a) = \lambda^*(A).\]</div>
+<p>Außerdem gilt, dass die Teilmenge <span class="math notranslate nohighlight">\(A\)</span> genau dann Lebesgue-messbar ist, wenn die verschobene Teilmenge <span class="math notranslate nohighlight">\(A + a\)</span> Lebesgue-messbar ist.</p>
+<p>2. Sei <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> eine beliebige Teilmenge und <span class="math notranslate nohighlight">\(M \in \R^{n\times n}\)</span> eine beliebige Matrix.
+Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wirkung der linearen Transformation <span class="math notranslate nohighlight">\(M\)</span></p>
+<div class="math notranslate nohighlight">
+\[\lambda^*(MA) = |\!\operatorname{det}(M)| \, \lambda^*(A).\]</div>
+<p>Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. <strong>Rotationen</strong> und <strong>Spiegelungen</strong>) ist, da für diese Transformationen <span class="math notranslate nohighlight">\(|\!\operatorname{det}(M)| = 1\)</span> gilt (siehe Kapitel 3.6 in <span id="id3">[<a class="reference internal" href="../references.html#id12">Ten21</a>]</span>).</p>
+<p>Außerdem gilt, dass die Teilmenge <span class="math notranslate nohighlight">\(A\)</span> genau dann Lebesgue-messbar ist, wenn die linear transformierte Teilmenge <span class="math notranslate nohighlight">\(MA\)</span> Lebesgue-messbar ist.</p>
+</div>
+</div></div>
+<div class="section" id="nullmengen">
+<h3><span class="section-number">5.1.3.3. </span>Nullmengen<a class="headerlink" href="#nullmengen" title="Permalink to this headline">¶</a></h3>
+<p>Eine relevante Klasse von Teilmengen des <span class="math notranslate nohighlight">\(\R^n\)</span> bilden sogenannten <strong>Lebesgue-Nullmengen</strong>.</p>
+<div class="proof definition admonition" id="definition-27">
 <p class="admonition-title"><span class="caption-number">Definition 5.12 </span> (Lebesgue-Nullmengen)</p>
 <div class="definition-content section" id="proof-content">
-<p>S. 98 Schulz-Baldes</p>
+<p>Eine Teilmenge <span class="math notranslate nohighlight">\(N \subset \R^n\)</span> eine <strong>(Lebesgue-)Nullmenge</strong>, falls ihr äußeres Lebesgue-Maß Null ist, d.h., es gilt</p>
+<div class="math notranslate nohighlight">
+\[\lambda^*(N) = 0.\]</div>
 </div>
-</div><div class="proof lemma admonition" id="lemma-22">
-<p class="admonition-title"><span class="caption-number">Lemma 5.4 </span> (Eigenschaften von Lebesgue-Nullmengen)</p>
+</div><p>Für die Klasse der Nullmengen können wir folgende Eigenschaften zeigen.</p>
+<div class="proof lemma admonition" id="lem:eigenschaftenNullmengen">
+<p class="admonition-title"><span class="caption-number">Lemma 5.5 </span> (Eigenschaften von Lebesgue-Nullmengen)</p>
 <div class="lemma-content section" id="proof-content">
-<p>S. 98 Schulz-Baldes</p>
-</div>
-</div><div class="proof theorem admonition" id="theorem-23">
-<p class="admonition-title"><span class="caption-number">Theorem 5.2 </span> (Lebesgue-Messbarkeit von Teilmengen im <span class="math notranslate nohighlight">\(\R^n\)</span>)</p>
-<div class="theorem-content section" id="proof-content">
-<p>Sowohl offene als auch abgeschlossene Teilmengen des <span class="math notranslate nohighlight">\(\R^n\)</span> sind Lebesgue-messbar.</p>
+<p>Für Lebesgue-Nullmengen gelten die folgenden Eigenschaften:</p>
+<ol class="simple">
+<li><p>Sei <span class="math notranslate nohighlight">\((N_n)_{n\in\N}\)</span> eine Familie von Nullmengen.
+Dann ist auch <span class="math notranslate nohighlight">\(\bigcup_{n\in\N} N_n\)</span> eine Nullmenge.</p></li>
+<li><p>Alle abzählbare Mengen sind Nullmengen.</p></li>
+<li><p>Alle Teilmengen von Nullmengen sind Nullmengen.</p></li>
+</ol>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. S. 99 Schulz-Baldes</p>
+<p>Proof. <br/></p>
+<p><strong>Ad 1.</strong></p>
+<p>Auf Grund der <em><span class="math notranslate nohighlight">\(\sigma\)</span>-Subadditivität</em> des äußeren Lebesgue-Maßes folgt direkt</p>
+<div class="math notranslate nohighlight">
+\[0 \leq \mu^* \left( \bigcup_{n\in\N} N_n \right) \leq \sum_{n\in\N} \mu^*(N_n) = 0.\]</div>
+<p>Da <span class="math notranslate nohighlight">\(\mu^* \left( \bigcup_{n\in\N} N_n \right)\)</span> gilt ist also <span class="math notranslate nohighlight">\(\bigcup_{n\in\N} N_n\)</span> auch eine Nullmenge.</p>
+<p><strong>Ad 2.</strong></p>
+<p>Es sei <span class="math notranslate nohighlight">\(A\subset\R^d\)</span> eine abzählbare Menge, d.h., es existiert eine Folge <span class="math notranslate nohighlight">\((a_k)_{k\in\N}\subset\R^d\)</span>, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[A = \bigcup_{k\in\N} a_k.\]</div>
+<p>Es sei nun <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> gegeben, dann wählen wir die Folge halboffener Quader</p>
+<div class="math notranslate nohighlight">
+\[Q_k := (a_k - \frac{\varepsilon}{2^k},a_k]\]</div>
+<p>s.d.,</p>
+<div class="math notranslate nohighlight">
+\[A\subset \bigcup_{k\in\N} Q_k.\]</div>
+<p>Dann folgt aber,</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(A) \leq \sum_{k\in\N} \lambda^n(Q_k) = \sum_{k\in\N} \frac{\varepsilon}{2^k} = \varepsilon.\]</div>
+<p>Wir können nun <span class="math notranslate nohighlight">\(\varepsilon\)</span> gegen 0 schicken und erhalte die Aussage.</p>
+<p><strong>Ad 3.</strong></p>
+<p>Es sei <span class="math notranslate nohighlight">\(N\)</span> eine Nullmenge und <span class="math notranslate nohighlight">\(A\subset N\)</span>, dann folgt aus der Monotonie</p>
+<div class="math notranslate nohighlight">
+\[0\leq \lambda^\ast(A)\leq \lambda^\ast(N) = 0.\]</div>
+</div>
+<p>Intuitiv könnten man meinen, dass lediglich abzählbare MEngen Lebesgue Nullmengen sind, dies ist jedoch nicht der Fall. Ein Beispiel ist die <a class="reference external" href="https://de.wikipedia.org/wiki/Cantor-Menge">canto-Menge</a> welche überabzählbar ist, aber Lebesgue-Maß null hat.</p>
+</div>
+<div class="section" id="das-auszere-masz-ist-kein-masz">
+<h3><span class="section-number">5.1.3.4. </span>Das äußere Maß ist kein Maß<a class="headerlink" href="#das-auszere-masz-ist-kein-masz" title="Permalink to this headline">¶</a></h3>
+<p>Für das äußere Lebesgue Maß kann man einige Eigenchaften zeigen (siehe <a class="reference internal" href="#thm:outerlebesgue">Theorem 5.4</a>) welche zwar eine Maß erinnern. Der größte Unterschied bisher ist, dass wir nur <span class="math notranslate nohighlight">\(\sigma\)</span>-Subadditivität und nicht <span class="math notranslate nohighlight">\(\sigma\)</span>-Additivität zeigen konnten. Insbesondere arbeitet das äußere Maß auf der gesamten Potenzmenge <span class="math notranslate nohighlight">\(2^{\R^d}\)</span> und nicht auf einer kleineren <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra, man könnte also vermuten, dass diese Menge zu groß ist um <span class="math notranslate nohighlight">\(\sigma\)</span>-Additivität zeigen zu können, was tatsächlich der Fall ist.</p>
+<p>Um das zu sehen betrachten wir die sogenannte Vitali Menge auf <span class="math notranslate nohighlight">\(\R\)</span>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Giuseppe Vitali</p>
+<p><a class="reference external" href="https://de.wikipedia.org/wiki/Giuseppe_Vitali">Giuseppe Vitali</a> (geboren 26. August 1875 in Ravenna; gestorben 29. Februar 1932 in Bologna) war ein italienischer Mathematiker.</p>
+</div>
+<p>Für zwei Punkte <span class="math notranslate nohighlight">\(x,y\in\R\)</span> definiert man die Äquivalenzrelation</p>
+<div class="math notranslate nohighlight">
+\[x \sim y \quad \Leftrightarrow \quad x-y \in \Q.\]</div>
+<p>d.h. zwei Punkte gehören der selben Äquivalenzklasse an sofern ihre Differenz rational ist. Es gilt also</p>
+<div class="math notranslate nohighlight">
+\[[x] = \{y: y-x\in\Q\}\]</div>
+<p>jede Klasse <span class="math notranslate nohighlight">\([x]\)</span> ist abzählbar und <span class="math notranslate nohighlight">\([0] = \Q\)</span>. Falls <span class="math notranslate nohighlight">\([x]\cap [y]\neq \emptyset\)</span>, so folgt, dass ein <span class="math notranslate nohighlight">\(z\in[x]\cap [y]\)</span> existiert und damit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left.
+\begin{matrix}
+z-x\in\Q\\
+z-y\in\Q\\
+\end{matrix}
+\right\}
+\Rightarrow x-y\in\Q\Rightarrow [x]=[y],\end{split}\]</div>
+<p>daher sind zwei Äquivalenzklassen entweder gleich oder disjunkt. Da aber</p>
+<div class="math notranslate nohighlight">
+\[\R = \bigcup_{x\in\R} [x]\]</div>
+<p>gilt, muss es überabzählbar viele disjunkte Äquivalenzklassen geben, ansonsten wäre <span class="math notranslate nohighlight">\(\R\)</span> selbst abzählbar. Mithilfe des <a class="reference external" href="https://de.wikipedia.org/wiki/Auswahlaxiom">Auswahl-Axioms</a> können wir nun für jede einzelne Äquivalenzklasse einen Repräsentanten wählen, wobei wir die Menge der Repräsentanten <span class="math notranslate nohighlight">\(V\)</span> als <strong>Vitali-Menge</strong> bezeichnen. Zwei Elemente <span class="math notranslate nohighlight">\(x,y\in V, x\neq y\)</span> unterscheiden sich stets um eine irrationale Zahl, denn</p>
+<div class="math notranslate nohighlight">
+\[x-y\in\Q \Rightarrow [x] = [y]\]</div>
+<p>ist ein Widerspruch zur Konstruktion.</p>
+<p>Es sei nun <span class="math notranslate nohighlight">\((q_k)_{k\in\N}\)</span> eine Abzählung der rationalen Zahlen und definiere die verschobenen Vitali Mengen</p>
+<div class="math notranslate nohighlight">
+\[V_k :=\{x+q_k: x\in V\}.\]</div>
+<div class="proof lemma admonition" id="lemma-29">
+<p class="admonition-title"><span class="caption-number">Lemma 5.6 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Mit den obigen Definitionen gilt</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\lambda^\ast(V) = \lambda^\ast(V_k)\)</span> für alle <span class="math notranslate nohighlight">\(k\in\N\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(V_k\cap V_l=\emptyset\)</span> für <span class="math notranslate nohighlight">\(k\neq l\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bigcup_{k\in\N} V_k = \R\)</span>.</p></li>
+</ol>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. <br/></p>
+<p><strong>Ad 1.</strong></p>
+<p>Diese Tatsache folgt, da das äußere Lebesgue-Maß Translationsinvariant ist, siehe <a class="reference internal" href="#rem:transinvariance">Remark 5.4</a>.</p>
+<p><strong>Ad 2.</strong></p>
+<p>Für <span class="math notranslate nohighlight">\(x,y\in V\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x + q_k = y + q_l&amp;\Rightarrow x-y\in\Q\\
+\Rightarrow [x]=[y]&amp;\Rightarrow x=y\\
+\Rightarrow q_k=q_l&amp;\Rightarrow k=l\end{split}\]</div>
+<p>wobei wir in der zweiten Zeile erneut ausnutzen, dass die Elemente aus <span class="math notranslate nohighlight">\(V\)</span> jeweils disjunkte Äquivalenzklassen erzeugen.</p>
+<p><strong>Ad 3.</strong></p>
+<p>Trivialerweise gilt</p>
+<div class="math notranslate nohighlight">
+\[\bigcup_{k\in\N} V_k \subset \R.\]</div>
+<p>Andererseits sei <span class="math notranslate nohighlight">\(x\in\R\)</span> dann existiert <span class="math notranslate nohighlight">\(v\in V\)</span> s.d. <span class="math notranslate nohighlight">\([v] = [x]\)</span>. Somit gilt <span class="math notranslate nohighlight">\(x-v\in\Q\)</span> und es existiert <span class="math notranslate nohighlight">\(k\in\N\)</span>, s.d.</p>
+<div class="math notranslate nohighlight">
+\[q_k = x-v.\]</div>
+<p>Somit folgt <span class="math notranslate nohighlight">\(x=v+q_k\in V_k\)</span> und daher <span class="math notranslate nohighlight">\(x\in\bigcup_{k\in\N} V_k\)</span>.</p>
+</div>
+<p>Mithilfe einer Vitali-Menge können wir nun die <span class="math notranslate nohighlight">\(\sigma\)</span>-Additivität des äußeren Lebesgue-Maßes zum Widerspruch führen.</p>
+<div class="proof lemma admonition" id="lemma-30">
+<p class="admonition-title"><span class="caption-number">Lemma 5.7 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Das äußere Lebesgue-Maß <span class="math notranslate nohighlight">\(\lambda^\ast\)</span> ist nicht <span class="math notranslate nohighlight">\(\sigma\)</span>-Additiv auf <span class="math notranslate nohighlight">\(2^{\R}\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. <strong>Annahme</strong>: Das äußere Lebesgue-Maß sei <span class="math notranslate nohighlight">\(\sigma\)</span>-Additiv auf <span class="math notranslate nohighlight">\(2^{\R}\)</span>.</p>
+<p>Die Mengen <span class="math notranslate nohighlight">\(V_k\)</span> sind paarweise disjunkt und überdecken <span class="math notranslate nohighlight">\(\R\)</span>, daher folgt</p>
+<div class="math notranslate nohighlight">
+\[0&lt;\lambda^\ast(\R) = \lambda^\ast(\bigcup_{k\in\N} V_k) = \sum_{k\in\N} \lambda^\ast(V_k) = \sum_{k\in\N} \lambda^\ast(V)\]</div>
+<p>und daher <span class="math notranslate nohighlight">\(\lambda^\ast(V)&gt;0\)</span>. Diese Folgerung wollen wir nun zum Widerspruch führen. Dazu betrachten wir die folge halboffener Quader <span class="math notranslate nohighlight">\(Q_k:=(k,k]\)</span> und erkennen unter Ausnutzung <strong>endlicher</strong> Additivität, dass</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(V) \geq \lambda^\ast\left(V \cap \bigcup_{k=1}^N Q_k\right) = 
+\sum_{k=1}^N \lambda^\ast(V\cap Q_k).\]</div>
+<p>Somit folgt mithilfe der <span class="math notranslate nohighlight">\(\sigma\)</span>-Subadditivität</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(V) \geq \sum_{k=1}^\infty \lambda^\ast(V\cap Q_k) \geq
+\lambda^\ast\left(\bigcup_{k\in\N} V\cap Q_k\right) = \lambda^\ast(V).\]</div>
+<p>Da wir <span class="math notranslate nohighlight">\(\lambda^\ast(V)&gt;0\)</span> folgern konnten, muss daher ein <span class="math notranslate nohighlight">\(N\in\N\)</span> existieren, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(V\cap Q_N) &gt;0.\]</div>
+<p>Analog zum Beweis, dass die <span class="math notranslate nohighlight">\(V_k\)</span> paarweise disjunkt sind, folgert man auch, dass die Mengen <span class="math notranslate nohighlight">\(\frac{1}{m}+(V\cap Q_N)\)</span> für verschieden <span class="math notranslate nohighlight">\(m\in\N\)</span> paarweise disjunkt sind und wegen der Translationsinvarianz folgt</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(\frac{1}{m}+(V\cap Q_N)) = \lambda^\ast((V\cap Q_N)) &gt;0.\]</div>
+<p>Wir erkennen allerdings, dass</p>
+<div class="math notranslate nohighlight">
+\[\bigcup_{m\in\N} \frac{1}{m}+(V\cap Q_N) \subset (-N,N+1]\]</div>
+<p>und nutzen wir nun erneut die angenommene <span class="math notranslate nohighlight">\(\sigma\)</span>-Additivität so erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[\infty = \sum_{m=1}^\infty \lambda^\ast(\frac{1}{m}+(V\cap Q_N)) = 
+\lambda^\ast\left(\bigcup_{m\in\N}  \frac{1}{m}+(V\cap Q_N) \right)\leq 
+\lambda^\ast((-N,N+1]) = 2N + 1\]</div>
+<p>und somit</p>
+<div class="math notranslate nohighlight">
+\[\infty \leq 2N + 1\]</div>
+<p>was ein Widerspruch ist. Daher ist die Annahme der <span class="math notranslate nohighlight">\(\sigma\)</span>-Additivität falsch.</p>
+</div>
+<p>Ähnliche Konstruktionen können auch allgemein für <span class="math notranslate nohighlight">\(\R^n\)</span> durchgeführt werden. Man hat allgemein die Aussage, dass <span class="math notranslate nohighlight">\(\lambda^\ast\)</span> auf <span class="math notranslate nohighlight">\(\R^n\)</span> <strong>kein</strong> Maß ist.</p>
+</div>
+<div class="section" id="das-lebesgue-masze">
+<h3><span class="section-number">5.1.3.5. </span>Das Lebesgue-Maße<a class="headerlink" href="#das-lebesgue-masze" title="Permalink to this headline">¶</a></h3>
+<p>Der vorherige Abschnitt zeigt, dass die Potenzmenge <span class="math notranslate nohighlight">\(2^{\R^n}\)</span> zu groß ist, d.h. auf dieser <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra ist <span class="math notranslate nohighlight">\(\lambda^\ast\)</span> kein Maß. Deshalb wollen wir nun eine Klasse messbarer Mengen definieren, welche dann eine kleinere <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra liefert.</p>
+<div class="proof remark admonition" id="remark-31">
+<p class="admonition-title"><span class="caption-number">Remark 5.5 </span> (Das Jordan-Konzept)</p>
+<div class="remark-content section" id="proof-content">
+<p>Eine mögliche Idee um messbare Mengen zu definieren haben wir bereits beim Jordan-Inhalt kennengelernt. Hierbei wird zusätzlich zum äußeren Mein inneres definiert. Beim Übergang vom äußeren Jordan-Inhalt zum äußeren Lebesgue-Maß werden endliche Vereinigungen durch unendliche ersetzt, weshalb man versuchen könnte, das nun auch hier zu tun, indem man das innere Lebesgue-Maß auch über unendliche Vereinigungen definiert</p>
+<div class="math notranslate nohighlight">
+\[\lambda_\ast(A) := \sup\left\{\sum_{i=1}^\infty Q_i: \bigcup_{i\in\N} Q_i \subset A, Q_i\text{ disjunkte halboffener Quader}\right\}.\]</div>
+<p>Offensichtlich folgt mit dieser Definition</p>
+<div class="math notranslate nohighlight">
+\[\iota_\ast(A)\leq \lambda_\ast(A)\]</div>
+<p>da das Supremum über mehr Ausschöpfungen gebildet wird. Nun sei aber <span class="math notranslate nohighlight">\(Q_i\)</span> eine beliebiger Folge halboffener Quader, welche <span class="math notranslate nohighlight">\(A\)</span> von innen ausschöpfen, dann gilt für jedes <span class="math notranslate nohighlight">\(N\in\N\)</span></p>
+<div class="math notranslate nohighlight">
+\[\iota_\ast(A) \geq \sum_{i=1}^N \lambda^n(Q_i)\]</div>
+<p>und daher</p>
+<div class="math notranslate nohighlight">
+\[\iota_\ast(A)\geq \sum_{i=1}^\infty \lambda^n(Q_i).\]</div>
+<p>Diese Ungleichung erhalten wir deshalb so einfach, da für jedes <span class="math notranslate nohighlight">\(N\in\N\)</span> auch <span class="math notranslate nohighlight">\(\bigcup_{i=1}^N Q_i\subset A\)</span> gilt. Beim äußern Maßen konnten wir aber andersherum nicht einfach aus <span class="math notranslate nohighlight">\(A\subset \bigcup_{i=1}^\infty W_i\)</span> auch <span class="math notranslate nohighlight">\(A\subset \bigcup_{i=1}^N W_i\)</span> folgern.</p>
+<p>Da die obige Ungleichung für beliebig Folgen halboffener Quader gilt, folgt</p>
+<div class="math notranslate nohighlight">
+\[\iota_\ast(A) \geq \lambda_\ast(A).\]</div>
+<p>Wir erkennen also, dass für das innere Maß keinen Unterschied macht ob wir endliche oder unendliche Vereinigungen betrachten.</p>
+<p>Würden wir Messbarkeit über die Bedingung</p>
+<div class="math notranslate nohighlight">
+\[\lambda_\ast(A)=\lambda^\ast(A)\]</div>
+<p>definieren erhielten wir erneut keine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra. Denn für die Menge <span class="math notranslate nohighlight">\(A=[0,1]\setminus\Q\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[J\in\mathcal{R}_{\text{Q}}, J\subset A\Rightarrow J=\emptyset\]</div>
+<p>und daher <span class="math notranslate nohighlight">\(\lambda_\ast(J) = 0\)</span>. Der Trick die Menge mit kleinen Quadern zu approximieren wie beim äußeren Maß funktioniert auch nicht, da wir in diesem Fall jeweils die Teilmengen Bedingung verletzt wäre.</p>
+<p>Es gilt aber</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(A) = \lambda^\ast([0,1]) - \underbrace{\lambda^\ast(\Q)}_{=0} = 1\]</div>
+<p>und daher wäre <span class="math notranslate nohighlight">\(A\)</span> nicht messbar, obwohl sowohl <span class="math notranslate nohighlight">\(\Q\)</span>, als auch <span class="math notranslate nohighlight">\([0,1]\)</span> messbar wären. Damit hätten wir erneut keine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra konstruiert.</p>
+</div>
+</div><p>Es gibt verschiedene Ansätze Lebesgue-Messbarkeit zu definieren (welche alle äquivalent sind), wir wählen im Folgenden das Konzept von
+Carathéodory.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Constantin Carathéodory</p>
+<p><a class="reference external" href="https://de.wikipedia.org/wiki/Constantin_Carath%C3%A9odory">Constantin Carathéodory</a> (Geboren 13. September 1873 in Berlin; Gestorben 2. Februar 1950 in München) war ein Mathematiker griechischer Herkunft.</p>
+</div>
+<div class="proof definition admonition" id="definition-32">
+<p class="admonition-title"><span class="caption-number">Definition 5.13 </span> (Lebesgue-Maß)</p>
+<div class="definition-content section" id="proof-content">
+<p>Wir nennen eine Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> <strong>Lebesgue-messbar</strong>, genau dann wenn für alle Teilmengen <span class="math notranslate nohighlight">\(E \subset \R^n\)</span> gilt:</p>
+<div class="math notranslate nohighlight">
+\[\lambda^*(E) = \lambda^*(E \cap A) + \lambda^*(E \setminus A).\]</div>
+<p>Wir notieren die Menge der Lebesgue-messbaren Mengen als</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{A} = \lbrace A \subset \R^n : A \text{ ist Lebesgue-messbar } \rbrace\]</div>
+<p>Wir definieren das <strong>Lebesgue-Maß</strong> <span class="math notranslate nohighlight">\(\lambda \colon \mathcal{A} \rightarrow [0,\infty]\)</span> messbarer Mengen durch</p>
+<div class="math notranslate nohighlight">
+\[\lambda(A) = \lambda^*(A).\]</div>
+</div>
+</div><div class="proof remark admonition" id="remark-33">
+<p class="admonition-title"><span class="caption-number">Remark 5.6 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Es ist wichtig zu bemerken, dass diese Bedingung eine Einschränkung ist, da das äußere Lebesgue-Maß <strong>nicht</strong> additiv ist auf <span class="math notranslate nohighlight">\(2^{\R^n}\)</span>, es gilt lediglich</p>
+<div class="math notranslate nohighlight">
+\[\lambda^*(E) \leq \lambda^*(E \cap A) + \lambda^*(E \setminus A).\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(A,E\subset\R^d\)</span>. Aus diesem Grund scheint die Einschränkung sinnvoll zu sein um Additivität zu erhalten.</p>
+</div>
+</div><p>Wir betrachten im Folgenden verschiedene Beispiele messbarer Mengen, was zeigt, dass <span class="math notranslate nohighlight">\(\mathcal{A}\neq \emptyset\)</span>.</p>
+<div class="proof lemma admonition" id="thm:lebesguemes">
+<p class="admonition-title"><span class="caption-number">Lemma 5.8 </span> (Lebesgue-messbare Mengen)</p>
+<div class="lemma-content section" id="proof-content">
+<ol class="simple">
+<li><p>Jede Lebesgue-Nullmenge ist Lebesgue-messbar, insbesondere ist <span class="math notranslate nohighlight">\(\emptyset\)</span> Lebesgue-messbar.</p></li>
+<li><p>Jeder halboffene Quader ist messbar.</p></li>
+</ol>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. ** Ad 1.**</p>
+<p>Es sei <span class="math notranslate nohighlight">\(N\)</span> eine Lebesgue-Nullmenge und <span class="math notranslate nohighlight">\(E\subset\R^d\)</span>, dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(E) \leq \underbrace{\lambda^\ast(E\cap\N)}_{=0} + \lambda^\ast(E\setminus N)\leq
+ \lambda^\ast(E)\]</div>
+<p>und daher <span class="math notranslate nohighlight">\(\lambda^\ast(E) = \lambda^\ast(E\cap\N) + \lambda^\ast(E\setminus N)\)</span>.</p>
+<p><strong>Ad 2.</strong></p>
+<p>Folgt aus <a class="reference internal" href="#thm:outerlebesgue">Theorem 5.4</a> Eigenschaft 4.</p>
+</div>
+<p>Weiterhin erhält man über den Begriff der Lebesgue-messbarkeit endlich die erhoffte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra Struktur.</p>
+<div class="proof lemma admonition" id="lemma-35">
+<p class="admonition-title"><span class="caption-number">Lemma 5.9 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Die Klasse der Lebesgue-messbaren Mengen <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> bildet eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. 1. Von <a class="reference internal" href="#thm:lebesguemes">Lemma 5.8</a> erhalten wir zunächst, dass <span class="math notranslate nohighlight">\(\emptyset\in\mathcal{A}\)</span>.</p>
+<p>2. Weiterhin sei <span class="math notranslate nohighlight">\(A\in\mathcal{A}\)</span> messbar und <span class="math notranslate nohighlight">\(E\subset\R^d\)</span> beliebig, dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(E) = \lambda^\ast(\underbrace{A\cap E}_{=E\setminus A^C}) + \lambda^\ast(\underbrace{E\setminus A}_{=E\cap A^C}) = 
+\lambda^\ast(E\setminus A^C) + \lambda^\ast(E\cap A^c) \]</div>
+<p>und daher ist auch <span class="math notranslate nohighlight">\(A^C\in\mathcal{A}\)</span>.</p>
+<p>3. Wir zeigen zunächst, dass <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> unter endlichen Vereinigungen, Schnitten und Differenzen abgeschlossen ist.</p>
+<p>Es seien <span class="math notranslate nohighlight">\(A,B\in\mathcal{A}\)</span> und <span class="math notranslate nohighlight">\(E\subset\R^d\)</span> dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^\ast(E) &amp;= \lambda^\ast(E\cap A) + \underbrace{\lambda^\ast(E\setminus A)}_{\text{wende Messbarkeit von} B\text{ an}}\\
+&amp;=\lambda^\ast(E\cap A) + \lambda^\ast((E\setminus A)\cap B) + \lambda^\ast((E\setminus A)\setminus B)\\
+&amp;=
+\underbrace{\lambda^\ast(E\cap (A\cup B)\cap A) + \lambda^\ast((E\cap A\cup B)\setminus A)}_{\text{wende Messbarket von } A \text{ an}} + \lambda^\ast(E\setminus(A\cup B))\\
+&amp;=
+\lambda^\ast(E\cap (A\cup B)) + \lambda^\ast(E\setminus(A\cup B))\end{split}\]</div>
+<p>und daher ist <span class="math notranslate nohighlight">\(A\cup B\)</span> messbar. Weiterhin folgt <span class="math notranslate nohighlight">\(A\cap B = (A^C\cup B^C)^C\in\mathcal{A}\)</span> und daher auch <span class="math notranslate nohighlight">\(A\cap B\in\mathcal{A}\)</span>. Außerdem gilt <span class="math notranslate nohighlight">\(A\setminus B = A\cap B^C\)</span> und somit auch <span class="math notranslate nohighlight">\(A\setminus B\in\mathcal{A}\)</span>.</p>
+<p>4. Sei nun <span class="math notranslate nohighlight">\(A_i\in\mathcal{A}\)</span> für <span class="math notranslate nohighlight">\(i\in\N\)</span> eine <strong>disjunkte</strong> Folge von Mengen und setze <span class="math notranslate nohighlight">\(A=\bigcup_{i\in\N} A_i\)</span>. Unter Ausnutzung von <span class="math notranslate nohighlight">\(A_1\in\mathcal{A}\)</span> haben wir für <span class="math notranslate nohighlight">\(E\subset\R^d\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^\ast(E\cap (A_1\cup A_2)) &amp;= \lambda^\ast(E\cap(A_1\cup A_2)\cap A_1) + \lambda^\ast(E\cap(A_1\cup A_2)\setminus A_1)\\
+&amp;=
+\lambda^\ast(E\cap A_1) + \lambda^\ast(E\cap A_2)\end{split}\]</div>
+<p>und somit gilt für endliche Vereinigungen</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(E\cap \bigcup_{i=1}^N A_i) = \sum_{i=1}^N \lambda^\ast(E\cap A_i).\]</div>
+<p>Mit Monotonie folgt dann für jedes <span class="math notranslate nohighlight">\(N\in\N\)</span></p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(E\cap A)\geq \lambda^\ast(E\cap \bigcup_{i=1}^N A_i) = \sum_{i=1}^N \lambda^\ast(E\cap A_i)\]</div>
+<p>und daher mit der <span class="math notranslate nohighlight">\(\sigma\)</span>-Subadditivität</p>
+<div class="math notranslate nohighlight" id="equation-eq-lebesguealgebra">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-lebesguealgebra" title="Permalink to this equation">¶</a></span>\[\lambda^\ast(E\cap A) \geq \sum_{i=1}^\infty \lambda^\ast(E\cap A_i)\geq \lambda^\ast\left(\bigcup_{i\in\N} E\cap A_i\right) = \lambda^\ast(E\cap A).\]</div>
+<p>Weiterhin wissen wir nach 3., dass endliche Vereinigungen messbarer Mengen messbar sind, daher</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^\ast(E) &amp;= \lambda^\ast\left(E\cap \bigcup_{i=1}^N A_i\right) + \lambda^\ast\left(E\setminus \bigcup_{i=1}^N A_i\right)\\
+&amp;\geq
+\sum_{i=1}^N \lambda^\ast(E\cap A_i) + \lambda^\ast(E\setminus A)\end{split}\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(N\in\N\)</span> und somit</p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(E)\geq \sum_{i=1}^\infty \lambda^\ast(E\cap A_i) + \lambda^\ast(E\setminus A)\geq 
+\lambda^\ast(E\cap A) + \lambda^\ast(E\setminus A) \geq \lambda^\ast(E).\]</div>
+<p>Daraus schließen wir mit , dass <a href="#id4"><span class="problematic" id="id5">:eqref:`eq:LebesgueAlgebra`</span></a></p>
+<div class="math notranslate nohighlight">
+\[\lambda^\ast(E) = \sum_{i=1}^\infty \lambda^\ast(E\cap A_i) + \lambda^\ast(E\setminus A) =
+\lambda^\ast(E\cap A) + \lambda^\ast(E\setminus A).\]</div>
+<p>5.\ Es bleibt die Aussage für eine belibige nicht notwendigerweise disjunkte Folge <span class="math notranslate nohighlight">\(A_i\in\mathcal{A}, i\in\N\)</span> zu zeigen. Dazu definieren wir die Mengen <span class="math notranslate nohighlight">\(B_1:=A_1\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[B_k := A_i\setminus \left(\bigcup_{i=1}^k B_i  \right)\]</div>
+<p>wobei wir erkennen, dass die <span class="math notranslate nohighlight">\(B_i\)</span> paarweise disjunkt sind und insbesondere gilt</p>
+<div class="math notranslate nohighlight">
+\[\bigcup_{k\in\N} B_k = \bigcup_{i\in\N} A_i.\]</div>
+<p>Nach 4. ist damit auch diese Vereinigung messbar.</p>
+</div>
+<p>Mit dieser Aussage können wir weitere messbare Mengen identifizieren.</p>
+<div class="proof lemma admonition" id="thm:lebesgueOffenAbgeschlossen">
+<p class="admonition-title"><span class="caption-number">Lemma 5.10 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Offene und abgeschlossene Teilmengen des <span class="math notranslate nohighlight">\(\R^n\)</span> sind Lebesgue-messbar.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Es sei <span class="math notranslate nohighlight">\(U\subset\R^d\)</span> offen, wir betrachten die Menge</p>
+<div class="math notranslate nohighlight">
+\[\bigcup_{a,b\in \Q^d, (a,b]\subset U} (a,b]\subset U\]</div>
+<p>Sei nun <span class="math notranslate nohighlight">\(x\in U\)</span>, dann existiert auch <span class="math notranslate nohighlight">\(a,b\in\Q^d\)</span>, s.d. <span class="math notranslate nohighlight">\(x\in(a,b]\subset U\)</span> und somit <span class="math notranslate nohighlight">\(x\in\bigcup_{a,b\in \Q^d, (a,b]\subset U}\)</span>, woraus wir schließen</p>
+<div class="math notranslate nohighlight">
+\[\bigcup_{a,b\in \Q^d, (a,b]\subset U} (a,b] = U.\]</div>
+<p>Somit ist <span class="math notranslate nohighlight">\(U\)</span> abzählbare Vereinigung messbarer Mengen und daher selbst messbar.</p>
+<p>Abgeschlossene Mengen sind als Komplemente offener und daher messbarer Mengen, selbst messbar.</p>
+</div>
+<p>Da wir nun eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra zu Verfügung haben können wir ein Maß definieren.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>ToDo</p>
+</div>
+<div class="proof theorem admonition" id="theorem-37">
+<p class="admonition-title"><span class="caption-number">Theorem 5.5 </span> (Regularität des Lebesgue Maßes)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Das Lebesgue Maß ist von außen und innen regulär im Sinne von <a class="reference internal" href="#def:regularitaet">Definition 5.3</a>, d.h., für jede Lebesgue-messbare Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> gilt</p>
+<p>1. für jedes <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert eine offene Menge <span class="math notranslate nohighlight">\(U\)</span> mit <span class="math notranslate nohighlight">\(A \subset U\)</span> für die gilt <span class="math notranslate nohighlight">\(\mu(U \setminus A) &lt; \epsilon\)</span>,</p>
+<p>2. für jedes <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert eine abgeschlossene Menge <span class="math notranslate nohighlight">\(F\)</span> mit <span class="math notranslate nohighlight">\(F \subset A\)</span> für die gilt <span class="math notranslate nohighlight">\(\mu(A \setminus F) &lt; \epsilon\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. ToDo.</p>
+</div>
+<div class="proof theorem admonition" id="theorem-38">
+<p class="admonition-title"><span class="caption-number">Theorem 5.6 </span> (Charakterisierung Lebesgue-messbarer Mengen)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Die folgenden drei Aussagen sind äquivalent, so dass sie eine Charakterisierung der Lebesgue-messbaren Mengen darstellen.</p>
+<p>1. Eine Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> ist Lebesgue messbar.</p>
+<p>2. Für jedes <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert eine offene Menge <span class="math notranslate nohighlight">\(U\)</span> und eine abgeschlossene Menge <span class="math notranslate nohighlight">\(F\)</span>, so dass <span class="math notranslate nohighlight">\(F \subset A \subset U\)</span> und es gilt <span class="math notranslate nohighlight">\(\mu(U \setminus F) &lt; \epsilon\)</span>.</p>
+<p>3. Für jedes <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert eine offene Menge <span class="math notranslate nohighlight">\(U\)</span> mit <span class="math notranslate nohighlight">\(A \subset U\)</span> für die gilt <span class="math notranslate nohighlight">\(\mu(U \setminus A) &lt; \epsilon\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. ToDo</p>
+</div>
+<p>Man kann für die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra von <span class="math notranslate nohighlight">\(\R^n\)</span> zeigen, dass gilt</p>
+<div class="math notranslate nohighlight">
+\[\B(\R^n) = \sigma(\lbrace A \subset \R^n \text{ offen }\rbrace) ) = \sigma(\lbrace A \subset \R^n \text{ abgeschlossen }\rbrace)\]</div>
+<p>Die letzte Gleichung gilt, da <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren abgeschlossen unter Komplementbildung sind.
+Zusammen mit <a class="reference internal" href="#thm:lebesgueOffenAbgeschlossen">Lemma 5.10</a> folgt dann schon, dass die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\B(\R^n)\)</span> eine Teilmenge der Lebesgue messbaren Mengen ist.
+Der folgende Satz zeigt, dass es eine echte Teilmenge ist indem er den Unterschied der Mengen als Lebesgue Nullmengen charaterisiert.</p>
+<div class="proof theorem admonition" id="theorem-39">
+<p class="admonition-title"><span class="caption-number">Theorem 5.7 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Eine Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> ist genau dann Lebesgue-messbar, wenn eine Teilmenge <span class="math notranslate nohighlight">\(B \in \B(\R^n)\)</span> und eine Nullmenge <span class="math notranslate nohighlight">\(N \subset \R^n\)</span> existiert, so dass <span class="math notranslate nohighlight">\(A = B \cup N\)</span> ist, wobei <span class="math notranslate nohighlight">\(B\cap N=\emptyset\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. ToDo</p>
+</div>
 </div>
 </div>
 </div>
