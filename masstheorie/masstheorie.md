@@ -1394,20 +1394,76 @@ Es seien $A,B\in\mathcal{A}$ und $E\subset\R^d$ dann gilt
 
 und daher ist $A\cup B$ messbar. Weiterhin folgt $A\cap B = (A^C\cup B^C)^C\in\mathcal{A}$ und daher auch $A\cap B\in\mathcal{A}$. Außerdem gilt $A\setminus B = A\cap B^C$ und somit auch $A\setminus B\in\mathcal{A}$.
 
-4\. Sei nun $A_i\in\mathcal{A}$ für $i\in\N$ eine **disjunkte** Folge von Mengen. Unter Ausnutzung von $A_1\in\mathcal{A}$ haben wir für $E\subset\R^d$
+4\. Sei nun $A_i\in\mathcal{A}$ für $i\in\N$ eine **disjunkte** Folge von Mengen und setze $A=\bigcup_{i\in\N} A_i$. Unter Ausnutzung von $A_1\in\mathcal{A}$ haben wir für $E\subset\R^d$
 
 ```{math}
-j
+\lambda^\ast(E\cap (A_1\cup A_2)) &= \lambda^\ast(E\cap(A_1\cup A_2)\cap A_1) + \lambda^\ast(E\cap(A_1\cup A_2)\setminus A_1)\\
+&=
+\lambda^\ast(E\cap A_1) + \lambda^\ast(E\cap A_2)
 ```
 
+und somit gilt für endliche Vereinigungen
 
+```{math}
+\lambda^\ast(E\cap \bigcup_{i=1}^N A_i) = \sum_{i=1}^N \lambda^\ast(E\cap A_i).
+```
 
+Mit Monotonie folgt dann für jedes $N\in\N$ 
+
+```{math}
+\lambda^\ast(E\cap A)\geq \lambda^\ast(E\cap \bigcup_{i=1}^N A_i) = \sum_{i=1}^N \lambda^\ast(E\cap A_i)
+```
+
+und daher mit der $\sigma$-Subadditivität
+
+```{math}
+:label: eq:LebesgueAlgebra
+
+\lambda^\ast(E\cap A) \geq \sum_{i=1}^\infty \lambda^\ast(E\cap A_i)\geq \lambda^\ast\left(\bigcup_{i\in\N} E\cap A_i\right) = \lambda^\ast(E\cap A).
+```
+
+Weiterhin wissen wir nach 3., dass endliche Vereinigungen messbarer Mengen messbar sind, daher 
+
+```{math}
+\lambda^\ast(E) &= \lambda^\ast\left(E\cap \bigcup_{i=1}^N A_i\right) + \lambda^\ast\left(E\setminus \bigcup_{i=1}^N A_i\right)\\
+&\geq
+\sum_{i=1}^N \lambda^\ast(E\cap A_i) + \lambda^\ast(E\setminus A)
+```
+
+für alle $N\in\N$ und somit 
+
+```{math}
+\lambda^\ast(E)\geq \sum_{i=1}^\infty \lambda^\ast(E\cap A_i) + \lambda^\ast(E\setminus A)\geq 
+\lambda^\ast(E\cap A) + \lambda^\ast(E\setminus A) \geq \lambda^\ast(E).
+```
+
+Daraus schließen wir mit , dass {eqref}`eq:LebesgueAlgebra`
+
+```{math}
+\lambda^\ast(E) = \sum_{i=1}^\infty \lambda^\ast(E\cap A_i) + \lambda^\ast(E\setminus A) =
+\lambda^\ast(E\cap A) + \lambda^\ast(E\setminus A).
+```
+
+5.\ Es bleibt die Aussage für eine belibige nicht notwendigerweise disjunkte Folge $A_i\in\mathcal{A}, i\in\N$ zu zeigen. Dazu definieren wir die Mengen $B_1:=A_1$,
+
+```{math}
+B_k := A_i\setminus \left(\bigcup_{i=1}^k B_i  \right)
+```
+
+wobei wir erkennen, dass die $B_i$ paarweise disjunkt sind und insbesondere gilt 
+
+```{math}
+\bigcup_{k\in\N} B_k = \bigcup_{i\in\N} A_i.
+```
+
+Nach 4. ist damit auch diese Vereinigung messbar.
 
 ````
 
+Mit dieser Aussage können wir weitere messbare Mengen identifizieren.
 
 ````{prf:lemma}
-:label: thm:lebesguemes
+:label: thm:lebesgueOffenAbgeschlossen
 
 Offene und abgeschlossene Teilmengen des $\R^n$ sind Lebesgue-messbar.
 
@@ -1431,8 +1487,9 @@ Somit ist $U$ abzählbare Vereinigung messbarer Mengen und daher selbst messbar.
 Abgeschlossene Mengen sind als Komplemente offener und daher messbarer Mengen, selbst messbar.
 ````
 
-
-
+```{danger}
+ToDo
+```
 
 ````{prf:theorem} Regularität des Lebesgue Maßes
 
@@ -1445,7 +1502,7 @@ Das Lebesgue Maß ist von außen und innen regulär im Sinne von {prf:ref}`def:r
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.101f.
+ToDo.
 ````
 
 ````{prf:theorem} Charakterisierung Lebesgue-messbarer Mengen
@@ -1461,7 +1518,7 @@ Die folgenden drei Aussagen sind äquivalent, so dass sie eine Charakterisierung
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.104
+ToDo
 ````
 
 Man kann für die Borel-$\sigma$-Algebra von $\R^n$ zeigen, dass gilt
@@ -1471,23 +1528,13 @@ Man kann für die Borel-$\sigma$-Algebra von $\R^n$ zeigen, dass gilt
 ```
 
 Die letzte Gleichung gilt, da $\sigma$-Algebren abgeschlossen unter Komplementbildung sind.
-Zusammen mit {prf:ref}`theorem:lebesgueOffenAbgeschlossen` folgt dann schon, dass die Borel-$\sigma$-Algebra $\B(\R^n)$ eine Teilmenge der Lebesgue messbaren Mengen ist.
+Zusammen mit {prf:ref}`thm:lebesgueOffenAbgeschlossen` folgt dann schon, dass die Borel-$\sigma$-Algebra $\B(\R^n)$ eine Teilmenge der Lebesgue messbaren Mengen ist.
 Der folgende Satz zeigt, dass es eine echte Teilmenge ist indem er den Unterschied der Mengen als Lebesgue Nullmengen charaterisiert.
 
 ````{prf:theorem}
-Eine Teilmenge $A \subset \R^n$ ist genau dann Lebesgue-messbar, wenn eine Teilmenge $B \in \B(\R^n)$ und eine Nullmenge $N \subset \R^n$ existiert, so dass $A = B \sqcup N$ ist.
+Eine Teilmenge $A \subset \R^n$ ist genau dann Lebesgue-messbar, wenn eine Teilmenge $B \in \B(\R^n)$ und eine Nullmenge $N \subset \R^n$ existiert, so dass $A = B \cup N$ ist, wobei $B\cap N=\emptyset$.
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.107
-````
-
-Man könnte sich an dieser Stelle fragen, ob nicht eventuell alle Teilmengen des $\R^n$ Lebesgue-messbar sind, was einen Großteil der Theorie unnötig machen würde.
-Hierzu sei folgender wichtiger **Satz von Vitali** erwähnt, der explizit nichtmessbare Mengen konstruiert.
-
-
-
-
-````{prf:proof}
-**ToDo:** Referenz!
+ToDo
 ````
