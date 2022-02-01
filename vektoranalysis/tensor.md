@@ -1,3 +1,4 @@
+(s:Tensoren)=
 # Tensoren und Tensorprodukte
 
 In diesem Kapitel widmen wir uns einem für die Physik sehr wichtigen aber relativ abstrakten Thema der Vektoranalysis, nämlich *Tensoren* und *Tensorprodukten*.
@@ -1219,6 +1220,7 @@ Diese Projektionsabbildung weist jedem Tensor $T\in T_k^0$ der Stufe $k$ einen s
 Die Bezeichnung **fermionisch** und **bosonisch** in {prf:ref}`def:fermionischeProjektion` stammen daher, dass symmetrische Tensorprodukte *identische Bosonen* in der Quantenmechanik beschreiben, wohingegen antisymmetrische Tensorprodukte *identischen Fermionen* zugeordnet werden. Weitere Informationen findet man beispielsweise unter [Ununterscheidbarkeit von Teilchen in der Quantenmechanik](https://de.wikipedia.org/wiki/Ununterscheidbare_Teilchen#Ununterscheidbarkeit_in_der_Quantenmechanik).
 ````
 
+(s:grass)=
 ## Grassmann-Algebra
 
 Im letzten Abschnitt haben wir gesehen, dass die Menge der antisymmetrischen Tensoren von Stufe zusammen mit der Addition von Tensoren der gleichen Stufe einen Vektorraum $\Lambda_k(V)$ bildet.

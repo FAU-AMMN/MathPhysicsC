@@ -1065,6 +1065,7 @@ Es sei $N$ eine Nullmenge und $A\subset N$, dann folgt aus der Monotonie
 
 Intuitiv könnten man meinen, dass lediglich abzählbare MEngen Lebesgue Nullmengen sind, dies ist jedoch nicht der Fall. Ein Beispiel ist die [canto-Menge](https://de.wikipedia.org/wiki/Cantor-Menge) welche überabzählbar ist, aber Lebesgue-Maß null hat.
 
+(s:vitali)=
 ### Das äußere Maß ist kein Maß
 
 Für das äußere Lebesgue Maß kann man einige Eigenchaften zeigen (siehe {prf:ref}`thm:outerlebesgue`) welche zwar eine Maß erinnern. Der größte Unterschied bisher ist, dass wir nur $\sigma$-Subadditivität und nicht $\sigma$-Additivität zeigen konnten. Insbesondere arbeitet das äußere Maß auf der gesamten Potenzmenge $2^{\R^d}$ und nicht auf einer kleineren $\sigma$-Algebra, man könnte also vermuten, dass diese Menge zu groß ist um $\sigma$-Additivität zeigen zu können, was tatsächlich der Fall ist.
@@ -1489,7 +1490,7 @@ Abgeschlossene Mengen sind als Komplemente offener und daher messbarer Mengen, s
 
 Da wir nun eine $\sigma$-Algebra zu Verfügung haben können wir ein Maß definieren.
 
-````{prf:defintion} Lebesgue-Maß
+````{prf:definition} Lebesgue-Maß
 Wir definieren das Lebesgue-Maß $\lambda^n:\mathcal{A}\to[0,\infty]$ über die Einschränkung des äußeren Maßes, d.h.,
 
 ```{math}
