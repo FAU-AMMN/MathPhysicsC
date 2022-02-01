@@ -28,4 +28,8 @@ chapters:
   - file: masstheorie/masstheorie.md
   - file: masstheorie/lebesgue_integral.md
   - file: masstheorie/integrationstechnik.md
+- file: complexanalysis/complexanalysis.md
+  sections:
+  - file: complexanalysis/cauchyriemann.md
+  - file: complexanalysis/kurvenintegrale.md
 - file: references

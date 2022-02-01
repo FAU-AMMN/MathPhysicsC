@@ -359,6 +359,7 @@ Schulz-Baldes S.166
 Abschließend wollen wir noch ein wichtiges Theorem formulieren, dass für die mehrdimensionale Integration sehr nützlich ist.
 
 ````{prf:theorem} Jacobische Transformationsformel
+:label: thm:jacobitransformation
 Seien $U, V \subset \R^n$ offene Teilmengen und die Abbildung
 
 ```{math}
