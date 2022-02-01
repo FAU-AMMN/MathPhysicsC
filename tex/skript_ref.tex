@@ -78,7 +78,11 @@
         
 
 \title{Mathematik für Physikstudierende C}
+<<<<<<< HEAD
 \date{Feb 01, 2022}
+=======
+\date{Jan 17, 2022}
+>>>>>>> main
 
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 
@@ -4349,7 +4353,11 @@ Insbesondere wenn man \href{https://de.wikipedia.org/wiki/Testfunktion}{glatte T
 
 \par
 Wir definieren zunächst die Eigenschaft eines Hausdorff Raums.
+<<<<<<< HEAD
 \begin{definition}{(Hausdorff Raum)}{manifolds/manifolds_prelim:def:hausdorffraum}
+=======
+\begin{definition}{(Hausdorff Raum)}{manifolds/manifolds_prelim:definition-10}
+>>>>>>> main
 
 
 
@@ -5799,7 +5807,11 @@ gelte, dann heißt \(D\) Untervektorbündel von \(E\).
 
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/subbundle.png}
+<<<<<<< HEAD
 \caption{Visualisierung eines Untervektorbündels, siehe Kapitel 10 in \cite{Lee03}.}\label{\detokenize{manifolds/diffformen:fig-subbundle}}\end{figure}
+=======
+\caption{Visualisierung eines Untervektorbündels, siehe \cite{Lee03} Kapitel 10.}\label{\detokenize{manifolds/diffformen:fig-subbundle}}\end{figure}
+>>>>>>> main
 
 \par
 In diesem Fall erhält man also ein Untervektorbündel.
@@ -5835,6 +5847,25 @@ eine \(k\) Differentialform oder auch \(k\) Form. Den Vektorraum der Differentia
 
 \subsection{Das äußere Produkt}
 \label{\detokenize{manifolds/diffformen:das-auszere-produkt}}
+<<<<<<< HEAD
+\par
+In \hyperref[\detokenize{vektoranalysis/tensor:s-symtensoren}]{Section \ref{\detokenize{vektoranalysis/tensor:s-symtensoren}}} haben wir das äußere Produkt \(\wedge\) kennengelernt, welches wir nun auf Differentialformen übertragen. Dazu seien \(\omega\in \Omega^k(\M), \eta\in \Omega^l(\M)\) zwei Differentialformen für \(k,l\in\N\), dann setzten wir
+\begin{align*}
+\omega \wedge \eta:\M &\to \Lambda^{k+l}T^\ast\M\\
+p&\mapsto \omega_p \wedge \eta_p
+\end{align*}
+\par
+was in der Tat eine Differentialform definiert, also \(\omega\wedge\eta \in \Omega^{k+l}(\M)\). Zusätzlich überträgt sich auch die Darstellung in einer lokalen Karte von \cref{manifolds/tangential:cor:tensorfieldchart} auf diese Situation, wobei das Tensorprodukt, durch das äußere Produkt ersetzt werden kann.
+\begin{lemma}{}{manifolds/diffformen:lemma-3}
+
+
+
+\par
+Es sei \(\M\) eine glatte Mannigfaltigkeit, \((\varphi,U)\) eine Karte und \(\omega\in\Omega^l(\M)\) eine Differentialform, dann gilt lokal in \(U\)
+\begin{align*}
+\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k},
+=======
 \par
 In \hyperref[\detokenize{vektoranalysis/tensor:s-symtensoren}]{Section \ref{\detokenize{vektoranalysis/tensor:s-symtensoren}}} haben wir das äußere Produkt \(\wedge\) kennengelernt, welches wir nun auf Differentialformen übertragen. Dazu seien \(\omega\in \Omega^k(\M), \eta\in \Omega^l(\M)\) zwei Differentialformen für \(k,l\in\N\), dann setzten wir
 \begin{align*}
@@ -5986,6 +6017,7 @@ d(fg) = d(f)\,g + f\, d(g).
 2. Für \(\omega\in\Omega^k(\M),\eta\in\Omega^l(\M)\) gilt
 \begin{align*}
 d(\omega\wedge\eta) = (d\omega)\wedge \eta + (-1)^k \omega\wedge (d\eta).
+>>>>>>> main
 \end{align*}
 
 
@@ -6007,6 +6039,17 @@ Eine interessante Anwendung finden Differntialformen im sog. Poincaré Lemma. Hi
 
 
 \par
+<<<<<<< HEAD
+wobei \(\omega_{i_1\ldots i_k}\in C^\infty(\M)\) für alle \(i_1,\ldots,i_k\in\{1,\ldots,n\}\) gilts
+\end{lemma}
+
+\begin{proof}
+ Siehe z.B. \cite{Lee03} Kapitel 14.
+\end{proof}
+\begin{example}{}{manifolds/diffformen:example-4}
+
+
+=======
 Es sei \(\M\) eine glatte Mannigfaltigkeit, eine Differentialform \(v\in\Omega^k(\M)\) heißt
 \begin{itemize}
 \item {} 
@@ -6101,16 +6144,32 @@ F^\ast:\Omega^k(\mathcal{N})\to\Omega^k(\mathcal{M})\\
 \end{align*}
 \par
 Zusätzlich erhält man folgende Eigenschaften.
-\begin{lemma}{}{manifolds/diffformen:lem:pullbackprop}
+\begin{lemma}{}{manifolds/diffformen:lemma-15}
 
 
 
 \par
 Es seien \(\M,\mathcal{N}\) glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann gilt,
 \begin{enumerate}
+>>>>>>> main
 
-\item {} 
 \par
+<<<<<<< HEAD
+1. Für \(k=0\) und \(\M\) eine glatte Mannigfaltigkeit erhalten wir
+\begin{align*}
+\Omega^0(\M) = C^\infty(\M).
+\end{align*}
+
+
+\par
+2. Für \(k=1\) und \(\M\) eine glatte Mannigfaltigkeit erhalten wir
+\begin{align*}
+\Omega^1(\M)
+\end{align*}
+\par
+gerade die Kovektorfelder aus \hyperref[\detokenize{manifolds/tangential:s-kotangbundel}]{Section \ref{\detokenize{manifolds/tangential:s-kotangbundel}}}.
+
+=======
 \(F^\ast\) ist linear,
 
 \item {} 
@@ -6130,7 +6189,533 @@ F^\ast(f dy^{i_1}\wedge\ldots\wedge dy^{i_k}) = (f \circ F) d(y^{i_1}\circ F)\we
  Für 1. und 2. siehe Hausaufgaben, Für 3. siehe \cite{Lee03} Lemma 14.16.
 \end{proof}
 
+
+\chapter{Maß  und Integrationstheorie}
+\label{\detokenize{masstheorie/intro_masstheorie:masz-und-integrationstheorie}}\label{\detokenize{masstheorie/intro_masstheorie::doc}}
 \par
+Im ersten Semester haben wir bereits das \emph{Riemann Integral} zur Berechnung des Flächeninhalts zwischen einer Funktion \(f \colon [a,b] \rightarrow \R\) und der x Achse eingeführt (siehe Kapitel 7 in \cite{Bur20}).
+Die grundlegende Idee hierbei war es die x Achse in (unterschiedlich große) Intervalle zu unterteilen und mittels dieser Zerlegung Rechtecke zwischen dem Graphen der Funktion und der x Achse zu konstruieren.
+Durch das Produkt der Seitenlängen dieser Rechtecke lässt sich nämlich deren Flächeninhalt leicht berechnen und die Summe all dieser Flächeninhalte approximiert den wahren Flächeninhalt zwischen dem Graphen und \(f\) und der x Achse.
+Dieses Vorgehen ist zur Erinnerung nochmal in Abbildung \hyperref[\detokenize{masstheorie/intro_masstheorie:fig-riemann-integral}]{Fig.\@ \ref{\detokenize{masstheorie/intro_masstheorie:fig-riemann-integral}}} illustriert.
+
+\begin{figure}[htbp]
+\centering
+
+
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/ober\string_untersummen.png}
+\caption{Illustration zweier Approximationen des Riemann Integrals einer Funktion durch den Flächeninhalt von Rechtecken. Die grünen und lila Rechtecke visualisieren die Unter  bzw. Obersummen bezüglich des in rot dargestellten Graphen der Funktion. Quelle: \href{https://de.wikipedia.org/wiki/Riemannsches\_Integral}{Wikipedia; Riemannsches Integral}.}\label{\detokenize{masstheorie/intro_masstheorie:fig-riemann-integral}}\end{figure}
+
+\par
+Da wir bisher nur die Integration von eindimensionalen Funktionen auf kompakten Intervallen kennengelernt haben, wollen wir in diesem Kapitel den Begriff des Integals auf mehrdimensionale Funktionen \(f \colon \R^n \rightarrow \R\) erweitern.
+Das Riemann Integral lässt sich problemlos auf mehrdimensionalen Funktionen verallgemeinern, indem man das Integral nicht durch den Flächeninhalt von Rechtecken approximiert, sondern hierfür das \emph{Volumen von entsprechenden Quadern} \(Q \subset \R^n\) berechnet.
+Es lässt sich insbesondere zeigen, dass jede stetige mehrdimensionale Funktion auf einem (nicht ausgeartetem) Quader Riemann integrierbar ist.
+
+\par
+Es hat sich jedoch in der Entwicklung der Mathematik herausgestellt, dass der Begriff des Riemann Integrals zu starke Forderungen an die zu Grunde liegenden Funktionen stellt und damit wichtige und interessante Funktionsklassen nicht integrierbar waren.
+Als Beispiel hierfür seien \href{https://de.wikipedia.org/wiki/Fraktal}{fraktale Mengen und Funktionen} genannt, welche auch zur Modellierung von Prozessen in der Natur genutzt werden.
+
+\par
+Aus diesem Grund hat sich ein eigenes Feld innerhalb der modernen Analysis gebildet   die sogenannte \textbf{Maßtheorie}.
+Es widmet sich hauptsächlich der Untersuchung von Maßen zur Berechnung von Längen, Flächen und Volumina in unterschiedlichen mathematischen Strukturen und Räumen.
+Es wird klar, dass Integration und die Berechnung von Volumina eng miteinander zusammen hängen, denn ist \(A\subset\R^n\) eine (messbare) Teilmenge, dann ist ihr Maß gleich dem Integral ihrer charakteristischen Funktion, d.h.,
+\begin{align*}
+\int_{\R^n} \mathbb{1}_A(x)\,\mathrm{d}x.
+\end{align*}
+\par
+In einem gewissen Sinn sind Maße ein \emph{fundamentaleres Konzept} als das der Integration, da sich jede Integration auf die Berechnung von Maßen stützt.
+
+\par
+Eins der berühmtesten Beispiele zur Motivation der Maßtheorie ist im Folgenden erklärt.
+\begin{example}{(Dirichlet Funktion)}{masstheorie/intro_masstheorie:ex:dirichletFunktion}
+
+
+
+\par
+Wir betrachten das kompakte Intervall \([0,1] \subset \R\) und definieren hierauf die sogenannte \textbf{Dirichlet Funktion} \(\mathbb{1}_\Q \colon [0,1] \rightarrow \{0,1\}\) mit
+\begin{align*}
+\mathbb{1}_\Q(x) := \begin{cases} 1, \ \text{ falls } x \in \Q, \\ 0, \ \text{ sonst }.\end{cases}
+\end{align*}
+\par
+Diese Abbildung kann als \emph{charakteristische Funktion} der rationalen Zahlen \(\Q\) aufgefasst werden.
+Man sieht leicht ein, dass diese Funktion \textbf{nicht Riemann integrierbar} ist, da alle Untersummen stets \(0\) und alle Obersummen stets \(1\) sind.
+\end{example}
+
+\par
+Um eine Funktion wie die Dirichlet Funktion in \cref{masstheorie/intro_masstheorie:ex:dirichletFunktion} zu integrieren sieht man zunächst ein, dass die rationalen Zahlen \(\Q\) in den reellen Zahlen \(\R\) als abzählbare Menge eine sogenannte \emph{Nullmenge} im Sinne der Maßtheorie repräsentieren.
+Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einführen um diesen Umstand zu verstehen und einen verallgemeinerten Begriff des Integrals definieren, der diese Nullmenge berücksichtigt   das \textbf{Lebesgue Integral}.
+Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue integrierbaren Funktionen eine Obermenge der Menge der Riemann integrierbaren Funktionen ist.
+Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.
+>>>>>>> main
+
+
+\section{Maßtheorie}
+\label{\detokenize{masstheorie/masstheorie:masztheorie}}\label{\detokenize{masstheorie/masstheorie::doc}}
+\par
+<<<<<<< HEAD
+3. Für \(k=3\) und \(\M=\R^3\) ist z.B.,
+\begin{align*}
+\omega(xy) := \sin(xy) dx\wedge dy
+\end{align*}
+\par
+eine Differentialform.
+\end{example}
+=======
+Ein \href{https://de.wikipedia.org/wiki/Ma\%c3\%9f\_(Mathematik)}{\textbf{Maß}} \(\mu\) auf einer Menge \(M\) wie z.B. dem \(\R^n\)
+ordnet geeigneten Teilmengen \(A\subseteq M\)
+Zahlen
+\begin{align*}
+\mu(A)\in[0,\infty]:=[0,\infty)\cup\{\infty\}
+\end{align*}
+\par
+zu, eben das Maß von \(A\).
+
+
+\subsection{\protect\(\sigma\protect\) Algebren und Maße}
+\label{\detokenize{masstheorie/masstheorie:sigma-algebren-und-masze}}
+\par
+Ein Mengensystem ist eine Menge von Mengen. Wir nennen die Potenzmengen \(2^M \equiv\mathcal{P}(M)\) von \(M\) die Menge aller möglichen Teilmengen von \(M\). In der Maßtheorie sind Mengensysteme \(\mathcal{A} \subseteq \mathcal{P}(M)\) zentral, nämlich die der \emph{meßbaren} Teilmengen von \(M\). Das sind die Mengen, denen ein Maß zugeordnet wird, also eine nicht negative Zahl oder Unendlich. Schauen wir uns also an, welche Eigenschaften ein Maß haben muss.
+
+\par
+Zunächst müssen wir festlegen, welche Teilmengen der Grundmenge \(M\) überhaupt messbar sein sollen. Wir wählen also wie gesagt ein Mengensystem \(\mathcal{A} \subseteq \mathcal{P}(M)\) in der Potenzmenge von \(M\) aus.
+Am bequemsten wäre es, alles messen zu können, also \(\mathcal{A} = \mathcal{P}(M)\), aber das ist nicht immer möglich. Wir fordern, dass \(\mathcal{A}\) eine \(\sigma\) Algebra ist.
+\begin{definition}{}{masstheorie/masstheorie:def:sigmaalgebra}
+
+
+\begin{itemize}
+\item {} 
+\par
+\(\mathcal{A} \subseteq \mathcal{P}(M)\) heißt \textbf{\(\sigma\) Algebra (von \(M\))}, wenn
+
+\par
+a) \(M\in \mathcal{A}\)
+
+\par
+b) \(A\in \mathcal{A}\) impliziert, dass \(A^c:=M\backslash A\in \mathcal{A}\)
+
+\par
+c) \(A_n\in \mathcal{A}\ (n\in\N)\) impliziert, dass \(\bigcup_{n\in \N} A_n\in \mathcal{A}\).
+>>>>>>> main
+
+
+\subsection{Die äußere Ableitung}
+\label{\detokenize{manifolds/diffformen:die-auszere-ableitung}}
+\par
+Wir wenden uns nun einer wichtigen Operation auf Differentialformen zu, der äußeren Ableitung. Aus \cref{manifolds/tangential:ex:totdiff} kennen wir schon das totale Differential \(df\in \Omega^1(\M)\), für eine glatte Funktion \(f\in C^\infty(\M)\). Hierbei haben wir für ein glattes Vektorfeld \(X\in \Gamma(T\M)\) die Abbildung
+\begin{align*}
+df(X) := X(f)
+\end{align*}
+\par
+<<<<<<< HEAD
+definiert, wobei die rechte Seite über die Wirkung des Vektorfelds definiert ist. Wir können dieses Konzept verallgemeinern, indem wir die äußere Ableitung definieren.
+\begin{definition}{}{manifolds/diffformen:definition-5}
+
+
+
+\par
+Es sei \(\M\) eine glatte Mannigfaltigkeit und \(f\in C^\infty(\M)\), dann definieren wir die lineare Abbildung
+\begin{align*}
+d:\Omega^k(\M)\to \Omega^{k+1}(\M)\\
+d(f\, dx^{i_1}\wedge\ldots\wedge dx^{i_k}):= df \wedge dx^{i_1}\wedge\ldots\wedge dx^{i_k}.
+\end{align*}\end{definition}
+\begin{remark}{}{manifolds/diffformen:remark-6}
+=======
+Für eine \(\sigma\) Algebra \(\mathcal{A} \subseteq \mathcal{P}(M)\) von \(M\) heißt das Paar (\(M,\mathcal{A}\)) \textbf{Messraum}, und die Menge \(\mathcal{A}\) heißen \emph{messbar}.
+
+\end{itemize}
+\end{definition}
+
+\par
+Die kleinste \(\sigma\) Algebra von \(M\) ist damit \{\textbackslash{}emptyset, M\}, die Größte \(\mathcal{P}(M)\).
+>>>>>>> main
+
+\par
+Das Symbol \(\sigma\) soll an den Begriff der Summe erinnern, entsprechend der
+dritten Forderung in Def. \textbackslash{}ref\{def:sigmaalgebra\}, also der Stabilität unter abzählbarer Vereinigung.
+Sigma–Algebren sind offensichtlich auch unter dem Schnitt abzählbar vieler
+Mengenstabil \(A_n\in \mathcal{A}\ (n\in\N)\) impliziert, dass \(\bigcap_{n\in \N} A_n = \left(\bigcup_{n\in\N} A_n^c\right)^c\in \mathcal{A}\).
+\begin{definition}{}{masstheorie/masstheorie:definition-1}
+
+
+\begin{itemize}
+\item {} 
+\par
+<<<<<<< HEAD
+Beachte, dass die obige Abbildung nur jeweils für lokale Koordinaten definiert ist. Wegen der Kartenunabängigkeit führt dies aber auf eine eindeutig definierte Funktion, siehe z.B. \cite{Lee03} Kapitel 14. Da wir \(d\) auf den Elementen \(dx^{i_1}\wedge\ldots\wedge dx^{i_k}\) definiert haben erhalten wir jeweils lokal eine eindeutige lineare Fortsetzung, da jedes \(\omega\in \Omega^k(\M)\) lokal die Darstellung
+\begin{align*}
+\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+\end{align*}
+\par
+hat und somit
+\begin{align*}
+d\omega &= \sum_{1\leq i_1,\ldots,i_k \leq n} d(\omega_{i_1\ldots i_k}
+dx_{i_1}\wedge\ldots\wedge dx_{i_k})\\ 
+&= \sum_{1\leq i_1,\ldots,i_k \leq n} d(\omega_{i_1\ldots i_k})\wedge
+dx_{i_1}\wedge\ldots\wedge dx_{i_k}
+\end{align*}\end{remark}
+\begin{example}{}{manifolds/diffformen:ex:10.14}
+=======
+Für einen Messraum (\(M, \mathcal{A}\)) heißt eine Abbildung \(\mu: \mathcal{A}\to [0, \infty]\) \textbf{Maß}, wenn
+>>>>>>> main
+
+\par
+a) \(\mu(\emptyset) = 0\)
+
+<<<<<<< HEAD
+=======
+\par
+b) Für disjunkte (das heißt \(A_m\cap A_n = \emptyset\ (m\neq n)\)) \(A_n\in \mathcal{A}\ (n\in\N)\) gilt: \(\mu\left( \bigcup_{n\in\N}A_n \right) = \sum_{n\in\N}\mu (A_n)\) \textbackslash{}quad (abzählbare oder \(\sigma\) \textbf{Additivität}).
+>>>>>>> main
+
+\par
+<<<<<<< HEAD
+1. Für \(\omega\in\Omega^0(\R^3)\) ist \(d\omega = \frac{\partial\omega}{\partial x_1}dx_1+
+\frac{\partial\omega}{\partial x_2}dx_2+\frac{\partial\omega}{\partial x_3}dx_3\).
+
+=======
+Dann heißt das Tripel \((M, \mathcal{A}, \mu)\) \textbf{Maßraum}.
+
+\item {} 
+\par
+Das Maß \(\mu\) heißt \textbf{endlich}, wenn \(\mu(M)<\infty\), und \textbf{Wahrscheinlichkeitsmaß}, wenn \(\mu(M)=1\).
+
+\end{itemize}
+\end{definition}
+\begin{example}{}{masstheorie/masstheorie:example-2}
+
+
+
+\par
+Wichtige Maße sind z.B. die folgenden.
+\begin{enumerate}
+
+\item {} 
+\par
+Das \href{https://de.wikipedia.org/wiki/Z\%c3\%a4hlma\%c3\%9f\_(Ma\%c3\%9ftheorie)}{\textbf{Zählmaß}} \(m\) auf einer endlichen Menge \(M\), mit
+>>>>>>> main
+
+
+\par
+2. Für \(\omega = \omega_1dx_1+\omega_2dx_2+\omega_3dx_3\in\Omega^1(\R^3)\) ist
+\begin{align*}
+<<<<<<< HEAD
+d\omega &=& (d\omega_1)\wedge dx_1+(d\omega_2)\wedge dx_2+(d\omega_3)\wedge
+dx_3\\
+&=& \left(\frac{\partial\omega_2}{\partial x_1}-\frac{\partial\omega_1}{\partial x_2}\right)
+dx_1\wedge dx_2+ \left(\frac{\partial\omega_3}{\partial x_2}-\frac{\partial\omega_2}{\partial x_3}\right)
+dx_2\wedge dx_3\\
+&& + \left(\frac{\partial\omega_1}{\partial x_3}-\frac{\partial\omega_3}{\partial x_1}\right)
+dx_3\wedge dx_1.
+\end{align*}
+
+=======
+m(A):=|A|\qquad (A\subseteq M).
+\end{align*}
+\par
+Hier sind insbesondere alle Teilmengen messbar.
+\begin{enumerate}
+>>>>>>> main
+
+\par
+<<<<<<< HEAD
+3. Für \(\omega = \omega_{12}dx_1\wedge dx_2+\omega_{23}dx_2\wedge dx_3
++\omega_{31}dx_3\wedge dx_1 \in\Omega^2(\R^3)\) ist
+\begin{align*}
+d\omega = \left(\frac{\partial\omega_{12}}{\partial x_3} + \frac{\partial\omega_{23}}{\partial x_1}
++ \frac{\partial\omega_{31}}{\partial x_2}\right)dx_1\wedge dx_2\wedge dx_3.
+\end{align*}
+
+=======
+Das \textbf{Lebesgue–Maß} \(\lambda^n\) auf dem \(\R^n\), das wir bald kennen lernen, zeichnet sich dadurch aus, dass es einem verschobenen Körper das gleiche Volumen zuordnet wie dem unverschobenen, es also \emph{translationsinvariant} ist, und der Einheitswürfel \([0,1]^n\) Maß \(1\) besitzt.
+
+\item {} 
+\par
+Das \href{https://de.wikipedia.org/wiki/Diracma\%c3\%9f}{\textbf{Dirac Maß}} \(\delta_x\) ist im Punkt \(x\) des \(\R^n\) konzentriert, und für \(A\subset\R^n\) ist.
+
+\end{enumerate}
+\begin{align*}
+\delta_x(A)\equiv \int_A\delta_x := \begin{cases} 1, &  x \in A\\ 0, & \text{sonst.} \end{cases}
+
+\end{align*}
+\par
+Dieses Maß ist also nicht translationsinvariant. Es wird beispielsweise in der Elektrodynamik benutzt, um eine bei \(x\) lokalisierte punktförmige Ladung zu beschreiben.
+\begin{enumerate}
+
+\item {} 
+\par
+Wir wollen z.B. auch die Länge der Spur einer \emph{Kurve} oder allgemeiner den Flächeninhalt einer \(d\)–dimensionalen Fläche im \(\R^n\) messen. Auch das dafür benutzte Maß \(\mu_d\) ist translations  und rotationsinvariant, es ordnet aber der \(d\)–dimensionalen Einheitsfläche \([0,1]^d\times\{0\} \subset\R^d\times\R^{n-d}=\R^n\) Maß 1 zu. Entsprechend hat aber für \(d<n\) der Einheitswürfel Maß \(\mu_d([0,1]^n)=\infty\).
+
+\item {} 
+\par
+Man kann sogar sog. \href{https://de.wikipedia.org/wiki/Hausdorff-Ma\%c3\%9f}{\textbf{Hausdorff Maß}} \(\mu_d\) konstruieren, die Mengen beliebiger fraktaler Dimension \(d\in[0,n]\) messen. Genau genommen \emph{definiert} man die Dimension der Menge \(A\subset \R^n\) durch \(d(A):=\inf\{d'>0\mid \mu_{d'}(A)=0\}.\)
+
+\item {} 
+\par
+Im Zusammenhang mit dem sog. Feynmanschen \href{https://de.wikipedia.org/wiki/Pfadintegral}{\textbf{Pfadintegral}} der Quantenmechanik wird auf dem unendlich dimensionalen Raum \(M\) der Wege zwischen zwei Punkten des Konfigurationsraumes \(\R^d\) ein \href{https://de.wikipedia.org/wiki/Wahrscheinlichkeitsma\%c3\%9f}{\textbf{Wahrscheinlichkeitsmaß}} (also ein Maß \(\mu\) auf \(M\) mit \(\mu (M)=1\)) definiert. Dabei erhalten Wege, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein großes Gewicht.
+>>>>>>> main
+
+\par
+4. Für \(\omega\in\Omega^3(\R^3)\) ist \(d\omega=0\).
+\end{example}
+
+<<<<<<< HEAD
+\par
+Für die äußere Ableitung können wir zusätzlich folgende Eigenschaften zeigen.
+\begin{lemma}{}{manifolds/diffformen:lem:outeprop}
+
+
+
+\par
+Es sei \(\M\) eine glatte Mannigfaltigkeit, dann haben wir folgende Eigenschaften.
+=======
+
+\subsection{Borel \protect\(\sigma\protect\) Algebren und  Maße}
+\begin{definition}{(Borel \protect\(\sigma\protect\) Algebra)}{\detokenize{masstheorie/masstheorie:borel-sigma-algebren-und-masze}}\label{masstheorie/masstheorie:definition-3}
+>>>>>>> main
+
+
+
+\par
+<<<<<<< HEAD
+1. Für \(f,g\in C^\infty(\M)\) gilt
+\begin{align*}
+d(fg) = d(f)\,g + f\, d(g).
+\end{align*}
+
+
+\par
+2. Für \(\omega\in\Omega^k(\M),\eta\in\Omega^l(\M)\) gilt
+\begin{align*}
+d(\omega\wedge\eta) = (d\omega)\wedge \eta + (-1)^k \omega\wedge (d\eta).
+\end{align*}
+
+
+\par
+3. Es gilt \(d\circ d = 0\).
+\end{lemma}
+\begin{remark}{}{manifolds/diffformen:remark-9}
+
+
+
+\par
+Da \(d\) Eigenschaft 2 erfüllt, nennt man \(d\) auch Antiderivation.
+\end{remark}
+
+\par
+Eine interessante Anwendung finden Differntialformen im sog. Poincaré Lemma. Hierfür benötigen wir folgenden Begriffe
+\begin{definition}{}{manifolds/diffformen:def:geschlossenexakt}
+
+
+
+\par
+Es sei \(\M\) eine glatte Mannigfaltigkeit, eine Differentialform \(v\in\Omega^k(\M)\) heißt
+\begin{itemize}
+\item {} 
+\par
+\textbf{geschlossen}, wenn \(dv=0\),
+
+\item {} 
+\par
+\textbf{exakt}, wenn \(v=d\eta\) für ein \(\eta\in\Omega^{k-1}(\M)\) gilt.
+
+\end{itemize}
+\end{definition}
+
+\par
+Nach Satz {lem:outer:prop broken reference} sind exakte Differentialformen geschlossen, da für \(v=d\eta\) gilt,
+\begin{align*}
+dv = d(d\eta) = (d\circ d)\eta = 0.
+\end{align*}
+\par
+Das Poincaré Lemma besagt nun, dass auf sternförmigen offenen Mengen \(U\subseteq \R^n\) auch die Umkehrung gilt.
+\begin{lemma}{}{manifolds/diffformen:lemma-11}
+=======
+S. 106 und 119 Schulz Baldes
+\end{definition}
+\begin{definition}{(Lokale Endlichkeit von Maßen)}{masstheorie/masstheorie:definition-4}
+
+
+
+\par
+Sei \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) ein Maß auf einem topologischem Raum \(\Omega\).
+Wir nennen das Maß \(\sigma\) \textbf{lokal endlich}, falls jeder Punkt \(x \in \Omega\) eine lokale Umgebung mit endlichem Maß besitzt.
+\end{definition}
+
+\par
+Es ist klar, dass das Lebesgue Maß auf dem Raum \(\R^n\) lokal endlich ist.
+\begin{definition}{(Borel Maß)}{masstheorie/masstheorie:definition-5}
+>>>>>>> main
+
+
+
+\par
+<<<<<<< HEAD
+Es sei \(U\subset\R^n\) eine offene sternförmige Menge, dann gilt für \(\omega\in \Omega^k(\M)\),
+\begin{align*}
+\omega\text{ ist geschlossen}\Leftrightarrow \omega\text{ ist exakt.}
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Siehe z.B. \cite{Lee03} Theorem 11.49.
+\end{proof}
+
+
+\subsection{Der Pullback}
+\label{\detokenize{manifolds/diffformen:der-pullback}}
+\par
+Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte \textbf{Pullback}. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten \(\M,\mathcal{N}\) und eine glatte Funktion \(F:M\to\mathcal{N}\). Das Ziel ist es nun eine Differentialform auf \(N\), \(\omega\in\Omega^k(\mathcal{N})\) mithilfe von \(F\) auf eine Differentialform auf \(\M\) zurückzuziehen. Ausgewertet an \(p\in\M\) ergibt eine Differentialform \(\eta\in\Omega^k(\M)\) ein Element aus \(L^k(T_p^\ast\M)\),
+\begin{align*}
+\eta_p\in \Omega^k(T_p\M) \subset L^k(T_p^\ast\M)
+\end{align*}
+\par
+also eine Linearform, welche auf \(k\) Elemente \(v_1,\ldots,v_k\in T_p^\ast\M\) des Kotangentialraums in \(p\) an \(\M\) wirkt. Haben wir nun a priori \(\omega\in\Omega^k(\mathcal{N})\) gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über \(F\) von \(\M\) nach \(\N\) vorschieben können, der sogennante \textbf{Pushforward}.
+\begin{definition}{}{manifolds/diffformen:definition-12}
+
+
+=======
+Ein lokal endliches Maß \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) auf der Borelschen \(\sigma\) Algebra eines topologischen Raums \(\Omega\) heißt Borel Maß.
+\end{definition}
+
+
+\subsection{Riemann  und Lebesgue messbare Mengen}
+\begin{definition}{(Mehrdimensionale Quader)}{\detokenize{masstheorie/masstheorie:riemann-und-lebesgue-messbare-mengen}}\label{masstheorie/masstheorie:definition-6}
+
+
+
+\par
+Seien \(a = (a_1,\ldots,a_n) \in \R^n\) und \(b = (b_1,\ldots,b_n) \in \R^n\) zwei Punkte im \textbackslash{}R\textasciicircum{}n.
+Wir definieren zunächst folgende Anordnungsrelation mit
+\begin{align*}
+a < b \qquad \Leftrightarrow \qquad a_i < b_i \quad i=1,\ldots,n.
+\end{align*}
+\par
+Analog können wir die Anordnungsrelationen \(a \leq b, a > b\) und \(a \geq b\) definieren und darüber im Folgenden \textbf{offene, halboffene} und \textbf{abgeschlossene Quader} im \(\R^n\) respektive beschreiben durch
+\begin{align*}
+(a,b) = \lbrace x \in \R^n : a < x < b \rbrace,\\
+(a,b] = \lbrace x \in \R^n : a < x \leq b \rbrace,\\
+[a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.
+\end{align*}\end{definition}
+\begin{definition}{(Mehrdimensionale Treppenfunktion)}{masstheorie/masstheorie:definition-7}
+
+
+
+\par
+Wir nennen eine Funktion \(f \colon \R^n \rightarrow \C\) \textbf{Treppenfunktion}, falls es paarweise disjunkte Quader \(Q_1, \ldots, Q_k \subset \R^n\) gibt, so dass die folgenden Eigenschaften gelten:
+\begin{enumerate}
+>>>>>>> main
+
+\par
+<<<<<<< HEAD
+Es seien \(\M,\mathcal{N}\) zwei glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann definieren wir für \(p\in\M\)
+\begin{align*}
+F_\ast:T_p\M\to T_{F(p)}\mathcal{N}\\
+D\mapsto \big[f\mapsto D(f\circ F)]
+\end{align*}
+\par
+den sogenannten \textbf{Pushforward}.
+\end{definition}
+=======
+Die Funktion \(f\) ist konstant auf jedem der Quader, d.h.,
+>>>>>>> main
+
+\par
+Da wir nun Tangentialvektoren von \(T_p\M\) auf \(T_{F(p)}\mathcal{N}\) schieben können, sind wir in der Lage damit den Pullback von Kotangentialvektoren zu definieren.
+\begin{definition}{}{manifolds/diffformen:definition-13}
+
+
+
+\par
+Es seien \(\M,\mathcal{N}\) zwei glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann definieren wir für \(p\in\M\)
+\begin{align*}
+<<<<<<< HEAD
+F^\ast: T_{F(p)}^\ast\mathcal{N}\to \big[T^p_\M\mapsto\R\big]\\
+v \mapsto \big[D\mapsto v(F_\ast(D)) \big]
+\end{align*}
+\par
+den \textbf{Pullback}
+\end{definition}
+\begin{remark}{}{manifolds/diffformen:remark-14}
+=======
+f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,
+\end{align*}\begin{enumerate}
+
+\item {} 
+\par
+Die Funktion ist überall Null außerhalb der Quader, d.h.,
+
+\end{enumerate}
+\begin{align*}
+f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.
+\end{align*}\end{definition}
+
+\par
+Illustration hier von Quadern und Treppenfunktionen!
+\begin{definition}{(Ring)}{masstheorie/masstheorie:definition-8}
+>>>>>>> main
+
+
+
+\par
+<<<<<<< HEAD
+Es gilt insbesondere, dass \(F^\ast v \in T_p^\ast\M\) für jedes \(v\in T_{F(p)}^\ast\mathcal{N}\).
+\end{remark}
+
+\par
+Dieses Konzept können wir nun auf Formen übertragen in dem wir eine neue Differentialform punktweise an \(p\) definieren am Punkt \(F(p)\). Konkret seien \(v_1,\ldots, v_k\in T_p\M\), dann definiere
+\begin{align*}
+(F^\ast\omega)_p (v_1,\ldots,v_k) := \omega_F(p)\big(F_\ast(v_1),\ldots,F_\ast(v_k)\big).
+\end{align*}
+\par
+Die so definierte Abbildung bildet tatsächlich zwischen den passenden Räumen ab
+\begin{align*}
+F^\ast:\Omega^k(\mathcal{N})\to\Omega^k(\mathcal{M})\\
+\omega\mapsto \big[ p\mapsto (F^\ast\omega)_p \big].
+\end{align*}
+\par
+Zusätzlich erhält man folgende Eigenschaften.
+\begin{lemma}{}{manifolds/diffformen:lem:pullbackprop}
+
+
+
+\par
+Es seien \(\M,\mathcal{N}\) glatte Mannigfaltigkeiten und \(F\in C^\infty(\M,\mathcal{N})\), dann gilt,
+=======
+Ein Mengensystem \(\mathcal{R} \subset \mathcal{P}(\Omega)\) heißt \textbf{Ring} auf einer Menge \(\Omega\), falls die folgenden Eigenschaften erfüllt sind:
+>>>>>>> main
+\begin{enumerate}
+
+\item {} 
+\par
+<<<<<<< HEAD
+\(F^\ast\) ist linear,
+
+\item {} 
+\par
+\(F^\ast(\omega\wedge\eta) = F^\ast(\omega) \wedge F^\ast(\eta)\) für \(\omega,\eta\in\Omega^k(\mathcal{N})\).
+
+\item {} 
+\par
+Für lokale Koordinaten Kovektorfelder \(dy^1,\ldots,dy^m\) und \(f\in C^\infty(\mathcal{N})\) gilt
+
+\end{enumerate}
+\begin{align*}
+F^\ast(f dy^{i_1}\wedge\ldots\wedge dy^{i_k}) = (f \circ F) d(y^{i_1}\circ F)\wedge\ldots\wedge d(y^{i_k}\circ F).
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Für 1. und 2. siehe Hausaufgaben, Für 3. siehe \cite{Lee03} Lemma 14.16.
+\end{proof}
+=======
+\(\emptyset \in \mathcal{R}\)
+
+\item {} 
+\par
+\$A,B \textbackslash{}in \textbackslash{}mathcal\{R\} \textbackslash{}Rightarrow (A \textbackslash{}setminus B) \textbackslash{}in \textbackslash{}mathcal\{R\}
+>>>>>>> main
+
+\item {} 
+\par
+<<<<<<< HEAD
 Im Falle, dass die Mannigfaltigkeiten gleich dem \(\R^n\) bzw. \(\R^m\) sind, also \(\M=\R^n, \mathcal{N}=\R^m\) können wir den Pullback leicht explizit berechnen. Dazu sei \(F:\R^n\to\R^m\) eine glatte Abbildung, \(x_1,\ldots,x_n\) seien Koordinaten für \(\R^n\) und \(y_1,\ldots,y_m\) seien Koordinaten für \(\R^m\).
 
 \par
@@ -7675,10 +8260,18 @@ Carathéodory.
 \href{https://de.wikipedia.org/wiki/Constantin\_Carath\%C3\%A9odory}{Constantin Carathéodory} (Geboren 13. September 1873 in Berlin; Gestorben 2. Februar 1950 in München) war ein Mathematiker griechischer Herkunft.
 \end{emphBox}
 \begin{definition}{}{masstheorie/masstheorie:definition-32}
+=======
+\$A,B \textbackslash{}in \textbackslash{}mathcal\{R\} \textbackslash{}Rightarrow (A \textbackslash{}cup B) \textbackslash{}in \textbackslash{}mathcal\{R\}
+
+\end{enumerate}
+\end{definition}
+\begin{lemma}{(Der von halboffenen Quadern erzeugte Ring)}{masstheorie/masstheorie:lemma-9}
+>>>>>>> main
 
 
 
 \par
+<<<<<<< HEAD
 Wir nennen eine Teilmenge \(A \subset \R^n\) \textbf{Lebesgue messbar}, genau dann wenn für alle Teilmengen \(E \subset \R^n\) gilt:
 \begin{align*}
 \lambda^*(E) = \lambda^*(E \cap A) + \lambda^*(E \setminus A).
@@ -7694,10 +8287,16 @@ Wir definieren das \textbf{Lebesgue Maß} \(\lambda \colon \mathcal{A} \rightarr
 \lambda(A) = \lambda^*(A).
 \end{align*}\end{definition}
 \begin{remark}{}{masstheorie/masstheorie:remark-33}
+=======
+S. 79 Schulz Baldes
+\end{lemma}
+\begin{remark}{(Riemann messbare Mengen)}{masstheorie/masstheorie:remark-10}
+>>>>>>> main
 
 
 
 \par
+<<<<<<< HEAD
 Es ist wichtig zu bemerken, dass diese Bedingung eine Einschränkung ist, da das äußere Lebesgue Maß \textbf{nicht} additiv ist auf \(2^{\R^n}\), es gilt lediglich
 \begin{align*}
 \lambda^*(E) \leq \lambda^*(E \cap A) + \lambda^*(E \setminus A).
@@ -7746,10 +8345,40 @@ Folgt aus \cref{masstheorie/masstheorie:thm:outerlebesgue} Eigenschaft 4.
 \par
 Weiterhin erhält man über den Begriff der Lebesgue messbarkeit endlich die erhoffte \(\sigma\) Algebra Struktur.
 \begin{lemma}{}{masstheorie/masstheorie:lemma-35}
+=======
+S. 78 Schulz Baldes
+\end{remark}
+\begin{example}{(Riemann Messbarkeit)}{masstheorie/masstheorie:example-11}
 
 
 
 \par
+Ein Beispiel messbar, eins nicht.
+\end{example}
+
+\par
+Verglichen mit der Reichhaltigkeit der Potenzmenge \(\mathcal{P}(\Omega)\) sind nur relativ wenige Mengen Riemann messbar.
+\begin{definition}{(Äußeres Lebesguesches Maß)}{masstheorie/masstheorie:definition-12}
+
+
+
+\par
+S. 78 u. 89 Schulz Baldes
+\end{definition}
+\begin{theorem}{(Eigenschaften des Lebesgue Maßes)}{masstheorie/masstheorie:theorem-13}
+
+
+
+\par
+S. 89 Schulz Baldes
+\end{theorem}
+\begin{definition}{}{masstheorie/masstheorie:definition-14}
+>>>>>>> main
+
+
+
+\par
+<<<<<<< HEAD
 Die Klasse der Lebesgue messbaren Mengen \(\mathcal{A}\) bildet eine \(\sigma\) Algebra.
 \end{lemma}
 
@@ -7838,10 +8467,30 @@ Nach 4. ist damit auch diese Vereinigung messbar.
 \par
 Mit dieser Aussage können wir weitere messbare Mengen identifizieren.
 \begin{lemma}{}{masstheorie/masstheorie:thm:lebesgueOffenAbgeschlossen}
+=======
+S. 92 Schulz Baldes
+\end{definition}
+\begin{example}{(Lebesgue messbare Mengen)}{masstheorie/masstheorie:example-15}
 
 
 
 \par
+S. 92 Schulz Baldes
+\end{example}
+\begin{definition}{}{masstheorie/masstheorie:definition-16}
+
+
+
+\par
+S. 98 Schulz Baldes
+\end{definition}
+\begin{lemma}{(Eigenschaften von Lebesgue Nullmengen)}{masstheorie/masstheorie:lemma-17}
+>>>>>>> main
+
+
+
+\par
+<<<<<<< HEAD
 Offene und abgeschlossene Teilmengen des \(\R^n\) sind Lebesgue messbar.
 \end{lemma}
 
@@ -7870,10 +8519,16 @@ Da wir nun eine \(\sigma\) Algebra zu Verfügung haben können wir ein Maß defi
 ToDo
 \end{emphBox}
 \begin{theorem}{(Regularität des Lebesgue Maßes)}{masstheorie/masstheorie:theorem-37}
+=======
+S. 98 Schulz Baldes
+\end{lemma}
+\begin{theorem}{(Lebesgue Messbarkeit von Teilmengen im \protect\(\R^n\protect\))}{masstheorie/masstheorie:theorem-18}
+>>>>>>> main
 
 
 
 \par
+<<<<<<< HEAD
 Das Lebesgue Maß ist von außen und innen regulär im Sinne von \cref{masstheorie/masstheorie:def:regularitaet}  d.h., für jede Lebesgue messbare Teilmenge \(A \subset \R^n\) gilt
 
 \par
@@ -7926,12 +8581,20 @@ Eine Teilmenge \(A \subset \R^n\) ist genau dann Lebesgue messbar, wenn eine Tei
 
 \begin{proof}
  ToDo
+=======
+Sowohl offene als auch abgeschlossene Teilmengen des \(\R^n\) sind Lebesgue messbar.
+\end{theorem}
+
+\begin{proof}
+ S. 99 Schulz Baldes
+>>>>>>> main
 \end{proof}
 
 
 \section{Lebesgue Integral}
 \label{\detokenize{masstheorie/lebesgue_integral:lebesgue-integral}}\label{\detokenize{masstheorie/lebesgue_integral::doc}}
 \par
+<<<<<<< HEAD
 Anhand des in ?? konstruirten MAßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion \(f:\Omega\to\R\) zu zerteilen. Dies führt auf das Problem, dass man Urbildern
 \begin{align*}
 f^{-1}(I)
@@ -8137,10 +8800,14 @@ Wir sagen \(f = g\) \textbf{fast sicher} bezüglich des Lebesgue Maßes genau da
 \begin{align*}
 f(x) = g(x) \quad \forall x \in \R^n \setminus N.
 \end{align*}\end{definition}
+=======
+S.121ff. Schulz Baldes
+>>>>>>> main
 
 
 \section{Integrationstechniken}
 \label{\detokenize{masstheorie/integrationstechnik:integrationstechniken}}\label{\detokenize{masstheorie/integrationstechnik::doc}}
+<<<<<<< HEAD
 \par
 Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen.
 Um diesen zentralen Satz zu formulieren benötigen wir jedoch zunächst den Begriff von doppelintegrierbaren Funktionen.
@@ -8284,7 +8951,14 @@ Hierbei nennt man \(\det(D\Phi(x))\) die \textbf{Jacobi Determinante}.
 \begin{proof}
  Schulz Baldes S.168 174
 \end{proof}
+=======
 
+\subsection{Satz von Fubini}
+\label{\detokenize{masstheorie/integrationstechnik:satz-von-fubini}}
+>>>>>>> main
+
+\subsection{Satz von Cavalieri}
+\label{\detokenize{masstheorie/integrationstechnik:satz-von-cavalieri}}
 
 \chapter{Bibliography}
 \label{\detokenize{references:bibliography}}\label{\detokenize{references::doc}}

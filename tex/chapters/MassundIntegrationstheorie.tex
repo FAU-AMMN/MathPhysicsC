@@ -58,6 +58,7 @@ Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher a
 \section{Maßtheorie}
 \label{\detokenize{masstheorie/masstheorie:masztheorie}}\label{\detokenize{masstheorie/masstheorie::doc}}
 \par
+<<<<<<< HEAD
 Wir wollen in diesem Kapitel formal die Maßtheorie einführen, die es uns erlaubt zu entscheiden welche Mengen messbar sind und wie sich das Volumen von Mengen in topologischen Räumen bestimmen lässt.
 Die hier beschriebenen Werkzeuge werden uns im nächsten Kapitel bei der Einführung des \emph{Lebesgue Integrals} als Verallgemeinerung des Riemann Integrals sehr dienlich sein.
 
@@ -72,11 +73,22 @@ Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die M
 
 \par
 Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.
+=======
+Ein \href{https://de.wikipedia.org/wiki/Ma\%c3\%9f\_(Mathematik)}{\textbf{Maß}} \(\mu\) auf einer Menge \(M\) wie z.B. dem \(\R^n\)
+ordnet geeigneten Teilmengen \(A\subseteq M\)
+Zahlen
+\begin{align*}
+\mu(A)\in[0,\infty]:=[0,\infty)\cup\{\infty\}
+\end{align*}
+\par
+zu, eben das Maß von \(A\).
+>>>>>>> main
 
 
 \subsection{\protect\(\sigma\protect\) Algebren und Maße}
 \label{\detokenize{masstheorie/masstheorie:sigma-algebren-und-masze}}
 \par
+<<<<<<< HEAD
 Wir betrachten im Folgenden immer eine zu Grunde liegende Menge \(\Omega\).
 Diese kann endlich, abzählbar unendlich oder auch überabzählbar unendlich sein.
 Wir betrachten nun die \textbf{Potenzmenge} \(2^\Omega \equiv\mathcal{P}(\Omega)\) von \(\Omega\), welche die Menge aller möglichen Teilmengen von \(\Omega\) bildet.
@@ -216,10 +228,87 @@ Wichtige Maße in der Mathematik und Physik sind beispielsweise die folgenden.
 
 \par
 1. Das \href{https://de.wikipedia.org/wiki/Z\%c3\%a4hlma\%c3\%9f\_(Ma\%c3\%9ftheorie)}{\textbf{Zählmaß}} \(m\) auf einer \emph{endlichen} Menge \(M\), mit
+=======
+Ein Mengensystem ist eine Menge von Mengen. Wir nennen die Potenzmengen \(2^M \equiv\mathcal{P}(M)\) von \(M\) die Menge aller möglichen Teilmengen von \(M\). In der Maßtheorie sind Mengensysteme \(\mathcal{A} \subseteq \mathcal{P}(M)\) zentral, nämlich die der \emph{meßbaren} Teilmengen von \(M\). Das sind die Mengen, denen ein Maß zugeordnet wird, also eine nicht negative Zahl oder Unendlich. Schauen wir uns also an, welche Eigenschaften ein Maß haben muss.
+
+\par
+Zunächst müssen wir festlegen, welche Teilmengen der Grundmenge \(M\) überhaupt messbar sein sollen. Wir wählen also wie gesagt ein Mengensystem \(\mathcal{A} \subseteq \mathcal{P}(M)\) in der Potenzmenge von \(M\) aus.
+Am bequemsten wäre es, alles messen zu können, also \(\mathcal{A} = \mathcal{P}(M)\), aber das ist nicht immer möglich. Wir fordern, dass \(\mathcal{A}\) eine \(\sigma\) Algebra ist.
+\begin{definition}{}{masstheorie/masstheorie:def:sigmaalgebra}
+
+
+\begin{itemize}
+\item {} 
+\par
+\(\mathcal{A} \subseteq \mathcal{P}(M)\) heißt \textbf{\(\sigma\) Algebra (von \(M\))}, wenn
+
+\par
+a) \(M\in \mathcal{A}\)
+
+\par
+b) \(A\in \mathcal{A}\) impliziert, dass \(A^c:=M\backslash A\in \mathcal{A}\)
+
+\par
+c) \(A_n\in \mathcal{A}\ (n\in\N)\) impliziert, dass \(\bigcup_{n\in \N} A_n\in \mathcal{A}\).
+
+\item {} 
+\par
+Für eine \(\sigma\) Algebra \(\mathcal{A} \subseteq \mathcal{P}(M)\) von \(M\) heißt das Paar (\(M,\mathcal{A}\)) \textbf{Messraum}, und die Menge \(\mathcal{A}\) heißen \emph{messbar}.
+
+\end{itemize}
+\end{definition}
+
+\par
+Die kleinste \(\sigma\) Algebra von \(M\) ist damit \{\textbackslash{}emptyset, M\}, die Größte \(\mathcal{P}(M)\).
+
+\par
+Das Symbol \(\sigma\) soll an den Begriff der Summe erinnern, entsprechend der
+dritten Forderung in Def. \textbackslash{}ref\{def:sigmaalgebra\}, also der Stabilität unter abzählbarer Vereinigung.
+Sigma–Algebren sind offensichtlich auch unter dem Schnitt abzählbar vieler
+Mengenstabil \(A_n\in \mathcal{A}\ (n\in\N)\) impliziert, dass \(\bigcap_{n\in \N} A_n = \left(\bigcup_{n\in\N} A_n^c\right)^c\in \mathcal{A}\).
+\begin{definition}{}{masstheorie/masstheorie:definition-1}
+
+
+\begin{itemize}
+\item {} 
+\par
+Für einen Messraum (\(M, \mathcal{A}\)) heißt eine Abbildung \(\mu: \mathcal{A}\to [0, \infty]\) \textbf{Maß}, wenn
+
+\par
+a) \(\mu(\emptyset) = 0\)
+
+\par
+b) Für disjunkte (das heißt \(A_m\cap A_n = \emptyset\ (m\neq n)\)) \(A_n\in \mathcal{A}\ (n\in\N)\) gilt: \(\mu\left( \bigcup_{n\in\N}A_n \right) = \sum_{n\in\N}\mu (A_n)\) \textbackslash{}quad (abzählbare oder \(\sigma\) \textbf{Additivität}).
+
+\item {} 
+\par
+Dann heißt das Tripel \((M, \mathcal{A}, \mu)\) \textbf{Maßraum}.
+
+\item {} 
+\par
+Das Maß \(\mu\) heißt \textbf{endlich}, wenn \(\mu(M)<\infty\), und \textbf{Wahrscheinlichkeitsmaß}, wenn \(\mu(M)=1\).
+
+\end{itemize}
+\end{definition}
+\begin{example}{}{masstheorie/masstheorie:example-2}
+
+
+
+\par
+Wichtige Maße sind z.B. die folgenden.
+\begin{enumerate}
+
+\item {} 
+\par
+Das \href{https://de.wikipedia.org/wiki/Z\%c3\%a4hlma\%c3\%9f\_(Ma\%c3\%9ftheorie)}{\textbf{Zählmaß}} \(m\) auf einer endlichen Menge \(M\), mit
+
+\end{enumerate}
+>>>>>>> main
 \begin{align*}
 m(A):=|A|\qquad (A\subseteq M).
 \end{align*}
 \par
+<<<<<<< HEAD
 Hier sind insbesondere alle Teilmengen messbar, d.h., \((M, \mathcal{P}(M), m)\) bildet einen Maßraum.
 
 \par
@@ -261,10 +350,14 @@ Eine sehr nützliche Eigenschaft von gewissen Maßen auf topologischen Räumen i
 \par
 Es sei \((\Omega, \tau)\) ein topologischer Raum und \((\Omega, \mathcal{A}, \mu)\) ein entsprechender Maßraum auf \(\Omega\), so dass gilt \(\tau \subset \mathcal{A}\).
 Dann können wir die Regulariät des Maßes \(\mu\) wie folgt definieren.
+=======
+Hier sind insbesondere alle Teilmengen messbar.
+>>>>>>> main
 \begin{enumerate}
 
 \item {} 
 \par
+<<<<<<< HEAD
 Wir nennen das Maß \(\mu\) von \textbf{außen regulär}, wenn zu jeder messbaren Menge \(A \in \mathcal{A}\) und jedem \(\epsilon > 0\) eine offene Obermenge \(U \in \tau\) existiert mit \(A \subset U\), so dass für das Maß \(\mu(U\setminus A) < \epsilon\) gilt.
 
 \item {} 
@@ -345,10 +438,53 @@ Es lässt sich sogar zeigen, dass die borelsche \(\sigma\) Algebra von \(\R\) gl
 \par
 Für spezielle topologische Räume lässt sich eine wichtige Eigenschaft von Maßen über die Borel \(\sigma\) Algebra definieren.
 \begin{definition}{(Lokale Endlichkeit von Maßen)}{masstheorie/masstheorie:definition-9}
+=======
+Das \textbf{Lebesgue–Maß} \(\lambda^n\) auf dem \(\R^n\), das wir bald kennen lernen, zeichnet sich dadurch aus, dass es einem verschobenen Körper das gleiche Volumen zuordnet wie dem unverschobenen, es also \emph{translationsinvariant} ist, und der Einheitswürfel \([0,1]^n\) Maß \(1\) besitzt.
+
+\item {} 
+\par
+Das \href{https://de.wikipedia.org/wiki/Diracma\%c3\%9f}{\textbf{Dirac Maß}} \(\delta_x\) ist im Punkt \(x\) des \(\R^n\) konzentriert, und für \(A\subset\R^n\) ist.
+
+\end{enumerate}
+\begin{align*}
+\delta_x(A)\equiv \int_A\delta_x := \begin{cases} 1, &  x \in A\\ 0, & \text{sonst.} \end{cases}
+
+\end{align*}
+\par
+Dieses Maß ist also nicht translationsinvariant. Es wird beispielsweise in der Elektrodynamik benutzt, um eine bei \(x\) lokalisierte punktförmige Ladung zu beschreiben.
+\begin{enumerate}
+
+\item {} 
+\par
+Wir wollen z.B. auch die Länge der Spur einer \emph{Kurve} oder allgemeiner den Flächeninhalt einer \(d\)–dimensionalen Fläche im \(\R^n\) messen. Auch das dafür benutzte Maß \(\mu_d\) ist translations  und rotationsinvariant, es ordnet aber der \(d\)–dimensionalen Einheitsfläche \([0,1]^d\times\{0\} \subset\R^d\times\R^{n-d}=\R^n\) Maß 1 zu. Entsprechend hat aber für \(d<n\) der Einheitswürfel Maß \(\mu_d([0,1]^n)=\infty\).
+
+\item {} 
+\par
+Man kann sogar sog. \href{https://de.wikipedia.org/wiki/Hausdorff-Ma\%c3\%9f}{\textbf{Hausdorff Maß}} \(\mu_d\) konstruieren, die Mengen beliebiger fraktaler Dimension \(d\in[0,n]\) messen. Genau genommen \emph{definiert} man die Dimension der Menge \(A\subset \R^n\) durch \(d(A):=\inf\{d'>0\mid \mu_{d'}(A)=0\}.\)
+
+\item {} 
+\par
+Im Zusammenhang mit dem sog. Feynmanschen \href{https://de.wikipedia.org/wiki/Pfadintegral}{\textbf{Pfadintegral}} der Quantenmechanik wird auf dem unendlich dimensionalen Raum \(M\) der Wege zwischen zwei Punkten des Konfigurationsraumes \(\R^d\) ein \href{https://de.wikipedia.org/wiki/Wahrscheinlichkeitsma\%c3\%9f}{\textbf{Wahrscheinlichkeitsmaß}} (also ein Maß \(\mu\) auf \(M\) mit \(\mu (M)=1\)) definiert. Dabei erhalten Wege, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein großes Gewicht.
+
+\end{enumerate}
+\end{example}
+
+
+\subsection{Borel \protect\(\sigma\protect\) Algebren und  Maße}
+\begin{definition}{(Borel \protect\(\sigma\protect\) Algebra)}{\detokenize{masstheorie/masstheorie:borel-sigma-algebren-und-masze}}\label{masstheorie/masstheorie:definition-3}
 
 
 
 \par
+S. 106 und 119 Schulz Baldes
+\end{definition}
+\begin{definition}{(Lokale Endlichkeit von Maßen)}{masstheorie/masstheorie:definition-4}
+>>>>>>> main
+
+
+
+\par
+<<<<<<< HEAD
 Sei \((\Omega, \tau)\) ein Haussdorf Raum (siehe \cref{manifolds/manifolds_prelim:def:hausdorffraum}  und sei \(\B(\Omega) = \sigma(\tau)\) die Borel \(\sigma\) Algebra, die durch \(\tau\) erzeugt wird.
 Wir nennen ein Maß \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) \textbf{lokal endlich}, falls jeder Punkt \(x \in \Omega\) eine lokale Umgebung mit endlichem Maß besitzt.
 \end{definition}
@@ -360,10 +496,20 @@ Wie wir später sehen werden ist das Lebesgue Maß auf dem Raum \(\R^n\) lokal e
 \par
 Basierend auf der oben definierten Borel \(\sigma\) Algebra lässt sich nun das sogenannte Borel Maß einführen.
 \begin{definition}{(Borel Maß)}{masstheorie/masstheorie:definition-10}
+=======
+Sei \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) ein Maß auf einem topologischem Raum \(\Omega\).
+Wir nennen das Maß \(\sigma\) \textbf{lokal endlich}, falls jeder Punkt \(x \in \Omega\) eine lokale Umgebung mit endlichem Maß besitzt.
+\end{definition}
+
+\par
+Es ist klar, dass das Lebesgue Maß auf dem Raum \(\R^n\) lokal endlich ist.
+\begin{definition}{(Borel Maß)}{masstheorie/masstheorie:definition-5}
+>>>>>>> main
 
 
 
 \par
+<<<<<<< HEAD
 Ein lokal endliches Maß \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) auf der Borelschen \(\sigma\) Algebra eines Hausdorff Raums \((\Omega,\tau)\) heißt \textbf{Borel Maß}.
 \end{definition}
 
@@ -385,10 +531,19 @@ a < b \qquad \Leftrightarrow \qquad a_i < b_i \quad i=1,\ldots,n
 \par
 und analog für \(a \leq b, a > b\) und \(a \geq b\).
 \begin{definition}{(Mehrdimensionale Quader)}{masstheorie/masstheorie:def:quader}
+=======
+Ein lokal endliches Maß \(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\) auf der Borelschen \(\sigma\) Algebra eines topologischen Raums \(\Omega\) heißt Borel Maß.
+\end{definition}
+
+
+\subsection{Riemann  und Lebesgue messbare Mengen}
+\begin{definition}{(Mehrdimensionale Quader)}{\detokenize{masstheorie/masstheorie:riemann-und-lebesgue-messbare-mengen}}\label{masstheorie/masstheorie:definition-6}
+>>>>>>> main
 
 
 
 \par
+<<<<<<< HEAD
 und darüber im Folgenden \textbf{offene, halboffene} und \textbf{abgeschlossene Quader} im \(\R^n\) respektive beschreiben durch
 \begin{align*}
 (a,b) &= \lbrace x \in \R^n : a < x < b \rbrace,\\
@@ -461,11 +616,58 @@ und für jedes \(i\in\{1,\ldots,n\}\) gilt
 \par
 Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen sogenannten Mengen Ring.
 \begin{definition}{(Ring)}{masstheorie/masstheorie:def:ring}
+=======
+Seien \(a = (a_1,\ldots,a_n) \in \R^n\) und \(b = (b_1,\ldots,b_n) \in \R^n\) zwei Punkte im \textbackslash{}R\textasciicircum{}n.
+Wir definieren zunächst folgende Anordnungsrelation mit
+\begin{align*}
+a < b \qquad \Leftrightarrow \qquad a_i < b_i \quad i=1,\ldots,n.
+\end{align*}
+\par
+Analog können wir die Anordnungsrelationen \(a \leq b, a > b\) und \(a \geq b\) definieren und darüber im Folgenden \textbf{offene, halboffene} und \textbf{abgeschlossene Quader} im \(\R^n\) respektive beschreiben durch
+\begin{align*}
+(a,b) = \lbrace x \in \R^n : a < x < b \rbrace,\\
+(a,b] = \lbrace x \in \R^n : a < x \leq b \rbrace,\\
+[a,b] = \lbrace x \in \R^n : a \leq x \leq b \rbrace,.
+\end{align*}\end{definition}
+\begin{definition}{(Mehrdimensionale Treppenfunktion)}{masstheorie/masstheorie:definition-7}
 
 
 
 \par
+Wir nennen eine Funktion \(f \colon \R^n \rightarrow \C\) \textbf{Treppenfunktion}, falls es paarweise disjunkte Quader \(Q_1, \ldots, Q_k \subset \R^n\) gibt, so dass die folgenden Eigenschaften gelten:
+\begin{enumerate}
+
+\item {} 
+\par
+Die Funktion \(f\) ist konstant auf jedem der Quader, d.h.,
+
+\end{enumerate}
+\begin{align*}
+f|_{Q_i} = c \in \C, \quad 1 \leq i \leq k,
+\end{align*}\begin{enumerate}
+
+\item {} 
+\par
+Die Funktion ist überall Null außerhalb der Quader, d.h.,
+
+\end{enumerate}
+\begin{align*}
+f|_{\R^n \setminus (Q_1 \cup \ldots \cup Q_k)} = 0.
+\end{align*}\end{definition}
+
+\par
+Illustration hier von Quadern und Treppenfunktionen!
+\begin{definition}{(Ring)}{masstheorie/masstheorie:definition-8}
+>>>>>>> main
+
+
+
+\par
+<<<<<<< HEAD
 Ein Mengensystem \(\mathcal{R} \subset 2^{\Omega}\) heißt \textbf{Mengen Ring} (im maßtheoretischen Sinne) auf einer Menge \(\Omega\), falls die folgenden Eigenschaften erfüllt sind:
+=======
+Ein Mengensystem \(\mathcal{R} \subset \mathcal{P}(\Omega)\) heißt \textbf{Ring} auf einer Menge \(\Omega\), falls die folgenden Eigenschaften erfüllt sind:
+>>>>>>> main
 \begin{enumerate}
 
 \item {} 
@@ -474,6 +676,7 @@ Ein Mengensystem \(\mathcal{R} \subset 2^{\Omega}\) heißt \textbf{Mengen Ring} 
 
 \item {} 
 \par
+<<<<<<< HEAD
 \(A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}\)
 
 \item {} 
@@ -483,10 +686,22 @@ Ein Mengensystem \(\mathcal{R} \subset 2^{\Omega}\) heißt \textbf{Mengen Ring} 
 \end{enumerate}
 \end{definition}
 \begin{lemma}{(Der von halboffenen Quadern erzeugte Ring)}{masstheorie/masstheorie:lemma-14}
+=======
+\$A,B \textbackslash{}in \textbackslash{}mathcal\{R\} \textbackslash{}Rightarrow (A \textbackslash{}setminus B) \textbackslash{}in \textbackslash{}mathcal\{R\}
+
+\item {} 
+\par
+\$A,B \textbackslash{}in \textbackslash{}mathcal\{R\} \textbackslash{}Rightarrow (A \textbackslash{}cup B) \textbackslash{}in \textbackslash{}mathcal\{R\}
+
+\end{enumerate}
+\end{definition}
+\begin{lemma}{(Der von halboffenen Quadern erzeugte Ring)}{masstheorie/masstheorie:lemma-9}
+>>>>>>> main
 
 
 
 \par
+<<<<<<< HEAD
 Das System der halboffenen Quadern \(\mathcal{R}_{\text{Q}}\) bildet einen Mengenring.
 \end{lemma}
 
@@ -681,10 +896,75 @@ Somit gilt mit \(N\to\infty\)
 \par
 Wir haben bisher einen Inhalt auf \(\mathcal{R}_{\text{R}}\) definiert. Diese Klasse an Mengen ist aber relativ klein, weshalb der Begriff ausgedehnt werden soll. Eine Möglichkeit hier ist die Idee des Riemann Integrals mit Ober  und Untersummen zu benutzen. Es stellt aber auch hier heraus, dass der Begriff zu einschränkend ist. Insbesondere führt deses Konzept \textbf{nicht} auf ein Maß. Wir werden es im Folgenden trotzdem betrachten.
 \begin{definition}{}{masstheorie/masstheorie:definition-18}
+=======
+S. 79 Schulz Baldes
+\end{lemma}
+\begin{remark}{(Riemann messbare Mengen)}{masstheorie/masstheorie:remark-10}
 
 
 
 \par
+S. 78 Schulz Baldes
+\end{remark}
+\begin{example}{(Riemann Messbarkeit)}{masstheorie/masstheorie:example-11}
+
+
+
+\par
+Ein Beispiel messbar, eins nicht.
+\end{example}
+
+\par
+Verglichen mit der Reichhaltigkeit der Potenzmenge \(\mathcal{P}(\Omega)\) sind nur relativ wenige Mengen Riemann messbar.
+\begin{definition}{(Äußeres Lebesguesches Maß)}{masstheorie/masstheorie:definition-12}
+
+
+
+\par
+S. 78 u. 89 Schulz Baldes
+\end{definition}
+\begin{theorem}{(Eigenschaften des Lebesgue Maßes)}{masstheorie/masstheorie:theorem-13}
+
+
+
+\par
+S. 89 Schulz Baldes
+\end{theorem}
+\begin{definition}{}{masstheorie/masstheorie:definition-14}
+
+
+
+\par
+S. 92 Schulz Baldes
+\end{definition}
+\begin{example}{(Lebesgue messbare Mengen)}{masstheorie/masstheorie:example-15}
+
+
+
+\par
+S. 92 Schulz Baldes
+\end{example}
+\begin{definition}{}{masstheorie/masstheorie:definition-16}
+
+
+
+\par
+S. 98 Schulz Baldes
+\end{definition}
+\begin{lemma}{(Eigenschaften von Lebesgue Nullmengen)}{masstheorie/masstheorie:lemma-17}
+
+
+
+\par
+S. 98 Schulz Baldes
+\end{lemma}
+\begin{theorem}{(Lebesgue Messbarkeit von Teilmengen im \protect\(\R^n\protect\))}{masstheorie/masstheorie:theorem-18}
+>>>>>>> main
+
+
+
+\par
+<<<<<<< HEAD
 Sei \(A \subset \R^n\) eine beliebige Teilmenge.
 Wir betrachten die folgenden \textbf{endlichen} Ober  und Untersummen für die Teilmenge \(A\),
 \begin{align*}
@@ -2079,4 +2359,28 @@ Hierbei nennt man \(\det(D\Phi(x))\) die \textbf{Jacobi Determinante}.
  Schulz Baldes S.168 174
 \end{proof}
 
+=======
+Sowohl offene als auch abgeschlossene Teilmengen des \(\R^n\) sind Lebesgue messbar.
+\end{theorem}
+
+\begin{proof}
+ S. 99 Schulz Baldes
+\end{proof}
+
+
+\section{Lebesgue Integral}
+\label{\detokenize{masstheorie/lebesgue_integral:lebesgue-integral}}\label{\detokenize{masstheorie/lebesgue_integral::doc}}
+\par
+S.121ff. Schulz Baldes
+
+
+\section{Integrationstechniken}
+\label{\detokenize{masstheorie/integrationstechnik:integrationstechniken}}\label{\detokenize{masstheorie/integrationstechnik::doc}}
+
+\subsection{Satz von Fubini}
+\label{\detokenize{masstheorie/integrationstechnik:satz-von-fubini}}
+
+\subsection{Satz von Cavalieri}
+\label{\detokenize{masstheorie/integrationstechnik:satz-von-cavalieri}}
+>>>>>>> main
 
