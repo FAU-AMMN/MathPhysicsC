@@ -70,6 +70,7 @@ Wir nennen die Funktion $f$ analytisch auf der Teilmenge $D$, wenn sie analytisc
 Der folgende Satz beschreibt den Zusammenhang zwischen analytischen und holomorphen Funktionen.
 
 ````{prf:theorem}
+:label: thm:analytischHolomorph
 Jede analytische Funktion $f$ auf einer Teilmenge $D \subset \C$ ist auch holomorph auf $D$.
 ````
 
