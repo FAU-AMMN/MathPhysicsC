@@ -2,7 +2,7 @@
 
 In diesem Abschnitt beschäftigen wir uns mit Rechenmethoden und Rechenregeln, die es uns erlauben Funktionen mehrerer Variablen bezüglich des Lebesgue-Maßes zu integrieren. Insbesondere lernen wir dadurch Verfahren kennen um Volumina und Flächen zu berechnen. Um diese Regeln formal zu zeigen benötigen wir zunächst etwas Theorie.
 
-## Produktmaße
+## Produktalgebren
 
 Für zwei Messräume $(\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)$ wollen wir nun einen Produktraum erhalten. Hierbei werden wir auf Konzepte des **Tensorproduktes** zurückgreifen und benutzen deshalb die gleiche Notation. Wir definieren dann die Produkt-$\sigma$-Algebra,
 
@@ -18,11 +18,20 @@ wobei
 
 Wir arbeiten nicht auf Vektorräumen darum konstruieren wir **kein** Tensorprodukt im Sinnen von {numref}`s:Tensoren`, aber die grundlegenden Konzepte sind ähnlich, weshalb es üblich ist, hier diese Notation zu verwenden. Weiterhin erkennen wir, dass mit dieser Konstruktion $\Sigma_1\otimes\Sigma_2 $ eine $\sigma$-Algebra auf $\Omega_1\times\Omega_2$ ist.
 
-Für eine Menge $A\subset\Omega_1\times\Omega_2$ betrachtet man in diesem Kontext oft sogenannte **Schnitte**
+```{figure} ../img/schnitte.jpg
+---
+width: 600px
+name: "fig:cavalieri"
+---
+
+Visualisierung von Mengenschnitten.
+```
+
+Für eine Menge $E\subset\Omega_1\times\Omega_2$ betrachtet man in diesem Kontext oft sogenannte **Schnitte**
 
 ```{math}
-A_x := \{y\in \Omega_2: (x,y)\in\Omega_1\}\subset\Omega_2\\
-A^y := \{x\in \Omega_1: (x,y)\in\Omega_2\}\subset\Omega_1
+E_x := \{y\in \Omega_2: (x,y)\in E\}\subset\Omega_2\\
+E^y := \{x\in \Omega_1: (x,y)\in E\}\subset\Omega_1
 ```
 
 wofür man folgende Aussage hat.
@@ -82,7 +91,7 @@ Somit folgt
 ```
 ````
 
-Speziell für $\Omega_1=\R^n, \Omega_1=\R^m$ könnte man sich nun fragen wie sich die Produkt-Algebra für die bekannten Borel und Lebesgue Algebren verhält.
+Speziell für $\Omega_1=\R^n, \Omega_1=\R^m$ könnte man sich nun fragen wie sich die Produkt-Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel $\sigma$-Algebra haben wir folgende Aussage.
 
 ````{prf:lemma}
 Für $n,m\in\N$ gilt 
@@ -148,12 +157,14 @@ und somit
 Für die Lebesgue $\sigma$-Algebren gilt diese Identität nicht, allgemein kann man zeigen, dass
 
 ```{math}
-\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\subset \mathcal{A}(\R^{nm})
+\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\subset \mathcal{A}(\R^{n+m})
 ```
 
-allerdings ist die Menge auf der Seite echt größer wie das folgende Beispiel zeigt.
+allerdings ist die Menge auf der rechten Seite echt größer wie das folgende Beispiel zeigt.
 
 ````{prf:example}
+:label: ex:prodsig
+
 Wir betrachten die zwei Lebesgue-Algebren für $n=m=1$, dh. $\mathcal{A}(\R)$. Nach {numref}`s:vitali` gibt es Mengen $V\subset\R$ sogenannte Vitali-Mengen s.d. $V\not\in\mathcal{A}(\R)$. Weiterhin erkennen wir, dass für das Lebesgue-Maß auf $\R^2$ folgt, dass
 
 ```{math}
@@ -175,6 +186,48 @@ wäre nun $(V\times\{0\})^0\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)$ so würde 
 ```
 
 ````
+
+Das abstrakte Konzept, welches sich hinter diesem Beispiel verbirgt wir mit dem Begriff Vollständigkeit eines Maßes bezeichnet.
+
+````{prf:definition}
+Ein Maßraum $(\Omega,\Sigma,\mu)$, falls für jede $\mu$-Nullmenge $N\in\Sigma, \mu(N)=0$ gilt
+
+```{math}
+A\subset N \Rightarrow A\in \Sigma.
+```
+````
+
+```{prf:remark}
+Wir wissen, dass jede Menge die bezüglich des äußeren Maßes $\lambda^\ast$ eine Nullmenge ist auch Lebesgue-messbar ist. Daher ist das Lebesgue-Maß ein vollständiges Maß.
+```
+
+Weiterhin lässt sich ein beliebiges Maß vervollständigen, indem wir die $\sigma$-Algebra
+
+```{math}
+\overline{\sigma}:\{A\cup N: A\in\Sigma, N\subset B\in\Sigma\text{ mit }\mu(B)=0\}
+```
+
+betrachten zusammen mit dem Maß
+
+```{math}
+\overline(\mu)(B)= \mu(A\cup N):= \mu(A).
+```
+
+Hier lässt sich nun folgendes zeigen.
+
+````{prf:lemma}
+Für $n,m\in\N$ gilt
+
+```{math}
+\overline{\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)}= \mathcal{A}(\R^{n+m}).
+```
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`boga_2007` Theorem 1.5.6.
+````
+
+## Produktmaße
 
 Wir wollen nun Maße auf der Produktalgebra betrachten.
 
@@ -208,7 +261,7 @@ In den obigen Produkten können einzelnen Terme jeweils unendlich werden, hierbe
 Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogennate $\sigma$-Endlichkeit.
 
 ````{prf:definition}
-Es sei $(\Omega,\Sigma,\mu)$ ein Maßraum, das Maß $\mu$ heißt $\sigma$**-endlich**, falls ene Folge von Mengen $A_i\in\Sigma,i\in\N$ existiert, s.d., $\mu(A_i)<\infty$ und 
+Es sei $(\Omega,\Sigma,\mu)$ ein Maßraum, das Maß $\mu$ heißt $\sigma$**-endlich**, falls eine Folge von Mengen $A_i\in\Sigma,i\in\N$ existiert, s.d., $\mu(A_i)<\infty$ und 
 
 ```{math}
 \bigcup_{i\in\N} A_i = \Omega.
@@ -216,66 +269,197 @@ Es sei $(\Omega,\Sigma,\mu)$ ein Maßraum, das Maß $\mu$ heißt $\sigma$**-endl
 ````
 
 ````{prf:remark}
-Das wichtigste Beispiel für uns ist das Lebesgue-Maß auf $\R^d$ welches bezüglich der Borelschen $\sigma$-Algebra zwar nicht endlich aber $\sigma$-endlich ist. Insbesondere ist es damit auch $\sigma$-endlcih bezüglich der Lebesgue $\sigma$-Algebra $\mathcal{A}$.
+Das wichtigste Beispiel für uns ist das Lebesgue-Maß auf $\R^d$ welches bezüglich der Borelschen $\sigma$-Algebra zwar nicht endlich aber $\sigma$-endlich ist. Insbesondere ist es damit auch $\sigma$-endlich bezüglich der Lebesgue $\sigma$-Algebra $\mathcal{A}$.
 ````
+
+Für $\sigma$-endliche Maße kann man zeigen, dass ein eindeutig bestimmtes Produktmaß existiert.
+
+````{prf:theorem}
+Es seien $(\Omega_1,\Sigma_1,\mu_1), (\Omega_2,\Sigma_2,\mu_2)$ zwei $\sigma$-endliche Maßräume, dann existiert eine eindeutig bestimmtes Produktmaß
+
+```{math}
+\mu_1\otimes \mu_2:\Sigma_1\otimes\Sigma_2\to[0,\infty],
+```
+
+s.d. die Bedingung
+
+```{math}
+(\mu_1\otimes\mu_2)(A\times B) = \mu_1(A)\cdot\mu_2(B)\quad\forall A\in\Sigma_1, B\in\Sigma_2,
+```
+
+erfüllt ist.
+````
+
+````{prf:proof}
+See Bogachev ref missing.
+````
+
+Anhand von {prf:ref}`ex:prodsig` haben wir gesehen, dass die Lebesgue $\sigma$-Algebra auf $\R^{n+m}$ größer ist als die Produkt $\sigma$-Algebra. Allerdings kann man zeigen, dass das Produktmaß zumindest auf der kleineren Produktalgebra übereinstimmt.
+
+````{prf:lemma}
+Es gilt
+
+```{math}
+\lambda^{n+m} = \overline{\lambda^n\otimes\lambda^m},
+```
+
+insbesondere folgt damit für eine beliebige Menge $E\in \mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$
+
+```{math}
+\lambda^{n+m}(E) = (\lambda^n\otimes\lambda^m)(E).
+```
+
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`boga_2007` Theorem 1.5.6.
+````
+
+Speziell für $A_1\in\mathcal{A}(\R^n), A_2\in\mathcal{A}(\R^m)$ folgt damit
+
+```{math}
+\lambda^{n+m}(A^1\times A^2)=\lambda^{n}(A^1)\cdot\lambda^{m}(A^2).
+```
+
+## Das Prinzip von Cavalieri
+
+Im vorherigen Abschnitt haben wir Produkte von Maßen betrachtet. Insbesondere haben wir erkannt, dass wir für Mengen der Form $A\times B$, dass Lebesgue-Maß multiplikativ aufteilen können,
+
+```{math}
+\lambda^{n+m}(A\times B) = \lambda^n(A)\,\lambda^m(B).
+```
+
+Unser Ziel ist es nun das Lebesgue-Maß beliebige messbare Mengen $E\subset\R^{n+m}$ mithilfe der niedrigdimesnionaleren Lebesgue-Maße auszudrücken. Dies führt auf das sogenannte Prinzip von Cavalieri.
+
+```{margin} Bonaventura Cavalieri
+[Bonaventura Francesco Cavalieri](https://de.wikipedia.org/wiki/Bonaventura_Cavalieri) (Geboren 1598 wahrscheinlich in Mailand; Gestorben 3. Dezember oder 30. November 1647 in Bologna; mit Gelehrtennamen Cavalerius) war ein italienischer Jesuat, Mathematiker und Astronom.
+```
+
+```{figure} ../img/cavalieri.jpg
+---
+width: 400px
+name: "fig:cavalieri"
+---
+
+Visualisierung für das Prinzip von Cavalieri, beide Objekte haben die gleiche Fläche.
+```
+
+Das Prinzip beruht auf der Intuition, dass zwei Körper, das gleiche Volumen haben, sofern alle ihre Schnittflächen welche parallel zu einer Grundfläche verlaufen gleich sind. Für den $\R^2$ ist dieses Prinzip in {numref}`fig:cavalieri` dargestellt.
+
+````{prf:theorem} Das Prinzip von Cavalieri
+
+Sei $E \subset \R^{n+k}$ eine Lebesgue-messbare Menge mit $\lambda^{n+k}(E) < \infty$,
+dann gilt für fast jedes $x\in\R^n,y\in\R^m$, dass die Schnitte $E_x, E^y$ auch Lebesgue-messbar sind, die Funktionen
+
+```{math}
+x \mapsto \lambda^m(E_x)\\
+y \mapsto \lambda^n(E^y)
+```
+
+sind messbar und es gilt
+
+```{math}
+\lambda^{n+k}(E) &= \int_{\R^n} \lambda^m(E_x) d\lambda^n(x)\\
+&=
+\int_{\R^m} \lambda^n(E^y) d\lambda^m(y).
+```
+
+````
+
+```{prf:proof}
+f
+```
 
 ## Der Satz von Fubini
 
-Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen.
-Um diesen zentralen Satz zu formulieren benötigen wir jedoch zunächst den Begriff von doppelintegrierbaren Funktionen.
+Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen. Unser Ziel ist es also für eine Funktion $f:\R^{n+m}\to\overline{R}$ das Integral
+
+```{math}
+\int_{\R^{n+m}} f(z) d\lambda^{n+m}(z)
+```
+
+mithilfe von Inetgration bezüglich $d\lambda^n$ und $\lambda^m$ aufzuteilen. Hierfür definieren analog zu den Mengenschnitten aus {prf:ref}`lem:secmeasure` für alle $x\in\R^n$ die Funktion
+
+```{math}
+f_x:\R^m&\to\overline{R}\\
+y&\mapsto f(x,y)
+```
+
+und für alle $y\in\R^m$ die Funktion
+
+```{math}
+f^y:\R^n&\to\overline{R}\\
+x&\mapsto f(x,y).
+```
+
+Wäre $f_x$ für fast alle $x\in\R^n$ integrierbar bezüglich $\lambda^m$, so kann man das Integral
+
+```{math}
+I_x(f) := \int_{\R^m} f_x(y) d\lambda^m(y)
+```
+
+betrachten. Da $x\in\R^n$ bei dieser Überlegung variabel ist, definiert dies eine neue Funktion $x\mapsto I_x(f)$, welche im Falle erneuter Integrierbarkeit auf
+
+```{math}
+\int_{\R^n} I_x(f) d\lambda^n(x) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^m(y)d\lambda^n(x).
+```
+
+Gleichermaßen sollen diese Schritte aber auch für $f^y$ funktionieren, deshalb definieren wir doppelintegrierbare Funktionen.
 
 ````{prf:definition} Doppelintegrierbare Funktion
 
-Wir nennen eine Funktion $f \colon \R^n \times \R^k \rightarrow \overline{\R}$ **doppelintegrierbar** oder **iteriert integrierbar**,
-wenn die folgende Aussagen gelten:
-
-1\. Für fast alle Punkte $x \in \R^n$ ist die Funktion
+Eine Funktion $f \colon \R^{n+m} \to \overline{\R}$ heißt **doppelintegrierbar** falls 
+für fast alle Punkte $x \in \R^n, y\in\R^m$ die Funktionen $f_x,f^y$ integrierbar sind und zusätzlich die Funktionen
 
 ```{math}
-f_x \colon \R^k &\rightarrow \overline{\R},\\
-f_x(y) &:= f(x,y).
+x\mapsto I_x(f) =\int_{\R^m} f(x,y) d\lambda^m(y)\\
+y\mapsto I^y(f) =\int_{\R^n} f(x,y) d\lambda^n(x)\\
 ```
 
-über $\R^k$ Lebesgue-integrierbar.
-In diesem Fall definieren wir eine Funktion
-
-```{math}
-F(x) := \int_{\R^k} f_x(y) \, \mu_k(\mathrm{d}y).
-```
-
-2\. Die Funktion $F \colon \R^k \rightarrow \overline{\R}$ ist über $\R^n$ Lebesgue-integrierbar.
-In diesem Fall können wir das **Doppelintegral** von $f$ berechnen als
-
-```{math}
-\mu_n(\mu_k(f)) := \int_{\R^n}\int_{\R^k} f(x,y) \, \mu_n(\mathrm{d}x) \mu_k(\mathrm{d}y) = \int_{\R^k} F(x) \, \mu_k(\mathrm{d}y).
-```
-
-3\. Die beiden ersten Aussagen gelten auch für vertauschte Rollen der Variablen $x$ und $y$.
-
+integrierbar sind.
 ````
 
-````{prf:lem}
+Für die Menge der doppelintegrierbaren Funktionen
+
+```{math}
+V_{\text{D}} := \{f:\R^{n+m}\to\overline{\R}: f\text{ ist doppelintegrierbar}\}
+```
+
+können wir folgende Aussage zeigen.
+
+````{prf:lemma}
 :label: lem:doppelintegrierbar
 
 1\. Die Menge der doppelintegrierbaren Funktionen bilden einen Vektorraum $V_D$.
-Doppelintegrale sind *linear*, d.h., für zwei doppelintegrierbare Funktionen $f,g \in V_D$ und beliebige Skalare $\lambda \in \R$ gilt
+
+2\. Doppelintegrale sind *linear*, d.h., für zwei doppelintegrierbare Funktionen $f,g \in V_D$ und beliebige Skalare $\lambda \in \R$ gilt
 
 ```{math}
-\mu_n(\mu_k(f + \lambda g)) = \mu_n(\mu_k(f)) + \lambda \mu_n(\mu_k(g)),\\
-\mu_k(\mu_n(f + \lambda g)) = \mu_k(\mu_n(f)) + \lambda \mu_k(\mu_n(g)).
+\int_{\R^n}\int_{\R^m} (f + \lambda g)\,d\lambda^m d\lambda^n = 
+\int_{\R^n}\int_{\R^m} f d\lambda^m d\lambda^n + 
+\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^m d\lambda^n
 ```
 
-2\. Sei $(f_j)_j\in\N$ eine Folge von doppelintegrierbaren Funktionen, die nichtnegativ sind, d.h., $f_j \geq 0$ für $j\in\N$.
-Die Folge konvergiere von unten gegen eine Funktion $f$ und es existiere eine Konstante $C < \infty$ mit
+und analog für das andere Doppelintegral
+
 
 ```{math}
-\mu_n(\mu_k(f_n)) \leq C, \qquad \mu_k(\mu_n(f_n)) \leq C.
+\int_{\R^m}\int_{\R^n} (f + \lambda g) d\lambda^n d\lambda^m = 
+\int_{\R^n}\int_{\R^m} f d\lambda^n d\lambda^m + 
+\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^n d\lambda^m
 ```
 
-Dann ist die Funktion $f$ ebenfalls doppelintegrierbar und es gilt
+3\. Sei $(f_j)_j\in\N$ eine Folge von nichtnegativen, doppelintegrierbaren Funktionen und sei $f:\R^{n+m}\to\overline{\R}$ eine Funktion, s.d.,
 
 ```{math}
-\lim_{j\to\infty} \mu_n(\mu_k(f_j)) = \mu_n(\mu_k(f)), \quad \lim_{j\to\infty} \mu_k(\mu_n(f_j)) = \mu_k(\mu_n(f)).
+f_j\leq f\quad\forall j\in\N,\qquad \lim_{j\to\infty} f_j =f.
+```
+
+Falls beide Doppelintegrale für die $f_j$ gleichmäßig beschränkt sind, so gilt $f\in V_{\text{D}}$ und 
+
+```{math}
+\lim_{j\to\infty} \int_{\R^n}\int_{\R^m} f_j\,d\lambda^m d\lambda^n = \int_{\R^n}\int_{\R^m} f\,d\lambda^m d\lambda^n\\ 
+\lim_{j\to\infty} \int_{\R^m}\int_{\R^n} f_j\,d\lambda^n d\lambda^m= \int_{\R^m}\int_{\R^n} f\,d\lambda^n d\lambda^m.
 ```
 
 ````
@@ -288,26 +472,13 @@ Schulz-Baldes S.153f.
 Die Aussage aus {prf:ref}`lem:doppelintegrierbar` gilt analog für nichtnegative Funktionenfolgen $(f_j)_{j\in\N}$, die von oben gegen die Funktion $f$ konvergieren. 
 ````
 
-````{prf:theorem} Das Prinzip von Cavalieri
-
-Sei $A \subset \R^{n+k}$ eine messbare Menge für die gilt $\mu_{n+k}(A) < \infty$.
-
-Dann gilt, dass die Menge
+Der Wunsch ist natürlich zeigen zu können, dass beide Doppelintegrale übereinstimmen und insbesondere, dass
 
 ```{math}
-A_x := \lbrace y \in \R^k | (x,y) \in A \rbrace
+\int_{\R^{n+m}} f\,d\lambda^{n+m}
 ```
 
-ebenfalls messbar ist mit endlichem Maß $\mu_k(A_x)$.
-
-Außerdem ist jede Funktion $x \mapsto \mu_k(A_x)$ messbar und es gilt
-
-```{math}
-\mu_{n+k}(A) = \int \mu_n(\mathrm{d}x) \mu_k(A_x).
-```
-
-Die Aussage gilt für Vertauschung der Variablen $x$ und $y$ analog.
-````
+gleich dem Doppelintegral ist.
 
 ````{prf:proof}
 Schulz-Baldes S.156-160
