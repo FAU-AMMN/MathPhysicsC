@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Vektoranalysis &#8212; Mathematik für Physikstudierende C</title>
+    <title>6.1. Cauchy-Riemann Gleichungen &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="3.1. Multilinearformen" href="multilinear.html" />
-    <link rel="prev" title="2.2. Stabilität von Ruhelagen" href="../odestability/ruhelagen.html" />
+    <link rel="next" title="6.2. Kurvenintegrale" href="kurvenintegrale.html" />
+    <link rel="prev" title="6. Funktionentheorie" href="complexanalysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -159,23 +159,23 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vektoranalysis/vektoranalysis.html">
    3. Vektoranalysis
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="multilinear.html">
+    <a class="reference internal" href="../vektoranalysis/multilinear.html">
      3.1. Multilinearformen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tensor.html">
+    <a class="reference internal" href="../vektoranalysis/tensor.html">
      3.2. Tensoren und Tensorprodukte
     </a>
    </li>
@@ -235,23 +235,23 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../complexanalysis/complexanalysis.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="complexanalysis.html">
    6. Funktionentheorie
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/cauchyriemann.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      6.1. Cauchy-Riemann Gleichungen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
+    <a class="reference internal" href="kurvenintegrale.html">
      6.2. Kurvenintegrale
     </a>
    </li>
@@ -303,7 +303,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/vektoranalysis/vektoranalysis.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/complexanalysis/cauchyriemann.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -349,16 +349,63 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="vektoranalysis">
-<h1><span class="section-number">3. </span>Vektoranalysis<a class="headerlink" href="#vektoranalysis" title="Link zu dieser Überschrift">¶</a></h1>
-<p>In diesem Kapitel der Vorlesung führen wir wichtige Konzepte der <em>Vektoranalysis</em> ein.
-Insbesondere schaffen wir die mathematischen Grundlagen für eine spezielle Art der mehrdimensionalen Integration, das Integrieren über sogenannte <em>Untermannigfaltigkeiten</em> des <span class="math notranslate nohighlight">\(\R^n\)</span>.
-Um diese Integration durchführen zu können, entwickeln wir das Kalkül der <em>Differentialformen</em> auf Mannigfaltigkeiten.</p>
-<p>Dieses Kalkül lässt auch den geometrischen Gehalt physikalischer Theorien wie Elektrodynamik oder Allgemeine Relativitätstheorie klar hervortreten.
-So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mit Hilfe des Differentialformenkalkül elegant beschreiben.</p>
-<p>Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von Agricola und Friedrich <span id="id1">[<a class="reference internal" href="../references.html#id15">AF13</a>]</span>.</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="cauchy-riemann-gleichungen">
+<h1><span class="section-number">6.1. </span>Cauchy-Riemann Gleichungen<a class="headerlink" href="#cauchy-riemann-gleichungen" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Der zentrale Begriff der Funktionentheorie ist der einer <em>holomorphen Funktion</em>.</p>
+<div class="proof definition admonition" id="def:holomorph">
+<p class="admonition-title"><span class="caption-number">Definition 6.1 </span> (Holomorphe Funktion)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine stetige Funktion.</p>
+<p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> <strong>holomorph</strong> auf der Teilmenge <span class="math notranslate nohighlight">\(D\)</span>, wenn es für jeden Punkt <span class="math notranslate nohighlight">\(z \in D\)</span> eine komplexe Ableitung der Funktion <span class="math notranslate nohighlight">\(f\)</span> gibt mit</p>
+<div class="math notranslate nohighlight">
+\[f'(z) = \lim_{h\rightarrow 0} \frac{f(z+h) - f(z)}{h}.\]</div>
 </div>
+</div><p>Der Differentialquotient in <a class="reference internal" href="#def:holomorph">Definition 6.1</a> erinnert sehr an die Definition der Ableitung einer reellen Funktion.
+Der grundlegende Unterschied ist hier jedoch, dass <span class="math notranslate nohighlight">\(h \in \C\)</span> komplex ist.
+Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen Vektorraum, so muss für die beiden Richtungsableitungen <span class="math notranslate nohighlight">\(x := \operatorname{Re}(z)\)</span> und <span class="math notranslate nohighlight">\(y := \operatorname{Im}(z)\)</span> gelten</p>
+<div class="math notranslate nohighlight">
+\[\partial_x f(z) = \lim_{\epsilon \rightarrow 0} \frac{f(z+\epsilon) - f(z)}{\epsilon} = \lim_{\epsilon \rightarrow 0} \frac{f(z+i\epsilon) - f(z)}{i\epsilon} = -i \partial_y f(z), \quad \epsilon \in \R.\]</div>
+<p>Dieser Zusammenhang ist charakteristisch für holomorphe Funktionen und wird im folgenden Satz präzisiert.</p>
+<div class="proof theorem admonition" id="theorem-1">
+<p class="admonition-title"><span class="caption-number">Theorem 6.1 </span> (Cauchy-Riemann Gleichungen)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine stetige Funktion für die gilt</p>
+<div class="math notranslate nohighlight">
+\[f(z) = u(z) + i v(z), \qquad u,v \colon D \rightarrow \R.\]</div>
+<p>Dann ist die Funktion <span class="math notranslate nohighlight">\(f\)</span> genau dann holomorph auf der Teilmenge <span class="math notranslate nohighlight">\(D\)</span>, wenn die folgenden <strong>Cauchy-Riemann Gleichungen</strong> auf ganz <span class="math notranslate nohighlight">\(D\)</span> gelten:</p>
+<div class="math notranslate nohighlight">
+\[\partial_x u = \partial_y v, \qquad \partial_y u = -\partial_x v.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.313</p>
+</div>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 6.1 </span> (Holomorphe Funktionen)</p>
+<div class="example-content section" id="proof-content">
+<p>Ableitung eines komplexen Monoms -&gt; Beispiel 10.4 auf S.314 in Schulz-Baldes</p>
+<p><span class="math notranslate nohighlight">\(f(z) := \overline{z}\)</span> ist nicht holomorph -&gt; Beispiel 10.7 auf S.315 in Schulz-Baldes</p>
+</div>
+</div><p>Eine besondere Klasse von Funktionen sind <em>analytische Funktonen</em>, die sich lokal mit Hilfe von Reihen darstellen lassen.</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 6.2 </span> (Analytische Funktion)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine Funktion.</p>
+<p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> <strong>analytisch</strong> in einem Punkt <span class="math notranslate nohighlight">\(z_0 \in D\)</span> genau dann, wenn ein <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert, so dass sich jeder Funktionswert <span class="math notranslate nohighlight">\(f(z) \in \C\)</span> in einer entsprechenden lokalen Umgebung durch eine absolut konvergente Reihe darstellen lässt mit</p>
+<div class="math notranslate nohighlight">
+\[f(z) = \sum_{n \geq 0} a_n (z-z_0)^n, \qquad \forall |z - z_0| &lt; \epsilon,\]</div>
+<p>wobei <span class="math notranslate nohighlight">\((a_n)_{n_\in\N}\)</span> eine Folge in <span class="math notranslate nohighlight">\(\C\)</span> ist.</p>
+<p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> analytisch auf der Teilmenge <span class="math notranslate nohighlight">\(D\)</span>, wenn sie analytisch ist für alle Punkte <span class="math notranslate nohighlight">\(z_0 \in D\)</span>.</p>
+</div>
+</div><p>Der folgende Satz beschreibt den Zusammenhang zwischen analytischen und holomorphen Funktionen.</p>
+<div class="proof theorem admonition" id="thm:analytischHolomorph">
+<p class="admonition-title"><span class="caption-number">Theorem 6.2 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Jede analytische Funktion <span class="math notranslate nohighlight">\(f\)</span> auf einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> ist auch holomorph auf <span class="math notranslate nohighlight">\(D\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Vertauschung des Limes <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span> und der Summe.</p>
+</div>
+<p>Wie wir später im Hauptsatz der Funktionentheorie sehen werden gilt auch die Umkehrung.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -374,7 +421,7 @@ So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mi
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./vektoranalysis"
+            path: "./complexanalysis"
         },
         predefinedOutput: true
     }
@@ -391,19 +438,19 @@ So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mi
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../odestability/ruhelagen.html" title="zurück Seite">
+        <a class="left-prev" href="complexanalysis.html" title="zurück Seite">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">zurück</p>
-                <p class="prevnext-title"><span class="section-number">2.2. </span>Stabilität von Ruhelagen</p>
+                <p class="prevnext-title"><span class="section-number">6. </span>Funktionentheorie</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="multilinear.html" title="weiter Seite">
+        <a class="right-next" href="kurvenintegrale.html" title="weiter Seite">
             <div class="prevnext-info">
                 <p class="prevnext-label">weiter</p>
-                <p class="prevnext-title"><span class="section-number">3.1. </span>Multilinearformen</p>
+                <p class="prevnext-title"><span class="section-number">6.2. </span>Kurvenintegrale</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

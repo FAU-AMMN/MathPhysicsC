@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,11 +42,12 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <link rel="shortcut icon" href="_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -84,7 +85,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
@@ -230,9 +231,31 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="complexanalysis/complexanalysis.html">
+   6. Funktionentheorie
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="complexanalysis/cauchyriemann.html">
+     6.1. Cauchy-Riemann Gleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="complexanalysis/kurvenintegrale.html">
+     6.2. Kurvenintegrale
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="references.html">
-   6. Bibliography
+   7. Bibliography
   </a>
  </li>
 </ul>
@@ -260,8 +283,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -276,8 +299,8 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/FAU-AMMN/MathPhysicsC"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
         
         
     </div>
@@ -286,8 +309,8 @@
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -314,9 +337,11 @@
    <a href="#cap-cor:tensorMultilinearform"><strong>cor:tensorMultilinearform</strong></a> | 
    <a href="#cap-cor:tensorenLinearformen"><strong>cor:tensorenLinearformen</strong></a> | 
    <a href="#cap-cor:tensorfieldchart"><strong>cor:tensorfieldchart</strong></a> | 
+   <a href="#cap-corollary-18"><strong>corollary-18</strong></a> | 
    <a href="#cap-corollary-25"><strong>corollary-25</strong></a> | 
    <a href="#cap-corollary-44"><strong>corollary-44</strong></a> | 
    <a href="#cap-corollary-6"><strong>corollary-6</strong></a> | 
+   <a href="#cap-corollary-9"><strong>corollary-9</strong></a> | 
    <a href="#cap-def:DGL"><strong>def:DGL</strong></a> | 
    <a href="#cap-def:Fluss"><strong>def:Fluss</strong></a> | 
    <a href="#cap-def:LokFluss"><strong>def:LokFluss</strong></a> | 
@@ -331,6 +356,7 @@
    <a href="#cap-def:geschlossenexakt"><strong>def:geschlossenexakt</strong></a> | 
    <a href="#cap-def:hamiltonsch"><strong>def:hamiltonsch</strong></a> | 
    <a href="#cap-def:hausdorffraum"><strong>def:hausdorffraum</strong></a> | 
+   <a href="#cap-def:holomorph"><strong>def:holomorph</strong></a> | 
    <a href="#cap-def:linearisierung"><strong>def:linearisierung</strong></a> | 
    <a href="#cap-def:mass"><strong>def:mass</strong></a> | 
    <a href="#cap-def:multilinear"><strong>def:multilinear</strong></a> | 
@@ -358,6 +384,7 @@
    <a href="#cap-definition-20"><strong>definition-20</strong></a> | 
    <a href="#cap-definition-21"><strong>definition-21</strong></a> | 
    <a href="#cap-definition-22"><strong>definition-22</strong></a> | 
+   <a href="#cap-definition-23"><strong>definition-23</strong></a> | 
    <a href="#cap-definition-24"><strong>definition-24</strong></a> | 
    <a href="#cap-definition-27"><strong>definition-27</strong></a> | 
    <a href="#cap-definition-29"><strong>definition-29</strong></a> | 
@@ -377,6 +404,7 @@
    <a href="#cap-definition-9"><strong>definition-9</strong></a> | 
    <a href="#cap-ex:10.14"><strong>ex:10.14</strong></a> | 
    <a href="#cap-ex:bacteria"><strong>ex:bacteria</strong></a> | 
+   <a href="#cap-ex:ball"><strong>ex:ball</strong></a> | 
    <a href="#cap-ex:dirichletFunktion"><strong>ex:dirichletFunktion</strong></a> | 
    <a href="#cap-ex:diskreteTopologie"><strong>ex:diskreteTopologie</strong></a> | 
    <a href="#cap-ex:freefall"><strong>ex:freefall</strong></a> | 
@@ -384,6 +412,7 @@
    <a href="#cap-ex:multilinear"><strong>ex:multilinear</strong></a> | 
    <a href="#cap-ex:nonho"><strong>ex:nonho</strong></a> | 
    <a href="#cap-ex:oscillations"><strong>ex:oscillations</strong></a> | 
+   <a href="#cap-ex:prodsig"><strong>ex:prodsig</strong></a> | 
    <a href="#cap-ex:tangentialS1"><strong>ex:tangentialS1</strong></a> | 
    <a href="#cap-ex:tensorproduktVarianten"><strong>ex:tensorproduktVarianten</strong></a> | 
    <a href="#cap-ex:totdiff"><strong>ex:totdiff</strong></a> | 
@@ -400,6 +429,7 @@
    <a href="#cap-example-24"><strong>example-24</strong></a> | 
    <a href="#cap-example-26"><strong>example-26</strong></a> | 
    <a href="#cap-example-27"><strong>example-27</strong></a> | 
+   <a href="#cap-example-28"><strong>example-28</strong></a> | 
    <a href="#cap-example-29"><strong>example-29</strong></a> | 
    <a href="#cap-example-3"><strong>example-3</strong></a> | 
    <a href="#cap-example-4"><strong>example-4</strong></a> | 
@@ -410,21 +440,26 @@
    <a href="#cap-example-8"><strong>example-8</strong></a> | 
    <a href="#cap-example-9"><strong>example-9</strong></a> | 
    <a href="#cap-lem:LISO"><strong>lem:LISO</strong></a> | 
+   <a href="#cap-lem:completelebesgue"><strong>lem:completelebesgue</strong></a> | 
    <a href="#cap-lem:constder"><strong>lem:constder</strong></a> | 
    <a href="#cap-lem:coordcovec"><strong>lem:coordcovec</strong></a> | 
    <a href="#cap-lem:differenzierbarkeitKartenunabhaengig"><strong>lem:differenzierbarkeitKartenunabhaengig</strong></a> | 
    <a href="#cap-lem:disRect"><strong>lem:disRect</strong></a> | 
+   <a href="#cap-lem:doppelintegrierbar"><strong>lem:doppelintegrierbar</strong></a> | 
    <a href="#cap-lem:dualeBasis"><strong>lem:dualeBasis</strong></a> | 
    <a href="#cap-lem:eigenschaftenNullmengen"><strong>lem:eigenschaftenNullmengen</strong></a> | 
    <a href="#cap-lem:intexpglgn"><strong>lem:intexpglgn</strong></a> | 
    <a href="#cap-lem:isomorphieKartesischesProdukt"><strong>lem:isomorphieKartesischesProdukt</strong></a> | 
    <a href="#cap-lem:isomorphismusTensorproduktraum"><strong>lem:isomorphismusTensorproduktraum</strong></a> | 
+   <a href="#cap-lem:lebesguecomp"><strong>lem:lebesguecomp</strong></a> | 
    <a href="#cap-lem:localsections"><strong>lem:localsections</strong></a> | 
+   <a href="#cap-lem:monclass"><strong>lem:monclass</strong></a> | 
    <a href="#cap-lem:mpotew"><strong>lem:mpotew</strong></a> | 
    <a href="#cap-lem:natISO"><strong>lem:natISO</strong></a> | 
    <a href="#cap-lem:outeprop"><strong>lem:outeprop</strong></a> | 
    <a href="#cap-lem:partderkron"><strong>lem:partderkron</strong></a> | 
    <a href="#cap-lem:pullbackprop"><strong>lem:pullbackprop</strong></a> | 
+   <a href="#cap-lem:secmeasure"><strong>lem:secmeasure</strong></a> | 
    <a href="#cap-lem:tanbundle"><strong>lem:tanbundle</strong></a> | 
    <a href="#cap-lem:tanman"><strong>lem:tanman</strong></a> | 
    <a href="#cap-lem:tensorStufe"><strong>lem:tensorStufe</strong></a> | 
@@ -434,7 +469,10 @@
    <a href="#cap-lemma-14"><strong>lemma-14</strong></a> | 
    <a href="#cap-lemma-15"><strong>lemma-15</strong></a> | 
    <a href="#cap-lemma-18"><strong>lemma-18</strong></a> | 
+   <a href="#cap-lemma-19"><strong>lemma-19</strong></a> | 
    <a href="#cap-lemma-2"><strong>lemma-2</strong></a> | 
+   <a href="#cap-lemma-21"><strong>lemma-21</strong></a> | 
+   <a href="#cap-lemma-22"><strong>lemma-22</strong></a> | 
    <a href="#cap-lemma-29"><strong>lemma-29</strong></a> | 
    <a href="#cap-lemma-3"><strong>lemma-3</strong></a> | 
    <a href="#cap-lemma-30"><strong>lemma-30</strong></a> | 
@@ -454,6 +492,7 @@
    <a href="#cap-rem:wahrscheinlichkeitsmass"><strong>rem:wahrscheinlichkeitsmass</strong></a> | 
    <a href="#cap-remark-0"><strong>remark-0</strong></a> | 
    <a href="#cap-remark-1"><strong>remark-1</strong></a> | 
+   <a href="#cap-remark-10"><strong>remark-10</strong></a> | 
    <a href="#cap-remark-11"><strong>remark-11</strong></a> | 
    <a href="#cap-remark-12"><strong>remark-12</strong></a> | 
    <a href="#cap-remark-14"><strong>remark-14</strong></a> | 
@@ -476,17 +515,25 @@
    <a href="#cap-remark-8"><strong>remark-8</strong></a> | 
    <a href="#cap-remark-9"><strong>remark-9</strong></a> | 
    <a href="#cap-satz:picardlindeloef"><strong>satz:picardlindeloef</strong></a> | 
+   <a href="#cap-theorem-1"><strong>theorem-1</strong></a> | 
    <a href="#cap-theorem-11"><strong>theorem-11</strong></a> | 
-   <a href="#cap-theorem-2"><strong>theorem-2</strong></a> | 
+   <a href="#cap-theorem-12"><strong>theorem-12</strong></a> | 
+   <a href="#cap-theorem-27"><strong>theorem-27</strong></a> | 
+   <a href="#cap-theorem-29"><strong>theorem-29</strong></a> | 
    <a href="#cap-theorem-37"><strong>theorem-37</strong></a> | 
    <a href="#cap-theorem-38"><strong>theorem-38</strong></a> | 
    <a href="#cap-theorem-39"><strong>theorem-39</strong></a> | 
    <a href="#cap-theorem-4"><strong>theorem-4</strong></a> | 
+   <a href="#cap-theorem-40"><strong>theorem-40</strong></a> | 
    <a href="#cap-theorem-6"><strong>theorem-6</strong></a> | 
    <a href="#cap-theorem-7"><strong>theorem-7</strong></a> | 
+   <a href="#cap-theorem-8"><strong>theorem-8</strong></a> | 
+   <a href="#cap-thm:analytischHolomorph"><strong>thm:analytischHolomorph</strong></a> | 
+   <a href="#cap-thm:cavalieri"><strong>thm:cavalieri</strong></a> | 
    <a href="#cap-thm:existenzTensorprodukt"><strong>thm:existenzTensorprodukt</strong></a> | 
    <a href="#cap-thm:hamconst"><strong>thm:hamconst</strong></a> | 
    <a href="#cap-thm:heineborel"><strong>thm:heineborel</strong></a> | 
+   <a href="#cap-thm:jacobitransformation"><strong>thm:jacobitransformation</strong></a> | 
    <a href="#cap-thm:lebesgue"><strong>thm:lebesgue</strong></a> | 
    <a href="#cap-thm:lebesgueOffenAbgeschlossen"><strong>thm:lebesgueOffenAbgeschlossen</strong></a> | 
    <a href="#cap-thm:lebesguemes"><strong>thm:lebesguemes</strong></a> | 
@@ -542,6 +589,14 @@
        <a href="manifolds/tangential.html#cor:tensorfieldchart"><code class="xref">cor:tensorfieldchart</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>corollary</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-18"><td></td><td>
+       <strong>corollary-18</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#corollary-18"><code class="xref">corollary-18</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-corollary-25"><td></td><td>
        <strong>corollary-25</strong></td><td></td></tr>
      <tr>
@@ -564,6 +619,14 @@
        <td></td>
        <td>
        <a href="vektoranalysis/tensor.html#corollary-6"><code class="xref">corollary-6</code></a> <em>(vektoranalysis/tensor)</em></td><td>
+       <em>corollary</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-corollary-9"><td></td><td>
+       <strong>corollary-9</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="complexanalysis/kurvenintegrale.html#corollary-9"><code class="xref">corollary-9</code></a> <em>(complexanalysis/kurvenintegrale)</em></td><td>
        <em>corollary</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-def:DGL"><td></td><td>
@@ -676,6 +739,14 @@
        <td></td>
        <td>
        <a href="manifolds/manifolds_prelim.html#def:hausdorffraum"><code class="xref">def:hausdorffraum</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def:holomorph"><td></td><td>
+       <strong>def:holomorph</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="complexanalysis/cauchyriemann.html#def:holomorph"><code class="xref">def:holomorph</code></a> <em>(complexanalysis/cauchyriemann)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-def:linearisierung"><td></td><td>
@@ -835,7 +906,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="manifolds/manifolds_prelim.html#definition-13"><code class="xref">definition-13</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
+       <a href="masstheorie/integrationstechnik.html#definition-13"><code class="xref">definition-13</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-14"><td></td><td>
@@ -892,6 +963,14 @@
        <td></td>
        <td>
        <a href="manifolds/tangential.html#definition-22"><code class="xref">definition-22</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-definition-23"><td></td><td>
+       <strong>definition-23</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#definition-23"><code class="xref">definition-23</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-24"><td></td><td>
@@ -955,7 +1034,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="manifolds/tangential.html#definition-37"><code class="xref">definition-37</code></a> <em>(manifolds/tangential)</em></td><td>
+       <a href="masstheorie/masstheorie.html#definition-37"><code class="xref">definition-37</code></a> <em>(masstheorie/masstheorie)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-38"><td></td><td>
@@ -1003,7 +1082,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="manifolds/manifolds_prelim.html#definition-6"><code class="xref">definition-6</code></a> <em>(manifolds/manifolds_prelim)</em></td><td>
+       <a href="masstheorie/integrationstechnik.html#definition-6"><code class="xref">definition-6</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-7"><td></td><td>
@@ -1044,6 +1123,14 @@
        <td></td>
        <td>
        <a href="ode/dynamicSystems.html#ex:bacteria"><code class="xref">ex:bacteria</code></a> <em>(ode/dynamicSystems)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex:ball"><td></td><td>
+       <strong>ex:ball</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#ex:ball"><code class="xref">ex:ball</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-ex:dirichletFunktion"><td></td><td>
@@ -1100,6 +1187,14 @@
        <td></td>
        <td>
        <a href="ode/fluesse.html#ex:oscillations"><code class="xref">ex:oscillations</code></a> <em>(ode/fluesse)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex:prodsig"><td></td><td>
+       <strong>ex:prodsig</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#ex:prodsig"><code class="xref">ex:prodsig</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-ex:tangentialS1"><td></td><td>
@@ -1230,6 +1325,14 @@
        <a href="vektoranalysis/tensor.html#example-27"><code class="xref">example-27</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-28"><td></td><td>
+       <strong>example-28</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#example-28"><code class="xref">example-28</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-29"><td></td><td>
        <strong>example-29</strong></td><td></td></tr>
      <tr>
@@ -1310,6 +1413,14 @@
        <a href="vektoranalysis/tensor.html#lem:LISO"><code class="xref">lem:LISO</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:completelebesgue"><td></td><td>
+       <strong>lem:completelebesgue</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#lem:completelebesgue"><code class="xref">lem:completelebesgue</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:constder"><td></td><td>
        <strong>lem:constder</strong></td><td></td></tr>
      <tr>
@@ -1340,6 +1451,14 @@
        <td></td>
        <td>
        <a href="masstheorie/masstheorie.html#lem:disRect"><code class="xref">lem:disRect</code></a> <em>(masstheorie/masstheorie)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:doppelintegrierbar"><td></td><td>
+       <strong>lem:doppelintegrierbar</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#lem:doppelintegrierbar"><code class="xref">lem:doppelintegrierbar</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:dualeBasis"><td></td><td>
@@ -1382,12 +1501,28 @@
        <a href="vektoranalysis/tensor.html#lem:isomorphismusTensorproduktraum"><code class="xref">lem:isomorphismusTensorproduktraum</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:lebesguecomp"><td></td><td>
+       <strong>lem:lebesguecomp</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#lem:lebesguecomp"><code class="xref">lem:lebesguecomp</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:localsections"><td></td><td>
        <strong>lem:localsections</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
        <a href="manifolds/tangential.html#lem:localsections"><code class="xref">lem:localsections</code></a> <em>(manifolds/tangential)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:monclass"><td></td><td>
+       <strong>lem:monclass</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#lem:monclass"><code class="xref">lem:monclass</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:mpotew"><td></td><td>
@@ -1428,6 +1563,14 @@
        <td></td>
        <td>
        <a href="manifolds/diffformen.html#lem:pullbackprop"><code class="xref">lem:pullbackprop</code></a> <em>(manifolds/diffformen)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lem:secmeasure"><td></td><td>
+       <strong>lem:secmeasure</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#lem:secmeasure"><code class="xref">lem:secmeasure</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lem:tanbundle"><td></td><td>
@@ -1502,12 +1645,36 @@
        <a href="manifolds/tangential.html#lemma-18"><code class="xref">lemma-18</code></a> <em>(manifolds/tangential)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lemma-19"><td></td><td>
+       <strong>lemma-19</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#lemma-19"><code class="xref">lemma-19</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-2"><td></td><td>
        <strong>lemma-2</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
        <a href="masstheorie/lebesgue_integral.html#lemma-2"><code class="xref">lemma-2</code></a> <em>(masstheorie/lebesgue_integral)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lemma-21"><td></td><td>
+       <strong>lemma-21</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#lemma-21"><code class="xref">lemma-21</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <em>lemma</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-lemma-22"><td></td><td>
+       <strong>lemma-22</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#lemma-22"><code class="xref">lemma-22</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>lemma</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-lemma-29"><td></td><td>
@@ -1662,6 +1829,14 @@
        <a href="vektoranalysis/tensor.html#remark-1"><code class="xref">remark-1</code></a> <em>(vektoranalysis/tensor)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-remark-10"><td></td><td>
+       <strong>remark-10</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#remark-10"><code class="xref">remark-10</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <em>remark</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-11"><td></td><td>
        <strong>remark-11</strong></td><td></td></tr>
      <tr>
@@ -1723,7 +1898,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="manifolds/tangential.html#remark-25"><code class="xref">remark-25</code></a> <em>(manifolds/tangential)</em></td><td>
+       <a href="masstheorie/integrationstechnik.html#remark-25"><code class="xref">remark-25</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>remark</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-26"><td></td><td>
@@ -1838,20 +2013,44 @@
        <a href="ode/repetition.html#satz:picardlindeloef"><code class="xref">satz:picardlindeloef</code></a> <em>(ode/repetition)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-1"><td></td><td>
+       <strong>theorem-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="complexanalysis/cauchyriemann.html#theorem-1"><code class="xref">theorem-1</code></a> <em>(complexanalysis/cauchyriemann)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-11"><td></td><td>
        <strong>theorem-11</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="manifolds/tangential.html#theorem-11"><code class="xref">theorem-11</code></a> <em>(manifolds/tangential)</em></td><td>
+       <a href="masstheorie/integrationstechnik.html#theorem-11"><code class="xref">theorem-11</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-theorem-2"><td></td><td>
-       <strong>theorem-2</strong></td><td></td></tr>
+     <tr class="cap" id="cap-theorem-12"><td></td><td>
+       <strong>theorem-12</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="masstheorie/integrationstechnik.html#theorem-2"><code class="xref">theorem-2</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <a href="complexanalysis/kurvenintegrale.html#theorem-12"><code class="xref">theorem-12</code></a> <em>(complexanalysis/kurvenintegrale)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-27"><td></td><td>
+       <strong>theorem-27</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#theorem-27"><code class="xref">theorem-27</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-29"><td></td><td>
+       <strong>theorem-29</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#theorem-29"><code class="xref">theorem-29</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-37"><td></td><td>
@@ -1886,6 +2085,14 @@
        <a href="masstheorie/lebesgue_integral.html#theorem-4"><code class="xref">theorem-4</code></a> <em>(masstheorie/lebesgue_integral)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-40"><td></td><td>
+       <strong>theorem-40</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/masstheorie.html#theorem-40"><code class="xref">theorem-40</code></a> <em>(masstheorie/masstheorie)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-6"><td></td><td>
        <strong>theorem-6</strong></td><td></td></tr>
      <tr>
@@ -1899,7 +2106,31 @@
      <tr>
        <td></td>
        <td>
-       <a href="masstheorie/integrationstechnik.html#theorem-7"><code class="xref">theorem-7</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
+       <a href="complexanalysis/kurvenintegrale.html#theorem-7"><code class="xref">theorem-7</code></a> <em>(complexanalysis/kurvenintegrale)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-8"><td></td><td>
+       <strong>theorem-8</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="complexanalysis/kurvenintegrale.html#theorem-8"><code class="xref">theorem-8</code></a> <em>(complexanalysis/kurvenintegrale)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm:analytischHolomorph"><td></td><td>
+       <strong>thm:analytischHolomorph</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="complexanalysis/cauchyriemann.html#thm:analytischHolomorph"><code class="xref">thm:analytischHolomorph</code></a> <em>(complexanalysis/cauchyriemann)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm:cavalieri"><td></td><td>
+       <strong>thm:cavalieri</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#thm:cavalieri"><code class="xref">thm:cavalieri</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-thm:existenzTensorprodukt"><td></td><td>
@@ -1924,6 +2155,14 @@
        <td></td>
        <td>
        <a href="masstheorie/masstheorie.html#thm:heineborel"><code class="xref">thm:heineborel</code></a> <em>(masstheorie/masstheorie)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm:jacobitransformation"><td></td><td>
+       <strong>thm:jacobitransformation</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="masstheorie/integrationstechnik.html#thm:jacobitransformation"><code class="xref">thm:jacobitransformation</code></a> <em>(masstheorie/integrationstechnik)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-thm:lebesgue"><td></td><td>
@@ -2034,9 +2273,9 @@
     <div class="container">
       <p>
         
-          By J. Laubmann, T. Roith, D. Tenbrinck<br/>
+          Durch J. Laubmann, T. Roith, D. Tenbrinck<br/>
         
-            &copy; Copyright 2021.<br/>
+            &copy; Urheberrechte © 2021.<br/>
       </p>
     </div>
   </footer>

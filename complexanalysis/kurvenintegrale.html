@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2. Kurvenintegrale &#8212; Mathematik für Physikstudierende C</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="7. Bibliography" href="../references.html" />
+    <link rel="prev" title="6.1. Cauchy-Riemann Gleichungen" href="cauchyriemann.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/FAU-DMM-Logo-rgb-10cm.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Mathematik für Physikstudierende C</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Mathematik für Physikstudierende C
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode/ode.html">
+   1. Gewöhnliche Differentialgleichungen für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/dynamicSystems.html">
+     1.1. Einführung in dynamische Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/repetition.html">
+     1.2. Wiederholung: Gewöhnliche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/fluesse.html">
+     1.3. Phasenflüsse und Phasenportraits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/hamilton.html">
+     1.4. Hamiltonsche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/ex.html">
+     1.5. Aufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../odestability/stabilitaetsanalyse.html">
+   2. Stabilitätsanalyse für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odestability/stabilitaetsbegriffe.html">
+     2.1. Stabilitätsbegriffe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odestability/ruhelagen.html">
+     2.2. Stabilität von Ruhelagen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vektoranalysis/vektoranalysis.html">
+   3. Vektoranalysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vektoranalysis/multilinear.html">
+     3.1. Multilinearformen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vektoranalysis/tensor.html">
+     3.2. Tensoren und Tensorprodukte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../manifolds/manifolds.html">
+   4. Differentialformen auf Mannigfaltigkeiten
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifolds/manifolds_prelim.html">
+     4.1. Differenzierbare Mannigfaltigkeit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifolds/tangential.html">
+     4.2. Tangentialräume und Tangentialbündel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifolds/diffformen.html">
+     4.3. Differentialformen auf Mannigfaltigkeiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../masstheorie/intro_masstheorie.html">
+   5. Maß- und Integrationstheorie
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../masstheorie/masstheorie.html">
+     5.1. Maßtheorie
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../masstheorie/lebesgue_integral.html">
+     5.2. Lebesgue-Integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../masstheorie/integrationstechnik.html">
+     5.3. Integrationstechniken
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="complexanalysis.html">
+   6. Funktionentheorie
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="cauchyriemann.html">
+     6.1. Cauchy-Riemann Gleichungen
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.2. Kurvenintegrale
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   7. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/complexanalysis/kurvenintegrale.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FAU-AMMN/MathPhysicsC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="kurvenintegrale">
+<h1><span class="section-number">6.2. </span>Kurvenintegrale<a class="headerlink" href="#kurvenintegrale" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven.</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 6.3 </span> (Weg und Kurve)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\((X,\tau)\)</span> ein topologischer Raum und <span class="math notranslate nohighlight">\(I = [a,b]\)</span> ein reelles Intervall für <span class="math notranslate nohighlight">\(a,b \in \R\)</span>.
+Wir nennen eine stetige Funktion <span class="math notranslate nohighlight">\(f \colon I \rightarrow X\)</span> einen <strong>Weg</strong> in <span class="math notranslate nohighlight">\(X\)</span>.
+Wir bezeichnen einen Weg <span class="math notranslate nohighlight">\(f\)</span> als <strong>glatt</strong>, wenn er stetig differenzierbar ist und seine Ableitung für jeden Punkt <span class="math notranslate nohighlight">\(x \in I\)</span> ungleich Null ist.
+Außerdem bezeichnen wir einen Weg <span class="math notranslate nohighlight">\(f\)</span> als <strong>geschlossen</strong>, wenn gilt <span class="math notranslate nohighlight">\(f(a) = f(b)\)</span>.
+Schließlich nennen wir einen Weg <span class="math notranslate nohighlight">\(f\)</span> <strong>konstant</strong>, wenn er für alle <span class="math notranslate nohighlight">\(t \in [a,b]\)</span> auf den gleichen Punkt in <span class="math notranslate nohighlight">\(\C\)</span> abbildet.</p>
+<p>Die Bildmenge <span class="math notranslate nohighlight">\(f(I) \subset X\)</span> nennen wir <strong>Kurve</strong> in <span class="math notranslate nohighlight">\(X\)</span>.</p>
+</div>
+</div><div class="admonition danger">
+<p class="admonition-title">Gefahr</p>
+<p>Normalerweise nennen wir eine Abbildung <em>glatt</em>, wenn sie unendlich oft differenzierbar ist.
+Dies wird im Kontext von Wegen nicht gefordert und es genügt eine einfache stetige Differenzierbarkeit.</p>
+</div>
+<p>Wir wollen im Folgenden annehmen, dass <span class="math notranslate nohighlight">\(f\)</span> eine holomorphe Funktion auf einer offenen Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> ist.
+Wir betrachten <span class="math notranslate nohighlight">\(f(z) \mathrm{d}z\)</span> als die zugehörige <span class="math notranslate nohighlight">\(1\)</span>-Form und außerdem sei <span class="math notranslate nohighlight">\(\gamma \colon I \rightarrow D\)</span> für <span class="math notranslate nohighlight">\(I := [0,1]\)</span> ein glatter Weg.
+Wegen der Jacobischen Transformationsformel in <a class="reference internal" href="../masstheorie/integrationstechnik.html#thm:jacobitransformation">Theorem 5.14</a> gilt dann für das Kurvenintegral von <span class="math notranslate nohighlight">\(f\)</span> bezüglich <span class="math notranslate nohighlight">\(\gamma\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-kurvenintegral">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-kurvenintegral" title="Permalink to this equation">¶</a></span>\[\int_{\gamma} f(z) \, \mathrm{d}z = \int_I \gamma^*(f(z) \, \mathrm{d}z) = \int_0^1 f(\gamma(t)) \gamma'(t) \, \mathrm{d}t.\]</div>
+<p>Häufig ist die Annahme eines global glatten Weges <span class="math notranslate nohighlight">\(\gamma\)</span> eine zu starke Forderung.
+Es genügt auch zu fordern, dass der Weg <span class="math notranslate nohighlight">\(\gamma\)</span> stückweise glatt ist und aus endlich vielen Teilstücken besteht.
+In diesem Fall lässt sich das Integral <a class="reference internal" href="#equation-eq-kurvenintegral">(6.1)</a> als Summe der Integrale über die Teilstücke schreiben.</p>
+<p><strong>ToDo: Abbildung von stückweise glatten Wegen / Kurven</strong></p>
+<p>Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in <span class="math notranslate nohighlight">\(\C\)</span>, den sogenannten Index.</p>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 6.4 </span> (Index)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span> und <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> ein beliebiger Punkt außerhalb der zugehörigen Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.
+Wir bezeichnen als <strong>Index</strong> von <span class="math notranslate nohighlight">\(w\)</span> bezüglich des Wegs <span class="math notranslate nohighlight">\(\gamma\)</span> folgende charakteristische Größe</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{Ind}_\gamma(w) \ := \ \oint_\gamma \frac{1}{z - w} \frac{\mathrm{d}z}{2\pi i} \ = \ \int_0^1 \frac{\gamma'(t)}{\gamma(t - w)} \frac{\mathrm{d}z}{2\pi i} \in \mathbb{Z}.\]</div>
+<p>Häufig wird der Index auch <strong>Windungszahl</strong> von <span class="math notranslate nohighlight">\(\gamma\)</span> um <span class="math notranslate nohighlight">\(w\)</span> genannt.
+Sie ist eine <em>topologische Invariante</em>, die anschaulich beschreibt, wie häufig sich die zugehörige Kurve um den Punkt <span class="math notranslate nohighlight">\(w\)</span> windet.</p>
+</div>
+</div><p><strong>ToDo: Abbildung mit Beispiel von <a class="reference external" href="https://de.wikipedia.org/wiki/Umlaufzahl_(Mathematik)">Wikipedia</a></strong></p>
+<div class="proof lemma admonition" id="lemma-2">
+<p class="admonition-title"><span class="caption-number">Lemma 6.1 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span>.
+Dann ist die Abbildung, die jedem Punkt <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> außerhalb der zugehörigen Kurve seinen Index <span class="math notranslate nohighlight">\(\operatorname{Ind_\gamma}(w)\)</span> konstant auf jeder Zusammenhangskomponente bezüglich der Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.318f.</p>
+</div>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 6.5 </span> (Homotopie)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(I := [0,1]\)</span> ein reelles Intervall und <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge.
+Wir nennen zwei Wege <span class="math notranslate nohighlight">\(\gamma, \Gamma \colon I \rightarrow D\)</span> <strong>homotop</strong> in der Teilmenge <span class="math notranslate nohighlight">\(D\)</span> genau dann, wenn eine stetige Abbildung <span class="math notranslate nohighlight">\(H \colon I \times I \rightarrow D\)</span> existiert, so dass</p>
+<div class="math notranslate nohighlight">
+\[H(t,0) = \gamma(t), \qquad H(t,1) = \Gamma(t).\]</div>
+<p>In diesem Fall nennen wir die Abbildung <span class="math notranslate nohighlight">\(H\)</span> eine <strong>Homotopie</strong> zwischen den Wegen <span class="math notranslate nohighlight">\(\gamma\)</span> und <span class="math notranslate nohighlight">\(\Gamma\)</span>.</p>
+</div>
+</div><p>Man kann zeigen, dass der Begriff der Homotopie zwischen Wegen in einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine <em>Äquivalenzrelation</em> auf Wegen in <span class="math notranslate nohighlight">\(D\)</span> induziert.
+Die zugehörigen Äquivalenzklassen werden auch <em>Homotopieklassen</em> genannt.</p>
+<p>Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.</p>
+<div class="proof lemma admonition" id="lemma-4">
+<p class="admonition-title"><span class="caption-number">Lemma 6.2 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge und seien <span class="math notranslate nohighlight">\(\gamma\)</span> und <span class="math notranslate nohighlight">\(\Gamma\)</span> geschlossene, homotope Wege in <span class="math notranslate nohighlight">\(D\)</span>.
+Sei außerdem <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine holomorphe Funktion.</p>
+<p>Dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\oint_\gamma f(z) \, \mathrm{d}z = \oint_\Gamma f(z) \, \mathrm{d}z.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.321</p>
+</div>
+<p>Eine besondere Klasse von Wegen sind solche, die nullhomotop sind.</p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 6.6 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Wir nennen einen Weg <span class="math notranslate nohighlight">\(\gamma\)</span> <strong>nullhomotop</strong> in einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> genau dann, wenn <span class="math notranslate nohighlight">\(\gamma\)</span> homotop in <span class="math notranslate nohighlight">\(D\)</span> zu einem konstanten Weg ist.</p>
+</div>
+</div><p>Wir realisieren also, dass sich nullhomotope Wege in einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> zu einem Punkt <span class="math notranslate nohighlight">\(w \in D\)</span> zusammenziehen lassen.
+Darüber hinaus zeigt der folgende Satz, dass das Kurvenintegral einer holomorphe Funktionen auf einem nullhomotopen Weg verschwindet.</p>
+<div class="proof theorem admonition" id="theorem-6">
+<p class="admonition-title"><span class="caption-number">Theorem 6.3 </span> (Satz von Cauchy)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\gamma\)</span> ein nullhomotoper Weg in einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span>, der sich zu einem Punkt <span class="math notranslate nohighlight">\(w \in D\)</span> zusammenziehen lässt.
+Sei darüber hinaus <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine stetige Funktion, welche zudem holomorph auf der Menge <span class="math notranslate nohighlight">\(D \setminus \{w\}\)</span> sei.</p>
+<p>Dann gilt für das Kurvenintegral</p>
+<div class="math notranslate nohighlight">
+\[\oint_\gamma f(z) \, \mathrm{d}z = 0.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.322</p>
+</div>
+<p>Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
+Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen.</p>
+<div class="proof theorem admonition" id="theorem-7">
+<p class="admonition-title"><span class="caption-number">Theorem 6.4 </span> (Cauchyscher Integralsatz)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> ein Sterngebiet, d.h., <span class="math notranslate nohighlight">\(D\)</span> ist eine offene Menge in der mindestens einen Punkt <span class="math notranslate nohighlight">\(z_0 \in \C\)</span> gibt, so dass die Verbindungsstrecke jedes beliebigen Punktes <span class="math notranslate nohighlight">\(z \in D\)</span> zu <span class="math notranslate nohighlight">\(z_0\)</span> vollständig in <span class="math notranslate nohighlight">\(D\)</span> liegt.
+Sei außerdem <span class="math notranslate nohighlight">\(\gamma\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p>Dann lässt sich der Funktionswert von <span class="math notranslate nohighlight">\(f\)</span> in jedem Punkt <span class="math notranslate nohighlight">\(z \in D \setminus \operatorname{Bild}(\gamma)\)</span> darstellen durch das Kurvenintegral</p>
+<div class="math notranslate nohighlight">
+\[f(z) \ = \ \frac{1}{\operatorname{Ind}_\gamma(z)} \oint_\gamma \frac{f(\zeta)}{\zeta - z} \frac{\mathrm{d}\zeta}{2\pi i}.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.323</p>
+</div>
+<p>Wir werden den Cauchyschen Integralsatz später noch in Form des sogenannten <em>Residuensatzes</em> stark verallgemeinern.
+Für den Moment erlaubt uns dessen Aussage jedoch zu zeigen, dass jede holomorphe Funktion bereits analytisch ist, was die Umkehrung zu <a class="reference internal" href="cauchyriemann.html#thm:analytischHolomorph">Theorem 6.2</a> ist.</p>
+<div class="proof theorem admonition" id="theorem-8">
+<p class="admonition-title"><span class="caption-number">Theorem 6.5 </span> (Holomorphe Funktionen sind analytisch)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt in einer offenen Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span>.
+Sei außerdem <span class="math notranslate nohighlight">\(f \colon B_\epsilon(z_0) \rightarrow \C\)</span> eine holomorphe Funktion.</p>
+<p>Dann ist die Funktion <span class="math notranslate nohighlight">\(f\)</span> für jeden Punkt <span class="math notranslate nohighlight">\(z \in B_\epsilon(z_0)\)</span> durch eine konvergente Potenzreihe darstellbar (also analytisch) als</p>
+<div class="math notranslate nohighlight">
+\[f(z) = \sum_{n=1}^\infty a_n (z-z_0)^n,\]</div>
+<p>deren Koeffizienten <span class="math notranslate nohighlight">\((a_n)_{n\in\N}\)</span> für alle <span class="math notranslate nohighlight">\(\epsilon' &lt; \epsilon\)</span> gegeben sind durch</p>
+<div class="math notranslate nohighlight">
+\[a_n \ = \ \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i}.\]</div>
+<p>Insbesondere ist <span class="math notranslate nohighlight">\(f\)</span> unendlich oft komplex differenzierbar und für alle <span class="math notranslate nohighlight">\(n \in \N\)</span> gilt für die <span class="math notranslate nohighlight">\(n\)</span>-te Ableitung von <span class="math notranslate nohighlight">\(f\)</span></p>
+<div class="math notranslate nohighlight">
+\[f^{(n)}(z_0) \ = \ n! \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i} = n! a_n.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.325f.</p>
+</div>
+<p>Das folgende Korollar erlaubt eine direkte Abschätzung der <span class="math notranslate nohighlight">\(n\)</span>-ten Ableitung einer holomorphen Funktion.</p>
+<div class="proof corollary admonition" id="corollary-9">
+<p class="admonition-title"><span class="caption-number">Corollary 6.1 </span> (Cauchy-Abschätzungen)</p>
+<div class="corollary-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt in einer offenen Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span>.
+Außerdem sei <span class="math notranslate nohighlight">\(f \colon B_\epsilon(z_0) \rightarrow \C\)</span> eine holomorphe Funktion.
+Dann gilt für alle <span class="math notranslate nohighlight">\(0 &lt; \epsilon' &lt; \epsilon\)</span> die folgende genannte <strong>Cauchy-Abschätzung</strong></p>
+<div class="math notranslate nohighlight">
+\[|f^{(n)}(z_0)| \ \leq \ \frac{n!}{\epsilon'^n} \max_{|z - z_0|=\epsilon'} |f(z)|.\]</div>
+</div>
+</div><p>Nun beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.</p>
+<div class="proof definition admonition" id="definition-10">
+<p class="admonition-title"><span class="caption-number">Definition 6.7 </span> (Singularitäten)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.</p>
+<p>1. Wenn <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> eine holomorphe Funktion ist.
+Dann nennen wir den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>isolierte Singularität</strong> von <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>2. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>hebbare Singularität</strong>, wenn <span class="math notranslate nohighlight">\(z_0\)</span> eine isolierte Singularität einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> ist und es eine holomorphe Funktion <span class="math notranslate nohighlight">\(g \colon D \rightarrow \C\)</span> gibt, so dass <span class="math notranslate nohighlight">\(g(z) = f(z)\)</span> gilt für alle <span class="math notranslate nohighlight">\(z \in D \setminus \{z_0\}\)</span>.</p>
+<p>3. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> einen <strong>Pol</strong>, wenn für alle Folgen <span class="math notranslate nohighlight">\(z_n \rightarrow z_0\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n\rightarrow \infty} |f(z_n)| = \infty.\]</div>
+<p>4. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>wesentliche Singularität</strong>, wenn <span class="math notranslate nohighlight">\(z_0\)</span> weder hebbar noch Pol ist.</p>
+</div>
+</div><p>Der Satz von Casorati-Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.</p>
+<div class="proof remark admonition" id="remark-11">
+<p class="admonition-title"><span class="caption-number">Remark 6.1 </span> (Casorati-Weierstraß)</p>
+<div class="remark-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.</p>
+<p>Der Punkt <span class="math notranslate nohighlight">\(z_0\)</span> ist genau dann eine wesentliche Singularität einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>, wenn für alle <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> die Menge der Funktionswerte <span class="math notranslate nohighlight">\(f(B_\epsilon(z_0)) \setminus \{z_0\})\)</span> dicht in <span class="math notranslate nohighlight">\(\C\)</span> liegt.</p>
+</div>
+</div><p><strong>ToDo: Hier Beispiel zu Singularitäten? Schulz-Baldes S.329</strong></p>
+<div class="proof theorem admonition" id="theorem-12">
+<p class="admonition-title"><span class="caption-number">Theorem 6.6 </span> (Riemannscher Hebbarkeitssatz)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.
+Sei außerdem <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> eine holomorphe Funktion.
+Falls eine Umgebung <span class="math notranslate nohighlight">\(U \subset D\)</span> von <span class="math notranslate nohighlight">\(z_0\)</span> gibt, so dass <span class="math notranslate nohighlight">\(f\)</span> auf <span class="math notranslate nohighlight">\(U \setminus \{z_0\}\)</span> beschränkt ist, so kann man einen Funktionswert <span class="math notranslate nohighlight">\(f(z_0)\)</span> in <span class="math notranslate nohighlight">\(z_0\)</span> so wählen, dass die Funktion <span class="math notranslate nohighlight">\(f\)</span> auf der gesamten Teilmenge <span class="math notranslate nohighlight">\(D\)</span> holomorph ist, d.h., der Punkt <span class="math notranslate nohighlight">\(z_0\)</span> ist eine hebbare Singularität.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.327</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./complexanalysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="cauchyriemann.html" title="zurück Seite">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">zurück</p>
+                <p class="prevnext-title"><span class="section-number">6.1. </span>Cauchy-Riemann Gleichungen</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../references.html" title="weiter Seite">
+            <div class="prevnext-info">
+                <p class="prevnext-label">weiter</p>
+                <p class="prevnext-title"><span class="section-number">7. </span>Bibliography</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          Durch J. Laubmann, T. Roith, D. Tenbrinck<br/>
+        
+            &copy; Urheberrechte © 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z9NNSYF13N"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('config', 'G-Z9NNSYF13N');
+                </script>
+
+  </body>
+</html>

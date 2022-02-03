@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Vektoranalysis &#8212; Mathematik für Physikstudierende C</title>
+    <title>6. Funktionentheorie &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -45,8 +45,6 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -57,8 +55,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="3.1. Multilinearformen" href="multilinear.html" />
-    <link rel="prev" title="2.2. Stabilität von Ruhelagen" href="../odestability/ruhelagen.html" />
+    <link rel="next" title="6.1. Cauchy-Riemann Gleichungen" href="cauchyriemann.html" />
+    <link rel="prev" title="5.3. Integrationstechniken" href="../masstheorie/integrationstechnik.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -159,23 +157,23 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vektoranalysis/vektoranalysis.html">
    3. Vektoranalysis
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="multilinear.html">
+    <a class="reference internal" href="../vektoranalysis/multilinear.html">
      3.1. Multilinearformen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tensor.html">
+    <a class="reference internal" href="../vektoranalysis/tensor.html">
      3.2. Tensoren und Tensorprodukte
     </a>
    </li>
@@ -235,23 +233,23 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../complexanalysis/complexanalysis.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    6. Funktionentheorie
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/cauchyriemann.html">
+    <a class="reference internal" href="cauchyriemann.html">
      6.1. Cauchy-Riemann Gleichungen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
+    <a class="reference internal" href="kurvenintegrale.html">
      6.2. Kurvenintegrale
     </a>
    </li>
@@ -303,7 +301,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/vektoranalysis/vektoranalysis.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/complexanalysis/complexanalysis.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -349,14 +347,12 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="vektoranalysis">
-<h1><span class="section-number">3. </span>Vektoranalysis<a class="headerlink" href="#vektoranalysis" title="Link zu dieser Überschrift">¶</a></h1>
-<p>In diesem Kapitel der Vorlesung führen wir wichtige Konzepte der <em>Vektoranalysis</em> ein.
-Insbesondere schaffen wir die mathematischen Grundlagen für eine spezielle Art der mehrdimensionalen Integration, das Integrieren über sogenannte <em>Untermannigfaltigkeiten</em> des <span class="math notranslate nohighlight">\(\R^n\)</span>.
-Um diese Integration durchführen zu können, entwickeln wir das Kalkül der <em>Differentialformen</em> auf Mannigfaltigkeiten.</p>
-<p>Dieses Kalkül lässt auch den geometrischen Gehalt physikalischer Theorien wie Elektrodynamik oder Allgemeine Relativitätstheorie klar hervortreten.
-So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mit Hilfe des Differentialformenkalkül elegant beschreiben.</p>
-<p>Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von Agricola und Friedrich <span id="id1">[<a class="reference internal" href="../references.html#id15">AF13</a>]</span>.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="funktionentheorie">
+<h1><span class="section-number">6. </span>Funktionentheorie<a class="headerlink" href="#funktionentheorie" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Im letzten Kapitel der Vorlesung widmen wir uns der <em>Funktionentheorie</em>.
+Diese befasst sich hauptsächlich mit der Theorie differenzierbarer komplexer Funktionen.
+Da viele Konzepte der reellen Analysis verwendet werden, wird dieses Gebiet auch häufig <strong>komplexe Analysis</strong> genannt.</p>
+<p>Die Grundlagen des Körpers der komplexen Zahlen wurden bereits in <span id="id1">[]</span> behandelt.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -374,7 +370,7 @@ So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mi
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./vektoranalysis"
+            path: "./complexanalysis"
         },
         predefinedOutput: true
     }
@@ -391,19 +387,19 @@ So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mi
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../odestability/ruhelagen.html" title="zurück Seite">
+        <a class="left-prev" href="../masstheorie/integrationstechnik.html" title="zurück Seite">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">zurück</p>
-                <p class="prevnext-title"><span class="section-number">2.2. </span>Stabilität von Ruhelagen</p>
+                <p class="prevnext-title"><span class="section-number">5.3. </span>Integrationstechniken</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="multilinear.html" title="weiter Seite">
+        <a class="right-next" href="cauchyriemann.html" title="weiter Seite">
             <div class="prevnext-info">
                 <p class="prevnext-label">weiter</p>
-                <p class="prevnext-title"><span class="section-number">3.1. </span>Multilinearformen</p>
+                <p class="prevnext-title"><span class="section-number">6.1. </span>Cauchy-Riemann Gleichungen</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
