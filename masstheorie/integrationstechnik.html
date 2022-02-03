@@ -383,8 +383,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   5.3.5. Der Satz von Fubini
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#die-jacobische-transformationsformel">
-   5.3.5. Die Jacobische Transformationsformel
+   5.3.6. Die Jacobische Transformationsformel
   </a>
  </li>
 </ul>
@@ -428,8 +433,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   5.3.5. Der Satz von Fubini
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#die-jacobische-transformationsformel">
-   5.3.5. Die Jacobische Transformationsformel
+   5.3.6. Die Jacobische Transformationsformel
   </a>
  </li>
 </ul>
@@ -562,35 +572,46 @@ gilt</p>
 <div class="remark-content section" id="proof-content">
 <p>Wir wissen, dass jede Menge die bezüglich des äußeren Maßes <span class="math notranslate nohighlight">\(\lambda^\ast\)</span> eine Nullmenge ist auch Lebesgue-messbar ist. Daher ist das Lebesgue-Maß ein vollständiges Maß.</p>
 </div>
-</div><p>Weiterhin lässt sich ein beliebiges Maß vervollständigen, indem wir die <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra</p>
-<div class="math notranslate nohighlight">
-\[\overline{\Sigma}:=\{A\cup N: A\in\Sigma, N\subset B\in\Sigma\text{ mit }\mu(B)=0\}\]</div>
-<p>betrachten zusammen mit dem Maß</p>
-<div class="math notranslate nohighlight">
-\[\overline{\mu}(B)= \overline{\mu}(A\cup N):= \mu(A).\]</div>
-<p>Hier lässt sich nun folgendes zeigen.</p>
-<div class="proof lemma admonition" id="lem:completelebesgue">
-<p class="admonition-title"><span class="caption-number">Lemma 5.16 </span></p>
-<div class="lemma-content section" id="proof-content">
-<p>Für <span class="math notranslate nohighlight">\(n,m\in\N\)</span> gilt</p>
-<div class="math notranslate nohighlight">
-\[\overline{\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)}= \mathcal{A}(\R^{n+m}).\]</div>
+</div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+Weiterhin lässt sich ein beliebiges Maß vervollständigen, indem wir die $\sigma$-Algebra
+
+```{math}
+\overline{\Sigma}:=\{A\cup N: A\in\Sigma, N\subset B\in\Sigma\text{ mit }\mu(B)=0\}
+```
+
+betrachten zusammen mit dem Maß
+
+```{math}
+\overline{\mu}(B)= \overline{\mu}(A\cup N):= \mu(A).
+```
+
+Hier lässt sich nun folgendes zeigen.
+
+````{prf:lemma}
+:label: lem:completelebesgue
+
+Für $n,m\in\N$ gilt
+
+```{math}
+\overline{\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)}= \mathcal{A}(\R^{n+m}).
+```
+</pre></div>
 </div>
-</div><div class="proof admonition" id="proof">
+<div class="proof admonition" id="proof">
 <p>Proof. Siehe z.B. <span id="id1">[<a class="reference internal" href="../references.html#id5">Bog07</a>]</span> Theorem 1.5.6.</p>
 </div>
 </div>
 <div class="section" id="produktmasze">
 <h2><span class="section-number">5.3.2. </span>Produktmaße<a class="headerlink" href="#produktmasze" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir wollen nun Maße auf der Produktalgebra betrachten.</p>
-<div class="proof definition admonition" id="definition-6">
+<div class="proof definition admonition" id="definition-5">
 <p class="admonition-title"><span class="caption-number">Definition 5.20 </span> (Produktmaß)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es seien <span class="math notranslate nohighlight">\((\Omega_1,\Sigma_1,\mu_1), (\Omega_2,\Sigma_2,\mu_2)\)</span> zwei Maßräume, dann heißt ein Maß <span class="math notranslate nohighlight">\(\mu\)</span> auf dem Messraum <span class="math notranslate nohighlight">\((\Sigma_1\otimes\Sigma_2, \Omega_1\times\Omega_2)\)</span> <strong>Produktmaß</strong>, falls</p>
 <div class="math notranslate nohighlight">
 \[\mu(A_1\times A_2) = \mu_1(A_1)\cdot\mu_2(A_2)\quad\forall A_1\in\Sigma_1, A_2\in\Sigma_2.\]</div>
 </div>
-</div><div class="proof remark admonition" id="remark-7">
+</div><div class="proof remark admonition" id="remark-6">
 <p class="admonition-title"><span class="caption-number">Remark 5.9 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>In <a class="reference internal" href="../vektoranalysis/tensor.html#s-grass"><span class="std std-ref">Grassmann-Algebra</span></a> haben wir das Tensorprodukt zweier lineare Abbildungen <span class="math notranslate nohighlight">\(T_1,T_2\)</span> definiert über</p>
@@ -598,7 +619,7 @@ gilt</p>
 \[(T_1\otimes T_2)(v_1,V_2) := T_1(v_1)\cdot T_2(v_2).\]</div>
 <p>Es sei hier erwähnt, dass das Maß <strong>keine</strong> lineare Abbildung ist, insbesondere haben wir keinen Vektorraum gegeben. Die Produktstruktur ist trotzdem ähnlich, weshalb eine gewisse Analogie zwischen dem Tensorprodukt und dem Produktmaß herrscht.</p>
 </div>
-</div><div class="proof remark admonition" id="remark-8">
+</div><div class="proof remark admonition" id="remark-7">
 <p class="admonition-title"><span class="caption-number">Remark 5.10 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>In den obigen Produkten können einzelnen Terme jeweils unendlich werden, hierbei benutzt man die Konvention</p>
@@ -606,20 +627,20 @@ gilt</p>
 \[0 * a = 0\quad\forall a\in\overline{\R}.\]</div>
 </div>
 </div><p>Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogennate <span class="math notranslate nohighlight">\(\sigma\)</span>-Endlichkeit.</p>
-<div class="proof definition admonition" id="definition-9">
+<div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 5.21 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\((\Omega,\Sigma,\mu)\)</span> ein Maßraum, das Maß <span class="math notranslate nohighlight">\(\mu\)</span> heißt <span class="math notranslate nohighlight">\(\sigma\)</span><strong>-endlich</strong>, falls eine Folge von Mengen <span class="math notranslate nohighlight">\(A_i\in\Sigma,i\in\N\)</span> existiert, s.d., <span class="math notranslate nohighlight">\(\mu(A_i)&lt;\infty\)</span> und</p>
 <div class="math notranslate nohighlight">
 \[\bigcup_{i\in\N} A_i = \Omega.\]</div>
 </div>
-</div><div class="proof remark admonition" id="remark-10">
+</div><div class="proof remark admonition" id="remark-9">
 <p class="admonition-title"><span class="caption-number">Remark 5.11 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Das wichtigste Beispiel für uns ist das Lebesgue-Maß auf <span class="math notranslate nohighlight">\(\R^d\)</span> welches bezüglich der Borelschen <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra zwar nicht endlich aber <span class="math notranslate nohighlight">\(\sigma\)</span>-endlich ist. Insbesondere ist es damit auch <span class="math notranslate nohighlight">\(\sigma\)</span>-endlich bezüglich der Lebesgue <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>.</p>
 </div>
 </div><p>Für <span class="math notranslate nohighlight">\(\sigma\)</span>-endliche Maße kann man zeigen, dass ein eindeutig bestimmtes Produktmaß existiert.</p>
-<div class="proof theorem admonition" id="theorem-11">
+<div class="proof theorem admonition" id="theorem-10">
 <p class="admonition-title"><span class="caption-number">Theorem 5.10 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Es seien <span class="math notranslate nohighlight">\((\Omega_1,\Sigma_1,\mu_1), (\Omega_2,\Sigma_2,\mu_2)\)</span> zwei <span class="math notranslate nohighlight">\(\sigma\)</span>-endliche Maßräume, dann existiert eine eindeutig bestimmtes Produktmaß</p>
@@ -635,7 +656,7 @@ gilt</p>
 </div>
 <p>Anhand von <a class="reference internal" href="#ex:prodsig">Example 5.5</a> haben wir gesehen, dass die Lebesgue <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra auf <span class="math notranslate nohighlight">\(\R^{n+m}\)</span> größer ist als die Produkt <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra. Allerdings kann man zeigen, dass das Produktmaß zumindest auf der kleineren Produktalgebra übereinstimmt.</p>
 <div class="proof lemma admonition" id="lem:lebesguecomp">
-<p class="admonition-title"><span class="caption-number">Lemma 5.17 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.16 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es gilt</p>
 <div class="math notranslate nohighlight">
@@ -668,31 +689,10 @@ gilt</p>
 <p>Das Prinzip beruht auf der Intuition, dass zwei Körper, das gleiche Volumen haben, sofern alle ihre Schnittflächen welche parallel zu einer Grundfläche verlaufen gleich sind. Für <span class="math notranslate nohighlight">\(\R^2\)</span> ist dieses Prinzip in <a class="reference internal" href="#fig-cavalieri"><span class="std std-numref">Abb. 5.5</span></a> dargestellt. Formal bedeutet das, dass wir für eine messbare Menge <span class="math notranslate nohighlight">\(E\)</span>, den Inhalt über das Integral der Schnitte ausdrücken wollen, es gibt hier also drei Größen</p>
 <div class="math notranslate nohighlight">
 \[\lambda^{n+m}(E), \int_{\R^n} \lambda^m(E_x) d\lambda^n(x), \int_{\R^m} \lambda^m(E_y) d\lambda^m(y)\]</div>
-<p>welche wir in Beziehung zueinander setzten wollen. Um diese Aussage zeigen zu können benötigt man folgende Definitionen und Aussagen.</p>
-<div class="proof definition admonition" id="definition-13">
-<p class="admonition-title"><span class="caption-number">Definition 5.22 </span> (Mengen-Algebra)</p>
-<div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\Omega\)</span> eine Menge, ein Teilmengensystem <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> heißt <strong>Mengen-Algebra</strong>, falls</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(\emptyset\in\mathcal{C}\)</span>,</p></li>
-<li><p><span class="math notranslate nohighlight">\(A\in\mathcal{C}\Rightarrow A^C\in\mathcal{C}\)</span>,</p></li>
-<li><p>$A,B\in\mathcal{C}\Rightarrow A\cup B\in\mathcal{A}.</p></li>
-</ol>
-</div>
-</div><div class="proof remark admonition" id="remark-14">
-<p class="admonition-title"><span class="caption-number">Remark 5.12 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>Wir erkennen, dass der Unterschied zur <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra darin besteht, dass nur endliche Vereinigungen betrachtet werden. Insbesondere ist damit jede <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra auch eine Mengen-Algebra.</p>
-</div>
-</div><p>Für zwei <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren ist das kartesische Produkt <span class="math notranslate nohighlight">\(\Sigma_1\times\Sigma_2\)</span> i.A. keine Algebra, die Menge</p>
-<div class="math notranslate nohighlight">
-\[\Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}\]</div>
-<p>allerdings schon und sie erzeugt offensichtlich auch die Produkt-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra,</p>
-<div class="math notranslate nohighlight">
-\[\sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.\]</div>
-<p>Ein weiteres Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klassen.</p>
-<div class="proof definition admonition" id="definition-15">
-<p class="admonition-title"><span class="caption-number">Definition 5.23 </span> (Monotone Klasse)</p>
+<p>welche wir in Beziehung zueinander setzten wollen.</p>
+<p>Ein Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klassen.</p>
+<div class="proof definition admonition" id="definition-12">
+<p class="admonition-title"><span class="caption-number">Definition 5.22 </span> (Monotone Klasse)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\Omega\)</span> eine Menge, ein Teilmengensystem <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> heißt <strong>monotone Klasse</strong>, falls</p>
 <p>1. Für eine aufsteigende Folge von Mengen <span class="math notranslate nohighlight">\(A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N\)</span> gilt auch</p>
@@ -704,16 +704,22 @@ gilt</p>
 </div>
 </div><p>Offensichtlich ist jede <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen. Betrachtet man aber analog zur kleinsten von <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> erzeugten <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra die kleinste von <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> erzeugt monotone Klasse <span class="math notranslate nohighlight">\(\text{M}\big[\mathcal{C}\big]\)</span> so gilt folgendes technisches Lemma.</p>
 <div class="proof lemma admonition" id="lem:monclass">
-<p class="admonition-title"><span class="caption-number">Lemma 5.18 </span> (Monotone Klassen Lemma)</p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.17 </span> (Monotone Klassen Lemma)</p>
 <div class="lemma-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> eine Mengenalgebra, dann gilt</p>
+<p>Es sei <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> ein Mengen-Ring, dann gilt</p>
 <div class="math notranslate nohighlight">
 \[\sigma(\mathcal{C}) = \text{M}\big[\mathcal{C}\big].\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Siehe z.B. <span id="id3">[<a class="reference internal" href="../references.html#id6">Tao07</a>]</span> Lemma 1.7.14.</p>
 </div>
-<p>Mit dieser Aussage können wir nun das Prinzip von Cavalieri beweisen.</p>
+<p>Für zwei <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren ist das kartesische Produkt <span class="math notranslate nohighlight">\(\Sigma_1\times\Sigma_2\)</span> i.A. kein Mengen-Ring, die Menge</p>
+<div class="math notranslate nohighlight">
+\[\Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}\]</div>
+<p>allerdings schon und sie erzeugt offensichtlich auch die Produkt-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra,</p>
+<div class="math notranslate nohighlight">
+\[\sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.\]</div>
+<p>Auf <span class="math notranslate nohighlight">\(\Sigma_1\diamond\Sigma_2\)</span> können wir dann auch das monotone Klasse Lemma anwenden, womit wir nun das Prinzip von Cavalieri beweisen.</p>
 <div class="proof theorem admonition" id="thm:cavalieri">
 <p class="admonition-title"><span class="caption-number">Theorem 5.11 </span> (Das Prinzip von Cavalieri)</p>
 <div class="theorem-content section" id="proof-content">
@@ -732,14 +738,14 @@ y \mapsto \lambda^n(E^y)\end{split}\]</div>
 <p>Proof. Es sei <span class="math notranslate nohighlight">\(\mathcal{C}\subset\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\)</span> das System aller Mengen s.d. die Aussage gilt. Dann ist <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> eine monotone Klasse und</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)\subset \mathcal{C}.\]</div>
-<p>Mit dem monotone Klassen Lemma (<a class="reference internal" href="#lem:monclass">Lemma 5.18</a>) folgt dann</p>
+<p>Mit dem monotone Klassen Lemma (<a class="reference internal" href="#lem:monclass">Lemma 5.17</a>) folgt dann</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m) = \sigma(\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)) = 
 \text{M}\big[\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)\big] \subset 
 \text{M}\big[\mathcal{C}\big] = \mathcal{C}.\]</div>
 </div>
 <p>Ein Korollar aus der obigen Aussage ist, dass fast alle Schnitte einer <span class="math notranslate nohighlight">\(\lambda^n\otimes\lambda^m\)</span> Nullmenge selbst Nullmengen bezüglich <span class="math notranslate nohighlight">\(\lambda^n\)</span>, bzw. <span class="math notranslate nohighlight">\(\lambda^m\)</span> sind.</p>
-<div class="proof corollary admonition" id="corollary-18">
+<div class="proof corollary admonition" id="corollary-15">
 <p class="admonition-title"><span class="caption-number">Corollary 5.2 </span></p>
 <div class="corollary-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(E\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\)</span> eine Nullmenge, dann folgt, dass für fast alle <span class="math notranslate nohighlight">\(x\in\R^n,y\in\R^m\)</span> auch <span class="math notranslate nohighlight">\(\lambda^m(E_x)=0=\lambda^n(E^y)\)</span> gilt.</p>
@@ -754,13 +760,13 @@ y \mapsto \lambda^n(E^y)\end{split}\]</div>
 <p>für fast alle <span class="math notranslate nohighlight">\(x\in\R^n\)</span>. Die Aussage für <span class="math notranslate nohighlight">\(\lambda^n(E^y)\)</span> folgt analog.</p>
 </div>
 <p>Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen <span class="math notranslate nohighlight">\(E\in \mathcal{A}(\R^{n+m})\)</span> zu verallgemeinern.</p>
-<div class="proof lemma admonition" id="lemma-19">
-<p class="admonition-title"><span class="caption-number">Lemma 5.19 </span></p>
+<div class="proof lemma admonition" id="lemma-16">
+<p class="admonition-title"><span class="caption-number">Lemma 5.18 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Die Aussagen von <a class="reference internal" href="#thm:cavalieri">Theorem 5.11</a> gelten auch für Mengen <span class="math notranslate nohighlight">\(E\in \mathcal{A}(\R^{n+m})\)</span>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Es sei <span class="math notranslate nohighlight">\(E\in \mathcal{A}(\R^{n+m})\)</span>, nach <a class="reference internal" href="#lem:completelebesgue">Lemma 5.16</a> existieren Mengen <span class="math notranslate nohighlight">\(\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\)</span>, <span class="math notranslate nohighlight">\(N\subset \tilde{N}\)</span>, s.d.</p>
+<p>Proof. Es sei <span class="math notranslate nohighlight">\(E\in \mathcal{A}(\R^{n+m})\)</span>, nach <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">lem:completelebesgue</span></code> existieren Mengen <span class="math notranslate nohighlight">\(\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\)</span>, <span class="math notranslate nohighlight">\(N\subset \tilde{N}\)</span>, s.d.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}E = \tilde{E}\cup N\\
 (\lambda^n\otimes\lambda^m)(\tilde{N}) = 0.\end{split}\]</div>
@@ -773,10 +779,10 @@ y \mapsto \lambda^n(E^y)\end{split}\]</div>
 <p>Mit dieser Aussage können wir nun ein Beispiel betrachten, in welchem wir die Fläche eines Kreises berechnen.</p>
 <div class="figure align-default" id="fig-ball">
 <a class="reference internal image-reference" href="../_images/ball.jpg"><img alt="../_images/ball.jpg" src="../_images/ball.jpg" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Abb. 5.6 </span><span class="caption-text">Visualisierung für <a class="reference internal" href="#ex:ball">Example 5.6</a>.</span><a class="headerlink" href="#fig-ball" title="Link zu diesem Bild">¶</a></p>
+<p class="caption"><span class="caption-number">Abb. 5.6 </span><span class="caption-text">Visualisierung für <a class="reference internal" href="#ex:ball">Example 5.7</a>.</span><a class="headerlink" href="#fig-ball" title="Link zu diesem Bild">¶</a></p>
 </div>
 <div class="proof example admonition" id="ex:ball">
-<p class="admonition-title"><span class="caption-number">Example 5.6 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 5.7 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Wir betrachten den <span class="math notranslate nohighlight">\(2\)</span>-dimensionale Ball</p>
 <div class="math notranslate nohighlight">
@@ -803,8 +809,8 @@ y \mapsto \lambda^n(E^y)\end{split}\]</div>
 r^2\pi.\end{split}\]</div>
 </div>
 </div><p>Das Volumen einer Kugel in <span class="math notranslate nohighlight">\(n\)</span>-Dimensionen lässt sich mithilfe des folgenden Lemmas berechnen.</p>
-<div class="proof lemma admonition" id="lemma-21">
-<p class="admonition-title"><span class="caption-number">Lemma 5.20 </span></p>
+<div class="proof lemma admonition" id="lemma-18">
+<p class="admonition-title"><span class="caption-number">Lemma 5.19 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Für die <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Kugel</p>
 <div class="math notranslate nohighlight">
@@ -825,8 +831,8 @@ r^d\,
 <div class="section" id="der-satz-von-fubini">
 <h2><span class="section-number">5.3.4. </span>Der Satz von Fubini<a class="headerlink" href="#der-satz-von-fubini" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Dazu zeigen wir ein allgemeineres Resultat für messbare Funktionen.</p>
-<div class="proof lemma admonition" id="lemma-22">
-<p class="admonition-title"><span class="caption-number">Lemma 5.21 </span></p>
+<div class="proof lemma admonition" id="lemma-19">
+<p class="admonition-title"><span class="caption-number">Lemma 5.20 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(f:\R^{m+n}\to\overline{\R}\)</span> messbar bezüglich <span class="math notranslate nohighlight">\(\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\)</span>, dann gilt für die Funktionen</p>
 <div class="math notranslate nohighlight">
@@ -855,8 +861,8 @@ x&amp;\mapsto f(x,y).\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\int_{\R^n} I_x(f) d\lambda^n(x) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^m(y)d\lambda^n(x).\]</div>
 <p>Gleichermaßen sollen diese Schritte aber auch für <span class="math notranslate nohighlight">\(f^y\)</span> funktionieren, deshalb definieren wir doppelintegrierbare Funktionen.</p>
-<div class="proof definition admonition" id="definition-23">
-<p class="admonition-title"><span class="caption-number">Definition 5.24 </span> (Doppelintegrierbare Funktion)</p>
+<div class="proof definition admonition" id="definition-20">
+<p class="admonition-title"><span class="caption-number">Definition 5.23 </span> (Doppelintegrierbare Funktion)</p>
 <div class="definition-content section" id="proof-content">
 <p>Eine Funktion <span class="math notranslate nohighlight">\(f \colon \R^{n+m} \to \overline{\R}\)</span> heißt <strong>doppelintegrierbar</strong> falls
 für fast alle Punkte <span class="math notranslate nohighlight">\(x \in \R^n, y\in\R^m\)</span> die Funktionen <span class="math notranslate nohighlight">\(f_x,f^y\)</span> integrierbar sind und zusätzlich die Funktionen</p>
@@ -870,7 +876,7 @@ y\mapsto I^y(f) =\int_{\R^n} f(x,y) d\lambda^n(x)\\\end{split}\]</div>
 \[V_{\text{D}} := \{f:\R^{n+m}\to\overline{\R}: f\text{ ist doppelintegrierbar}\}\]</div>
 <p>können wir folgende Aussage zeigen.</p>
 <div class="proof lemma admonition" id="lem:doppelintegrierbar">
-<p class="admonition-title"><span class="caption-number">Lemma 5.22 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.24 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>1. Die Menge der doppelintegrierbaren Funktionen bilden einen Vektorraum <span class="math notranslate nohighlight">\(V_D\)</span>.</p>
 <p>2. Doppelintegrale sind <em>linear</em>, d.h., für zwei doppelintegrierbare Funktionen <span class="math notranslate nohighlight">\(f,g \in V_D\)</span> und beliebige Skalare <span class="math notranslate nohighlight">\(\lambda \in \R\)</span> gilt</p>
@@ -894,10 +900,154 @@ y\mapsto I^y(f) =\int_{\R^n} f(x,y) d\lambda^n(x)\\\end{split}\]</div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Schulz-Baldes S.153f.</p>
 </div>
-<div class="proof remark admonition" id="remark-25">
+<div class="proof remark admonition" id="remark-22">
+<p class="admonition-title"><span class="caption-number">Remark 5.12 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Die Aussage aus <a class="reference internal" href="#lem:doppelintegrierbar">Lemma 5.24</a> gilt analog für nichtnegative Funktionenfolgen <span class="math notranslate nohighlight">\((f_j)_{j\in\N}\)</span>, die von oben gegen die Funktion <span class="math notranslate nohighlight">\(f\)</span> konvergieren.</p>
+</div>
+</div><p>Der Wunsch ist natürlich zeigen zu können, dass beide Doppelintegrale übereinstimmen und insbesondere, dass</p>
+<div class="math notranslate nohighlight">
+\[\int_{\R^{n+m}} f\,d\lambda^{n+m}\]</div>
+<p>gleich dem Doppelintegral ist.</p>
+<div class="proof admonition" id="proof">
+<p>Proof. Es sei <span class="math notranslate nohighlight">\(E\in \mathcal{A}(\R^{n+m})\)</span>, nach <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">lem:completelebesgue</span></code> existieren Mengen <span class="math notranslate nohighlight">\(\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\)</span>, <span class="math notranslate nohighlight">\(N\subset \tilde{N}\)</span>, s.d.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}E = \tilde{E}\cup N\\
+(\lambda^n\otimes\lambda^m)(\tilde{N}) = 0.\end{split}\]</div>
+<p>Insbesondere ist dann</p>
+<div class="math notranslate nohighlight">
+\[E\setminus \tilde{N} = \left(\tilde{E}\setminus \tilde{N} \right)\cup \underbrace{\left(N\setminus \tilde{N}\right)}_{=\emptyset} = 
+\tilde{E}\setminus \tilde{N}\in \in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\]</div>
+<p>daher können wir <a class="reference internal" href="#thm:cavalieri">Theorem 5.11</a> auf <span class="math notranslate nohighlight">\(E\setminus \tilde{N}\)</span> anwenden. Da aber fast alle Schnitte <span class="math notranslate nohighlight">\(\tilde{N}_x,\tilde{N}^y\)</span> Nullmengen sind, gilt die Aussage, dann für fast alle <span class="math notranslate nohighlight">\(x,y\in E\)</span>.</p>
+</div>
+<p>Mit dieser Aussage können wir nun ein Beispiel betrachten, in welchem wir die Fläche eines Kreises berechnen.</p>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/ball.jpg"><img alt="../_images/ball.jpg" src="../_images/ball.jpg" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 5.7 </span><span class="caption-text">Visualisierung für <a class="reference internal" href="#ex:ball">Example 5.7</a>.</span><a class="headerlink" href="#id4" title="Link zu diesem Bild">¶</a></p>
+</div>
+<div class="proof example admonition" id="ex:ball">
+<p class="admonition-title"><span class="caption-number">Example 5.7 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Wir betrachten den <span class="math notranslate nohighlight">\(2\)</span>-dimensionale Ball</p>
+<div class="math notranslate nohighlight">
+\[B_r^2:=\{x\in\R^2: |x|\leq r\},\]</div>
+<p>wir erkennen, dass sich ein Schnitt für <span class="math notranslate nohighlight">\(\abs{y}\leq r\)</span> jeweils ergibt durch</p>
+<div class="math notranslate nohighlight">
+\[(B_r^2)_y = \{x:(x,y)\in B_r^2\} = \{x\leq\sqrt{r^2-y^2}\} = [-\sqrt{r^2-y^2},\sqrt{r^2-y^2}]\]</div>
+<p>und ansonsten leer ist.</p>
+<p>Somit erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^1((B_r^2)_y) = 
+\begin{cases}
+2 \sqrt{r^2-y^2}&amp;\text{ falls }y\leq r\\
+\emptyset\text{ sonst}
+\end{cases}.\end{split}\]</div>
+<p>Damit erhalten wir mithilfe des Prinzips von Cavalieri</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^2(B_r^2) &amp;= \int_{\R} \lambda^1((B_r^2)_y) d\lambda^1(y) = 
+\int_{[-r,r]} 2 \sqrt{r^2-y^2} d\lambda^1(y)\\
+&amp;= 
+2\int_{-r}^r \sqrt{r^2 - y^2} dy = 
+\lim_{t\to r}\left[y \sqrt{r^2-y^2} +r^2\arctan\left(\frac{y}{\sqrt{r^2-y^2}}\right)\right]^t_{-t}\\
+&amp;=
+r^2\pi.\end{split}\]</div>
+</div>
+</div><p>Das Volumen einer Kugel in <span class="math notranslate nohighlight">\(n\)</span>-Dimensionen lässt sich mithilfe des folgenden Lemmas berechnen.</p>
+<div class="proof lemma admonition" id="lemma-24">
+<p class="admonition-title"><span class="caption-number">Lemma 5.22 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Für die <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Kugel</p>
+<div class="math notranslate nohighlight">
+\[B_r^n:=\{x\in\R^n: |x|\leq r\}\]</div>
+<p>gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lambda^n(B_r^n) =
+r^d\,
+\begin{cases}
+\frac{1}{(n/2)!} \pi^{n/2}&amp;\text{ falls }n gerade\\
+\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&amp;\text{ falls }n gerade\\
+\end{cases}\end{split}\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe Hausaufgabe.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">5.3.5. </span>Der Satz von Fubini<a class="headerlink" href="#id5" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Dazu zeigen wir ein allgemeineres Resultat für messbare Funktionen.</p>
+<div class="proof lemma admonition" id="lemma-25">
+<p class="admonition-title"><span class="caption-number">Lemma 5.23 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(f:\R^{m+n}\to\overline{\R}\)</span> messbar bezüglich <span class="math notranslate nohighlight">\(\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\)</span>, dann gilt für die Funktionen</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f_x:x \mapsto f(x,y),\\
+f_y:y \mapsto f(x,y),\end{split}\]</div>
+<p>dass <span class="math notranslate nohighlight">\(f_x\)</span> messbar bezüglich <span class="math notranslate nohighlight">\(\mathcal{A}(\R^m)\)</span> und <span class="math notranslate nohighlight">\(f_y\)</span> messbar bezüglich <span class="math notranslate nohighlight">\(\mathcal{A}(\R^n)\)</span> ist.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe Hausaufgabe.</p>
+</div>
+<p>Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen. Unser Ziel ist es also für eine Funktion <span class="math notranslate nohighlight">\(f:\R^{n+m}\to\overline{R}\)</span> das Integral</p>
+<div class="math notranslate nohighlight">
+\[\int_{\R^{n+m}} f(z) d\lambda^{n+m}(z)\]</div>
+<p>mithilfe von Inetgration bezüglich <span class="math notranslate nohighlight">\(d\lambda^n\)</span> und <span class="math notranslate nohighlight">\(\lambda^m\)</span> aufzuteilen. Hierfür definieren analog zu den Mengenschnitten aus <a class="reference internal" href="#lem:secmeasure">Lemma 5.14</a> für alle <span class="math notranslate nohighlight">\(x\in\R^n\)</span> die Funktion</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f_x:\R^m&amp;\to\overline{R}\\
+y&amp;\mapsto f(x,y)\end{split}\]</div>
+<p>und für alle <span class="math notranslate nohighlight">\(y\in\R^m\)</span> die Funktion</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f^y:\R^n&amp;\to\overline{R}\\
+x&amp;\mapsto f(x,y).\end{split}\]</div>
+<p>Wäre <span class="math notranslate nohighlight">\(f_x\)</span> für fast alle <span class="math notranslate nohighlight">\(x\in\R^n\)</span> integrierbar bezüglich <span class="math notranslate nohighlight">\(\lambda^m\)</span>, so kann man das Integral</p>
+<div class="math notranslate nohighlight">
+\[I_x(f) := \int_{\R^m} f_x(y) d\lambda^m(y)\]</div>
+<p>betrachten. Da <span class="math notranslate nohighlight">\(x\in\R^n\)</span> bei dieser Überlegung variabel ist, definiert dies eine neue Funktion <span class="math notranslate nohighlight">\(x\mapsto I_x(f)\)</span>, welche im Falle erneuter Integrierbarkeit auf</p>
+<div class="math notranslate nohighlight">
+\[\int_{\R^n} I_x(f) d\lambda^n(x) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^m(y)d\lambda^n(x).\]</div>
+<p>Gleichermaßen sollen diese Schritte aber auch für <span class="math notranslate nohighlight">\(f^y\)</span> funktionieren, deshalb definieren wir doppelintegrierbare Funktionen.</p>
+<div class="proof definition admonition" id="definition-26">
+<p class="admonition-title"><span class="caption-number">Definition 5.24 </span> (Doppelintegrierbare Funktion)</p>
+<div class="definition-content section" id="proof-content">
+<p>Eine Funktion <span class="math notranslate nohighlight">\(f \colon \R^{n+m} \to \overline{\R}\)</span> heißt <strong>doppelintegrierbar</strong> falls
+für fast alle Punkte <span class="math notranslate nohighlight">\(x \in \R^n, y\in\R^m\)</span> die Funktionen <span class="math notranslate nohighlight">\(f_x,f^y\)</span> integrierbar sind und zusätzlich die Funktionen</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x\mapsto I_x(f) =\int_{\R^m} f(x,y) d\lambda^m(y)\\
+y\mapsto I^y(f) =\int_{\R^n} f(x,y) d\lambda^n(x)\\\end{split}\]</div>
+<p>integrierbar sind.</p>
+</div>
+</div><p>Für die Menge der doppelintegrierbaren Funktionen</p>
+<div class="math notranslate nohighlight">
+\[V_{\text{D}} := \{f:\R^{n+m}\to\overline{\R}: f\text{ ist doppelintegrierbar}\}\]</div>
+<p>können wir folgende Aussage zeigen.</p>
+<div class="proof lemma admonition" id="lem:doppelintegrierbar">
+<p class="admonition-title"><span class="caption-number">Lemma 5.24 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>1. Die Menge der doppelintegrierbaren Funktionen bilden einen Vektorraum <span class="math notranslate nohighlight">\(V_D\)</span>.</p>
+<p>2. Doppelintegrale sind <em>linear</em>, d.h., für zwei doppelintegrierbare Funktionen <span class="math notranslate nohighlight">\(f,g \in V_D\)</span> und beliebige Skalare <span class="math notranslate nohighlight">\(\lambda \in \R\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[\int_{\R^n}\int_{\R^m} (f + \lambda g)\,d\lambda^m d\lambda^n = 
+\int_{\R^n}\int_{\R^m} f d\lambda^m d\lambda^n + 
+\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^m d\lambda^n\]</div>
+<p>und analog für das andere Doppelintegral</p>
+<div class="math notranslate nohighlight">
+\[\int_{\R^m}\int_{\R^n} (f + \lambda g) d\lambda^n d\lambda^m = 
+\int_{\R^n}\int_{\R^m} f d\lambda^n d\lambda^m + 
+\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^n d\lambda^m\]</div>
+<p>3. Sei <span class="math notranslate nohighlight">\((f_j)_j\in\N\)</span> eine Folge von nichtnegativen, doppelintegrierbaren Funktionen und sei <span class="math notranslate nohighlight">\(f:\R^{n+m}\to\overline{\R}\)</span> eine Funktion, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[f_j\leq f\quad\forall j\in\N,\qquad \lim_{j\to\infty} f_j =f.\]</div>
+<p>Falls beide Doppelintegrale für die <span class="math notranslate nohighlight">\(f_j\)</span> gleichmäßig beschränkt sind, so gilt <span class="math notranslate nohighlight">\(f\in V_{\text{D}}\)</span> und</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\lim_{j\to\infty} \int_{\R^n}\int_{\R^m} f_j\,d\lambda^m d\lambda^n = \int_{\R^n}\int_{\R^m} f\,d\lambda^m d\lambda^n\\ 
+\lim_{j\to\infty} \int_{\R^m}\int_{\R^n} f_j\,d\lambda^n d\lambda^m= \int_{\R^m}\int_{\R^n} f\,d\lambda^n d\lambda^m.\end{split}\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.153f.</p>
+</div>
+<div class="proof remark admonition" id="remark-28">
 <p class="admonition-title"><span class="caption-number">Remark 5.13 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>Die Aussage aus <a class="reference internal" href="#lem:doppelintegrierbar">Lemma 5.22</a> gilt analog für nichtnegative Funktionenfolgen <span class="math notranslate nohighlight">\((f_j)_{j\in\N}\)</span>, die von oben gegen die Funktion <span class="math notranslate nohighlight">\(f\)</span> konvergieren.</p>
+<p>Die Aussage aus <a class="reference internal" href="#lem:doppelintegrierbar">Lemma 5.24</a> gilt analog für nichtnegative Funktionenfolgen <span class="math notranslate nohighlight">\((f_j)_{j\in\N}\)</span>, die von oben gegen die Funktion <span class="math notranslate nohighlight">\(f\)</span> konvergieren.</p>
 </div>
 </div><p>Der Wunsch ist natürlich zeigen zu können, dass beide Doppelintegrale übereinstimmen und insbesondere, dass</p>
 <div class="math notranslate nohighlight">
@@ -906,14 +1056,14 @@ y\mapsto I^y(f) =\int_{\R^n} f(x,y) d\lambda^n(x)\\\end{split}\]</div>
 <div class="proof admonition" id="proof">
 <p>Proof. Schulz-Baldes S.156-160</p>
 </div>
-<div class="proof remark admonition" id="remark-26">
+<div class="proof remark admonition" id="remark-29">
 <p class="admonition-title"><span class="caption-number">Remark 5.14 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Das Prinzip von Cavalieri besagt, dass jede charakteristische Funktion <span class="math notranslate nohighlight">\(\chi_A\)</span> einer messbaren Menge <span class="math notranslate nohighlight">\(A\)</span> doppelintegrierbar ist und es gilt</p>
 <div class="math notranslate nohighlight">
 \[\mu_{n+k}(\chi_A) = \mu_n(\mu_k(\chi_A)) = \mu_k(\mu_n(\chi_A)). \]</div>
 </div>
-</div><div class="proof theorem admonition" id="theorem-27">
+</div><div class="proof theorem admonition" id="theorem-30">
 <p class="admonition-title"><span class="caption-number">Theorem 5.12 </span> (Satz von Fubini-Tonelli)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(f \colon \R^{n} \times \R^k \rightarrow \overline{\R}\)</span> eine Lebesgue-integrierbare Funktion.
@@ -924,14 +1074,14 @@ Dann ist <span class="math notranslate nohighlight">\(f\)</span> doppelintegrier
 </div><div class="proof admonition" id="proof">
 <p>Proof. S.164</p>
 </div>
-<div class="proof example admonition" id="example-28">
-<p class="admonition-title"><span class="caption-number">Example 5.7 </span></p>
+<div class="proof example admonition" id="example-31">
+<p class="admonition-title"><span class="caption-number">Example 5.8 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Aus Doppelintegrierbarkeit einer Funktion folgt nicht notwendigerweise deren Lebesgue-Integrierbarkeit.</p>
 <p>(Website)[https://www.geometrie-und-logik.de/studium/analysis-la-ws-2020/saetze-ueber-lebesgueintegrierbare-funktionen/]</p>
 </div>
 </div><p>Die Aussage gilt jedoch unter einer zusätzlichen Voraussetzung.</p>
-<div class="proof theorem admonition" id="theorem-29">
+<div class="proof theorem admonition" id="theorem-32">
 <p class="admonition-title"><span class="caption-number">Theorem 5.13 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(f \colon \R^{n} \times \R^k \rightarrow \overline{\R}\)</span> eine doppelintegrierbare Funktion, die <em>nichtnegativ</em> ist, d.h., es gilt <span class="math notranslate nohighlight">\(f \geq 0\)</span>.
@@ -942,7 +1092,7 @@ Dann ist <span class="math notranslate nohighlight">\(f\)</span> Lebesgue-integr
 </div>
 </div>
 <div class="section" id="die-jacobische-transformationsformel">
-<h2><span class="section-number">5.3.5. </span>Die Jacobische Transformationsformel<a class="headerlink" href="#die-jacobische-transformationsformel" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">5.3.6. </span>Die Jacobische Transformationsformel<a class="headerlink" href="#die-jacobische-transformationsformel" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Abschließend wollen wir noch ein wichtiges Theorem formulieren, dass für die mehrdimensionale Integration sehr nützlich ist.</p>
 <div class="proof theorem admonition" id="thm:jacobitransformation">
 <p class="admonition-title"><span class="caption-number">Theorem 5.14 </span> (Jacobische Transformationsformel)</p>

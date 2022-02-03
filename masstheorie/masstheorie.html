@@ -521,7 +521,7 @@ Aus diesen drei Eigenschaften lässt sich auch direkt zeigen, dass <span class="
 <div class="proof lemma admonition" id="lemma-1">
 <p class="admonition-title"><span class="caption-number">Lemma 5.1 </span> (Abgeschlossenheit unter abzählbaren Schnitten)</p>
 <div class="lemma-content section" id="proof-content">
-<p>Es sei (<span class="math notranslate nohighlight">\(\Omega,\mathcal{A}\)</span>) ein Messraum und es sei <span class="math notranslate nohighlight">\((A_n)n_\N\)</span> eine Familie von Elementen der <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> mit <span class="math notranslate nohighlight">\(A_n \in \mathcal{A}\)</span> für <span class="math notranslate nohighlight">\(n \in \N\)</span>.
+<p>Es sei (<span class="math notranslate nohighlight">\(\Omega,\mathcal{A}\)</span>) ein Messraum und es sei <span class="math notranslate nohighlight">\((A_n)_{n\in_\N}\)</span> eine Familie von Elementen der <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> mit <span class="math notranslate nohighlight">\(A_n \in \mathcal{A}\)</span> für <span class="math notranslate nohighlight">\(n \in \N\)</span>.
 Dann sind abzählbare Schnitte dieser Mengen auch Elemente der <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>, d.h.,</p>
 <div class="math notranslate nohighlight">
 \[\bigcap_{n \in \N} A_n \in \mathcal{A}.\]</div>
@@ -700,10 +700,10 @@ Q_m^1&amp;=(a^m,\beta^m]\\
 Q_m^2&amp;=(\alpha^m,b^m].\end{split}\]</div>
 <p>Iterativ gehen wir folgendermaßen vor:</p>
 <ol class="simple">
-<li><p>Betrachten den ersten Quader <span class="math notranslate nohighlight">\(Q_1\)</span>, zerteilen alle Quader <span class="math notranslate nohighlight">\(Q_i\)</span> an allen seinen Hyperebenen und erhalte so neue Quader <span class="math notranslate nohighlight">\(W^1_j\)</span>.</p></li>
+<li><p>Betrachte den ersten Quader <span class="math notranslate nohighlight">\(Q_1\)</span>, zerteile alle Quader <span class="math notranslate nohighlight">\(Q_i\)</span> an allen seinen Hyperebenen und erhalte so neue Quader <span class="math notranslate nohighlight">\(W^1_j\)</span>.</p></li>
 <li><p>Im <span class="math notranslate nohighlight">\(i+1\)</span>ten Schritt betrachte die Hyperebenen des Quaders <span class="math notranslate nohighlight">\(Q_{i+1}\)</span> und zerteile damit alle Quader <span class="math notranslate nohighlight">\(W^i_j\)</span> aus dem vorherigen Schritt und erhalte damit neue Quader <span class="math notranslate nohighlight">\(W^{i+1}_j\)</span>.</p></li>
 </ol>
-<p>Führen wir diesen Prozess bis <span class="math notranslate nohighlight">\(i=k\)</span> durch, so erhalten wir folgendes Resultat, welches in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:disrect</span></code> visualisiert ist.</p>
+<p>Führen wir diesen Prozess bis <span class="math notranslate nohighlight">\(i=k\)</span> durch, so erhalten wir folgendes Resultat, welches in <a class="reference internal" href="#fig-disrect"><span class="std std-numref">Abb. 5.2</span></a> visualisiert ist.</p>
 <div class="figure align-default" id="fig-disrect">
 <a class="reference internal image-reference" href="../_images/DisRect.jpg"><img alt="../_images/DisRect.jpg" src="../_images/DisRect.jpg" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Abb. 5.2 </span><span class="caption-text">Nicht disjunkte Quader werden in System disjunkter Quader überführt. Man erkennt insbesondere, dass die Vereinigung gleich bleibt und, dass sich jeder einzelne ursprüngliche Quader, aus den neuen Quadern zusammensetzbar ist.</span><a class="headerlink" href="#fig-disrect" title="Link zu diesem Bild">¶</a></p>
@@ -856,14 +856,14 @@ Wir betrachten die folgenden <strong>endlichen</strong> Ober- und Untersummen f�
 <div class="math notranslate nohighlight">
 \[\begin{split}\iota^\ast(A) &amp;:= \inf \left\{ \lambda^n(O) \, : A \subset O \in\mathcal{R}_{\text{R}}\right\},\\
 \iota_\ast(A) &amp;:= \sup \left\{ \lambda^n(U \, : A \supset U\in\mathcal{R}_{\text{R}} \right\}.\end{split}\]</div>
-<p>Wir nennen die Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> <strong>Jordan-messbar</strong>, genau dann wenn <span class="math notranslate nohighlight">\(A\)</span> beschränkt ist und die Ober- und Untersumme übereinstimmen, d.h., es gilt <span class="math notranslate nohighlight">\(\iota(A) = \iota(A)\)</span>.
+<p>Wir nennen die Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> <strong>Jordan-messbar</strong>, genau dann wenn <span class="math notranslate nohighlight">\(A\)</span> beschränkt ist und die Ober- und Untersumme übereinstimmen, d.h., es gilt <span class="math notranslate nohighlight">\(\iota^\ast(A) = \iota_\ast(A)\)</span>.
 Für Jordan-messbare Mengen <span class="math notranslate nohighlight">\(A\)</span> ist dann der Jordan-Inhalt <span class="math notranslate nohighlight">\(\iota\)</span> gegeben durch:</p>
 <div class="math notranslate nohighlight">
 \[\iota(A) = \iota^\ast(A) = \iota_\ast(A).\]</div>
 </div>
-</div><div class="figure align-default" id="id1">
+</div><div class="figure align-default" id="fig-jordanmeasure">
 <a class="reference internal image-reference" href="../_images/jordanmeasure.jpg"><img alt="../_images/jordanmeasure.jpg" src="../_images/jordanmeasure.jpg" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Abb. 5.3 </span><span class="caption-text">Visualisierung einer Approximation für das äußere (blau) und das inner (orange) Maß.</span><a class="headerlink" href="#id1" title="Link zu diesem Bild">¶</a></p>
+<p class="caption"><span class="caption-number">Abb. 5.3 </span><span class="caption-text">Visualisierung einer Approximation für das äußere (blau) und das inner (orange) Maß.</span><a class="headerlink" href="#fig-jordanmeasure" title="Link zu diesem Bild">¶</a></p>
 </div>
 <p>Die Klasse der Jordan-messbaren Mengen ist erneut recht klein. Insbesondere hat dieses Konzept erneut Schwierigkeiten mit abzählbar unendlich großen Mengen umzugehen wie folgendes Beispiel zeigt.</p>
 <div class="proof example admonition" id="ex:jordan">
@@ -933,7 +933,7 @@ Für Jordan-messbare Mengen <span class="math notranslate nohighlight">\(A\)</sp
 <div class="math notranslate nohighlight">
 \[\lambda^*(A) = \inf \left\{ \sum_{k=1}^\infty \mu^n(Q_k) : Q_k \text{ sind halboffene Quader mit } A \subset \bigcup_{k=1}^\infty Q_k \right\}.\]</div>
 </div>
-</div><p>Im Vergleich zum Jordan-Inhalt lassen wir nun also unendliche Vereinigungen zu und werten dann Reihen aus überw elche das Infimum gebildet wird. Die erste wichtig Aussage in diesem Kontext geht auf Lebesgue zurück. Der Beweis des Satzes benutzt den Satz von Heine-Borel.</p>
+</div><p>Im Vergleich zum Jordan-Inhalt lassen wir nun also unendliche Vereinigungen zu und werten dann Reihen aus über welche das Infimum gebildet wird. Die erste wichtige Aussage in diesem Kontext geht auf Lebesgue zurück. Der Beweis des Satzes benutzt den Satz von Heine-Borel.</p>
 <div class="proof theorem admonition" id="thm:heineborel">
 <p class="admonition-title"><span class="caption-number">Theorem 5.2 </span> (Heine-Borel)</p>
 <div class="theorem-content section" id="proof-content">
@@ -944,7 +944,7 @@ Für Jordan-messbare Mengen <span class="math notranslate nohighlight">\(A\)</sp
 </ol>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe z.B. <span id="id2">[<a class="reference internal" href="../references.html#id4">For17</a>]</span>.</p>
+<p>Proof. Siehe z.B. <span id="id1">[<a class="reference internal" href="../references.html#id4">For17</a>]</span>.</p>
 </div>
 <p>Mit diesem Resultat können wir die folgende Aussage beweisen.</p>
 <div class="proof theorem admonition" id="thm:lebesgue">
@@ -1124,7 +1124,7 @@ Dann ist das äußere Lebesgue Maß <strong>translationsinvariant</strong> unter
 Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wirkung der linearen Transformation <span class="math notranslate nohighlight">\(M\)</span></p>
 <div class="math notranslate nohighlight">
 \[\lambda^*(MA) = |\!\operatorname{det}(M)| \, \lambda^*(A).\]</div>
-<p>Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. <strong>Rotationen</strong> und <strong>Spiegelungen</strong>) ist, da für diese Transformationen <span class="math notranslate nohighlight">\(|\!\operatorname{det}(M)| = 1\)</span> gilt (siehe Kapitel 3.6 in <span id="id3">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span>).</p>
+<p>Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. <strong>Rotationen</strong> und <strong>Spiegelungen</strong>) ist, da für diese Transformationen <span class="math notranslate nohighlight">\(|\!\operatorname{det}(M)| = 1\)</span> gilt (siehe Kapitel 3.6 in <span id="id2">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span>).</p>
 <p>Außerdem gilt, dass die Teilmenge <span class="math notranslate nohighlight">\(A\)</span> genau dann Lebesgue-messbar ist, wenn die linear transformierte Teilmenge <span class="math notranslate nohighlight">\(MA\)</span> Lebesgue-messbar ist.</p>
 </div>
 </div></div>
@@ -1146,7 +1146,7 @@ Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wi
 <ol class="simple">
 <li><p>Sei <span class="math notranslate nohighlight">\((N_n)_{n\in\N}\)</span> eine Familie von Nullmengen.
 Dann ist auch <span class="math notranslate nohighlight">\(\bigcup_{n\in\N} N_n\)</span> eine Nullmenge.</p></li>
-<li><p>Alle abzählbare Mengen sind Nullmengen.</p></li>
+<li><p>Alle abzählbaren Mengen sind Nullmengen.</p></li>
 <li><p>Alle Teilmengen von Nullmengen sind Nullmengen.</p></li>
 </ol>
 </div>
@@ -1287,7 +1287,7 @@ z-y\in\Q\\
 <div class="proof remark admonition" id="remark-31">
 <p class="admonition-title"><span class="caption-number">Remark 5.5 </span> (Das Jordan-Konzept)</p>
 <div class="remark-content section" id="proof-content">
-<p>Eine mögliche Idee um messbare Mengen zu definieren haben wir bereits beim Jordan-Inhalt kennengelernt. Hierbei wird zusätzlich zum äußeren Mein inneres definiert. Beim Übergang vom äußeren Jordan-Inhalt zum äußeren Lebesgue-Maß werden endliche Vereinigungen durch unendliche ersetzt, weshalb man versuchen könnte, das nun auch hier zu tun, indem man das innere Lebesgue-Maß auch über unendliche Vereinigungen definiert</p>
+<p>Eine mögliche Idee um messbare Mengen zu definieren haben wir bereits beim Jordan-Inhalt kennengelernt. Hierbei wird zusätzlich zum äußeren Maß ein inneres Maß definiert. Beim Übergang vom äußeren Jordan-Inhalt zum äußeren Lebesgue-Maß werden endliche Vereinigungen durch unendliche ersetzt, weshalb man versuchen könnte, das nun auch hier zu tun, indem man das innere Lebesgue-Maß auch über unendliche Vereinigungen definiert</p>
 <div class="math notranslate nohighlight">
 \[\lambda_\ast(A) := \sup\left\{\sum_{i=1}^\infty Q_i: \bigcup_{i\in\N} Q_i \subset A, Q_i\text{ disjunkte halboffener Quader}\right\}.\]</div>
 <p>Offensichtlich folgt mit dieser Definition</p>
@@ -1408,7 +1408,7 @@ Carathéodory.</p>
 <div class="math notranslate nohighlight">
 \[\lambda^\ast(E)\geq \sum_{i=1}^\infty \lambda^\ast(E\cap A_i) + \lambda^\ast(E\setminus A)\geq 
 \lambda^\ast(E\cap A) + \lambda^\ast(E\setminus A) \geq \lambda^\ast(E).\]</div>
-<p>Daraus schließen wir mit , dass <a href="#id4"><span class="problematic" id="id5">:eqref:`eq:LebesgueAlgebra`</span></a></p>
+<p>Daraus schließen wir mit , dass <a href="#id3"><span class="problematic" id="id4">:eqref:`eq:LebesgueAlgebra`</span></a></p>
 <div class="math notranslate nohighlight">
 \[\lambda^\ast(E) = \sum_{i=1}^\infty \lambda^\ast(E\cap A_i) + \lambda^\ast(E\setminus A) =
 \lambda^\ast(E\cap A) + \lambda^\ast(E\setminus A).\]</div>

@@ -45,7 +45,7 @@ Das Symbol $\sigma$ erinnert uns an den Begriff der Summe, insbesondere wegen de
 Aus diesen drei Eigenschaften lässt sich auch direkt zeigen, dass $\sigma$-Algebren ebenfalls unter *abzählbaren Schnitten* abgeschlossen sind, wie das folgende Lemma zeigt.
 
 ````{prf:lemma} Abgeschlossenheit unter abzählbaren Schnitten
-Es sei ($\Omega,\mathcal{A}$) ein Messraum und es sei $(A_n)n_\N$ eine Familie von Elementen der $\sigma$-Algebra $\mathcal{A}$ mit $A_n \in \mathcal{A}$ für $n \in \N$.
+Es sei ($\Omega,\mathcal{A}$) ein Messraum und es sei $(A_n)_{n\in_\N}$ eine Familie von Elementen der $\sigma$-Algebra $\mathcal{A}$ mit $A_n \in \mathcal{A}$ für $n \in \N$.
 Dann sind abzählbare Schnitte dieser Mengen auch Elemente der $\sigma$-Algebra $\mathcal{A}$, d.h.,
 
 ```{math}
@@ -284,7 +284,7 @@ Q_m^2&=(\alpha^m,b^m].
 
 Iterativ gehen wir folgendermaßen vor:
 
-1. Betrachten den ersten Quader $Q_1$, zerteilen alle Quader $Q_i$ an allen seinen Hyperebenen und erhalte so neue Quader $W^1_j$.
+1. Betrachte den ersten Quader $Q_1$, zerteile alle Quader $Q_i$ an allen seinen Hyperebenen und erhalte so neue Quader $W^1_j$.
 
 2. Im $i+1$ten Schritt betrachte die Hyperebenen des Quaders $Q_{i+1}$ und zerteile damit alle Quader $W^i_j$ aus dem vorherigen Schritt und erhalte damit neue Quader $W^{i+1}_j$.
 
@@ -533,7 +533,7 @@ Wir betrachten die folgenden **endlichen** Ober- und Untersummen für die Teilme
 \iota_\ast(A) &:= \sup \left\{ \lambda^n(U \, : A \supset U\in\mathcal{R}_{\text{R}} \right\}.
 ```
 
-Wir nennen die Teilmenge $A \subset \R^n$ **Jordan-messbar**, genau dann wenn $A$ beschränkt ist und die Ober- und Untersumme übereinstimmen, d.h., es gilt $\iota(A) = \iota(A)$.
+Wir nennen die Teilmenge $A \subset \R^n$ **Jordan-messbar**, genau dann wenn $A$ beschränkt ist und die Ober- und Untersumme übereinstimmen, d.h., es gilt $\iota^\ast(A) = \iota_\ast(A)$.
 Für Jordan-messbare Mengen $A$ ist dann der Jordan-Inhalt $\iota$ gegeben durch:
 
 ```{math}
@@ -545,7 +545,7 @@ Für Jordan-messbare Mengen $A$ ist dann der Jordan-Inhalt $\iota$ gegeben durch
 ```{figure} ../img/jordanmeasure.jpg
 ---
 width: 400px
-name: "fig:disRect"
+name: "fig:jordanmeasure"
 ---
 
 Visualisierung einer Approximation für das äußere (blau) und das inner (orange) Maß.
@@ -661,7 +661,7 @@ Das **äußere Lebesgue-Maß** $\lambda^* \colon 2^{\R^n} \rightarrow [0,\infty]
 
 ````
 
-Im Vergleich zum Jordan-Inhalt lassen wir nun also unendliche Vereinigungen zu und werten dann Reihen aus überw elche das Infimum gebildet wird. Die erste wichtig Aussage in diesem Kontext geht auf Lebesgue zurück. Der Beweis des Satzes benutzt den Satz von Heine-Borel.
+Im Vergleich zum Jordan-Inhalt lassen wir nun also unendliche Vereinigungen zu und werten dann Reihen aus über welche das Infimum gebildet wird. Die erste wichtige Aussage in diesem Kontext geht auf Lebesgue zurück. Der Beweis des Satzes benutzt den Satz von Heine-Borel.
 
 ````{prf:theorem} Heine-Borel
 :label: thm:heineborel
@@ -1007,7 +1007,7 @@ Für Lebesgue-Nullmengen gelten die folgenden Eigenschaften:
 1. Sei $(N_n)_{n\in\N}$ eine Familie von Nullmengen.
 Dann ist auch $\bigcup_{n\in\N} N_n$ eine Nullmenge.
 
-2. Alle abzählbare Mengen sind Nullmengen.
+2. Alle abzählbaren Mengen sind Nullmengen.
 
 3. Alle Teilmengen von Nullmengen sind Nullmengen.
 ````
@@ -1237,7 +1237,7 @@ was ein Widerspruch ist. Daher ist die Annahme der $\sigma$-Additivität falsch.
 Der vorherige Abschnitt zeigt, dass die Potenzmenge $2^{\R^n}$ zu groß ist, d.h. auf dieser $\sigma$-Algebra ist $\lambda^\ast$ kein Maß. Deshalb wollen wir nun eine Klasse messbarer Mengen definieren, welche dann eine kleinere $\sigma$-Algebra liefert.
 
 ````{prf:remark} Das Jordan-Konzept
-Eine mögliche Idee um messbare Mengen zu definieren haben wir bereits beim Jordan-Inhalt kennengelernt. Hierbei wird zusätzlich zum äußeren Mein inneres definiert. Beim Übergang vom äußeren Jordan-Inhalt zum äußeren Lebesgue-Maß werden endliche Vereinigungen durch unendliche ersetzt, weshalb man versuchen könnte, das nun auch hier zu tun, indem man das innere Lebesgue-Maß auch über unendliche Vereinigungen definiert 
+Eine mögliche Idee um messbare Mengen zu definieren haben wir bereits beim Jordan-Inhalt kennengelernt. Hierbei wird zusätzlich zum äußeren Maß ein inneres Maß definiert. Beim Übergang vom äußeren Jordan-Inhalt zum äußeren Lebesgue-Maß werden endliche Vereinigungen durch unendliche ersetzt, weshalb man versuchen könnte, das nun auch hier zu tun, indem man das innere Lebesgue-Maß auch über unendliche Vereinigungen definiert 
 
 ```{math}
 \lambda_\ast(A) := \sup\left\{\sum_{i=1}^\infty Q_i: \bigcup_{i\in\N} Q_i \subset A, Q_i\text{ disjunkte halboffener Quader}\right\}.
