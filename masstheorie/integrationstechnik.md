@@ -354,34 +354,9 @@ Das Prinzip beruht auf der Intuition, dass zwei Körper, das gleiche Volumen hab
 \lambda^{n+m}(E), \int_{\R^n} \lambda^m(E_x) d\lambda^n(x), \int_{\R^m} \lambda^m(E_y) d\lambda^m(y)
 ```
 
-welche wir in Beziehung zueinander setzten wollen. Um diese Aussage zeigen zu können benötigt man folgende Definitionen und Aussagen.
+welche wir in Beziehung zueinander setzten wollen. Dazu benötigen wir aber zunächst die folgenden Konzepte.
 
-````{prf:Definition} Mengen-Algebra
-Es sei $\Omega$ eine Menge, ein Teilmengensystem $\mathcal{C}\subset 2^\Omega$ heißt **Mengen-Algebra**, falls 
 
-1. $\emptyset\in\mathcal{C}$,
-
-2. $A\in\mathcal{C}\Rightarrow A^C\in\mathcal{C}$,
-
-3. $A,B\in\mathcal{C}\Rightarrow A\cup B\in\mathcal{A}.
-
-````
-
-````{prf:remark}
-Wir erkennen, dass der Unterschied zur $\sigma$-Algebra darin besteht, dass nur endliche Vereinigungen betrachtet werden. Insbesondere ist damit jede $\sigma$-Algebra auch eine Mengen-Algebra.
-````
-
-Für zwei $\sigma$-Algebren ist das kartesische Produkt $\Sigma_1\times\Sigma_2$ i.A. keine Algebra, die Menge
-
-```{math}
-\Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}
-```
-
-allerdings schon und sie erzeugt offensichtlich auch die Produkt-$\sigma$-Algebra,
-
-```{math}
-\sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.
-```
 
 Ein weiteres Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klassen.
 
@@ -406,7 +381,7 @@ Offensichtlich ist jede $\sigma$-Algebra eine monotone Klasse,die Umkehrung dies
 ````{prf:lemma} Monotone Klassen Lemma
 :label: lem:monclass
 
-Es sei $\mathcal{C}$ eine Mengenalgebra, dann gilt
+Es sei $\mathcal{C}$ ein Mengen-Ring, dann gilt
 
 ```{math}
 \sigma(\mathcal{C}) = \text{M}\big[\mathcal{C}\big].
@@ -417,7 +392,19 @@ Es sei $\mathcal{C}$ eine Mengenalgebra, dann gilt
 Siehe z.B. {cite:p}`tao_2011` Lemma 1.7.14.
 ````
 
-Mit dieser Aussage können wir nun das Prinzip von Cavalieri beweisen.
+Für zwei $\sigma$-Algebren ist das kartesische Produkt $\Sigma_1\times\Sigma_2$ i.A. kein Mengen-Ring, die Menge
+
+```{math}
+\Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}
+```
+
+allerdings schon und sie erzeugt offensichtlich auch die Produkt-$\sigma$-Algebra,
+
+```{math}
+\sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.
+```
+
+Auf $\Sigma_1\diamond\Sigma_2$ können wir dann auch das monotone Klasse Lemma anwenden, womit wir nun das Prinzip von Cavalieri beweisen.
 
 ````{prf:theorem} Das Prinzip von Cavalieri
 :label: thm:cavalieri

@@ -284,7 +284,7 @@ Q_m^2&=(\alpha^m,b^m].
 
 Iterativ gehen wir folgendermaßen vor:
 
-1. Betrachten den ersten Quader $Q_1$, zerteilen alle Quader $Q_i$ an allen seinen Hyperebenen und erhalte so neue Quader $W^1_j$.
+1. Betrachte den ersten Quader $Q_1$, zerteile alle Quader $Q_i$ an allen seinen Hyperebenen und erhalte so neue Quader $W^1_j$.
 
 2. Im $i+1$ten Schritt betrachte die Hyperebenen des Quaders $Q_{i+1}$ und zerteile damit alle Quader $W^i_j$ aus dem vorherigen Schritt und erhalte damit neue Quader $W^{i+1}_j$.
 
@@ -545,7 +545,7 @@ Für Jordan-messbare Mengen $A$ ist dann der Jordan-Inhalt $\iota$ gegeben durch
 ```{figure} ../img/jordanmeasure.jpg
 ---
 width: 400px
-name: "fig:disRect"
+name: "fig:jordanmeasure"
 ---
 
 Visualisierung einer Approximation für das äußere (blau) und das inner (orange) Maß.
