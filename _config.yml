@@ -81,6 +81,7 @@ sphinx:
           "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]
           "M"    : "\\mathcal{M}"
           "S"    : "\\mathbb{S}"
+          "bone" : "\\unicode{x1D7D9}"
     #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     # tojupyter_target_html: true
     # tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]

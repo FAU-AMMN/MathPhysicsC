@@ -21,7 +21,7 @@ Wir arbeiten nicht auf Vektorräumen darum konstruieren wir **kein** Tensorprodu
 ```{figure} ../img/schnitte.jpg
 ---
 width: 600px
-name: "fig:cavalieri"
+name: "fig:schnitte"
 ---
 
 Visualisierung von Mengenschnitten.
@@ -204,18 +204,20 @@ Wir wissen, dass jede Menge die bezüglich des äußeren Maßes $\lambda^\ast$ e
 Weiterhin lässt sich ein beliebiges Maß vervollständigen, indem wir die $\sigma$-Algebra
 
 ```{math}
-\overline{\sigma}:\{A\cup N: A\in\Sigma, N\subset B\in\Sigma\text{ mit }\mu(B)=0\}
+\overline{\Sigma}:=\{A\cup N: A\in\Sigma, N\subset B\in\Sigma\text{ mit }\mu(B)=0\}
 ```
 
 betrachten zusammen mit dem Maß
 
 ```{math}
-\overline(\mu)(B)= \mu(A\cup N):= \mu(A).
+\overline{\mu}(B)= \overline{\mu}(A\cup N):= \mu(A).
 ```
 
 Hier lässt sich nun folgendes zeigen.
 
 ````{prf:lemma}
+:label: lem:completelebesgue
+
 Für $n,m\in\N$ gilt
 
 ```{math}
@@ -297,6 +299,8 @@ See Bogachev ref missing.
 Anhand von {prf:ref}`ex:prodsig` haben wir gesehen, dass die Lebesgue $\sigma$-Algebra auf $\R^{n+m}$ größer ist als die Produkt $\sigma$-Algebra. Allerdings kann man zeigen, dass das Produktmaß zumindest auf der kleineren Produktalgebra übereinstimmt.
 
 ````{prf:lemma}
+:label: lem:lebesguecomp
+
 Es gilt
 
 ```{math}
@@ -344,12 +348,82 @@ name: "fig:cavalieri"
 Visualisierung für das Prinzip von Cavalieri, beide Objekte haben die gleiche Fläche.
 ```
 
-Das Prinzip beruht auf der Intuition, dass zwei Körper, das gleiche Volumen haben, sofern alle ihre Schnittflächen welche parallel zu einer Grundfläche verlaufen gleich sind. Für den $\R^2$ ist dieses Prinzip in {numref}`fig:cavalieri` dargestellt.
+Das Prinzip beruht auf der Intuition, dass zwei Körper, das gleiche Volumen haben, sofern alle ihre Schnittflächen welche parallel zu einer Grundfläche verlaufen gleich sind. Für $\R^2$ ist dieses Prinzip in {numref}`fig:cavalieri` dargestellt. Formal bedeutet das, dass wir für eine messbare Menge $E$, den Inhalt über das Integral der Schnitte ausdrücken wollen, es gibt hier also drei Größen
+
+```{math}
+\lambda^{n+m}(E), \int_{\R^n} \lambda^m(E_x) d\lambda^n(x), \int_{\R^m} \lambda^m(E_y) d\lambda^m(y)
+```
+
+welche wir in Beziehung zueinander setzten wollen. Um diese Aussage zeigen zu können benötigt man folgende Definitionen und Aussagen.
+
+````{prf:Definition} Mengen-Algebra
+Es sei $\Omega$ eine Menge, ein Teilmengensystem $\mathcal{C}\subset 2^\Omega$ heißt **Mengen-Algebra**, falls 
+
+1. $\emptyset\in\mathcal{C}$,
+
+2. $A\in\mathcal{C}\Rightarrow A^C\in\mathcal{C}$,
+
+3. $A,B\in\mathcal{C}\Rightarrow A\cup B\in\mathcal{A}.
+
+````
+
+````{prf:remark}
+Wir erkennen, dass der Unterschied zur $\sigma$-Algebra darin besteht, dass nur endliche Vereinigungen betrachtet werden. Insbesondere ist damit jede $\sigma$-Algebra auch eine Mengen-Algebra.
+````
+
+Für zwei $\sigma$-Algebren ist das kartesische Produkt $\Sigma_1\times\Sigma_2$ i.A. keine Algebra, die Menge
+
+```{math}
+\Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}
+```
+
+allerdings schon und sie erzeugt offensichtlich auch die Produkt-$\sigma$-Algebra,
+
+```{math}
+\sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.
+```
+
+Ein weiteres Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klassen.
+
+````{prf:definition} Monotone Klasse
+Es sei $\Omega$ eine Menge, ein Teilmengensystem $\mathcal{C}\subset 2^\Omega$ heißt **monotone Klasse**, falls
+
+1\. Für eine aufsteigende Folge von Mengen $A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N$ gilt auch 
+
+```{math}
+\bigcup_{i\in\N} A_i\in\mathcal{C}.
+```
+
+1\. Für eine absteigende Folge von Mengen $A_i\in\mathcal{C}, A_i\supset A_{i+1}, i\in\N$ gilt auch 
+
+```{math}
+\bigcap_{i\in\N} A_i\in\mathcal{C}.
+```
+````
+
+Offensichtlich ist jede $\sigma$-Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen. Betrachtet man aber analog zur kleinsten von $\mathcal{C}$ erzeugten $\sigma$-Algebra die kleinste von $\mathcal{C}$ erzeugt monotone Klasse $\text{M}\big[\mathcal{C}\big]$ so gilt folgendes technisches Lemma.
+
+````{prf:lemma} Monotone Klassen Lemma
+:label: lem:monclass
+
+Es sei $\mathcal{C}$ eine Mengenalgebra, dann gilt
+
+```{math}
+\sigma(\mathcal{C}) = \text{M}\big[\mathcal{C}\big].
+```
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`tao_2011` Lemma 1.7.14.
+````
+
+Mit dieser Aussage können wir nun das Prinzip von Cavalieri beweisen.
 
 ````{prf:theorem} Das Prinzip von Cavalieri
+:label: thm:cavalieri
 
-Sei $E \subset \R^{n+k}$ eine Lebesgue-messbare Menge mit $\lambda^{n+k}(E) < \infty$,
-dann gilt für fast jedes $x\in\R^n,y\in\R^m$, dass die Schnitte $E_x, E^y$ auch Lebesgue-messbar sind, die Funktionen
+Sei $E \in \mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$ mit $\lambda^{n}\otimes\lambda^{m}(E) < \infty$,
+dann gilt für fast alle $x\in\R^n,y\in\R^m$, dass die Schnitte $E_x, E^y$ auch Lebesgue-messbar sind, die Funktionen
 
 ```{math}
 x \mapsto \lambda^m(E_x)\\
@@ -359,18 +433,179 @@ y \mapsto \lambda^n(E^y)
 sind messbar und es gilt
 
 ```{math}
-\lambda^{n+k}(E) &= \int_{\R^n} \lambda^m(E_x) d\lambda^n(x)\\
+\lambda^{n}\otimes\lambda^{m}(E) &= \int_{\R^n} \lambda^m(E_x) d\lambda^n(x)\\
 &=
 \int_{\R^m} \lambda^n(E^y) d\lambda^m(y).
 ```
 
 ````
 
-```{prf:proof}
-f
+````{prf:proof}
+Es sei $\mathcal{C}\subset\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$ das System aller Mengen s.d. die Aussage gilt. Dann ist $\mathcal{C}$ eine monotone Klasse und
+
+```{math}
+\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)\subset \mathcal{C}.
 ```
 
+Mit dem monotone Klassen Lemma ({prf:ref}`lem:monclass`) folgt dann
+
+```{math}
+\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m) = \sigma(\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)) = 
+\text{M}\big[\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)\big] \subset 
+\text{M}\big[\mathcal{C}\big] = \mathcal{C}.
+```
+
+````
+
+Ein Korollar aus der obigen Aussage ist, dass fast alle Schnitte einer $\lambda^n\otimes\lambda^m$ Nullmenge selbst Nullmengen bezüglich $\lambda^n$, bzw. $\lambda^m$ sind.
+
+````{prf:corollary}
+Es sei $E\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$ eine Nullmenge, dann folgt, dass für fast alle $x\in\R^n,y\in\R^m$ auch $\lambda^m(E_x)=0=\lambda^n(E^y)$ gilt.
+````
+
+````{prf:proof}
+Für die Funktion $f:x\mapsto \lambda^m(E_x)$ gilt mit dem Prinzip von Cavalieri, dass 
+
+```{math}
+0 = \lambda^{n}\otimes\lambda^{m}(E) = \int_{\R^n} f(x)d\lambda^n(x)
+```
+
+und daher mit ??, dass 
+
+```{math}
+f(x)=\lambda^m(E_x)=0
+```
+
+für fast alle $x\in\R^n$. Die Aussage für $\lambda^n(E^y)$ folgt analog.
+
+````
+
+Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen $E\in \mathcal{A}(\R^{n+m})$ zu verallgemeinern.
+
+````{prf:lemma}
+Die Aussagen von {prf:ref}`thm:cavalieri` gelten auch für Mengen $E\in \mathcal{A}(\R^{n+m})$.
+````
+
+````{prf:proof}
+Es sei $E\in \mathcal{A}(\R^{n+m})$, nach {prf:ref}`lem:completelebesgue` existieren Mengen $\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$, $N\subset \tilde{N}$, s.d.
+
+```{math}
+E = \tilde{E}\cup N\\
+(\lambda^n\otimes\lambda^m)(\tilde{N}) = 0.
+```
+
+Insbesondere ist dann
+
+```{math}
+E\setminus \tilde{N} = \left(\tilde{E}\setminus \tilde{N} \right)\cup \underbrace{\left(N\setminus \tilde{N}\right)}_{=\emptyset} = 
+\tilde{E}\setminus \tilde{N}\in \in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)
+```
+
+daher können wir {prf:ref}`thm:cavalieri` auf $E\setminus \tilde{N}$ anwenden. Da aber fast alle Schnitte $\tilde{N}_x,\tilde{N}^y$ Nullmengen sind, gilt die Aussage, dann für fast alle $x,y\in E$.
+````
+
+Mit dieser Aussage können wir nun ein Beispiel betrachten, in welchem wir die Fläche eines Kreises berechnen.
+
+```{figure} ../img/ball.jpg
+---
+width: 600px
+name: "fig:ball"
+---
+
+Visualisierung für {prf:ref}`ex:ball`.
+```
+
+````{prf:example}
+:label: ex:ball
+
+Wir betrachten den $2$-dimensionale Ball
+
+```{math}
+B_r^2:=\{x\in\R^2: |x|\leq r\},
+```
+
+wir erkennen, dass sich ein Schnitt für $\abs{y}\leq r$ jeweils ergibt durch
+
+```{math}
+(B_r^2)_y = \{x:(x,y)\in B_r^2\} = \{x\leq\sqrt{r^2-y^2}\} = [-\sqrt{r^2-y^2},\sqrt{r^2-y^2}]
+```
+
+und ansonsten leer ist.
+
+Somit erhalten wir 
+
+```{math}
+\lambda^1((B_r^2)_y) = 
+\begin{cases}
+2 \sqrt{r^2-y^2}&\text{ falls }y\leq r\\
+\emptyset\text{ sonst}
+\end{cases}.
+```
+
+Damit erhalten wir mithilfe des Prinzips von Cavalieri
+
+```{math}
+\lambda^2(B_r^2) &= \int_{\R} \lambda^1((B_r^2)_y) d\lambda^1(y) = 
+\int_{[-r,r]} 2 \sqrt{r^2-y^2} d\lambda^1(y)\\
+&= 
+2\int_{-r}^r \sqrt{r^2 - y^2} dy = 
+\lim_{t\to r}\left[y \sqrt{r^2-y^2} +r^2\arctan\left(\frac{y}{\sqrt{r^2-y^2}}\right)\right]^t_{-t}\\
+&=
+r^2\pi.
+```
+````
+
+Das Volumen einer Kugel in $n$-Dimensionen lässt sich mithilfe des folgenden Lemmas berechnen.
+
+````{prf:lemma}
+Für die $n$-dimensionale Kugel
+
+```{math}
+B_r^n:=\{x\in\R^n: |x|\leq r\}
+```
+
+gilt
+
+```{math}
+\lambda^n(B_r^n) =
+r^d\,
+\begin{cases}
+\frac{1}{(n/2)!} \pi^{n/2}&\text{ falls }n gerade\\
+\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&\text{ falls }n gerade\\
+\end{cases}
+```
+````
+
+````{prf:proof}
+Siehe Hausaufgabe.
+````
+
 ## Der Satz von Fubini
+
+
+
+
+Dazu zeigen wir ein allgemeineres Resultat für messbare Funktionen.
+
+````{prf:lemma}
+Es sei $f:\R^{m+n}\to\overline{\R}$ messbar bezüglich $\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$, dann gilt für die Funktionen
+
+```{math}
+f_x:x \mapsto f(x,y),\\
+f_y:y \mapsto f(x,y),
+```
+
+dass $f_x$ messbar bezüglich $\mathcal{A}(\R^m)$ und $f_y$ messbar bezüglich $\mathcal{A}(\R^n)$ ist.
+
+````
+
+````{prf:proof}
+Siehe Hausaufgabe.
+````
+
+
+
+
 
 Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen. Unser Ziel ist es also für eine Funktion $f:\R^{n+m}\to\overline{R}$ das Integral
 
