@@ -163,3 +163,58 @@ f^{(n)}(z_0) \ = \ n! \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta
 ````{prf:proof}
 Schulz-Baldes S.325f.
 ````
+
+Das folgende Korollar erlaubt eine direkte Abschätzung der $n$-ten Ableitung einer holomorphen Funktion.
+
+````{prf:corollary} Cauchy-Abschätzungen
+
+Sei $\epsilon > 0$ und $z_0 \in D$ ein Punkt in einer offenen Teilmenge $D \subset \C$.
+Außerdem sei $f \colon B_\epsilon(z_0) \rightarrow \C$ eine holomorphe Funktion.
+Dann gilt für alle $0 < \epsilon' < \epsilon$ die folgende genannte **Cauchy-Abschätzung**
+
+```{math}
+|f^{(n)}(z_0)| \ \leq \ \frac{n!}{\epsilon'^n} \max_{|z - z_0|=\epsilon'} |f(z)|.
+```
+````
+
+Nun beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.
+
+````{prf:definition} Singularitäten
+Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ ein Punkt.
+
+1\. Wenn $f \colon D \setminus \{z_0\} \rightarrow \C$ eine holomorphe Funktion ist.
+Dann nennen wir den Punkt $z_0$ eine **isolierte Singularität** von $f$.
+
+2\. Wir nennen den Punkt $z_0$ eine **hebbare Singularität**, wenn $z_0$ eine isolierte Singularität einer holomorphen Funktion $f \colon D \setminus \{z_0\} \rightarrow \C$ ist und es eine holomorphe Funktion $g \colon D \rightarrow \C$ gibt, so dass $g(z) = f(z)$ gilt für alle $z \in D \setminus \{z_0\}$.
+
+3\. Wir nennen den Punkt $z_0$ einen **Pol**, wenn für alle Folgen $z_n \rightarrow z_0$ gilt
+
+```{math}
+\lim_{n\rightarrow \infty} |f(z_n)| = \infty.
+```
+
+4\. Wir nennen den Punkt $z_0$ eine **wesentliche Singularität**, wenn $z_0$ weder hebbar noch Pol ist.
+````
+
+Der Satz von Casorati-Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.
+
+````{prf:remark} Casorati-Weierstraß
+Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ ein Punkt.
+
+Der Punkt $z_0$ ist genau dann eine wesentliche Singularität einer holomorphen Funktion $f \colon D \setminus \{z_0\} \rightarrow \C$, wenn für alle $\epsilon > 0$ die Menge der Funktionswerte $f(B_\epsilon(z_0)) \setminus \{z_0\})$ dicht in $\C$ liegt.
+
+````
+
+**ToDo: Hier Beispiel zu Singularitäten? Schulz-Baldes S.329**
+
+````{prf:theorem} Riemannscher Hebbarkeitssatz
+
+Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ ein Punkt.
+Sei außerdem $f \colon D \setminus \{z_0\} \rightarrow \C$ eine holomorphe Funktion.
+Falls eine Umgebung $U \subset D$ von $z_0$ gibt, so dass $f$ auf $U \setminus \{z_0\}$ beschränkt ist, so kann man einen Funktionswert $f(z_0)$ in $z_0$ so wählen, dass die Funktion $f$ auf der gesamten Teilmenge $D$ holomorph ist, d.h., der Punkt $z_0$ ist eine hebbare Singularität.
+
+````
+
+````{prf:proof}
+Schulz-Baldes S.327
+````
