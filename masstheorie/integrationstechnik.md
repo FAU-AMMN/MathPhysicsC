@@ -200,6 +200,7 @@ A\subset N \Rightarrow A\in \Sigma.
 ```{prf:remark}
 Wir wissen, dass jede Menge die bezüglich des äußeren Maßes $\lambda^\ast$ eine Nullmenge ist auch Lebesgue-messbar ist. Daher ist das Lebesgue-Maß ein vollständiges Maß.
 ```
+````
 
 Weiterhin lässt sich ein beliebiges Maß vervollständigen, indem wir die $\sigma$-Algebra
 
@@ -472,6 +473,235 @@ Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen $E\in \m
 ````{prf:lemma}
 Die Aussagen von {prf:ref}`thm:cavalieri` gelten auch für Mengen $E\in \mathcal{A}(\R^{n+m})$.
 ````
+
+````{prf:proof}
+Es sei $E\in \mathcal{A}(\R^{n+m})$, nach {prf:ref}`lem:completelebesgue` existieren Mengen $\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$, $N\subset \tilde{N}$, s.d.
+
+```{math}
+E = \tilde{E}\cup N\\
+(\lambda^n\otimes\lambda^m)(\tilde{N}) = 0.
+```
+
+Insbesondere ist dann
+
+```{math}
+E\setminus \tilde{N} = \left(\tilde{E}\setminus \tilde{N} \right)\cup \underbrace{\left(N\setminus \tilde{N}\right)}_{=\emptyset} = 
+\tilde{E}\setminus \tilde{N}\in \in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)
+```
+
+daher können wir {prf:ref}`thm:cavalieri` auf $E\setminus \tilde{N}$ anwenden. Da aber fast alle Schnitte $\tilde{N}_x,\tilde{N}^y$ Nullmengen sind, gilt die Aussage, dann für fast alle $x,y\in E$.
+````
+
+Mit dieser Aussage können wir nun ein Beispiel betrachten, in welchem wir die Fläche eines Kreises berechnen.
+
+```{figure} ../img/ball.jpg
+---
+width: 600px
+name: "fig:ball"
+---
+
+Visualisierung für {prf:ref}`ex:ball`.
+```
+
+````{prf:example}
+:label: ex:ball
+
+Wir betrachten den $2$-dimensionale Ball
+
+```{math}
+B_r^2:=\{x\in\R^2: |x|\leq r\},
+```
+
+wir erkennen, dass sich ein Schnitt für $\abs{y}\leq r$ jeweils ergibt durch
+
+```{math}
+(B_r^2)_y = \{x:(x,y)\in B_r^2\} = \{x\leq\sqrt{r^2-y^2}\} = [-\sqrt{r^2-y^2},\sqrt{r^2-y^2}]
+```
+
+und ansonsten leer ist.
+
+Somit erhalten wir 
+
+```{math}
+\lambda^1((B_r^2)_y) = 
+\begin{cases}
+2 \sqrt{r^2-y^2}&\text{ falls }y\leq r\\
+\emptyset\text{ sonst}
+\end{cases}.
+```
+
+Damit erhalten wir mithilfe des Prinzips von Cavalieri
+
+```{math}
+\lambda^2(B_r^2) &= \int_{\R} \lambda^1((B_r^2)_y) d\lambda^1(y) = 
+\int_{[-r,r]} 2 \sqrt{r^2-y^2} d\lambda^1(y)\\
+&= 
+2\int_{-r}^r \sqrt{r^2 - y^2} dy = 
+\lim_{t\to r}\left[y \sqrt{r^2-y^2} +r^2\arctan\left(\frac{y}{\sqrt{r^2-y^2}}\right)\right]^t_{-t}\\
+&=
+r^2\pi.
+```
+````
+
+Das Volumen einer Kugel in $n$-Dimensionen lässt sich mithilfe des folgenden Lemmas berechnen.
+
+````{prf:lemma}
+Für die $n$-dimensionale Kugel
+
+```{math}
+B_r^n:=\{x\in\R^n: |x|\leq r\}
+```
+
+gilt
+
+```{math}
+\lambda^n(B_r^n) =
+r^d\,
+\begin{cases}
+\frac{1}{(n/2)!} \pi^{n/2}&\text{ falls }n gerade\\
+\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&\text{ falls }n gerade\\
+\end{cases}
+```
+````
+
+````{prf:proof}
+Siehe Hausaufgabe.
+````
+
+## Der Satz von Fubini
+
+
+
+
+Dazu zeigen wir ein allgemeineres Resultat für messbare Funktionen.
+
+````{prf:lemma}
+Es sei $f:\R^{m+n}\to\overline{\R}$ messbar bezüglich $\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$, dann gilt für die Funktionen
+
+```{math}
+f_x:x \mapsto f(x,y),\\
+f_y:y \mapsto f(x,y),
+```
+
+dass $f_x$ messbar bezüglich $\mathcal{A}(\R^m)$ und $f_y$ messbar bezüglich $\mathcal{A}(\R^n)$ ist.
+
+````
+
+````{prf:proof}
+Siehe Hausaufgabe.
+````
+
+
+
+
+
+Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen. Unser Ziel ist es also für eine Funktion $f:\R^{n+m}\to\overline{R}$ das Integral
+
+```{math}
+\int_{\R^{n+m}} f(z) d\lambda^{n+m}(z)
+```
+
+mithilfe von Inetgration bezüglich $d\lambda^n$ und $\lambda^m$ aufzuteilen. Hierfür definieren analog zu den Mengenschnitten aus {prf:ref}`lem:secmeasure` für alle $x\in\R^n$ die Funktion
+
+```{math}
+f_x:\R^m&\to\overline{R}\\
+y&\mapsto f(x,y)
+```
+
+und für alle $y\in\R^m$ die Funktion
+
+```{math}
+f^y:\R^n&\to\overline{R}\\
+x&\mapsto f(x,y).
+```
+
+Wäre $f_x$ für fast alle $x\in\R^n$ integrierbar bezüglich $\lambda^m$, so kann man das Integral
+
+```{math}
+I_x(f) := \int_{\R^m} f_x(y) d\lambda^m(y)
+```
+
+betrachten. Da $x\in\R^n$ bei dieser Überlegung variabel ist, definiert dies eine neue Funktion $x\mapsto I_x(f)$, welche im Falle erneuter Integrierbarkeit auf
+
+```{math}
+\int_{\R^n} I_x(f) d\lambda^n(x) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^m(y)d\lambda^n(x).
+```
+
+Gleichermaßen sollen diese Schritte aber auch für $f^y$ funktionieren, deshalb definieren wir doppelintegrierbare Funktionen.
+
+````{prf:definition} Doppelintegrierbare Funktion
+
+Eine Funktion $f \colon \R^{n+m} \to \overline{\R}$ heißt **doppelintegrierbar** falls 
+für fast alle Punkte $x \in \R^n, y\in\R^m$ die Funktionen $f_x,f^y$ integrierbar sind und zusätzlich die Funktionen
+
+```{math}
+x\mapsto I_x(f) =\int_{\R^m} f(x,y) d\lambda^m(y)\\
+y\mapsto I^y(f) =\int_{\R^n} f(x,y) d\lambda^n(x)\\
+```
+
+integrierbar sind.
+````
+
+Für die Menge der doppelintegrierbaren Funktionen
+
+```{math}
+V_{\text{D}} := \{f:\R^{n+m}\to\overline{\R}: f\text{ ist doppelintegrierbar}\}
+```
+
+können wir folgende Aussage zeigen.
+
+````{prf:lemma}
+:label: lem:doppelintegrierbar
+
+1\. Die Menge der doppelintegrierbaren Funktionen bilden einen Vektorraum $V_D$.
+
+2\. Doppelintegrale sind *linear*, d.h., für zwei doppelintegrierbare Funktionen $f,g \in V_D$ und beliebige Skalare $\lambda \in \R$ gilt
+
+```{math}
+\int_{\R^n}\int_{\R^m} (f + \lambda g)\,d\lambda^m d\lambda^n = 
+\int_{\R^n}\int_{\R^m} f d\lambda^m d\lambda^n + 
+\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^m d\lambda^n
+```
+
+und analog für das andere Doppelintegral
+
+
+```{math}
+\int_{\R^m}\int_{\R^n} (f + \lambda g) d\lambda^n d\lambda^m = 
+\int_{\R^n}\int_{\R^m} f d\lambda^n d\lambda^m + 
+\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^n d\lambda^m
+```
+
+3\. Sei $(f_j)_j\in\N$ eine Folge von nichtnegativen, doppelintegrierbaren Funktionen und sei $f:\R^{n+m}\to\overline{\R}$ eine Funktion, s.d.,
+
+```{math}
+f_j\leq f\quad\forall j\in\N,\qquad \lim_{j\to\infty} f_j =f.
+```
+
+Falls beide Doppelintegrale für die $f_j$ gleichmäßig beschränkt sind, so gilt $f\in V_{\text{D}}$ und 
+
+```{math}
+\lim_{j\to\infty} \int_{\R^n}\int_{\R^m} f_j\,d\lambda^m d\lambda^n = \int_{\R^n}\int_{\R^m} f\,d\lambda^m d\lambda^n\\ 
+\lim_{j\to\infty} \int_{\R^m}\int_{\R^n} f_j\,d\lambda^n d\lambda^m= \int_{\R^m}\int_{\R^n} f\,d\lambda^n d\lambda^m.
+```
+
+````
+
+````{prf:proof}
+Schulz-Baldes S.153f.
+````
+
+````{prf:remark}
+Die Aussage aus {prf:ref}`lem:doppelintegrierbar` gilt analog für nichtnegative Funktionenfolgen $(f_j)_{j\in\N}$, die von oben gegen die Funktion $f$ konvergieren. 
+````
+
+Der Wunsch ist natürlich zeigen zu können, dass beide Doppelintegrale übereinstimmen und insbesondere, dass
+
+```{math}
+\int_{\R^{n+m}} f\,d\lambda^{n+m}
+```
+
+gleich dem Doppelintegral ist.
 
 ````{prf:proof}
 Es sei $E\in \mathcal{A}(\R^{n+m})$, nach {prf:ref}`lem:completelebesgue` existieren Mengen $\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$, $N\subset \tilde{N}$, s.d.
