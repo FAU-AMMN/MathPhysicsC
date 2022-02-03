@@ -355,11 +355,9 @@ Das Prinzip beruht auf der Intuition, dass zwei Körper, das gleiche Volumen hab
 \lambda^{n+m}(E), \int_{\R^n} \lambda^m(E_x) d\lambda^n(x), \int_{\R^m} \lambda^m(E_y) d\lambda^m(y)
 ```
 
-welche wir in Beziehung zueinander setzten wollen. Dazu benötigen wir aber zunächst die folgenden Konzepte.
+welche wir in Beziehung zueinander setzten wollen.
 
-
-
-Ein weiteres Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klassen.
+Ein Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klassen.
 
 ````{prf:definition} Monotone Klasse
 Es sei $\Omega$ eine Menge, ein Teilmengensystem $\mathcal{C}\subset 2^\Omega$ heißt **monotone Klasse**, falls
