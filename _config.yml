@@ -29,16 +29,16 @@ latex:
     targetname: skript.tex
 
 sphinx:
+  
   extra_extensions:
     - sphinx_proof
     #- sphinx_tojupyter
     - sphinx_jupyterbook_latex
-        
-
   config:
     # html_js_files:
     # - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     latex_engine: pdflatex
+    language: de
     mathjax_config:
       TeX:
         Macros:
@@ -81,6 +81,7 @@ sphinx:
           "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2]
           "M"    : "\\mathcal{M}"
           "S"    : "\\mathbb{S}"
+          "bone" : "\\unicode{x1D7D9}"
     #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     # tojupyter_target_html: true
     # tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]
