@@ -28,6 +28,10 @@ chapters:
   - file: masstheorie/masstheorie.md
   - file: masstheorie/lebesgue_integral.md
   - file: masstheorie/integrationstechnik.md
+- file: surfaceintegrals/surfaceintegrals.md
+  sections:
+  - file: surfaceintegrals/hausdorff.md
+  - file: surfaceintegrals/manifolds.md
 - file: complexanalysis/complexanalysis.md
   sections:
   - file: complexanalysis/cauchyriemann.md
