@@ -36,4 +36,5 @@ chapters:
   sections:
   - file: complexanalysis/cauchyriemann.md
   - file: complexanalysis/kurvenintegrale.md
+  - file: complexanalysis/residuensatz.md
 - file: references
