@@ -557,8 +557,8 @@ gilt
 \lambda^n(B_r^n) =
 r^d\,
 \begin{cases}
-\frac{1}{(n/2)!} \pi^{n/2}&\text{ falls }n gerade\\
-\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&\text{ falls }n gerade\\
+\frac{1}{(n/2)!} \pi^{n/2}&\text{ falls }n \text{ gerade,}\\
+\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
 \end{cases}
 ```
 ````
