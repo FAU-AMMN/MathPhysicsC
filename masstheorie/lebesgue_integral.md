@@ -90,7 +90,9 @@ Dann sind $\inf(f_n), \sup(f_n), \lim\inf (f_n)$ und $\lim\sup (f_n)$ auch messb
 
 ToDo Definition
 
-````{prf:theorem}
+````{prf:lemma}
+:label: lem:simplefun
+
 Sei $f \colon \Omega \subset \R^n \rightarrow [0,\infty]$ eine Lebesgue-messbare Funktion.
 Dann existiert eine monoton wachsende Folge $(T_n)_{n_\in N}$ von Treppenfunktionen mit
 
@@ -146,6 +148,11 @@ f \leq g \quad \Rightarrow \quad \int \mu(\mathrm{d}x) f(x) \leq \int \mu(\mathr
 
 ````{prf:proof}
 ToDo
+````
+
+````{prf:lemma} Satz von Beppo Levi
+:label: lem:levi
+
 ````
 
 ````{prf:definition} Allgemeines Lebesgue-Integral

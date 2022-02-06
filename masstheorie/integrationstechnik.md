@@ -197,9 +197,8 @@ A\subset N \Rightarrow A\in \Sigma.
 ```
 ````
 
-```{prf:remark}
+````{prf:remark}
 Wir wissen, dass jede Menge die bezüglich des äußeren Maßes $\lambda^\ast$ eine Nullmenge ist auch Lebesgue-messbar ist. Daher ist das Lebesgue-Maß ein vollständiges Maß.
-```
 ````
 
 Weiterhin lässt sich ein beliebiges Maß vervollständigen, indem wir die $\sigma$-Algebra
@@ -272,7 +271,7 @@ Es sei $(\Omega,\Sigma,\mu)$ ein Maßraum, das Maß $\mu$ heißt $\sigma$**-endl
 ````
 
 ````{prf:remark}
-Das wichtigste Beispiel für uns ist das Lebesgue-Maß auf $\R^d$ welches bezüglich der Borelschen $\sigma$-Algebra zwar nicht endlich aber $\sigma$-endlich ist. Insbesondere ist es damit auch $\sigma$-endlich bezüglich der Lebesgue $\sigma$-Algebra $\mathcal{A}$.
+Das wichtigste Beispiel für uns ist das Lebesgue-Maß auf $\R^n$ welches bezüglich der Borelschen $\sigma$-Algebra zwar nicht endlich aber $\sigma$-endlich ist. Insbesondere ist es damit auch $\sigma$-endlich bezüglich der Lebesgue $\sigma$-Algebra $\mathcal{A}$.
 ````
 
 Für $\sigma$-endliche Maße kann man zeigen, dass ein eindeutig bestimmtes Produktmaß existiert.
@@ -446,6 +445,8 @@ Mit dem monotone Klassen Lemma ({prf:ref}`lem:monclass`) folgt dann
 Ein Korollar aus der obigen Aussage ist, dass fast alle Schnitte einer $\lambda^n\otimes\lambda^m$ Nullmenge selbst Nullmengen bezüglich $\lambda^n$, bzw. $\lambda^m$ sind.
 
 ````{prf:corollary}
+:label: cor:zeroprodset
+
 Es sei $E\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$ eine Nullmenge, dann folgt, dass für fast alle $x\in\R^n,y\in\R^m$ auch $\lambda^m(E_x)=0=\lambda^n(E^y)$ gilt.
 ````
 
@@ -469,7 +470,7 @@ für fast alle $x\in\R^n$. Die Aussage für $\lambda^n(E^y)$ folgt analog.
 Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen $E\in \mathcal{A}(\R^{n+m})$ zu verallgemeinern.
 
 ````{prf:lemma}
-Die Aussagen von {prf:ref}`thm:cavalieri` gelten auch für Mengen $E\in \mathcal{A}(\R^{n+m})$.
+Die Aussage von {prf:ref}`thm:cavalieri` gilt auch für Mengen $E\in \mathcal{A}(\R^{n+m})$.
 ````
 
 ````{prf:proof}
@@ -566,123 +567,73 @@ r^d\,
 Siehe Hausaufgabe.
 ````
 
-## Der Satz von Fubini
+## Der Satz von Tonelli-Fubini
 
-
-
-
-Dazu zeigen wir ein allgemeineres Resultat für messbare Funktionen.
-
-````{prf:lemma}
-Es sei $f:\R^{m+n}\to\overline{\R}$ messbar bezüglich $\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$, dann gilt für die Funktionen
+Das Prinzip von Cavalieri erlaubt es uns nun das Maß einer Menge über ihr das Produktmaß bzw. über Integrale auszudrücken. Insbesondere gilt für Indikatorfunktionen und messbare Mengen $E\in\mathcal{A}(\R^{n+m})$, dass
 
 ```{math}
-f_x:x \mapsto f(x,y),\\
-f_y:y \mapsto f(x,y),
+\int_{\R^{n+m}} \bone_E d\lambda^{n+m} = \int_{\R^{n}} \int_{\R^{m}} \bone_{E_x}(y) d\lambda^m(y)d\lambda^n(x) =
+\int_{\R^{m}} \int_{\R^{n}} \bone_{E_y}(x) d\lambda^m(x)d\lambda^n(y).
 ```
 
-dass $f_x$ messbar bezüglich $\mathcal{A}(\R^m)$ und $f_y$ messbar bezüglich $\mathcal{A}(\R^n)$ ist.
+Da das Integral aber gerade über einfache Funktionen und somit über Indikatorfunktionen definiert ist, liegt die Vermutung nahe, dass die Aussage auch für beliebige messbare Funktionen $f:\R^{n+m}\to\overline{R}$ gilt. Dieses Resultat ist als *Satz von Tonelli* bekannt und erlaubt uns Integrale über Funktionen mehrere Variablen durch Doppelintegrale darzustellen. Hierbei ist jedoch anumerken, dass der Satz von Tonelli **nur** für nicht-negative Funktionen gilt.
 
+```{margin} Leonida Tonelli
+[Leonida Tonelli](https://de.wikipedia.org/wiki/Leonida_Tonelli) (Geboren 19. April 1885 in Gallipoli (Lecce); Gestorben 12. März 1946 in Pisa) war ein italienischer Mathematiker, ein Schüler von [Cesare Arzelà](https://de.wikipedia.org/wiki/Cesare_Arzel%C3%A0).
+```
+
+````{prf:theorem} Satz von Tonelli
+:label: thm:tonelli
+
+Es sei $f:\R^{n+m}\to [0,\infty]$ eine Lebesgue-messbare Funktion, dann gilt für fast alle $x\in\R^n,y\in\R^m$, dass die Funktionen $x\mapsto f(x,y), y\mapsto f(x,y)$ auch Lebesgue-messbar sind. Insbesondere sind auch die Funktionen
+
+```{math}
+x \mapsto \int_{\R^m} f(x,y) d\lambda^m(y)\\
+y \mapsto \int_{\R^n} f(x,y) d\lambda^n(x)
+```
+
+messbar und es gilt
+
+```{math}
+\int_{\R^{n+m}} f(x,y) d\lambda^{n+m}(x,y) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^{n}(x)d\lambda^m(y)=
+\int_{\R^m}\int_{\R^n} f(x,y) d\lambda^{m}(y)d\lambda^n(x).
+```
 ````
 
 ````{prf:proof}
-Siehe Hausaufgabe.
+Man beweist die Aussage zunächst für Funktionen $f:\R^{n+m}\to\overline{R}$ welche bezüglich $\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)$ messbar sind. Hierfür erkennt man durch mehrfache Anwendung des Satzes von Beppo Levi ({prf:ref}`lem:levi`) unter Ausnutzung der $\sigma$-Endlichkeit von $\mathcal{A}(\R^n)$ und $\mathcal{A}(\R^m)$, dass es reicht die Aussage auf Mengen endlichen Maßes zu zeigen. Da sich nach {prf:ref}`lem:simplefun` aber jede Funktion durch einfache Funktionen approximieren lässt und das Integral linear ist, reicht es die Aussage für Indikatorfunktionen zu zeigen. Hier folgt die Aussage aber aus dem Prinzip von Cavalieri, {prf:ref}`thm:cavalieri`.
+
+Benutzten wir nun {prf:ref}`cor:zeroprodset` so folgt die Behauptung auch für Funktionen welche bezüglich $\mathcal{A}(\R^{n+m})$ messbar sind.
 ````
 
-
-
-
-
-Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen. Unser Ziel ist es also für eine Funktion $f:\R^{n+m}\to\overline{R}$ das Integral
+In der obigen Aussage haben wir gefordert, dass die Funktionen nicht-negativ sind. Um eine analogen Aussage auch für Funktionen mit wechselndem Vorzeichen zu erhalten müssen wir fordern, dass
 
 ```{math}
-\int_{\R^{n+m}} f(z) d\lambda^{n+m}(z)
+\int_{\R^{n+m}} \abs{f(x,y)} d\lambda^{n+m}(x,y) <\infty
 ```
 
-mithilfe von Inetgration bezüglich $d\lambda^n$ und $\lambda^m$ aufzuteilen. Hierfür definieren analog zu den Mengenschnitten aus {prf:ref}`lem:secmeasure` für alle $x\in\R^n$ die Funktion
+gilt. Dies ist Aussage des Satzes von Fubini.
+
+```{margin} Guido Fubini
+[Guido Fubini](https://de.wikipedia.org/wiki/Guido_Fubini) (Geboren 19. Januar 1879 in Venedig; Gestorben 6. Juni 1943 in New York) war ein italienischer Mathematiker.
+```
+
+````{prf:theorem} Satz von Fubini
+:label: thm:fubini
+
+Es sei $f:\R^{n+m}\to \overline{R}$ eine Lebesgue-**integrierbare** Funktion, dann gilt für fast alle $x\in\R^n,y\in\R^m$, dass die Funktionen $x\mapsto f(x,y), y\mapsto f(x,y)$ auch Lebesgue-messbar sind. Insbesondere sind auch die Funktionen
 
 ```{math}
-f_x:\R^m&\to\overline{R}\\
-y&\mapsto f(x,y)
+x \mapsto \int_{\R^m} f(x,y) d\lambda^m(y)\\
+y \mapsto \int_{\R^n} f(x,y) d\lambda^n(x)
 ```
 
-und für alle $y\in\R^m$ die Funktion
+messbar und es gilt
 
 ```{math}
-f^y:\R^n&\to\overline{R}\\
-x&\mapsto f(x,y).
+\int_{\R^{n+m}} f(x,y) d\lambda^{n+m}(x,y) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^{n}(x)d\lambda^m(y)=
+\int_{\R^m}\int_{\R^n} f(x,y) d\lambda^{m}(y)d\lambda^n(x).
 ```
-
-Wäre $f_x$ für fast alle $x\in\R^n$ integrierbar bezüglich $\lambda^m$, so kann man das Integral
-
-```{math}
-I_x(f) := \int_{\R^m} f_x(y) d\lambda^m(y)
-```
-
-betrachten. Da $x\in\R^n$ bei dieser Überlegung variabel ist, definiert dies eine neue Funktion $x\mapsto I_x(f)$, welche im Falle erneuter Integrierbarkeit auf
-
-```{math}
-\int_{\R^n} I_x(f) d\lambda^n(x) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^m(y)d\lambda^n(x).
-```
-
-Gleichermaßen sollen diese Schritte aber auch für $f^y$ funktionieren, deshalb definieren wir doppelintegrierbare Funktionen.
-
-````{prf:definition} Doppelintegrierbare Funktion
-
-Eine Funktion $f \colon \R^{n+m} \to \overline{\R}$ heißt **doppelintegrierbar** falls 
-für fast alle Punkte $x \in \R^n, y\in\R^m$ die Funktionen $f_x,f^y$ integrierbar sind und zusätzlich die Funktionen
-
-```{math}
-x\mapsto I_x(f) =\int_{\R^m} f(x,y) d\lambda^m(y)\\
-y\mapsto I^y(f) =\int_{\R^n} f(x,y) d\lambda^n(x)\\
-```
-
-integrierbar sind.
-````
-
-Für die Menge der doppelintegrierbaren Funktionen
-
-```{math}
-V_{\text{D}} := \{f:\R^{n+m}\to\overline{\R}: f\text{ ist doppelintegrierbar}\}
-```
-
-können wir folgende Aussage zeigen.
-
-````{prf:lemma}
-:label: lem:doppelintegrierbar
-
-1\. Die Menge der doppelintegrierbaren Funktionen bilden einen Vektorraum $V_D$.
-
-2\. Doppelintegrale sind *linear*, d.h., für zwei doppelintegrierbare Funktionen $f,g \in V_D$ und beliebige Skalare $\lambda \in \R$ gilt
-
-```{math}
-\int_{\R^n}\int_{\R^m} (f + \lambda g)\,d\lambda^m d\lambda^n = 
-\int_{\R^n}\int_{\R^m} f d\lambda^m d\lambda^n + 
-\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^m d\lambda^n
-```
-
-und analog für das andere Doppelintegral
-
-
-```{math}
-\int_{\R^m}\int_{\R^n} (f + \lambda g) d\lambda^n d\lambda^m = 
-\int_{\R^n}\int_{\R^m} f d\lambda^n d\lambda^m + 
-\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^n d\lambda^m
-```
-
-3\. Sei $(f_j)_j\in\N$ eine Folge von nichtnegativen, doppelintegrierbaren Funktionen und sei $f:\R^{n+m}\to\overline{\R}$ eine Funktion, s.d.,
-
-```{math}
-f_j\leq f\quad\forall j\in\N,\qquad \lim_{j\to\infty} f_j =f.
-```
-
-Falls beide Doppelintegrale für die $f_j$ gleichmäßig beschränkt sind, so gilt $f\in V_{\text{D}}$ und 
-
-```{math}
-\lim_{j\to\infty} \int_{\R^n}\int_{\R^m} f_j\,d\lambda^m d\lambda^n = \int_{\R^n}\int_{\R^m} f\,d\lambda^m d\lambda^n\\ 
-\lim_{j\to\infty} \int_{\R^m}\int_{\R^n} f_j\,d\lambda^n d\lambda^m= \int_{\R^m}\int_{\R^n} f\,d\lambda^n d\lambda^m.
-```
-
 ````
 
 ````{prf:proof}
@@ -797,9 +748,6 @@ Siehe Hausaufgabe.
 
 ## Der Satz von Fubini
 
-
-
-
 Dazu zeigen wir ein allgemeineres Resultat für messbare Funktionen.
 
 ````{prf:lemma}
@@ -817,10 +765,6 @@ dass $f_x$ messbar bezüglich $\mathcal{A}(\R^m)$ und $f_y$ messbar bezüglich $
 ````{prf:proof}
 Siehe Hausaufgabe.
 ````
-
-
-
-
 
 Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen. Unser Ziel ist es also für eine Funktion $f:\R^{n+m}\to\overline{R}$ das Integral
 
@@ -977,10 +921,28 @@ Schulz-Baldes S.166
 
 ## Die Jacobische Transformationsformel
 
-Abschließend wollen wir noch ein wichtiges Theorem formulieren, dass für die mehrdimensionale Integration sehr nützlich ist.
+Die Intuition hinter dem Prinzip von Cavalieri ist, dass man über parallele Schnitte integriert und erkennt, dass das Volumen so erhalten bleibt. Wir fragen uns nun, wie sich das Volumen verhält, wenn man zwei Mengen vergleicht deren parallele Schnitte nicht unbedingt gleich sind, aber welche über eine Abbildung ineinander überführbar sind.
+
+```{figure} ../img/trafo.jpg
+---
+width: 600px
+name: "fig:trafo"
+---
+
+Visualisierung von Mengentransformationen.
+```
+
+In {prf:remark}`rem:transinvariance` haben wir eine Matrix $M$ und eine Menge $M$ bereits die Identität
+
+```{math}
+\lambda(MA) = |\det(M)| \, \lambda(A)
+```
+
+kennengelernt. Wir verllgemeinern diese Aussage nun, indem wir beliebige $C^1$-Diffeomorphismen betrachten.
 
 ````{prf:theorem} Jacobische Transformationsformel
 :label: thm:jacobitransformation
+
 Seien $U, V \subset \R^n$ offene Teilmengen und die Abbildung
 
 ```{math}
@@ -1001,5 +963,13 @@ Hierbei nennt man $\det(D\Phi(x))$ die **Jacobi-Determinante**.
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.168-174
+Siehe z.B. {cite}`boga_2007` Theorem 3.7.1.
+````
+
+```{prf:remark}
+Für $n=1$ ist diese Regel schon als Substitutionsregel bekannt.
+```
+
+```{prf:example}
+ToDo
 ````

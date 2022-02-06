@@ -367,7 +367,7 @@ Damit haben wir gezeigt, dass das Mengensystem $\mathcal{R}_{\text{Q}}$, welches
 Wir können den Lebesgue-Inhalt nun auf Elemente von $\mathcal{R}_{\text{Q}}$ fortsetzen
 
 ````{prf:definition}
-Es sei $A\in\mathcal{R}_{\text{Q}}$ mit $A=\bigcup_{i=1}^n$ wobei $Q_1,\ldots,Q_n$ **paarweise disjunkte** halboffene Quader sind, dann setzen wir
+Es sei $A\in\mathcal{R}_{\text{Q}}$ mit $A=\bigcup_{i=1}^n Q_i$ wobei $Q_1,\ldots,Q_n$ **paarweise disjunkte** halboffene Quader sind, dann setzen wir
 
 ```{math}
 \lambda^n(A):=\sum_{i=1}^{n} \lambda^n(Q_i).
