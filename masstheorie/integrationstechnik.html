@@ -400,13 +400,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#der-satz-von-fubini">
-   5.3.5. Der Satz von Fubini
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#die-jacobische-transformationsformel">
-   5.3.6. Die Jacobische Transformationsformel
+   5.3.5. Die Jacobische Transformationsformel
   </a>
  </li>
 </ul>
@@ -450,13 +445,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#der-satz-von-fubini">
-   5.3.5. Der Satz von Fubini
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#die-jacobische-transformationsformel">
-   5.3.6. Die Jacobische Transformationsformel
+   5.3.5. Die Jacobische Transformationsformel
   </a>
  </li>
 </ul>
@@ -785,10 +775,10 @@ y \mapsto \lambda^n(E^y)\end{split}\]</div>
 <p>Mit dieser Aussage können wir nun ein Beispiel betrachten, in welchem wir die Fläche eines Kreises berechnen.</p>
 <div class="figure align-default" id="fig-ball">
 <a class="reference internal image-reference" href="../_images/ball.jpg"><img alt="../_images/ball.jpg" src="../_images/ball.jpg" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Abb. 5.6 </span><span class="caption-text">Visualisierung für <a class="reference internal" href="#ex:ball">Example 5.7</a>.</span><a class="headerlink" href="#fig-ball" title="Link zu diesem Bild">¶</a></p>
+<p class="caption"><span class="caption-number">Abb. 5.6 </span><span class="caption-text">Visualisierung für <a class="reference internal" href="#ex:ball">Example 5.6</a>.</span><a class="headerlink" href="#fig-ball" title="Link zu diesem Bild">¶</a></p>
 </div>
 <div class="proof example admonition" id="ex:ball">
-<p class="admonition-title"><span class="caption-number">Example 5.7 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 5.6 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Wir betrachten den <span class="math notranslate nohighlight">\(2\)</span>-dimensionale Ball</p>
 <div class="math notranslate nohighlight">
@@ -826,8 +816,8 @@ r^2\pi.\end{split}\]</div>
 \[\begin{split}\lambda^n(B_r^n) =
 r^d\,
 \begin{cases}
-\frac{1}{(n/2)!} \pi^{n/2}&amp;\text{ falls }n gerade\\
-\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&amp;\text{ falls }n gerade\\
+\frac{1}{(n/2)!} \pi^{n/2}&amp;\text{ falls }n \text{ gerade,}\\
+\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&amp;\text{ falls }n \text{ ungerade.}
 \end{cases}\end{split}\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
@@ -882,212 +872,22 @@ y \mapsto \int_{\R^n} f(x,y) d\lambda^n(x)\end{split}\]</div>
 \int_{\R^m}\int_{\R^n} f(x,y) d\lambda^{m}(y)d\lambda^n(x).\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Schulz-Baldes S.153f.</p>
-</div>
-<div class="proof remark admonition" id="remark-22">
-<p class="admonition-title"><span class="caption-number">Remark 5.12 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>Die Aussage aus <a class="reference internal" href="#lem:doppelintegrierbar">Lemma 5.25</a> gilt analog für nichtnegative Funktionenfolgen <span class="math notranslate nohighlight">\((f_j)_{j\in\N}\)</span>, die von oben gegen die Funktion <span class="math notranslate nohighlight">\(f\)</span> konvergieren.</p>
-</div>
-</div><p>Der Wunsch ist natürlich zeigen zu können, dass beide Doppelintegrale übereinstimmen und insbesondere, dass</p>
-<div class="math notranslate nohighlight">
-\[\int_{\R^{n+m}} f\,d\lambda^{n+m}\]</div>
-<p>gleich dem Doppelintegral ist.</p>
-<div class="proof admonition" id="proof">
-<p>Proof. Es sei <span class="math notranslate nohighlight">\(E\in \mathcal{A}(\R^{n+m})\)</span>, nach <a class="reference internal" href="#lem:completelebesgue">Lemma 5.18</a> existieren Mengen <span class="math notranslate nohighlight">\(\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\)</span>, <span class="math notranslate nohighlight">\(N\subset \tilde{N}\)</span>, s.d.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}E = \tilde{E}\cup N\\
-(\lambda^n\otimes\lambda^m)(\tilde{N}) = 0.\end{split}\]</div>
-<p>Insbesondere ist dann</p>
-<div class="math notranslate nohighlight">
-\[E\setminus \tilde{N} = \left(\tilde{E}\setminus \tilde{N} \right)\cup \underbrace{\left(N\setminus \tilde{N}\right)}_{=\emptyset} = 
-\tilde{E}\setminus \tilde{N}\in \in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\]</div>
-<p>daher können wir <a class="reference internal" href="#thm:cavalieri">Theorem 5.10</a> auf <span class="math notranslate nohighlight">\(E\setminus \tilde{N}\)</span> anwenden. Da aber fast alle Schnitte <span class="math notranslate nohighlight">\(\tilde{N}_x,\tilde{N}^y\)</span> Nullmengen sind, gilt die Aussage, dann für fast alle <span class="math notranslate nohighlight">\(x,y\in E\)</span>.</p>
-</div>
-<p>Mit dieser Aussage können wir nun ein Beispiel betrachten, in welchem wir die Fläche eines Kreises berechnen.</p>
-<div class="figure align-default" id="id4">
-<a class="reference internal image-reference" href="../_images/ball.jpg"><img alt="../_images/ball.jpg" src="../_images/ball.jpg" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Abb. 5.7 </span><span class="caption-text">Visualisierung für <a class="reference internal" href="#ex:ball">Example 5.7</a>.</span><a class="headerlink" href="#id4" title="Link zu diesem Bild">¶</a></p>
-</div>
-<div class="proof example admonition" id="ex:ball">
-<p class="admonition-title"><span class="caption-number">Example 5.7 </span></p>
-<div class="example-content section" id="proof-content">
-<p>Wir betrachten den <span class="math notranslate nohighlight">\(2\)</span>-dimensionale Ball</p>
-<div class="math notranslate nohighlight">
-\[B_r^2:=\{x\in\R^2: |x|\leq r\},\]</div>
-<p>wir erkennen, dass sich ein Schnitt für <span class="math notranslate nohighlight">\(\abs{y}\leq r\)</span> jeweils ergibt durch</p>
-<div class="math notranslate nohighlight">
-\[(B_r^2)_y = \{x:(x,y)\in B_r^2\} = \{x\leq\sqrt{r^2-y^2}\} = [-\sqrt{r^2-y^2},\sqrt{r^2-y^2}]\]</div>
-<p>und ansonsten leer ist.</p>
-<p>Somit erhalten wir</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\lambda^1((B_r^2)_y) = 
-\begin{cases}
-2 \sqrt{r^2-y^2}&amp;\text{ falls }y\leq r\\
-\emptyset\text{ sonst}
-\end{cases}.\end{split}\]</div>
-<p>Damit erhalten wir mithilfe des Prinzips von Cavalieri</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\lambda^2(B_r^2) &amp;= \int_{\R} \lambda^1((B_r^2)_y) d\lambda^1(y) = 
-\int_{[-r,r]} 2 \sqrt{r^2-y^2} d\lambda^1(y)\\
-&amp;= 
-2\int_{-r}^r \sqrt{r^2 - y^2} dy = 
-\lim_{t\to r}\left[y \sqrt{r^2-y^2} +r^2\arctan\left(\frac{y}{\sqrt{r^2-y^2}}\right)\right]^t_{-t}\\
-&amp;=
-r^2\pi.\end{split}\]</div>
-</div>
-</div><p>Das Volumen einer Kugel in <span class="math notranslate nohighlight">\(n\)</span>-Dimensionen lässt sich mithilfe des folgenden Lemmas berechnen.</p>
-<div class="proof lemma admonition" id="lemma-24">
-<p class="admonition-title"><span class="caption-number">Lemma 5.23 </span></p>
-<div class="lemma-content section" id="proof-content">
-<p>Für die <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Kugel</p>
-<div class="math notranslate nohighlight">
-\[B_r^n:=\{x\in\R^n: |x|\leq r\}\]</div>
-<p>gilt</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\lambda^n(B_r^n) =
-r^d\,
-\begin{cases}
-\frac{1}{(n/2)!} \pi^{n/2}&amp;\text{ falls }n gerade\\
-\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&amp;\text{ falls }n gerade\\
-\end{cases}\end{split}\]</div>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Siehe Hausaufgabe.</p>
-</div>
-</div>
-<div class="section" id="der-satz-von-fubini">
-<h2><span class="section-number">5.3.5. </span>Der Satz von Fubini<a class="headerlink" href="#der-satz-von-fubini" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Dazu zeigen wir ein allgemeineres Resultat für messbare Funktionen.</p>
-<div class="proof lemma admonition" id="lemma-25">
-<p class="admonition-title"><span class="caption-number">Lemma 5.24 </span></p>
-<div class="lemma-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(f:\R^{m+n}\to\overline{\R}\)</span> messbar bezüglich <span class="math notranslate nohighlight">\(\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\)</span>, dann gilt für die Funktionen</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}f_x:x \mapsto f(x,y),\\
-f_y:y \mapsto f(x,y),\end{split}\]</div>
-<p>dass <span class="math notranslate nohighlight">\(f_x\)</span> messbar bezüglich <span class="math notranslate nohighlight">\(\mathcal{A}(\R^m)\)</span> und <span class="math notranslate nohighlight">\(f_y\)</span> messbar bezüglich <span class="math notranslate nohighlight">\(\mathcal{A}(\R^n)\)</span> ist.</p>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Siehe Hausaufgabe.</p>
-</div>
-<p>Der Satz von Fubini erlaubt es die Berechnung mehrdimensionaler Integrale auf die Berechnung niederdimensionaler Integrale zurück zu führen. Unser Ziel ist es also für eine Funktion <span class="math notranslate nohighlight">\(f:\R^{n+m}\to\overline{R}\)</span> das Integral</p>
-<div class="math notranslate nohighlight">
-\[\int_{\R^{n+m}} f(z) d\lambda^{n+m}(z)\]</div>
-<p>mithilfe von Inetgration bezüglich <span class="math notranslate nohighlight">\(d\lambda^n\)</span> und <span class="math notranslate nohighlight">\(\lambda^m\)</span> aufzuteilen. Hierfür definieren analog zu den Mengenschnitten aus <a class="reference internal" href="#lem:secmeasure">Lemma 5.16</a> für alle <span class="math notranslate nohighlight">\(x\in\R^n\)</span> die Funktion</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}f_x:\R^m&amp;\to\overline{R}\\
-y&amp;\mapsto f(x,y)\end{split}\]</div>
-<p>und für alle <span class="math notranslate nohighlight">\(y\in\R^m\)</span> die Funktion</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}f^y:\R^n&amp;\to\overline{R}\\
-x&amp;\mapsto f(x,y).\end{split}\]</div>
-<p>Wäre <span class="math notranslate nohighlight">\(f_x\)</span> für fast alle <span class="math notranslate nohighlight">\(x\in\R^n\)</span> integrierbar bezüglich <span class="math notranslate nohighlight">\(\lambda^m\)</span>, so kann man das Integral</p>
-<div class="math notranslate nohighlight">
-\[I_x(f) := \int_{\R^m} f_x(y) d\lambda^m(y)\]</div>
-<p>betrachten. Da <span class="math notranslate nohighlight">\(x\in\R^n\)</span> bei dieser Überlegung variabel ist, definiert dies eine neue Funktion <span class="math notranslate nohighlight">\(x\mapsto I_x(f)\)</span>, welche im Falle erneuter Integrierbarkeit auf</p>
-<div class="math notranslate nohighlight">
-\[\int_{\R^n} I_x(f) d\lambda^n(x) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^m(y)d\lambda^n(x).\]</div>
-<p>Gleichermaßen sollen diese Schritte aber auch für <span class="math notranslate nohighlight">\(f^y\)</span> funktionieren, deshalb definieren wir doppelintegrierbare Funktionen.</p>
-<div class="proof definition admonition" id="definition-26">
-<p class="admonition-title"><span class="caption-number">Definition 5.23 </span> (Doppelintegrierbare Funktion)</p>
-<div class="definition-content section" id="proof-content">
-<p>Eine Funktion <span class="math notranslate nohighlight">\(f \colon \R^{n+m} \to \overline{\R}\)</span> heißt <strong>doppelintegrierbar</strong> falls
-für fast alle Punkte <span class="math notranslate nohighlight">\(x \in \R^n, y\in\R^m\)</span> die Funktionen <span class="math notranslate nohighlight">\(f_x,f^y\)</span> integrierbar sind und zusätzlich die Funktionen</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}x\mapsto I_x(f) =\int_{\R^m} f(x,y) d\lambda^m(y)\\
-y\mapsto I^y(f) =\int_{\R^n} f(x,y) d\lambda^n(x)\\\end{split}\]</div>
-<p>integrierbar sind.</p>
-</div>
-</div><p>Für die Menge der doppelintegrierbaren Funktionen</p>
-<div class="math notranslate nohighlight">
-\[V_{\text{D}} := \{f:\R^{n+m}\to\overline{\R}: f\text{ ist doppelintegrierbar}\}\]</div>
-<p>können wir folgende Aussage zeigen.</p>
-<div class="proof lemma admonition" id="lem:doppelintegrierbar">
-<p class="admonition-title"><span class="caption-number">Lemma 5.25 </span></p>
-<div class="lemma-content section" id="proof-content">
-<p>1. Die Menge der doppelintegrierbaren Funktionen bilden einen Vektorraum <span class="math notranslate nohighlight">\(V_D\)</span>.</p>
-<p>2. Doppelintegrale sind <em>linear</em>, d.h., für zwei doppelintegrierbare Funktionen <span class="math notranslate nohighlight">\(f,g \in V_D\)</span> und beliebige Skalare <span class="math notranslate nohighlight">\(\lambda \in \R\)</span> gilt</p>
-<div class="math notranslate nohighlight">
-\[\int_{\R^n}\int_{\R^m} (f + \lambda g)\,d\lambda^m d\lambda^n = 
-\int_{\R^n}\int_{\R^m} f d\lambda^m d\lambda^n + 
-\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^m d\lambda^n\]</div>
-<p>und analog für das andere Doppelintegral</p>
-<div class="math notranslate nohighlight">
-\[\int_{\R^m}\int_{\R^n} (f + \lambda g) d\lambda^n d\lambda^m = 
-\int_{\R^n}\int_{\R^m} f d\lambda^n d\lambda^m + 
-\lambda\,\int_{\R^n}\int_{\R^m} g d\lambda^n d\lambda^m\]</div>
-<p>3. Sei <span class="math notranslate nohighlight">\((f_j)_j\in\N\)</span> eine Folge von nichtnegativen, doppelintegrierbaren Funktionen und sei <span class="math notranslate nohighlight">\(f:\R^{n+m}\to\overline{\R}\)</span> eine Funktion, s.d.,</p>
-<div class="math notranslate nohighlight">
-\[f_j\leq f\quad\forall j\in\N,\qquad \lim_{j\to\infty} f_j =f.\]</div>
-<p>Falls beide Doppelintegrale für die <span class="math notranslate nohighlight">\(f_j\)</span> gleichmäßig beschränkt sind, so gilt <span class="math notranslate nohighlight">\(f\in V_{\text{D}}\)</span> und</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\lim_{j\to\infty} \int_{\R^n}\int_{\R^m} f_j\,d\lambda^m d\lambda^n = \int_{\R^n}\int_{\R^m} f\,d\lambda^m d\lambda^n\\ 
-\lim_{j\to\infty} \int_{\R^m}\int_{\R^n} f_j\,d\lambda^n d\lambda^m= \int_{\R^m}\int_{\R^n} f\,d\lambda^n d\lambda^m.\end{split}\]</div>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Schulz-Baldes S.153f.</p>
-</div>
-<div class="proof remark admonition" id="remark-28">
-<p class="admonition-title"><span class="caption-number">Remark 5.13 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>Die Aussage aus <a class="reference internal" href="#lem:doppelintegrierbar">Lemma 5.25</a> gilt analog für nichtnegative Funktionenfolgen <span class="math notranslate nohighlight">\((f_j)_{j\in\N}\)</span>, die von oben gegen die Funktion <span class="math notranslate nohighlight">\(f\)</span> konvergieren.</p>
-</div>
-</div><p>Der Wunsch ist natürlich zeigen zu können, dass beide Doppelintegrale übereinstimmen und insbesondere, dass</p>
-<div class="math notranslate nohighlight">
-\[\int_{\R^{n+m}} f\,d\lambda^{n+m}\]</div>
-<p>gleich dem Doppelintegral ist.</p>
-<div class="proof admonition" id="proof">
-<p>Proof. Schulz-Baldes S.156-160</p>
-</div>
-<div class="proof remark admonition" id="remark-29">
-<p class="admonition-title"><span class="caption-number">Remark 5.14 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>Das Prinzip von Cavalieri besagt, dass jede charakteristische Funktion <span class="math notranslate nohighlight">\(\chi_A\)</span> einer messbaren Menge <span class="math notranslate nohighlight">\(A\)</span> doppelintegrierbar ist und es gilt</p>
-<div class="math notranslate nohighlight">
-\[\mu_{n+k}(\chi_A) = \mu_n(\mu_k(\chi_A)) = \mu_k(\mu_n(\chi_A)). \]</div>
-</div>
-</div><div class="proof theorem admonition" id="theorem-30">
-<p class="admonition-title"><span class="caption-number">Theorem 5.13 </span> (Satz von Fubini-Tonelli)</p>
-<div class="theorem-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(f \colon \R^{n} \times \R^k \rightarrow \overline{\R}\)</span> eine Lebesgue-integrierbare Funktion.
-Dann ist <span class="math notranslate nohighlight">\(f\)</span> doppelintegrierbar und es gilt</p>
-<div class="math notranslate nohighlight">
-\[\mu_{n+k}(f) = \mu_n(\mu_k(f)) = \mu_k(\mu_n(f)). \]</div>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. S.164</p>
-</div>
-<div class="proof example admonition" id="example-31">
-<p class="admonition-title"><span class="caption-number">Example 5.8 </span></p>
-<div class="example-content section" id="proof-content">
-<p>Aus Doppelintegrierbarkeit einer Funktion folgt nicht notwendigerweise deren Lebesgue-Integrierbarkeit.</p>
-<p>(Website)[https://www.geometrie-und-logik.de/studium/analysis-la-ws-2020/saetze-ueber-lebesgueintegrierbare-funktionen/]</p>
-</div>
-</div><p>Die Aussage gilt jedoch unter einer zusätzlichen Voraussetzung.</p>
-<div class="proof theorem admonition" id="theorem-32">
-<p class="admonition-title"><span class="caption-number">Theorem 5.14 </span></p>
-<div class="theorem-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(f \colon \R^{n} \times \R^k \rightarrow \overline{\R}\)</span> eine doppelintegrierbare Funktion, die <em>nichtnegativ</em> ist, d.h., es gilt <span class="math notranslate nohighlight">\(f \geq 0\)</span>.
-Dann ist <span class="math notranslate nohighlight">\(f\)</span> Lebesgue-integrierbar.</p>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Schulz-Baldes S.166</p>
+<p>Proof. Folgt aus dem Satz von Tonelli, <a class="reference internal" href="#thm:tonelli">Theorem 5.11</a>.</p>
 </div>
 </div>
 <div class="section" id="die-jacobische-transformationsformel">
-<h2><span class="section-number">5.3.6. </span>Die Jacobische Transformationsformel<a class="headerlink" href="#die-jacobische-transformationsformel" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">5.3.5. </span>Die Jacobische Transformationsformel<a class="headerlink" href="#die-jacobische-transformationsformel" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Die Intuition hinter dem Prinzip von Cavalieri ist, dass man über parallele Schnitte integriert und erkennt, dass das Volumen so erhalten bleibt. Wir fragen uns nun, wie sich das Volumen verhält, wenn man zwei Mengen vergleicht deren parallele Schnitte nicht unbedingt gleich sind, aber welche über eine Abbildung ineinander überführbar sind.</p>
 <div class="figure align-default" id="fig-trafo">
 <a class="reference internal image-reference" href="../_images/trafo.jpg"><img alt="../_images/trafo.jpg" src="../_images/trafo.jpg" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Abb. 5.8 </span><span class="caption-text">Visualisierung von Mengentransformationen.</span><a class="headerlink" href="#fig-trafo" title="Link zu diesem Bild">¶</a></p>
+<p class="caption"><span class="caption-number">Abb. 5.7 </span><span class="caption-text">Visualisierung von Mengentransformationen.</span><a class="headerlink" href="#fig-trafo" title="Link zu diesem Bild">¶</a></p>
 </div>
-<p>In <a href="#id5"><span class="problematic" id="id6">:prf:remark:`rem:transinvariance`</span></a> haben wir eine Matrix <span class="math notranslate nohighlight">\(M\)</span> und eine Menge <span class="math notranslate nohighlight">\(M\)</span> bereits die Identität</p>
+<p>In <a class="reference internal" href="masstheorie.html#rem:transinvariance">Remark 5.4</a> haben wir eine Matrix <span class="math notranslate nohighlight">\(M\)</span> und eine Menge <span class="math notranslate nohighlight">\(M\)</span> bereits die Identität</p>
 <div class="math notranslate nohighlight">
 \[\lambda(MA) = |\det(M)| \, \lambda(A)\]</div>
 <p>kennengelernt. Wir verllgemeinern diese Aussage nun, indem wir beliebige <span class="math notranslate nohighlight">\(C^1\)</span>-Diffeomorphismen betrachten.</p>
 <div class="proof theorem admonition" id="thm:jacobitransformation">
-<p class="admonition-title"><span class="caption-number">Theorem 5.15 </span> (Jacobische Transformationsformel)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 5.13 </span> (Jacobische Transformationsformel)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Seien <span class="math notranslate nohighlight">\(U, V \subset \R^n\)</span> offene Teilmengen und die Abbildung</p>
 <div class="math notranslate nohighlight">
@@ -1100,15 +900,15 @@ Sei außerdem <span class="math notranslate nohighlight">\(f \colon V \rightarro
 <p>Hierbei nennt man <span class="math notranslate nohighlight">\(\det(D\Phi(x))\)</span> die <strong>Jacobi-Determinante</strong>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe z.B. <span id="id7">[<a class="reference internal" href="../references.html#id5">Bog07</a>]</span> Theorem 3.7.1.</p>
+<p>Proof. Siehe z.B. <span id="id4">[<a class="reference internal" href="../references.html#id5">Bog07</a>]</span> Theorem 3.7.1.</p>
 </div>
-<div class="proof remark admonition" id="remark-34">
-<p class="admonition-title"><span class="caption-number">Remark 5.15 </span></p>
+<div class="proof remark admonition" id="remark-23">
+<p class="admonition-title"><span class="caption-number">Remark 5.12 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Für <span class="math notranslate nohighlight">\(n=1\)</span> ist diese Regel schon als Substitutionsregel bekannt.</p>
 </div>
-</div><div class="proof example admonition" id="example-35">
-<p class="admonition-title"><span class="caption-number">Example 5.9 </span></p>
+</div><div class="proof example admonition" id="example-24">
+<p class="admonition-title"><span class="caption-number">Example 5.7 </span></p>
 <div class="example-content section" id="proof-content">
 <p>ToDo</p>
 </div>
