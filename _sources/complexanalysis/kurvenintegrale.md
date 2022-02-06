@@ -1,5 +1,7 @@
 # Kurvenintegrale
 
+## Wege und Kurven
+
 Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven.
 
 ````{prf:definition} Weg und Kurve
@@ -58,6 +60,8 @@ Dann ist die Abbildung, die jedem Punkt $w \in \C \setminus \operatorname{Bild}(
 Schulz-Baldes S.318f.
 ````
 
+## Homotopie
+
 ````{prf:definition} Homotopie
 Sei $I := [0,1]$ ein reelles Intervall und $D \subset \C$ eine Teilmenge.
 Wir nennen zwei Wege $\gamma, \Gamma \colon I \rightarrow D$ **homotop** in der Teilmenge $D$ genau dann, wenn eine stetige Abbildung $H \colon I \times I \rightarrow D$ existiert, so dass
@@ -92,7 +96,7 @@ Schulz-Baldes S.321
 
 Eine besondere Klasse von Wegen sind solche, die nullhomotop sind.
 
-````{prf:definition}
+````{prf:definition} Nullhomotoper Weg
 Wir nennen einen Weg $\gamma$ **nullhomotop** in einer Teilmenge $D \subset \C$ genau dann, wenn $\gamma$ homotop in $D$ zu einem konstanten Weg ist.
 ````
 
@@ -113,6 +117,8 @@ Dann gilt für das Kurvenintegral
 ````{prf:proof}
 Schulz-Baldes S.322
 ````
+
+## Cauchyscher Integralsatz
 
 Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
 Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen.
@@ -175,46 +181,4 @@ Dann gilt für alle $0 < \epsilon' < \epsilon$ die folgende genannte **Cauchy-Ab
 ```{math}
 |f^{(n)}(z_0)| \ \leq \ \frac{n!}{\epsilon'^n} \max_{|z - z_0|=\epsilon'} |f(z)|.
 ```
-````
-
-Nun beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.
-
-````{prf:definition} Singularitäten
-Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ ein Punkt.
-
-1\. Wenn $f \colon D \setminus \{z_0\} \rightarrow \C$ eine holomorphe Funktion ist.
-Dann nennen wir den Punkt $z_0$ eine **isolierte Singularität** von $f$.
-
-2\. Wir nennen den Punkt $z_0$ eine **hebbare Singularität**, wenn $z_0$ eine isolierte Singularität einer holomorphen Funktion $f \colon D \setminus \{z_0\} \rightarrow \C$ ist und es eine holomorphe Funktion $g \colon D \rightarrow \C$ gibt, so dass $g(z) = f(z)$ gilt für alle $z \in D \setminus \{z_0\}$.
-
-3\. Wir nennen den Punkt $z_0$ einen **Pol**, wenn für alle Folgen $z_n \rightarrow z_0$ gilt
-
-```{math}
-\lim_{n\rightarrow \infty} |f(z_n)| = \infty.
-```
-
-4\. Wir nennen den Punkt $z_0$ eine **wesentliche Singularität**, wenn $z_0$ weder hebbar noch Pol ist.
-````
-
-Der Satz von Casorati-Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.
-
-````{prf:remark} Casorati-Weierstraß
-Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ ein Punkt.
-
-Der Punkt $z_0$ ist genau dann eine wesentliche Singularität einer holomorphen Funktion $f \colon D \setminus \{z_0\} \rightarrow \C$, wenn für alle $\epsilon > 0$ die Menge der Funktionswerte $f(B_\epsilon(z_0)) \setminus \{z_0\})$ dicht in $\C$ liegt.
-
-````
-
-**ToDo: Hier Beispiel zu Singularitäten? Schulz-Baldes S.329**
-
-````{prf:theorem} Riemannscher Hebbarkeitssatz
-
-Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ ein Punkt.
-Sei außerdem $f \colon D \setminus \{z_0\} \rightarrow \C$ eine holomorphe Funktion.
-Falls eine Umgebung $U \subset D$ von $z_0$ gibt, so dass $f$ auf $U \setminus \{z_0\}$ beschränkt ist, so kann man einen Funktionswert $f(z_0)$ in $z_0$ so wählen, dass die Funktion $f$ auf der gesamten Teilmenge $D$ holomorph ist, d.h., der Punkt $z_0$ ist eine hebbare Singularität.
-
-````
-
-````{prf:proof}
-Schulz-Baldes S.327
 ````

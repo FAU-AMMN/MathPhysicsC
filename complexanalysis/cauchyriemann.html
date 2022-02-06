@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.1. Cauchy-Riemann Gleichungen &#8212; Mathematik für Physikstudierende C</title>
+    <title>7.1. Cauchy-Riemann Gleichungen &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="6.2. Kurvenintegrale" href="kurvenintegrale.html" />
-    <link rel="prev" title="6. Funktionentheorie" href="complexanalysis.html" />
+    <link rel="next" title="7.2. Kurvenintegrale" href="kurvenintegrale.html" />
+    <link rel="prev" title="7. Funktionentheorie" href="complexanalysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -251,31 +251,48 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../surfaceintegrals/surfaceintegrals.html">
+   6. Integration über Flächen und Mannigfaltigkeiten
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="complexanalysis.html">
-   6. Funktionentheorie
+   7. Funktionentheorie
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.1. Cauchy-Riemann Gleichungen
+     7.1. Cauchy-Riemann Gleichungen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="kurvenintegrale.html">
-     6.2. Kurvenintegrale
+     7.2. Kurvenintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="residuensatz.html">
+     7.3. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../references.html">
-   7. Bibliography
+   8. Bibliography
   </a>
  </li>
 </ul>
@@ -376,24 +393,24 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="cauchy-riemann-gleichungen">
-<h1><span class="section-number">6.1. </span>Cauchy-Riemann Gleichungen<a class="headerlink" href="#cauchy-riemann-gleichungen" title="Link zu dieser Überschrift">¶</a></h1>
+<h1><span class="section-number">7.1. </span>Cauchy-Riemann Gleichungen<a class="headerlink" href="#cauchy-riemann-gleichungen" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Der zentrale Begriff der Funktionentheorie ist der einer <em>holomorphen Funktion</em>.</p>
 <div class="proof definition admonition" id="def:holomorph">
-<p class="admonition-title"><span class="caption-number">Definition 6.1 </span> (Holomorphe Funktion)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.1 </span> (Holomorphe Funktion)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine stetige Funktion.</p>
 <p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> <strong>holomorph</strong> auf der Teilmenge <span class="math notranslate nohighlight">\(D\)</span>, wenn es für jeden Punkt <span class="math notranslate nohighlight">\(z \in D\)</span> eine komplexe Ableitung der Funktion <span class="math notranslate nohighlight">\(f\)</span> gibt mit</p>
 <div class="math notranslate nohighlight">
 \[f'(z) = \lim_{h\rightarrow 0} \frac{f(z+h) - f(z)}{h}.\]</div>
 </div>
-</div><p>Der Differentialquotient in <a class="reference internal" href="#def:holomorph">Definition 6.1</a> erinnert sehr an die Definition der Ableitung einer reellen Funktion.
+</div><p>Der Differentialquotient in <a class="reference internal" href="#def:holomorph">Definition 7.1</a> erinnert sehr an die Definition der Ableitung einer reellen Funktion.
 Der grundlegende Unterschied ist hier jedoch, dass <span class="math notranslate nohighlight">\(h \in \C\)</span> komplex ist.
 Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen Vektorraum, so muss für die beiden Richtungsableitungen <span class="math notranslate nohighlight">\(x := \operatorname{Re}(z)\)</span> und <span class="math notranslate nohighlight">\(y := \operatorname{Im}(z)\)</span> gelten</p>
 <div class="math notranslate nohighlight">
 \[\partial_x f(z) = \lim_{\epsilon \rightarrow 0} \frac{f(z+\epsilon) - f(z)}{\epsilon} = \lim_{\epsilon \rightarrow 0} \frac{f(z+i\epsilon) - f(z)}{i\epsilon} = -i \partial_y f(z), \quad \epsilon \in \R.\]</div>
 <p>Dieser Zusammenhang ist charakteristisch für holomorphe Funktionen und wird im folgenden Satz präzisiert.</p>
 <div class="proof theorem admonition" id="theorem-1">
-<p class="admonition-title"><span class="caption-number">Theorem 6.1 </span> (Cauchy-Riemann Gleichungen)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.1 </span> (Cauchy-Riemann Gleichungen)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine stetige Funktion für die gilt</p>
 <div class="math notranslate nohighlight">
@@ -406,14 +423,14 @@ Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen
 <p>Proof. Schulz-Baldes S.313</p>
 </div>
 <div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 6.1 </span> (Holomorphe Funktionen)</p>
+<p class="admonition-title"><span class="caption-number">Example 7.1 </span> (Holomorphe Funktionen)</p>
 <div class="example-content section" id="proof-content">
 <p>Ableitung eines komplexen Monoms -&gt; Beispiel 10.4 auf S.314 in Schulz-Baldes</p>
 <p><span class="math notranslate nohighlight">\(f(z) := \overline{z}\)</span> ist nicht holomorph -&gt; Beispiel 10.7 auf S.315 in Schulz-Baldes</p>
 </div>
 </div><p>Eine besondere Klasse von Funktionen sind <em>analytische Funktonen</em>, die sich lokal mit Hilfe von Reihen darstellen lassen.</p>
 <div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 6.2 </span> (Analytische Funktion)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.2 </span> (Analytische Funktion)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine Funktion.</p>
 <p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> <strong>analytisch</strong> in einem Punkt <span class="math notranslate nohighlight">\(z_0 \in D\)</span> genau dann, wenn ein <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert, so dass sich jeder Funktionswert <span class="math notranslate nohighlight">\(f(z) \in \C\)</span> in einer entsprechenden lokalen Umgebung durch eine absolut konvergente Reihe darstellen lässt mit</p>
@@ -424,7 +441,7 @@ Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen
 </div>
 </div><p>Der folgende Satz beschreibt den Zusammenhang zwischen analytischen und holomorphen Funktionen.</p>
 <div class="proof theorem admonition" id="thm:analytischHolomorph">
-<p class="admonition-title"><span class="caption-number">Theorem 6.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.2 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Jede analytische Funktion <span class="math notranslate nohighlight">\(f\)</span> auf einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> ist auch holomorph auf <span class="math notranslate nohighlight">\(D\)</span>.</p>
 </div>
@@ -463,13 +480,13 @@ Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Funktionentheorie</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Funktionentheorie</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="kurvenintegrale.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">6.2. </span>Kurvenintegrale</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>Kurvenintegrale</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

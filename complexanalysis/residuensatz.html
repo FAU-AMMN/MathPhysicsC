@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.2. Lebesgue-Integral &#8212; Mathematik für Physikstudierende C</title>
+    <title>7.3. Laurententwicklung und Residuensatz &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="5.3. Integrationstechniken" href="integrationstechnik.html" />
-    <link rel="prev" title="5.1. Maßtheorie" href="masstheorie.html" />
+    <link rel="next" title="8. Bibliography" href="../references.html" />
+    <link rel="prev" title="7.2. Kurvenintegrale" href="kurvenintegrale.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -224,28 +224,28 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro_masstheorie.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../masstheorie/intro_masstheorie.html">
    5. Maß- und Integrationstheorie
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="masstheorie.html">
+    <a class="reference internal" href="../masstheorie/masstheorie.html">
      5.1. Maßtheorie
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../masstheorie/lebesgue_integral.html">
      5.2. Lebesgue-Integral
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="integrationstechnik.html">
+    <a class="reference internal" href="../masstheorie/integrationstechnik.html">
      5.3. Integrationstechniken
     </a>
    </li>
@@ -263,28 +263,28 @@
   <ul class="simple">
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../complexanalysis/complexanalysis.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="complexanalysis.html">
    7. Funktionentheorie
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/cauchyriemann.html">
+    <a class="reference internal" href="cauchyriemann.html">
      7.1. Cauchy-Riemann Gleichungen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
+    <a class="reference internal" href="kurvenintegrale.html">
      7.2. Kurvenintegrale
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/residuensatz.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      7.3. Laurententwicklung und Residuensatz
     </a>
    </li>
@@ -336,7 +336,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/masstheorie/lebesgue_integral.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/complexanalysis/residuensatz.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -380,18 +380,18 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#messbare-funktionen">
-   5.2.1. Messbare Funktionen
+  <a class="reference internal nav-link" href="#singularitaten-homomorpher-funktionen">
+   7.3.1. Singularitäten homomorpher Funktionen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#charakterisierung-uber-niveaumengen">
-   5.2.2. Charakterisierung über Niveaumengen
+  <a class="reference internal nav-link" href="#laurent-reihe">
+   7.3.2. Laurent-Reihe
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#das-lebesgue-integral">
-   5.2.3. Das Lebesgue-Integral
+  <a class="reference internal nav-link" href="#cauchyscher-residuensatz">
+   7.3.3. Cauchyscher Residuensatz
   </a>
  </li>
 </ul>
@@ -404,7 +404,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lebesgue-Integral</h1>
+                <h1>Laurententwicklung und Residuensatz</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -415,18 +415,18 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#messbare-funktionen">
-   5.2.1. Messbare Funktionen
+  <a class="reference internal nav-link" href="#singularitaten-homomorpher-funktionen">
+   7.3.1. Singularitäten homomorpher Funktionen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#charakterisierung-uber-niveaumengen">
-   5.2.2. Charakterisierung über Niveaumengen
+  <a class="reference internal nav-link" href="#laurent-reihe">
+   7.3.2. Laurent-Reihe
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#das-lebesgue-integral">
-   5.2.3. Das Lebesgue-Integral
+  <a class="reference internal nav-link" href="#cauchyscher-residuensatz">
+   7.3.3. Cauchyscher Residuensatz
   </a>
  </li>
 </ul>
@@ -438,151 +438,134 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="lebesgue-integral">
-<h1><span class="section-number">5.2. </span>Lebesgue-Integral<a class="headerlink" href="#lebesgue-integral" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Anhand des in ?? konstruirten MAßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion <span class="math notranslate nohighlight">\(f:\Omega\to\R\)</span> zu zerteilen. Dies führt auf das Problem, dass man Urbildern</p>
-<div class="math notranslate nohighlight">
-\[f^{-1}(I)\]</div>
-<p>für Mengen <span class="math notranslate nohighlight">\(I\subset\R\)</span> ein Maß zuordnen muss. Dies soll im Folgenden mithilfe des Lebesgue-Maßes geschehen. Um <span class="math notranslate nohighlight">\(f^{-1}(I)\)</span> allerdings im Lebesgue-Maß auswerten zu können, müssen wir voraussetzen, dass diese Menge messbar ist. Dies führt auf spezielle Anforderungen an die Funktion <span class="math notranslate nohighlight">\(f\)</span>.</p>
-<div class="section" id="messbare-funktionen">
-<h2><span class="section-number">5.2.1. </span>Messbare Funktionen<a class="headerlink" href="#messbare-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Wir beginnen mit der Definition von messbaren Funktionen. Wir benutzen hierbei den Begriff eines <strong>Messraums</strong> der anders als ein MAßraum nur eine Grundmenge und eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra voraussetzt und kein Maß beinhaltet.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="laurententwicklung-und-residuensatz">
+<h1><span class="section-number">7.3. </span>Laurententwicklung und Residuensatz<a class="headerlink" href="#laurententwicklung-und-residuensatz" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="singularitaten-homomorpher-funktionen">
+<h2><span class="section-number">7.3.1. </span>Singularitäten homomorpher Funktionen<a class="headerlink" href="#singularitaten-homomorpher-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.</p>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 5.15 </span> (Messbarkeit von Funktionen)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.7 </span> (Singularitäten)</p>
 <div class="definition-content section" id="proof-content">
-<p>Es seien <span class="math notranslate nohighlight">\((\Omega_1,\Sigma_1), (\Omega_1,\Sigma_1)\)</span> zwei Messräume und <span class="math notranslate nohighlight">\(f:\Omega_1\to\Omega_2\)</span> eine Funktion, dann nennen wir <span class="math notranslate nohighlight">\(f\)</span> <strong>messbar</strong>, falls</p>
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.</p>
+<p>1. Wenn <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> eine holomorphe Funktion ist.
+Dann nennen wir den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>isolierte Singularität</strong> von <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>2. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>hebbare Singularität</strong>, wenn <span class="math notranslate nohighlight">\(z_0\)</span> eine isolierte Singularität einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> ist und es eine holomorphe Funktion <span class="math notranslate nohighlight">\(g \colon D \rightarrow \C\)</span> gibt, so dass <span class="math notranslate nohighlight">\(g(z) = f(z)\)</span> gilt für alle <span class="math notranslate nohighlight">\(z \in D \setminus \{z_0\}\)</span>.</p>
+<p>3. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> einen <strong>Pol</strong>, wenn für alle Folgen <span class="math notranslate nohighlight">\(z_n \rightarrow z_0\)</span> gilt</p>
 <div class="math notranslate nohighlight">
-\[f^{-1}(A)\in\Sigma_1\quad\forall A\in\Sigma_2\]</div>
+\[\lim_{n\rightarrow \infty} |f(z_n)| = \infty.\]</div>
+<p>4. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>wesentliche Singularität</strong>, wenn <span class="math notranslate nohighlight">\(z_0\)</span> weder hebbar noch Pol ist.</p>
 </div>
-</div><p>Für ein Teilmengensystem <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^{\Omega_2}\)</span> benutzten wir auch die Schreibweise</p>
-<div class="math notranslate nohighlight">
-\[f^{-1}(\mathcal{C}) = \{ f^{-1}(C): C\in\mathcal{C}\},\]</div>
-<p>womit sich die Messbarkeit einer Funktion äquivalent auch durch die Bedingung</p>
-<div class="math notranslate nohighlight">
-\[f^{-1}(\Sigma_2)\subset\Sigma_1\]</div>
-<p>schreiben lässt. In diesem Kapitel wollen wir speziell Funktionen <span class="math notranslate nohighlight">\(f:\Omega\to\overline{\R}\)</span> betrachten wobei <span class="math notranslate nohighlight">\(\Omega\subset\R^d\)</span>. Hierbei nennen wir <span class="math notranslate nohighlight">\(f\)</span> <strong>Borel-messbar</strong>, falls</p>
-<div class="math notranslate nohighlight">
-\[f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{B}(\R^d).\]</div>
-<p>Analog nennen wir <span class="math notranslate nohighlight">\(f\)</span> <strong>Lebesgue-messbar</strong>, falls</p>
-<div class="math notranslate nohighlight">
-\[f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{A}.\]</div>
-<p>Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem <span class="math notranslate nohighlight">\(\sigma\)</span>-Operator vertauschen lässt, wobei für <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> die Menge <span class="math notranslate nohighlight">\(\sigma(\mathcal{C})\)</span> gerade die kleinste <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra ist welche <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> enthält siehe ??.</p>
-<div class="proof lemma admonition" id="lemma-1">
-<p class="admonition-title"><span class="caption-number">Lemma 5.11 </span></p>
-<div class="lemma-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(f:\Omega_1\to\Omega_2\)</span> eine Funktion und <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^{\Omega_2}\)</span> ein Teilmengensystem, dann gilt</p>
-<div class="math notranslate nohighlight">
-\[f^{-1}(\sigma(\mathcal{C})) = \sigma(f^{-1}(\mathcal{C})).\]</div>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. ToDo
-<a class="reference external" href="https://www.fau.tv/clip/id/40563">Vorlesung</a> ab 29:52.</p>
-</div>
-<p>Mit diesem Lemma können wir folgende Beziehungen zeigen.</p>
-<div class="proof lemma admonition" id="lemma-2">
-<p class="admonition-title"><span class="caption-number">Lemma 5.12 </span></p>
-<div class="lemma-content section" id="proof-content">
-<ol class="simple">
-<li><p>Borel-messbare Funktionen sind Lebesgue-messbar</p></li>
-<li><p>Stetige Funktionen sind Borel-messbar.</p></li>
-</ol>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. ToDo
-<a class="reference external" href="https://www.fau.tv/clip/id/40563">Vorlesung</a> ab 17:12</p>
-</div>
-</div>
-<div class="section" id="charakterisierung-uber-niveaumengen">
-<h2><span class="section-number">5.2.2. </span>Charakterisierung über Niveaumengen<a class="headerlink" href="#charakterisierung-uber-niveaumengen" title="Link zu dieser Überschrift">¶</a></h2>
-<div class="proof remark admonition" id="remark-3">
-<p class="admonition-title"><span class="caption-number">Remark 5.7 </span></p>
+</div><p>Der Satz von Casorati-Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.</p>
+<div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 7.1 </span> (Casorati-Weierstraß)</p>
 <div class="remark-content section" id="proof-content">
-<p>1. Konkatenation von messbaren Funktionen ist wieder eine messbare Funktion.</p>
-<p>2. Summen, Produkte, Quotienten, Maxima und Minima endlich vieler reellwertiger messbarer Funktionen sind wieder messbar.</p>
-<p>3. Sei <span class="math notranslate nohighlight">\((f_n)_{n \in \N}\)</span> mit <span class="math notranslate nohighlight">\(f_n \colon \Omega \subset \R^n \rightarrow \R\)</span> eine Folge von messbaren Funktionen.
-Dann sind <span class="math notranslate nohighlight">\(\inf(f_n), \sup(f_n), \lim\inf (f_n)\)</span> und <span class="math notranslate nohighlight">\(\lim\sup (f_n)\)</span> auch messbar.</p>
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.</p>
+<p>Der Punkt <span class="math notranslate nohighlight">\(z_0\)</span> ist genau dann eine wesentliche Singularität einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>, wenn für alle <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> die Menge der Funktionswerte <span class="math notranslate nohighlight">\(f(B_\epsilon(z_0)) \setminus \{z_0\})\)</span> dicht in <span class="math notranslate nohighlight">\(\C\)</span> liegt.</p>
+</div>
+</div><p><strong>ToDo: Hier Beispiel zu Singularitäten? Schulz-Baldes S.329</strong></p>
+<div class="proof theorem admonition" id="theorem-2">
+<p class="admonition-title"><span class="caption-number">Theorem 7.6 </span> (Riemannscher Hebbarkeitssatz)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.
+Sei außerdem <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> eine holomorphe Funktion.
+Falls eine Umgebung <span class="math notranslate nohighlight">\(U \subset D\)</span> von <span class="math notranslate nohighlight">\(z_0\)</span> gibt, so dass <span class="math notranslate nohighlight">\(f\)</span> auf <span class="math notranslate nohighlight">\(U \setminus \{z_0\}\)</span> beschränkt ist, so kann man einen Funktionswert <span class="math notranslate nohighlight">\(f(z_0)\)</span> in <span class="math notranslate nohighlight">\(z_0\)</span> so wählen, dass die Funktion <span class="math notranslate nohighlight">\(f\)</span> auf der gesamten Teilmenge <span class="math notranslate nohighlight">\(D\)</span> holomorph ist, d.h., der Punkt <span class="math notranslate nohighlight">\(z_0\)</span> ist eine hebbare Singularität.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.327</p>
+</div>
+<p>Das folgende Lemma charakterisiert Pole einer holomorphen Funktion.</p>
+<div class="proof lemma admonition" id="lem:pole">
+<p class="admonition-title"><span class="caption-number">Lemma 7.3 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> eine isolierte Singularität einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>.</p>
+<p>Dann sind folgende Aussagen äquivalent:</p>
+<p>1. Der Punkt <span class="math notranslate nohighlight">\(z_0\)</span> ist ein Pol der Funktion <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>2. Es existiert ein <span class="math notranslate nohighlight">\(m \in \N\)</span>, so dass die Funktion <span class="math notranslate nohighlight">\((z - z_0)^m f(z)\)</span> beschränkt in einer lokalen Umgebung von <span class="math notranslate nohighlight">\(z_0\)</span> ist, jedoch die Funktion <span class="math notranslate nohighlight">\((z - z_0)^{m-1} f(z)\)</span> unbeschränkt ist.</p>
+<p>Die Ordnung der Funktion <span class="math notranslate nohighlight">\(f\)</span> im Pol <span class="math notranslate nohighlight">\(z_0\)</span> ist dann definiert als</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{Ord}_{z_0}(f) := -m.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.330</p>
+</div>
+<p>Dieser Begriff von Ordnung setzt den Begriff der Ordnung von Polynomen für holomorphe Funktionen fort.
+Häufig spricht man jedoch nur von der Ordnung <span class="math notranslate nohighlight">\(m &gt; 0\)</span> eines Pols.</p>
+</div>
+<div class="section" id="laurent-reihe">
+<h2><span class="section-number">7.3.2. </span>Laurent-Reihe<a class="headerlink" href="#laurent-reihe" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die Beobachtung aus <a class="reference internal" href="#lem:pole">Lemma 7.3</a> motiviert die folgende Definition der Laurent-Reihe, die nach {prf:ref}`` immer an einem Pol von Ordnung <span class="math notranslate nohighlight">\(m\)</span> existiert.</p>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 7.8 </span> (Laurent-Reihe)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> Pol von Ordnung <span class="math notranslate nohighlight">\(m\)</span> einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>.</p>
+<p>Dann definieren wir die <strong>Laurent-Reihe</strong> von <span class="math notranslate nohighlight">\(f\)</span> um den Pol <span class="math notranslate nohighlight">\(z_0\)</span> durch</p>
+<div class="math notranslate nohighlight">
+\[f(z) := \sum_{n=-m}^\infty a_n (z-z_0)^n.\]</div>
+<p>Als <strong>Hauptteil</strong> der Laurent-Reihe bezeichnen wir den Term</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=-m} a_n (z-z_0)^n\]</div>
+<p>und das <strong>Residuum</strong> von <span class="math notranslate nohighlight">\(f\)</span> bei <span class="math notranslate nohighlight">\(z_0\)</span> als</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{Res}_{z_0}(f) = a_{-1}.\]</div>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 7.9 </span> (Meromorphe Funktion)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge.
+Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> <strong>meromorph</strong> auf <span class="math notranslate nohighlight">\(D\)</span> genau dann, wenn eine lokalendliche Menge <span class="math notranslate nohighlight">\(P\)</span> existiert, so dass die Funktion <span class="math notranslate nohighlight">\(f\)</span> holomorph auf <span class="math notranslate nohighlight">\(D \setminus P\)</span> mit Polen in <span class="math notranslate nohighlight">\(P\)</span> ist.</p>
 </div>
 </div></div>
-<div class="section" id="das-lebesgue-integral">
-<h2><span class="section-number">5.2.3. </span>Das Lebesgue-Integral<a class="headerlink" href="#das-lebesgue-integral" title="Link zu dieser Überschrift">¶</a></h2>
-<p>ToDo Definition</p>
-<div class="proof lemma admonition" id="lem:simplefun">
-<p class="admonition-title"><span class="caption-number">Lemma 5.13 </span></p>
+</div><div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 7.2 </span> (Meromorphe Funktionen)</p>
+<div class="example-content section" id="proof-content">
+<p>Rationale Funktionen oder konkretes Beispiel</p>
+<p>Schulz-Baldes S.332</p>
+</div>
+</div></div>
+<div class="section" id="cauchyscher-residuensatz">
+<h2><span class="section-number">7.3.3. </span>Cauchyscher Residuensatz<a class="headerlink" href="#cauchyscher-residuensatz" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Das folgende Lemma erlaubt die explizite Berechnung des Residuums.</p>
+<div class="proof lemma admonition" id="lemma-7">
+<p class="admonition-title"><span class="caption-number">Lemma 7.4 </span> (Berechnung des Residuums)</p>
 <div class="lemma-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(f \colon \Omega \subset \R^n \rightarrow [0,\infty]\)</span> eine Lebesgue-messbare Funktion.
-Dann existiert eine monoton wachsende Folge <span class="math notranslate nohighlight">\((T_n)_{n_\in N}\)</span> von Treppenfunktionen mit</p>
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> Pol einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>.</p>
+<p>Für genügend kleine <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> lässt sich das Residuum von <span class="math notranslate nohighlight">\(f\)</span> bei <span class="math notranslate nohighlight">\(z_0\)</span> angeben als</p>
 <div class="math notranslate nohighlight">
-\[T_n|_{D^c} = 0 \qquad \text{ und } \qquad T_n \nearrow f,\]</div>
-<p>d.h., es gilt</p>
+\[\operatorname{Res}_{z_0}(f) = \oint_{\partial B_\epsilon(z_0)} f(z) \frac{\mathrm{d}z}{2\pi i}.\]</div>
+<p>Falls der Pol von Ordnung <span class="math notranslate nohighlight">\(-m\)</span> ist, lässt sich das Residuum von <span class="math notranslate nohighlight">\(f\)</span> bei <span class="math notranslate nohighlight">\(z_0\)</span> sogar angeben als</p>
 <div class="math notranslate nohighlight">
-\[\lim_{n\rightarrow \infty} T_n(x) = f(x) \qquad \text{ und } \qquad T_{n+1}(x) \geq T_n(x).\]</div>
+\[\operatorname{Res}_{z_0}(f) = \partial_z^{m-1}\left( (z-z_0)^m \frac{f(z)}{(m-1)!}\right)|_{z=z_0}.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. ToDo</p>
+<p>Proof. Schulz-Baldes S.333f.</p>
 </div>
-<div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 5.16 </span> (Lebesgue-Integral für nichtnegative Funktionen)</p>
-<div class="definition-content section" id="proof-content">
-<p>1. Für Lebesgue-messbare Mengen <span class="math notranslate nohighlight">\(A_i, i=1,\ldots,N\)</span> und nicht-negative Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i, i=1,\ldots,N\)</span> definieren wir das <strong>Lebesgue-Integral</strong> einer positiven <em>Treppenfunktion</em> <span class="math notranslate nohighlight">\(T = \sum_{i=1}^N \alpha_i \chi_{A_i}\)</span> als</p>
-<div class="math notranslate nohighlight">
-\[\int \mu(\mathrm{d}x) f(x) = \sum_{i=1}^N \alpha_i \mu(A_i).\]</div>
-<p>2. Sei <span class="math notranslate nohighlight">\((T_n)_{n\in\N}\)</span> eine monoton wachsende Folge von Treppenfunktionen mit</p>
-<div class="math notranslate nohighlight">
-\[T_n|_{D^c} = 0 \qquad \text{ und } \qquad T_n \nearrow f\]</div>
-<p>und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \overline{R}\)</span> eine positive, <em>Lebesgue-messbare Funktion</em>.
-Dann ist das <strong>Lebesgue-Integral</strong> von <span class="math notranslate nohighlight">\(f\)</span> definiert als</p>
-<div class="math notranslate nohighlight">
-\[\int_D \mu(\mathrm{d}x) f(x) = \lim_{n\rightarrow \infty} \int \mu(\mathrm{d}x) f_n(x) = \sup_n \int \mu(\mathrm{d}x) f_n(x) \in [0,\infty].\]</div>
+<div class="proof example admonition" id="example-8">
+<p class="admonition-title"><span class="caption-number">Example 7.3 </span> (Berechnung des Residuums)</p>
+<div class="example-content section" id="proof-content">
+<p>Rationale Funktion bei Schulz-Baldes S.335</p>
 </div>
-</div><div class="proof theorem admonition" id="theorem-6">
-<p class="admonition-title"><span class="caption-number">Theorem 5.8 </span> (Eigenschaften des Lebesgue-Integrals)</p>
+</div><p>Der folgende Residuensatz von Cauchy stellt eine zentrale Aussage der Funktionentheorie vor.</p>
+<div class="proof theorem admonition" id="theorem-9">
+<p class="admonition-title"><span class="caption-number">Theorem 7.7 </span> (Cauchyscher Residuensatz)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Das Lebesgue-Integral ist <em>wohldefiniert</em>, d.h., sein Wert ist unabhängig von der gewählten Folge von Treppenfunktionen <span class="math notranslate nohighlight">\((T_n)_{n\in\N}\)</span>.
-Darüber hinaus ist das Lebesgue-Integral <em>linear</em> und <em>monoton</em>, d.h., für nichtnegative, Lebesgue-messbare Funktionen <span class="math notranslate nohighlight">\(f,g \geq 0\)</span> gilt</p>
+<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine meromorphe Funktion mit endlicher Menge <span class="math notranslate nohighlight">\(P \subset D\)</span> von Polstellen.
+Sei außerdem <span class="math notranslate nohighlight">\(\gamma\)</span> ein geschlossener und zusammenziehbarer Weg in <span class="math notranslate nohighlight">\(D\)</span> mit <span class="math notranslate nohighlight">\(\operatorname{Bild}(\gamma) \cap P = \emptyset\)</span>.</p>
+<p>Dann gilt der folgende Zusammenhang</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\int \mu(\mathrm{d}x)(f(x) + \lambda g(x)) = \left( \int \mu(\mathrm{d}x) f(x) \right) + \lambda \left( \int \mu(\mathrm{d}x) g(x) \right)\\
-f \leq g \quad \Rightarrow \quad \int \mu(\mathrm{d}x) f(x) \leq \int \mu(\mathrm{d}x) g(x).\end{split}\]</div>
+\[\int_\gamma f(z) \frac{\mathrm{d}z}{2\pi i} = \sum_{z_0 \in P} \operatorname{Ind}_\gamma(z_0) \operatorname{Res}_{z_0}(f).\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. ToDo</p>
+<p>Proof. Schulz-Baldes S.337</p>
 </div>
-<div class="proof lemma admonition" id="lem:levi">
-<p class="admonition-title"><span class="caption-number">Lemma 5.14 </span> (Satz von Beppo Levi)</p>
-<div class="lemma-content section" id="proof-content">
+<div class="proof remark admonition" id="remark-10">
+<p class="admonition-title"><span class="caption-number">Remark 7.2 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Für holomorphe Funktionen <span class="math notranslate nohighlight">\(f\)</span> entspricht der Residuensatz gerade dem Cauchyschen Integralsatz.
+Wenn <span class="math notranslate nohighlight">\(D\)</span> als Sterngebiet angenommen wird ist die Zusammenziehbarkeit des Wegs <span class="math notranslate nohighlight">\(\gamma\)</span> immer erfüllt.</p>
 </div>
-</div><div class="proof definition admonition" id="definition-8">
-<p class="admonition-title"><span class="caption-number">Definition 5.17 </span> (Allgemeines Lebesgue-Integral)</p>
-<div class="definition-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(f \colon \R^n \rightarrow \R\)</span> eine Lebesgue-messbare Funktion.
-Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> <strong>Lebesgue-integrierbar</strong>, genau dann wenn gilt</p>
-<div class="math notranslate nohighlight">
-\[\mu(|f|) &lt; +\infty\]</div>
-<p>Falls die Funktion <span class="math notranslate nohighlight">\(f\)</span> Lebesgue-integrierbar ist, definieren wir entsprechende positive integrierbare Funktionen</p>
-<div class="math notranslate nohighlight">
-\[f_+ := \max \lbrace f, 0 \rbrace, \qquad f_- := \max{-f, 0},\]</div>
-<p>so dass gilt <span class="math notranslate nohighlight">\(f = f_+ - f_-\)</span>.
-Dann können wir das <strong>Lebesgue-Integral</strong> von <span class="math notranslate nohighlight">\(f\)</span> definieren als</p>
-<div class="math notranslate nohighlight">
-\[\mu(f) := \mu(f_+) - \mu(f_-).\]</div>
-<p>Häufig vewenden wir die äquivalenten Schreibweisen</p>
-<div class="math notranslate nohighlight">
-\[\mu(f) \hat{=} \int \mu(\mathrm{d}x) f(x) \hat{=} \int f(x) \mathrm{d}x.\]</div>
-</div>
-</div><div class="proof lemma admonition" id="lemma-9">
-<p class="admonition-title"><span class="caption-number">Lemma 5.15 </span></p>
-<div class="lemma-content section" id="proof-content">
-<p>Das Lebesgue-Integral ist eine linearer und monotoner Operator auf der Menge der Lebesgue-integrierbaren Funktionen.</p>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. ToDo</p>
-</div>
-<div class="proof definition admonition" id="definition-10">
-<p class="admonition-title"><span class="caption-number">Definition 5.18 </span></p>
-<div class="definition-content section" id="proof-content">
-<p>Seien <span class="math notranslate nohighlight">\(f,g \colon \R^n \rightarrow \overline{\R}\)</span> Lebesgue-messbare Funktionen.
-Wir sagen <span class="math notranslate nohighlight">\(f = g\)</span> <strong>fast sicher</strong> bezüglich des Lebesgue-Maßes genau dann, wenn eine Lebesgue-Nullmenge <span class="math notranslate nohighlight">\(N\)</span> existiert, so dass gilt</p>
-<div class="math notranslate nohighlight">
-\[f(x) = g(x) \quad \forall x \in \R^n \setminus N.\]</div>
+</div><div class="proof example admonition" id="example-11">
+<p class="admonition-title"><span class="caption-number">Example 7.4 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Viele konkrete Beispiele in Schulz-Baldes S.338-344</p>
 </div>
 </div></div>
 </div>
@@ -600,7 +583,7 @@ Wir sagen <span class="math notranslate nohighlight">\(f = g\)</span> <strong>fa
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./masstheorie"
+            path: "./complexanalysis"
         },
         predefinedOutput: true
     }
@@ -612,17 +595,17 @@ Wir sagen <span class="math notranslate nohighlight">\(f = g\)</span> <strong>fa
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="masstheorie.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="kurvenintegrale.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">5.1. </span>Maßtheorie</p>
+            <p class="prev-next-title"><span class="section-number">7.2. </span>Kurvenintegrale</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="integrationstechnik.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="../references.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">5.3. </span>Integrationstechniken</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Bibliography</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

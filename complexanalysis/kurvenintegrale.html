@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.2. Kurvenintegrale &#8212; Mathematik für Physikstudierende C</title>
+    <title>7.2. Kurvenintegrale &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../_static/cropped-fau_solo_aufblau_192x192_rgb-180x180.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="7. Bibliography" href="../references.html" />
-    <link rel="prev" title="6.1. Cauchy-Riemann Gleichungen" href="cauchyriemann.html" />
+    <link rel="next" title="7.3. Laurententwicklung und Residuensatz" href="residuensatz.html" />
+    <link rel="prev" title="7.1. Cauchy-Riemann Gleichungen" href="cauchyriemann.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -251,31 +251,48 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../surfaceintegrals/surfaceintegrals.html">
+   6. Integration über Flächen und Mannigfaltigkeiten
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="complexanalysis.html">
-   6. Funktionentheorie
+   7. Funktionentheorie
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="cauchyriemann.html">
-     6.1. Cauchy-Riemann Gleichungen
+     7.1. Cauchy-Riemann Gleichungen
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     6.2. Kurvenintegrale
+     7.2. Kurvenintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="residuensatz.html">
+     7.3. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../references.html">
-   7. Bibliography
+   8. Bibliography
   </a>
  </li>
 </ul>
@@ -357,6 +374,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wege-und-kurven">
+   7.2.1. Wege und Kurven
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#homotopie">
+   7.2.2. Homotopie
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cauchyscher-integralsatz">
+   7.2.3. Cauchyscher Integralsatz
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -369,6 +409,29 @@
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wege-und-kurven">
+   7.2.1. Wege und Kurven
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#homotopie">
+   7.2.2. Homotopie
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cauchyscher-integralsatz">
+   7.2.3. Cauchyscher Integralsatz
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -376,10 +439,12 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="kurvenintegrale">
-<h1><span class="section-number">6.2. </span>Kurvenintegrale<a class="headerlink" href="#kurvenintegrale" title="Link zu dieser Überschrift">¶</a></h1>
+<h1><span class="section-number">7.2. </span>Kurvenintegrale<a class="headerlink" href="#kurvenintegrale" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="wege-und-kurven">
+<h2><span class="section-number">7.2.1. </span>Wege und Kurven<a class="headerlink" href="#wege-und-kurven" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven.</p>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 6.3 </span> (Weg und Kurve)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.3 </span> (Weg und Kurve)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\((X,\tau)\)</span> ein topologischer Raum und <span class="math notranslate nohighlight">\(I = [a,b]\)</span> ein reelles Intervall für <span class="math notranslate nohighlight">\(a,b \in \R\)</span>.
 Wir nennen eine stetige Funktion <span class="math notranslate nohighlight">\(f \colon I \rightarrow X\)</span> einen <strong>Weg</strong> in <span class="math notranslate nohighlight">\(X\)</span>.
@@ -395,16 +460,16 @@ Dies wird im Kontext von Wegen nicht gefordert und es genügt eine einfache stet
 </div>
 <p>Wir wollen im Folgenden annehmen, dass <span class="math notranslate nohighlight">\(f\)</span> eine holomorphe Funktion auf einer offenen Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> ist.
 Wir betrachten <span class="math notranslate nohighlight">\(f(z) \mathrm{d}z\)</span> als die zugehörige <span class="math notranslate nohighlight">\(1\)</span>-Form und außerdem sei <span class="math notranslate nohighlight">\(\gamma \colon I \rightarrow D\)</span> für <span class="math notranslate nohighlight">\(I := [0,1]\)</span> ein glatter Weg.
-Wegen der Jacobischen Transformationsformel in <a class="reference internal" href="../masstheorie/integrationstechnik.html#thm:jacobitransformation">Theorem 5.14</a> gilt dann für das Kurvenintegral von <span class="math notranslate nohighlight">\(f\)</span> bezüglich <span class="math notranslate nohighlight">\(\gamma\)</span></p>
+Wegen der Jacobischen Transformationsformel in <a class="reference internal" href="../masstheorie/integrationstechnik.html#thm:jacobitransformation">Theorem 5.15</a> gilt dann für das Kurvenintegral von <span class="math notranslate nohighlight">\(f\)</span> bezüglich <span class="math notranslate nohighlight">\(\gamma\)</span></p>
 <div class="math notranslate nohighlight" id="equation-eq-kurvenintegral">
-<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-kurvenintegral" title="Permalink to this equation">¶</a></span>\[\int_{\gamma} f(z) \, \mathrm{d}z = \int_I \gamma^*(f(z) \, \mathrm{d}z) = \int_0^1 f(\gamma(t)) \gamma'(t) \, \mathrm{d}t.\]</div>
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-eq-kurvenintegral" title="Permalink to this equation">¶</a></span>\[\int_{\gamma} f(z) \, \mathrm{d}z = \int_I \gamma^*(f(z) \, \mathrm{d}z) = \int_0^1 f(\gamma(t)) \gamma'(t) \, \mathrm{d}t.\]</div>
 <p>Häufig ist die Annahme eines global glatten Weges <span class="math notranslate nohighlight">\(\gamma\)</span> eine zu starke Forderung.
 Es genügt auch zu fordern, dass der Weg <span class="math notranslate nohighlight">\(\gamma\)</span> stückweise glatt ist und aus endlich vielen Teilstücken besteht.
-In diesem Fall lässt sich das Integral <a class="reference internal" href="#equation-eq-kurvenintegral">(6.1)</a> als Summe der Integrale über die Teilstücke schreiben.</p>
+In diesem Fall lässt sich das Integral <a class="reference internal" href="#equation-eq-kurvenintegral">(7.1)</a> als Summe der Integrale über die Teilstücke schreiben.</p>
 <p><strong>ToDo: Abbildung von stückweise glatten Wegen / Kurven</strong></p>
 <p>Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in <span class="math notranslate nohighlight">\(\C\)</span>, den sogenannten Index.</p>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 6.4 </span> (Index)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.4 </span> (Index)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span> und <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> ein beliebiger Punkt außerhalb der zugehörigen Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.
 Wir bezeichnen als <strong>Index</strong> von <span class="math notranslate nohighlight">\(w\)</span> bezüglich des Wegs <span class="math notranslate nohighlight">\(\gamma\)</span> folgende charakteristische Größe</p>
@@ -415,7 +480,7 @@ Sie ist eine <em>topologische Invariante</em>, die anschaulich beschreibt, wie h
 </div>
 </div><p><strong>ToDo: Abbildung mit Beispiel von <a class="reference external" href="https://de.wikipedia.org/wiki/Umlaufzahl_(Mathematik)">Wikipedia</a></strong></p>
 <div class="proof lemma admonition" id="lemma-2">
-<p class="admonition-title"><span class="caption-number">Lemma 6.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 7.1 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span>.
 Dann ist die Abbildung, die jedem Punkt <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> außerhalb der zugehörigen Kurve seinen Index <span class="math notranslate nohighlight">\(\operatorname{Ind_\gamma}(w)\)</span> konstant auf jeder Zusammenhangskomponente bezüglich der Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
@@ -423,8 +488,11 @@ Dann ist die Abbildung, die jedem Punkt <span class="math notranslate nohighligh
 </div><div class="proof admonition" id="proof">
 <p>Proof. Schulz-Baldes S.318f.</p>
 </div>
+</div>
+<div class="section" id="homotopie">
+<h2><span class="section-number">7.2.2. </span>Homotopie<a class="headerlink" href="#homotopie" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 6.5 </span> (Homotopie)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.5 </span> (Homotopie)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(I := [0,1]\)</span> ein reelles Intervall und <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge.
 Wir nennen zwei Wege <span class="math notranslate nohighlight">\(\gamma, \Gamma \colon I \rightarrow D\)</span> <strong>homotop</strong> in der Teilmenge <span class="math notranslate nohighlight">\(D\)</span> genau dann, wenn eine stetige Abbildung <span class="math notranslate nohighlight">\(H \colon I \times I \rightarrow D\)</span> existiert, so dass</p>
@@ -436,7 +504,7 @@ Wir nennen zwei Wege <span class="math notranslate nohighlight">\(\gamma, \Gamma
 Die zugehörigen Äquivalenzklassen werden auch <em>Homotopieklassen</em> genannt.</p>
 <p>Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.</p>
 <div class="proof lemma admonition" id="lemma-4">
-<p class="admonition-title"><span class="caption-number">Lemma 6.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 7.2 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge und seien <span class="math notranslate nohighlight">\(\gamma\)</span> und <span class="math notranslate nohighlight">\(\Gamma\)</span> geschlossene, homotope Wege in <span class="math notranslate nohighlight">\(D\)</span>.
 Sei außerdem <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine holomorphe Funktion.</p>
@@ -449,14 +517,14 @@ Sei außerdem <span class="math notranslate nohighlight">\(f \colon D \rightarro
 </div>
 <p>Eine besondere Klasse von Wegen sind solche, die nullhomotop sind.</p>
 <div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 6.6 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.6 </span> (Nullhomotoper Weg)</p>
 <div class="definition-content section" id="proof-content">
 <p>Wir nennen einen Weg <span class="math notranslate nohighlight">\(\gamma\)</span> <strong>nullhomotop</strong> in einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> genau dann, wenn <span class="math notranslate nohighlight">\(\gamma\)</span> homotop in <span class="math notranslate nohighlight">\(D\)</span> zu einem konstanten Weg ist.</p>
 </div>
 </div><p>Wir realisieren also, dass sich nullhomotope Wege in einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> zu einem Punkt <span class="math notranslate nohighlight">\(w \in D\)</span> zusammenziehen lassen.
 Darüber hinaus zeigt der folgende Satz, dass das Kurvenintegral einer holomorphe Funktionen auf einem nullhomotopen Weg verschwindet.</p>
 <div class="proof theorem admonition" id="theorem-6">
-<p class="admonition-title"><span class="caption-number">Theorem 6.3 </span> (Satz von Cauchy)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.3 </span> (Satz von Cauchy)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(\gamma\)</span> ein nullhomotoper Weg in einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span>, der sich zu einem Punkt <span class="math notranslate nohighlight">\(w \in D\)</span> zusammenziehen lässt.
 Sei darüber hinaus <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine stetige Funktion, welche zudem holomorph auf der Menge <span class="math notranslate nohighlight">\(D \setminus \{w\}\)</span> sei.</p>
@@ -467,10 +535,13 @@ Sei darüber hinaus <span class="math notranslate nohighlight">\(f \colon D \rig
 </div><div class="proof admonition" id="proof">
 <p>Proof. Schulz-Baldes S.322</p>
 </div>
+</div>
+<div class="section" id="cauchyscher-integralsatz">
+<h2><span class="section-number">7.2.3. </span>Cauchyscher Integralsatz<a class="headerlink" href="#cauchyscher-integralsatz" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
 Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen.</p>
 <div class="proof theorem admonition" id="theorem-7">
-<p class="admonition-title"><span class="caption-number">Theorem 6.4 </span> (Cauchyscher Integralsatz)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.4 </span> (Cauchyscher Integralsatz)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> ein Sterngebiet, d.h., <span class="math notranslate nohighlight">\(D\)</span> ist eine offene Menge in der mindestens einen Punkt <span class="math notranslate nohighlight">\(z_0 \in \C\)</span> gibt, so dass die Verbindungsstrecke jedes beliebigen Punktes <span class="math notranslate nohighlight">\(z \in D\)</span> zu <span class="math notranslate nohighlight">\(z_0\)</span> vollständig in <span class="math notranslate nohighlight">\(D\)</span> liegt.
 Sei außerdem <span class="math notranslate nohighlight">\(\gamma\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(D\)</span>.</p>
@@ -482,9 +553,9 @@ Sei außerdem <span class="math notranslate nohighlight">\(\gamma\)</span> ein g
 <p>Proof. Schulz-Baldes S.323</p>
 </div>
 <p>Wir werden den Cauchyschen Integralsatz später noch in Form des sogenannten <em>Residuensatzes</em> stark verallgemeinern.
-Für den Moment erlaubt uns dessen Aussage jedoch zu zeigen, dass jede holomorphe Funktion bereits analytisch ist, was die Umkehrung zu <a class="reference internal" href="cauchyriemann.html#thm:analytischHolomorph">Theorem 6.2</a> ist.</p>
+Für den Moment erlaubt uns dessen Aussage jedoch zu zeigen, dass jede holomorphe Funktion bereits analytisch ist, was die Umkehrung zu <a class="reference internal" href="cauchyriemann.html#thm:analytischHolomorph">Theorem 7.2</a> ist.</p>
 <div class="proof theorem admonition" id="theorem-8">
-<p class="admonition-title"><span class="caption-number">Theorem 6.5 </span> (Holomorphe Funktionen sind analytisch)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.5 </span> (Holomorphe Funktionen sind analytisch)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt in einer offenen Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span>.
 Sei außerdem <span class="math notranslate nohighlight">\(f \colon B_\epsilon(z_0) \rightarrow \C\)</span> eine holomorphe Funktion.</p>
@@ -503,7 +574,7 @@ Sei außerdem <span class="math notranslate nohighlight">\(f \colon B_\epsilon(z
 </div>
 <p>Das folgende Korollar erlaubt eine direkte Abschätzung der <span class="math notranslate nohighlight">\(n\)</span>-ten Ableitung einer holomorphen Funktion.</p>
 <div class="proof corollary admonition" id="corollary-9">
-<p class="admonition-title"><span class="caption-number">Corollary 6.1 </span> (Cauchy-Abschätzungen)</p>
+<p class="admonition-title"><span class="caption-number">Corollary 7.1 </span> (Cauchy-Abschätzungen)</p>
 <div class="corollary-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt in einer offenen Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span>.
 Außerdem sei <span class="math notranslate nohighlight">\(f \colon B_\epsilon(z_0) \rightarrow \C\)</span> eine holomorphe Funktion.
@@ -511,37 +582,7 @@ Dann gilt für alle <span class="math notranslate nohighlight">\(0 &lt; \epsilon
 <div class="math notranslate nohighlight">
 \[|f^{(n)}(z_0)| \ \leq \ \frac{n!}{\epsilon'^n} \max_{|z - z_0|=\epsilon'} |f(z)|.\]</div>
 </div>
-</div><p>Nun beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.</p>
-<div class="proof definition admonition" id="definition-10">
-<p class="admonition-title"><span class="caption-number">Definition 6.7 </span> (Singularitäten)</p>
-<div class="definition-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.</p>
-<p>1. Wenn <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> eine holomorphe Funktion ist.
-Dann nennen wir den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>isolierte Singularität</strong> von <span class="math notranslate nohighlight">\(f\)</span>.</p>
-<p>2. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>hebbare Singularität</strong>, wenn <span class="math notranslate nohighlight">\(z_0\)</span> eine isolierte Singularität einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> ist und es eine holomorphe Funktion <span class="math notranslate nohighlight">\(g \colon D \rightarrow \C\)</span> gibt, so dass <span class="math notranslate nohighlight">\(g(z) = f(z)\)</span> gilt für alle <span class="math notranslate nohighlight">\(z \in D \setminus \{z_0\}\)</span>.</p>
-<p>3. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> einen <strong>Pol</strong>, wenn für alle Folgen <span class="math notranslate nohighlight">\(z_n \rightarrow z_0\)</span> gilt</p>
-<div class="math notranslate nohighlight">
-\[\lim_{n\rightarrow \infty} |f(z_n)| = \infty.\]</div>
-<p>4. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>wesentliche Singularität</strong>, wenn <span class="math notranslate nohighlight">\(z_0\)</span> weder hebbar noch Pol ist.</p>
-</div>
-</div><p>Der Satz von Casorati-Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.</p>
-<div class="proof remark admonition" id="remark-11">
-<p class="admonition-title"><span class="caption-number">Remark 6.1 </span> (Casorati-Weierstraß)</p>
-<div class="remark-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.</p>
-<p>Der Punkt <span class="math notranslate nohighlight">\(z_0\)</span> ist genau dann eine wesentliche Singularität einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>, wenn für alle <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> die Menge der Funktionswerte <span class="math notranslate nohighlight">\(f(B_\epsilon(z_0)) \setminus \{z_0\})\)</span> dicht in <span class="math notranslate nohighlight">\(\C\)</span> liegt.</p>
-</div>
-</div><p><strong>ToDo: Hier Beispiel zu Singularitäten? Schulz-Baldes S.329</strong></p>
-<div class="proof theorem admonition" id="theorem-12">
-<p class="admonition-title"><span class="caption-number">Theorem 6.6 </span> (Riemannscher Hebbarkeitssatz)</p>
-<div class="theorem-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.
-Sei außerdem <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> eine holomorphe Funktion.
-Falls eine Umgebung <span class="math notranslate nohighlight">\(U \subset D\)</span> von <span class="math notranslate nohighlight">\(z_0\)</span> gibt, so dass <span class="math notranslate nohighlight">\(f\)</span> auf <span class="math notranslate nohighlight">\(U \setminus \{z_0\}\)</span> beschränkt ist, so kann man einen Funktionswert <span class="math notranslate nohighlight">\(f(z_0)\)</span> in <span class="math notranslate nohighlight">\(z_0\)</span> so wählen, dass die Funktion <span class="math notranslate nohighlight">\(f\)</span> auf der gesamten Teilmenge <span class="math notranslate nohighlight">\(D\)</span> holomorph ist, d.h., der Punkt <span class="math notranslate nohighlight">\(z_0\)</span> ist eine hebbare Singularität.</p>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Schulz-Baldes S.327</p>
-</div>
+</div></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -573,13 +614,13 @@ Falls eine Umgebung <span class="math notranslate nohighlight">\(U \subset D\)</
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">6.1. </span>Cauchy-Riemann Gleichungen</p>
+            <p class="prev-next-title"><span class="section-number">7.1. </span>Cauchy-Riemann Gleichungen</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../references.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="residuensatz.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Bibliography</p>
+        <p class="prev-next-title"><span class="section-number">7.3. </span>Laurententwicklung und Residuensatz</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
