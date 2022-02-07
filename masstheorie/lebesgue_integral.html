@@ -471,7 +471,7 @@
 <div class="math notranslate nohighlight">
 \[f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{A}(\R^n).\]</div>
 </div>
-</div><p>Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem <span class="math notranslate nohighlight">\(\sigma\)</span>-Operator vertauschen lässt, wobei für <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> die Menge <span class="math notranslate nohighlight">\(\sigma(\mathcal{C})\)</span> gerade die kleinste <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra ist welche <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> enthält siehe ??.</p>
+</div><p>Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem <span class="math notranslate nohighlight">\(\sigma\)</span>-Operator vertauschen lässt, wobei für <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> die Menge <span class="math notranslate nohighlight">\(\sigma(\mathcal{C})\)</span> gerade die kleinste <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra ist welche <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> enthält siehe <a class="reference internal" href="masstheorie.html#s-sigmaalg"><span class="std std-ref">\sigma-Algebren und Maße</span></a>.</p>
 <div class="proof lemma admonition" id="lemma-2">
 <p class="admonition-title"><span class="caption-number">Lemma 5.12 </span></p>
 <div class="lemma-content section" id="proof-content">
@@ -483,7 +483,7 @@
 <p>Proof. ToDo
 <a class="reference external" href="https://www.fau.tv/clip/id/40563">Vorlesung</a> ab 29:52.</p>
 </div>
-<p>Mit diesem Lemma können wir folgende Beziehungen zeigen.</p>
+<p>Mit diesem Lemma können wir die folgenden Aussagen zeigen.</p>
 <div class="proof lemma admonition" id="lemma-3">
 <p class="admonition-title"><span class="caption-number">Lemma 5.13 </span></p>
 <div class="lemma-content section" id="proof-content">
@@ -499,7 +499,19 @@
 </div>
 <div class="section" id="charakterisierung-uber-niveaumengen">
 <h2><span class="section-number">5.2.2. </span>Charakterisierung über Niveaumengen<a class="headerlink" href="#charakterisierung-uber-niveaumengen" title="Link zu dieser Überschrift">¶</a></h2>
-<div class="proof remark admonition" id="remark-4">
+<p>Im Falle von Borel und Lebesgue-Messbarkeit haben wir als Zielalgebra <span class="math notranslate nohighlight">\(\B(\overline{R})\)</span> betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.</p>
+<div class="proof lemma admonition" id="lemma-4">
+<p class="admonition-title"><span class="caption-number">Lemma 5.14 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\((\Omega,\Sigma)\)</span> ein Messraum, eine Funktion <span class="math notranslate nohighlight">\(f:\Omega\to\overline{R}\)</span> eine Funktion ist genau dann messbar bezüglich <span class="math notranslate nohighlight">\(\Sigma\)</span>, falls
+für die Niveaumengen gilt</p>
+<div class="math notranslate nohighlight">
+\[\{f&lt; c\}\in\Sigma\quad\forall c\in\R.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. ToDo.</p>
+</div>
+<div class="proof remark admonition" id="remark-5">
 <p class="admonition-title"><span class="caption-number">Remark 5.7 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>1. Konkatenation von messbaren Funktionen ist wieder eine messbare Funktion.</p>
@@ -512,7 +524,7 @@ Dann sind <span class="math notranslate nohighlight">\(\inf(f_n), \sup(f_n), \li
 <h2><span class="section-number">5.2.3. </span>Das Lebesgue-Integral<a class="headerlink" href="#das-lebesgue-integral" title="Link zu dieser Überschrift">¶</a></h2>
 <p>ToDo Definition</p>
 <div class="proof lemma admonition" id="lem:simplefun">
-<p class="admonition-title"><span class="caption-number">Lemma 5.14 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.15 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(f \colon \Omega \subset \R^n \rightarrow [0,\infty]\)</span> eine Lebesgue-messbare Funktion.
 Dann existiert eine monoton wachsende Folge <span class="math notranslate nohighlight">\((T_n)_{n_\in N}\)</span> von Treppenfunktionen mit</p>
@@ -525,7 +537,7 @@ Dann existiert eine monoton wachsende Folge <span class="math notranslate nohigh
 </div><div class="proof admonition" id="proof">
 <p>Proof. ToDo</p>
 </div>
-<div class="proof definition admonition" id="definition-6">
+<div class="proof definition admonition" id="definition-7">
 <p class="admonition-title"><span class="caption-number">Definition 5.20 </span> (Lebesgue-Integral für nichtnegative Funktionen)</p>
 <div class="definition-content section" id="proof-content">
 <p>1. Für Lebesgue-messbare Mengen <span class="math notranslate nohighlight">\(A_i, i=1,\ldots,N\)</span> und nicht-negative Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i, i=1,\ldots,N\)</span> definieren wir das <strong>Lebesgue-Integral</strong> einer positiven <em>Treppenfunktion</em> <span class="math notranslate nohighlight">\(T = \sum_{i=1}^N \alpha_i \chi_{A_i}\)</span> als</p>
@@ -539,7 +551,7 @@ Dann ist das <strong>Lebesgue-Integral</strong> von <span class="math notranslat
 <div class="math notranslate nohighlight">
 \[\int_D \mu(\mathrm{d}x) f(x) = \lim_{n\rightarrow \infty} \int \mu(\mathrm{d}x) f_n(x) = \sup_n \int \mu(\mathrm{d}x) f_n(x) \in [0,\infty].\]</div>
 </div>
-</div><div class="proof theorem admonition" id="theorem-7">
+</div><div class="proof theorem admonition" id="theorem-8">
 <p class="admonition-title"><span class="caption-number">Theorem 5.8 </span> (Eigenschaften des Lebesgue-Integrals)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Das Lebesgue-Integral ist <em>wohldefiniert</em>, d.h., sein Wert ist unabhängig von der gewählten Folge von Treppenfunktionen <span class="math notranslate nohighlight">\((T_n)_{n\in\N}\)</span>.
@@ -552,10 +564,10 @@ f \leq g \quad \Rightarrow \quad \int \mu(\mathrm{d}x) f(x) \leq \int \mu(\mathr
 <p>Proof. ToDo</p>
 </div>
 <div class="proof lemma admonition" id="lem:levi">
-<p class="admonition-title"><span class="caption-number">Lemma 5.15 </span> (Satz von Beppo Levi)</p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.16 </span> (Satz von Beppo Levi)</p>
 <div class="lemma-content section" id="proof-content">
 </div>
-</div><div class="proof definition admonition" id="definition-9">
+</div><div class="proof definition admonition" id="definition-10">
 <p class="admonition-title"><span class="caption-number">Definition 5.21 </span> (Allgemeines Lebesgue-Integral)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(f \colon \R^n \rightarrow \R\)</span> eine Lebesgue-messbare Funktion.
@@ -573,15 +585,15 @@ Dann können wir das <strong>Lebesgue-Integral</strong> von <span class="math no
 <div class="math notranslate nohighlight">
 \[\mu(f) \hat{=} \int \mu(\mathrm{d}x) f(x) \hat{=} \int f(x) \mathrm{d}x.\]</div>
 </div>
-</div><div class="proof lemma admonition" id="lemma-10">
-<p class="admonition-title"><span class="caption-number">Lemma 5.16 </span></p>
+</div><div class="proof lemma admonition" id="lemma-11">
+<p class="admonition-title"><span class="caption-number">Lemma 5.17 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Das Lebesgue-Integral ist eine linearer und monotoner Operator auf der Menge der Lebesgue-integrierbaren Funktionen.</p>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. ToDo</p>
 </div>
-<div class="proof definition admonition" id="definition-11">
+<div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 5.22 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Seien <span class="math notranslate nohighlight">\(f,g \colon \R^n \rightarrow \overline{\R}\)</span> Lebesgue-messbare Funktionen.

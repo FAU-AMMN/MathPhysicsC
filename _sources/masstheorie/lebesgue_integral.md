@@ -49,7 +49,7 @@ f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{A}(\R^n).
 ```
 ````
 
-Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem $\sigma$-Operator vertauschen lässt, wobei für $\mathcal{C}\subset 2^\Omega$ die Menge $\sigma(\mathcal{C})$ gerade die kleinste $\sigma$-Algebra ist welche $\mathcal{C}$ enthält siehe ??.
+Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem $\sigma$-Operator vertauschen lässt, wobei für $\mathcal{C}\subset 2^\Omega$ die Menge $\sigma(\mathcal{C})$ gerade die kleinste $\sigma$-Algebra ist welche $\mathcal{C}$ enthält siehe {ref}`s:sigmaalg`.
 
 ````{prf:lemma}
 Es sei $f:\Omega_1\to\Omega_2$ eine Funktion und $\mathcal{C}\subset 2^{\Omega_2}$ ein Teilmengensystem, dann gilt
@@ -64,7 +64,7 @@ ToDo
 [Vorlesung](https://www.fau.tv/clip/id/40563) ab 29:52.
 ````
 
-Mit diesem Lemma können wir folgende Beziehungen zeigen.
+Mit diesem Lemma können wir die folgenden Aussagen zeigen.
 
 ````{prf:lemma}
 1. Borel-messbare Funktionen sind Lebesgue-messbar
@@ -78,6 +78,20 @@ ToDo
 
 ## Charakterisierung über Niveaumengen
 
+Im Falle von Borel und Lebesgue-Messbarkeit haben wir als Zielalgebra $\B(\overline{R})$ betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.
+
+````{prf:lemma}
+Es sei $(\Omega,\Sigma)$ ein Messraum, eine Funktion $f:\Omega\to\overline{R}$ eine Funktion ist genau dann messbar bezüglich $\Sigma$, falls
+für die Niveaumengen gilt
+
+```{math}
+\{f< c\}\in\Sigma\quad\forall c\in\R.
+```
+````
+
+````{prf:proof}
+ToDo.
+````
 
 ````{prf:remark}
 
