@@ -114,7 +114,7 @@ dass
 \mathcal{R}(\R^{n+m})\subset \B(\R^n)\otimes \B(\R^m).
 ```
 
-Weiterhin wissen wir aber auch nach ??, dass $\sigma(\mathcal{R}(\R^{n+m})) = \B(\R^{n+m})$ und somit
+Weiterhin wissen wir aber auch nach {ref}`s:gentop`, dass $\sigma(\mathcal{R}(\R^{n+m})) = \B(\R^{n+m})$ und somit
 
 ```{math}
 \B(\R^{n+m})\subset \B(\R^n)\otimes \B(\R^m).
@@ -374,23 +374,15 @@ Es sei $\Omega$ eine Menge, ein Teilmengensystem $\mathcal{C}\subset 2^\Omega$ h
 ```
 ````
 
-Offensichtlich ist jede $\sigma$-Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen. Betrachtet man aber analog zur kleinsten von $\mathcal{C}$ erzeugten $\sigma$-Algebra die kleinste von $\mathcal{C}$ erzeugt monotone Klasse $\text{M}\big[\mathcal{C}\big]$ so gilt folgendes technisches Lemma.
+Offensichtlich ist jede $\sigma$-Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen.
+Weiterhin arbeiten wir in diesem Kontext zusätzlich mit Mengenalgebren anstatt nur mit Mengenringen.
 
-````{prf:lemma} Monotone Klassen Lemma
-:label: lem:monclass
-
-Es sei $\mathcal{C}$ ein Mengen-Ring, dann gilt
-
-```{math}
-\sigma(\mathcal{C}) = \text{M}\big[\mathcal{C}\big].
-```
+````{prf:definition}
+Es sei $\mathcal{R}$ ein Mengenring über der Menge $\Omega$, gilt auch $\Omega\in\mathcal{R}$, dann nennen wir $\mathcal{R}$ **Mengenalgebra**.
 ````
 
-````{prf:proof}
-Siehe z.B. {cite:p}`tao_2011` Lemma 1.7.14.
-````
-
-Für zwei $\sigma$-Algebren ist das kartesische Produkt $\Sigma_1\times\Sigma_2$ i.A. kein Mengen-Ring, die Menge
+````{prf:remark}
+Für zwei $\sigma$-Algebren ist das kartesische Produkt $\Sigma_1\times\Sigma_2$ i.A. keine Mengenalgebra, die Menge
 
 ```{math}
 \Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}
@@ -401,8 +393,25 @@ allerdings schon und sie erzeugt offensichtlich auch die Produkt-$\sigma$-Algebr
 ```{math}
 \sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.
 ```
+````
 
-Auf $\Sigma_1\diamond\Sigma_2$ können wir dann auch das monotone Klasse Lemma anwenden, womit wir nun das Prinzip von Cavalieri beweisen.
+Betrachtet man analog zur kleinsten von $\mathcal{C}$ erzeugten $\sigma$-Algebra die kleinste von $\mathcal{C}$ erzeugt monotone Klasse $\text{M}\big[\mathcal{C}\big]$ so gilt folgendes hilfreiches Lemma.
+
+````{prf:lemma} Monotone Klassen Lemma
+:label: lem:monclass
+
+Es sei $\mathcal{C}$ eine Mengenalgebra, dann gilt
+
+```{math}
+\sigma(\mathcal{C}) = \text{M}\big[\mathcal{C}\big].
+```
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`tao_2011` Lemma 1.7.14.
+````
+
+Mithilfe des monotone Klassen Lemmas und den vorherigen Überlegungen können wir nun das Prinzip von Cavalieri beweisen.
 
 ````{prf:theorem} Das Prinzip von Cavalieri
 :label: thm:cavalieri

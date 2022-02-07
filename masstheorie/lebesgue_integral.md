@@ -1,16 +1,16 @@
 # Lebesgue-Integral
 
-Anhand des in ?? konstruirten MAßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion $f:\Omega\to\R$ zu zerteilen. Dies führt auf das Problem, dass man Urbildern
+Anhand des in {ref}`s:lebesguemeasure` konstruirten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion $f:\Omega\to\R$ zu zerteilen. Dies führt auf das Problem, dass man Urbildern
 
 ```{math}
 f^{-1}(I)
 ```
 
-für Mengen $I\subset\R$ ein Maß zuordnen muss. Dies soll im Folgenden mithilfe des Lebesgue-Maßes geschehen. Um $f^{-1}(I)$ allerdings im Lebesgue-Maß auswerten zu können, müssen wir voraussetzen, dass diese Menge messbar ist. Dies führt auf spezielle Anforderungen an die Funktion $f$.
+für Mengen $I\subset\R$ ein Maß zuordnen muss. Dies soll im Folgenden mithilfe des Lebesgue-Maßes geschehen. Um $f^{-1}(I)$ allerdings im Lebesgue-Maß auswerten zu können, müssen wir voraussetzen, dass diese Menge messbar ist, was zu speziellen Anforderungen an die Funktion $f$ führt, welche wir im nächsten Abschnitt behandeln.
 
 ## Messbare Funktionen
 
-Wir beginnen mit der Definition von messbaren Funktionen. Wir benutzen hierbei den Begriff eines **Messraums** der anders als ein MAßraum nur eine Grundmenge und eine $\sigma$-Algebra voraussetzt und kein Maß beinhaltet.
+Wir beginnen mit der Definition von messbaren Funktionen. Wir benutzen hierbei den Begriff eines **Messraums** der anders als ein Maßraum nur eine Grundmenge und eine $\sigma$-Algebra voraussetzt und kein Maß beinhaltet.
 
 ````{prf:definition} Messbarkeit von Funktionen
 Es seien $(\Omega_1,\Sigma_1), (\Omega_1,\Sigma_1)$ zwei Messräume und $f:\Omega_1\to\Omega_2$ eine Funktion, dann nennen wir $f$ **messbar**, falls
@@ -33,17 +33,21 @@ womit sich die Messbarkeit einer Funktion äquivalent auch durch die Bedingung
 f^{-1}(\Sigma_2)\subset\Sigma_1
 ```
 
-schreiben lässt. In diesem Kapitel wollen wir speziell Funktionen $f:\Omega\to\overline{\R}$ betrachten wobei $\Omega\subset\R^d$. Hierbei nennen wir $f$ **Borel-messbar**, falls
+schreiben lässt. In diesem Kapitel wollen wir speziell Funktionen $f:\Omega\to\overline{\R}$ betrachten wobei $\Omega\subset\R^n$.
+
+````{prf:definition}
+Wir nennen eine Funktion $f:\R^n\to\overline{R}$ **Borel-messbar**, falls
 
 ```{math}
-f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{B}(\R^d).
+f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{B}(\R^n).
 ```
 
 Analog nennen wir $f$ **Lebesgue-messbar**, falls
 
 ```{math}
-f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{A}.
+f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{A}(\R^n).
 ```
+````
 
 Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem $\sigma$-Operator vertauschen lässt, wobei für $\mathcal{C}\subset 2^\Omega$ die Menge $\sigma(\mathcal{C})$ gerade die kleinste $\sigma$-Algebra ist welche $\mathcal{C}$ enthält siehe ??.
 
