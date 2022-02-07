@@ -16,76 +16,111 @@ Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaf
 
 ## $\sigma$-Algebren und Maße
 
-Wir betrachten im Folgenden immer eine zu Grunde liegende Menge $\Omega$.
-Diese kann endlich, abzählbar unendlich oder auch überabzählbar unendlich sein.
-Wir betrachten nun die **Potenzmenge** $2^\Omega \equiv\mathcal{P}(\Omega)$ von $\Omega$, welche die Menge aller möglichen Teilmengen von $\Omega$ bildet.
-Solche Mengen von Mengen nennen wir häufig *Mengensysteme*.
-In der Maßtheorie sind bestimmte Mengensysteme $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ zentral, nämlich die der *meßbaren* Teilmengen von $\Omega$.
-Das sind die Mengen, denen ein Maß zugeordnet werden kann, also eine nichtnegative Zahl oder unendlich.
+Wir betrachten im Folgenden eine beliebige zu Grundmenge $\Omega$, welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von $\Omega$ einen Wert zuordnen weshalb wir die **Potenzmenge** $2^\Omega$ betrachten, welche die Menge aller möglichen Teilmengen von $\Omega$ bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe {prf:ref}`def:mass`) eine spezielle Abbildung $\mu:\Sigma\to[0,\infty]$, wobei $\Sigma\subset\2^\Omega$ ein Mengensystem ist, welches man auch System der $\mu$-messbaren Mengen nennt.
 
-Zunächst müssen wir klären, welche Teilmengen der Grundmenge $\Omega$ überhaupt messbar sein sollen.
-Am Einfachsten wäre es natürlich, alle möglichen Teilmengen messen zu können, also als Mengensystem $\mathcal{A} = \mathcal{P}(M)$ zu betrachten.
-Wir wir sehen werden ist dies leider nicht immer möglich, denn es existieren *nichtmessbare Mengen*.
-Es hat sich herausgestellt, dass es vernünftig ist zu fordern, dass das Mengensystem $\mathcal{A}$ eine sogenannte $\sigma$-Algebra ist, welche wir in der folgenden Definition einführen werden.
+```{note}
+Mengen von Mengen nennen wir häufig auch *Mengensysteme*.
+```
+
+Bei der Konstruktion eines Maßes gibt es zwei teilweise konkurrierende Wünsche:
+
+1. Möglichst vielen Mengen soll ein Volumen zugeordnet werden können, d.h., $\Sigma$ soll groß sein.
+
+2. Das Maß disjunkt vereinigter Mengen soll gleich der Summe der einzelnen Maße sein.
+
+Der erste Wunsch würde darauf hindeuten die Potenzmenge $2^\Omega$ als System der messbaren Mengen zu betrachten. Allerdings gibt es viele Fälle (siehe {ref}`s:vitali`) in welchen diese Wahl den zweiten Wunsch unmöglich machen. Deshalb ist die Strategie meist ein möglichst großes Teilmengensystem zu finden, s.d. der zweite Wunsch erfüllbar ist. Die Klasse von Systemen auf der wir im Folgenden arbeiten werden, sind sogenannte $\sigma$-Algebren.
 
 ````{prf:definition} $\sigma$-Algebra und Messraum
 :label: def:sigmaalgebra
-Ein Mengensystem $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ heißt **$\sigma$-Algebra (von $\Omega$)**, wenn die folgenden Eigenschaften erfüllt sind
+Ein Mengensystem $\Sigma \subseteq 2^\Omega$ heißt **$\sigma$-Algebra (von $\Omega$)**, wenn die folgenden Eigenschaften erfüllt sind
 
-1. $\Omega\in \mathcal{A}$
+1. $\Omega\in \Sigma$
 
-2. $A\in \mathcal{A} \quad \Rightarrow \quad A^c:=\Omega \setminus A\in \mathcal{A}$
+2. $A\in \Sigma \quad \Rightarrow \quad A^c:=\Omega \setminus A\in \Sigma$
 
-3. $(A_n)_{n\in\N} \in \mathcal{A} \quad \Rightarrow \quad \bigcup_{n\in \N} A_n\in \mathcal{A}$.
+3. $(A_n)_{n\in\N} \in \Sigma \quad \Rightarrow \quad \bigcup_{n\in \N} A_n\in \Sigma$.
 
-Für eine $\sigma$-Algebra $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ von $\Omega$ nennen wir das Paar ($\Omega,\mathcal{A}$) **Messraum** und die Mengen des Mengensystems $\mathcal{A}$ heißen **messbar**.
+Für eine $\sigma$-Algebra $\Sigma \subseteq \mathcal{P}(\Omega)$ von $\Omega$ nennen wir das Paar ($\Omega,\Sigma$) **Messraum** und die Mengen des Mengensystems $\Sigma$ heißen **messbar**.
 ````
 
-Das Symbol $\sigma$ erinnert uns an den Begriff der Summe, insbesondere wegen der dritten Eigenschaft in {prf:ref}`def:sigmaalgebra`, also der Abgeschlossenheit unter abzählbarer Vereinigung von Teilmengen.
+Das Symbol $\sigma$ erinnert an den Begriff der Summe, insbesondere wegen der dritten Eigenschaft in {prf:ref}`def:sigmaalgebra`, also der Abgeschlossenheit unter abzählbarer Vereinigung von Teilmengen.
 Aus diesen drei Eigenschaften lässt sich auch direkt zeigen, dass $\sigma$-Algebren ebenfalls unter *abzählbaren Schnitten* abgeschlossen sind, wie das folgende Lemma zeigt.
 
 ````{prf:lemma} Abgeschlossenheit unter abzählbaren Schnitten
-Es sei ($\Omega,\mathcal{A}$) ein Messraum und es sei $(A_n)_{n\in_\N}$ eine Familie von Elementen der $\sigma$-Algebra $\mathcal{A}$ mit $A_n \in \mathcal{A}$ für $n \in \N$.
-Dann sind abzählbare Schnitte dieser Mengen auch Elemente der $\sigma$-Algebra $\mathcal{A}$, d.h.,
+Es sei ($\Omega,\Sigma$) ein Messraum und es sei $(A_i)_{i\in_\N}$ eine Familie von Elementen der $\sigma$-Algebra $\Sigma$ mit $A_i \in \Sigma$ für $i \in \N$.
+Dann sind abzählbare Schnitte dieser Mengen auch Elemente der $\sigma$-Algebra $\Sigma$, d.h.,
 
 ```{math}
-\bigcap_{n \in \N} A_n \in \mathcal{A}.
+\bigcap_{n \in \N} A_n \in \Sigma.
 ```
 ````
 
 ````{prf:proof}
-In der Hausaufgabe zu zeigen.
+Es reicht die Aussage für $n=2$ zu zeigen. Seien dazu $A_1,A_2\in\Sigma$, dann folgt $A_1^C,A_2^C\in\Sigma$ und somit auch $A^C\cup A_2^C\in\Sigma$. Und somit folgt
+
+```{math}
+A_1\cap A_2 = (A_1^C\cup A_2^C)^C \in \Sigma.
+```
 ````
 
 Aus der {prf:ref}`def:sigmaalgebra` kann man sich leicht zwei Spezialfälle von $\sigma$-Algebren überlegen.
 Es wird klar, dass das Mengensystem $\{\emptyset, \Omega\}$ die kleinstmögliche $\sigma$-Algebra bildet, wohingegen die Potenzmenge $\mathcal{P}(\Omega)$ die größtmögliche $\sigma$-Algebra darstellt.
 
-Basierend auf dem Begriff einer $\sigma$-Algebra und eines Messraums können wir nun formal einführen, was wir mathematisch unter einem Maß verstehen.
+Für ein beliebiges Mengensystem $\mathcal{C}\subset 2^\Omega$ können wir zusätzlich die erzeugt $\sigma$-Algebra betrachten, welche die kleinste $\sigma$-Algebra ist die $\mathcal{C}$ enthält.
+
+````{prf:definition} Erzeugte $\sigma$-Algebra
+Es sei $\mathcal{C}\subset 2^\Omega$ ein Mengensystem, dann bezeichnen wir mit 
+
+```{math}
+\sigma(\mathcal{C}) := \bigcup_{\substack{\Sigma \text{ ist $\sigma$-Algebra}\\ \mathcal{C} \subset \Sigma}} \Sigma
+```
+
+die von $\mathcal{C}$ erzeugte $\sigma$-Algebra.
+````
+
+Für die erzeugt $\sigma$-Algebra, haben wir folgende Eigenschaften.
+
+````{prf:lemma}
+Es sei $\mathcal{C}\subset 2^\Omega$ ein Mengensystem, dann gilt
+
+1. $\sigma(\mathcal{C})$ ist eine $\sigma$-Algebra.
+
+2. $\sigma(\mathcal{C})$ ist die kleinste $\sigma$-Algebra die $\mathcal{C}$ enthält, d.h., falls $\mathcal{C}\subset\Sigma$ eine weitere $\sigma$-Algebra ist, so folgt $\sigma(\mathcal{C})\subset\Sigma$.
+
+3. Falls $\mathcal{C}$ selbst eine $\sigma$-Algebra ist, so folgt $\sigma(\mathcal{C}) = \mathcal{C}$.
+````
+
+````{prf:proof}
+Übung.
+````
+
+## Maße
+
+Basierend auf dem Begriff einer $\sigma$-Algebra und eines Messraums können wir nun formal einführen, was wir unter einem Maß verstehen.
 
 ````{prf:definition} Maß und Maßraum
 :label: def:mass
 
-Sei $(\Omega, \mathcal{A})$ ein Messraum.
-Wir nennen eine Abbildung $\mu: \mathcal{A}\to [0, \infty]$ **Maß**, wenn die folgenden beiden Eigenschaften erfüllt sind.
+Sei $(\Omega, \Sigma)$ ein Messraum.
+Wir nennen eine Abbildung $\mu: \Sigma\to [0, \infty]$ **Maß**, wenn die folgenden beiden Eigenschaften erfüllt sind.
 
 1. Die leere Menge hat das Maß Null, d.h., $\mu(\emptyset) = 0$,
 
-2. Für eine Familie von disjunkten Mengen $(A_n)_{n\in\N}$ der $\sigma$-Algebra $\mathcal{A}$ mit $A_i \cap A_j = \emptyset$ für $i \neq j$ gilt die sogenannte abzählbare oder $\sigma$-**Additivität**, d.h.,
+2. Für eine Familie von disjunkten Mengen $(A_n)_{n\in\N}$ der $\sigma$-Algebra $\Sigma$ mit $A_i \cap A_j = \emptyset$ für $i \neq j$ gilt die sogenannte abzählbare oder $\sigma$-**Additivität**, d.h.,
 
 ```{math}
 \mu\left( \bigcup_{n\in\N}A_n \right) = \sum_{n\in\N}\mu (A_n).
 ```
 
 Wir nennen das Maß $\mu$ **endlich**, wenn $\mu(\Omega)<\infty$.
-Das Tripel aus zu Grunde liegender Menge, $\sigma$-Algebra und Maß $(\Omega, \mathcal{A}, \mu)$ wird als **Maßraum** bezeichnet.
+Das Tripel $(\Omega, \Sigma, \mu)$ wird als **Maßraum** bezeichnet.
 
 ````
 
 ````{prf:remark}
 :label: rem:wahrscheinlichkeitsmass
 
-Maße spielen insbesondere in der *Wahrscheinlichkeitstheorie* eine zentrale Rolle.
-Hier werden Sie die benötigt um die Wahrscheinlichkeit von Ereignismengen anzugeben.
+Maße spielen insbesondere in der *Wahrscheinlichkeitstheorie* eine zentrale Rolle, um die Wahrscheinlichkeit von Ereignismengen anzugeben.
 Dabei wird nicht nur gefordert, dass das Maß $\mu$ endlich sein muss, sondern dass sogar $\mu(\Omega)=1$ gilt, damit es sich um ein **Wahrscheinlichkeitsmaß** handelt.
 Diese finden vor allem in der Quantenmechanik Anwendung.
 ````
@@ -93,22 +128,22 @@ Diese finden vor allem in der Quantenmechanik Anwendung.
 Aus den beiden grundlegenden Eigenschaften eines Maßes lassen sich weitere nützliche Eigenschaften herleiten, wie das folgende Lemma beschreibt.
 
 ````{prf:lemma} Eigenschaften von Maßen
-Sei $(\Omega, \mathcal{A}, \mu)$ ein Maßraum.
-Dann gelten die folgenden Eigenschaften für das Maß $\mu \colon \mathcal{A} \rightarrow [0,\infty]$.
+Sei $(\Omega, \Sigma, \mu)$ ein Maßraum.
+Dann gelten die folgenden Eigenschaften für das Maß $\mu \colon \Sigma \rightarrow [0,\infty]$.
 
-1\. Für $A,B \in \mathcal{A}$ mit $B \subset A$ und $\mu(B) < \infty$ gilt:
+1\. Für $A,B \in \Sigma$ mit $B \subset A$ und $\mu(B) < \infty$ gilt:
 
 ```{math}
 \mu(A \setminus B) = \mu(A) - \mu(B) \qquad \text{(Subtraktivität)}
 ```
 
-2\. Für $A,B \in \mathcal{A}$ mit $B \subset A$ gilt:
+2\. Für $A,B \in \Sigma$ mit $B \subset A$ gilt:
 
 ```{math}
 \mu(B) \leq \mu(A) \qquad \text{(Monotonie)}
 ```
 
-3\. Für $A,B \in \mathcal{A}$ gilt stets:
+3\. Für $A,B \in \Sigma$ gilt stets:
 
 ```{math}
 \mu(A \cup B) = \mu(A) + \mu(B) - \mu(A \cap B).
@@ -164,52 +199,61 @@ Eine sehr nützliche Eigenschaft von gewissen Maßen auf topologischen Räumen i
 ````{prf:definition} Regularität von Maßen
 :label: def:regularitaet
 
-Es sei $(\Omega, \tau)$ ein topologischer Raum und $(\Omega, \mathcal{A}, \mu)$ ein entsprechender Maßraum auf $\Omega$, so dass gilt $\tau \subset \mathcal{A}$.
+Es sei $(\Omega, \tau)$ ein topologischer Raum und $(\Omega, \Sigma, \mu)$ ein entsprechender Maßraum auf $\Omega$, so dass gilt $\tau \subset \Sigma$.
 Dann können wir die Regulariät des Maßes $\mu$ wie folgt definieren.
 
-1. Wir nennen das Maß $\mu$ von **außen regulär**, wenn zu jeder messbaren Menge $A \in \mathcal{A}$ und jedem $\epsilon > 0$ eine offene Obermenge $U \in \tau$ existiert mit $A \subset U$, so dass für das Maß $\mu(U\setminus A) < \epsilon$ gilt.
+1. Wir nennen das Maß $\mu$ von **außen regulär**, wenn zu jeder messbaren Menge $A \in \Sigma$ und jedem $\epsilon > 0$ eine offene Obermenge $U \in \tau$ existiert mit $A \subset U$, so dass für das Maß $\mu(U\setminus A) < \epsilon$ gilt.
 
-2. Wir nennen das Maß $\mu$ von **innen regulär**, wenn zu jeder messbaren Menge $A \in \mathcal{A}$ und jedem $\epsilon > 0$ eine abgeschlossene Teilmenge $F \subset A$ gibt, so dass für das Maß $\mu(A\setminus F) < \epsilon$ gilt.
+2. Wir nennen das Maß $\mu$ von **innen regulär**, wenn zu jeder messbaren Menge $A \in \Sigma$ und jedem $\epsilon > 0$ eine abgeschlossene Teilmenge $F \subset A$ gibt, so dass für das Maß $\mu(A\setminus F) < \epsilon$ gilt.
 ````
-
-Hier noch eine Abbildung oder ein Beispiel zu Regularität?
 
 ## Borel-Maße
 
-Da es viele unterschiedliche Möglichkeiten gibt eine Menge in Teilmengen zu unterteilen wünscht man sich eine möglichst kanonische Wahl einer $\sigma$-Algebra.
-Es stellt sich heraus, dass die sogenannte Borel-$\sigma$-Algebra eine gute Wahl auf beliebigen topologischen Räumen definiert.
+Neben $\sigma$-Algebren kennen wir auch Topologien als wichtige Klasse von Mengensystemen, da diese es z.B. erlauben Stetigkeit von Funktionen zu definieren. Wir betrachten nun ein Konzept welches den Begriff einer Topologie mit der einer $\sigma$-Algebra vereint, die sogenannte **Borel**-$\sigma$-Algebra.
 
 ```{margin}
 [Émile Borel](https://de.wikipedia.org/wiki/%C3%89mile_Borel) (geboren am 7. Januar 1871 in Saint-Affrique; gestorben am 3. Februar 1956 in Paris) war ein französischer Mathematiker und Politiker.
 ```
 
 ````{prf:definition} Borel-$\sigma$-Algebra
-Die **Borel-$\sigma$-Algebra** auf einem topologischen Raum $(\Omega, \tau)$ ist die kleinste $\sigma$-Algebra auf der Menge $\Omega$, die die Topologie $\tau$ enthält, d.h.
+Die **Borel-$\sigma$-Algebra** auf einem topologischen Raum $(\Omega, \tau)$ ist die von $\tau$ erzeugte $\sigma$-Algebra,
 
 ```{math}
-\B(\Omega) := \bigcap_{\substack{\mathcal{A} \text{ ist $\sigma$-Algebra}\\ \tau \subset \mathcal{A}}} \mathcal{A}
+\B(\Omega) := \sigma(\tau).
 ```
 
-Man nennt die Borel-$\sigma$-Algebra auch **die von $\tau$ erzeugte $\sigma$-Algebra**.
 ````
-
-Die folgende Bemerkung beschreibt die Borel-$\sigma$-Algebra, wenn als zu Grunde liegende Menge die reellen Zahlen $\R$ gewählt werden, wie es häufig in Anwendungen der Fall ist.
 
 ````{prf:remark} Borelsche $\sigma$-Algebra von $\R$
-Wir untersuchen den topologischen Raum $(\R, \tau)$, wobei die Topologie $\tau$ gerade alle offenen Intervalle $(a,b) \subset \R$ mit rationalen Punkten $a,b \in \Q$ enthält.
-Da dies die kanonische Topologie für die reellen Zahlen bildet sprcht man bei der von ihr erzeugten Borel-$\sigma$-Algebra als *die* Borelsche $\sigma$-Algebra.
-
-Sie enthält alle wichtigen Teilmengen von $\R$, nämlich:
-
-* alle *offenen, abgeschlossenen* und *kompakten* Mengen
-* alle *Intervalle* der Form $(a,b), [a,b], (a,b], [a,b]$ für $a,b \in \R$, sowie alle Intervalle der Form $(-\infty, b), (-\infty, b]$ und $(a, \infty), [a,\infty)$
-* alle *Punktmengen* der Form $\{a\}$ für $a \in \R$
-* alle *endlichen* Teilmengen von $\R$
-* alle *unendlich abzählbaren* Teilmengen von $\R$
-
 Wir bemerken, dass die Borelsche $\sigma$-Algebra von $\R$ **nicht** alle Teilmengen von $\R$ enthält.
-Es lässt sich sogar zeigen, dass die borelsche $\sigma$-Algebra von $\R$ gleichmächtig zu $\R$ ist, während die Potenzmenge $\mathcal{P}(\R)$ von $\R$ eine echt größere Mächtigkeit als $\R$ besitzt.
+Es lässt sich sogar zeigen, dass die borelsche $\sigma$-Algebra von $\R$ gleichmächtig zu $\R$ ist, während die Potenzmenge $2^\R$ eine echt größere Mächtigkeit als $\R$ besitzt.
 ````
+
+Man erkennt an der Notaion, dass die Topologie $\tau$ meist unterschlagen wird. Man spricht meist auch vom topologischen Raum $\Omega$ ohne $\tau$ zu nennen.
+Ein Maß auf dieser $\sigma$-Algebra nennen wir auch **Borel-Maß**.
+
+````{prf:definition}
+Es sei $\Omega$ ein topologischer Raum, dann heißt ein Maß $\mu$ auf $\B(\Omega)$ Borel-Maß.
+````
+
+(s:gentop)=
+### Erzeugte Topologien
+
+Das Konzept der erzeugten $\sigma$-Algebra lässt sich auch auf Topologien übertragen. Hierbei betrachtet man meist eine sogenannte Basis einer Topologie.
+
+````{prf:definition}
+Es sei $(\Omega,\tau)$ ein topologischer Raum, ein System $\mathcal{C}\subset 2^\Omega$ heißt Basis für $\tau$, falls für jede Menge $U\in\tau$ Teilmengen aus $\mathcal{C}$ existieren, $J\subset\mathcal{C}$, s.d.,
+
+```{math}
+\bigcup_{A\in J} A = U.
+```
+
+In diesem Fall schreiben wir auch $\tau(\mathcal{C})=\tau$.
+````
+
+Besonders relevant sind für uns die Mengensysteme, welche die kanonische Topologie für $\R$ erzeugt. Hierbei wissen wir, dass alle offene *Intervalle* der Form $(a,b)\subset \R$, sowie alle Intervalle der Form $(-\infty, b)$ und $(a, \infty)$ die euklidische Topologie in $\R$ erzeugen.
+
+### Eigenschaften von Borel-Maßen
 
 Für spezielle topologische Räume lässt sich eine wichtige Eigenschaft von Maßen über die Borel-$\sigma$-Algebra definieren.
 
@@ -227,6 +271,7 @@ Basierend auf der oben definierten Borel-$\sigma$-Algebra lässt sich nun das so
 Ein lokal endliches Maß $\sigma \colon \B(\Omega) \rightarrow [0, \infty]$ auf der Borelschen $\sigma$-Algebra eines Hausdorff-Raums $(\Omega,\tau)$ heißt **Borel-Maß**.
 ````
 
+(s:lebesguemeasure)=
 ## Das Lebesgue Maß
 
 ```{margin} Henri Lebesgue
@@ -1312,7 +1357,7 @@ Wir nennen eine Teilmenge $A \subset \R^n$ **Lebesgue-messbar**, genau dann wenn
 Wir notieren die Menge der Lebesgue-messbaren Mengen als
 
 ```{math}
-\mathcal{A} = \lbrace A \subset \R^n : A \text{ ist Lebesgue-messbar } \rbrace
+\mathcal{A}(\R^n) = \lbrace A \subset \R^n : A \text{ ist Lebesgue-messbar } \rbrace
 ```
 
 Wir definieren das **Lebesgue-Maß** $\lambda \colon \mathcal{A} \rightarrow [0,\infty]$ messbarer Mengen durch
