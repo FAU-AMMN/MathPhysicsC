@@ -14,9 +14,10 @@ Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die M
 
 Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.
 
+(s:sigmaalg)=
 ## $\sigma$-Algebren und Maße
 
-Wir betrachten im Folgenden eine beliebige zu Grundmenge $\Omega$, welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von $\Omega$ einen Wert zuordnen weshalb wir die **Potenzmenge** $2^\Omega$ betrachten, welche die Menge aller möglichen Teilmengen von $\Omega$ bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe {prf:ref}`def:mass`) eine spezielle Abbildung $\mu:\Sigma\to[0,\infty]$, wobei $\Sigma\subset\2^\Omega$ ein Mengensystem ist, welches man auch System der $\mu$-messbaren Mengen nennt.
+Wir betrachten im Folgenden eine beliebige zu Grundmenge $\Omega$, welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von $\Omega$ einen Wert zuordnen weshalb wir die **Potenzmenge** $2^\Omega$ betrachten, welche die Menge aller möglichen Teilmengen von $\Omega$ bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe {prf:ref}`def:mass`) eine spezielle Abbildung $\mu:\Sigma\to[0,\infty]$, wobei $\Sigma\subset 2^\Omega$ ein Mengensystem ist, welches man auch System der $\mu$-messbaren Mengen nennt.
 
 ```{note}
 Mengen von Mengen nennen wir häufig auch *Mengensysteme*.
