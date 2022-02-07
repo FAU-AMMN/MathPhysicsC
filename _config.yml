@@ -9,7 +9,7 @@ repository:
   url: https://github.com/FAU-AMMN/MathPhysicsC
 
 html:
-  favicon: "img/fau-favicon.png"
+  favicon: "img/FAU_favicon.png"
   comments:
     hypothesis: true
   use_repository_button: true
