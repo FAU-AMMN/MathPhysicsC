@@ -252,7 +252,19 @@ Es sei $(\Omega,\tau)$ ein topologischer Raum, ein System $\mathcal{C}\subset 2^
 In diesem Fall schreiben wir auch $\tau(\mathcal{C})=\tau$.
 ````
 
-Besonders relevant sind für uns die Mengensysteme, welche die kanonische Topologie für $\R$ erzeugt. Hierbei wissen wir, dass alle offene *Intervalle* der Form $(a,b)\subset \R$, sowie alle Intervalle der Form $(-\infty, b)$ und $(a, \infty)$ die euklidische Topologie in $\R$ erzeugen.
+Besonders relevant sind für uns die Mengensysteme, welche die kanonische Topologie für $\R$ erzeugt. Hierbei wissen wir, dass alle offene *Intervalle* der Form $(a,b)\subset \R$, sowie alle Intervalle der Form $(-\infty, b)$ und $(a, \infty)$ die euklidische Topologie in $\R$ erzeugen. Wir betrachten weiterhin ein derartiges Mengenssystem bestehend aus Intervallen, welche die Borel-$\sigma$-Algebra erzeugt.
+
+````{prf:lemma}
+:label: lem:genborel
+
+Es sei
+
+```{math}
+\mathcal{C} = \{ [-\infty, c):c\in\R\}
+```
+
+dann gilt $\sigma(\mathcal{C}) = \B(\overline{\R})$.
+````
 
 ### Eigenschaften von Borel-Maßen
 

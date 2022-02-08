@@ -1,0 +1,530 @@
+\chapter{Funktionentheorie}
+\label{\detokenize{complexanalysis/complexanalysis:funktionentheorie}}\label{\detokenize{complexanalysis/complexanalysis::doc}}
+\par
+Im letzten Kapitel der Vorlesung widmen wir uns der \emph{Funktionentheorie}.
+Diese befasst sich hauptsächlich mit der Theorie differenzierbarer komplexer Funktionen.
+Da viele Konzepte der reellen Analysis verwendet werden, wird dieses Gebiet auch häufig \textbf{komplexe Analysis} genannt.
+
+\par
+Die Grundlagen des Körpers der komplexen Zahlen wurden bereits in {[}{]} behandelt.
+
+
+\section{Cauchy Riemann Gleichungen}
+\label{\detokenize{complexanalysis/cauchyriemann:cauchy-riemann-gleichungen}}\label{\detokenize{complexanalysis/cauchyriemann::doc}}
+\par
+Der zentrale Begriff der Funktionentheorie ist der einer \emph{holomorphen Funktion}.
+\begin{definition}{(Holomorphe Funktion)}{complexanalysis/cauchyriemann:def:holomorph}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge und \(f \colon D \rightarrow \C\) eine stetige Funktion.
+
+\par
+Wir nennen die Funktion \(f\) \textbf{holomorph} auf der Teilmenge \(D\), wenn es für jeden Punkt \(z \in D\) eine komplexe Ableitung der Funktion \(f\) gibt mit
+\begin{align*}
+f'(z) = \lim_{h\rightarrow 0} \frac{f(z+h) - f(z)}{h}.
+\end{align*}\end{definition}
+
+\par
+Der Differentialquotient in \cref{complexanalysis/cauchyriemann:def:holomorph} erinnert sehr an die Definition der Ableitung einer reellen Funktion.
+Der grundlegende Unterschied ist hier jedoch, dass \(h \in \C\) komplex ist.
+Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen Vektorraum, so muss für die beiden Richtungsableitungen \(x := \operatorname{Re}(z)\) und \(y := \operatorname{Im}(z)\) gelten
+\begin{align*}
+\partial_x f(z) = \lim_{\epsilon \rightarrow 0} \frac{f(z+\epsilon) - f(z)}{\epsilon} = \lim_{\epsilon \rightarrow 0} \frac{f(z+i\epsilon) - f(z)}{i\epsilon} = -i \partial_y f(z), \quad \epsilon \in \R.
+\end{align*}
+\par
+Dieser Zusammenhang ist charakteristisch für holomorphe Funktionen und wird im folgenden Satz präzisiert.
+\begin{theorem}{(Cauchy Riemann Gleichungen)}{complexanalysis/cauchyriemann:theorem-1}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge und \(f \colon D \rightarrow \C\) eine stetige Funktion für die gilt
+\begin{align*}
+f(z) = u(z) + i v(z), \qquad u,v \colon D \rightarrow \R.
+\end{align*}
+\par
+Dann ist die Funktion \(f\) genau dann holomorph auf der Teilmenge \(D\), wenn die folgenden \textbf{Cauchy Riemann Gleichungen} auf ganz \(D\) gelten:
+\begin{align*}
+\partial_x u = \partial_y v, \qquad \partial_y u = -\partial_x v.
+\end{align*}\end{theorem}
+
+\begin{proof}
+ Schulz Baldes S.313
+\end{proof}
+\begin{example}{(Holomorphe Funktionen)}{complexanalysis/cauchyriemann:example-2}
+
+
+
+\par
+Ableitung eines komplexen Monoms  > Beispiel 10.4 auf S.314 in Schulz Baldes
+
+\par
+\(f(z) := \overline{z}\) ist nicht holomorph  > Beispiel 10.7 auf S.315 in Schulz Baldes
+\end{example}
+
+\par
+Eine besondere Klasse von Funktionen sind \emph{analytische Funktonen}, die sich lokal mit Hilfe von Reihen darstellen lassen.
+\begin{definition}{(Analytische Funktion)}{complexanalysis/cauchyriemann:definition-3}
+
+
+
+\par
+Sei \(D \subset \C\) eine Teilmenge und \(f \colon D \rightarrow \C\) eine Funktion.
+
+\par
+Wir nennen die Funktion \(f\) \textbf{analytisch} in einem Punkt \(z_0 \in D\) genau dann, wenn ein \(\epsilon > 0\) existiert, so dass sich jeder Funktionswert \(f(z) \in \C\) in einer entsprechenden lokalen Umgebung durch eine absolut konvergente Reihe darstellen lässt mit
+\begin{align*}
+f(z) = \sum_{n \geq 0} a_n (z-z_0)^n, \qquad \forall |z - z_0| < \epsilon,
+\end{align*}
+\par
+wobei \((a_n)_{n_\in\N}\) eine Folge in \(\C\) ist.
+
+\par
+Wir nennen die Funktion \(f\) analytisch auf der Teilmenge \(D\), wenn sie analytisch ist für alle Punkte \(z_0 \in D\).
+\end{definition}
+
+\par
+Der folgende Satz beschreibt den Zusammenhang zwischen analytischen und holomorphen Funktionen.
+\begin{theorem}{}{complexanalysis/cauchyriemann:thm:analytischHolomorph}
+
+
+
+\par
+Jede analytische Funktion \(f\) auf einer Teilmenge \(D \subset \C\) ist auch holomorph auf \(D\).
+\end{theorem}
+
+\begin{proof}
+ Vertauschung des Limes \(h \rightarrow 0\) und der Summe.
+\end{proof}
+
+\par
+Wie wir später im Hauptsatz der Funktionentheorie sehen werden gilt auch die Umkehrung.
+
+
+\section{Kurvenintegrale}
+\label{\detokenize{complexanalysis/kurvenintegrale:kurvenintegrale}}\label{\detokenize{complexanalysis/kurvenintegrale::doc}}
+
+\subsection{Wege und Kurven}
+\label{\detokenize{complexanalysis/kurvenintegrale:wege-und-kurven}}
+\par
+Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven.
+\begin{definition}{(Weg und Kurve)}{complexanalysis/kurvenintegrale:definition-0}
+
+
+
+\par
+Sei \((X,\tau)\) ein topologischer Raum und \(I = [a,b]\) ein reelles Intervall für \(a,b \in \R\).
+Wir nennen eine stetige Funktion \(f \colon I \rightarrow X\) einen \textbf{Weg} in \(X\).
+Wir bezeichnen einen Weg \(f\) als \textbf{glatt}, wenn er stetig differenzierbar ist und seine Ableitung für jeden Punkt \(x \in I\) ungleich Null ist.
+Außerdem bezeichnen wir einen Weg \(f\) als \textbf{geschlossen}, wenn gilt \(f(a) = f(b)\).
+Schließlich nennen wir einen Weg \(f\) \textbf{konstant}, wenn er für alle \(t \in [a,b]\) auf den gleichen Punkt in \(\C\) abbildet.
+
+\par
+Die Bildmenge \(f(I) \subset X\) nennen wir \textbf{Kurve} in \(X\).
+\end{definition}
+
+\begin{emphBox}{}{}
+\par
+Normalerweise nennen wir eine Abbildung \emph{glatt}, wenn sie unendlich oft differenzierbar ist.
+Dies wird im Kontext von Wegen nicht gefordert und es genügt eine einfache stetige Differenzierbarkeit.
+\end{emphBox}
+
+\par
+Wir wollen im Folgenden annehmen, dass \(f\) eine holomorphe Funktion auf einer offenen Teilmenge \(D \subset \C\) ist.
+Wir betrachten \(f(z) \mathrm{d}z\) als die zugehörige \(1\) Form und außerdem sei \(\gamma \colon I \rightarrow D\) für \(I := [0,1]\) ein glatter Weg.
+Wegen der Jacobischen Transformationsformel in \cref{masstheorie/integrationstechnik:thm:jacobitransformation} gilt dann für das Kurvenintegral von \(f\) bezüglich \(\gamma\)
+\begin{align}\label{equation:complexanalysis/kurvenintegrale:eq:kurvenintegral}
+\int_{\gamma} f(z) \, \mathrm{d}z = \int_I \gamma^*(f(z) \, \mathrm{d}z) = \int_0^1 f(\gamma(t)) \gamma'(t) \, \mathrm{d}t.
+\end{align}
+\par
+Häufig ist die Annahme eines global glatten Weges \(\gamma\) eine zu starke Forderung.
+Es genügt auch zu fordern, dass der Weg \(\gamma\) stückweise glatt ist und aus endlich vielen Teilstücken besteht.
+In diesem Fall lässt sich das Integral \cref{complexanalysis/kurvenintegrale:equation-eq-kurvenintegral} als Summe der Integrale über die Teilstücke schreiben.
+
+\par
+\textbf{ToDo: Abbildung von stückweise glatten Wegen / Kurven}
+
+\par
+Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in \(\C\), den sogenannten Index.
+\begin{definition}{(Index)}{complexanalysis/kurvenintegrale:definition-1}
+
+
+
+\par
+Sei \(\gamma \colon [0,1] \rightarrow \C\) ein geschlossener Weg in \(\C\) und \(w \in \C \setminus \operatorname{Bild}(\gamma)\) ein beliebiger Punkt außerhalb der zugehörigen Kurve von \(\gamma\).
+Wir bezeichnen als \textbf{Index} von \(w\) bezüglich des Wegs \(\gamma\) folgende charakteristische Größe
+\begin{align*}
+\operatorname{Ind}_\gamma(w) \ := \ \oint_\gamma \frac{1}{z - w} \frac{\mathrm{d}z}{2\pi i} \ = \ \int_0^1 \frac{\gamma'(t)}{\gamma(t - w)} \frac{\mathrm{d}z}{2\pi i} \in \mathbb{Z}.
+\end{align*}
+\par
+Häufig wird der Index auch \textbf{Windungszahl} von \(\gamma\) um \(w\) genannt.
+Sie ist eine \emph{topologische Invariante}, die anschaulich beschreibt, wie häufig sich die zugehörige Kurve um den Punkt \(w\) windet.
+\end{definition}
+
+\par
+\textbf{ToDo: Abbildung mit Beispiel von \href{https://de.wikipedia.org/wiki/Umlaufzahl\_(Mathematik)}{Wikipedia}}
+\begin{lemma}{}{complexanalysis/kurvenintegrale:lemma-2}
+
+
+
+\par
+Sei \(\gamma \colon [0,1] \rightarrow \C\) ein geschlossener Weg in \(\C\).
+Dann ist die Abbildung, die jedem Punkt \(w \in \C \setminus \operatorname{Bild}(\gamma)\) außerhalb der zugehörigen Kurve seinen Index \(\operatorname{Ind_\gamma}(w)\) konstant auf jeder Zusammenhangskomponente bezüglich der Kurve von \(\gamma\).
+\end{lemma}
+
+\begin{proof}
+ Schulz Baldes S.318f.
+\end{proof}
+
+
+\subsection{Homotopie}
+\begin{definition}{(Homotopie)}{\detokenize{complexanalysis/kurvenintegrale:homotopie}}\label{complexanalysis/kurvenintegrale:definition-3}
+
+
+
+\par
+Sei \(I := [0,1]\) ein reelles Intervall und \(D \subset \C\) eine Teilmenge.
+Wir nennen zwei Wege \(\gamma, \Gamma \colon I \rightarrow D\) \textbf{homotop} in der Teilmenge \(D\) genau dann, wenn eine stetige Abbildung \(H \colon I \times I \rightarrow D\) existiert, so dass
+\begin{align*}
+H(t,0) = \gamma(t), \qquad H(t,1) = \Gamma(t).
+\end{align*}
+\par
+In diesem Fall nennen wir die Abbildung \(H\) eine \textbf{Homotopie} zwischen den Wegen \(\gamma\) und \(\Gamma\).
+\end{definition}
+
+\par
+Man kann zeigen, dass der Begriff der Homotopie zwischen Wegen in einer Teilmenge \(D \subset \C\) eine \emph{Äquivalenzrelation} auf Wegen in \(D\) induziert.
+Die zugehörigen Äquivalenzklassen werden auch \emph{Homotopieklassen} genannt.
+
+\par
+Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.
+\begin{lemma}{}{complexanalysis/kurvenintegrale:lemma-4}
+
+
+
+\par
+Sei \(D \subset \C\) eine Teilmenge und seien \(\gamma\) und \(\Gamma\) geschlossene, homotope Wege in \(D\).
+Sei außerdem \(f \colon D \rightarrow \C\) eine holomorphe Funktion.
+
+\par
+Dann gilt
+\begin{align*}
+\oint_\gamma f(z) \, \mathrm{d}z = \oint_\Gamma f(z) \, \mathrm{d}z.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Schulz Baldes S.321
+\end{proof}
+
+\par
+Eine besondere Klasse von Wegen sind solche, die nullhomotop sind.
+\begin{definition}{(Nullhomotoper Weg)}{complexanalysis/kurvenintegrale:definition-5}
+
+
+
+\par
+Wir nennen einen Weg \(\gamma\) \textbf{nullhomotop} in einer Teilmenge \(D \subset \C\) genau dann, wenn \(\gamma\) homotop in \(D\) zu einem konstanten Weg ist.
+\end{definition}
+
+\par
+Wir realisieren also, dass sich nullhomotope Wege in einer Teilmenge \(D \subset \C\) zu einem Punkt \(w \in D\) zusammenziehen lassen.
+Darüber hinaus zeigt der folgende Satz, dass das Kurvenintegral einer holomorphe Funktionen auf einem nullhomotopen Weg verschwindet.
+\begin{theorem}{(Satz von Cauchy)}{complexanalysis/kurvenintegrale:theorem-6}
+
+
+
+\par
+Sei \(\gamma\) ein nullhomotoper Weg in einer Teilmenge \(D \subset \C\), der sich zu einem Punkt \(w \in D\) zusammenziehen lässt.
+Sei darüber hinaus \(f \colon D \rightarrow \C\) eine stetige Funktion, welche zudem holomorph auf der Menge \(D \setminus \{w\}\) sei.
+
+\par
+Dann gilt für das Kurvenintegral
+\begin{align*}
+\oint_\gamma f(z) \, \mathrm{d}z = 0.
+\end{align*}\end{theorem}
+
+\begin{proof}
+ Schulz Baldes S.322
+\end{proof}
+
+
+\subsection{Cauchyscher Integralsatz}
+\label{\detokenize{complexanalysis/kurvenintegrale:cauchyscher-integralsatz}}
+\par
+Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
+Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen.
+\begin{theorem}{(Cauchyscher Integralsatz)}{complexanalysis/kurvenintegrale:theorem-7}
+
+
+
+\par
+Sei \(D \subset \C\) ein Sterngebiet, d.h., \(D\) ist eine offene Menge in der mindestens einen Punkt \(z_0 \in \C\) gibt, so dass die Verbindungsstrecke jedes beliebigen Punktes \(z \in D\) zu \(z_0\) vollständig in \(D\) liegt.
+Sei außerdem \(\gamma\) ein geschlossener Weg in \(D\).
+
+\par
+Dann lässt sich der Funktionswert von \(f\) in jedem Punkt \(z \in D \setminus \operatorname{Bild}(\gamma)\) darstellen durch das Kurvenintegral
+\begin{align*}
+f(z) \ = \ \frac{1}{\operatorname{Ind}_\gamma(z)} \oint_\gamma \frac{f(\zeta)}{\zeta - z} \frac{\mathrm{d}\zeta}{2\pi i}.
+\end{align*}\end{theorem}
+
+\begin{proof}
+ Schulz Baldes S.323
+\end{proof}
+
+\par
+Wir werden den Cauchyschen Integralsatz später noch in Form des sogenannten \emph{Residuensatzes} stark verallgemeinern.
+Für den Moment erlaubt uns dessen Aussage jedoch zu zeigen, dass jede holomorphe Funktion bereits analytisch ist, was die Umkehrung zu \cref{complexanalysis/cauchyriemann:thm:analytischHolomorph} ist.
+\begin{theorem}{(Holomorphe Funktionen sind analytisch)}{complexanalysis/kurvenintegrale:theorem-8}
+
+
+
+\par
+Sei \(\epsilon > 0\) und \(z_0 \in D\) ein Punkt in einer offenen Teilmenge \(D \subset \C\).
+Sei außerdem \(f \colon B_\epsilon(z_0) \rightarrow \C\) eine holomorphe Funktion.
+
+\par
+Dann ist die Funktion \(f\) für jeden Punkt \(z \in B_\epsilon(z_0)\) durch eine konvergente Potenzreihe darstellbar (also analytisch) als
+\begin{align*}
+f(z) = \sum_{n=1}^\infty a_n (z-z_0)^n,
+\end{align*}
+\par
+deren Koeffizienten \((a_n)_{n\in\N}\) für alle \(\epsilon' < \epsilon\) gegeben sind durch
+\begin{align*}
+a_n \ = \ \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i}.
+\end{align*}
+\par
+Insbesondere ist \(f\) unendlich oft komplex differenzierbar und für alle \(n \in \N\) gilt für die \(n\) te Ableitung von \(f\)
+\begin{align*}
+f^{(n)}(z_0) \ = \ n! \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i} = n! a_n.
+\end{align*}\end{theorem}
+
+\begin{proof}
+ Schulz Baldes S.325f.
+\end{proof}
+
+\par
+Das folgende Korollar erlaubt eine direkte Abschätzung der \(n\) ten Ableitung einer holomorphen Funktion.
+\label{complexanalysis/kurvenintegrale:corollary-9}
+\begin{emphBox}{}{}{Corollary 7.1 (Cauchy Abschätzungen)}
+
+
+
+\par
+Sei \(\epsilon > 0\) und \(z_0 \in D\) ein Punkt in einer offenen Teilmenge \(D \subset \C\).
+Außerdem sei \(f \colon B_\epsilon(z_0) \rightarrow \C\) eine holomorphe Funktion.
+Dann gilt für alle \(0 < \epsilon' < \epsilon\) die folgende genannte \textbf{Cauchy Abschätzung}
+\begin{align*}
+|f^{(n)}(z_0)| \ \leq \ \frac{n!}{\epsilon'^n} \max_{|z - z_0|=\epsilon'} |f(z)|.
+\end{align*}\end{emphBox}
+
+
+\section{Laurententwicklung und Residuensatz}
+\label{\detokenize{complexanalysis/residuensatz:laurententwicklung-und-residuensatz}}\label{\detokenize{complexanalysis/residuensatz::doc}}
+
+\subsection{Singularitäten homomorpher Funktionen}
+\label{\detokenize{complexanalysis/residuensatz:singularitaten-homomorpher-funktionen}}
+\par
+In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.
+\begin{definition}{(Singularitäten)}{complexanalysis/residuensatz:definition-0}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) ein Punkt.
+
+\par
+1. Wenn \(f \colon D \setminus \{z_0\} \rightarrow \C\) eine holomorphe Funktion ist.
+Dann nennen wir den Punkt \(z_0\) eine \textbf{isolierte Singularität} von \(f\).
+
+\par
+2. Wir nennen den Punkt \(z_0\) eine \textbf{hebbare Singularität}, wenn \(z_0\) eine isolierte Singularität einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\) ist und es eine holomorphe Funktion \(g \colon D \rightarrow \C\) gibt, so dass \(g(z) = f(z)\) gilt für alle \(z \in D \setminus \{z_0\}\).
+
+\par
+3. Wir nennen den Punkt \(z_0\) einen \textbf{Pol}, wenn für alle Folgen \(z_n \rightarrow z_0\) gilt
+\begin{align*}
+\lim_{n\rightarrow \infty} |f(z_n)| = \infty.
+\end{align*}
+\par
+4. Wir nennen den Punkt \(z_0\) eine \textbf{wesentliche Singularität}, wenn \(z_0\) weder hebbar noch Pol ist.
+\end{definition}
+
+\par
+Der Satz von Casorati Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.
+\begin{remark}{(Casorati Weierstraß)}{complexanalysis/residuensatz:remark-1}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) ein Punkt.
+
+\par
+Der Punkt \(z_0\) ist genau dann eine wesentliche Singularität einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\), wenn für alle \(\epsilon > 0\) die Menge der Funktionswerte \(f(B_\epsilon(z_0)) \setminus \{z_0\})\) dicht in \(\C\) liegt.
+\end{remark}
+
+\par
+\textbf{ToDo: Hier Beispiel zu Singularitäten? Schulz Baldes S.329}
+\begin{theorem}{(Riemannscher Hebbarkeitssatz)}{complexanalysis/residuensatz:theorem-2}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) ein Punkt.
+Sei außerdem \(f \colon D \setminus \{z_0\} \rightarrow \C\) eine holomorphe Funktion.
+Falls eine Umgebung \(U \subset D\) von \(z_0\) gibt, so dass \(f\) auf \(U \setminus \{z_0\}\) beschränkt ist, so kann man einen Funktionswert \(f(z_0)\) in \(z_0\) so wählen, dass die Funktion \(f\) auf der gesamten Teilmenge \(D\) holomorph ist, d.h., der Punkt \(z_0\) ist eine hebbare Singularität.
+\end{theorem}
+
+\begin{proof}
+ Schulz Baldes S.327
+\end{proof}
+
+\par
+Das folgende Lemma charakterisiert Pole einer holomorphen Funktion.
+\begin{lemma}{}{complexanalysis/residuensatz:lem:pole}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) eine isolierte Singularität einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\).
+
+\par
+Dann sind folgende Aussagen äquivalent:
+
+\par
+1. Der Punkt \(z_0\) ist ein Pol der Funktion \(f\).
+
+\par
+2. Es existiert ein \(m \in \N\), so dass die Funktion \((z - z_0)^m f(z)\) beschränkt in einer lokalen Umgebung von \(z_0\) ist, jedoch die Funktion \((z - z_0)^{m-1} f(z)\) unbeschränkt ist.
+
+\par
+Die Ordnung der Funktion \(f\) im Pol \(z_0\) ist dann definiert als
+\begin{align*}
+\operatorname{Ord}_{z_0}(f) := -m.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Schulz Baldes S.330
+\end{proof}
+
+\par
+Dieser Begriff von Ordnung setzt den Begriff der Ordnung von Polynomen für holomorphe Funktionen fort.
+Häufig spricht man jedoch nur von der Ordnung \(m > 0\) eines Pols.
+
+
+\subsection{Laurent Reihe}
+\label{\detokenize{complexanalysis/residuensatz:laurent-reihe}}
+\par
+Die Beobachtung aus \cref{complexanalysis/residuensatz:lem:pole} motiviert die folgende Definition der Laurent Reihe, die nach \{prf:ref\}`` immer an einem Pol von Ordnung \(m\) existiert.
+\label{complexanalysis/residuensatz:definition-4}
+\begin{emphBox}{}{}{ (Laurent Reihe)}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) Pol von Ordnung \(m\) einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\).
+
+\par
+Dann definieren wir die \textbf{Laurent Reihe} von \(f\) um den Pol \(z_0\) durch
+\begin{align*}
+f(z) := \sum_{n=-m}^\infty a_n (z-z_0)^n.
+\end{align*}
+\par
+Als \textbf{Hauptteil} der Laurent Reihe bezeichnen wir den Term
+\begin{align*}
+\sum_{n=-m} a_n (z-z_0)^n
+\end{align*}
+\par
+und das \textbf{Residuum} von \(f\) bei \(z_0\) als
+\begin{align*}
+\operatorname{Res}_{z_0}(f) = a_{-1}.
+\end{align*}\begin{definition}{}{complexanalysis/residuensatz:definition-5}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge.
+Wir nennen eine Funktion \(f \colon D \rightarrow \C\) \textbf{meromorph} auf \(D\) genau dann, wenn eine lokalendliche Menge \(P\) existiert, so dass die Funktion \(f\) holomorph auf \(D \setminus P\) mit Polen in \(P\) ist.
+\end{definition}
+\end{emphBox}
+\begin{example}{(Meromorphe Funktionen)}{complexanalysis/residuensatz:example-6}
+
+
+
+\par
+Rationale Funktionen oder konkretes Beispiel
+
+\par
+Schulz Baldes S.332
+\end{example}
+
+
+\subsection{Cauchyscher Residuensatz}
+\label{\detokenize{complexanalysis/residuensatz:cauchyscher-residuensatz}}
+\par
+Das folgende Lemma erlaubt die explizite Berechnung des Residuums.
+\begin{lemma}{(Berechnung des Residuums)}{complexanalysis/residuensatz:lemma-7}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) Pol einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\).
+
+\par
+Für genügend kleine \(\epsilon > 0\) lässt sich das Residuum von \(f\) bei \(z_0\) angeben als
+\begin{align*}
+\operatorname{Res}_{z_0}(f) = \oint_{\partial B_\epsilon(z_0)} f(z) \frac{\mathrm{d}z}{2\pi i}.
+\end{align*}
+\par
+Falls der Pol von Ordnung \(-m\) ist, lässt sich das Residuum von \(f\) bei \(z_0\) sogar angeben als
+\begin{align*}
+\operatorname{Res}_{z_0}(f) = \partial_z^{m-1}\left( (z-z_0)^m \frac{f(z)}{(m-1)!}\right)|_{z=z_0}.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Schulz Baldes S.333f.
+\end{proof}
+\begin{example}{(Berechnung des Residuums)}{complexanalysis/residuensatz:example-8}
+
+
+
+\par
+Rationale Funktion bei Schulz Baldes S.335
+\end{example}
+
+\par
+Der folgende Residuensatz von Cauchy stellt eine zentrale Aussage der Funktionentheorie vor.
+\begin{theorem}{(Cauchyscher Residuensatz)}{complexanalysis/residuensatz:theorem-9}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge und \(f \colon D \rightarrow \C\) eine meromorphe Funktion mit endlicher Menge \(P \subset D\) von Polstellen.
+Sei außerdem \(\gamma\) ein geschlossener und zusammenziehbarer Weg in \(D\) mit \(\operatorname{Bild}(\gamma) \cap P = \emptyset\).
+
+\par
+Dann gilt der folgende Zusammenhang
+\begin{align*}
+\int_\gamma f(z) \frac{\mathrm{d}z}{2\pi i} = \sum_{z_0 \in P} \operatorname{Ind}_\gamma(z_0) \operatorname{Res}_{z_0}(f).
+\end{align*}\end{theorem}
+
+\begin{proof}
+ Schulz Baldes S.337
+\end{proof}
+\begin{remark}{}{complexanalysis/residuensatz:remark-10}
+
+
+
+\par
+Für holomorphe Funktionen \(f\) entspricht der Residuensatz gerade dem Cauchyschen Integralsatz.
+Wenn \(D\) als Sterngebiet angenommen wird ist die Zusammenziehbarkeit des Wegs \(\gamma\) immer erfüllt.
+\end{remark}
+\begin{example}{}{complexanalysis/residuensatz:example-11}
+
+
+
+\par
+Viele konkrete Beispiele in Schulz Baldes S.338 344
+\end{example}
+
+

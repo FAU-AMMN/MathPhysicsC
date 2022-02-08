@@ -604,7 +604,8 @@ y \mapsto \int_{\R^n} f(x,y) d\lambda^n(x)
 messbar und es gilt
 
 ```{math}
-\int_{\R^{n+m}} f(x,y) d\lambda^{n+m}(x,y) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^{n}(x)d\lambda^m(y)=
+\int_{\R^{n+m}} f(x,y) d\lambda^{n+m}(x,y) &= \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^{n}(x)d\lambda^m(y)\\
+&=
 \int_{\R^m}\int_{\R^n} f(x,y) d\lambda^{m}(y)d\lambda^n(x).
 ```
 ````
@@ -630,7 +631,7 @@ gilt. Dies ist Aussage des Satzes von Fubini.
 ````{prf:theorem} Satz von Fubini
 :label: thm:fubini
 
-Es sei $f:\R^{n+m}\to \overline{R}$ eine Lebesgue-**integrierbare** Funktion, dann gilt für fast alle $x\in\R^n,y\in\R^m$, dass die Funktionen $x\mapsto f(x,y), y\mapsto f(x,y)$ auch Lebesgue-messbar sind. Insbesondere sind auch die Funktionen
+Es sei $f:\R^{n+m}\to \overline{\R}$ eine Lebesgue-**integrierbare** Funktion, dann gilt für fast alle $x\in\R^n,y\in\R^m$, dass die Funktionen $x\mapsto f(x,y), y\mapsto f(x,y)$ auch Lebesgue-messbar sind. Insbesondere sind auch die Funktionen
 
 ```{math}
 x \mapsto \int_{\R^m} f(x,y) d\lambda^m(y)\\
@@ -640,7 +641,8 @@ y \mapsto \int_{\R^n} f(x,y) d\lambda^n(x)
 messbar und es gilt
 
 ```{math}
-\int_{\R^{n+m}} f(x,y) d\lambda^{n+m}(x,y) = \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^{n}(x)d\lambda^m(y)=
+\int_{\R^{n+m}} f(x,y) d\lambda^{n+m}(x,y) &= \int_{\R^n}\int_{\R^m} f(x,y) d\lambda^{n}(x)d\lambda^m(y)\\
+&=
 \int_{\R^m}\int_{\R^n} f(x,y) d\lambda^{m}(y)d\lambda^n(x).
 ```
 ````
