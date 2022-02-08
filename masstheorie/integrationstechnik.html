@@ -825,7 +825,7 @@ r^2\pi.\end{split}\]</div>
 <p>gilt</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\lambda^n(B_r^n) =
-r^d\,
+r^n\,
 \begin{cases}
 \frac{1}{(n/2)!} \pi^{n/2}&amp;\text{ falls }n \text{ gerade,}\\
 \frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&amp;\text{ falls }n \text{ ungerade.}
@@ -909,8 +909,8 @@ y \mapsto \int_{\R^n} f(x,y) d\lambda^n(x)\end{split}\]</div>
 Sei außerdem <span class="math notranslate nohighlight">\(f \colon V \rightarrow \R\)</span> eine Lebesgue-integrierbare Funktion.</p>
 <p>Dann gilt, dass die Verknüpfung <span class="math notranslate nohighlight">\(f \circ \Phi \colon U \rightarrow \R\)</span> auch Lebesgue-integrierbar ist und es gilt die folgende Integrationsregel</p>
 <div class="math notranslate nohighlight">
-\[\int_{\Phi(U)} f(y) \mu(\mathrm{d}y) = \int_U (f \circ \Phi)(x) \cdot |\det(D\Phi(x))|\mu(\mathrm{d}x). \]</div>
-<p>Hierbei nennt man <span class="math notranslate nohighlight">\(\det(D\Phi(x))\)</span> die <strong>Jacobi-Determinante</strong>.</p>
+\[\int_{\Phi(U)} f(y)\,d\lambda^n(y) = \int_U (f \circ \Phi)(x) \cdot \abs{\det(D\Phi(x))} d\lambda^n(x). \]</div>
+<p>Hierbei ist man <span class="math notranslate nohighlight">\(\det(D\Phi(x))\)</span> die <strong>Jacobi-Determinante</strong>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Siehe z.B. <span id="id4">[<a class="reference internal" href="../references.html#id5">Bog07</a>]</span> Theorem 3.7.1.</p>

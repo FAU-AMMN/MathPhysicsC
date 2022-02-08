@@ -564,7 +564,7 @@ gilt
 
 ```{math}
 \lambda^n(B_r^n) =
-r^d\,
+r^n\,
 \begin{cases}
 \frac{1}{(n/2)!} \pi^{n/2}&\text{ falls }n \text{ gerade,}\\
 \frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
@@ -687,10 +687,10 @@ Sei außerdem $f \colon V \rightarrow \R$ eine Lebesgue-integrierbare Funktion.
 Dann gilt, dass die Verknüpfung $f \circ \Phi \colon U \rightarrow \R$ auch Lebesgue-integrierbar ist und es gilt die folgende Integrationsregel
 
 ```{math}
-\int_{\Phi(U)} f(y) \mu(\mathrm{d}y) = \int_U (f \circ \Phi)(x) \cdot |\det(D\Phi(x))|\mu(\mathrm{d}x). 
+\int_{\Phi(U)} f(y)\,d\lambda^n(y) = \int_U (f \circ \Phi)(x) \cdot \abs{\det(D\Phi(x))} d\lambda^n(x). 
 ```
 
-Hierbei nennt man $\det(D\Phi(x))$ die **Jacobi-Determinante**.
+Hierbei ist man $\det(D\Phi(x))$ die **Jacobi-Determinante**.
 
 ````
 
