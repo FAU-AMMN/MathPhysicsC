@@ -39,7 +39,7 @@ Da die Zeitpunkte äquidistant gewählt sind können wir eine einheitliche Wachs
 F(t_{n+1}) = \alpha \cdot F(t_n).
 \end{align*}
 \par
-Wir erkennen, dass der Prozess des Bakterienwachstums nicht von der konkreten Wahl des Startzeitpunkts \(t_0 \in I\) abhängt, sondern nur von anfänglichen Anzahl der Bakterien \(F_0 \coloneqq F(t_0)\). \hyperref[\detokenize{ode/dynamicSystems:fig-bacteria}]{Fig.\@ \ref{\detokenize{ode/dynamicSystems:fig-bacteria}}} zeigt, dass eine unterschiedliche Wahl des Anfangszeitpunkt bei gleicher Wahl der Anfangspopulation keinen Effekt auf die zeitliche Dynamik hat.
+Wir erkennen, dass der Prozess des Bakterienwachstums nicht von der konkreten Wahl des Startzeitpunkts \(t_0 \in I\) abhängt, sondern nur von anfänglichen Anzahl der Bakterien \(F_0 \coloneqq F(t_0)\). \hyperref[\detokenize{ode/dynamicSystems:fig-bacteria}]{Abb.\@ \ref{\detokenize{ode/dynamicSystems:fig-bacteria}}} zeigt, dass eine unterschiedliche Wahl des Anfangszeitpunkt bei gleicher Wahl der Anfangspopulation keinen Effekt auf die zeitliche Dynamik hat.
 
 \par
 Dies können wir wie folgt mathematisch verifizieren. Seien \(t_m, t_n \in I\) mit \(n,m \in \N\) zwei unterschiedliche Anfangszeitpunkte für die die gleiche Anfangspopulation \(F_0 \in \N\) von Bakterien angenommen wird, d.h.,
@@ -59,7 +59,9 @@ Wir erkennen also, dass unabhängig vom gewählten Anfangszeitpunkt die Bakterie
 \centering
 
 
+
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/dynamicSystems\string_3\string_0.png}
+
 \caption{Visualisierung für Beispiel \cref{ode/dynamicSystems:ex:bacteria}  Wir erkennen, dass die Dynamik der Koloniegröße nicht von der Startzeit abhängt, sondern nur vom Anfangswert. Zu beachten gilt, es ist ein diskretes System, die angezeichneten kontinuierlichen Linien dienen lediglich zur Veranschaulichung der Dynamik.}\label{\detokenize{ode/dynamicSystems:fig-bacteria}}\end{figure}
 
 \par
@@ -89,7 +91,7 @@ F(t) = \max(0, F_0 - \frac{1}{2}gt^2),
 wobei \(g \approx 9,81 \frac{m}{s^2}\) die Erdbeschleunigungskonstante bezeichnet.
 
 \par
-Aus \hyperref[\detokenize{ode/dynamicSystems:fig-free-fall}]{Fig.\@ \ref{\detokenize{ode/dynamicSystems:fig-free-fall}}} wird klar, dass auch hier die Dynamik des freien Falls nicht von der Wahl des Anfangszeitpunkts \(t_0 \in I\) abhängt.
+Aus \hyperref[\detokenize{ode/dynamicSystems:fig-free-fall}]{Abb.\@ \ref{\detokenize{ode/dynamicSystems:fig-free-fall}}} wird klar, dass auch hier die Dynamik des freien Falls nicht von der Wahl des Anfangszeitpunkts \(t_0 \in I\) abhängt.
 Anschaulich gesprochen, würde der Stein genauso fallen, wenn wir ihn noch einige Sekunden länger festhalten würden.
 \end{example}
 
@@ -97,7 +99,9 @@ Anschaulich gesprochen, würde der Stein genauso fallen, wenn wir ihn noch einig
 \centering
 
 
+
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/dynamicSystems\string_6\string_0.png}
+
 \caption{Visualisierung für Beispiel \cref{ode/dynamicSystems:ex:freefall}  Wir erkennen, dass die Dynamik der Fallhöhe nicht von der Startzeit abhängt, sondern nur von der Starthöhe.}\label{\detokenize{ode/dynamicSystems:fig-free-fall}}\end{figure}
 
 \par
@@ -916,24 +920,28 @@ Wir wollen im Folgenden die Phasenporträts der gedämpften Schwingungsgleichung
 In beiden Abbildungen wird die horizontale Auslenkung \(x(t)\) des Federpendels auf der x Achse und der Impuls \(p(t) = m\dot{x}(t)\) auf der y Achse aufgetragen.
 
 \par
-Das in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} dargestellte Phasenportrait illustriert anschaulich, dass im Fall des harmonischen Oszillators ohne Dämpfung die Orbits elliptisch sind und somit jeder Startwert \(x_0 \in U\) periodisch ist.
+Das in \hyperref[\detokenize{ode/fluesse:fig-harmonic-oscillator}]{Abb.\@ \ref{\detokenize{ode/fluesse:fig-harmonic-oscillator}}} dargestellte Phasenportrait illustriert anschaulich, dass im Fall des harmonischen Oszillators ohne Dämpfung die Orbits elliptisch sind und somit jeder Startwert \(x_0 \in U\) periodisch ist.
 
 \begin{figure}[htbp]
 \centering
 
 
+
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_3\string_0.png}
+
 \caption{Visualisierung des Phasenporträts und einiger Orbits für den Phasenfluss des harmonischen Oszillators aus \cref{ode/fluesse:ex:oscillations}  Das Phasenporträt zeigt das charakteristische Verhalten von Lösungen der gedämpften Schwingungsgleichung für reibungsfreie Prozesse, d.h., für eine Dämpfungskonstante \(r = 0\).}\label{\detokenize{ode/fluesse:fig-harmonic-oscillator}}\end{figure}
 
 \par
-Betrachten wir nun für eine positive Dämpfungskonstante \(r > 0\) den Fall der allgemeinen gedämpften Schwingungsgleichung, so sieht man am dargestellen Phasenportrait in \hyperref[\detokenize{ode/fluesse:fig-damped-oscillator}]{Fig.\@ \ref{\detokenize{ode/fluesse:fig-damped-oscillator}}}, dass die Trajektorien in den Ursprung konvergieren, der als Orbit in Ruhelage einen Fixpunkt des dynamischen Systems darstellt.
+Betrachten wir nun für eine positive Dämpfungskonstante \(r > 0\) den Fall der allgemeinen gedämpften Schwingungsgleichung, so sieht man am dargestellen Phasenportrait in \hyperref[\detokenize{ode/fluesse:fig-damped-oscillator}]{Abb.\@ \ref{\detokenize{ode/fluesse:fig-damped-oscillator}}}, dass die Trajektorien in den Ursprung konvergieren, der als Orbit in Ruhelage einen Fixpunkt des dynamischen Systems darstellt.
 Dies macht auch physikalisch Sinn, da jedes Federpendel auf Grund der Reibung nach endlicher Zeit zum Stillstand kommt.
 
 \begin{figure}[htbp]
 \centering
 
 
+
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/fluesse\string_6\string_0.png}
+
 \caption{Visualisierung des Phasenporträts und einiger Orbits für den Phasenfluss der gedämpften Schwingungsgleichung aus \cref{ode/fluesse:ex:oscillations} für eine relativ groß gewählte Dämpfungskonstante \(r > 0\).}\label{\detokenize{ode/fluesse:fig-damped-oscillator}}\end{figure}
 
 

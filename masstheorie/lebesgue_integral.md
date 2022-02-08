@@ -49,9 +49,11 @@ f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{A}(\R^n).
 ```
 ````
 
-Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem $\sigma$-Operator vertauschen lässt, wobei für $\mathcal{C}\subset 2^\Omega$ die Menge $\sigma(\mathcal{C})$ gerade die kleinste $\sigma$-Algebra ist welche $\mathcal{C}$ enthält siehe {ref}`s:sigmaalg`.
+Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem $\sigma$-Operator vertauschen lässt, wobei für $\mathcal{C}\subset 2^\Omega$ die Menge $\sigma(\mathcal{C})$ gerade die kleinste $\sigma$-Algebra ist welche $\mathcal{C}$ enthält siehe {numref}`s:sigmaalg`.
 
 ````{prf:lemma}
+:label: lem:changesigma
+
 Es sei $f:\Omega_1\to\Omega_2$ eine Funktion und $\mathcal{C}\subset 2^{\Omega_2}$ ein Teilmengensystem, dann gilt
 
 ```{math}
@@ -78,9 +80,11 @@ ToDo
 
 ## Charakterisierung über Niveaumengen
 
-Im Falle von Borel und Lebesgue-Messbarkeit haben wir als Zielalgebra $\B(\overline{R})$ betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.
+Im Falle von Borel und Lebesgue-Messbarkeit haben wir als Zielalgebra $\B(\overline{\R})$ betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.
 
 ````{prf:lemma}
+:lem: Niveaumengen
+
 Es sei $(\Omega,\Sigma)$ ein Messraum, eine Funktion $f:\Omega\to\overline{R}$ eine Funktion ist genau dann messbar bezüglich $\Sigma$, falls
 für die Niveaumengen gilt
 
@@ -90,125 +94,276 @@ für die Niveaumengen gilt
 ````
 
 ````{prf:proof}
-ToDo.
+Wir betrachten das Mengensystem
+
+```{math}
+\mathcal{C}:=\{[-\infty,c):c\in\R\}
+```
+
+und erkennen, dass
+
+```{math}
+f^{-1}(\mathcal{C}) = \{\{f<c\}:c\in\R\}.
+```
+
+Weiterhin gilt wegen {prf:ref}`lem:genborel` und {prf:ref}`lem:changesigma`, dass
+
+```{math}
+\sigma(f^{-1}(\mathcal{C})) = f^{-1}(\sigma(\mathcal{C})) = f^{-1}(\B(\overline{\R}))
+```
+
+und daher ist Messbarkeit bezüglich $\Sigma$ äquivalent zu
+
+```{math}
+\sigma(f^{-1}(\mathcal{C})) \subset \Sigma
+```
+
+was aber wiederum äquivalent zu
+
+```{math}
+f^{-1}(\mathcal{C}) \subset \Sigma
+```
+
+ist.
 ````
 
 ````{prf:remark}
+Für uns ist vor allem der Fall von Bedeutung, wenn $\Sigma$ im obigen Lemma die Borel $\sigma$-Algebra oder die Lebesgue $\sigma$-Algebra auf $\R^n$ ist. Da wir aber keine speziellen Eigenschaften dieser $\sigma$-Algebren ausnutzen und lediglich die Tatsache ausnutzen, dass die Zielalgebra $\B(\overline{\R})$ ist, ist es leichter die Aussagen mit allgemeinem $\Sigma$ zu formulieren.
+````
 
-1\. Konkatenation von messbaren Funktionen ist wieder eine messbare Funktion.
+Mithilfe dieses Lemma können wir die folgende Aussage zeigen.
 
-2\. Summen, Produkte, Quotienten, Maxima und Minima endlich vieler reellwertiger messbarer Funktionen sind wieder messbar.
+````{prf:lemma}
+Es sei $(\Omega,\Sigma)$ ein Messraum und $f,g:\Omega\to\overline{\R}$ zwei bezüglich $\Sigma$ messbare Funktionen, dann gilt
 
-3\. Sei $(f_n)_{n \in \N}$ mit $f_n \colon \Omega \subset \R^n \rightarrow \R$ eine Folge von messbaren Funktionen.
-Dann sind $\inf(f_n), \sup(f_n), \lim\inf (f_n)$ und $\lim\sup (f_n)$ auch messbar.
+1. $f+g$ ist messbar,
+
+2. $\lambda f$ ist messbar für alle $\lambda\in\overline{R}$,
+
+3. $f\cdot g$ ist messbar,
+
+4. falls $g\neq 0$ ist $f/g$ messbar,
+
+5. $\max\{f,g\}, \min\{f,g\}$ sind messbar
+
+bezüglich $\Sigma$.
+````
+
+````{prf:proof}
+Siehe Übung.
+````
+
+Für Folgen von messbaren Funktionen gilt auch, dass deren Grenzwerte messbar sind.
+
+````{prf:lemma}
+Es sei $(\Omega,\Sigma)$ ein Messraum, $f_n \colon \Omega\to\overline{\R},n\in\N$ eine Folge von bezüglich $\Sigma$ messbaren Funktionen, dann sind 
+
+1. $\inf_{n\in\N} f_n$ und $\sup_{n\in\N} f_n$,
+
+2. $\liminf_{n\to\infty} f_n$ und $\limsup{n\to\infty} (f_n)$ 
+
+auch messbar bezüglich $\Sigma$.
 
 ````
 
-## Das Lebesgue-Integral
+````{prf:proof}
+ToDo, siehe [Vorlesung](https://www.fau.tv/clip/id/40563) Minute 80:30.
+````
 
-ToDo Definition
+## Das Lebesgue-Integral einfacher Funktionen
+
+Für das Riemann-Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als nalogon betrachtet man hier sogenannte einfache Funktionen.
+
+```{figure} ../img/simplefun.jpg
+---
+width: 400px
+name: "fig:simplefun"
+---
+
+Visualisierung einer einfachen Funktion.
+```
+
+````{prf:Definition}
+Eine Funktion $f:\R^n\to\overline{R}$ heißt einfach, falls Koeffizienten $\alpha_i\in\overline{\R}$ und messbare Mengen $A_i\in\mathcal{A}(\R^n)$ für $i=1,\ldots,N$ existieren, s.d.,
+
+```{math}
+f = \sum_{i=1}^N \alpha_i \bone_{A_i}.
+```
+````
+
+Man erhält über die Definition direkt ein Lemma, dass einfache Funktionen Lebesgue-messbar sind.
+
+````{prf:lemma}
+Es sei $f:\R^n\to\overline{\R}$ eine einfache Funktion, dann ist $f$ Lebesgue-messbar.
+````
+
+````{prf:proof}
+Siehe [Vorlesung](https://www.fau.tv/clip/id/40589) ab Minute 8:45.
+````
+
+Für einfache Funktionen können wir analog zum Riemann-Integral das Lebesgue-Integral definieren, indem wir das Maß der einzelnen Mengen multipliziert mit den Funktionswerten summieren, welche eine einfache Funktion erzeugen.
+
+````{prf:defintion} Lebesgue-Integral einfacher Funktionen
+Es sei $f = \sum_{i=1}^N \alpha_i \bone_{A_i}$ eine einfache Funktion mit $A_i\in\mathcal{A}(\R^n),i=1,\ldots,N$, dann definieren wir das Lebesgue-Integral
+
+```{math}
+\int_{\R^n} f d\lambda^n := \sum_{i=1}^N \alpha_i\lambda^n(A_i)
+```
+````
+
+````{prf:remark} Wohldefiniertheit
+Es ist wichtig anzumerken, dass für eine einfache Funktion $f$ verschiedene Zerlegungen in Mengen $A_i$ und Koeffizienten $\alpha_i$ existieren. Allerdings erkennen wir, dass der Wert des Integrals unabhängig von der Wahl der Zerlegung ist und das Intergal somit wohldefiniert ist.
+````
+
+## Das Lebesgue-Integral nicht-negativer Funktionen
+
+Die wichtige Eigenschaft, welche die Betrachtung von einfachen Funktion so relevant macht, ist dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen. Diese Tatsache formulieren wir in folgendem Lemma.
 
 ````{prf:lemma}
 :label: lem:simplefun
 
-Sei $f \colon \Omega \subset \R^n \rightarrow [0,\infty]$ eine Lebesgue-messbare Funktion.
-Dann existiert eine monoton wachsende Folge $(T_n)_{n_\in N}$ von Treppenfunktionen mit
+Sei $f \colon \Omega \to [0,\infty]$ eine Lebesgue-messbare Funktion, dann existiert eine monoton wachsende Folge $(f_i)_{i_\in N}$ von einfachen Funktionen mit
 
 ```{math}
-T_n|_{D^c} = 0 \qquad \text{ und } \qquad T_n \nearrow f,
-```
-
-d.h., es gilt
-
-```{math}
-\lim_{n\rightarrow \infty} T_n(x) = f(x) \qquad \text{ und } \qquad T_{n+1}(x) \geq T_n(x).
+f_i&\leq f_{i+1}\\
+f_i &= 0\text{ in }\Omega^C\\
+f&=\lim_{i\to\infty} f_i.
 ```
 
 ````
 
 ````{prf:proof}
-ToDo
+Siehe [Vorlesung](https://www.fau.tv/clip/id/40589) ab Minute 13:00.
 ````
 
+Mithilfe der Tatsache, dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen, können wir nun das Lebesgue-Integral für nicht-negative messbare Funktionen einführen.
 
-````{prf:definition} Lebesgue-Integral für nichtnegative Funktionen
-1\. Für Lebesgue-messbare Mengen $A_i, i=1,\ldots,N$ und nicht-negative Koeffizienten $\alpha_i, i=1,\ldots,N$ definieren wir das **Lebesgue-Integral** einer positiven *Treppenfunktion* $T = \sum_{i=1}^N \alpha_i \chi_{A_i}$ als
-
-```{math}
-\int \mu(\mathrm{d}x) f(x) = \sum_{i=1}^N \alpha_i \mu(A_i).
-```
-
-2\. Sei $(T_n)_{n\in\N}$ eine monoton wachsende Folge von Treppenfunktionen mit
+````{prf:definition} Lebesgue-Integral nicht-negativer Funktionen
+Es sei $f:\Omega\to[0,\infty]$ Lebesgue-messbar und nach {prf:ref}`lem:simplefun` $(f_i)_{i\in\N}$ eine monoton wachsende Folge von einfachen Funktionen mit $\lim_{i\to\infty} f_i = f$, dann ist das **Lebesgue-Integral** von $f$ definiert durch
 
 ```{math}
-T_n|_{D^c} = 0 \qquad \text{ und } \qquad T_n \nearrow f
-```
-
-und $f \colon D \rightarrow \overline{R}$ eine positive, *Lebesgue-messbare Funktion*.
-Dann ist das **Lebesgue-Integral** von $f$ definiert als
-
-```{math}
-\int_D \mu(\mathrm{d}x) f(x) = \lim_{n\rightarrow \infty} \int \mu(\mathrm{d}x) f_n(x) = \sup_n \int \mu(\mathrm{d}x) f_n(x) \in [0,\infty].
+\int_{\Omega} f \,d\lambda^n = \lim_{i\rightarrow \infty} \int_{\R^n} f_i \,d\lambda^n.
 ```
 
 ````
+
+Wir zeigen im Folgenden wichtige Eigenschaften des Lebesgue-Integrals.
 
 ````{prf:theorem} Eigenschaften des Lebesgue-Integrals
-Das Lebesgue-Integral ist *wohldefiniert*, d.h., sein Wert ist unabhängig von der gewählten Folge von Treppenfunktionen $(T_n)_{n\in\N}$.
-Darüber hinaus ist das Lebesgue-Integral *linear* und *monoton*, d.h., für nichtnegative, Lebesgue-messbare Funktionen $f,g \geq 0$ gilt
+Das Lebesgue-Integral ist *wohldefiniert*, d.h., sein Wert ist unabhängig von der gewählten Folge von einfachen Funktionen $(f_n)_{n\in\N}$.
+Darüber hinaus ist das Lebesgue-Integral *linear* und *monoton*, d.h., für nicht-negative, Lebesgue-messbare Funktionen $f,g \geq 0,\alpha\in\overline{\R}$ gilt
 
 ```{math}
-\int \mu(\mathrm{d}x)(f(x) + \lambda g(x)) = \left( \int \mu(\mathrm{d}x) f(x) \right) + \lambda \left( \int \mu(\mathrm{d}x) g(x) \right)\\
-f \leq g \quad \Rightarrow \quad \int \mu(\mathrm{d}x) f(x) \leq \int \mu(\mathrm{d}x) g(x).
+\int_\Omega f+\alpha\,g\,d\lambda^n = \int_\Omega f\,d\lambda^n + \alpha\, \int_\Omega g d\lambda^n\\
+f \leq g \quad \Rightarrow \quad \int_\Omega f\, d\lambda^n \leq \int_\Omega g\, d\lambda^n.
 ```
 
 ````
 
 ````{prf:proof}
-ToDo
+Siehe [Vorlesung](https://www.fau.tv/clip/id/40589) ab Minute 30:00.
 ````
+
+Anstatt der Folge von einfachen Funktionen, kann man auch eine beliebige monotone Folge von messbaren Funktionen benutzen um das Integral zu approximieren. Diese Aussage ist unter dem **Satz von der monotonen Konvergenz** oder dem **Konvergenzsatz von Beppo Levi** bekannt.
+
+```{margin} Beppo Levi
+[Beppo Levi](https://de.wikipedia.org/wiki/Beppo_Levi) (Geboren 14. Mai 1875 in Turin, Italien; Gestorben 28. August 1961 in Rosario, Argentinien) war ein italienischer Mathematiker.
+
+```
 
 ````{prf:lemma} Satz von Beppo Levi
 :label: lem:levi
 
+Es sei $f_i:\R^n\to[0,\infty],i\in\N$ eine Folge nicht-negativer Lebesgue-messbarer Funktionen mit
+
+```{math}
+f_i\leq f_{i+1}\qquad\text{(Monotonie))},\\
+\lim_{i\to\infty} f_i = f\qquad\text{(Konvergenz)},
+```
+
+wobei $f:[0,\infty]\to\overline{\R}$ auch Lebesgue-messbar ist, dann gilt
+
+```{math}
+\lim_{i\to\infty} \int_{\R^n} f_i \,d\lambda^n = \int_{\R^n} f \,d\lambda^n
+```
 ````
 
-````{prf:definition} Allgemeines Lebesgue-Integral
-Sei $f \colon \R^n \rightarrow \R$ eine Lebesgue-messbare Funktion.
-Wir nennen die Funktion $f$ **Lebesgue-integrierbar**, genau dann wenn gilt
+````{prf:proof}
+Ref missing.
+````
 
-```{math}
-\mu(|f|) < +\infty
+Eine weitere Aussage in diesem Kontext ist das **Lemma von Fatou**, welches eine Abschätzung für eine nicht notwendigerweise konvergierende Folge von Funktionen zeigt.
+
+```{margin} Pierre Fatou
+[Pierre Joseph Louis Fatou](https://de.wikipedia.org/wiki/Pierre_Fatou) (Geboren 28. Februar 1878 in Lorient; Gestorben 10. August 1929 in Pornichet) war ein französischer Mathematiker.
 ```
 
-Falls die Funktion $f$ Lebesgue-integrierbar ist, definieren wir entsprechende positive integrierbare Funktionen
+````{prf:lemma} Lemma von Fatou
+Es sei $f_i:\R^n\to[0,\infty],i\in\N$ eine Folge nicht-negativer Lebesgue-messbarer Funktion, dann ist
 
 ```{math}
-f_+ := \max \lbrace f, 0 \rbrace, \qquad f_- := \max{-f, 0},
+f(x) := \liminf_{i\to\infty} f_i(x)
 ```
 
-so dass gilt $f = f_+ - f_-$.
-Dann können wir das **Lebesgue-Integral** von $f$ definieren als
+nicht-negativ und Lebesgue-messbar und es gilt
 
 ```{math}
-\mu(f) := \mu(f_+) - \mu(f_-).
+\liminf_{i\to\infty} \int_{\R} f_i\, d\lambda^n \geq \int_\R^n f\, d\lambda^n.
+```
+````
+
+````{prf:proof}
+Ref missing.
+````
+
+## Das Lebesgue-Integral integrierbarer Funktionen
+
+Wir wollen nun das Lebesgue-Integral auf messbaren Funktionen mit wechselndem Vorzeichen betrachten. Dafür spalten wir eine Funktionen in ihren positiven und ihren negativen Teil auf und bilden das Integral über diese Funktionen. Um die beiden Teile aufsummieren zu können, müssen wir allerdings fordern, dass beide endlich sind.
+
+````{prf:definition} Lebesgue-Integral integrierbarer Funktionen
+Sei $f \colon \R^n \rightarrow \R$ eine Lebesgue-messbare Funktion, wir nennen die Funktion $f$ **Lebesgue-integrierbar**, falls
+
+```{math}
+\int_{\R^n} \abs{f} d\lambda^n < +\infty
 ```
 
-Häufig vewenden wir die äquivalenten Schreibweisen
+gilt. Für eine Lebesgue-integrierbare Funktion $f$, definieren wir entsprechende positive integrierbare Funktionen
 
 ```{math}
-\mu(f) \hat{=} \int \mu(\mathrm{d}x) f(x) \hat{=} \int f(x) \mathrm{d}x.
+f^+ := \max \lbrace f, 0 \rbrace, \qquad f_- := \max{-f, 0},
+```
+
+so dass gilt $f = f^+ - f_-$. Dann können wir das **Lebesgue-Integral** von $f$ definieren als
+
+```{math}
+\int_{\R^n} f\, d\lambda^n := \int_{\R^n} f^+\, d\lambda^n - \int_{\R^n} f_-\, d\lambda^n.
 ```
 
 ````
 
 ````{prf:lemma}
-Das Lebesgue-Integral ist eine linearer und monotoner Operator auf der Menge der Lebesgue-integrierbaren Funktionen.
+Das Lebesgue-Integral ist ein linearer und monotoner Operator auf der Menge der Lebesgue-integrierbaren Funktionen.
 ````
 
 ````{prf:proof}
 ToDo
 ````
+
+Auch für integrierbare Funktionen gibt es einen wichtigen Konvergenzsatz, der **Konvergenzsatz von Lebesgue** oder auch der **Satz von der dominierten Konvergenz**.
+
+````{prf:theorem}
+Es sei $f_i:\R^n\to\R$ eine Folge Lebesgue-messbarer Funktionen mit $\lim_{i\to\infty} f_i =f$ und $\abs{f}\leq g$ wobei $g$ eine Lebesgue-integrierbare Funktion ist, dann gilt $f$ ist Lebesgue-integrierbar und
+
+```{math}
+\lim_{i\to\infty} \int_{\R^n} f_i\, d\lambda^n = \int_{\R^n} f\, d\lambda^n.
+```
+````
+
+````{prf:proof}
+Ref missing.
+````
+
+## Fast überall Eigenschaften
 
 ````{prf:definition}
 Seien $f,g \colon \R^n \rightarrow \overline{\R}$ Lebesgue-messbare Funktionen.

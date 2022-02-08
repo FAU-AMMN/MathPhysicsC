@@ -25,8 +25,8 @@ def match_theorems(content):
                              r'\\begin{' + keys[key] + r'}{\3}{\1}', content, flags = re.M)
     
     # note boxes
-    content = re.sub(r'\\begin\{sphinxadmonition\}\{danger\}\{Danger:\}((.|\n)*?)' + token_end, 
-                             r'\\begin{' + keys['danger'] + r'}{}{}\1\\end{'+keys['danger']+'}', content, flags = re.M)
+    content = re.sub(r'\\begin\{sphinxadmonition\}\{danger\}\{(.*?)\}((.|\n)*?)' + token_end, 
+                             r'\\begin{' + keys['danger'] + r'}{}{}\2\\end{'+keys['danger']+'}', content, flags = re.M)
     # note boxes
     content = re.sub(r'\\begin\{sphinxadmonition\}\{note\}((.|\n)*?)' + token_end, 
                              r'\\begin{' + keys['note'] + r'}{}{}\1\\end{'+keys['note']+'}', content, flags = re.M)
@@ -166,6 +166,9 @@ with open (path+file_name+extension, 'r' ) as f:
     # replacements for intro
     content_new = re.sub(r'\\begin\{DUlineblock\}\{0em\}\n\\item\[\] \\textbf\{\\Large (.*?)\}\n\\end\{DUlineblock\}', 
                          r'\\subsection{\1}', content_new, flags = re.M)
+
+    content_new = re.sub(r'\\begin\{sphinxVerbatimOutput\}((.|\n)*?)\\end\{sphinxVerbatimOutput\}', 
+                         r'\1', content_new, flags = re.M)
      
     
 # split up into chapters
