@@ -46,7 +46,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -274,18 +274,23 @@
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../complexanalysis/complexnumbers.html">
+     7.1. Die Komplexen Zahlen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/cauchyriemann.html">
-     7.1. Cauchy-Riemann Gleichungen
+     7.2. Holomorphe Funktionen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
-     7.2. Kurvenintegrale
+     7.3. Kurvenintegrale
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/residuensatz.html">
-     7.3. Laurententwicklung und Residuensatz
+     7.4. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -628,10 +633,10 @@ dx_3\wedge dx_1.\end{split}\]</div>
 </div>
 <div class="section" id="der-pullback">
 <h2><span class="section-number">4.3.4. </span>Der Pullback<a class="headerlink" href="#der-pullback" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte <strong>Pullback</strong>. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten <span class="math notranslate nohighlight">\(\M,\mathcal{N}\)</span> und eine glatte Funktion <span class="math notranslate nohighlight">\(F:M\to\mathcal{N}\)</span>. Das Ziel ist es nun eine Differentialform auf <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(\omega\in\Omega^k(\mathcal{N})\)</span> mithilfe von <span class="math notranslate nohighlight">\(F\)</span> auf eine Differentialform auf <span class="math notranslate nohighlight">\(\M\)</span> zurückzuziehen. Ausgewertet an <span class="math notranslate nohighlight">\(p\in\M\)</span> ergibt eine Differentialform <span class="math notranslate nohighlight">\(\eta\in\Omega^k(\M)\)</span> ein Element aus <span class="math notranslate nohighlight">\(L^k(T_p^\ast\M)\)</span>,</p>
+<p>Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte <strong>Pullback</strong>. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten <span class="math notranslate nohighlight">\(\M,\mathcal{N}\)</span> und eine glatte Funktion <span class="math notranslate nohighlight">\(F:M\to\mathcal{N}\)</span>. Das Ziel ist es nun eine Differentialform auf <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(\omega\in\Omega^k(\mathcal{N})\)</span> mithilfe von <span class="math notranslate nohighlight">\(F\)</span> auf eine Differentialform auf <span class="math notranslate nohighlight">\(\M\)</span> zurückzuziehen. Ausgewertet an <span class="math notranslate nohighlight">\(p\in\M\)</span> ergibt eine Differentialform <span class="math notranslate nohighlight">\(\eta\in\Omega^k(\M)\)</span> ein Element aus <span class="math notranslate nohighlight">\(L^k(T_p\M)\)</span>, da</p>
 <div class="math notranslate nohighlight">
-\[\eta_p\in \Omega^k(T_p\M) \subset L^k(T_p^\ast\M)\]</div>
-<p>also eine Linearform, welche auf <span class="math notranslate nohighlight">\(k\)</span> Elemente <span class="math notranslate nohighlight">\(v_1,\ldots,v_k\in T_p^\ast\M\)</span> des Kotangentialraums in <span class="math notranslate nohighlight">\(p\)</span> an <span class="math notranslate nohighlight">\(\M\)</span> wirkt. Haben wir nun a priori <span class="math notranslate nohighlight">\(\omega\in\Omega^k(\mathcal{N})\)</span> gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über <span class="math notranslate nohighlight">\(F\)</span> von <span class="math notranslate nohighlight">\(\M\)</span> nach <span class="math notranslate nohighlight">\(\N\)</span> vorschieben können, der sogennante <strong>Pushforward</strong>.</p>
+\[\eta_p\in \Lambda^k(T_p\M) \subset L^k(T_p^\M)\]</div>
+<p>also eine Linearform, welche auf <span class="math notranslate nohighlight">\(k\)</span> Elemente <span class="math notranslate nohighlight">\(v_1,\ldots,v_k\in T_p\M\)</span> des Tangentialraums in <span class="math notranslate nohighlight">\(p\)</span> an <span class="math notranslate nohighlight">\(\M\)</span> wirkt. Haben wir nun a priori <span class="math notranslate nohighlight">\(\omega\in\Omega^k(\mathcal{N})\)</span> gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über <span class="math notranslate nohighlight">\(F\)</span> von <span class="math notranslate nohighlight">\(\M\)</span> nach <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> vorschieben können, der sogenannte <strong>Pushforward</strong>.</p>
 <div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 4.35 </span></p>
 <div class="definition-content section" id="proof-content">

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Mathematik für Physikstudierende C</title>
+    <title>7.1. Die Komplexen Zahlen &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -45,6 +45,8 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,8 +57,8 @@
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="7. Funktionentheorie" href="../complexanalysis/complexanalysis.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="hausdorff.html" />
+    <link rel="next" title="7.2. Holomorphe Funktionen" href="cauchyriemann.html" />
+    <link rel="prev" title="7. Funktionentheorie" href="complexanalysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -113,7 +115,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../ode/ode.html">
    1. Gewöhnliche Differentialgleichungen für dynamische Systeme
@@ -250,7 +252,7 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="surfaceintegrals.html">
+  <a class="reference internal" href="../surfaceintegrals/surfaceintegrals.html">
    6. Integration über Flächen und Mannigfaltigkeiten
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
@@ -261,33 +263,33 @@
   <ul class="simple">
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../complexanalysis/complexanalysis.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="complexanalysis.html">
    7. Funktionentheorie
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/complexnumbers.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      7.1. Die Komplexen Zahlen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/cauchyriemann.html">
+    <a class="reference internal" href="cauchyriemann.html">
      7.2. Holomorphe Funktionen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
+    <a class="reference internal" href="kurvenintegrale.html">
      7.3. Kurvenintegrale
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../complexanalysis/residuensatz.html">
+    <a class="reference internal" href="residuensatz.html">
      7.4. Laurententwicklung und Residuensatz
     </a>
    </li>
@@ -339,7 +341,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/surfaceintegrals/manifolds.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/complexanalysis/complexnumbers.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -377,14 +379,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Inhalt
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -392,26 +386,52 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>Die Komplexen Zahlen</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Inhalt </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  
+  <div class="tex2jax_ignore mathjax_ignore section" id="die-komplexen-zahlen">
+<h1><span class="section-number">7.1. </span>Die Komplexen Zahlen<a class="headerlink" href="#die-komplexen-zahlen" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Wir werden hier zunächst die wichtigen Grundlagen der komplexen Zahlen wiederholen.
+Die komplexen Zahlen werden eingeführt als das Tupel</p>
+<div class="math notranslate nohighlight">
+\[\C := (\R^2,+,\cdot)\]</div>
+<p>zusammen mit den Operationen</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(x_1,y_1) + (x_2,y_2) &amp;:= (x_1 + x_2, y_1+y_2),\\
+(x_1,y_1) \cdot (x_2,y_2) &amp;:= (x_1\cdot x_2 - y_1\cdot y_2, y_1\cdot x_2 + x_1\cdot y_2).\end{split}\]</div>
+<p>Diese Struktur bildet einen <strong>Körper</strong> mit dem Einselement <span class="math notranslate nohighlight">\(1:=(1,0)\)</span>. Das Element <span class="math notranslate nohighlight">\(i:=(0,1)\)</span> heißt <strong>imaginäre Einheit</strong> und erfüllt die Gleichung</p>
+<div class="math notranslate nohighlight">
+\[i^2 = (0,1)\cdot(0,1) = -(1,0) = -1.\]</div>
+<p>Als reeller Vektorraum hat <span class="math notranslate nohighlight">\(\C\)</span> die kanonische Basis <span class="math notranslate nohighlight">\(\{(1,0),(0,1)\}=\{1,i\}\)</span> weshalb wir jedes Element darstellen können über</p>
+<div class="math notranslate nohighlight">
+\[(x,y) = x + iy.\]</div>
+<p>Für eine komplexe Zahl <span class="math notranslate nohighlight">\(z=x+ iy\in\C\)</span> definieren wir</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Re(z):= x\)</span> den <strong>Realteil</strong>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Im(z):=y\)</span> den <strong>Imaginärteil</strong>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\overline{z}:= x-iy\)</span> die <strong>komplexe Konjugation</strong>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\abs{z} = \sqrt{z\overline{z}} = \sqrt{x^2+y^2}\)</span> den <strong>Betrag</strong>.</p></li>
+</ol>
+<p>Für den Betrag komplexer Zahlen gelten die bekannten Rechenregeln</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\abs{0}&amp;=0,\\
+\abs{z\cdot w} &amp;= \abs{z}\cdot \abs{w},\\
+\abs{z+w}&amp;\leq\abs{z}+\abs{w},\end{split}\]</div>
+<p>für zwei komplexe Zahlen <span class="math notranslate nohighlight">\(z,w\in\C\)</span></p>
+<p>Insbesondere induziert der Betrag die Metrik</p>
+<div class="math notranslate nohighlight">
+\[d(z,w):= \abs{z-w}\]</div>
+<p>und damit auch eine Topologie sowie die Begriffe Konvergenz und Stetigkeit einer Funktion <span class="math notranslate nohighlight">\(f:\C\to\C\)</span>.</p>
+</div>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -425,7 +445,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./surfaceintegrals"
+            path: "./complexanalysis"
         },
         predefinedOutput: true
     }
@@ -437,17 +457,17 @@
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="hausdorff.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="complexanalysis.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">&lt;no title&gt;</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Funktionentheorie</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../complexanalysis/complexanalysis.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="cauchyriemann.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Funktionentheorie</p>
+        <p class="prev-next-title"><span class="section-number">7.2. </span>Holomorphe Funktionen</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

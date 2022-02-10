@@ -46,7 +46,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -274,18 +274,23 @@
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../complexanalysis/complexnumbers.html">
+     7.1. Die Komplexen Zahlen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/cauchyriemann.html">
-     7.1. Cauchy-Riemann Gleichungen
+     7.2. Holomorphe Funktionen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
-     7.2. Kurvenintegrale
+     7.3. Kurvenintegrale
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/residuensatz.html">
-     7.3. Laurententwicklung und Residuensatz
+     7.4. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -765,14 +770,14 @@ Wir erhalten somit Kurven</p>
 <p>und mithilfe der Richtungsableitung aus <a class="reference internal" href="#def:direcdiv">Definition 4.13</a> die Derivationen</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\partial_{x^i}^p: C^\infty(\M) &amp;\to \R\\
-f &amp;\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).\end{split}\]</div>
+f &amp;\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}.\end{split}\]</div>
 <div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 4.16 </span> (Partielle Derivation)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit für <span class="math notranslate nohighlight">\(n\in\N\)</span> und sei <span class="math notranslate nohighlight">\(f \in C^\infty(\M)\)</span> eine glatte Funktion.
 Dann bezeichnen wir die Derivationen</p>
 <div class="math notranslate nohighlight">
-\[\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)), \quad i=1,\ldots,n\]</div>
+\[\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}, \quad i=1,\ldots,n\]</div>
 <p>als <strong>partielle Derivationen</strong> von <span class="math notranslate nohighlight">\(f\)</span> im Punkt <span class="math notranslate nohighlight">\(p \in \M\)</span>.</p>
 </div>
 </div><p>Wir interpretieren also im Folgenden das Symbol <span class="math notranslate nohighlight">\(\partial_{x^{i}}^p\)</span> als Derivation an <span class="math notranslate nohighlight">\(p\in\M\)</span>, d.h., insbesondere als lineare Abbildung von <span class="math notranslate nohighlight">\(C^\infty(\M)\)</span> nach <span class="math notranslate nohighlight">\(\R\)</span>.
@@ -801,7 +806,7 @@ Dann gilt für die partielle Derivation</p>
 <p>Somit gilt schon für die partielle Derivation</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\partial_{x^i}^p(\varphi_j)=
-\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t)) = 
+\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t))\big\rvert_{t=0} = 
 \begin{cases}
 1&amp;\text{ für } i=j,\\
 0&amp;\text{ sonst}.
@@ -1276,7 +1281,7 @@ Dann haben wir wegen <a class="reference internal" href="#thm:tanbasis">Theorem 
 <p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte <span class="math notranslate nohighlight">\(n\)</span>-dimensionale Mannigfaltigkeit und <span class="math notranslate nohighlight">\((U,\phi)\)</span> eine Karte.
 Dann definieren wir die sogenannten <strong>lokalen Koordinaten Kovektorfelder</strong> für <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> durch</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}dx^{i}:\M&amp;\to T\M\\
+\[\begin{split}dx^{i}:\M&amp;\to T^\ast\M\\
 p&amp;\mapsto dx^{i}_p. \end{split}\]</div>
 </div>
 </div><p>Die definierten 1-Formen sind die einfachsten Beispiele der allgmeinen Diffenerentialformen, welche wir in <a class="reference internal" href="diffformen.html#s-difformen"><span class="std std-numref">Abschnitt 4.3.1</span></a> untersuchen werden. Das Konzept des Kotangentialbündels und der Differentialform ist nun noch etwas abstrakt, allerdings erhalten wir mithilfe des totalen Differentials <a class="reference internal" href="#def:totdiff">Definition 4.18</a> erneut eine einfache Veranschalichung.</p>

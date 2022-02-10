@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7.2. Kurvenintegrale &#8212; Mathematik für Physikstudierende C</title>
+    <title>7.3. Kurvenintegrale &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -46,7 +46,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="7.3. Laurententwicklung und Residuensatz" href="residuensatz.html" />
-    <link rel="prev" title="7.1. Cauchy-Riemann Gleichungen" href="cauchyriemann.html" />
+    <link rel="next" title="7.4. Laurententwicklung und Residuensatz" href="residuensatz.html" />
+    <link rel="prev" title="7.2. Holomorphe Funktionen" href="cauchyriemann.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -274,18 +274,23 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
+    <a class="reference internal" href="complexnumbers.html">
+     7.1. Die Komplexen Zahlen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="cauchyriemann.html">
-     7.1. Cauchy-Riemann Gleichungen
+     7.2. Holomorphe Funktionen
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     7.2. Kurvenintegrale
+     7.3. Kurvenintegrale
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="residuensatz.html">
-     7.3. Laurententwicklung und Residuensatz
+     7.4. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -381,17 +386,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#wege-und-kurven">
-   7.2.1. Wege und Kurven
+   7.3.1. Wege und Kurven
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#homotopie">
-   7.2.2. Homotopie
+   7.3.2. Homotopie
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cauchyscher-integralsatz">
-   7.2.3. Cauchyscher Integralsatz
+   7.3.3. Cauchyscher Integralsatz
   </a>
  </li>
 </ul>
@@ -416,17 +421,17 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#wege-und-kurven">
-   7.2.1. Wege und Kurven
+   7.3.1. Wege und Kurven
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#homotopie">
-   7.2.2. Homotopie
+   7.3.2. Homotopie
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cauchyscher-integralsatz">
-   7.2.3. Cauchyscher Integralsatz
+   7.3.3. Cauchyscher Integralsatz
   </a>
  </li>
 </ul>
@@ -439,12 +444,12 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="kurvenintegrale">
-<h1><span class="section-number">7.2. </span>Kurvenintegrale<a class="headerlink" href="#kurvenintegrale" title="Link zu dieser Überschrift">¶</a></h1>
+<h1><span class="section-number">7.3. </span>Kurvenintegrale<a class="headerlink" href="#kurvenintegrale" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="section" id="wege-und-kurven">
-<h2><span class="section-number">7.2.1. </span>Wege und Kurven<a class="headerlink" href="#wege-und-kurven" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">7.3.1. </span>Wege und Kurven<a class="headerlink" href="#wege-und-kurven" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven.</p>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 7.3 </span> (Weg und Kurve)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.4 </span> (Weg und Kurve)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\((X,\tau)\)</span> ein topologischer Raum und <span class="math notranslate nohighlight">\(I = [a,b]\)</span> ein reelles Intervall für <span class="math notranslate nohighlight">\(a,b \in \R\)</span>.
 Wir nennen eine stetige Funktion <span class="math notranslate nohighlight">\(f \colon I \rightarrow X\)</span> einen <strong>Weg</strong> in <span class="math notranslate nohighlight">\(X\)</span>.
@@ -469,7 +474,7 @@ In diesem Fall lässt sich das Integral <a class="reference internal" href="#equ
 <p><strong>ToDo: Abbildung von stückweise glatten Wegen / Kurven</strong></p>
 <p>Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in <span class="math notranslate nohighlight">\(\C\)</span>, den sogenannten Index.</p>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 7.4 </span> (Index)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.5 </span> (Index)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span> und <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> ein beliebiger Punkt außerhalb der zugehörigen Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.
 Wir bezeichnen als <strong>Index</strong> von <span class="math notranslate nohighlight">\(w\)</span> bezüglich des Wegs <span class="math notranslate nohighlight">\(\gamma\)</span> folgende charakteristische Größe</p>
@@ -480,7 +485,7 @@ Sie ist eine <em>topologische Invariante</em>, die anschaulich beschreibt, wie h
 </div>
 </div><p><strong>ToDo: Abbildung mit Beispiel von <a class="reference external" href="https://de.wikipedia.org/wiki/Umlaufzahl_(Mathematik)">Wikipedia</a></strong></p>
 <div class="proof lemma admonition" id="lemma-2">
-<p class="admonition-title"><span class="caption-number">Lemma 7.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 7.4 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span>.
 Dann ist die Abbildung, die jedem Punkt <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> außerhalb der zugehörigen Kurve seinen Index <span class="math notranslate nohighlight">\(\operatorname{Ind_\gamma}(w)\)</span> konstant auf jeder Zusammenhangskomponente bezüglich der Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
@@ -490,9 +495,9 @@ Dann ist die Abbildung, die jedem Punkt <span class="math notranslate nohighligh
 </div>
 </div>
 <div class="section" id="homotopie">
-<h2><span class="section-number">7.2.2. </span>Homotopie<a class="headerlink" href="#homotopie" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">7.3.2. </span>Homotopie<a class="headerlink" href="#homotopie" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 7.5 </span> (Homotopie)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.6 </span> (Homotopie)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(I := [0,1]\)</span> ein reelles Intervall und <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge.
 Wir nennen zwei Wege <span class="math notranslate nohighlight">\(\gamma, \Gamma \colon I \rightarrow D\)</span> <strong>homotop</strong> in der Teilmenge <span class="math notranslate nohighlight">\(D\)</span> genau dann, wenn eine stetige Abbildung <span class="math notranslate nohighlight">\(H \colon I \times I \rightarrow D\)</span> existiert, so dass</p>
@@ -504,7 +509,7 @@ Wir nennen zwei Wege <span class="math notranslate nohighlight">\(\gamma, \Gamma
 Die zugehörigen Äquivalenzklassen werden auch <em>Homotopieklassen</em> genannt.</p>
 <p>Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.</p>
 <div class="proof lemma admonition" id="lemma-4">
-<p class="admonition-title"><span class="caption-number">Lemma 7.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 7.5 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge und seien <span class="math notranslate nohighlight">\(\gamma\)</span> und <span class="math notranslate nohighlight">\(\Gamma\)</span> geschlossene, homotope Wege in <span class="math notranslate nohighlight">\(D\)</span>.
 Sei außerdem <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine holomorphe Funktion.</p>
@@ -517,7 +522,7 @@ Sei außerdem <span class="math notranslate nohighlight">\(f \colon D \rightarro
 </div>
 <p>Eine besondere Klasse von Wegen sind solche, die nullhomotop sind.</p>
 <div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 7.6 </span> (Nullhomotoper Weg)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.7 </span> (Nullhomotoper Weg)</p>
 <div class="definition-content section" id="proof-content">
 <p>Wir nennen einen Weg <span class="math notranslate nohighlight">\(\gamma\)</span> <strong>nullhomotop</strong> in einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> genau dann, wenn <span class="math notranslate nohighlight">\(\gamma\)</span> homotop in <span class="math notranslate nohighlight">\(D\)</span> zu einem konstanten Weg ist.</p>
 </div>
@@ -537,7 +542,7 @@ Sei darüber hinaus <span class="math notranslate nohighlight">\(f \colon D \rig
 </div>
 </div>
 <div class="section" id="cauchyscher-integralsatz">
-<h2><span class="section-number">7.2.3. </span>Cauchyscher Integralsatz<a class="headerlink" href="#cauchyscher-integralsatz" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">7.3.3. </span>Cauchyscher Integralsatz<a class="headerlink" href="#cauchyscher-integralsatz" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
 Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen.</p>
 <div class="proof theorem admonition" id="theorem-7">
@@ -614,13 +619,13 @@ Dann gilt für alle <span class="math notranslate nohighlight">\(0 &lt; \epsilon
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">7.1. </span>Cauchy-Riemann Gleichungen</p>
+            <p class="prev-next-title"><span class="section-number">7.2. </span>Holomorphe Funktionen</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="residuensatz.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">7.3. </span>Laurententwicklung und Residuensatz</p>
+        <p class="prev-next-title"><span class="section-number">7.4. </span>Laurententwicklung und Residuensatz</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -46,7 +46,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -274,18 +274,23 @@
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../complexanalysis/complexnumbers.html">
+     7.1. Die Komplexen Zahlen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/cauchyriemann.html">
-     7.1. Cauchy-Riemann Gleichungen
+     7.2. Holomorphe Funktionen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
-     7.2. Kurvenintegrale
+     7.3. Kurvenintegrale
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/residuensatz.html">
-     7.3. Laurententwicklung und Residuensatz
+     7.4. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -732,11 +737,11 @@ Dann ist <span class="math notranslate nohighlight">\(C^\infty(\M; \R^m)\)</span
 </div>
 <p>Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.</p>
 <div class="proof lemma admonition" id="lem:differenzierbarkeitKartenunabhaengig">
-<p class="admonition-title"><span class="caption-number">Lemma 4.2 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 4.2 </span> (Kartenunabhängigkeit)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\M\)</span> eine glatte Mannigfaltigkeit und <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> ein Atlas auf <span class="math notranslate nohighlight">\(\M\)</span>.
-Außerdem sei <span class="math notranslate nohighlight">\(f:\M \to \R^m\)</span> eine Funktion, <span class="math notranslate nohighlight">\((U,\phi)\in \mathcal{A}\)</span> eine Karte und <span class="math notranslate nohighlight">\(x \in U\)</span> ein Punkt in der offenen Menge <span class="math notranslate nohighlight">\(U\)</span>.
-Ist <span class="math notranslate nohighlight">\(f\circ\phi^{-1}\)</span> differenzierbar in <span class="math notranslate nohighlight">\(x\)</span>, so ist <span class="math notranslate nohighlight">\(f\circ\psi^{-1}\)</span> auch differenzierbar in <span class="math notranslate nohighlight">\(x\)</span> für jede Karte <span class="math notranslate nohighlight">\((V,\psi) \in \mathcal{A}\)</span> mit <span class="math notranslate nohighlight">\(x\in V\)</span>.</p>
+Außerdem sei <span class="math notranslate nohighlight">\(f:\M \to \R^m\)</span> eine Funktion, <span class="math notranslate nohighlight">\((U,\varphi), (V,\varphi)\in \mathcal{A}\)</span> zwei Karten mit <span class="math notranslate nohighlight">\(x \in U\cap V\)</span>.</p>
+<p>Dann gilt, <span class="math notranslate nohighlight">\(f\circ\varphi^{-1}\)</span> ist genau dann differenzierbar in <span class="math notranslate nohighlight">\(\varphi(x)\)</span>, falls <span class="math notranslate nohighlight">\(f\circ\psi^{-1}\)</span> differenzierbar in <span class="math notranslate nohighlight">\(\psi(x)\)</span> ist.</p>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. In der Hausaufgabe zu zeigen.</p>

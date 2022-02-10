@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7.1. Cauchy-Riemann Gleichungen &#8212; Mathematik für Physikstudierende C</title>
+    <title>7.2. Holomorphe Funktionen &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -46,7 +46,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="7.2. Kurvenintegrale" href="kurvenintegrale.html" />
-    <link rel="prev" title="7. Funktionentheorie" href="complexanalysis.html" />
+    <link rel="next" title="7.3. Kurvenintegrale" href="kurvenintegrale.html" />
+    <link rel="prev" title="7.1. Die Komplexen Zahlen" href="complexnumbers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -273,19 +273,24 @@
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="complexnumbers.html">
+     7.1. Die Komplexen Zahlen
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     7.1. Cauchy-Riemann Gleichungen
+     7.2. Holomorphe Funktionen
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="kurvenintegrale.html">
-     7.2. Kurvenintegrale
+     7.3. Kurvenintegrale
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="residuensatz.html">
-     7.3. Laurententwicklung und Residuensatz
+     7.4. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -374,6 +379,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eigenschaften-holomorpher-funktionen">
+   7.2.1. Eigenschaften holomorpher Funktionen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-cauchy-riemannschen-differentialgleichungen">
+   7.2.2. Die Cauchy–Riemannschen Differentialgleichungen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analytische-funktionen">
+   7.2.3. Analytische Funktionen
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -381,56 +409,188 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Cauchy-Riemann Gleichungen</h1>
+                <h1>Holomorphe Funktionen</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eigenschaften-holomorpher-funktionen">
+   7.2.1. Eigenschaften holomorpher Funktionen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-cauchy-riemannschen-differentialgleichungen">
+   7.2.2. Die Cauchy–Riemannschen Differentialgleichungen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analytische-funktionen">
+   7.2.3. Analytische Funktionen
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="cauchy-riemann-gleichungen">
-<h1><span class="section-number">7.1. </span>Cauchy-Riemann Gleichungen<a class="headerlink" href="#cauchy-riemann-gleichungen" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Der zentrale Begriff der Funktionentheorie ist der einer <em>holomorphen Funktion</em>.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="holomorphe-funktionen">
+<h1><span class="section-number">7.2. </span>Holomorphe Funktionen<a class="headerlink" href="#holomorphe-funktionen" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Wir betrachten im Folgenden komplexe Funktionen <span class="math notranslate nohighlight">\(f:\C\to\C\)</span>. Der Begriff der Stetigkeit wird durch die Metrik induziert. Das Konzept der Differenzierbarkeit führt auf den zentralen Begriff der Funktionentheorie, sogenannte <em>holomorphen Funktionen</em>.</p>
 <div class="proof definition admonition" id="def:holomorph">
 <p class="admonition-title"><span class="caption-number">Definition 7.1 </span> (Holomorphe Funktion)</p>
 <div class="definition-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine stetige Funktion.</p>
-<p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> <strong>holomorph</strong> auf der Teilmenge <span class="math notranslate nohighlight">\(D\)</span>, wenn es für jeden Punkt <span class="math notranslate nohighlight">\(z \in D\)</span> eine komplexe Ableitung der Funktion <span class="math notranslate nohighlight">\(f\)</span> gibt mit</p>
+<p>Sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> eine offene Teilmenge, eine Funktion <span class="math notranslate nohighlight">\(f:U\to\C\)</span> heißt <strong>komplex differenzierbar</strong> in <span class="math notranslate nohighlight">\(p\in\C\)</span>, falls der Grenzwert</p>
 <div class="math notranslate nohighlight">
-\[f'(z) = \lim_{h\rightarrow 0} \frac{f(z+h) - f(z)}{h}.\]</div>
+\[f'(p) = \lim_{h\rightarrow 0} \frac{f(p+h) - f(p)}{h}\]</div>
+<p>existiert. Ist <span class="math notranslate nohighlight">\(f\)</span> komplex differenzierbar für alle <span class="math notranslate nohighlight">\(p\in U\)</span> so nennen wir <span class="math notranslate nohighlight">\(f\)</span> <strong>holomorph</strong>.</p>
 </div>
-</div><p>Der Differentialquotient in <a class="reference internal" href="#def:holomorph">Definition 7.1</a> erinnert sehr an die Definition der Ableitung einer reellen Funktion.
-Der grundlegende Unterschied ist hier jedoch, dass <span class="math notranslate nohighlight">\(h \in \C\)</span> komplex ist.
-Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen Vektorraum, so muss für die beiden Richtungsableitungen <span class="math notranslate nohighlight">\(x := \operatorname{Re}(z)\)</span> und <span class="math notranslate nohighlight">\(y := \operatorname{Im}(z)\)</span> gelten</p>
+</div><div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 7.1 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Beachte, dass im obigen Grenzwert <span class="math notranslate nohighlight">\(h\in\C\)</span> gilt, der Limes existiert also, falls für eine beliebige Folge <span class="math notranslate nohighlight">\(h_k\in\C,k\in\N\)</span> mit <span class="math notranslate nohighlight">\(\abs{h_k}\to 0\)</span> gilt, dass</p>
 <div class="math notranslate nohighlight">
-\[\partial_x f(z) = \lim_{\epsilon \rightarrow 0} \frac{f(z+\epsilon) - f(z)}{\epsilon} = \lim_{\epsilon \rightarrow 0} \frac{f(z+i\epsilon) - f(z)}{i\epsilon} = -i \partial_y f(z), \quad \epsilon \in \R.\]</div>
-<p>Dieser Zusammenhang ist charakteristisch für holomorphe Funktionen und wird im folgenden Satz präzisiert.</p>
-<div class="proof theorem admonition" id="theorem-1">
-<p class="admonition-title"><span class="caption-number">Theorem 7.1 </span> (Cauchy-Riemann Gleichungen)</p>
+\[\lim_{k\to\infty} \frac{f(p+h_k) - f(p)}{h_k} = f'(p).\]</div>
+<p>Dies ist äquivalent dazu, dass für eine beliebige Folge <span class="math notranslate nohighlight">\(z_k\in\C,k\in\N\)</span> mit <span class="math notranslate nohighlight">\(\abs{z_k-p}\to 0\)</span> gilt, dass</p>
+<div class="math notranslate nohighlight">
+\[\lim_{k\to\infty} \frac{f(z_k) - f(p)}{z_k - p} = f'(p).\]</div>
+</div>
+</div><div class="section" id="eigenschaften-holomorpher-funktionen">
+<h2><span class="section-number">7.2.1. </span>Eigenschaften holomorpher Funktionen<a class="headerlink" href="#eigenschaften-holomorpher-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Eine sehr nützliche Eigenschaft komplex differenzierbarer Funktionen liefert das folgende Lemma.</p>
+<div class="proof lemma admonition" id="lem:splitholo">
+<p class="admonition-title"><span class="caption-number">Lemma 7.1 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> eine offene Teilmenge, die Funktion <span class="math notranslate nohighlight">\(f:U\to\C\)</span> ist genau dann komplex differenzierbar in <span class="math notranslate nohighlight">\(p\in U\)</span>, falls eine in <span class="math notranslate nohighlight">\(p\)</span> stetige Funktion <span class="math notranslate nohighlight">\(h:U\to\C\)</span> existiert, s.d.</p>
+<div class="math notranslate nohighlight">
+\[f(z) = f(p) + h(z)\cdot (z-p)\quad\forall z\in U.\]</div>
+<p>Weiterhin gilt in diesem Fall <span class="math notranslate nohighlight">\(h(p) = f^\prime(p)\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Es sei <span class="math notranslate nohighlight">\(f\)</span> komplex differenzierbar in <span class="math notranslate nohighlight">\(p\)</span>, dann definieren wir die Funktion</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}h(z):=
+\begin{cases}
+\frac{f(z) - f(p)}{z-p}\text{ falls }z\neq p\\
+f^\prime(p)\text{ sonst.}
+\end{cases}\end{split}\]</div>
+<p>Da <span class="math notranslate nohighlight">\(f\)</span> komplex differenzierbar in <span class="math notranslate nohighlight">\(p\)</span> ist existiert der Grenzwert</p>
+<div class="math notranslate nohighlight">
+\[\lim_{z\to p} \frac{f(z) - f(p)}{z-p}\]</div>
+<p>und ist gleich <span class="math notranslate nohighlight">\(f^\prime(p)\)</span> und daher ist <span class="math notranslate nohighlight">\(h\)</span> stetig in <span class="math notranslate nohighlight">\(p\)</span>. Weiterhin gilt</p>
+<div class="math notranslate nohighlight">
+\[h(z)\cdot (z-p) = f(z) - f(p)\quad\forall z\in U\]</div>
+<p>und daher die Behauptung.</p>
+<p>Für die andere Richtung sei <span class="math notranslate nohighlight">\(h\)</span> eine in <span class="math notranslate nohighlight">\(p\)</span> stetige Funktion s.d.</p>
+<div class="math notranslate nohighlight">
+\[f(z) = f(p) + h(z)\cdot (z-p)\quad\forall z\in U.\]</div>
+<p>Dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\lim_{z\to p} \frac{f(z) - f(p)}{z-p} = \lim_{z\to p} h(z) = h(p)\]</div>
+<p>wobei der Grenzwert existiert, da <span class="math notranslate nohighlight">\(h\)</span> stetig in <span class="math notranslate nohighlight">\(p\)</span> ist. Somit ist <span class="math notranslate nohighlight">\(f\)</span> komplex differenzierbar in <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div>
+<p>Mithilfe des obigen Lemmas können wir sofort folgern, dass holomorphe Funktionen stetig sind.</p>
+<div class="proof lemma admonition" id="lemma-3">
+<p class="admonition-title"><span class="caption-number">Lemma 7.2 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen und <span class="math notranslate nohighlight">\(f:U\to\C\)</span> sei komplex differenzierbar in <span class="math notranslate nohighlight">\(p\in U\)</span>, dann folgt <span class="math notranslate nohighlight">\(f\)</span> ist stetig in <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Die Funktion <span class="math notranslate nohighlight">\(f\)</span> sei komplex differenzierbar in <span class="math notranslate nohighlight">\(p\)</span>, dann existiert nach <a class="reference internal" href="#lem:splitholo">Lemma 7.1</a> eine in <span class="math notranslate nohighlight">\(p\)</span> stetige Funktion <span class="math notranslate nohighlight">\(h\)</span>, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[f(z) = f(p) + h(z)\cdot(z-p)\quad \forall z\in U.\]</div>
+<p>Die Polynome <span class="math notranslate nohighlight">\(z\mapsto f(p), z\mapsto (z-p)\)</span> sind jeweils stetig in <span class="math notranslate nohighlight">\(p\)</span>, Addition und Multiplikation stetiger Funktionen erhält Stetigkeit und somit ist <span class="math notranslate nohighlight">\(f\)</span> stetig in <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div>
+<p>Wir betrachten nun noch Ableitungsregeln, welche versichern, dass wir für die komplexe Ableitung die gewohnten Rechenregeln benutzten dürfen.</p>
+<div class="proof lemma admonition" id="lemma-4">
+<p class="admonition-title"><span class="caption-number">Lemma 7.3 </span> (Komplexe Ableitungsregeln)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen und <span class="math notranslate nohighlight">\(f,g:U\to\C\)</span> zwei holomorphe Funktionen, dann gilt</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f+g\)</span> ist holomorph, mit <span class="math notranslate nohighlight">\((f+g)^\prime = f^\prime + g^\prime\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\cdot g\)</span> ist holomorph, mit <span class="math notranslate nohighlight">\((f\cdot g)^\prime = f^\prime g+ f g^\prime\)</span>.</p></li>
+</ul>
+<p>Weiterhin seien <span class="math notranslate nohighlight">\(f:U\to V, g:V\to C\)</span> zwei holomorphe Funktionen mit <span class="math notranslate nohighlight">\(V\subset\C\)</span> offen, dann gilt</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(g\circ f\)</span> ist holomorph mit <span class="math notranslate nohighlight">\((g\circ f)^\prime = (g^\prime \circ f)\, f^\prime\)</span>.</p></li>
+</ul>
+<p>Zusätzlich gilt</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{1}{f}: U\setminus f^{-1}(0)\to \C\)</span> ist holomorph, mit <span class="math notranslate nohighlight">\((\frac{1}{f})^\prime = \frac{f^\prime}{f^2}\)</span>.</p></li>
+</ul>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. ToDo</p>
+</div>
+</div>
+<div class="section" id="die-cauchy-riemannschen-differentialgleichungen">
+<h2><span class="section-number">7.2.2. </span>Die Cauchy–Riemannschen Differentialgleichungen<a class="headerlink" href="#die-cauchy-riemannschen-differentialgleichungen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Da die komplexen Zahlen auch einen zweidimensionalen reellen Vektorraum bilden, stellt sich die Frage wie komplexe Differenzierbarkeit mit der bekannten totalen Differenzierbarkeit im <span class="math notranslate nohighlight">\(\R^n\)</span> zusammenhängt.</p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 7.2 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset\R^n\)</span> offen, eine Funktion <span class="math notranslate nohighlight">\(F:U\to\R^m\)</span> heißt <strong>total differenzierbar</strong> in <span class="math notranslate nohighlight">\(a\in U\)</span>, falls ein reell lineares Funktional <span class="math notranslate nohighlight">\(df(a):\R^n\to\R^m\)</span> existiert, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[\lim_{x\to a} \frac{\abs{f(x)-f(a) - df(a)(x-a)}}{\abs{x-a}} = 0.\]</div>
+</div>
+</div><p>Im Falle von totaler Differenzierbarkeit, wissen wir, dass <span class="math notranslate nohighlight">\(F\)</span> in alle Richtung partiell differenzierbar ist, und dass das Differential <span class="math notranslate nohighlight">\(df(a)\)</span> durch die Jacobi-Matrix am Punkt <span class="math notranslate nohighlight">\(a\)</span> gegeben ist. Falls <span class="math notranslate nohighlight">\(F\)</span> andererseits in alle Richtungen <strong>stetig</strong> partiell differenzierbar ist, so ist es auch total Differenzierbar.</p>
+<p>Sei nun <span class="math notranslate nohighlight">\(f\C\to\C\)</span> eine komplexe Funktion wobei wir mit <span class="math notranslate nohighlight">\(u:=\Re(f),v:=\Im(f)\)</span> jeweils der Real- und Imaginärteil von <span class="math notranslate nohighlight">\(f\)</span> sind. Dann ist ist <span class="math notranslate nohighlight">\(f\)</span> natürlicherweise auch eine Funktion <span class="math notranslate nohighlight">\(f:\R^2\to\R^2\)</span>, denn</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f = u+iv = \begin{pmatrix} u\\ v\end{pmatrix}.\end{split}\]</div>
+<p>Somit können wir auch für <span class="math notranslate nohighlight">\(f:\C\to\C\)</span> den Begriff der totalen Differenzierbarkeit betrachten. Der folgende Satz setzt nun Holomorphie und Totale Differenzierbarkeit in Beziehung und führt auf natürliche Weise auf die <strong>Cauchy–Riemannschen Differentialgleichungen</strong>. Dafür setzen wir Voraus, dass die Komponenten <span class="math notranslate nohighlight">\(u,v\)</span>, stetig partiell differenzierbar sind und somit das totale Differential in <span class="math notranslate nohighlight">\(p\in U\subset\C\)</span> gegeben ist durch</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}df(p) = 
+\begin{pmatrix} 
+\partial_x u &amp;\partial_y u\\
+\partial_x v &amp;\partial_y v
+\end{pmatrix}.\end{split}\]</div>
+<p>Wir erkennen, dass das totale Differential auch eine Abbildung <span class="math notranslate nohighlight">\(df(p):\C\to\C\)</span> definiert</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}df(p)(z)= df(p)(x+iy):= 
+\begin{pmatrix} 
+\partial_x u &amp;\partial_y u\\
+\partial_x v &amp;\partial_y v
+\end{pmatrix}
+\begin{pmatrix}
+x\\y
+\end{pmatrix}\end{split}\]</div>
+<p>welche offensichtlich linear über <span class="math notranslate nohighlight">\(\R\)</span> aber <strong>nicht notwendigerweise</strong> linear über <span class="math notranslate nohighlight">\(\C\)</span> ist.</p>
+<div class="proof theorem admonition" id="theorem-6">
+<p class="admonition-title"><span class="caption-number">Theorem 7.1 </span></p>
 <div class="theorem-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine stetige Funktion für die gilt</p>
-<div class="math notranslate nohighlight">
-\[f(z) = u(z) + i v(z), \qquad u,v \colon D \rightarrow \R.\]</div>
-<p>Dann ist die Funktion <span class="math notranslate nohighlight">\(f\)</span> genau dann holomorph auf der Teilmenge <span class="math notranslate nohighlight">\(D\)</span>, wenn die folgenden <strong>Cauchy-Riemann Gleichungen</strong> auf ganz <span class="math notranslate nohighlight">\(D\)</span> gelten:</p>
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset \C\)</span> offen und <span class="math notranslate nohighlight">\(f=u+iv:\C\to\C\)</span> eine Funktionen mit <strong>stetig partiell differenzierbaren</strong> Funktionen <span class="math notranslate nohighlight">\(u,v:\C\to\R\)</span>, dann sind folgende Aussagen äquivalent,</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(f\)</span> ist holomorph,</p></li>
+<li><p>die Abbildung <span class="math notranslate nohighlight">\(df(p):\C\to\C\)</span> ist linear über dem Körper <span class="math notranslate nohighlight">\(\C\)</span>,</p></li>
+<li><p>es gelten die Cauchy–Riemannschen Differentialgleichungen</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\partial_x u = \partial_y v, \qquad \partial_y u = -\partial_x v.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Schulz-Baldes S.313</p>
+<p>Proof. ToDo, siehe <a class="reference external" href="https://www.fau.tv/clip/id/40944">Video</a> ab Minute 32:30.</p>
 </div>
-<div class="proof example admonition" id="example-2">
+<div class="proof example admonition" id="example-7">
 <p class="admonition-title"><span class="caption-number">Example 7.1 </span> (Holomorphe Funktionen)</p>
 <div class="example-content section" id="proof-content">
 <p>Ableitung eines komplexen Monoms -&gt; Beispiel 10.4 auf S.314 in Schulz-Baldes</p>
 <p><span class="math notranslate nohighlight">\(f(z) := \overline{z}\)</span> ist nicht holomorph -&gt; Beispiel 10.7 auf S.315 in Schulz-Baldes</p>
 </div>
-</div><p>Eine besondere Klasse von Funktionen sind <em>analytische Funktonen</em>, die sich lokal mit Hilfe von Reihen darstellen lassen.</p>
-<div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 7.2 </span> (Analytische Funktion)</p>
+</div></div>
+<div class="section" id="analytische-funktionen">
+<h2><span class="section-number">7.2.3. </span>Analytische Funktionen<a class="headerlink" href="#analytische-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Eine besondere Klasse von Funktionen sind <em>analytische Funktonen</em>, die sich lokal mit Hilfe von Reihen darstellen lassen.</p>
+<div class="proof definition admonition" id="definition-8">
+<p class="admonition-title"><span class="caption-number">Definition 7.3 </span> (Analytische Funktion)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine Funktion.</p>
 <p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> <strong>analytisch</strong> in einem Punkt <span class="math notranslate nohighlight">\(z_0 \in D\)</span> genau dann, wenn ein <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert, so dass sich jeder Funktionswert <span class="math notranslate nohighlight">\(f(z) \in \C\)</span> in einer entsprechenden lokalen Umgebung durch eine absolut konvergente Reihe darstellen lässt mit</p>
@@ -449,6 +609,7 @@ Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen
 <p>Proof. Vertauschung des Limes <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span> und der Summe.</p>
 </div>
 <p>Wie wir später im Hauptsatz der Funktionentheorie sehen werden gilt auch die Umkehrung.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -476,17 +637,17 @@ Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="complexanalysis.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="complexnumbers.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>Funktionentheorie</p>
+            <p class="prev-next-title"><span class="section-number">7.1. </span>Die Komplexen Zahlen</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="kurvenintegrale.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">7.2. </span>Kurvenintegrale</p>
+        <p class="prev-next-title"><span class="section-number">7.3. </span>Kurvenintegrale</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
