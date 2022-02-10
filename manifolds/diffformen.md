@@ -253,13 +253,13 @@ Siehe z.B. {cite:p}`lee2003` Theorem 11.49.
 
 ## Der Pullback
 
-Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte **Pullback**. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten $\M,\mathcal{N}$ und eine glatte Funktion $F:M\to\mathcal{N}$. Das Ziel ist es nun eine Differentialform auf $N$, $\omega\in\Omega^k(\mathcal{N})$ mithilfe von $F$ auf eine Differentialform auf $\M$ zurückzuziehen. Ausgewertet an $p\in\M$ ergibt eine Differentialform $\eta\in\Omega^k(\M)$ ein Element aus $L^k(T_p^\ast\M)$,
+Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte **Pullback**. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten $\M,\mathcal{N}$ und eine glatte Funktion $F:M\to\mathcal{N}$. Das Ziel ist es nun eine Differentialform auf $N$, $\omega\in\Omega^k(\mathcal{N})$ mithilfe von $F$ auf eine Differentialform auf $\M$ zurückzuziehen. Ausgewertet an $p\in\M$ ergibt eine Differentialform $\eta\in\Omega^k(\M)$ ein Element aus $L^k(T_p\M)$, da
 
 ```{math}
-\eta_p\in \Omega^k(T_p\M) \subset L^k(T_p^\ast\M)
+\eta_p\in \Lambda^k(T_p\M) \subset L^k(T_p^\M)
 ```
 
-also eine Linearform, welche auf $k$ Elemente $v_1,\ldots,v_k\in T_p^\ast\M$ des Kotangentialraums in $p$ an $\M$ wirkt. Haben wir nun a priori $\omega\in\Omega^k(\mathcal{N})$ gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über $F$ von $\M$ nach $\N$ vorschieben können, der sogennante **Pushforward**.
+also eine Linearform, welche auf $k$ Elemente $v_1,\ldots,v_k\in T_p\M$ des Tangentialraums in $p$ an $\M$ wirkt. Haben wir nun a priori $\omega\in\Omega^k(\mathcal{N})$ gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über $F$ von $\M$ nach $\mathcal{N}$ vorschieben können, der sogenannte **Pushforward**.
 
 ````{prf:definition}
 Es seien $\M,\mathcal{N}$ zwei glatte Mannigfaltigkeiten und $F\in C^\infty(\M,\mathcal{N})$, dann definieren wir für $p\in\M$ 

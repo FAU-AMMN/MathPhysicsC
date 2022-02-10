@@ -330,7 +330,7 @@ und mithilfe der Richtungsableitung aus {prf:ref}`def:direcdiv` die Derivationen
 
 ```{math}
 \partial_{x^i}^p: C^\infty(\M) &\to \R\\
-f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
+f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}.
 ```
 
 ````{prf:definition} Partielle Derivation
@@ -338,7 +338,7 @@ Sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit für $n\in\N$ und sei $f 
 Dann bezeichnen wir die Derivationen
 
 ```{math}
-\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)), \quad i=1,\ldots,n
+\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}, \quad i=1,\ldots,n
 ```
 
 als **partielle Derivationen** von $f$ im Punkt $p \in \M$.
@@ -380,7 +380,7 @@ Somit gilt schon für die partielle Derivation
 
 ```{math}
 \partial_{x^i}^p(\varphi_j)=
-\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t)) = 
+\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t))\big\rvert_{t=0} = 
 \begin{cases}
 1&\text{ für } i=j,\\
 0&\text{ sonst}.
@@ -1066,7 +1066,7 @@ Es sei $\M$ eine glatte $n$-dimensionale Mannigfaltigkeit und $(U,\phi)$ eine Ka
 Dann definieren wir die sogenannten **lokalen Koordinaten Kovektorfelder** für $i=1,\ldots,n$ durch
 
 ```{math}
-dx^{i}:\M&\to T\M\\
+dx^{i}:\M&\to T^\ast\M\\
 p&\mapsto dx^{i}_p. 
 ```
 ````

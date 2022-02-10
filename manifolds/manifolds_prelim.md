@@ -357,11 +357,12 @@ In der Hausaufgabe zu zeigen.
 
 Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.
 
-````{prf:lemma}
+````{prf:lemma} Kartenunabhängigkeit
 :label: lem:differenzierbarkeitKartenunabhaengig
 Es sei $\M$ eine glatte Mannigfaltigkeit und $\mathcal{A}$ ein Atlas auf $\M$.
-Außerdem sei $f:\M \to \R^m$ eine Funktion, $(U,\phi)\in \mathcal{A}$ eine Karte und $x \in U$ ein Punkt in der offenen Menge $U$.
-Ist $f\circ\phi^{-1}$ differenzierbar in $x$, so ist $f\circ\psi^{-1}$ auch differenzierbar in $x$ für jede Karte $(V,\psi) \in \mathcal{A}$ mit $x\in V$.
+Außerdem sei $f:\M \to \R^m$ eine Funktion, $(U,\varphi), (V,\varphi)\in \mathcal{A}$ zwei Karten mit $x \in U\cap V$. 
+
+Dann gilt, $f\circ\varphi^{-1}$ ist genau dann differenzierbar in $\varphi(x)$, falls $f\circ\psi^{-1}$ differenzierbar in $\psi(x)$ ist.
 ````
 
 ````{prf:proof}

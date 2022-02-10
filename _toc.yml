@@ -34,6 +34,7 @@ chapters:
   - file: surfaceintegrals/manifolds.md
 - file: complexanalysis/complexanalysis.md
   sections:
+  - file: complexanalysis/complexnumbers.md
   - file: complexanalysis/cauchyriemann.md
   - file: complexanalysis/kurvenintegrale.md
   - file: complexanalysis/residuensatz.md
