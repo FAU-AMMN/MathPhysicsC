@@ -211,7 +211,7 @@ a_n  = \frac{1}{2\pi i}\,\oint_{\partial B_{r^\prime}(p)} \frac{f(z)}{(z - p)^{n
 Siehe z.B. {cite:p}`baldes_2018` S.325f.
 ````
 
-## Der Satz von Lioville
+## Der Satz von Liouville
 
 Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liouville.
 
@@ -219,7 +219,7 @@ Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liou
 [Joseph Liouville](https://de.wikipedia.org/wiki/Joseph_Liouville) (Geboren 24. März 1809 in Saint-Omer; Gestorben 8. September 1882 in Paris) war ein französischer Mathematiker.
 ```
 
-````{prf:theorem} Satz von Lioville
+````{prf:theorem} Satz von Liouville
 Jede beschränkte holomorphe Funktion $f:\C\to\C$ ist konstant.
 ````
 
