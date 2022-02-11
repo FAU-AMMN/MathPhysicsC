@@ -367,7 +367,7 @@ Wir betrachten zunächst die Funktion $\varphi_j \circ \gamma_{x^i}$ und erhalte
 
 ```{math}
 \varphi_j \circ \gamma_{x^i}(t)
-&= \varphi_j \circ \varphi_j^{-1}(\varphi_j(p) + t e_i)\\
+&= \varphi_j \circ \varphi^{-1}(\varphi(p) + t e_i)\\
 &= (\varphi(p) + t e_i)_j\\ 
 &=
 \begin{cases}
