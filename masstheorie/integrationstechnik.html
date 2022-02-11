@@ -495,13 +495,13 @@ E^y := \{x\in \Omega_1: (x,y)\in E\}\subset\Omega_1\end{split}\]</div>
 <div class="proof lemma admonition" id="lem:secmeasure">
 <p class="admonition-title"><span class="caption-number">Lemma 5.22 </span></p>
 <div class="lemma-content section" id="proof-content">
-<p>Es seien <span class="math notranslate nohighlight">\((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\)</span> Messräume, dann gilt für eine Produktmessbare Menge <span class="math notranslate nohighlight">\(E\in \Sigma_1\otimes\Sigma_2\)</span>, dass <span class="math notranslate nohighlight">\(E_x\in \Sigma_2, E_y\in\Sigma_1\)</span> für alle <span class="math notranslate nohighlight">\(x\in\Omega_1,y\in\Omega_2\)</span>.</p>
+<p>Es seien <span class="math notranslate nohighlight">\((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\)</span> Messräume, dann gilt für eine Menge <span class="math notranslate nohighlight">\(E\in \Sigma_1\otimes\Sigma_2\)</span>, dass <span class="math notranslate nohighlight">\(E_x\in \Sigma_2, E_y\in\Sigma_1\)</span> für alle <span class="math notranslate nohighlight">\(x\in\Omega_1,y\in\Omega_2\)</span>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Wir betrachten das Teilmengensystem</p>
 <div class="math notranslate nohighlight">
 \[\M = \{E\subset\Omega_1\times\Omega_2:  E_x\in\Sigma_2, E^y\in\Sigma_1,\quad\forall x\in\Omega_1,  y\in\Omega_2\}\]</div>
-<p>d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für <span class="math notranslate nohighlight">\(A\in\Sigma1,B\in\Sigma_2\)</span> gilt</p>
+<p>d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für <span class="math notranslate nohighlight">\(A\in\Sigma_1,B\in\Sigma_2\)</span> gilt</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}(A\times B)_x = 
 \begin{cases}
@@ -511,7 +511,7 @@ B &amp;\text{ falls }x\in A\\
 <p>und daher <span class="math notranslate nohighlight">\((A\times B)_x\in\Sigma_2\)</span> für alle <span class="math notranslate nohighlight">\(x\in\Omega_1\)</span>. Analog zeigt man <span class="math notranslate nohighlight">\((A\times B)^y\in\Sigma_1\)</span> für alle <span class="math notranslate nohighlight">\(y\in\Omega_2\)</span> und daher gilt</p>
 <div class="math notranslate nohighlight">
 \[\Sigma_1\times\Sigma_2\subset \M.\]</div>
-<p>Weiterhin ist <span class="math notranslate nohighlight">\(\M\)</span> eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra. Es gilt <span class="math notranslate nohighlight">\(\emptyset\M\)</span>, weiterhin <span class="math notranslate nohighlight">\((E^C)_x = (E_x)^C\)</span>und analog <span class="math notranslate nohighlight">\((E^C)^y= (E^y)^C\)</span> und daher
+<p>Weiterhin ist <span class="math notranslate nohighlight">\(\M\)</span> eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra, denn es gilt <span class="math notranslate nohighlight">\(\emptyset\in\M\)</span>, weiterhin <span class="math notranslate nohighlight">\((E^C)_x = (E_x)^C\)</span>und analog <span class="math notranslate nohighlight">\((E^C)^y= (E^y)^C\)</span> und daher
 gilt</p>
 <div class="math notranslate nohighlight">
 \[E\in\M\Rightarrow E^C\in\M.\]</div>
@@ -525,7 +525,7 @@ gilt</p>
 <div class="math notranslate nohighlight">
 \[\Sigma_1\otimes\Sigma_2=\sigma(\Sigma_1\times\Sigma_2)\subset \sigma(\M) = \M.\]</div>
 </div>
-<p>Speziell für <span class="math notranslate nohighlight">\(\Omega_1=\R^n, \Omega_1=\R^m\)</span> könnte man sich nun fragen wie sich die Produkt-Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra haben wir folgende Aussage.</p>
+<p>Speziell für <span class="math notranslate nohighlight">\(\Omega_1=\R^n, \Omega_2=\R^m\)</span> könnte man sich nun fragen wie sich die Produkt-Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra haben wir folgende Aussage.</p>
 <div class="proof lemma admonition" id="lemma-1">
 <p class="admonition-title"><span class="caption-number">Lemma 5.23 </span></p>
 <div class="lemma-content section" id="proof-content">
@@ -575,15 +575,15 @@ gilt</p>
 <p>Wir erkennen aber, dass sich <span class="math notranslate nohighlight">\(V\)</span> als Schnitt dieser Produkt-Menge darstellen lässt, nämlich</p>
 <div class="math notranslate nohighlight">
 \[V = (V\times\{0\})^0\]</div>
-<p>wäre nun <span class="math notranslate nohighlight">\((V\times\{0\})^0\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\)</span> so würde mit <a class="reference internal" href="#lem:secmeasure">Lemma 5.22</a> folgen, dass auch der Schnitt <span class="math notranslate nohighlight">\(V\in\mathcal{A}(\R)\)</span> gilt, was ein Widerspruch ist, daher</p>
+<p>wäre nun <span class="math notranslate nohighlight">\(V\times\{0\}\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\)</span> so würde mit <a class="reference internal" href="#lem:secmeasure">Lemma 5.22</a> folgen, dass auch der Schnitt <span class="math notranslate nohighlight">\(V\in\mathcal{A}(\R)\)</span> gilt, was ein Widerspruch ist, daher</p>
 <div class="math notranslate nohighlight">
-\[(V\times\{0\})^0 \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).\]</div>
+\[V\times\{0\} \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).\]</div>
 </div>
 </div><p>Das abstrakte Konzept, welches sich hinter diesem Beispiel verbirgt wir mit dem Begriff Vollständigkeit eines Maßes bezeichnet.</p>
 <div class="proof definition admonition" id="definition-3">
 <p class="admonition-title"><span class="caption-number">Definition 5.24 </span></p>
 <div class="definition-content section" id="proof-content">
-<p>Ein Maßraum <span class="math notranslate nohighlight">\((\Omega,\Sigma,\mu)\)</span>, falls für jede <span class="math notranslate nohighlight">\(\mu\)</span>-Nullmenge <span class="math notranslate nohighlight">\(N\in\Sigma, \mu(N)=0\)</span> gilt</p>
+<p>Ein Maßraum <span class="math notranslate nohighlight">\((\Omega,\Sigma,\mu)\)</span> heißt <strong>vollständig</strong>, falls für jede <span class="math notranslate nohighlight">\(\mu\)</span>-Nullmenge <span class="math notranslate nohighlight">\(N\in\Sigma, \mu(N)=0\)</span> gilt</p>
 <div class="math notranslate nohighlight">
 \[A\subset N \Rightarrow A\in \Sigma.\]</div>
 </div>
@@ -908,7 +908,7 @@ y \mapsto \int_{\R^n} f(x,y) d\lambda^n(x)\end{split}\]</div>
 <a class="reference internal image-reference" href="../_images/trafo.jpg"><img alt="../_images/trafo.jpg" src="../_images/trafo.jpg" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Abb. 5.8 </span><span class="caption-text">Visualisierung von Mengentransformationen.</span><a class="headerlink" href="#fig-trafo" title="Link zu diesem Bild">¶</a></p>
 </div>
-<p>In <a class="reference internal" href="masstheorie.html#rem:transinvariance">Remark 5.4</a> haben wir eine Matrix <span class="math notranslate nohighlight">\(M\)</span> und eine Menge <span class="math notranslate nohighlight">\(M\)</span> bereits die Identität</p>
+<p>In <a class="reference internal" href="masstheorie.html#rem:transinvariance">Remark 5.4</a> haben wir für eine Matrix <span class="math notranslate nohighlight">\(M\)</span> und eine Lebesgue-messbare Menge <span class="math notranslate nohighlight">\(A\)</span> bereits die Identität</p>
 <div class="math notranslate nohighlight">
 \[\lambda(MA) = |\det(M)| \, \lambda(A)\]</div>
 <p>kennengelernt. Wir verllgemeinern diese Aussage nun, indem wir beliebige <span class="math notranslate nohighlight">\(C^1\)</span>-Diffeomorphismen betrachten.</p>
