@@ -39,7 +39,7 @@ wofür man folgende Aussage hat.
 ````{prf:lemma}
 :label: lem:secmeasure
 
-Es seien $(\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)$ Messräume, dann gilt für eine Produktmessbare Menge $E\in \Sigma_1\otimes\Sigma_2$, dass $E_x\in \Sigma_2, E_y\in\Sigma_1$ für alle $x\in\Omega_1,y\in\Omega_2$.
+Es seien $(\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)$ Messräume, dann gilt für eine Menge $E\in \Sigma_1\otimes\Sigma_2$, dass $E_x\in \Sigma_2, E_y\in\Sigma_1$ für alle $x\in\Omega_1,y\in\Omega_2$.
 ````
 
 ````{prf:proof}
@@ -49,7 +49,7 @@ Wir betrachten das Teilmengensystem
 \M = \{E\subset\Omega_1\times\Omega_2:  E_x\in\Sigma_2, E^y\in\Sigma_1,\quad\forall x\in\Omega_1,  y\in\Omega_2\}
 ```
 
-d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für $A\in\Sigma1,B\in\Sigma_2$ gilt
+d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für $A\in\Sigma_1,B\in\Sigma_2$ gilt
 
 ```{math}
 (A\times B)_x = 
@@ -65,7 +65,7 @@ und daher $(A\times B)_x\in\Sigma_2$ für alle $x\in\Omega_1$. Analog zeigt man 
 \Sigma_1\times\Sigma_2\subset \M.
 ```
 
-Weiterhin ist $\M$ eine $\sigma$-Algebra. Es gilt $\emptyset\M$, weiterhin $(E^C)_x = (E_x)^C$und analog $(E^C)^y= (E^y)^C$ und daher
+Weiterhin ist $\M$ eine $\sigma$-Algebra, denn es gilt $\emptyset\in\M$, weiterhin $(E^C)_x = (E_x)^C$und analog $(E^C)^y= (E^y)^C$ und daher
 gilt
 
 ```{math}
@@ -91,7 +91,7 @@ Somit folgt
 ```
 ````
 
-Speziell für $\Omega_1=\R^n, \Omega_1=\R^m$ könnte man sich nun fragen wie sich die Produkt-Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel $\sigma$-Algebra haben wir folgende Aussage.
+Speziell für $\Omega_1=\R^n, \Omega_2=\R^m$ könnte man sich nun fragen wie sich die Produkt-Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel $\sigma$-Algebra haben wir folgende Aussage.
 
 ````{prf:lemma}
 Für $n,m\in\N$ gilt 
@@ -179,10 +179,10 @@ Wir erkennen aber, dass sich $V$ als Schnitt dieser Produkt-Menge darstellen lä
 V = (V\times\{0\})^0
 ```
 
-wäre nun $(V\times\{0\})^0\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)$ so würde mit {prf:ref}`lem:secmeasure` folgen, dass auch der Schnitt $V\in\mathcal{A}(\R)$ gilt, was ein Widerspruch ist, daher
+wäre nun $V\times\{0\}\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)$ so würde mit {prf:ref}`lem:secmeasure` folgen, dass auch der Schnitt $V\in\mathcal{A}(\R)$ gilt, was ein Widerspruch ist, daher
 
 ```{math}
-(V\times\{0\})^0 \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).
+V\times\{0\} \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).
 ```
 
 ````
@@ -190,7 +190,7 @@ wäre nun $(V\times\{0\})^0\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)$ so würde 
 Das abstrakte Konzept, welches sich hinter diesem Beispiel verbirgt wir mit dem Begriff Vollständigkeit eines Maßes bezeichnet.
 
 ````{prf:definition}
-Ein Maßraum $(\Omega,\Sigma,\mu)$, falls für jede $\mu$-Nullmenge $N\in\Sigma, \mu(N)=0$ gilt
+Ein Maßraum $(\Omega,\Sigma,\mu)$ heißt **vollständig**, falls für jede $\mu$-Nullmenge $N\in\Sigma, \mu(N)=0$ gilt
 
 ```{math}
 A\subset N \Rightarrow A\in \Sigma.
@@ -664,7 +664,7 @@ name: "fig:trafo"
 Visualisierung von Mengentransformationen.
 ```
 
-In {prf:ref}`rem:transinvariance` haben wir eine Matrix $M$ und eine Menge $M$ bereits die Identität
+In {prf:ref}`rem:transinvariance` haben wir für eine Matrix $M$ und eine Lebesgue-messbare Menge $A$ bereits die Identität
 
 ```{math}
 \lambda(MA) = |\det(M)| \, \lambda(A)
