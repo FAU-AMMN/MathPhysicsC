@@ -25,63 +25,7 @@ Dann ist die Abbildung, die jedem Punkt $w \in \C \setminus \operatorname{Bild}(
 ````{prf:proof}
 Schulz-Baldes S.318f.
 ````
-## Homotopie
 
-````{prf:definition} Homotopie
-Sei $I := [0,1]$ ein reelles Intervall und $D \subset \C$ eine Teilmenge.
-Wir nennen zwei Wege $\gamma, \Gamma \colon I \rightarrow D$ **homotop** in der Teilmenge $D$ genau dann, wenn eine stetige Abbildung $H \colon I \times I \rightarrow D$ existiert, so dass
-
-```{math}
-H(t,0) = \gamma(t), \qquad H(t,1) = \Gamma(t).
-```
-
-In diesem Fall nennen wir die Abbildung $H$ eine **Homotopie** zwischen den Wegen $\gamma$ und $\Gamma$.
-
-````
-
-Man kann zeigen, dass der Begriff der Homotopie zwischen Wegen in einer Teilmenge $D \subset \C$ eine *Äquivalenzrelation* auf Wegen in $D$ induziert.
-Die zugehörigen Äquivalenzklassen werden auch *Homotopieklassen* genannt.
-
-Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.
-
-````{prf:lemma}
-Sei $D \subset \C$ eine Teilmenge und seien $\gamma$ und $\Gamma$ geschlossene, homotope Wege in $D$.
-Sei außerdem $f \colon D \rightarrow \C$ eine holomorphe Funktion.
-
-Dann gilt
-
-```{math}
-\oint_\gamma f(z) \, \mathrm{d}z = \oint_\Gamma f(z) \, \mathrm{d}z.
-```
-````
-
-````{prf:proof}
-Schulz-Baldes S.321
-````
-
-Eine besondere Klasse von Wegen sind solche, die nullhomotop sind.
-
-````{prf:definition} Nullhomotoper Weg
-Wir nennen einen Weg $\gamma$ **nullhomotop** in einer Teilmenge $D \subset \C$ genau dann, wenn $\gamma$ homotop in $D$ zu einem konstanten Weg ist.
-````
-
-Wir realisieren also, dass sich nullhomotope Wege in einer Teilmenge $D \subset \C$ zu einem Punkt $w \in D$ zusammenziehen lassen.
-Darüber hinaus zeigt der folgende Satz, dass das Kurvenintegral einer holomorphe Funktionen auf einem nullhomotopen Weg verschwindet.
-
-````{prf:theorem} Satz von Cauchy
-Sei $\gamma$ ein nullhomotoper Weg in einer Teilmenge $D \subset \C$, der sich zu einem Punkt $w \in D$ zusammenziehen lässt.
-Sei darüber hinaus $f \colon D \rightarrow \C$ eine stetige Funktion, welche zudem holomorph auf der Menge $D \setminus \{w\}$ sei.
-
-Dann gilt für das Kurvenintegral
-
-```{math}
-\oint_\gamma f(z) \, \mathrm{d}z = 0.
-```
-````
-
-````{prf:proof}
-Schulz-Baldes S.322
-````
 
 ## Singularitäten homomorpher Funktionen
 
