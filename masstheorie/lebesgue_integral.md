@@ -36,7 +36,7 @@ f^{-1}(\Sigma_2)\subset\Sigma_1
 schreiben l채sst. In diesem Kapitel wollen wir speziell Funktionen $f:\Omega\to\overline{\R}$ betrachten wobei $\Omega\subset\R^n$.
 
 ````{prf:definition}
-Wir nennen eine Funktion $f:\R^n\to\overline{R}$ **Borel-messbar**, falls
+Wir nennen eine Funktion $f:\R^n\to\overline{\R}$ **Borel-messbar**, falls
 
 ```{math}
 f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{B}(\R^n).
@@ -85,7 +85,7 @@ Im Falle von Borel und Lebesgue-Messbarkeit haben wir als Zielalgebra $\B(\overl
 ````{prf:lemma}
 :label: lem:Niveaumengen
 
-Es sei $(\Omega,\Sigma)$ ein Messraum, eine Funktion $f:\Omega\to\overline{R}$ eine Funktion ist genau dann messbar bez체glich $\Sigma$, falls
+Es sei $(\Omega,\Sigma)$ ein Messraum, eine Funktion $f:\Omega\to\overline{\R}$ eine Funktion ist genau dann messbar bez체glich $\Sigma$, falls
 f체r die Niveaumengen gilt
 
 ```{math}
@@ -138,7 +138,7 @@ Es sei $(\Omega,\Sigma)$ ein Messraum und $f,g:\Omega\to\overline{\R}$ zwei bez�
 
 1. $f+g$ ist messbar,
 
-2. $\lambda f$ ist messbar f체r alle $\lambda\in\overline{R}$,
+2. $\lambda f$ ist messbar f체r alle $\lambda\in\overline{\R}$,
 
 3. $f\cdot g$ ist messbar,
 
