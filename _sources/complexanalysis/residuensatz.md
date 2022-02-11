@@ -1,5 +1,32 @@
 # Laurententwicklung und Residuensatz
 
+Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in $\C$, den sogenannten Index.
+
+````{prf:definition} Index
+Sei $\gamma \colon [0,1] \rightarrow \C$ ein geschlossener Weg in $\C$ und $w \in \C \setminus \operatorname{Bild}(\gamma)$ ein beliebiger Punkt außerhalb der zugehörigen Kurve von $\gamma$.
+Wir bezeichnen als **Index** von $w$ bezüglich des Wegs $\gamma$ folgende charakteristische Größe
+
+```{math}
+\operatorname{Ind}_\gamma(w) \ := \ \oint_\gamma \frac{1}{z - w} \frac{\mathrm{d}z}{2\pi i} \ = \ \int_0^1 \frac{\gamma'(t)}{\gamma(t - w)} \frac{\mathrm{d}z}{2\pi i} \in \mathbb{Z}.
+```
+
+Häufig wird der Index auch **Windungszahl** von $\gamma$ um $w$ genannt.
+Sie ist eine *topologische Invariante*, die anschaulich beschreibt, wie häufig sich die zugehörige Kurve um den Punkt $w$ windet.
+
+````
+
+**ToDo: Abbildung mit Beispiel von [Wikipedia](https://de.wikipedia.org/wiki/Umlaufzahl_(Mathematik))**
+
+````{prf:lemma}
+Sei $\gamma \colon [0,1] \rightarrow \C$ ein geschlossener Weg in $\C$.
+Dann ist die Abbildung, die jedem Punkt $w \in \C \setminus \operatorname{Bild}(\gamma)$ außerhalb der zugehörigen Kurve seinen Index $\operatorname{Ind_\gamma}(w)$ konstant auf jeder Zusammenhangskomponente bezüglich der Kurve von $\gamma$. 
+````
+
+````{prf:proof}
+Schulz-Baldes S.318f.
+````
+
+
 ## Singularitäten homomorpher Funktionen
 
 In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.

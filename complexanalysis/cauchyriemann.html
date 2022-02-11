@@ -38,9 +38,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
@@ -57,7 +60,7 @@
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="7.3. Kurvenintegrale" href="kurvenintegrale.html" />
+    <link rel="next" title="7.3. Wegintegrale" href="kurvenintegrale.html" />
     <link rel="prev" title="7.1. Die Komplexen Zahlen" href="complexnumbers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -285,12 +288,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="kurvenintegrale.html">
-     7.3. Kurvenintegrale
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cauchyintegral.html">
+     7.4. Der Integralsatz von Cauchy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="residuensatz.html">
-     7.4. Laurententwicklung und Residuensatz
+     7.5. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -546,7 +554,13 @@ f^\prime(p)\text{ sonst.}
 <p>Sei nun <span class="math notranslate nohighlight">\(f\C\to\C\)</span> eine komplexe Funktion wobei wir mit <span class="math notranslate nohighlight">\(u:=\Re(f),v:=\Im(f)\)</span> jeweils der Real- und Imaginärteil von <span class="math notranslate nohighlight">\(f\)</span> sind. Dann ist ist <span class="math notranslate nohighlight">\(f\)</span> natürlicherweise auch eine Funktion <span class="math notranslate nohighlight">\(f:\R^2\to\R^2\)</span>, denn</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}f = u+iv = \begin{pmatrix} u\\ v\end{pmatrix}.\end{split}\]</div>
-<p>Somit können wir auch für <span class="math notranslate nohighlight">\(f:\C\to\C\)</span> den Begriff der totalen Differenzierbarkeit betrachten. Der folgende Satz setzt nun Holomorphie und Totale Differenzierbarkeit in Beziehung und führt auf natürliche Weise auf die <strong>Cauchy–Riemannschen Differentialgleichungen</strong>. Dafür setzen wir Voraus, dass die Komponenten <span class="math notranslate nohighlight">\(u,v\)</span>, stetig partiell differenzierbar sind und somit das totale Differential in <span class="math notranslate nohighlight">\(p\in U\subset\C\)</span> gegeben ist durch</p>
+<p>Somit können wir auch für <span class="math notranslate nohighlight">\(f:\C\to\C\)</span> den Begriff der totalen Differenzierbarkeit betrachten. Der folgende Satz setzt nun Holomorphie und Totale Differenzierbarkeit in Beziehung und führt auf natürliche Weise auf die <strong>Cauchy–Riemannschen Differentialgleichungen</strong>.</p>
+<div class="proof remark admonition" id="remark-6">
+<p class="admonition-title"><span class="caption-number">Remark 7.2 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Der konzeptionelle Unterschied zwischen totaler Differenzierbarkeit und Holomorphie ist, dass der Grenzwert in <a class="reference internal" href="#def:holomorph">Definition 7.1</a> durch den Quotienten die komplexe Multiplikation benutzt, während wir bei totaler Differenzierbarkeit die Beträge von Vektoren betrachten. Allgemein unterscheidet sich <span class="math notranslate nohighlight">\(\C\)</span> als Körper nur durch die zusätzlich definierte komplexe Multiplikation vom reellen Vektorraum <span class="math notranslate nohighlight">\(\R^2\)</span>. Genau diese komplexe Multiplikation die hier einfließt, führt dazu, dass der Begriff der Holomorphie nicht gleich dem der klassischen Differenzierbarkeit auf <span class="math notranslate nohighlight">\(\R^2\)</span> ist.</p>
+</div>
+</div><p>Dafür setzen wir Voraus, dass die Komponenten <span class="math notranslate nohighlight">\(u,v\)</span>, stetig partiell differenzierbar sind und somit das totale Differential in <span class="math notranslate nohighlight">\(p\in U\subset\C\)</span> gegeben ist durch</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}df(p) = 
 \begin{pmatrix} 
@@ -564,7 +578,7 @@ f^\prime(p)\text{ sonst.}
 x\\y
 \end{pmatrix}\end{split}\]</div>
 <p>welche offensichtlich linear über <span class="math notranslate nohighlight">\(\R\)</span> aber <strong>nicht notwendigerweise</strong> linear über <span class="math notranslate nohighlight">\(\C\)</span> ist.</p>
-<div class="proof theorem admonition" id="theorem-6">
+<div class="proof theorem admonition" id="theorem-7">
 <p class="admonition-title"><span class="caption-number">Theorem 7.1 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\subset \C\)</span> offen und <span class="math notranslate nohighlight">\(f=u+iv:\C\to\C\)</span> eine Funktionen mit <strong>stetig partiell differenzierbaren</strong> Funktionen <span class="math notranslate nohighlight">\(u,v:\C\to\R\)</span>, dann sind folgende Aussagen äquivalent,</p>
@@ -579,7 +593,7 @@ x\\y
 </div><div class="proof admonition" id="proof">
 <p>Proof. ToDo, siehe <a class="reference external" href="https://www.fau.tv/clip/id/40944">Video</a> ab Minute 32:30.</p>
 </div>
-<div class="proof example admonition" id="example-7">
+<div class="proof example admonition" id="example-8">
 <p class="admonition-title"><span class="caption-number">Example 7.1 </span> (Holomorphe Funktionen)</p>
 <div class="example-content section" id="proof-content">
 <p>Ableitung eines komplexen Monoms -&gt; Beispiel 10.4 auf S.314 in Schulz-Baldes</p>
@@ -588,8 +602,12 @@ x\\y
 </div></div>
 <div class="section" id="analytische-funktionen">
 <h2><span class="section-number">7.2.3. </span>Analytische Funktionen<a class="headerlink" href="#analytische-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Gefahr</p>
+<p>This section is under Construction.</p>
+</div>
 <p>Eine besondere Klasse von Funktionen sind <em>analytische Funktonen</em>, die sich lokal mit Hilfe von Reihen darstellen lassen.</p>
-<div class="proof definition admonition" id="definition-8">
+<div class="proof definition admonition" id="definition-9">
 <p class="admonition-title"><span class="caption-number">Definition 7.3 </span> (Analytische Funktion)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine Funktion.</p>
@@ -647,7 +665,7 @@ x\\y
     <a class='right-next' id="next-link" href="kurvenintegrale.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">7.3. </span>Kurvenintegrale</p>
+        <p class="prev-next-title"><span class="section-number">7.3. </span>Wegintegrale</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.4. Der Integralsatz von Cauchy &#8212; Mathematik für Physikstudierende C</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="7.5. Laurententwicklung und Residuensatz" href="residuensatz.html" />
+    <link rel="prev" title="7.3. Wegintegrale" href="kurvenintegrale.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="de">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z9NNSYF13N"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-Z9NNSYF13N');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/FAU_Nat_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Mathematik für Physikstudierende C</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Mathematik für Physikstudierende C
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ode/ode.html">
+   1. Gewöhnliche Differentialgleichungen für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/dynamicSystems.html">
+     1.1. Einführung in dynamische Systeme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/repetition.html">
+     1.2. Wiederholung: Gewöhnliche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/fluesse.html">
+     1.3. Phasenflüsse und Phasenportraits
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/hamilton.html">
+     1.4. Hamiltonsche Differentialgleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ode/ex.html">
+     1.5. Aufgaben
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../odestability/stabilitaetsanalyse.html">
+   2. Stabilitätsanalyse für dynamische Systeme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odestability/stabilitaetsbegriffe.html">
+     2.1. Stabilitätsbegriffe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../odestability/ruhelagen.html">
+     2.2. Stabilität von Ruhelagen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vektoranalysis/vektoranalysis.html">
+   3. Vektoranalysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vektoranalysis/multilinear.html">
+     3.1. Multilinearformen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vektoranalysis/tensor.html">
+     3.2. Tensoren und Tensorprodukte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../manifolds/manifolds.html">
+   4. Differentialformen auf Mannigfaltigkeiten
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifolds/manifolds_prelim.html">
+     4.1. Differenzierbare Mannigfaltigkeit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifolds/tangential.html">
+     4.2. Tangentialräume und Tangentialbündel
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifolds/diffformen.html">
+     4.3. Differentialformen auf Mannigfaltigkeiten
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../masstheorie/intro_masstheorie.html">
+   5. Maß- und Integrationstheorie
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../masstheorie/masstheorie.html">
+     5.1. Maßtheorie
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../masstheorie/lebesgue_integral.html">
+     5.2. Lebesgue-Integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../masstheorie/integrationstechnik.html">
+     5.3. Integrationstechniken
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../surfaceintegrals/surfaceintegrals.html">
+   6. Integration über Flächen und Mannigfaltigkeiten
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="complexanalysis.html">
+   7. Funktionentheorie
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="complexnumbers.html">
+     7.1. Die Komplexen Zahlen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cauchyriemann.html">
+     7.2. Holomorphe Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kurvenintegrale.html">
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     7.4. Der Integralsatz von Cauchy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="residuensatz.html">
+     7.5. Laurententwicklung und Residuensatz
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   8. Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Navigation umschalten</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/complexanalysis/cauchyintegral.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FAU-AMMN/MathPhysicsC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benachbarte-wege">
+   7.4.1. Benachbarte Wege
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#homotopie">
+   7.4.2. Homotopie
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-homotopiesatz-und-der-integralsatz-von-cauchy">
+   7.4.3. Der Homotopiesatz und der Integralsatz von Cauchy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-integralformel-von-cauchy">
+   7.4.4. Die Integralformel von Cauchy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-satz-von-lioville">
+   7.4.5. Der Satz von Lioville
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Der Integralsatz von Cauchy</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benachbarte-wege">
+   7.4.1. Benachbarte Wege
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#homotopie">
+   7.4.2. Homotopie
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-homotopiesatz-und-der-integralsatz-von-cauchy">
+   7.4.3. Der Homotopiesatz und der Integralsatz von Cauchy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-integralformel-von-cauchy">
+   7.4.4. Die Integralformel von Cauchy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-satz-von-lioville">
+   7.4.5. Der Satz von Lioville
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="der-integralsatz-von-cauchy">
+<h1><span class="section-number">7.4. </span>Der Integralsatz von Cauchy<a class="headerlink" href="#der-integralsatz-von-cauchy" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
+Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen. Ein erstes Resultat in diese Richtung erhalten wir indem wir <em>benachbarte Wege</em> betrachten.</p>
+<div class="section" id="benachbarte-wege">
+<h2><span class="section-number">7.4.1. </span>Benachbarte Wege<a class="headerlink" href="#benachbarte-wege" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In der Definition eines Wegintegrals über beliebige Wege betrachtet man zulässige Zerlegungen mit offenen Kreisscheiben. Finden wir nun eine Zerlegung, s.d., sich zwei Wege die jeweiligen Kreisscheiben teilen, so wollen wir sie benachbart nennen.</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 7.13 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset \C\)</span> offen und seien <span class="math notranslate nohighlight">\(\gamma_0,\gamma_1:[a,b]\to U\)</span> zwei Wege. Falls eine Zerlegung <span class="math notranslate nohighlight">\((a=t_0,\ldots,b=t_N)\)</span> existiert mit Kreisscheiben <span class="math notranslate nohighlight">\(B^j\)</span>, welche zulässig für beide Wege ist, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[\gamma_0([t_j, t_{j+1}])\cup \gamma_1([t_j,t_{j+1}]) \subset B^j\]</div>
+<p>dann nennen wir <span class="math notranslate nohighlight">\(\gamma_0\)</span> und <span class="math notranslate nohighlight">\(\gamma_1\)</span> <strong>benachbart</strong>.</p>
+</div>
+</div><p>Der Begriff der Nachbarschaft hat tatsächlich auch eine geometrische Bedeutung, welche in folgendem Lemma festgehalten wird.</p>
+<div class="proof lemma admonition" id="lem:closelem">
+<p class="admonition-title"><span class="caption-number">Lemma 7.8 </span> (Nachbarschaftslemma)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen, dann existiert ein <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, s.d. falls für zwei Wege <span class="math notranslate nohighlight">\(\gamma_0,\gamma_1:[a,b]\to U\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[\abs{\gamma_0 - \gamma_1} &lt; \varepsilon\]</div>
+<p>so folgt schon, dass <span class="math notranslate nohighlight">\(\gamma_0,\gamma_1\)</span> benachbart sind.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe z.B. <span id="id1">[<a class="reference internal" href="../references.html#id13">Nee17</a>]</span>.</p>
+</div>
+<p>Für benachbarte Wege erhalten wir nun das folgende Resultat, welches eine Vorstufe zum Integralsatz von Cauchy darstellt.</p>
+<div class="proof lemma admonition" id="lem:closepath">
+<p class="admonition-title"><span class="caption-number">Lemma 7.9 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es <span class="math notranslate nohighlight">\(U\subset\C\)</span> eine offene Menge und <span class="math notranslate nohighlight">\(f:U\to\C\)</span> eine holomorphe Funktion, weiterhin seien <span class="math notranslate nohighlight">\(\gamma_0,\gamma_1:[a,b]\to U\)</span> zwei benachbarte Weg die eine der folgenden Bedingungen erfüllen</p>
+<ol class="simple">
+<li><p>die Wege haben gleiche Anfangs- und Endpunkte, oder</p></li>
+<li><p>die Wege sind geschlossen.</p></li>
+</ol>
+<p>Dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\int_{\gamma_0} f(z)\, dz = \int_{\gamma_1} f(z)\, dz.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe z.B. <span id="id2">[]</span> Lemma 4.5.</p>
+</div>
+</div>
+<div class="section" id="homotopie">
+<h2><span class="section-number">7.4.2. </span>Homotopie<a class="headerlink" href="#homotopie" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Um nicht nur benachbarte Wege betrachten zu können definieren wir jetzt den Begriff von Homotopie.</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 7.14 </span> (Homotopie)</p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen, zwei Wege <span class="math notranslate nohighlight">\(\gamma_0, \gamma_1:[a,b]\to U\)</span> mit gleichen Anfangs und Endpunkten,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\gamma_0(a) = \gamma_1(a),\\
+\gamma_0(b) = \gamma_1(b),\end{split}\]</div>
+<p>heißen <strong>homotop</strong>, falls eine stetige Abbildung <span class="math notranslate nohighlight">\(h:[a,b]\times[0,1]\to U\)</span> existiert, so dass für alle <span class="math notranslate nohighlight">\(t\in[a,b]\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[h(t,0) = \gamma_0(t), \qquad h(t,1) = \gamma_1(t).\]</div>
+<p>In diesem Fall nennen wir die Abbildung <span class="math notranslate nohighlight">\(h\)</span> eine <strong>Homotopie</strong> zwischen den Wegen <span class="math notranslate nohighlight">\(\gamma_0\)</span> und <span class="math notranslate nohighlight">\(\gamma_1\)</span> und notieren auch <span class="math notranslate nohighlight">\(h_s:=h(\cdot,s):[a,b]\to U\)</span> für den Weg am Punkt <span class="math notranslate nohighlight">\(s\in [0,1]\)</span>.</p>
+</div>
+</div><p>Anstatt nur Wege mit gleichen Anfangs und Endpunkten zu betrachten können wir auch Homotopie geschlossener Wege definieren.</p>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 7.15 </span> (Homotopie geschlossener Wege)</p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen, zwei geschlossene Wege <span class="math notranslate nohighlight">\(\gamma_0, \gamma_1:[a,b]\to U\)</span> heißen <strong>frei homotop</strong>, falls eine stetige Abbildung <span class="math notranslate nohighlight">\(h:[a,b]\times[0,1]\to U\)</span> existiert, so dass für alle <span class="math notranslate nohighlight">\(t\in[a,b]\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[h(t,0) = \gamma_0(t), \qquad h(t,1) = \gamma_1(t)\quad\]</div>
+<p>und der Weg <span class="math notranslate nohighlight">\(h_s\)</span> geschlossen ist für alle <span class="math notranslate nohighlight">\(s\in [0,1]\)</span>.</p>
+<p>Ein geschlossener Weg heißt <strong>zusammenziehbar</strong> oder <strong>nullhomotop</strong>, falls er frei homotop zu einem konstanten Weg ist.</p>
+</div>
+</div><div class="proof remark admonition" id="remark-5">
+<p class="admonition-title"><span class="caption-number">Remark 7.9 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Man kann zeigen, dass der Begriff der Homotopie zwischen Wegen in einer Teilmenge <span class="math notranslate nohighlight">\(U \subset \C\)</span> eine <em>Äquivalenzrelation</em> auf Wegen in <span class="math notranslate nohighlight">\(U\)</span> induziert. Die zugehörigen Äquivalenzklassen werden auch <em>Homotopieklassen</em> genannt.</p>
+</div>
+</div></div>
+<div class="section" id="der-homotopiesatz-und-der-integralsatz-von-cauchy">
+<h2><span class="section-number">7.4.3. </span>Der Homotopiesatz und der Integralsatz von Cauchy<a class="headerlink" href="#der-homotopiesatz-und-der-integralsatz-von-cauchy" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.</p>
+<div class="proof lemma admonition" id="lem:homotop">
+<p class="admonition-title"><span class="caption-number">Lemma 7.10 </span> (Homotopiesatz)</p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> offen und seien <span class="math notranslate nohighlight">\(\gamma_0\)</span> und <span class="math notranslate nohighlight">\(\gamma_1:[a,b]\to U\)</span> homotope oder frei homotope Wege.
+Sei außerdem <span class="math notranslate nohighlight">\(f:U\toC\)</span> eine holomorphe Funktion, dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\oint_{\gamma_0} f(z) \, dz = \oint_{\gamma_1} f(z) \, dz.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Es sei <span class="math notranslate nohighlight">\(h:[a,b]\times[0,1]\to U\)</span> eine Homotopie, mit <span class="math notranslate nohighlight">\(h_0_=\gamma_0, h_1_=\gamma_1\)</span>. Die Menge <span class="math notranslate nohighlight">\([a,b]\times[0,1]\)</span> ist kompakt und somit ist <span class="math notranslate nohighlight">\(h\)</span> gleichmäßig stetig, d.h. insbesondere, dass für <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> ein <span class="math notranslate nohighlight">\(\delta &gt;0\)</span> existiert, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[\abs{h_{s_0}-h_{s_1}}_\infty &lt;\varepsilon \text{ für } \abs{s_1-s_2}&lt; \delta.\]</div>
+<p>Wir können nach <a class="reference internal" href="#lem:closelem">Lemma 7.8</a> somit <span class="math notranslate nohighlight">\(\delta\)</span> klein genug wählen, s.d. Wege <span class="math notranslate nohighlight">\(h_{s_0}, h_{s_1}\)</span> benachbart sind für <span class="math notranslate nohighlight">\(\abs{s_0-s_1}&lt;\delta\)</span>. Somit gilt nach <a class="reference internal" href="#lem:closepath">Lemma 7.9</a>, dass</p>
+<div class="math notranslate nohighlight">
+\[\int_{h_{s_0}} f(z)\, dz = \int_{h_{s_1}} f(z)\, dz\]</div>
+<p>gilt für <span class="math notranslate nohighlight">\(\abs{s_0-s_1}&lt;\delta\)</span>. Damit folgt die Aussage.</p>
+</div>
+<p>Es folgt, dass das Kurvenintegral einer holomorphe Funktionen über einen nullhomotopen Weg verschwindet, was als <strong>Integralsatz von Cauchy</strong> bekannt ist.</p>
+<div class="proof theorem admonition" id="theorem-7">
+<p class="admonition-title"><span class="caption-number">Theorem 7.4 </span> (Integralsatz von Cauchy)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen und sei <span class="math notranslate nohighlight">\(\gamma:[a,b]\to U\)</span> ein nullhomotoper Weg, für jede holomorphe Funktion <span class="math notranslate nohighlight">\(f:U\to\C\)</span> gilt dann</p>
+<div class="math notranslate nohighlight">
+\[\oint_\gamma f(z)\, dz = 0.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Folgt direkt aus <a class="reference internal" href="#lem:homotop">Lemma 7.10</a>.</p>
+</div>
+</div>
+<div class="section" id="die-integralformel-von-cauchy">
+<h2><span class="section-number">7.4.4. </span>Die Integralformel von Cauchy<a class="headerlink" href="#die-integralformel-von-cauchy" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Wir werden die obigen Konzepte nun auf Wegen betrachten welche den rnd einer Kreisscheibe parametrisieren. Dazu sei <span class="math notranslate nohighlight">\(B_r(p)\subset\C\)</span> eine Kreisscheibe um den Punkt <span class="math notranslate nohighlight">\(p\in\C\)</span> mit Radius <span class="math notranslate nohighlight">\(r&gt;0\)</span>, wir wählen die natürliche Parametrisierung des Randes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\gamma_{p,r}:[0,2\pi]&amp;\to \partial B_r(p)\\
+t&amp;\mapsto p + r\exp(i t).\end{split}\]</div>
+<p>Mithilfe der natürlichen Parametrisierung schreiben wir auch</p>
+<div class="math notranslate nohighlight">
+\[\int_{\partial B_r(p)} f(z)\, dz := \int_{\gamma_{p,r}} f(z)\, dz\]</div>
+<p>und formulieren nun die Integralformel von Cauchy.</p>
+<div class="proof theorem admonition" id="theorem-8">
+<p class="admonition-title"><span class="caption-number">Theorem 7.5 </span> (Cauchy Integralformel)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> offen, <span class="math notranslate nohighlight">\(\overline{B_r(p)}\subset \C\)</span> und <span class="math notranslate nohighlight">\(f:U\to \C\)</span> holomorph$, dann gilt</p>
+<div class="math notranslate nohighlight">
+\[f(w) = \frac{1}{2\pi i} \int_{B_r(p)} \frac{f(z)}{z-w}\, dz\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(w\in B_r(p)\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe z.B. <span id="id3">[<a class="reference internal" href="../references.html#id13">Nee17</a>]</span> Satz 4.13.</p>
+</div>
+<p>Als Korollar erhält man die Tatsache, dass Ableitungen holomorpher Funktionen selbst holomorph sind. Somit ist jede holomorphe Funktion unendlich oft differenzierbar.</p>
+<div class="proof corollary admonition" id="cor:infholo">
+<p class="admonition-title"><span class="caption-number">Corollary 7.2 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen und <span class="math notranslate nohighlight">\(f:U\to\C\)</span> holomorph, dann ist <span class="math notranslate nohighlight">\(f^\prime:U\to\C\)</span> auch holomorph und für <span class="math notranslate nohighlight">\(\overline{B_r(p)}\subset U\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[f^{(n)}(w) = \frac{n!}{2\pi i} \int_{\partial B_r(p)} \frac{f(z)}{(z-w)^{n+1}}\, dz\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(w\in B_r(p)\)</span>.</p>
+</div>
+</div><p>Als weiteres Korollar erhalten wir, dass holomorphe Funktionen analytisch sind, was die Umkehrung zu <a class="reference internal" href="cauchyriemann.html#thm:analytischHolomorph">Theorem 7.2</a> ist.</p>
+<div class="proof corollary admonition" id="corollary-10">
+<p class="admonition-title"><span class="caption-number">Corollary 7.3 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(f:B_r(p)\to\C\)</span> holomorph, dann ist <span class="math notranslate nohighlight">\(f\)</span> für jeden Punkt <span class="math notranslate nohighlight">\(w \in B_r(p)\)</span> durch eine konvergente Potenzreihe darstellbar (also analytisch),</p>
+<div class="math notranslate nohighlight">
+\[f(w) = \sum_{n=1}^\infty a_n (w-p)^n,\]</div>
+<p>deren Koeffizienten <span class="math notranslate nohighlight">\((a_n)_{n\in\N}\)</span> für alle <span class="math notranslate nohighlight">\(r^\prime &lt; r\)</span> gegeben sind durch</p>
+<div class="math notranslate nohighlight">
+\[a_n  = \frac{1}{2\pi i}\,\oint_{\partial B_{r^\prime}(p)} \frac{f(z)}{(z - p)^{n+1}}\,dz.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe z.B. <span id="id4">[<a class="reference internal" href="../references.html#id12">SB18</a>]</span> S.325f.</p>
+</div>
+</div>
+<div class="section" id="der-satz-von-lioville">
+<h2><span class="section-number">7.4.5. </span>Der Satz von Lioville<a class="headerlink" href="#der-satz-von-lioville" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liouville.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Joseph Liouville</p>
+<p><a class="reference external" href="https://de.wikipedia.org/wiki/Joseph_Liouville">Joseph Liouville</a> (Geboren 24. März 1809 in Saint-Omer; Gestorben 8. September 1882 in Paris) war ein französischer Mathematiker.</p>
+</div>
+<div class="proof theorem admonition" id="theorem-11">
+<p class="admonition-title"><span class="caption-number">Theorem 7.6 </span> (Satz von Lioville)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Jede beschränkte holomorphe Funktion <span class="math notranslate nohighlight">\(f:\C\to\C\)</span> ist konstant.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Es gelte <span class="math notranslate nohighlight">\(\abs{f(z)}&lt; C &lt;\infty\)</span> für alle <span class="math notranslate nohighlight">\(z\in\C\)</span>, dann gilt nach <a class="reference internal" href="#cor:infholo">Corollary 7.2</a>, dass</p>
+<div class="math notranslate nohighlight">
+\[f^\prime(w) = \frac{1}{2\pi i} \int_{\partial B_r(w)} \frac{f(z)}{(z-w)^2}\, dz\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(w\in \C\)</span> und alle <span class="math notranslate nohighlight">\(r&gt; 0\)</span>. Damit folgt</p>
+<div class="math notranslate nohighlight">
+\[\abs{f^\prime(w)}\leq \frac{C}{2 \pi} \abs{\int_{\partial B_r(w)} dz}\leq \frac{C}{r}.\]</div>
+<p>Da diese Ungleichung für alle <span class="math notranslate nohighlight">\(r&gt;0\)</span> und <span class="math notranslate nohighlight">\(w\in\C\)</span> gilt folgt <span class="math notranslate nohighlight">\(\abs{f^\prime(w)} = 0\)</span> für alle <span class="math notranslate nohighlight">\(w\in\C\)</span> und somit ist <span class="math notranslate nohighlight">\(f\)</span> konstant.</p>
+</div>
+<p>Hieraus folgt sofort der Fundamentalsatz der Algebra.</p>
+<div class="proof theorem admonition" id="theorem-12">
+<p class="admonition-title"><span class="caption-number">Theorem 7.7 </span> (Fundamentalsatz der Algebra)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Hat ein Polynom</p>
+<div class="math notranslate nohighlight">
+\[f(z)=\sum_{j=0}^N a_j z^j\]</div>
+<p>keine Nullstellen, so ist es konstant.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Wir nehmen o.B.d.A. an, dass <span class="math notranslate nohighlight">\(a_N=1\)</span> gilt. Dann existiert ein Polynom <span class="math notranslate nohighlight">\(g\)</span>, s.d. <span class="math notranslate nohighlight">\(f(z) = z^n + g(z)\)</span> und</p>
+<div class="math notranslate nohighlight">
+\[\lim_{z\to\infty} \frac{g(z)}{z^n} = 0,\]</div>
+<p>wir finden also <span class="math notranslate nohighlight">\(r&gt;0\)</span>, s.d. <span class="math notranslate nohighlight">\(\abs{g(z)} &lt; 1/2 \abs{z^n}\)</span> für alle <span class="math notranslate nohighlight">\(\abs{z}&gt;r\)</span>. Dann folgt auch</p>
+<div class="math notranslate nohighlight">
+\[\abs{f(z)} = \abs{z^n + g(z)} \geq \abs{z^n} - 1/2 \abs{z^n}\geq r^n/2.\]</div>
+<p>Besitzt <span class="math notranslate nohighlight">\(f\)</span> keine Nullstellen, so ist <span class="math notranslate nohighlight">\(1/f:\C\to\C\)</span> eine auf ganz <span class="math notranslate nohighlight">\(\C\)</span> holomorphe Funktion. Weiterhin gilt</p>
+<div class="math notranslate nohighlight">
+\[\abs{1/f(z)} \leq \frac{2}{r^n}\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(\abs{z}\geq r\)</span> und somit</p>
+<div class="math notranslate nohighlight">
+\[\abs{1/f} \leq \max\{\max_{B_r(0)} \abs{f(z)}, \frac{2}{r^n} \} &lt; \infty\]</div>
+<p>daher ist <span class="math notranslate nohighlight">\(1/f\)</span> beschränkt und nach dem Satz von Liouville konstant. Damit ist auch <span class="math notranslate nohighlight">\(f\)</span> konstant.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./complexanalysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="kurvenintegrale.html" title="zurück Seite">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">zurück</p>
+            <p class="prev-next-title"><span class="section-number">7.3. </span>Wegintegrale</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="residuensatz.html" title="weiter Seite">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">7.5. </span>Laurententwicklung und Residuensatz</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Durch J. Laubmann, T. Roith, D. Tenbrinck<br/>
+    
+        &copy; Urheberrechte © 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

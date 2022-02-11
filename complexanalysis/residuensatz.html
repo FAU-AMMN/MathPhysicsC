@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7.4. Laurententwicklung und Residuensatz &#8212; Mathematik für Physikstudierende C</title>
+    <title>7.5. Laurententwicklung und Residuensatz &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -38,9 +38,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
@@ -58,7 +61,7 @@
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="8. Bibliography" href="../references.html" />
-    <link rel="prev" title="7.3. Kurvenintegrale" href="kurvenintegrale.html" />
+    <link rel="prev" title="7.4. Der Integralsatz von Cauchy" href="cauchyintegral.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -285,12 +288,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="kurvenintegrale.html">
-     7.3. Kurvenintegrale
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cauchyintegral.html">
+     7.4. Der Integralsatz von Cauchy
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     7.4. Laurententwicklung und Residuensatz
+     7.5. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -386,17 +394,17 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#singularitaten-homomorpher-funktionen">
-   7.4.1. Singularitäten homomorpher Funktionen
+   7.5.1. Singularitäten homomorpher Funktionen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#laurent-reihe">
-   7.4.2. Laurent-Reihe
+   7.5.2. Laurent-Reihe
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cauchyscher-residuensatz">
-   7.4.3. Cauchyscher Residuensatz
+   7.5.3. Cauchyscher Residuensatz
   </a>
  </li>
 </ul>
@@ -421,17 +429,17 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#singularitaten-homomorpher-funktionen">
-   7.4.1. Singularitäten homomorpher Funktionen
+   7.5.1. Singularitäten homomorpher Funktionen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#laurent-reihe">
-   7.4.2. Laurent-Reihe
+   7.5.2. Laurent-Reihe
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cauchyscher-residuensatz">
-   7.4.3. Cauchyscher Residuensatz
+   7.5.3. Cauchyscher Residuensatz
   </a>
  </li>
 </ul>
@@ -444,12 +452,33 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="laurententwicklung-und-residuensatz">
-<h1><span class="section-number">7.4. </span>Laurententwicklung und Residuensatz<a class="headerlink" href="#laurententwicklung-und-residuensatz" title="Link zu dieser Überschrift">¶</a></h1>
-<div class="section" id="singularitaten-homomorpher-funktionen">
-<h2><span class="section-number">7.4.1. </span>Singularitäten homomorpher Funktionen<a class="headerlink" href="#singularitaten-homomorpher-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
-<p>In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.</p>
+<h1><span class="section-number">7.5. </span>Laurententwicklung und Residuensatz<a class="headerlink" href="#laurententwicklung-und-residuensatz" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in <span class="math notranslate nohighlight">\(\C\)</span>, den sogenannten Index.</p>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 7.8 </span> (Singularitäten)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.16 </span> (Index)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span> und <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> ein beliebiger Punkt außerhalb der zugehörigen Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.
+Wir bezeichnen als <strong>Index</strong> von <span class="math notranslate nohighlight">\(w\)</span> bezüglich des Wegs <span class="math notranslate nohighlight">\(\gamma\)</span> folgende charakteristische Größe</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{Ind}_\gamma(w) \ := \ \oint_\gamma \frac{1}{z - w} \frac{\mathrm{d}z}{2\pi i} \ = \ \int_0^1 \frac{\gamma'(t)}{\gamma(t - w)} \frac{\mathrm{d}z}{2\pi i} \in \mathbb{Z}.\]</div>
+<p>Häufig wird der Index auch <strong>Windungszahl</strong> von <span class="math notranslate nohighlight">\(\gamma\)</span> um <span class="math notranslate nohighlight">\(w\)</span> genannt.
+Sie ist eine <em>topologische Invariante</em>, die anschaulich beschreibt, wie häufig sich die zugehörige Kurve um den Punkt <span class="math notranslate nohighlight">\(w\)</span> windet.</p>
+</div>
+</div><p><strong>ToDo: Abbildung mit Beispiel von <a class="reference external" href="https://de.wikipedia.org/wiki/Umlaufzahl_(Mathematik)">Wikipedia</a></strong></p>
+<div class="proof lemma admonition" id="lemma-1">
+<p class="admonition-title"><span class="caption-number">Lemma 7.11 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span>.
+Dann ist die Abbildung, die jedem Punkt <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> außerhalb der zugehörigen Kurve seinen Index <span class="math notranslate nohighlight">\(\operatorname{Ind_\gamma}(w)\)</span> konstant auf jeder Zusammenhangskomponente bezüglich der Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Schulz-Baldes S.318f.</p>
+</div>
+<div class="section" id="singularitaten-homomorpher-funktionen">
+<h2><span class="section-number">7.5.1. </span>Singularitäten homomorpher Funktionen<a class="headerlink" href="#singularitaten-homomorpher-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.</p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 7.17 </span> (Singularitäten)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.</p>
 <p>1. Wenn <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> eine holomorphe Funktion ist.
@@ -461,15 +490,15 @@ Dann nennen wir den Punkt <span class="math notranslate nohighlight">\(z_0\)</sp
 <p>4. Wir nennen den Punkt <span class="math notranslate nohighlight">\(z_0\)</span> eine <strong>wesentliche Singularität</strong>, wenn <span class="math notranslate nohighlight">\(z_0\)</span> weder hebbar noch Pol ist.</p>
 </div>
 </div><p>Der Satz von Casorati-Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.</p>
-<div class="proof remark admonition" id="remark-1">
-<p class="admonition-title"><span class="caption-number">Remark 7.2 </span> (Casorati-Weierstraß)</p>
+<div class="proof remark admonition" id="remark-3">
+<p class="admonition-title"><span class="caption-number">Remark 7.10 </span> (Casorati-Weierstraß)</p>
 <div class="remark-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.</p>
 <p>Der Punkt <span class="math notranslate nohighlight">\(z_0\)</span> ist genau dann eine wesentliche Singularität einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>, wenn für alle <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> die Menge der Funktionswerte <span class="math notranslate nohighlight">\(f(B_\epsilon(z_0)) \setminus \{z_0\})\)</span> dicht in <span class="math notranslate nohighlight">\(\C\)</span> liegt.</p>
 </div>
 </div><p><strong>ToDo: Hier Beispiel zu Singularitäten? Schulz-Baldes S.329</strong></p>
-<div class="proof theorem admonition" id="theorem-2">
-<p class="admonition-title"><span class="caption-number">Theorem 7.6 </span> (Riemannscher Hebbarkeitssatz)</p>
+<div class="proof theorem admonition" id="theorem-4">
+<p class="admonition-title"><span class="caption-number">Theorem 7.8 </span> (Riemannscher Hebbarkeitssatz)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> ein Punkt.
 Sei außerdem <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span> eine holomorphe Funktion.
@@ -480,7 +509,7 @@ Falls eine Umgebung <span class="math notranslate nohighlight">\(U \subset D\)</
 </div>
 <p>Das folgende Lemma charakterisiert Pole einer holomorphen Funktion.</p>
 <div class="proof lemma admonition" id="lem:pole">
-<p class="admonition-title"><span class="caption-number">Lemma 7.6 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 7.12 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> eine isolierte Singularität einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>.</p>
 <p>Dann sind folgende Aussagen äquivalent:</p>
@@ -497,10 +526,10 @@ Falls eine Umgebung <span class="math notranslate nohighlight">\(U \subset D\)</
 Häufig spricht man jedoch nur von der Ordnung <span class="math notranslate nohighlight">\(m &gt; 0\)</span> eines Pols.</p>
 </div>
 <div class="section" id="laurent-reihe">
-<h2><span class="section-number">7.4.2. </span>Laurent-Reihe<a class="headerlink" href="#laurent-reihe" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Die Beobachtung aus <a class="reference internal" href="#lem:pole">Lemma 7.6</a> motiviert die folgende Definition der Laurent-Reihe, die nach {prf:ref}`` immer an einem Pol von Ordnung <span class="math notranslate nohighlight">\(m\)</span> existiert.</p>
-<div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 7.9 </span> (Laurent-Reihe)</p>
+<h2><span class="section-number">7.5.2. </span>Laurent-Reihe<a class="headerlink" href="#laurent-reihe" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Die Beobachtung aus <a class="reference internal" href="#lem:pole">Lemma 7.12</a> motiviert die folgende Definition der Laurent-Reihe, die nach {prf:ref}`` immer an einem Pol von Ordnung <span class="math notranslate nohighlight">\(m\)</span> existiert.</p>
+<div class="proof definition admonition" id="definition-6">
+<p class="admonition-title"><span class="caption-number">Definition 7.18 </span> (Laurent-Reihe)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> Pol von Ordnung <span class="math notranslate nohighlight">\(m\)</span> einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>.</p>
 <p>Dann definieren wir die <strong>Laurent-Reihe</strong> von <span class="math notranslate nohighlight">\(f\)</span> um den Pol <span class="math notranslate nohighlight">\(z_0\)</span> durch</p>
@@ -512,14 +541,14 @@ Häufig spricht man jedoch nur von der Ordnung <span class="math notranslate noh
 <p>und das <strong>Residuum</strong> von <span class="math notranslate nohighlight">\(f\)</span> bei <span class="math notranslate nohighlight">\(z_0\)</span> als</p>
 <div class="math notranslate nohighlight">
 \[\operatorname{Res}_{z_0}(f) = a_{-1}.\]</div>
-<div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 7.10 </span> (Meromorphe Funktion)</p>
+<div class="proof definition admonition" id="definition-7">
+<p class="admonition-title"><span class="caption-number">Definition 7.19 </span> (Meromorphe Funktion)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge.
 Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> <strong>meromorph</strong> auf <span class="math notranslate nohighlight">\(D\)</span> genau dann, wenn eine lokalendliche Menge <span class="math notranslate nohighlight">\(P\)</span> existiert, so dass die Funktion <span class="math notranslate nohighlight">\(f\)</span> holomorph auf <span class="math notranslate nohighlight">\(D \setminus P\)</span> mit Polen in <span class="math notranslate nohighlight">\(P\)</span> ist.</p>
 </div>
 </div></div>
-</div><div class="proof example admonition" id="example-6">
+</div><div class="proof example admonition" id="example-8">
 <p class="admonition-title"><span class="caption-number">Example 7.2 </span> (Meromorphe Funktionen)</p>
 <div class="example-content section" id="proof-content">
 <p>Rationale Funktionen oder konkretes Beispiel</p>
@@ -527,10 +556,10 @@ Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon D
 </div>
 </div></div>
 <div class="section" id="cauchyscher-residuensatz">
-<h2><span class="section-number">7.4.3. </span>Cauchyscher Residuensatz<a class="headerlink" href="#cauchyscher-residuensatz" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">7.5.3. </span>Cauchyscher Residuensatz<a class="headerlink" href="#cauchyscher-residuensatz" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Das folgende Lemma erlaubt die explizite Berechnung des Residuums.</p>
-<div class="proof lemma admonition" id="lemma-7">
-<p class="admonition-title"><span class="caption-number">Lemma 7.7 </span> (Berechnung des Residuums)</p>
+<div class="proof lemma admonition" id="lemma-9">
+<p class="admonition-title"><span class="caption-number">Lemma 7.13 </span> (Berechnung des Residuums)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> Pol einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>.</p>
 <p>Für genügend kleine <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> lässt sich das Residuum von <span class="math notranslate nohighlight">\(f\)</span> bei <span class="math notranslate nohighlight">\(z_0\)</span> angeben als</p>
@@ -543,14 +572,14 @@ Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon D
 </div><div class="proof admonition" id="proof">
 <p>Proof. Schulz-Baldes S.333f.</p>
 </div>
-<div class="proof example admonition" id="example-8">
+<div class="proof example admonition" id="example-10">
 <p class="admonition-title"><span class="caption-number">Example 7.3 </span> (Berechnung des Residuums)</p>
 <div class="example-content section" id="proof-content">
 <p>Rationale Funktion bei Schulz-Baldes S.335</p>
 </div>
 </div><p>Der folgende Residuensatz von Cauchy stellt eine zentrale Aussage der Funktionentheorie vor.</p>
-<div class="proof theorem admonition" id="theorem-9">
-<p class="admonition-title"><span class="caption-number">Theorem 7.7 </span> (Cauchyscher Residuensatz)</p>
+<div class="proof theorem admonition" id="theorem-11">
+<p class="admonition-title"><span class="caption-number">Theorem 7.9 </span> (Cauchyscher Residuensatz)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine meromorphe Funktion mit endlicher Menge <span class="math notranslate nohighlight">\(P \subset D\)</span> von Polstellen.
 Sei außerdem <span class="math notranslate nohighlight">\(\gamma\)</span> ein geschlossener und zusammenziehbarer Weg in <span class="math notranslate nohighlight">\(D\)</span> mit <span class="math notranslate nohighlight">\(\operatorname{Bild}(\gamma) \cap P = \emptyset\)</span>.</p>
@@ -561,13 +590,13 @@ Sei außerdem <span class="math notranslate nohighlight">\(\gamma\)</span> ein g
 </div><div class="proof admonition" id="proof">
 <p>Proof. Schulz-Baldes S.337</p>
 </div>
-<div class="proof remark admonition" id="remark-10">
-<p class="admonition-title"><span class="caption-number">Remark 7.3 </span></p>
+<div class="proof remark admonition" id="remark-12">
+<p class="admonition-title"><span class="caption-number">Remark 7.11 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Für holomorphe Funktionen <span class="math notranslate nohighlight">\(f\)</span> entspricht der Residuensatz gerade dem Cauchyschen Integralsatz.
 Wenn <span class="math notranslate nohighlight">\(D\)</span> als Sterngebiet angenommen wird ist die Zusammenziehbarkeit des Wegs <span class="math notranslate nohighlight">\(\gamma\)</span> immer erfüllt.</p>
 </div>
-</div><div class="proof example admonition" id="example-11">
+</div><div class="proof example admonition" id="example-13">
 <p class="admonition-title"><span class="caption-number">Example 7.4 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Viele konkrete Beispiele in Schulz-Baldes S.338-344</p>
@@ -600,11 +629,11 @@ Wenn <span class="math notranslate nohighlight">\(D\)</span> als Sterngebiet ang
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="kurvenintegrale.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="cauchyintegral.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">7.3. </span>Kurvenintegrale</p>
+            <p class="prev-next-title"><span class="section-number">7.4. </span>Der Integralsatz von Cauchy</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../references.html" title="weiter Seite">

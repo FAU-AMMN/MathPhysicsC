@@ -38,9 +38,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
@@ -285,12 +288,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
-     7.3. Kurvenintegrale
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../complexanalysis/cauchyintegral.html">
+     7.4. Der Integralsatz von Cauchy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/residuensatz.html">
-     7.4. Laurententwicklung und Residuensatz
+     7.5. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -465,7 +473,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="wiederholung-gewohnliche-differentialgleichungen">
 <h1><span class="section-number">1.2. </span>Wiederholung: Gewöhnliche Differentialgleichungen<a class="headerlink" href="#wiederholung-gewohnliche-differentialgleichungen" title="Link zu dieser Überschrift">¶</a></h1>
-<p>In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span> wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.</p>
+<p>In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.</p>
 <div class="section" id="gewohnliche-differentialgleichungen">
 <h2><span class="section-number">1.2.1. </span>Gewöhnliche Differentialgleichungen<a class="headerlink" href="#gewohnliche-differentialgleichungen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir erinnern uns zunächst an die Definition eines gewöhnlichen Differentialgleichungssystems <span class="math notranslate nohighlight">\(m\)</span>-ter Ordnung als Grundlage für unsere weiteren Betrachtungen.</p>
@@ -629,7 +637,7 @@ Man sagt, dass <span class="math notranslate nohighlight">\(F\)</span> in <span 
 \[\Vert F(t,x) - F(t,\widetilde{x}) \Vert \leq L \Vert x-\widetilde{x}\Vert\quad\text{ für alle }(t,x), (t,\widetilde{x})\in G\,.\]</div>
 <p>Man sagt, <span class="math notranslate nohighlight">\(F\)</span> genüge in <span class="math notranslate nohighlight">\(G\)</span> einer <strong>lokalen Lipschitz-Bedingung</strong>, falls jeder Punkt <span class="math notranslate nohighlight">\((t,x)\in G\)</span> im erweiterten Phasenraum eine Umgebung <span class="math notranslate nohighlight">\(V\)</span> besitzt, sodass <span class="math notranslate nohighlight">\(F\)</span> in <span class="math notranslate nohighlight">\(G\cap V\)</span> einer Lipschitzbedingung mit einer gewissen (von <span class="math notranslate nohighlight">\(V\)</span> abhängigen) Konstanten <span class="math notranslate nohighlight">\(L\in\R_0^+\)</span> genügt.</p>
 </div>
-</div><p>Für die <strong>(lokale) Existenz von Lösungen</strong> haben wir in Kapitel 8.4 <span id="id2">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span> den Satz von Picard-Lindelöf formuliert, den wir im Folgenden wiederholen werden.</p>
+</div><p>Für die <strong>(lokale) Existenz von Lösungen</strong> haben wir in Kapitel 8.4 <span id="id2">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> den Satz von Picard-Lindelöf formuliert, den wir im Folgenden wiederholen werden.</p>
 <div class="proof theorem admonition" id="thm:piclindlokal">
 <p class="admonition-title"><span class="caption-number">Theorem 1.1 </span> (Lokaler Existenzsatz nach Picard–Lindelöf)</p>
 <div class="theorem-content section" id="proof-content">
@@ -682,7 +690,7 @@ Es existieren außerdem keine weiteren (lokalen) Lösungen.</p>
 </div>
 <div class="section" id="losungen-von-linearen-differentialgleichungssystemen">
 <span id="s-lineare-dglsysteme"></span><h2><span class="section-number">1.2.5. </span>Lösungen von linearen Differentialgleichungssystemen<a class="headerlink" href="#losungen-von-linearen-differentialgleichungssystemen" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Analog zu Kapitel 8 in <span id="id6">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span> wollen wir uns mit Lösungen für <strong>homogene lineare Differentialgleichungen</strong> beschäftigen, jedoch dieses Mal nicht im skalaren Fall <span class="math notranslate nohighlight">\(n=1\)</span>, sondern für ein Anfangswertproblem von der Form</p>
+<p>Analog zu Kapitel 8 in <span id="id6">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> wollen wir uns mit Lösungen für <strong>homogene lineare Differentialgleichungen</strong> beschäftigen, jedoch dieses Mal nicht im skalaren Fall <span class="math notranslate nohighlight">\(n=1\)</span>, sondern für ein Anfangswertproblem von der Form</p>
 <div class="math notranslate nohighlight" id="equation-eq-linhomdglsystem">
 <span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-linhomdglsystem" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= A x(t), \quad \forall t \in I \subset \R^+_0, \\
 x(t_0) &amp;= x_0 \in U \subset \R^n.\end{split}\]</div>
@@ -744,7 +752,7 @@ Hierzu wollen wir die abschließende Bemerkung machen.</p>
 <div class="proof remark admonition" id="remark-16">
 <p class="admonition-title"><span class="caption-number">Remark 1.4 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>1. Zur Berechnung einer konkreten Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des linearen homogenen Differentialgleichungssystems <a class="reference internal" href="#equation-eq-linhomdglsystem">(1.5)</a> bietet es sich an, die <strong>Jordansche Normalform</strong> <span class="math notranslate nohighlight">\(J = SAS^{-1}\)</span> von <span class="math notranslate nohighlight">\(A\)</span> aus Kapitel 2.7 in <span id="id7">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span> auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:</p>
+<p>1. Zur Berechnung einer konkreten Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des linearen homogenen Differentialgleichungssystems <a class="reference internal" href="#equation-eq-linhomdglsystem">(1.5)</a> bietet es sich an, die <strong>Jordansche Normalform</strong> <span class="math notranslate nohighlight">\(J = SAS^{-1}\)</span> von <span class="math notranslate nohighlight">\(A\)</span> aus Kapitel 2.7 in <span id="id7">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}e^{tA} &amp;=  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} 
 \\&amp;= 
@@ -755,7 +763,7 @@ S^{-1} \sum_{k=0}^\infty \frac{(tJ)^k}{k!} S = S^{-1} e^{tJ}S
 <div class="math notranslate nohighlight" id="equation-eq-lininhomdglsystem">
 <span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-lininhomdglsystem" title="Permalink to this equation">¶</a></span>\[\begin{split}\dot{x}(t) &amp;= A x(t) + b(t), \quad \forall t \in I \subset \R^+_0, \\
 x(t_0) &amp;= x_0 \in U \subset \R^n,\end{split}\]</div>
-<p>so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in <span id="id8">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span> eine eindeutige Lösung des Anfangswertproblems <a class="reference internal" href="#equation-eq-lininhomdglsystem">(1.6)</a> angeben als</p>
+<p>so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in <span id="id8">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> eine eindeutige Lösung des Anfangswertproblems <a class="reference internal" href="#equation-eq-lininhomdglsystem">(1.6)</a> angeben als</p>
 <div class="math notranslate nohighlight">
 \[x(t) = e^{tA}x_0 + \int_0^t e^{(t-s)A}b(s) \, \mathrm{d}s.\]</div>
 <p>3. Im Falle eines homogenen, linearen Differentialgleichungssystems, das <strong>nicht autonom</strong> ist, das heißt die Koeffizientenmatrix <span class="math notranslate nohighlight">\(A = A(t)\)</span> ist zeitabhängig, können wir nicht mehr die Spektraltheorie zur konkreten Berechnung von Lösungen nutzen.

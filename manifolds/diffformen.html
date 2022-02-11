@@ -38,9 +38,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
@@ -285,12 +288,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
-     7.3. Kurvenintegrale
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../complexanalysis/cauchyintegral.html">
+     7.4. Der Integralsatz von Cauchy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/residuensatz.html">
-     7.4. Laurententwicklung und Residuensatz
+     7.5. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -473,7 +481,7 @@
 </div>
 </div><div class="figure align-default" id="fig-subbundle">
 <a class="reference internal image-reference" href="../_images/subbundle.png"><img alt="../_images/subbundle.png" src="../_images/subbundle.png" style="height: 300px;" /></a>
-<p class="caption"><span class="caption-number">Abb. 4.7 </span><span class="caption-text">Visualisierung eines Untervektorbündels, siehe Kapitel 10 in <span id="id1">[<a class="reference internal" href="../references.html#id17">Lee03</a>]</span>.</span><a class="headerlink" href="#fig-subbundle" title="Link zu diesem Bild">¶</a></p>
+<p class="caption"><span class="caption-number">Abb. 4.7 </span><span class="caption-text">Visualisierung eines Untervektorbündels, siehe Kapitel 10 in <span id="id1">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span>.</span><a class="headerlink" href="#fig-subbundle" title="Link zu diesem Bild">¶</a></p>
 </div>
 <p>In diesem Fall erhält man also ein Untervektorbündel.</p>
 <div class="proof lemma admonition" id="lemma-1">
@@ -513,7 +521,7 @@ dx_{i_1}\wedge\ldots\wedge dx_{i_k},\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(\omega_{i_1\ldots i_k}\in C^\infty(\M)\)</span> für alle <span class="math notranslate nohighlight">\(i_1,\ldots,i_k\in\{1,\ldots,n\}\)</span> gilts</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe z.B. <span id="id2">[<a class="reference internal" href="../references.html#id17">Lee03</a>]</span> Kapitel 14.</p>
+<p>Proof. Siehe z.B. <span id="id2">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span> Kapitel 14.</p>
 </div>
 <div class="proof example admonition" id="example-4">
 <p class="admonition-title"><span class="caption-number">Example 4.10 </span></p>
@@ -550,7 +558,7 @@ d(f\, dx^{i_1}\wedge\ldots\wedge dx^{i_k}):= df \wedge dx^{i_1}\wedge\ldots\wedg
 </div><div class="proof remark admonition" id="remark-6">
 <p class="admonition-title"><span class="caption-number">Remark 4.9 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>Beachte, dass die obige Abbildung nur jeweils für lokale Koordinaten definiert ist. Wegen der Kartenunabängigkeit führt dies aber auf eine eindeutig definierte Funktion, siehe z.B. <span id="id3">[<a class="reference internal" href="../references.html#id17">Lee03</a>]</span> Kapitel 14. Da wir <span class="math notranslate nohighlight">\(d\)</span> auf den Elementen <span class="math notranslate nohighlight">\(dx^{i_1}\wedge\ldots\wedge dx^{i_k}\)</span> definiert haben erhalten wir jeweils lokal eine eindeutige lineare Fortsetzung, da jedes <span class="math notranslate nohighlight">\(\omega\in \Omega^k(\M)\)</span> lokal die Darstellung</p>
+<p>Beachte, dass die obige Abbildung nur jeweils für lokale Koordinaten definiert ist. Wegen der Kartenunabängigkeit führt dies aber auf eine eindeutig definierte Funktion, siehe z.B. <span id="id3">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span> Kapitel 14. Da wir <span class="math notranslate nohighlight">\(d\)</span> auf den Elementen <span class="math notranslate nohighlight">\(dx^{i_1}\wedge\ldots\wedge dx^{i_k}\)</span> definiert haben erhalten wir jeweils lokal eine eindeutige lineare Fortsetzung, da jedes <span class="math notranslate nohighlight">\(\omega\in \Omega^k(\M)\)</span> lokal die Darstellung</p>
 <div class="math notranslate nohighlight">
 \[\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
 dx_{i_1}\wedge\ldots\wedge dx_{i_k}\]</div>
@@ -628,7 +636,7 @@ dx_3\wedge dx_1.\end{split}\]</div>
 \[\omega\text{ ist geschlossen}\Leftrightarrow \omega\text{ ist exakt.}\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe z.B. <span id="id4">[<a class="reference internal" href="../references.html#id17">Lee03</a>]</span> Theorem 11.49.</p>
+<p>Proof. Siehe z.B. <span id="id4">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span> Theorem 11.49.</p>
 </div>
 </div>
 <div class="section" id="der-pullback">
@@ -682,7 +690,7 @@ v \mapsto \big[D\mapsto v(F_\ast(D)) \big]\end{split}\]</div>
 \[F^\ast(f dy^{i_1}\wedge\ldots\wedge dy^{i_k}) = (f \circ F) d(y^{i_1}\circ F)\wedge\ldots\wedge d(y^{i_k}\circ F).\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Für 1. und 2. siehe Hausaufgaben, Für 3. siehe <span id="id5">[<a class="reference internal" href="../references.html#id17">Lee03</a>]</span> Lemma 14.16.</p>
+<p>Proof. Für 1. und 2. siehe Hausaufgaben, Für 3. siehe <span id="id5">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span> Lemma 14.16.</p>
 </div>
 <p>Im Falle, dass die Mannigfaltigkeiten gleich dem <span class="math notranslate nohighlight">\(\R^n\)</span> bzw. <span class="math notranslate nohighlight">\(\R^m\)</span> sind, also <span class="math notranslate nohighlight">\(\M=\R^n, \mathcal{N}=\R^m\)</span> können wir den Pullback leicht explizit berechnen. Dazu sei <span class="math notranslate nohighlight">\(F:\R^n\to\R^m\)</span> eine glatte Abbildung, <span class="math notranslate nohighlight">\(x_1,\ldots,x_n\)</span> seien Koordinaten für <span class="math notranslate nohighlight">\(\R^n\)</span> und <span class="math notranslate nohighlight">\(y_1,\ldots,y_m\)</span> seien Koordinaten für <span class="math notranslate nohighlight">\(\R^m\)</span>.</p>
 <p>Zunächst erkennen wir für den Pushforward, <span class="math notranslate nohighlight">\(F_\ast:T_p\M\to T_{F(p)}\mathcal{N}\)</span> dass für <span class="math notranslate nohighlight">\(p\in\M\)</span> gilt,</p>

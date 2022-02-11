@@ -38,9 +38,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
@@ -285,12 +288,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
-     7.3. Kurvenintegrale
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../complexanalysis/cauchyintegral.html">
+     7.4. Der Integralsatz von Cauchy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/residuensatz.html">
-     7.4. Laurententwicklung und Residuensatz
+     7.5. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -464,7 +472,7 @@ Dann nennen wir die Menge</p>
 \[\V^\ast := \{\varphi:\V\rightarrow\R: \varphi\text{ ist linear}\}\]</div>
 <p>den <strong>algebraischer Dualraum</strong> zu <span class="math notranslate nohighlight">\(V\)</span>.</p>
 </div>
-</div><p>Aus <span id="id1">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span> ist bereits der Begriff des <em>topologischen Dualraums</em> bekannt, welcher allerdings eine etwas restriktivere Definition hat.
+</div><p>Aus <span id="id1">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> ist bereits der Begriff des <em>topologischen Dualraums</em> bekannt, welcher allerdings eine etwas restriktivere Definition hat.
 Sie fordert nämlich noch zusätzlich die Stetigkeit der linearen Abbildungen.</p>
 <div class="proof definition admonition" id="def:topologischerDualraum">
 <p class="admonition-title"><span class="caption-number">Definition 3.2 </span> (Topologischer Dualraum)</p>

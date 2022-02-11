@@ -38,9 +38,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
@@ -285,12 +288,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
-     7.3. Kurvenintegrale
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../complexanalysis/cauchyintegral.html">
+     7.4. Der Integralsatz von Cauchy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/residuensatz.html">
-     7.4. Laurententwicklung und Residuensatz
+     7.5. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -588,7 +596,7 @@ Per Definition löst die Funktion</p>
 Weiterhin wissen wir auf Grund der ersten Flusseigenschaft, dass</p>
 <div class="math notranslate nohighlight">
 \[\phi_1(0) = \Phi(s, x_0) = \Phi(0, \Phi(s, x_0)) = \phi_2(0).\]</div>
-<p>Somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall <span class="math notranslate nohighlight">\([t, \epsilon(x_0)]\)</span> gleich, was eine direkte Folgerung aus dem Eindeutigkeitssatz 8.20 aus <span id="id1">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span> ist.
+<p>Somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall <span class="math notranslate nohighlight">\([t, \epsilon(x_0)]\)</span> gleich, was eine direkte Folgerung aus dem Eindeutigkeitssatz 8.20 aus <span id="id1">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> ist.
 Wir haben also insgesamt</p>
 <div class="math notranslate nohighlight">
 \[\Phi(s + \tau, x_0) = \phi_1(\tau) = \phi_2(\tau) = \Phi(\tau, \Phi(s,x_0))\]</div>

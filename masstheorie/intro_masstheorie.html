@@ -38,9 +38,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
@@ -285,12 +288,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
-     7.3. Kurvenintegrale
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../complexanalysis/cauchyintegral.html">
+     7.4. Der Integralsatz von Cauchy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/residuensatz.html">
-     7.4. Laurententwicklung und Residuensatz
+     7.5. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -432,6 +440,7 @@ Man sieht leicht ein, dass diese Funktion <strong>nicht Riemann-integrierbar</st
 Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einführen um diesen Umstand zu verstehen und einen verallgemeinerten Begriff des Integrals definieren, der diese Nullmenge berücksichtigt - das <strong>Lebesgue Integral</strong>.
 Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue-integrierbaren Funktionen eine Obermenge der Menge der Riemann-integrierbaren Funktionen ist.
 Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.</p>
+<p>Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz-Baldes (FAU) <span id="id2">[<a class="reference internal" href="../references.html#id12">SB18</a>]</span>, aber besonders auch das Buch von Prof.Terence Tao zur Einführung in die Maßtheorie <span id="id3">[<a class="reference internal" href="../references.html#id6">Tao07</a>]</span> welches einen sehr intuitiven Einblick in die Materie gibt. Eine weitere sehr ausführliche Referenz, welche im Folgenden zitiert wird, ist das Buch von Prof.Vladimir I. Bogachev <span id="id4">[<a class="reference internal" href="../references.html#id5">Bog07</a>]</span>.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>

@@ -38,9 +38,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
@@ -285,12 +288,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/kurvenintegrale.html">
-     7.3. Kurvenintegrale
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../complexanalysis/cauchyintegral.html">
+     7.4. Der Integralsatz von Cauchy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../complexanalysis/residuensatz.html">
-     7.4. Laurententwicklung und Residuensatz
+     7.5. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -1225,7 +1233,7 @@ Dann ist das äußere Lebesgue Maß <strong>translationsinvariant</strong> unter
 Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wirkung der linearen Transformation <span class="math notranslate nohighlight">\(M\)</span></p>
 <div class="math notranslate nohighlight">
 \[\lambda^*(MA) = |\!\operatorname{det}(M)| \, \lambda^*(A).\]</div>
-<p>Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. <strong>Rotationen</strong> und <strong>Spiegelungen</strong>) ist, da für diese Transformationen <span class="math notranslate nohighlight">\(|\!\operatorname{det}(M)| = 1\)</span> gilt (siehe Kapitel 3.6 in <span id="id2">[<a class="reference internal" href="../references.html#id14">Ten21</a>]</span>).</p>
+<p>Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. <strong>Rotationen</strong> und <strong>Spiegelungen</strong>) ist, da für diese Transformationen <span class="math notranslate nohighlight">\(|\!\operatorname{det}(M)| = 1\)</span> gilt (siehe Kapitel 3.6 in <span id="id2">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span>).</p>
 <p>Außerdem gilt, dass die Teilmenge <span class="math notranslate nohighlight">\(A\)</span> genau dann Lebesgue-messbar ist, wenn die linear transformierte Teilmenge <span class="math notranslate nohighlight">\(MA\)</span> Lebesgue-messbar ist.</p>
 </div>
 </div></div>

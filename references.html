@@ -38,9 +38,12 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
@@ -55,7 +58,7 @@
     <link rel="shortcut icon" href="_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
-    <link rel="prev" title="7.4. Laurententwicklung und Residuensatz" href="complexanalysis/residuensatz.html" />
+    <link rel="prev" title="7.5. Laurententwicklung und Residuensatz" href="complexanalysis/residuensatz.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -282,12 +285,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="complexanalysis/kurvenintegrale.html">
-     7.3. Kurvenintegrale
+     7.3. Wegintegrale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="complexanalysis/cauchyintegral.html">
+     7.4. Der Integralsatz von Cauchy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="complexanalysis/residuensatz.html">
-     7.4. Laurententwicklung und Residuensatz
+     7.5. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -397,7 +405,7 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="bibliography">
 <h1><span class="section-number">8. </span>Bibliography<a class="headerlink" href="#bibliography" title="Link zu dieser Überschrift">¶</a></h1>
 <p id="id1"><dl class="citation">
-<dt class="label" id="id15"><span class="brackets">AF13</span></dt>
+<dt class="label" id="id16"><span class="brackets">AF13</span></dt>
 <dd><p>Ilka Agricola and Thomas Friedrich. <em>Globale Analysis - Differentialformen in Analysis, Geometrie und Physik</em>. Springer-Verlag, Berlin Heidelberg New York, edition, 2013. ISBN 978-3-322-92903-7.</p>
 </dd>
 <dt class="label" id="id5"><span class="brackets">Bog07</span></dt>
@@ -409,7 +417,7 @@
 <dt class="label" id="id4"><span class="brackets">For17</span></dt>
 <dd><p>Otto Forster. <em>Analysis 2</em>. Springer, 2017.</p>
 </dd>
-<dt class="label" id="id16"><span class="brackets">Janich03</span></dt>
+<dt class="label" id="id17"><span class="brackets">Janich03</span></dt>
 <dd><p>Klaus Jänich. <em>Der Tangentialraum</em>. Springer Berlin Heidelberg, 2003. URL: <a class="reference external" href="https://doi.org/10.1007/978-3-662-10750-8_2">https://doi.org/10.1007/978-3-662-10750-8_2</a>, <a class="reference external" href="https://doi.org/10.1007/978-3-662-10750-8_2">doi:10.1007/978-3-662-10750-8_2</a>.</p>
 </dd>
 <dt class="label" id="id7"><span class="brackets">Kna13</span></dt>
@@ -418,8 +426,11 @@
 <dt class="label" id="id9"><span class="brackets">Kna20</span></dt>
 <dd><p>Andreas Knauf. <em>Skript zur Vorlesung &quot;Mathematik für Physikstudierende 3&quot;</em>. 2020.</p>
 </dd>
-<dt class="label" id="id17"><span class="brackets">Lee03</span></dt>
+<dt class="label" id="id18"><span class="brackets">Lee03</span></dt>
 <dd><p>John Lee. <em>Introduction to smooth manifolds</em>. Springer, New York, 2003. ISBN 0-387-95448-1.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">Nee17</span></dt>
+<dd><p>Karl-Hermann Neeb. <em>Skript zur Vorlesung &quot;Funktionentheorie I&quot;</em>. 2017.</p>
 </dd>
 <dt class="label" id="id11"><span class="brackets">Nol11</span></dt>
 <dd><p>Wolfgang Nolting. <em>Grundkurs Theoretische Physik 2 - Analytische Mechanik</em>. Springer Berlin Heidelberg, 2011. <a class="reference external" href="https://doi.org/10.1007/978-3-642-12950-6">doi:10.1007/978-3-642-12950-6</a>.</p>
@@ -430,7 +441,7 @@
 <dt class="label" id="id6"><span class="brackets">Tao07</span></dt>
 <dd><p>Terence Tao. <em>An Introduction to Measure Theory</em>. AMS, 2007.</p>
 </dd>
-<dt class="label" id="id14"><span class="brackets">Ten21</span></dt>
+<dt class="label" id="id15"><span class="brackets">Ten21</span></dt>
 <dd><p>Daniel Tenbrinck. <em>Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;</em>. 2021. URL: <a class="reference external" href="https://fau-ammn.github.io/MathDataScience2">https://fau-ammn.github.io/MathDataScience2</a>.</p>
 </dd>
 </dl>
@@ -466,7 +477,7 @@
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">7.4. </span>Laurententwicklung und Residuensatz</p>
+            <p class="prev-next-title"><span class="section-number">7.5. </span>Laurententwicklung und Residuensatz</p>
         </div>
     </a>
 </div>
