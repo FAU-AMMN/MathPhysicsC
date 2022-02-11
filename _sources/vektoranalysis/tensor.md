@@ -471,6 +471,11 @@ x_2y_1 & x_2y_2
 ein Tensorprodukt der Vektorräume $V=W=\R^2$.
 
 Betrachten wir nun ein weiteres Tensorprodukt auf dem kartesischen Produktraum $V \times W$, nämlich das **Kronecker-Produkt** $\otimes_K$.
+
+```{margin} Leopold Kronecker
+[Leopold Kronecker](https://de.wikipedia.org/wiki/Leopold_Kronecker) (Geboren 7. Dezember 1823 in Liegnitz; Gestorben 29. Dezember 1891 in Berlin) war ein deutscher Mathematiker.
+```
+
 Das Kronecker-Produkt realisiert eine Abbildung
 
 ```{math}

@@ -359,7 +359,7 @@ Dann gilt für die partielle Derivation
 \partial_{x^i}^p(\varphi_j) = \delta_{ij},
 ```
 
-wobei $\delta_ij$ das *Kronecker-Delta* bezeichnet.
+wobei $\delta_{ij}$ das *Kronecker-Delta* bezeichnet.
 ````
 
 ````{prf:proof}
@@ -371,7 +371,7 @@ Wir betrachten zunächst die Funktion $\varphi_j \circ \gamma_{x^i}$ und erhalte
 &= (\varphi(p) + t e_i)_j\\ 
 &=
 \begin{cases}
-\varphi(p) + t e_i &\text{ für } i=j,\\
+\varphi_i(p) + t e_i &\text{ für } i=j,\\
 \varphi_j(p)&\text{ sonst}.
 \end{cases}
 ```

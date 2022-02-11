@@ -106,7 +106,7 @@ Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglic
 :label: lem:homotop
 
 Es sei $U \subset \C$ offen und seien $\gamma_0$ und $\gamma_1:[a,b]\to U$ homotope oder frei homotope Wege.
-Sei außerdem $f:U\toC$ eine holomorphe Funktion, dann gilt
+Sei außerdem $f:U\to C$ eine holomorphe Funktion, dann gilt
 
 ```{math}
 \oint_{\gamma_0} f(z) \, dz = \oint_{\gamma_1} f(z) \, dz.
@@ -114,7 +114,7 @@ Sei außerdem $f:U\toC$ eine holomorphe Funktion, dann gilt
 ````
 
 ````{prf:proof}
-Es sei $h:[a,b]\times[0,1]\to U$ eine Homotopie, mit $h_0_=\gamma_0, h_1_=\gamma_1$. Die Menge $[a,b]\times[0,1]$ ist kompakt und somit ist $h$ gleichmäßig stetig, d.h. insbesondere, dass für $\varepsilon>0$ ein $\delta >0$ existiert, s.d.,
+Es sei $h:[a,b]\times[0,1]\to U$ eine Homotopie, mit $h_0=\gamma_0, h_1=\gamma_1$. Die Menge $[a,b]\times[0,1]$ ist kompakt und somit ist $h$ gleichmäßig stetig, d.h. insbesondere, dass für $\varepsilon>0$ ein $\delta >0$ existiert, s.d.,
 
 ```{math}
 \abs{h_{s_0}-h_{s_1}}_\infty <\varepsilon \text{ für } \abs{s_1-s_2}< \delta.
@@ -150,8 +150,10 @@ Wir werden die obigen Konzepte nun auf Wegen betrachten welche den rnd einer Kre
 
 ```{math}
 \gamma_{p,r}:[0,2\pi]&\to \partial B_r(p)\\
-t&\mapsto p + r\exp(i t).
+t&\mapsto p + r\exp(i t),
 ```
+
+wobei wir die Eulersche Formel {eq}`eq:euler` benutzt haben.
 
 Mithilfe der natürlichen Parametrisierung schreiben wir auch
 
@@ -209,7 +211,7 @@ a_n  = \frac{1}{2\pi i}\,\oint_{\partial B_{r^\prime}(p)} \frac{f(z)}{(z - p)^{n
 Siehe z.B. {cite:p}`baldes_2018` S.325f.
 ````
 
-## Der Satz von Lioville
+## Der Satz von Liouville
 
 Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liouville.
 
@@ -217,7 +219,7 @@ Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liou
 [Joseph Liouville](https://de.wikipedia.org/wiki/Joseph_Liouville) (Geboren 24. März 1809 in Saint-Omer; Gestorben 8. September 1882 in Paris) war ein französischer Mathematiker.
 ```
 
-````{prf:theorem} Satz von Lioville
+````{prf:theorem} Satz von Liouville
 Jede beschränkte holomorphe Funktion $f:\C\to\C$ ist konstant.
 ````
 

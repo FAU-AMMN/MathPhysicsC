@@ -246,7 +246,7 @@ Es seien $(\Omega_1,\Sigma_1,\mu_1), (\Omega_2,\Sigma_2,\mu_2)$ zwei Maßräume,
 In {ref}`s:grass` haben wir das Tensorprodukt zweier lineare Abbildungen $T_1,T_2$ definiert über
 
 ```{math}
-(T_1\otimes T_2)(v_1,V_2) := T_1(v_1)\cdot T_2(v_2).
+(T_1\otimes T_2)(v_1,v_2) := T_1(v_1)\cdot T_2(v_2).
 ```
 
 Es sei hier erwähnt, dass das Maß **keine** lineare Abbildung ist, insbesondere haben wir keinen Vektorraum gegeben. Die Produktstruktur ist trotzdem ähnlich, weshalb eine gewisse Analogie zwischen dem Tensorprodukt und dem Produktmaß herrscht.
@@ -260,7 +260,7 @@ In den obigen Produkten können einzelnen Terme jeweils unendlich werden, hierbe
 ```
 ````
 
-Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogennate $\sigma$-Endlichkeit.
+Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogenannte $\sigma$-Endlichkeit.
 
 ````{prf:definition}
 Es sei $(\Omega,\Sigma,\mu)$ ein Maßraum, das Maß $\mu$ heißt $\sigma$**-endlich**, falls eine Folge von Mengen $A_i\in\Sigma,i\in\N$ existiert, s.d., $\mu(A_i)<\infty$ und 
@@ -361,17 +361,17 @@ Ein Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klasse
 ````{prf:definition} Monotone Klasse
 Es sei $\Omega$ eine Menge, ein Teilmengensystem $\mathcal{C}\subset 2^\Omega$ heißt **monotone Klasse**, falls
 
-1\. Für eine aufsteigende Folge von Mengen $A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N$ gilt auch 
+1. Für eine aufsteigende Folge von Mengen $A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N$ gilt auch 
 
-```{math}
-\bigcup_{i\in\N} A_i\in\mathcal{C}.
-```
+    ```{math}
+    \bigcup_{i\in\N} A_i\in\mathcal{C}.
+    ```
 
-1\. Für eine absteigende Folge von Mengen $A_i\in\mathcal{C}, A_i\supset A_{i+1}, i\in\N$ gilt auch 
+2. Für eine absteigende Folge von Mengen $A_i\in\mathcal{C}, A_i\supset A_{i+1}, i\in\N$ gilt auch 
 
-```{math}
-\bigcap_{i\in\N} A_i\in\mathcal{C}.
-```
+    ```{math}
+    \bigcap_{i\in\N} A_i\in\mathcal{C}.
+    ```
 ````
 
 Offensichtlich ist jede $\sigma$-Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen.
@@ -479,7 +479,7 @@ für fast alle $x\in\R^n$. Die Aussage für $\lambda^n(E^y)$ folgt analog.
 Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen $E\in \mathcal{A}(\R^{n+m})$ zu verallgemeinern.
 
 ````{prf:lemma}
-Die Aussage von {prf:ref}`thm:cavalieri` gilt auch für Mengen $E\in \mathcal{A}(\R^{n+m})$.
+Die Aussage von {prf:ref}`thm:cavalieri` (Prinzip von Cavalieri) gilt auch für Mengen $E\in \mathcal{A}(\R^{n+m})$.
 ````
 
 ````{prf:proof}
@@ -567,7 +567,7 @@ gilt
 r^n\,
 \begin{cases}
 \frac{1}{(n/2)!} \pi^{n/2}&\text{ falls }n \text{ gerade,}\\
-\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
+\frac{2}{1\cdot 3\cdot\ldots n} (2\pi)^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
 \end{cases}
 ```
 ````

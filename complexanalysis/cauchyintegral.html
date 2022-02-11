@@ -413,8 +413,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#der-satz-von-lioville">
-   7.4.5. Der Satz von Lioville
+  <a class="reference internal nav-link" href="#der-satz-von-liouville">
+   7.4.5. Der Satz von Liouville
   </a>
  </li>
 </ul>
@@ -458,8 +458,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#der-satz-von-lioville">
-   7.4.5. Der Satz von Lioville
+  <a class="reference internal nav-link" href="#der-satz-von-liouville">
+   7.4.5. Der Satz von Liouville
   </a>
  </li>
 </ul>
@@ -553,12 +553,12 @@ Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines be
 <p class="admonition-title"><span class="caption-number">Lemma 7.10 </span> (Homotopiesatz)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> offen und seien <span class="math notranslate nohighlight">\(\gamma_0\)</span> und <span class="math notranslate nohighlight">\(\gamma_1:[a,b]\to U\)</span> homotope oder frei homotope Wege.
-Sei außerdem <span class="math notranslate nohighlight">\(f:U\toC\)</span> eine holomorphe Funktion, dann gilt</p>
+Sei außerdem <span class="math notranslate nohighlight">\(f:U\to C\)</span> eine holomorphe Funktion, dann gilt</p>
 <div class="math notranslate nohighlight">
 \[\oint_{\gamma_0} f(z) \, dz = \oint_{\gamma_1} f(z) \, dz.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Es sei <span class="math notranslate nohighlight">\(h:[a,b]\times[0,1]\to U\)</span> eine Homotopie, mit <span class="math notranslate nohighlight">\(h_0_=\gamma_0, h_1_=\gamma_1\)</span>. Die Menge <span class="math notranslate nohighlight">\([a,b]\times[0,1]\)</span> ist kompakt und somit ist <span class="math notranslate nohighlight">\(h\)</span> gleichmäßig stetig, d.h. insbesondere, dass für <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> ein <span class="math notranslate nohighlight">\(\delta &gt;0\)</span> existiert, s.d.,</p>
+<p>Proof. Es sei <span class="math notranslate nohighlight">\(h:[a,b]\times[0,1]\to U\)</span> eine Homotopie, mit <span class="math notranslate nohighlight">\(h_0=\gamma_0, h_1=\gamma_1\)</span>. Die Menge <span class="math notranslate nohighlight">\([a,b]\times[0,1]\)</span> ist kompakt und somit ist <span class="math notranslate nohighlight">\(h\)</span> gleichmäßig stetig, d.h. insbesondere, dass für <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> ein <span class="math notranslate nohighlight">\(\delta &gt;0\)</span> existiert, s.d.,</p>
 <div class="math notranslate nohighlight">
 \[\abs{h_{s_0}-h_{s_1}}_\infty &lt;\varepsilon \text{ für } \abs{s_1-s_2}&lt; \delta.\]</div>
 <p>Wir können nach <a class="reference internal" href="#lem:closelem">Lemma 7.8</a> somit <span class="math notranslate nohighlight">\(\delta\)</span> klein genug wählen, s.d. Wege <span class="math notranslate nohighlight">\(h_{s_0}, h_{s_1}\)</span> benachbart sind für <span class="math notranslate nohighlight">\(\abs{s_0-s_1}&lt;\delta\)</span>. Somit gilt nach <a class="reference internal" href="#lem:closepath">Lemma 7.9</a>, dass</p>
@@ -583,7 +583,8 @@ Sei außerdem <span class="math notranslate nohighlight">\(f:U\toC\)</span> eine
 <p>Wir werden die obigen Konzepte nun auf Wegen betrachten welche den rnd einer Kreisscheibe parametrisieren. Dazu sei <span class="math notranslate nohighlight">\(B_r(p)\subset\C\)</span> eine Kreisscheibe um den Punkt <span class="math notranslate nohighlight">\(p\in\C\)</span> mit Radius <span class="math notranslate nohighlight">\(r&gt;0\)</span>, wir wählen die natürliche Parametrisierung des Randes</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\gamma_{p,r}:[0,2\pi]&amp;\to \partial B_r(p)\\
-t&amp;\mapsto p + r\exp(i t).\end{split}\]</div>
+t&amp;\mapsto p + r\exp(i t),\end{split}\]</div>
+<p>wobei wir die Eulersche Formel <a class="reference internal" href="complexnumbers.html#equation-eq-euler">(7.1)</a> benutzt haben.</p>
 <p>Mithilfe der natürlichen Parametrisierung schreiben wir auch</p>
 <div class="math notranslate nohighlight">
 \[\int_{\partial B_r(p)} f(z)\, dz := \int_{\gamma_{p,r}} f(z)\, dz\]</div>
@@ -623,15 +624,15 @@ t&amp;\mapsto p + r\exp(i t).\end{split}\]</div>
 <p>Proof. Siehe z.B. <span id="id4">[<a class="reference internal" href="../references.html#id12">SB18</a>]</span> S.325f.</p>
 </div>
 </div>
-<div class="section" id="der-satz-von-lioville">
-<h2><span class="section-number">7.4.5. </span>Der Satz von Lioville<a class="headerlink" href="#der-satz-von-lioville" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="der-satz-von-liouville">
+<h2><span class="section-number">7.4.5. </span>Der Satz von Liouville<a class="headerlink" href="#der-satz-von-liouville" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liouville.</p>
 <div class="margin sidebar">
 <p class="sidebar-title">Joseph Liouville</p>
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/Joseph_Liouville">Joseph Liouville</a> (Geboren 24. März 1809 in Saint-Omer; Gestorben 8. September 1882 in Paris) war ein französischer Mathematiker.</p>
 </div>
 <div class="proof theorem admonition" id="theorem-11">
-<p class="admonition-title"><span class="caption-number">Theorem 7.6 </span> (Satz von Lioville)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.6 </span> (Satz von Liouville)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Jede beschränkte holomorphe Funktion <span class="math notranslate nohighlight">\(f:\C\to\C\)</span> ist konstant.</p>
 </div>

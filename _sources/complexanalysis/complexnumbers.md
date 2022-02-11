@@ -53,3 +53,23 @@ d(z,w):= \abs{z-w}
 ```
 
 und damit auch eine Topologie sowie die Begriffe Konvergenz und Stetigkeit einer Funktion $f:\C\to\C$.
+
+Weiterhin lassen sich komplexe Zahlen auch in **Polarkoordinaten** darstellen, d.h., für jedes $z\in\C$ existiert ein eindeutig bestimmter Winkel $\varphi\in [0,2\pi]$, s.d.
+
+```{math}
+z = r(\cos(\varphi) + i\sin(\varphi))
+```
+
+wobei $r=\abs{z}$. In diesem Kontext ist auch die **Eulersche Formel** relevant,
+
+```{math}
+:label: eq:euler
+
+\exp(i\varphi) = \cos(\varphi) + i\sin(\varphi)
+```
+
+für $\varphi\in [0,2\pi]$.
+
+```{prf:margin} Leonhard Euler
+[Leonhard Euler](https://de.wikipedia.org/wiki/Leonhard_Euler) (Geboren 15. April 1707 in Basel; 18. September 1783 in Sankt Petersburg) war ein Schweizer Mathematiker, Physiker, Astronom, Geograph, Logiker und Ingenieur.
+```
