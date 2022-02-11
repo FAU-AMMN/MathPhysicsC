@@ -1,6 +1,6 @@
 # Lebesgue-Integral
 
-Anhand des in {ref}`s:lebesguemeasure` konstruirten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion $f:\Omega\to\R$ zu zerteilen. Dies führt auf das Problem, dass man Urbildern
+Anhand des in {ref}`s:lebesguemeasure` konstruierten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion $f:\Omega\to\R$ zu zerteilen. Dies führt auf das Problem, dass man Urbildern
 
 ```{math}
 f^{-1}(I)
@@ -83,7 +83,7 @@ ToDo
 Im Falle von Borel und Lebesgue-Messbarkeit haben wir als Zielalgebra $\B(\overline{\R})$ betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.
 
 ````{prf:lemma}
-:lem: Niveaumengen
+:label: lem:Niveaumengen
 
 Es sei $(\Omega,\Sigma)$ ein Messraum, eine Funktion $f:\Omega\to\overline{R}$ eine Funktion ist genau dann messbar bezüglich $\Sigma$, falls
 für die Niveaumengen gilt
@@ -172,7 +172,17 @@ ToDo, siehe [Vorlesung](https://www.fau.tv/clip/id/40563) Minute 80:30.
 
 ## Das Lebesgue-Integral einfacher Funktionen
 
-Für das Riemann-Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als nalogon betrachtet man hier sogenannte einfache Funktionen.
+Für das Riemann-Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als Analogon betrachtet man hier sogenannte einfache Funktionen, welche mithilfe der Indikatorfunktionen
+
+```{math}
+\bone_A(x):=
+\begin{cases}
+1&\text{ falls }x\in A,\\
+0&\text{ sonst,}
+\end{cases}
+```
+
+für verschiedenen Mengen $A\subset \R^n$ definiert sind.
 
 ```{figure} ../img/simplefun.jpg
 ---
@@ -184,7 +194,7 @@ Visualisierung einer einfachen Funktion.
 ```
 
 ````{prf:Definition}
-Eine Funktion $f:\R^n\to\overline{R}$ heißt einfach, falls Koeffizienten $\alpha_i\in\overline{\R}$ und messbare Mengen $A_i\in\mathcal{A}(\R^n)$ für $i=1,\ldots,N$ existieren, s.d.,
+Eine Funktion $f:\R^n\to\overline{\R}$ heißt einfach, falls Koeffizienten $\alpha_i\in\overline{\R}$ und messbare Mengen $A_i\in\mathcal{A}(\R^n)$ für $i=1,\ldots,N$ existieren, s.d.,
 
 ```{math}
 f = \sum_{i=1}^N \alpha_i \bone_{A_i}.

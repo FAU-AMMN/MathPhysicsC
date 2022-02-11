@@ -483,7 +483,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="lebesgue-integral">
 <h1><span class="section-number">5.2. </span>Lebesgue-Integral<a class="headerlink" href="#lebesgue-integral" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Anhand des in <a class="reference internal" href="masstheorie.html#s-lebesguemeasure"><span class="std std-ref">Das Lebesgue Maß</span></a> konstruirten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion <span class="math notranslate nohighlight">\(f:\Omega\to\R\)</span> zu zerteilen. Dies führt auf das Problem, dass man Urbildern</p>
+<p>Anhand des in <a class="reference internal" href="masstheorie.html#s-lebesguemeasure"><span class="std std-ref">Das Lebesgue Maß</span></a> konstruierten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion <span class="math notranslate nohighlight">\(f:\Omega\to\R\)</span> zu zerteilen. Dies führt auf das Problem, dass man Urbildern</p>
 <div class="math notranslate nohighlight">
 \[f^{-1}(I)\]</div>
 <p>für Mengen <span class="math notranslate nohighlight">\(I\subset\R\)</span> ein Maß zuordnen muss. Dies soll im Folgenden mithilfe des Lebesgue-Maßes geschehen. Um <span class="math notranslate nohighlight">\(f^{-1}(I)\)</span> allerdings im Lebesgue-Maß auswerten zu können, müssen wir voraussetzen, dass diese Menge messbar ist, was zu speziellen Anforderungen an die Funktion <span class="math notranslate nohighlight">\(f\)</span> führt, welche wir im nächsten Abschnitt behandeln.</p>
@@ -543,7 +543,15 @@
 <div class="section" id="charakterisierung-uber-niveaumengen">
 <h2><span class="section-number">5.2.2. </span>Charakterisierung über Niveaumengen<a class="headerlink" href="#charakterisierung-uber-niveaumengen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Im Falle von Borel und Lebesgue-Messbarkeit haben wir als Zielalgebra <span class="math notranslate nohighlight">\(\B(\overline{\R})\)</span> betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.</p>
-<div class="proof admonition" id="proof">
+<div class="proof lemma admonition" id="lem:Niveaumengen">
+<p class="admonition-title"><span class="caption-number">Lemma 5.15 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\((\Omega,\Sigma)\)</span> ein Messraum, eine Funktion <span class="math notranslate nohighlight">\(f:\Omega\to\overline{R}\)</span> eine Funktion ist genau dann messbar bezüglich <span class="math notranslate nohighlight">\(\Sigma\)</span>, falls
+für die Niveaumengen gilt</p>
+<div class="math notranslate nohighlight">
+\[\{f&lt; c\}\in\Sigma\quad\forall c\in\R.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
 <p>Proof. Wir betrachten das Mengensystem</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{C}:=\{[-\infty,c):c\in\R\}\]</div>
@@ -561,14 +569,14 @@
 \[f^{-1}(\mathcal{C}) \subset \Sigma\]</div>
 <p>ist.</p>
 </div>
-<div class="proof remark admonition" id="remark-4">
+<div class="proof remark admonition" id="remark-5">
 <p class="admonition-title"><span class="caption-number">Remark 5.7 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Für uns ist vor allem der Fall von Bedeutung, wenn <span class="math notranslate nohighlight">\(\Sigma\)</span> im obigen Lemma die Borel <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra oder die Lebesgue <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra auf <span class="math notranslate nohighlight">\(\R^n\)</span> ist. Da wir aber keine speziellen Eigenschaften dieser <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren ausnutzen und lediglich die Tatsache ausnutzen, dass die Zielalgebra <span class="math notranslate nohighlight">\(\B(\overline{\R})\)</span> ist, ist es leichter die Aussagen mit allgemeinem <span class="math notranslate nohighlight">\(\Sigma\)</span> zu formulieren.</p>
 </div>
 </div><p>Mithilfe dieses Lemma können wir die folgende Aussage zeigen.</p>
-<div class="proof lemma admonition" id="lemma-5">
-<p class="admonition-title"><span class="caption-number">Lemma 5.15 </span></p>
+<div class="proof lemma admonition" id="lemma-6">
+<p class="admonition-title"><span class="caption-number">Lemma 5.16 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\((\Omega,\Sigma)\)</span> ein Messraum und <span class="math notranslate nohighlight">\(f,g:\Omega\to\overline{\R}\)</span> zwei bezüglich <span class="math notranslate nohighlight">\(\Sigma\)</span> messbare Funktionen, dann gilt</p>
 <ol class="simple">
@@ -584,8 +592,8 @@
 <p>Proof. Siehe Übung.</p>
 </div>
 <p>Für Folgen von messbaren Funktionen gilt auch, dass deren Grenzwerte messbar sind.</p>
-<div class="proof lemma admonition" id="lemma-6">
-<p class="admonition-title"><span class="caption-number">Lemma 5.16 </span></p>
+<div class="proof lemma admonition" id="lemma-7">
+<p class="admonition-title"><span class="caption-number">Lemma 5.17 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\((\Omega,\Sigma)\)</span> ein Messraum, <span class="math notranslate nohighlight">\(f_n \colon \Omega\to\overline{\R},n\in\N\)</span> eine Folge von bezüglich <span class="math notranslate nohighlight">\(\Sigma\)</span> messbaren Funktionen, dann sind</p>
 <ol class="simple">
@@ -600,21 +608,28 @@
 </div>
 <div class="section" id="das-lebesgue-integral-einfacher-funktionen">
 <h2><span class="section-number">5.2.3. </span>Das Lebesgue-Integral einfacher Funktionen<a class="headerlink" href="#das-lebesgue-integral-einfacher-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Für das Riemann-Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als nalogon betrachtet man hier sogenannte einfache Funktionen.</p>
+<p>Für das Riemann-Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als Analogon betrachtet man hier sogenannte einfache Funktionen, welche mithilfe der Indikatorfunktionen</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\bone_A(x):=
+\begin{cases}
+1&amp;\text{ falls }x\in A,\\
+0&amp;\text{ sonst,}
+\end{cases}\end{split}\]</div>
+<p>für verschiedenen Mengen <span class="math notranslate nohighlight">\(A\subset \R^n\)</span> definiert sind.</p>
 <div class="figure align-default" id="fig-simplefun">
 <a class="reference internal image-reference" href="../_images/simplefun.jpg"><img alt="../_images/simplefun.jpg" src="../_images/simplefun.jpg" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Abb. 5.4 </span><span class="caption-text">Visualisierung einer einfachen Funktion.</span><a class="headerlink" href="#fig-simplefun" title="Link zu diesem Bild">¶</a></p>
 </div>
-<div class="proof definition admonition" id="definition-7">
+<div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 5.20 </span></p>
 <div class="definition-content section" id="proof-content">
-<p>Eine Funktion <span class="math notranslate nohighlight">\(f:\R^n\to\overline{R}\)</span> heißt einfach, falls Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i\in\overline{\R}\)</span> und messbare Mengen <span class="math notranslate nohighlight">\(A_i\in\mathcal{A}(\R^n)\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots,N\)</span> existieren, s.d.,</p>
+<p>Eine Funktion <span class="math notranslate nohighlight">\(f:\R^n\to\overline{\R}\)</span> heißt einfach, falls Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i\in\overline{\R}\)</span> und messbare Mengen <span class="math notranslate nohighlight">\(A_i\in\mathcal{A}(\R^n)\)</span> für <span class="math notranslate nohighlight">\(i=1,\ldots,N\)</span> existieren, s.d.,</p>
 <div class="math notranslate nohighlight">
 \[f = \sum_{i=1}^N \alpha_i \bone_{A_i}.\]</div>
 </div>
 </div><p>Man erhält über die Definition direkt ein Lemma, dass einfache Funktionen Lebesgue-messbar sind.</p>
-<div class="proof lemma admonition" id="lemma-8">
-<p class="admonition-title"><span class="caption-number">Lemma 5.17 </span></p>
+<div class="proof lemma admonition" id="lemma-9">
+<p class="admonition-title"><span class="caption-number">Lemma 5.18 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(f:\R^n\to\overline{\R}\)</span> eine einfache Funktion, dann ist <span class="math notranslate nohighlight">\(f\)</span> Lebesgue-messbar.</p>
 </div>
@@ -622,7 +637,7 @@
 <p>Proof. Siehe <a class="reference external" href="https://www.fau.tv/clip/id/40589">Vorlesung</a> ab Minute 8:45.</p>
 </div>
 <p>Für einfache Funktionen können wir analog zum Riemann-Integral das Lebesgue-Integral definieren, indem wir das Maß der einzelnen Mengen multipliziert mit den Funktionswerten summieren, welche eine einfache Funktion erzeugen.</p>
-<div class="proof remark admonition" id="remark-9">
+<div class="proof remark admonition" id="remark-10">
 <p class="admonition-title"><span class="caption-number">Remark 5.8 </span> (Wohldefiniertheit)</p>
 <div class="remark-content section" id="proof-content">
 <p>Es ist wichtig anzumerken, dass für eine einfache Funktion <span class="math notranslate nohighlight">\(f\)</span> verschiedene Zerlegungen in Mengen <span class="math notranslate nohighlight">\(A_i\)</span> und Koeffizienten <span class="math notranslate nohighlight">\(\alpha_i\)</span> existieren. Allerdings erkennen wir, dass der Wert des Integrals unabhängig von der Wahl der Zerlegung ist und das Intergal somit wohldefiniert ist.</p>
@@ -632,7 +647,7 @@
 <h2><span class="section-number">5.2.4. </span>Das Lebesgue-Integral nicht-negativer Funktionen<a class="headerlink" href="#das-lebesgue-integral-nicht-negativer-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Die wichtige Eigenschaft, welche die Betrachtung von einfachen Funktion so relevant macht, ist dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen. Diese Tatsache formulieren wir in folgendem Lemma.</p>
 <div class="proof lemma admonition" id="lem:simplefun">
-<p class="admonition-title"><span class="caption-number">Lemma 5.18 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.19 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(f \colon \Omega \to [0,\infty]\)</span> eine Lebesgue-messbare Funktion, dann existiert eine monoton wachsende Folge <span class="math notranslate nohighlight">\((f_i)_{i_\in N}\)</span> von einfachen Funktionen mit</p>
 <div class="math notranslate nohighlight">
@@ -644,15 +659,15 @@ f&amp;=\lim_{i\to\infty} f_i.\end{split}\]</div>
 <p>Proof. Siehe <a class="reference external" href="https://www.fau.tv/clip/id/40589">Vorlesung</a> ab Minute 13:00.</p>
 </div>
 <p>Mithilfe der Tatsache, dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen, können wir nun das Lebesgue-Integral für nicht-negative messbare Funktionen einführen.</p>
-<div class="proof definition admonition" id="definition-11">
+<div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 5.21 </span> (Lebesgue-Integral nicht-negativer Funktionen)</p>
 <div class="definition-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(f:\Omega\to[0,\infty]\)</span> Lebesgue-messbar und nach <a class="reference internal" href="#lem:simplefun">Lemma 5.18</a> <span class="math notranslate nohighlight">\((f_i)_{i\in\N}\)</span> eine monoton wachsende Folge von einfachen Funktionen mit <span class="math notranslate nohighlight">\(\lim_{i\to\infty} f_i = f\)</span>, dann ist das <strong>Lebesgue-Integral</strong> von <span class="math notranslate nohighlight">\(f\)</span> definiert durch</p>
+<p>Es sei <span class="math notranslate nohighlight">\(f:\Omega\to[0,\infty]\)</span> Lebesgue-messbar und nach <a class="reference internal" href="#lem:simplefun">Lemma 5.19</a> <span class="math notranslate nohighlight">\((f_i)_{i\in\N}\)</span> eine monoton wachsende Folge von einfachen Funktionen mit <span class="math notranslate nohighlight">\(\lim_{i\to\infty} f_i = f\)</span>, dann ist das <strong>Lebesgue-Integral</strong> von <span class="math notranslate nohighlight">\(f\)</span> definiert durch</p>
 <div class="math notranslate nohighlight">
 \[\int_{\Omega} f \,d\lambda^n = \lim_{i\rightarrow \infty} \int_{\R^n} f_i \,d\lambda^n.\]</div>
 </div>
 </div><p>Wir zeigen im Folgenden wichtige Eigenschaften des Lebesgue-Integrals.</p>
-<div class="proof theorem admonition" id="theorem-12">
+<div class="proof theorem admonition" id="theorem-13">
 <p class="admonition-title"><span class="caption-number">Theorem 5.8 </span> (Eigenschaften des Lebesgue-Integrals)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Das Lebesgue-Integral ist <em>wohldefiniert</em>, d.h., sein Wert ist unabhängig von der gewählten Folge von einfachen Funktionen <span class="math notranslate nohighlight">\((f_n)_{n\in\N}\)</span>.
@@ -670,7 +685,7 @@ f \leq g \quad \Rightarrow \quad \int_\Omega f\, d\lambda^n \leq \int_\Omega g\,
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/Beppo_Levi">Beppo Levi</a> (Geboren 14. Mai 1875 in Turin, Italien; Gestorben 28. August 1961 in Rosario, Argentinien) war ein italienischer Mathematiker.</p>
 </div>
 <div class="proof lemma admonition" id="lem:levi">
-<p class="admonition-title"><span class="caption-number">Lemma 5.19 </span> (Satz von Beppo Levi)</p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.20 </span> (Satz von Beppo Levi)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(f_i:\R^n\to[0,\infty],i\in\N\)</span> eine Folge nicht-negativer Lebesgue-messbarer Funktionen mit</p>
 <div class="math notranslate nohighlight">
@@ -688,8 +703,8 @@ f \leq g \quad \Rightarrow \quad \int_\Omega f\, d\lambda^n \leq \int_\Omega g\,
 <p class="sidebar-title">Pierre Fatou</p>
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/Pierre_Fatou">Pierre Joseph Louis Fatou</a> (Geboren 28. Februar 1878 in Lorient; Gestorben 10. August 1929 in Pornichet) war ein französischer Mathematiker.</p>
 </div>
-<div class="proof lemma admonition" id="lemma-14">
-<p class="admonition-title"><span class="caption-number">Lemma 5.20 </span> (Lemma von Fatou)</p>
+<div class="proof lemma admonition" id="lemma-15">
+<p class="admonition-title"><span class="caption-number">Lemma 5.21 </span> (Lemma von Fatou)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(f_i:\R^n\to[0,\infty],i\in\N\)</span> eine Folge nicht-negativer Lebesgue-messbarer Funktion, dann ist</p>
 <div class="math notranslate nohighlight">
@@ -705,7 +720,7 @@ f \leq g \quad \Rightarrow \quad \int_\Omega f\, d\lambda^n \leq \int_\Omega g\,
 <div class="section" id="das-lebesgue-integral-integrierbarer-funktionen">
 <h2><span class="section-number">5.2.5. </span>Das Lebesgue-Integral integrierbarer Funktionen<a class="headerlink" href="#das-lebesgue-integral-integrierbarer-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir wollen nun das Lebesgue-Integral auf messbaren Funktionen mit wechselndem Vorzeichen betrachten. Dafür spalten wir eine Funktionen in ihren positiven und ihren negativen Teil auf und bilden das Integral über diese Funktionen. Um die beiden Teile aufsummieren zu können, müssen wir allerdings fordern, dass beide endlich sind.</p>
-<div class="proof definition admonition" id="definition-15">
+<div class="proof definition admonition" id="definition-16">
 <p class="admonition-title"><span class="caption-number">Definition 5.22 </span> (Lebesgue-Integral integrierbarer Funktionen)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(f \colon \R^n \rightarrow \R\)</span> eine Lebesgue-messbare Funktion, wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> <strong>Lebesgue-integrierbar</strong>, falls</p>
@@ -718,8 +733,8 @@ f \leq g \quad \Rightarrow \quad \int_\Omega f\, d\lambda^n \leq \int_\Omega g\,
 <div class="math notranslate nohighlight">
 \[\int_{\R^n} f\, d\lambda^n := \int_{\R^n} f^+\, d\lambda^n - \int_{\R^n} f_-\, d\lambda^n.\]</div>
 </div>
-</div><div class="proof lemma admonition" id="lemma-16">
-<p class="admonition-title"><span class="caption-number">Lemma 5.21 </span></p>
+</div><div class="proof lemma admonition" id="lemma-17">
+<p class="admonition-title"><span class="caption-number">Lemma 5.22 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Das Lebesgue-Integral ist ein linearer und monotoner Operator auf der Menge der Lebesgue-integrierbaren Funktionen.</p>
 </div>
@@ -727,7 +742,7 @@ f \leq g \quad \Rightarrow \quad \int_\Omega f\, d\lambda^n \leq \int_\Omega g\,
 <p>Proof. ToDo</p>
 </div>
 <p>Auch für integrierbare Funktionen gibt es einen wichtigen Konvergenzsatz, der <strong>Konvergenzsatz von Lebesgue</strong> oder auch der <strong>Satz von der dominierten Konvergenz</strong>.</p>
-<div class="proof theorem admonition" id="theorem-17">
+<div class="proof theorem admonition" id="theorem-18">
 <p class="admonition-title"><span class="caption-number">Theorem 5.9 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(f_i:\R^n\to\R\)</span> eine Folge Lebesgue-messbarer Funktionen mit <span class="math notranslate nohighlight">\(\lim_{i\to\infty} f_i =f\)</span> und <span class="math notranslate nohighlight">\(\abs{f}\leq g\)</span> wobei <span class="math notranslate nohighlight">\(g\)</span> eine Lebesgue-integrierbare Funktion ist, dann gilt <span class="math notranslate nohighlight">\(f\)</span> ist Lebesgue-integrierbar und</p>
@@ -740,7 +755,7 @@ f \leq g \quad \Rightarrow \quad \int_\Omega f\, d\lambda^n \leq \int_\Omega g\,
 </div>
 <div class="section" id="fast-uberall-eigenschaften">
 <h2><span class="section-number">5.2.6. </span>Fast überall Eigenschaften<a class="headerlink" href="#fast-uberall-eigenschaften" title="Link zu dieser Überschrift">¶</a></h2>
-<div class="proof definition admonition" id="definition-18">
+<div class="proof definition admonition" id="definition-19">
 <p class="admonition-title"><span class="caption-number">Definition 5.23 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Seien <span class="math notranslate nohighlight">\(f,g \colon \R^n \rightarrow \overline{\R}\)</span> Lebesgue-messbare Funktionen.
