@@ -144,7 +144,13 @@ Sei nun $f\C\to\C$ eine komplexe Funktion wobei wir mit $u:=\Re(f),v:=\Im(f)$ je
 f = u+iv = \begin{pmatrix} u\\ v\end{pmatrix}.
 ```
 
-Somit können wir auch für $f:\C\to\C$ den Begriff der totalen Differenzierbarkeit betrachten. Der folgende Satz setzt nun Holomorphie und Totale Differenzierbarkeit in Beziehung und führt auf natürliche Weise auf die **Cauchy--Riemannschen Differentialgleichungen**. Dafür setzen wir Voraus, dass die Komponenten $u,v$, stetig partiell differenzierbar sind und somit das totale Differential in $p\in U\subset\C$ gegeben ist durch
+Somit können wir auch für $f:\C\to\C$ den Begriff der totalen Differenzierbarkeit betrachten. Der folgende Satz setzt nun Holomorphie und Totale Differenzierbarkeit in Beziehung und führt auf natürliche Weise auf die **Cauchy--Riemannschen Differentialgleichungen**.
+
+````{prf:remark}
+Der konzeptionelle Unterschied zwischen totaler Differenzierbarkeit und Holomorphie ist, dass der Grenzwert in {prf:ref}`def:holomorph` durch den Quotienten die komplexe Multiplikation benutzt, während wir bei totaler Differenzierbarkeit die Beträge von Vektoren betrachten. Allgemein unterscheidet sich $\C$ als Körper nur durch die zusätzlich definierte komplexe Multiplikation vom reellen Vektorraum $\R^2$. Genau diese komplexe Multiplikation die hier einfließt, führt dazu, dass der Begriff der Holomorphie nicht gleich dem der klassischen Differenzierbarkeit auf $\R^2$ ist.
+````
+
+Dafür setzen wir Voraus, dass die Komponenten $u,v$, stetig partiell differenzierbar sind und somit das totale Differential in $p\in U\subset\C$ gegeben ist durch
 
 ```{math}
 df(p) = 
@@ -195,6 +201,10 @@ $f(z) := \overline{z}$ ist nicht holomorph -> Beispiel 10.7 auf S.315 in Schulz-
 ````
 
 ## Analytische Funktionen
+
+```{danger}
+This section is under Construction.
+```
 
 Eine besondere Klasse von Funktionen sind *analytische Funktonen*, die sich lokal mit Hilfe von Reihen darstellen lassen.
 

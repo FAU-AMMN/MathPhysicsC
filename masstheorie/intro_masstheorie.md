@@ -50,3 +50,5 @@ Um eine Funktion wie die Dirichlet-Funktion in {prf:ref}`ex:dirichletFunktion` z
 Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einführen um diesen Umstand zu verstehen und einen verallgemeinerten Begriff des Integrals definieren, der diese Nullmenge berücksichtigt - das **Lebesgue Integral**.
 Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue-integrierbaren Funktionen eine Obermenge der Menge der Riemann-integrierbaren Funktionen ist.
 Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.
+
+Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz-Baldes (FAU) {cite:p}`baldes_2018`, aber besonders auch das Buch von Prof.Terence Tao zur Einführung in die Maßtheorie {cite:p}`tao_2011` welches einen sehr intuitiven Einblick in die Materie gibt. Eine weitere sehr ausführliche Referenz, welche im Folgenden zitiert wird, ist das Buch von Prof.Vladimir I. Bogachev {cite:p}`boga_2007`.

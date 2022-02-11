@@ -37,5 +37,6 @@ chapters:
   - file: complexanalysis/complexnumbers.md
   - file: complexanalysis/cauchyriemann.md
   - file: complexanalysis/kurvenintegrale.md
+  - file: complexanalysis/cauchyintegral.md
   - file: complexanalysis/residuensatz.md
 - file: references

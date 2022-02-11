@@ -1,184 +1,294 @@
-# Kurvenintegrale
+# Wegintegrale
 
-## Wege und Kurven
+Der vorhergehende Abschnitt beschäftigt sich mit der komplexen Ableitung. Darauf aufbauend wollen wir in diesem Abschnitt einen Integralbegriff für komplexe Funktionen entwickeln. Für Funktionen $f:\C\to\C$ entsteht hierbei die Schwierigkeit durch den komplexen Definitionsbereich. Für Funktionen $g:[a,b]\to\C$ wobei $[a,b]\subset\R$ ein reelles Intervall ist können wir mithilfe des Riemann-Integrals folgendes Integral definieren.
 
-Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven.
+````{prf:definition}
+Es seien $a<b$ zwei reelle Zahlen und $g:[a,b]\to\C$ eine stetige Funktion, dann definieren wir das Integral
+
+```{math}
+\int_a^b g(t)\, dt = \int_a^b \Re(g)(t)\,dt + i\int_a^b \Im(g)(t)\, dt.
+```
+````
+
+Wir versuchen also im Folgenden einen ähnlichen Integrationsbegriff für Funktionen $f:\C\to\C$ zu erhalten.
+
+## Integration über stetig differenzierbare Wege
+
+Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven, welche die Grundlage der komplexen Integration bilden.
 
 ````{prf:definition} Weg und Kurve
-Sei $(X,\tau)$ ein topologischer Raum und $I = [a,b]$ ein reelles Intervall für $a,b \in \R$.
-Wir nennen eine stetige Funktion $f \colon I \rightarrow X$ einen **Weg** in $X$.
-Wir bezeichnen einen Weg $f$ als **glatt**, wenn er stetig differenzierbar ist und seine Ableitung für jeden Punkt $x \in I$ ungleich Null ist.
-Außerdem bezeichnen wir einen Weg $f$ als **geschlossen**, wenn gilt $f(a) = f(b)$.
-Schließlich nennen wir einen Weg $f$ **konstant**, wenn er für alle $t \in [a,b]$ auf den gleichen Punkt in $\C$ abbildet.
+Für zwei reelle Zahlen $a<b$ betrachten wir eine Abbildung $\gamma:[a,b]\to\C$.
 
-Die Bildmenge $f(I) \subset X$ nennen wir **Kurve** in $X$.
-````
+1. Falls die Abbildung stetig ist, so nennen wir $\gamma$ **Weg** mit Anfangspunkt $\gamma(a)$ und Endpunkt $\gamma(b)$.
 
-```{danger}
-Normalerweise nennen wir eine Abbildung *glatt*, wenn sie unendlich oft differenzierbar ist.
-Dies wird im Kontext von Wegen nicht gefordert und es genügt eine einfache stetige Differenzierbarkeit.
-```
+2. Ein Weg heißt geschlossen, falls $\gamma(a)=\gamma(b)$.
 
-Wir wollen im Folgenden annehmen, dass $f$ eine holomorphe Funktion auf einer offenen Teilmenge $D \subset \C$ ist.
-Wir betrachten $f(z) \mathrm{d}z$ als die zugehörige $1$-Form und außerdem sei $\gamma \colon I \rightarrow D$ für $I := [0,1]$ ein glatter Weg.
-Wegen der Jacobischen Transformationsformel in {prf:ref}`thm:jacobitransformation` gilt dann für das Kurvenintegral von $f$ bezüglich $\gamma$
-
-```{math}
-:label: eq:kurvenintegral
-\int_{\gamma} f(z) \, \mathrm{d}z = \int_I \gamma^*(f(z) \, \mathrm{d}z) = \int_0^1 f(\gamma(t)) \gamma'(t) \, \mathrm{d}t.
-```
-
-Häufig ist die Annahme eines global glatten Weges $\gamma$ eine zu starke Forderung.
-Es genügt auch zu fordern, dass der Weg $\gamma$ stückweise glatt ist und aus endlich vielen Teilstücken besteht.
-In diesem Fall lässt sich das Integral [](eq:kurvenintegral) als Summe der Integrale über die Teilstücke schreiben.
-
-**ToDo: Abbildung von stückweise glatten Wegen / Kurven**
-
-Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in $\C$, den sogenannten Index.
-
-````{prf:definition} Index
-Sei $\gamma \colon [0,1] \rightarrow \C$ ein geschlossener Weg in $\C$ und $w \in \C \setminus \operatorname{Bild}(\gamma)$ ein beliebiger Punkt außerhalb der zugehörigen Kurve von $\gamma$.
-Wir bezeichnen als **Index** von $w$ bezüglich des Wegs $\gamma$ folgende charakteristische Größe
-
-```{math}
-\operatorname{Ind}_\gamma(w) \ := \ \oint_\gamma \frac{1}{z - w} \frac{\mathrm{d}z}{2\pi i} \ = \ \int_0^1 \frac{\gamma'(t)}{\gamma(t - w)} \frac{\mathrm{d}z}{2\pi i} \in \mathbb{Z}.
-```
-
-Häufig wird der Index auch **Windungszahl** von $\gamma$ um $w$ genannt.
-Sie ist eine *topologische Invariante*, die anschaulich beschreibt, wie häufig sich die zugehörige Kurve um den Punkt $w$ windet.
+3. Ein Weg heißt stetig differenzierbar, falls $\gamma^\prime$ existiert und stetig ist.
 
 ````
 
-**ToDo: Abbildung mit Beispiel von [Wikipedia](https://de.wikipedia.org/wiki/Umlaufzahl_(Mathematik))**
+```{prf:remark}
+Wir beachten, dass wir bei der Definition der Differenzierbarkeit eines Weges den klassischen Begriff der Differenzierbarkeit benutzten und **nicht** den der Holomorphie, da der Definitionsbereich von $\gamma:[a,b]\to\C$ rein reell ist.
+```
+
+Damit können wir nun das **Wegintegral** definieren.
+
+````{prf:definition}
+Es sei $U\subset\C$ eine offene Teilmenge und $f:U\to\C$ eine stetige Funktion, für einen stetig differenzierbaren Weg $\gamma:[a,b]\to\C$ definieren wir das **Wegintegral**
+
+```{math}
+\int_\gamma f(z)\, dz := \int_a^b f(\gamma(t))\gamma^\prime(t)dt.
+```
+
+Ist $\gamma$ geschlossen so schreiben wir
+
+```{math}
+\oint_\gamma f(z)\, dz:=\int_\gamma f(z)\, dz.
+```
+````
+
+````{prf:remark}
+Wir erkennen in der Definition des Wegintegrals konzeptionelle Ähnlichkeiten zur Transformationsregel {prf:ref}`thm:jacobitransformation`.
+````
+
+## Integration über stückweise differenzierbare Wege
+
+Wir wollen nicht nur Wege $\gamma:[a,b]\to\C$ betrachten welche auf dem ganzen Intervall $[a,b]$ stetig differenzierbar sein sondern wollen auch stetige Abbildungen mit endliche vielen Knickstellen zulassen.
+
+````{prf:definition}
+Für zwei reelle Zahlen $a<b$ sei $\gamma:[a,b]\to\C$ ein Weg.
+
+1\. Falls endlich viele Punkte $a=t_0<t_1<\ldots t_N =b$ existieren s.d. $\gamma\rvert_{[t_j,t_{j+1}]}$ stetig differenzierbar ist, für alle $j=0,\ldots, N-1$, so heißt $\gamma$ **Integrationsweg** mit Zerlegung $(t_0,\ldots,t_N)$.
+
+2\. Falls endlich viele Punkte $a=t_0<t_1<\ldots < t_N =b$ existieren, s.d. für alle $j=0,\ldots, N-1$ gilt
+
+```{math}
+\gamma(t) = \gamma(t_j) + \frac{t - t_j}{t_{j+1} - t_j} \big(\gamma(t_{j+1}) - \gamma(t_j))\quad\text{ für } t\in(t_j,t_{j+1}\big)
+```
+
+so heißt $\gamma$ **Polygonzug** mit Zerlegung $(t_0,\ldots,t_N)$.
+
+3\. Falls $\gamma$ ein Polygonzug mit Zerlegung $(t_0,\ldots,t_N)$ ist und falls für alle $j=0,\ldots,N-1$ gilt
+
+```{math}
+\big(\gamma(t_{j+1}) - \gamma(t_j)) \in \{ \alpha_j, \alpha_j i\}
+```
+
+für reelle Faktoren $\alpha_j\in\R$, so heißt $\gamma$ Treppenzug.
+
+````
+
+````{prf:remark}
+Jeder Polygonzug ist ein Integrationsweg.
+````
+
+```{figure} ../img/treppenzug.jpg
+---
+height: 300px
+name: "fig:treppenzug"
+---
+
+Visualisierung eines Integrationswegs in grün, eines Polygonzugs in rot und eines Treppenzugs in blau.
+```
+
+Analog definiert man hier den Begriff des Integrals.
+
+````{prf:definition}
+Es sei $U\subset\C$ eine offene Teilmenge und $f:U\to\C$ eine stetige Funktion, für einen Integrationsweg $\gamma:[a,b]\to\C$ mit Zerlegung $(t_0,\ldots,t_N)$  definieren wir das **Wegintegral**
+
+```{math}
+\int_\gamma f(z)\, dz:= \sum_{j=0}^{N-1} \int_{\gamma\rvert_{[t_j,t_{j+1}]}} f(z)\,dz.
+```
+````
+
+````{prf:remark}
+Für einen Weg $\gamma$ können verschiedene Zerlegungen $(t_0,\ldots,t_N)$ s.d., $\gamma$ ein Integrationsweg bezüglich dieser Zerlegung ist. Man erkennt aber leicht, dass de Wert des Wegintegrals **unabhängig** von der Wahl der Zerlegung ist
+````
+
+Die Definition des Wegintegral ist unabhängig von Umparametrisierungen eines Weges, dies ist Inhalt des folgenden Lemmas.
 
 ````{prf:lemma}
-Sei $\gamma \colon [0,1] \rightarrow \C$ ein geschlossener Weg in $\C$.
-Dann ist die Abbildung, die jedem Punkt $w \in \C \setminus \operatorname{Bild}(\gamma)$ außerhalb der zugehörigen Kurve seinen Index $\operatorname{Ind_\gamma}(w)$ konstant auf jeder Zusammenhangskomponente bezüglich der Kurve von $\gamma$. 
+Es sei $U\subset\C$ offen, $\gamma:[a,b]\to U$ ein stetig differenzierbarer Weg und $\phi:[c,d]\to[a,b]$ eine stetig differenzierbare Abbildung mit $\phi(c)=a,\phi(d)=b$. Ist $f:U\to\C$ stetig, so gilt
+
+```{math}
+\int_{\gamma\circ\phi} f(z)\, dz = \int_\gamma f(z)\, dz.
+```
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.318f.
+ToDo.
 ````
 
-## Homotopie
-
-````{prf:definition} Homotopie
-Sei $I := [0,1]$ ein reelles Intervall und $D \subset \C$ eine Teilmenge.
-Wir nennen zwei Wege $\gamma, \Gamma \colon I \rightarrow D$ **homotop** in der Teilmenge $D$ genau dann, wenn eine stetige Abbildung $H \colon I \times I \rightarrow D$ existiert, so dass
+Insbesondere rechtfertigt diese Aussage, dass wir für den Strahl
 
 ```{math}
-H(t,0) = \gamma(t), \qquad H(t,1) = \Gamma(t).
+[p,q]:=\{z\in\C: z = p+t(q-p), 0\leq t\leq 1\}
 ```
 
-In diesem Fall nennen wir die Abbildung $H$ eine **Homotopie** zwischen den Wegen $\gamma$ und $\Gamma$.
+setzten
+
+```{math}
+\int_{[p,q]} f(z)\, dz = \int_0^1 f(p+t(q-p))\cdot (q-p)\, dt.
+```
+
+## Stammfunktionen
+
+Analog zum Begriff einer Stammfunktion in $\R$ betrachten wir dieses Konzept nun für Funktionen $f\C\to\C$.
+
+````{prf:definition}
+Es sei $U\subset\C$ offen, eine holomorphe Funktion $F:U\to\C$ heißt Stammfunktion einer Funktion $f:U\to\C$, falls
+
+```{math}
+F^\prime = f.
+```
+````
+
+````{prf:remark}
+Wir beachten, dass in der obigen Definition die komplexe Ableitung benutzt wird.
+````
+
+Für reelle Funktionen schafft der Hauptsatz der Differentiations- und Integrationsrechnung (HDI) einen Zusammenhang zwischen dem Integral der Ableitung und der Stammfunktion. Mithilfe des Wegintegrals wollen wir nun ein ähnliches Konzept erarbeiten und bemerken zunächst folgende Tatsache.
+
+````{prf:lemma} Integral einer Ableitung
+:label: lem:intdiff
+
+Es sei $U\subset\C$ offen und $f:U\to\C$ sei eine holomorphe Funktion, dann gilt
+
+```{math}
+\int_\gamma f^\prime(z)\, dz= f(\gamma(b)) - f(\gamma(a))
+```
+
+für jeden Integrationsweg $\gamma:[a,b]\to U$.
+````
+
+````{prf:proof}
+Sei $\gamma:[a,b]\to\C$ zunächst stetig differenzierbar, dann gilt
+
+```{math}
+\int_\gamma f^\prime(z)\, dz = \int_a^b f^\prime(\gamma(t))\gamma^\prime(t)\, dt =(\#).
+```
+
+Die Abbildung $(f\circ \gamma):[a,b]\to\C$ ist reell differenzierbar und mit der Kettenregel auf $\R$ gilt
+
+```{math}
+(f\circ\gamma)^\prime = (f^\prime\circ\gamma)\cdot\gamma.
+```
+
+Daher folgt
+
+```{math}
+(\#) = \int_a^b (f\circ \gamma)^\prime(t)\, dt.
+```
+
+Nach dem Hauptsatz der Integrations und Differentialrechnung für reelle Funktionen folgt dann
+
+```{math}
+(\#) = f(\gamma(b)) - f(\gamma(a)). 
+```
 
 ````
 
-Man kann zeigen, dass der Begriff der Homotopie zwischen Wegen in einer Teilmenge $D \subset \C$ eine *Äquivalenzrelation* auf Wegen in $D$ induziert.
-Die zugehörigen Äquivalenzklassen werden auch *Homotopieklassen* genannt.
+Anstatt allgemeiner offener Teilmengen $U\subset\C$ zu betrachten schränkt man sich oft auf **Gebiete** ein.
 
-Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.
+````{prf:definition}
+Eine offenen Menge $U\subset\C$ heißt **Gebiet**, falls sie zusammenhängend ist, das heißt für zwei Mengen $A,B\subset U,A\neq\emptyset\neq B$ gilt
+
+```{math}
+A\cap B \neq \emptyset.
+```
+````
+
+Für Gebiete gibt es folgende hilfreiche Charakterisierungen.
 
 ````{prf:lemma}
-Sei $D \subset \C$ eine Teilmenge und seien $\gamma$ und $\Gamma$ geschlossene, homotope Wege in $D$.
-Sei außerdem $f \colon D \rightarrow \C$ eine holomorphe Funktion.
+Eine Menge $U\subset\C$ ist genau dann ein Gebiet, falls eine der folgenden Bedingungen gilt.
 
-Dann gilt
+1. Die Menge $U$ ist wegzusammenhängend, d.h., für $x,y\in U$ existiert stets ein Weg $\gamma:[a,b]\to U$ mit $\gamma(a)=x,\gamma(b)=y$.
 
-```{math}
-\oint_\gamma f(z) \, \mathrm{d}z = \oint_\Gamma f(z) \, \mathrm{d}z.
-```
+2. Die Menge $U$ ist polygonzusammenhängend, d.h., für $x,y\in U$ existiert ein Polygonzug $\gamma:[a,b]\to U$ mit $\gamma(a)=x,\gamma(b)=y$.
+
+3. Die Menge $U$ ist treppenzusammenhängend, d.h., für $x,y\in U$ existiert ein Treppenzug $\gamma:[a,b]\to U$ mit $\gamma(a)=x,\gamma(b)=y$.
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.321
+Siehe z.B. {cite:p}`neeb_2017` Lemma 3.12.
 ````
 
-Eine besondere Klasse von Wegen sind solche, die nullhomotop sind.
+Auf Gebieten können wir mithilfe von {prf:ref}`lem:intdiff` folgende Aussage zeigen.
 
-````{prf:definition} Nullhomotoper Weg
-Wir nennen einen Weg $\gamma$ **nullhomotop** in einer Teilmenge $D \subset \C$ genau dann, wenn $\gamma$ homotop in $D$ zu einem konstanten Weg ist.
-````
-
-Wir realisieren also, dass sich nullhomotope Wege in einer Teilmenge $D \subset \C$ zu einem Punkt $w \in D$ zusammenziehen lassen.
-Darüber hinaus zeigt der folgende Satz, dass das Kurvenintegral einer holomorphe Funktionen auf einem nullhomotopen Weg verschwindet.
-
-````{prf:theorem} Satz von Cauchy
-Sei $\gamma$ ein nullhomotoper Weg in einer Teilmenge $D \subset \C$, der sich zu einem Punkt $w \in D$ zusammenziehen lässt.
-Sei darüber hinaus $f \colon D \rightarrow \C$ eine stetige Funktion, welche zudem holomorph auf der Menge $D \setminus \{w\}$ sei.
-
-Dann gilt für das Kurvenintegral
-
-```{math}
-\oint_\gamma f(z) \, \mathrm{d}z = 0.
-```
+````{prf:lemma}
+Es sei $U\subset\C$ ein Gebiet, eine Funktion $f:U\to\C$ ist genau dann konstant wenn $f^\prime=0$ gilt. 
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.322
+Falls $f$ konstant ist folgt per Definition $f^\prime=0$. Ist umgekehrt $f^\prime=0$ dann finden wir für beliebige $x,y\in U$ einen Polygonzug $\gamma:[a,b]\to U, \gamma(a)=x,\gamma(b)=y$ mit Zerlegung $(t_0,\ldots,t_N)$, da $U$ ein Gebiet ist. Dieser Weg ist insbesondere ein Inetgrationsweg und mit {prf:ref}`lem:intdiff` folgt dann
+
+```{math}
+f(x) - f(y) = \int_\gamma f^\prime(z)\, dz = 0.
+```
+
+Da $x,y\in U$ beliebig waren ist $f$ konstant.
 ````
 
-## Cauchyscher Integralsatz
+Im folgende formulieren wir ein zentrales Resultat für Stammfunktionen holomorpher Funktionen.
 
-Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
-Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen.
-
-````{prf:theorem} Cauchyscher Integralsatz
-Sei $D \subset \C$ ein Sterngebiet, d.h., $D$ ist eine offene Menge in der mindestens einen Punkt $z_0 \in \C$ gibt, so dass die Verbindungsstrecke jedes beliebigen Punktes $z \in D$ zu $z_0$ vollständig in $D$ liegt.
-Sei außerdem $\gamma$ ein geschlossener Weg in $D$.
-
-Dann lässt sich der Funktionswert von $f$ in jedem Punkt $z \in D \setminus \operatorname{Bild}(\gamma)$ darstellen durch das Kurvenintegral
+````{prf:theorem} Existenz von Stammfunktionen
+Es sei $U\subset\C$ offen, dann besitzt eine stetige Funktion genau dann eine Stammfunktion, falls
 
 ```{math}
-f(z) \ = \ \frac{1}{\operatorname{Ind}_\gamma(z)} \oint_\gamma \frac{f(\zeta)}{\zeta - z} \frac{\mathrm{d}\zeta}{2\pi i}.
+\oint_\gamma f(z)\, dz =0
 ```
 
-````
+für jeden geschlossenen Integrationsweg $\gamma$ gilt. 
 
-````{prf:proof}
-Schulz-Baldes S.323
-````
-
-Wir werden den Cauchyschen Integralsatz später noch in Form des sogenannten *Residuensatzes* stark verallgemeinern.
-Für den Moment erlaubt uns dessen Aussage jedoch zu zeigen, dass jede holomorphe Funktion bereits analytisch ist, was die Umkehrung zu {prf:ref}`thm:analytischHolomorph` ist.
-
-````{prf:theorem} Holomorphe Funktionen sind analytisch
-Sei $\epsilon > 0$ und $z_0 \in D$ ein Punkt in einer offenen Teilmenge $D \subset \C$.
-Sei außerdem $f \colon B_\epsilon(z_0) \rightarrow \C$ eine holomorphe Funktion.
-
-Dann ist die Funktion $f$ für jeden Punkt $z \in B_\epsilon(z_0)$ durch eine konvergente Potenzreihe darstellbar (also analytisch) als
+Fixieren wir einen Punkt $p\in\C$ und ist zusätzlich $U$ zusammenhängend, so ist eine Stammfunktionen $F:U\to\C, F(p)=c\in\C$ gegeben durch
 
 ```{math}
-f(z) = \sum_{n=1}^\infty a_n (z-z_0)^n,
+F(w):= c+ \int_{\gamma_w} f(z) \,dz
 ```
 
-deren Koeffizienten $(a_n)_{n\in\N}$ für alle $\epsilon' < \epsilon$ gegeben sind durch
-
-```{math}
-a_n \ = \ \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i}.
-```
-
-Insbesondere ist $f$ unendlich oft komplex differenzierbar und für alle $n \in \N$ gilt für die $n$-te Ableitung von $f$
-
-```{math}
-f^{(n)}(z_0) \ = \ n! \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i} = n! a_n.
-```
-
+wobei $\gamma_w$ ein beliebiger Integrationsweg von $p$ nach $w$ ist.
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.325f.
+Siehe z.B. {cite:p}`neeb_2017` Satz 3.17.
 ````
 
-Das folgende Korollar erlaubt eine direkte Abschätzung der $n$-ten Ableitung einer holomorphen Funktion.
+Die Bedingung an $f$, dass alle Wegintegrale über geschlossene Wege wegfallen ist in der Praxis schwer nachzuprüfen. Für holomorphe Funktionen hat man allerdings folgendes praktische Korollar.
 
-````{prf:corollary} Cauchy-Abschätzungen
+````{prf:corollary}
+Sei $f:B_r(p)\to\C$ eine holomorphe Funktion auf der komplexen Scheibe $B_r(p)\subset\C$ um $p$ mit Radius $r>0$, dann besitzt $f$ eine Stammfunktion.
+````
 
-Sei $\epsilon > 0$ und $z_0 \in D$ ein Punkt in einer offenen Teilmenge $D \subset \C$.
-Außerdem sei $f \colon B_\epsilon(z_0) \rightarrow \C$ eine holomorphe Funktion.
-Dann gilt für alle $0 < \epsilon' < \epsilon$ die folgende genannte **Cauchy-Abschätzung**
+## Integration über nicht differenzierbare Wege
+
+Mithilfe des Konzepts der Stammfunktion können wir nun das Integral über beliebige Wege definieren.
+
+````{prf:definition}
+Es sei $\gamma:[a,b]\to U$ ein Weg, eine Zerlegung $(a=t_0,\ldots, t_N=b), t_j<t_{j+1}$ heißt **zulässig**, falls offenen Scheiben $B^j\subset U$ existieren, s.d.
 
 ```{math}
-|f^{(n)}(z_0)| \ \leq \ \frac{n!}{\epsilon'^n} \max_{|z - z_0|=\epsilon'} |f(z)|.
+\gamma([t_j,t_{j+1}])\subset B^j\quad j=0,\ldots,N-1.
 ```
+````
+
+Für eine holomorphe Funktion $f:U\to\C$ wissen wir dann, dass für einen Weg $\gamma$ mit zulässiger Zerlegung $(t_0,\ldots,t_N)$ auf jeder Kreisscheibe $B^j\subset U$ eine Stammfunktion $F_j$ existiert, s.d.,
+
+```{math}
+\int_\gamma f(z)\, dz= \sum_{j=0}^{N-1} \int_{\gamma\rvert_[t_j,t_{j+1}]} f(z)\, dz=
+\sum_{j=0}^{N-1} F_j(\gamma(t_{j+1})) - F_j(\gamma(t_{j})).
+```
+
+Der Ausdruck auf der rechten Seite ist allerdings auch definiert, falls $\gamma$ nicht differenzierbar ist, was auf folgende Definition führt.
+
+````{prf:definition}
+Es sei $U$ offen und $\gamma:[a,b]\to U$ ein Weg mit zulässiger Zerlegung $(t_0,\ldots,t_N)$ und offenen Kreisscheiben $B_j,j=0,\ldots,N-1$. Für eine holomorphe Funktion $f$ mit Stammfunktionen $F_j$ auf $B_j$ definieren wir
+
+```{math}
+\int_\gamma f(z)\, dz = \sum_{j=1}^N F_j(\gamma(t_{j+1}))- F(\gamma(t_j)).
+```
+````
+
+````{prf:remark}
+Für offenes $U\subset\C$ und einen Weg $\gamma:[a,b]\to U$ exsitiert stets eine zulässige Zerlegung und der Wert des Integrals ist unabhängig von der Wahl der Zerlegung, siehe {cite:p}`neeb_2017`.
 ````
