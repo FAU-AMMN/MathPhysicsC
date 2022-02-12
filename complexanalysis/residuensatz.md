@@ -222,19 +222,47 @@ ToDo
 
 ## Umlaufzahlen
 
-Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in $\C$, den sogenannten Index.
+Eine charakteristische Größe von Integrationswegen ist die sogenannte **Umlaufzahl** welche beschreiben soll, wie oft ein Weg um einen Punkt $w\in\C$ herum läuft.
 
 ````{prf:definition} Index
-Sei $\gamma \colon [0,1] \rightarrow \C$ ein geschlossener Weg in $\C$ und $w \in \C \setminus \operatorname{Bild}(\gamma)$ ein beliebiger Punkt außerhalb der zugehörigen Kurve von $\gamma$.
-Wir bezeichnen als **Index** von $w$ bezüglich des Wegs $\gamma$ folgende charakteristische Größe
+Sei $\gamma:[a,b]\to\C$ ein Integrationsweg und $w \in \C$, dann bezeichnet 
 
 ```{math}
-\operatorname{Ind}_\gamma(w) \ := \ \oint_\gamma \frac{1}{z - w} \frac{\mathrm{d}z}{2\pi i} \ = \ \int_0^1 \frac{\gamma'(t)}{\gamma(t - w)} \frac{\mathrm{d}z}{2\pi i} \in \mathbb{Z}.
+\operatorname{Um}_\gamma(w) := 
+\frac{1}{2\pi i} \oint_\gamma \frac{1}{z - w} dz
 ```
 
-Häufig wird der Index auch **Windungszahl** von $\gamma$ um $w$ genannt.
-Sie ist eine *topologische Invariante*, die anschaulich beschreibt, wie häufig sich die zugehörige Kurve um den Punkt $w$ windet.
+die **Umlaufzahl** von $\gamma$ um $w$.
 
+````
+
+Anschaulich möchten wir für geschlossene Wege $\gamma$ zählen, wie oft $\gamma$ um einen Punkt $w$ herumläuft. A priori ist allerdings nicht klar, dass die Umlaufzahl tatsächlich ganzzahlig ist. Dafür erhalten wir zunächst das folgende Resultat.
+
+````{prf:lemma}
+Für $r>0,w\in\C, k\in\Z$ sei $\gamma_{r,k}:[0,2\pi]\to\C$ gegeben durch
+```{math}
+\gamma_{r,k}(t) := w + r \exp(ikt),
+```
+
+dann gilt
+
+```{math}
+\operatorname{Um}_{\gamma_{r,k}}(w) = k.
+```
+````
+
+````{prf:proof}
+Wir berechnen
+
+```{math}
+\operatorname{Um}_{\gamma_{r,k}}(w) &:= 
+\frac{1}{2\pi i} \oint_{\gamma_{r,k}} \frac{1}{z - w} dz\\ 
+&=
+\frac{1}{2\pi i} \oint_{\gamma_{r,k}} \frac{r k \exp(ikt)}{r \exp(ikt)} dz\\
+&= k
+```
+
+was die Behauptung zeigt.
 ````
 
 **ToDo: Abbildung mit Beispiel von [Wikipedia](https://de.wikipedia.org/wiki/Umlaufzahl_(Mathematik))**
