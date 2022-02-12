@@ -80,7 +80,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{08.02.2022}
+\date{12.02.2022}
 
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 
@@ -3008,6 +3008,14 @@ ein Tensorprodukt der Vektorräume \(V=W=\R^2\).
 
 \par
 Betrachten wir nun ein weiteres Tensorprodukt auf dem kartesischen Produktraum \(V \times W\), nämlich das \textbf{Kronecker Produkt} \(\otimes_K\).
+
+\begin{emphBox}{Leopold Kronecker}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Leopold\_Kronecker}{Leopold Kronecker} (Geboren 7. Dezember 1823 in Liegnitz; Gestorben 29. Dezember 1891 in Berlin) war ein deutscher Mathematiker.
+\end{emphBox}
+
+\par
 Das Kronecker Produkt realisiert eine Abbildung
 \begin{align*}
 \otimes_K \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_K \R^2 = \R^{4} =: X_K,
@@ -4443,14 +4451,16 @@ Dann ist \(C^\infty(\M; \R^m)\) ein reeller Vektorraum mit den Verknüpfungen
 
 \par
 Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.
-\begin{lemma}{}{manifolds/manifolds_prelim:lem:differenzierbarkeitKartenunabhaengig}
+\begin{lemma}{(Kartenunabhängigkeit)}{manifolds/manifolds_prelim:lem:differenzierbarkeitKartenunabhaengig}
 
 
 
 \par
 Es sei \(\M\) eine glatte Mannigfaltigkeit und \(\mathcal{A}\) ein Atlas auf \(\M\).
-Außerdem sei \(f:\M \to \R^m\) eine Funktion, \((U,\phi)\in \mathcal{A}\) eine Karte und \(x \in U\) ein Punkt in der offenen Menge \(U\).
-Ist \(f\circ\phi^{-1}\) differenzierbar in \(x\), so ist \(f\circ\psi^{-1}\) auch differenzierbar in \(x\) für jede Karte \((V,\psi) \in \mathcal{A}\) mit \(x\in V\).
+Außerdem sei \(f:\M \to \R^m\) eine Funktion, \((U,\varphi), (V,\varphi)\in \mathcal{A}\) zwei Karten mit \(x \in U\cap V\).
+
+\par
+Dann gilt, \(f\circ\varphi^{-1}\) ist genau dann differenzierbar in \(\varphi(x)\), falls \(f\circ\psi^{-1}\) differenzierbar in \(\psi(x)\) ist.
 \end{lemma}
 
 \begin{proof}
@@ -4820,7 +4830,7 @@ Wir erhalten somit Kurven
 und mithilfe der Richtungsableitung aus \cref{manifolds/tangential:def:direcdiv} die Derivationen
 \begin{align*}
 \partial_{x^i}^p: C^\infty(\M) &\to \R\\
-f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
+f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}.
 \end{align*}\begin{definition}{}{manifolds/tangential:definition-12}
 
 
@@ -4829,7 +4839,7 @@ f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
 Sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit für \(n\in\N\) und sei \(f \in C^\infty(\M)\) eine glatte Funktion.
 Dann bezeichnen wir die Derivationen
 \begin{align*}
-\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)), \quad i=1,\ldots,n
+\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}, \quad i=1,\ldots,n
 \end{align*}
 \par
 als \textbf{partielle Derivationen} von \(f\) im Punkt \(p \in \M\).
@@ -4850,7 +4860,7 @@ Dann gilt für die partielle Derivation
 \partial_{x^i}^p(\varphi_j) = \delta_{ij},
 \end{align*}
 \par
-wobei \(\delta_ij\) das \emph{Kronecker Delta} bezeichnet.
+wobei \(\delta_{ij}\) das \emph{Kronecker Delta} bezeichnet.
 \end{lemma}
 
 \begin{proof}
@@ -4861,7 +4871,7 @@ wobei \(\delta_ij\) das \emph{Kronecker Delta} bezeichnet.
 &= (\varphi(p) + t e_i)_j\\ 
 &=
 \begin{cases}
-\varphi(p) + t e_i &\text{ für } i=j,\\
+\varphi_i(p) + t e_i &\text{ für } i=j,\\
 \varphi_j(p)&\text{ sonst}.
 \end{cases}
 \end{align*}
@@ -4869,7 +4879,7 @@ wobei \(\delta_ij\) das \emph{Kronecker Delta} bezeichnet.
 Somit gilt schon für die partielle Derivation
 \begin{align*}
 \partial_{x^i}^p(\varphi_j)=
-\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t)) = 
+\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t))\big\rvert_{t=0} = 
 \begin{cases}
 1&\text{ für } i=j,\\
 0&\text{ sonst}.
@@ -5576,7 +5586,7 @@ Man kann hier analog lokale Koordinaten Kovektorfelder definierne indem man loka
 Es sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit und \((U,\phi)\) eine Karte.
 Dann definieren wir die sogenannten \textbf{lokalen Koordinaten Kovektorfelder} für \(i=1,\ldots,n\) durch
 \begin{align*}
-dx^{i}:\M&\to T\M\\
+dx^{i}:\M&\to T^\ast\M\\
 p&\mapsto dx^{i}_p.\end{align*}\end{definition}
 
 \par
@@ -6057,12 +6067,12 @@ Es sei \(U\subset\R^n\) eine offene sternförmige Menge, dann gilt für \(\omega
 \subsection{Der Pullback}
 \label{\detokenize{manifolds/diffformen:der-pullback}}
 \par
-Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte \textbf{Pullback}. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten \(\M,\mathcal{N}\) und eine glatte Funktion \(F:M\to\mathcal{N}\). Das Ziel ist es nun eine Differentialform auf \(N\), \(\omega\in\Omega^k(\mathcal{N})\) mithilfe von \(F\) auf eine Differentialform auf \(\M\) zurückzuziehen. Ausgewertet an \(p\in\M\) ergibt eine Differentialform \(\eta\in\Omega^k(\M)\) ein Element aus \(L^k(T_p^\ast\M)\),
+Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte \textbf{Pullback}. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten \(\M,\mathcal{N}\) und eine glatte Funktion \(F:M\to\mathcal{N}\). Das Ziel ist es nun eine Differentialform auf \(N\), \(\omega\in\Omega^k(\mathcal{N})\) mithilfe von \(F\) auf eine Differentialform auf \(\M\) zurückzuziehen. Ausgewertet an \(p\in\M\) ergibt eine Differentialform \(\eta\in\Omega^k(\M)\) ein Element aus \(L^k(T_p\M)\), da
 \begin{align*}
-\eta_p\in \Omega^k(T_p\M) \subset L^k(T_p^\ast\M)
+\eta_p\in \Lambda^k(T_p\M) \subset L^k(T_p^\M)
 \end{align*}
 \par
-also eine Linearform, welche auf \(k\) Elemente \(v_1,\ldots,v_k\in T_p^\ast\M\) des Kotangentialraums in \(p\) an \(\M\) wirkt. Haben wir nun a priori \(\omega\in\Omega^k(\mathcal{N})\) gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über \(F\) von \(\M\) nach \(\N\) vorschieben können, der sogennante \textbf{Pushforward}.
+also eine Linearform, welche auf \(k\) Elemente \(v_1,\ldots,v_k\in T_p\M\) des Tangentialraums in \(p\) an \(\M\) wirkt. Haben wir nun a priori \(\omega\in\Omega^k(\mathcal{N})\) gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über \(F\) von \(\M\) nach \(\mathcal{N}\) vorschieben können, der sogenannte \textbf{Pushforward}.
 \begin{definition}{}{manifolds/diffformen:definition-12}
 
 
@@ -6271,6 +6281,9 @@ Um eine Funktion wie die Dirichlet Funktion in \cref{masstheorie/intro_masstheor
 Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einführen um diesen Umstand zu verstehen und einen verallgemeinerten Begriff des Integrals definieren, der diese Nullmenge berücksichtigt   das \textbf{Lebesgue Integral}.
 Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue integrierbaren Funktionen eine Obermenge der Menge der Riemann integrierbaren Funktionen ist.
 Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.
+
+\par
+Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz Baldes (FAU) \cite{SB18}, aber besonders auch das Buch von Prof.Terence Tao zur Einführung in die Maßtheorie \cite{Tao07} welches einen sehr intuitiven Einblick in die Materie gibt. Eine weitere sehr ausführliche Referenz, welche im Folgenden zitiert wird, ist das Buch von Prof.Vladimir I. Bogachev \cite{Bog07}.
 
 
 \section{Maßtheorie}
@@ -8020,7 +8033,7 @@ Eine Teilmenge \(A \subset \R^n\) ist genau dann Lebesgue messbar, wenn eine Tei
 \section{Lebesgue Integral}
 \label{\detokenize{masstheorie/lebesgue_integral:lebesgue-integral}}\label{\detokenize{masstheorie/lebesgue_integral::doc}}
 \par
-Anhand des in \cref{masstheorie/masstheorie:s-lebesguemeasure}  konstruirten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion \(f:\Omega\to\R\) zu zerteilen. Dies führt auf das Problem, dass man Urbildern
+Anhand des in \cref{masstheorie/masstheorie:s-lebesguemeasure}  konstruierten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion \(f:\Omega\to\R\) zu zerteilen. Dies führt auf das Problem, dass man Urbildern
 \begin{align*}
 f^{-1}(I)
 \end{align*}
@@ -8059,7 +8072,7 @@ schreiben lässt. In diesem Kapitel wollen wir speziell Funktionen \(f:\Omega\to
 
 
 \par
-Wir nennen eine Funktion \(f:\R^n\to\overline{R}\) \textbf{Borel messbar}, falls
+Wir nennen eine Funktion \(f:\R^n\to\overline{\R}\) \textbf{Borel messbar}, falls
 \begin{align*}
 f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{B}(\R^n).
 \end{align*}
@@ -8114,6 +8127,16 @@ Stetige Funktionen sind Borel messbar.
 \label{\detokenize{masstheorie/lebesgue_integral:charakterisierung-uber-niveaumengen}}
 \par
 Im Falle von Borel und Lebesgue Messbarkeit haben wir als Zielalgebra \(\B(\overline{\R})\) betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.
+\begin{lemma}{}{masstheorie/lebesgue_integral:lem:Niveaumengen}
+
+
+
+\par
+Es sei \((\Omega,\Sigma)\) ein Messraum, eine Funktion \(f:\Omega\to\overline{\R}\) eine Funktion ist genau dann messbar bezüglich \(\Sigma\), falls
+für die Niveaumengen gilt
+\begin{align*}
+\{f< c\}\in\Sigma\quad\forall c\in\R.
+\end{align*}\end{lemma}
 
 \begin{proof}
  Wir betrachten das Mengensystem
@@ -8143,7 +8166,7 @@ f^{-1}(\mathcal{C}) \subset \Sigma
 \par
 ist.
 \end{proof}
-\begin{remark}{}{masstheorie/lebesgue_integral:remark-4}
+\begin{remark}{}{masstheorie/lebesgue_integral:remark-5}
 
 
 
@@ -8153,7 +8176,7 @@ Für uns ist vor allem der Fall von Bedeutung, wenn \(\Sigma\) im obigen Lemma d
 
 \par
 Mithilfe dieses Lemma können wir die folgende Aussage zeigen.
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-5}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-6}
 
 
 
@@ -8167,7 +8190,7 @@ Es sei \((\Omega,\Sigma)\) ein Messraum und \(f,g:\Omega\to\overline{\R}\) zwei 
 
 \item {} 
 \par
-\(\lambda f\) ist messbar für alle \(\lambda\in\overline{R}\),
+\(\lambda f\) ist messbar für alle \(\lambda\in\overline{\R}\),
 
 \item {} 
 \par
@@ -8193,7 +8216,7 @@ bezüglich \(\Sigma\).
 
 \par
 Für Folgen von messbaren Funktionen gilt auch, dass deren Grenzwerte messbar sind.
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-6}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-7}
 
 
 
@@ -8223,7 +8246,16 @@ auch messbar bezüglich \(\Sigma\).
 \subsection{Das Lebesgue Integral einfacher Funktionen}
 \label{\detokenize{masstheorie/lebesgue_integral:das-lebesgue-integral-einfacher-funktionen}}
 \par
-Für das Riemann Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als nalogon betrachtet man hier sogenannte einfache Funktionen.
+Für das Riemann Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als Analogon betrachtet man hier sogenannte einfache Funktionen, welche mithilfe der Indikatorfunktionen
+\begin{align*}
+\bone_A(x):=
+\begin{cases}
+1&\text{ falls }x\in A,\\
+0&\text{ sonst,}
+\end{cases}
+\end{align*}
+\par
+für verschiedenen Mengen \(A\subset \R^n\) definiert sind.
 
 \begin{figure}[htbp]
 \centering
@@ -8231,19 +8263,19 @@ Für das Riemann Integral werden Treppenfunktionen benutzt, welche auf einem dis
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/simplefun.jpg}
 \caption{Visualisierung einer einfachen Funktion.}\label{\detokenize{masstheorie/lebesgue_integral:fig-simplefun}}\end{figure}
-\begin{definition}{}{masstheorie/lebesgue_integral:definition-7}
+\begin{definition}{}{masstheorie/lebesgue_integral:definition-8}
 
 
 
 \par
-Eine Funktion \(f:\R^n\to\overline{R}\) heißt einfach, falls Koeffizienten \(\alpha_i\in\overline{\R}\) und messbare Mengen \(A_i\in\mathcal{A}(\R^n)\) für \(i=1,\ldots,N\) existieren, s.d.,
+Eine Funktion \(f:\R^n\to\overline{\R}\) heißt einfach, falls Koeffizienten \(\alpha_i\in\overline{\R}\) und messbare Mengen \(A_i\in\mathcal{A}(\R^n)\) für \(i=1,\ldots,N\) existieren, s.d.,
 \begin{align*}
 f = \sum_{i=1}^N \alpha_i \bone_{A_i}.
 \end{align*}\end{definition}
 
 \par
 Man erhält über die Definition direkt ein Lemma, dass einfache Funktionen Lebesgue messbar sind.
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-8}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-9}
 
 
 
@@ -8257,7 +8289,7 @@ Es sei \(f:\R^n\to\overline{\R}\) eine einfache Funktion, dann ist \(f\) Lebesgu
 
 \par
 Für einfache Funktionen können wir analog zum Riemann Integral das Lebesgue Integral definieren, indem wir das Maß der einzelnen Mengen multipliziert mit den Funktionswerten summieren, welche eine einfache Funktion erzeugen.
-\begin{remark}{(Wohldefiniertheit)}{masstheorie/lebesgue_integral:remark-9}
+\begin{remark}{(Wohldefiniertheit)}{masstheorie/lebesgue_integral:remark-10}
 
 
 
@@ -8288,7 +8320,7 @@ f&=\lim_{i\to\infty} f_i.
 
 \par
 Mithilfe der Tatsache, dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen, können wir nun das Lebesgue Integral für nicht negative messbare Funktionen einführen.
-\begin{definition}{}{masstheorie/lebesgue_integral:definition-11}
+\begin{definition}{}{masstheorie/lebesgue_integral:definition-12}
 
 
 
@@ -8300,7 +8332,7 @@ Es sei \(f:\Omega\to[0,\infty]\) Lebesgue messbar und nach \cref{masstheorie/leb
 
 \par
 Wir zeigen im Folgenden wichtige Eigenschaften des Lebesgue Integrals.
-\begin{theorem}{(Eigenschaften des Lebesgue Integrals)}{masstheorie/lebesgue_integral:theorem-12}
+\begin{theorem}{(Eigenschaften des Lebesgue Integrals)}{masstheorie/lebesgue_integral:theorem-13}
 
 
 
@@ -8352,7 +8384,7 @@ Eine weitere Aussage in diesem Kontext ist das \textbf{Lemma von Fatou}, welches
 \par
 \href{https://de.wikipedia.org/wiki/Pierre\_Fatou}{Pierre Joseph Louis Fatou} (Geboren 28. Februar 1878 in Lorient; Gestorben 10. August 1929 in Pornichet) war ein französischer Mathematiker.
 \end{emphBox}
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-14}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-15}
 
 
 
@@ -8376,7 +8408,7 @@ nicht negativ und Lebesgue messbar und es gilt
 \label{\detokenize{masstheorie/lebesgue_integral:das-lebesgue-integral-integrierbarer-funktionen}}
 \par
 Wir wollen nun das Lebesgue Integral auf messbaren Funktionen mit wechselndem Vorzeichen betrachten. Dafür spalten wir eine Funktionen in ihren positiven und ihren negativen Teil auf und bilden das Integral über diese Funktionen. Um die beiden Teile aufsummieren zu können, müssen wir allerdings fordern, dass beide endlich sind.
-\begin{definition}{}{masstheorie/lebesgue_integral:definition-15}
+\begin{definition}{}{masstheorie/lebesgue_integral:definition-16}
 
 
 
@@ -8395,7 +8427,7 @@ so dass gilt \(f = f^+ - f_-\). Dann können wir das \textbf{Lebesgue Integral} 
 \begin{align*}
 \int_{\R^n} f\, d\lambda^n := \int_{\R^n} f^+\, d\lambda^n - \int_{\R^n} f_-\, d\lambda^n.
 \end{align*}\end{definition}
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-16}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-17}
 
 
 
@@ -8409,7 +8441,7 @@ Das Lebesgue Integral ist ein linearer und monotoner Operator auf der Menge der 
 
 \par
 Auch für integrierbare Funktionen gibt es einen wichtigen Konvergenzsatz, der \textbf{Konvergenzsatz von Lebesgue} oder auch der \textbf{Satz von der dominierten Konvergenz}.
-\begin{theorem}{}{masstheorie/lebesgue_integral:theorem-17}
+\begin{theorem}{}{masstheorie/lebesgue_integral:theorem-18}
 
 
 
@@ -8425,7 +8457,7 @@ Es sei \(f_i:\R^n\to\R\) eine Folge Lebesgue messbarer Funktionen mit \(\lim_{i\
 
 
 \subsection{Fast überall Eigenschaften}
-\begin{definition}{}{\detokenize{masstheorie/lebesgue_integral:fast-uberall-eigenschaften}}\label{masstheorie/lebesgue_integral:definition-18}
+\begin{definition}{}{\detokenize{masstheorie/lebesgue_integral:fast-uberall-eigenschaften}}\label{masstheorie/lebesgue_integral:definition-19}
 
 
 
@@ -8478,7 +8510,7 @@ wofür man folgende Aussage hat.
 
 
 \par
-Es seien \((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\) Messräume, dann gilt für eine Produktmessbare Menge \(E\in \Sigma_1\otimes\Sigma_2\), dass \(E_x\in \Sigma_2, E_y\in\Sigma_1\) für alle \(x\in\Omega_1,y\in\Omega_2\).
+Es seien \((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\) Messräume, dann gilt für eine Menge \(E\in \Sigma_1\otimes\Sigma_2\), dass \(E_x\in \Sigma_2, E_y\in\Sigma_1\) für alle \(x\in\Omega_1,y\in\Omega_2\).
 \end{lemma}
 
 \begin{proof}
@@ -8487,7 +8519,7 @@ Es seien \((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\) Messräume, dann gilt für
 \M = \{E\subset\Omega_1\times\Omega_2:  E_x\in\Sigma_2, E^y\in\Sigma_1,\quad\forall x\in\Omega_1,  y\in\Omega_2\}
 \end{align*}
 \par
-d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für \(A\in\Sigma1,B\in\Sigma_2\) gilt
+d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für \(A\in\Sigma_1,B\in\Sigma_2\) gilt
 \begin{align*}
 (A\times B)_x = 
 \begin{cases}
@@ -8501,7 +8533,7 @@ und daher \((A\times B)_x\in\Sigma_2\) für alle \(x\in\Omega_1\). Analog zeigt 
 \Sigma_1\times\Sigma_2\subset \M.
 \end{align*}
 \par
-Weiterhin ist \(\M\) eine \(\sigma\) Algebra. Es gilt \(\emptyset\M\), weiterhin \((E^C)_x = (E_x)^C\)und analog \((E^C)^y= (E^y)^C\) und daher
+Weiterhin ist \(\M\) eine \(\sigma\) Algebra, denn es gilt \(\emptyset\in\M\), weiterhin \((E^C)_x = (E_x)^C\)und analog \((E^C)^y= (E^y)^C\) und daher
 gilt
 \begin{align*}
 E\in\M\Rightarrow E^C\in\M.
@@ -8523,7 +8555,7 @@ Somit folgt
 \end{align*}\end{proof}
 
 \par
-Speziell für \(\Omega_1=\R^n, \Omega_1=\R^m\) könnte man sich nun fragen wie sich die Produkt Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel \(\sigma\) Algebra haben wir folgende Aussage.
+Speziell für \(\Omega_1=\R^n, \Omega_2=\R^m\) könnte man sich nun fragen wie sich die Produkt Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel \(\sigma\) Algebra haben wir folgende Aussage.
 \begin{lemma}{}{masstheorie/integrationstechnik:lemma-1}
 
 
@@ -8602,9 +8634,9 @@ Wir erkennen aber, dass sich \(V\) als Schnitt dieser Produkt Menge darstellen l
 V = (V\times\{0\})^0
 \end{align*}
 \par
-wäre nun \((V\times\{0\})^0\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\) so würde mit \cref{masstheorie/integrationstechnik:lem:secmeasure} folgen, dass auch der Schnitt \(V\in\mathcal{A}(\R)\) gilt, was ein Widerspruch ist, daher
+wäre nun \(V\times\{0\}\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\) so würde mit \cref{masstheorie/integrationstechnik:lem:secmeasure} folgen, dass auch der Schnitt \(V\in\mathcal{A}(\R)\) gilt, was ein Widerspruch ist, daher
 \begin{align*}
-(V\times\{0\})^0 \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).
+V\times\{0\} \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).
 \end{align*}\end{example}
 
 \par
@@ -8614,7 +8646,7 @@ Das abstrakte Konzept, welches sich hinter diesem Beispiel verbirgt wir mit dem 
 
 
 \par
-Ein Maßraum \((\Omega,\Sigma,\mu)\), falls für jede \(\mu\) Nullmenge \(N\in\Sigma, \mu(N)=0\) gilt
+Ein Maßraum \((\Omega,\Sigma,\mu)\) heißt \textbf{vollständig}, falls für jede \(\mu\) Nullmenge \(N\in\Sigma, \mu(N)=0\) gilt
 \begin{align*}
 A\subset N \Rightarrow A\in \Sigma.
 \end{align*}\end{definition}
@@ -8673,7 +8705,7 @@ Es seien \((\Omega_1,\Sigma_1,\mu_1), (\Omega_2,\Sigma_2,\mu_2)\) zwei Maßräum
 \par
 In \cref{vektoranalysis/tensor:s-grass}  haben wir das Tensorprodukt zweier lineare Abbildungen \(T_1,T_2\) definiert über
 \begin{align*}
-(T_1\otimes T_2)(v_1,V_2) := T_1(v_1)\cdot T_2(v_2).
+(T_1\otimes T_2)(v_1,v_2) := T_1(v_1)\cdot T_2(v_2).
 \end{align*}
 \par
 Es sei hier erwähnt, dass das Maß \textbf{keine} lineare Abbildung ist, insbesondere haben wir keinen Vektorraum gegeben. Die Produktstruktur ist trotzdem ähnlich, weshalb eine gewisse Analogie zwischen dem Tensorprodukt und dem Produktmaß herrscht.
@@ -8689,7 +8721,7 @@ In den obigen Produkten können einzelnen Terme jeweils unendlich werden, hierbe
 \end{align*}\end{remark}
 
 \par
-Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogennate \(\sigma\) Endlichkeit.
+Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogenannte \(\sigma\) Endlichkeit.
 \begin{definition}{}{masstheorie/integrationstechnik:definition-9}
 
 
@@ -8797,17 +8829,22 @@ Ein Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klasse
 
 \par
 Es sei \(\Omega\) eine Menge, ein Teilmengensystem \(\mathcal{C}\subset 2^\Omega\) heißt \textbf{monotone Klasse}, falls
+\begin{enumerate}
 
+\item {} 
 \par
-1. Für eine aufsteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N\) gilt auch
+Für eine aufsteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N\) gilt auch
 \begin{align*}
 \bigcup_{i\in\N} A_i\in\mathcal{C}.
 \end{align*}
+\item {} 
 \par
-1. Für eine absteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\supset A_{i+1}, i\in\N\) gilt auch
+Für eine absteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\supset A_{i+1}, i\in\N\) gilt auch
 \begin{align*}
 \bigcap_{i\in\N} A_i\in\mathcal{C}.
-\end{align*}\end{definition}
+\end{align*}
+\end{enumerate}
+\end{definition}
 
 \par
 Offensichtlich ist jede \(\sigma\) Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen.
@@ -8916,7 +8953,7 @@ Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen \(E\in \
 
 
 \par
-Die Aussage von \cref{masstheorie/integrationstechnik:thm:cavalieri} gilt auch für Mengen \(E\in \mathcal{A}(\R^{n+m})\).
+Die Aussage von \cref{masstheorie/integrationstechnik:thm:cavalieri} (Prinzip von Cavalieri) gilt auch für Mengen \(E\in \mathcal{A}(\R^{n+m})\).
 \end{lemma}
 
 \begin{proof}
@@ -8997,10 +9034,10 @@ B_r^n:=\{x\in\R^n: |x|\leq r\}
 gilt
 \begin{align*}
 \lambda^n(B_r^n) =
-r^d\,
+r^n\,
 \begin{cases}
 \frac{1}{(n/2)!} \pi^{n/2}&\text{ falls }n \text{ gerade,}\\
-\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
+\frac{2}{1\cdot 3\cdot\ldots n} (2\pi)^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
 \end{cases}
 \end{align*}\end{lemma}
 
@@ -9099,7 +9136,7 @@ Die Intuition hinter dem Prinzip von Cavalieri ist, dass man über parallele Sch
 \caption{Visualisierung von Mengentransformationen.}\label{\detokenize{masstheorie/integrationstechnik:fig-trafo}}\end{figure}
 
 \par
-In \cref{masstheorie/masstheorie:rem:transinvariance} haben wir eine Matrix \(M\) und eine Menge \(M\) bereits die Identität
+In \cref{masstheorie/masstheorie:rem:transinvariance} haben wir für eine Matrix \(M\) und eine Lebesgue messbare Menge \(A\) bereits die Identität
 \begin{align*}
 \lambda(MA) = |\det(M)| \, \lambda(A)
 \end{align*}
@@ -9121,9 +9158,9 @@ Sei außerdem \(f \colon V \rightarrow \R\) eine Lebesgue integrierbare Funktion
 \par
 Dann gilt, dass die Verknüpfung \(f \circ \Phi \colon U \rightarrow \R\) auch Lebesgue integrierbar ist und es gilt die folgende Integrationsregel
 \begin{align*}
-\int_{\Phi(U)} f(y) \mu(\mathrm{d}y) = \int_U (f \circ \Phi)(x) \cdot |\det(D\Phi(x))|\mu(\mathrm{d}x).\end{align*}
+\int_{\Phi(U)} f(y)\,d\lambda^n(y) = \int_U (f \circ \Phi)(x) \cdot \abs{\det(D\Phi(x))} d\lambda^n(x).\end{align*}
 \par
-Hierbei nennt man \(\det(D\Phi(x))\) die \textbf{Jacobi Determinante}.
+Hierbei ist man \(\det(D\Phi(x))\) die \textbf{Jacobi Determinante}.
 \end{theorem}
 
 \begin{proof}
@@ -9156,54 +9193,318 @@ Diese befasst sich hauptsächlich mit der Theorie differenzierbarer komplexer Fu
 Da viele Konzepte der reellen Analysis verwendet werden, wird dieses Gebiet auch häufig \textbf{komplexe Analysis} genannt.
 
 \par
-Die Grundlagen des Körpers der komplexen Zahlen wurden bereits in {[}{]} behandelt.
+Die Grundlagen des Körpers der komplexen Zahlen wurden bereits in \cite{Ten21} behandelt. Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz Baldes \cite{SB18} aber auch das Skript zur Funktionentheorie von Prof.Dr.Karl Hermann Neeb \cite{Nee17}. Teile des im Folgenden präsentierten Stoffs basieren auf diesen Referenzen.
 
 
-\section{Cauchy Riemann Gleichungen}
-\label{\detokenize{complexanalysis/cauchyriemann:cauchy-riemann-gleichungen}}\label{\detokenize{complexanalysis/cauchyriemann::doc}}
+\section{Die Komplexen Zahlen}
+\label{\detokenize{complexanalysis/complexnumbers:die-komplexen-zahlen}}\label{\detokenize{complexanalysis/complexnumbers::doc}}
 \par
-Der zentrale Begriff der Funktionentheorie ist der einer \emph{holomorphen Funktion}.
+Wir werden hier zunächst die wichtigen Grundlagen der komplexen Zahlen wiederholen.
+Die komplexen Zahlen werden eingeführt als das Tupel
+\begin{align*}
+\C := (\R^2,+,\cdot)
+\end{align*}
+\par
+zusammen mit den Operationen
+\begin{align*}
+(x_1,y_1) + (x_2,y_2) &:= (x_1 + x_2, y_1+y_2),\\
+(x_1,y_1) \cdot (x_2,y_2) &:= (x_1\cdot x_2 - y_1\cdot y_2, y_1\cdot x_2 + x_1\cdot y_2).
+\end{align*}
+\par
+Diese Struktur bildet einen \textbf{Körper} mit dem Einselement \(1:=(1,0)\). Das Element \(i:=(0,1)\) heißt \textbf{imaginäre Einheit} und erfüllt die Gleichung
+\begin{align*}
+i^2 = (0,1)\cdot(0,1) = -(1,0) = -1.
+\end{align*}
+\par
+Als reeller Vektorraum hat \(\C\) die kanonische Basis \(\{(1,0),(0,1)\}=\{1,i\}\) weshalb wir jedes Element darstellen können über
+\begin{align*}
+(x,y) = x + iy.
+\end{align*}
+\par
+Für eine komplexe Zahl \(z=x+ iy\in\C\) definieren wir
+\begin{enumerate}
+
+\item {} 
+\par
+\(\Re(z):= x\) den \textbf{Realteil},
+
+\item {} 
+\par
+\(\Im(z):=y\) den \textbf{Imaginärteil},
+
+\item {} 
+\par
+\(\overline{z}:= x-iy\) die \textbf{komplexe Konjugation},
+
+\item {} 
+\par
+\(\abs{z} = \sqrt{z\overline{z}} = \sqrt{x^2+y^2}\) den \textbf{Betrag}.
+
+\end{enumerate}
+
+\par
+Für den Betrag komplexer Zahlen gelten die bekannten Rechenregeln
+\begin{align*}
+\abs{0}&=0,\\
+\abs{z\cdot w} &= \abs{z}\cdot \abs{w},\\
+\abs{z+w}&\leq\abs{z}+\abs{w},
+\end{align*}
+\par
+für zwei komplexe Zahlen \(z,w\in\C\)
+
+\par
+Insbesondere induziert der Betrag die Metrik
+\begin{align*}
+d(z,w):= \abs{z-w}
+\end{align*}
+\par
+und damit auch eine Topologie sowie die Begriffe Konvergenz und Stetigkeit einer Funktion \(f:\C\to\C\).
+
+\par
+Weiterhin lassen sich komplexe Zahlen auch in \textbf{Polarkoordinaten} darstellen, d.h., für jedes \(z\in\C\) existiert ein eindeutig bestimmter Winkel \(\varphi\in [0,2\pi]\), s.d.
+\begin{align*}
+z = r(\cos(\varphi) + i\sin(\varphi))
+\end{align*}
+\par
+wobei \(r=\abs{z}\). In diesem Kontext ist auch die \textbf{Eulersche Formel} relevant,
+\begin{align}\label{equation:complexanalysis/complexnumbers:eq:euler}
+\exp(i\varphi) = \cos(\varphi) + i\sin(\varphi)
+\end{align}
+\par
+für \(\varphi\in [0,2\pi]\).
+
+
+\section{Holomorphe Funktionen}
+\label{\detokenize{complexanalysis/cauchyriemann:holomorphe-funktionen}}\label{\detokenize{complexanalysis/cauchyriemann::doc}}
+\par
+Wir betrachten im Folgenden komplexe Funktionen \(f:\C\to\C\). Der Begriff der Stetigkeit wird durch die Metrik induziert. Das Konzept der Differenzierbarkeit führt auf den zentralen Begriff der Funktionentheorie, sogenannte \emph{holomorphen Funktionen}.
 \begin{definition}{(Holomorphe Funktion)}{complexanalysis/cauchyriemann:def:holomorph}
 
 
 
 \par
-Sei \(D \subset \C\) eine offene Teilmenge und \(f \colon D \rightarrow \C\) eine stetige Funktion.
+Sei \(U \subset \C\) eine offene Teilmenge, eine Funktion \(f:U\to\C\) heißt \textbf{komplex differenzierbar} in \(p\in\C\), falls der Grenzwert
+\begin{align*}
+f'(p) = \lim_{h\rightarrow 0} \frac{f(p+h) - f(p)}{h}
+\end{align*}
+\par
+existiert. Ist \(f\) komplex differenzierbar für alle \(p\in U\) so nennen wir \(f\) \textbf{holomorph}.
+\end{definition}
+\begin{remark}{}{complexanalysis/cauchyriemann:remark-1}
+
+
 
 \par
-Wir nennen die Funktion \(f\) \textbf{holomorph} auf der Teilmenge \(D\), wenn es für jeden Punkt \(z \in D\) eine komplexe Ableitung der Funktion \(f\) gibt mit
+Beachte, dass im obigen Grenzwert \(h\in\C\) gilt, der Limes existiert also, falls für eine beliebige Folge \(h_k\in\C,k\in\N\) mit \(\abs{h_k}\to 0\) gilt, dass
 \begin{align*}
-f'(z) = \lim_{h\rightarrow 0} \frac{f(z+h) - f(z)}{h}.
+\lim_{k\to\infty} \frac{f(p+h_k) - f(p)}{h_k} = f'(p).
+\end{align*}
+\par
+Dies ist äquivalent dazu, dass für eine beliebige Folge \(z_k\in\C,k\in\N\) mit \(\abs{z_k-p}\to 0\) gilt, dass
+\begin{align*}
+\lim_{k\to\infty} \frac{f(z_k) - f(p)}{z_k - p} = f'(p).
+\end{align*}\end{remark}
+
+
+\subsection{Eigenschaften holomorpher Funktionen}
+\label{\detokenize{complexanalysis/cauchyriemann:eigenschaften-holomorpher-funktionen}}
+\par
+Eine sehr nützliche Eigenschaft komplex differenzierbarer Funktionen liefert das folgende Lemma.
+\begin{lemma}{}{complexanalysis/cauchyriemann:lem:splitholo}
+
+
+
+\par
+Sei \(U \subset \C\) eine offene Teilmenge, die Funktion \(f:U\to\C\) ist genau dann komplex differenzierbar in \(p\in U\), falls eine in \(p\) stetige Funktion \(h:U\to\C\) existiert, s.d.
+\begin{align*}
+f(z) = f(p) + h(z)\cdot (z-p)\quad\forall z\in U.
+\end{align*}
+\par
+Weiterhin gilt in diesem Fall \(h(p) = f^\prime(p)\).
+\end{lemma}
+
+\begin{proof}
+ Es sei \(f\) komplex differenzierbar in \(p\), dann definieren wir die Funktion
+\begin{align*}
+h(z):=
+\begin{cases}
+\frac{f(z) - f(p)}{z-p}\text{ falls }z\neq p\\
+f^\prime(p)\text{ sonst.}
+\end{cases}
+\end{align*}
+\par
+Da \(f\) komplex differenzierbar in \(p\) ist existiert der Grenzwert
+\begin{align*}
+\lim_{z\to p} \frac{f(z) - f(p)}{z-p}
+\end{align*}
+\par
+und ist gleich \(f^\prime(p)\) und daher ist \(h\) stetig in \(p\). Weiterhin gilt
+\begin{align*}
+h(z)\cdot (z-p) = f(z) - f(p)\quad\forall z\in U
+\end{align*}
+\par
+und daher die Behauptung.
+
+\par
+Für die andere Richtung sei \(h\) eine in \(p\) stetige Funktion s.d.
+\begin{align*}
+f(z) = f(p) + h(z)\cdot (z-p)\quad\forall z\in U.
+\end{align*}
+\par
+Dann gilt
+\begin{align*}
+\lim_{z\to p} \frac{f(z) - f(p)}{z-p} = \lim_{z\to p} h(z) = h(p)
+\end{align*}
+\par
+wobei der Grenzwert existiert, da \(h\) stetig in \(p\) ist. Somit ist \(f\) komplex differenzierbar in \(p\).
+\end{proof}
+
+\par
+Mithilfe des obigen Lemmas können wir sofort folgern, dass holomorphe Funktionen stetig sind.
+\begin{lemma}{}{complexanalysis/cauchyriemann:lemma-3}
+
+
+
+\par
+Es sei \(U\subset\C\) offen und \(f:U\to\C\) sei komplex differenzierbar in \(p\in U\), dann folgt \(f\) ist stetig in \(p\).
+\end{lemma}
+
+\begin{proof}
+ Die Funktion \(f\) sei komplex differenzierbar in \(p\), dann existiert nach \cref{complexanalysis/cauchyriemann:lem:splitholo} eine in \(p\) stetige Funktion \(h\), s.d.,
+\begin{align*}
+f(z) = f(p) + h(z)\cdot(z-p)\quad \forall z\in U.
+\end{align*}
+\par
+Die Polynome \(z\mapsto f(p), z\mapsto (z-p)\) sind jeweils stetig in \(p\), Addition und Multiplikation stetiger Funktionen erhält Stetigkeit und somit ist \(f\) stetig in \(p\).
+\end{proof}
+
+\par
+Wir betrachten nun noch Ableitungsregeln, welche versichern, dass wir für die komplexe Ableitung die gewohnten Rechenregeln benutzten dürfen.
+\begin{lemma}{(Komplexe Ableitungsregeln)}{complexanalysis/cauchyriemann:lemma-4}
+
+
+
+\par
+Es sei \(U\subset\C\) offen und \(f,g:U\to\C\) zwei holomorphe Funktionen, dann gilt
+\begin{itemize}
+\item {} 
+\par
+\(f+g\) ist holomorph, mit \((f+g)^\prime = f^\prime + g^\prime\),
+
+\item {} 
+\par
+\(f\cdot g\) ist holomorph, mit \((f\cdot g)^\prime = f^\prime g+ f g^\prime\).
+
+\end{itemize}
+
+\par
+Weiterhin seien \(f:U\to V, g:V\to C\) zwei holomorphe Funktionen mit \(V\subset\C\) offen, dann gilt
+\begin{itemize}
+\item {} 
+\par
+\(g\circ f\) ist holomorph mit \((g\circ f)^\prime = (g^\prime \circ f)\, f^\prime\).
+
+\end{itemize}
+
+\par
+Zusätzlich gilt
+\begin{itemize}
+\item {} 
+\par
+\(\frac{1}{f}: U\setminus f^{-1}(0)\to \C\) ist holomorph, mit \((\frac{1}{f})^\prime = \frac{f^\prime}{f^2}\).
+
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+ ToDo
+\end{proof}
+
+
+\subsection{Die Cauchy–Riemannschen Differentialgleichungen}
+\label{\detokenize{complexanalysis/cauchyriemann:die-cauchy-riemannschen-differentialgleichungen}}
+\par
+Da die komplexen Zahlen auch einen zweidimensionalen reellen Vektorraum bilden, stellt sich die Frage wie komplexe Differenzierbarkeit mit der bekannten totalen Differenzierbarkeit im \(\R^n\) zusammenhängt.
+\begin{definition}{}{complexanalysis/cauchyriemann:definition-5}
+
+
+
+\par
+Es sei \(U\subset\R^n\) offen, eine Funktion \(F:U\to\R^m\) heißt \textbf{total differenzierbar} in \(a\in U\), falls ein reell lineares Funktional \(df(a):\R^n\to\R^m\) existiert, s.d.,
+\begin{align*}
+\lim_{x\to a} \frac{\abs{f(x)-f(a) - df(a)(x-a)}}{\abs{x-a}} = 0.
 \end{align*}\end{definition}
 
 \par
-Der Differentialquotient in \cref{complexanalysis/cauchyriemann:def:holomorph} erinnert sehr an die Definition der Ableitung einer reellen Funktion.
-Der grundlegende Unterschied ist hier jedoch, dass \(h \in \C\) komplex ist.
-Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen Vektorraum, so muss für die beiden Richtungsableitungen \(x := \operatorname{Re}(z)\) und \(y := \operatorname{Im}(z)\) gelten
+Im Falle von totaler Differenzierbarkeit, wissen wir, dass \(F\) in alle Richtung partiell differenzierbar ist, und dass das Differential \(df(a)\) durch die Jacobi Matrix am Punkt \(a\) gegeben ist. Falls \(F\) andererseits in alle Richtungen \textbf{stetig} partiell differenzierbar ist, so ist es auch total Differenzierbar.
+
+\par
+Sei nun \(f\C\to\C\) eine komplexe Funktion wobei wir mit \(u:=\Re(f),v:=\Im(f)\) jeweils der Real  und Imaginärteil von \(f\) sind. Dann ist ist \(f\) natürlicherweise auch eine Funktion \(f:\R^2\to\R^2\), denn
 \begin{align*}
-\partial_x f(z) = \lim_{\epsilon \rightarrow 0} \frac{f(z+\epsilon) - f(z)}{\epsilon} = \lim_{\epsilon \rightarrow 0} \frac{f(z+i\epsilon) - f(z)}{i\epsilon} = -i \partial_y f(z), \quad \epsilon \in \R.
+f = u+iv = \begin{pmatrix} u\\ v\end{pmatrix}.
 \end{align*}
 \par
-Dieser Zusammenhang ist charakteristisch für holomorphe Funktionen und wird im folgenden Satz präzisiert.
-\begin{theorem}{(Cauchy Riemann Gleichungen)}{complexanalysis/cauchyriemann:theorem-1}
+Somit können wir auch für \(f:\C\to\C\) den Begriff der totalen Differenzierbarkeit betrachten. Der folgende Satz setzt nun Holomorphie und Totale Differenzierbarkeit in Beziehung und führt auf natürliche Weise auf die \textbf{Cauchy–Riemannschen Differentialgleichungen}.
+\begin{remark}{}{complexanalysis/cauchyriemann:remark-6}
 
 
 
 \par
-Sei \(D \subset \C\) eine offene Teilmenge und \(f \colon D \rightarrow \C\) eine stetige Funktion für die gilt
+Der konzeptionelle Unterschied zwischen totaler Differenzierbarkeit und Holomorphie ist, dass der Grenzwert in \cref{complexanalysis/cauchyriemann:def:holomorph} durch den Quotienten die komplexe Multiplikation benutzt, während wir bei totaler Differenzierbarkeit die Beträge von Vektoren betrachten. Allgemein unterscheidet sich \(\C\) als Körper nur durch die zusätzlich definierte komplexe Multiplikation vom reellen Vektorraum \(\R^2\). Genau diese komplexe Multiplikation die hier einfließt, führt dazu, dass der Begriff der Holomorphie nicht gleich dem der klassischen Differenzierbarkeit auf \(\R^2\) ist.
+\end{remark}
+
+\par
+Dafür setzen wir Voraus, dass die Komponenten \(u,v\), stetig partiell differenzierbar sind und somit das totale Differential in \(p\in U\subset\C\) gegeben ist durch
 \begin{align*}
-f(z) = u(z) + i v(z), \qquad u,v \colon D \rightarrow \R.
+df(p) = 
+\begin{pmatrix} 
+\partial_x u &\partial_y u\\
+\partial_x v &\partial_y v
+\end{pmatrix}.
 \end{align*}
 \par
-Dann ist die Funktion \(f\) genau dann holomorph auf der Teilmenge \(D\), wenn die folgenden \textbf{Cauchy Riemann Gleichungen} auf ganz \(D\) gelten:
+Wir erkennen, dass das totale Differential auch eine Abbildung \(df(p):\C\to\C\) definiert
+\begin{align*}
+df(p)(z)= df(p)(x+iy):= 
+\begin{pmatrix} 
+\partial_x u &\partial_y u\\
+\partial_x v &\partial_y v
+\end{pmatrix}
+\begin{pmatrix}
+x\\y
+\end{pmatrix}
+\end{align*}
+\par
+welche offensichtlich linear über \(\R\) aber \textbf{nicht notwendigerweise} linear über \(\C\) ist.
+\begin{theorem}{}{complexanalysis/cauchyriemann:theorem-7}
+
+
+
+\par
+Es sei \(U\subset \C\) offen und \(f=u+iv:\C\to\C\) eine Funktionen mit \textbf{stetig partiell differenzierbaren} Funktionen \(u,v:\C\to\R\), dann sind folgende Aussagen äquivalent,
+\begin{enumerate}
+
+\item {} 
+\par
+\(f\) ist holomorph,
+
+\item {} 
+\par
+die Abbildung \(df(p):\C\to\C\) ist linear über dem Körper \(\C\),
+
+\item {} 
+\par
+es gelten die Cauchy–Riemannschen Differentialgleichungen
+
+\end{enumerate}
 \begin{align*}
 \partial_x u = \partial_y v, \qquad \partial_y u = -\partial_x v.
 \end{align*}\end{theorem}
 
 \begin{proof}
- Schulz Baldes S.313
+ ToDo, siehe \href{https://www.fau.tv/clip/id/40944}{Video} ab Minute 32:30.
 \end{proof}
-\begin{example}{(Holomorphe Funktionen)}{complexanalysis/cauchyriemann:example-2}
+\begin{example}{(Holomorphe Funktionen)}{complexanalysis/cauchyriemann:example-8}
 
 
 
@@ -9214,91 +9515,1115 @@ Ableitung eines komplexen Monoms  > Beispiel 10.4 auf S.314 in Schulz Baldes
 \(f(z) := \overline{z}\) ist nicht holomorph  > Beispiel 10.7 auf S.315 in Schulz Baldes
 \end{example}
 
+
+\section{Wegintegrale}
+\label{\detokenize{complexanalysis/kurvenintegrale:wegintegrale}}\label{\detokenize{complexanalysis/kurvenintegrale::doc}}
+\par
+Der vorhergehende Abschnitt beschäftigt sich mit der komplexen Ableitung. Darauf aufbauend wollen wir in diesem Abschnitt einen Integralbegriff für komplexe Funktionen entwickeln. Für Funktionen \(f:\C\to\C\) entsteht hierbei die Schwierigkeit durch den komplexen Definitionsbereich. Für Funktionen \(g:[a,b]\to\C\) wobei \([a,b]\subset\R\) ein reelles Intervall ist können wir mithilfe des Riemann Integrals folgendes Integral definieren.
+\begin{definition}{}{complexanalysis/kurvenintegrale:definition-0}
+
+
+
+\par
+Es seien \(a<b\) zwei reelle Zahlen und \(g:[a,b]\to\C\) eine stetige Funktion, dann definieren wir das Integral
+\begin{align*}
+\int_a^b g(t)\, dt = \int_a^b \Re(g)(t)\,dt + i\int_a^b \Im(g)(t)\, dt.
+\end{align*}\end{definition}
+
+\par
+Wir versuchen also im Folgenden einen ähnlichen Integrationsbegriff für Funktionen \(f:\C\to\C\) zu erhalten.
+
+
+\subsection{Integration über stetig differenzierbare Wege}
+\label{\detokenize{complexanalysis/kurvenintegrale:integration-uber-stetig-differenzierbare-wege}}
+\par
+Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven, welche die Grundlage der komplexen Integration bilden.
+\begin{definition}{(Weg und Kurve)}{complexanalysis/kurvenintegrale:definition-1}
+
+
+
+\par
+Für zwei reelle Zahlen \(a<b\) betrachten wir eine Abbildung \(\gamma:[a,b]\to\C\).
+\begin{enumerate}
+
+\item {} 
+\par
+Falls die Abbildung stetig ist, so nennen wir \(\gamma\) \textbf{Weg} mit Anfangspunkt \(\gamma(a)\) und Endpunkt \(\gamma(b)\).
+
+\item {} 
+\par
+Ein Weg heißt geschlossen, falls \(\gamma(a)=\gamma(b)\).
+
+\item {} 
+\par
+Ein Weg heißt stetig differenzierbar, falls \(\gamma^\prime\) existiert und stetig ist.
+
+\end{enumerate}
+\end{definition}
+\begin{remark}{}{complexanalysis/kurvenintegrale:remark-2}
+
+
+
+\par
+Wir beachten, dass wir bei der Definition der Differenzierbarkeit eines Weges den klassischen Begriff der Differenzierbarkeit benutzten und \textbf{nicht} den der Holomorphie, da der Definitionsbereich von \(\gamma:[a,b]\to\C\) rein reell ist.
+\end{remark}
+
+\par
+Damit können wir nun das \textbf{Wegintegral} definieren.
+\begin{definition}{}{complexanalysis/kurvenintegrale:definition-3}
+
+
+
+\par
+Es sei \(U\subset\C\) eine offene Teilmenge und \(f:U\to\C\) eine stetige Funktion, für einen stetig differenzierbaren Weg \(\gamma:[a,b]\to\C\) definieren wir das \textbf{Wegintegral}
+\begin{align*}
+\int_\gamma f(z)\, dz := \int_a^b f(\gamma(t))\gamma^\prime(t)dt.
+\end{align*}
+\par
+Ist \(\gamma\) geschlossen so schreiben wir
+\begin{align*}
+\oint_\gamma f(z)\, dz:=\int_\gamma f(z)\, dz.
+\end{align*}\end{definition}
+\begin{remark}{}{complexanalysis/kurvenintegrale:remark-4}
+
+
+
+\par
+Wir erkennen in der Definition des Wegintegrals konzeptionelle Ähnlichkeiten zur Transformationsregel \cref{masstheorie/integrationstechnik:thm:jacobitransformation} 
+\end{remark}
+
+
+\subsection{Integration über stückweise differenzierbare Wege}
+\label{\detokenize{complexanalysis/kurvenintegrale:integration-uber-stuckweise-differenzierbare-wege}}
+\par
+Wir wollen nicht nur Wege \(\gamma:[a,b]\to\C\) betrachten welche auf dem ganzen Intervall \([a,b]\) stetig differenzierbar sein sondern wollen auch stetige Abbildungen mit endliche vielen Knickstellen zulassen.
+\begin{definition}{}{complexanalysis/kurvenintegrale:definition-5}
+
+
+
+\par
+Für zwei reelle Zahlen \(a<b\) sei \(\gamma:[a,b]\to\C\) ein Weg.
+
+\par
+1. Falls endlich viele Punkte \(a=t_0<t_1<\ldots t_N =b\) existieren s.d. \(\gamma\rvert_{[t_j,t_{j+1}]}\) stetig differenzierbar ist, für alle \(j=0,\ldots, N-1\), so heißt \(\gamma\) \textbf{Integrationsweg} mit Zerlegung \((t_0,\ldots,t_N)\).
+
+\par
+2. Falls endlich viele Punkte \(a=t_0<t_1<\ldots < t_N =b\) existieren, s.d. für alle \(j=0,\ldots, N-1\) gilt
+\begin{align*}
+\gamma(t) = \gamma(t_j) + \frac{t - t_j}{t_{j+1} - t_j} \big(\gamma(t_{j+1}) - \gamma(t_j))\quad\text{ für } t\in(t_j,t_{j+1}\big)
+\end{align*}
+\par
+so heißt \(\gamma\) \textbf{Polygonzug} mit Zerlegung \((t_0,\ldots,t_N)\).
+
+\par
+3. Falls \(\gamma\) ein Polygonzug mit Zerlegung \((t_0,\ldots,t_N)\) ist und falls für alle \(j=0,\ldots,N-1\) gilt
+\begin{align*}
+\big(\gamma(t_{j+1}) - \gamma(t_j)) \in \{ \alpha_j, \alpha_j i\}
+\end{align*}
+\par
+für reelle Faktoren \(\alpha_j\in\R\), so heißt \(\gamma\) Treppenzug.
+\end{definition}
+\begin{remark}{}{complexanalysis/kurvenintegrale:remark-6}
+
+
+
+\par
+Jeder Polygonzug ist ein Integrationsweg.
+\end{remark}
+
+\begin{figure}[htbp]
+\centering
+
+
+\noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/treppenzug.jpg}
+\caption{Visualisierung eines Integrationswegs in grün, eines Polygonzugs in rot und eines Treppenzugs in blau.}\label{\detokenize{complexanalysis/kurvenintegrale:fig-treppenzug}}\end{figure}
+
+\par
+Analog definiert man hier den Begriff des Integrals.
+\begin{definition}{}{complexanalysis/kurvenintegrale:definition-7}
+
+
+
+\par
+Es sei \(U\subset\C\) eine offene Teilmenge und \(f:U\to\C\) eine stetige Funktion, für einen Integrationsweg \(\gamma:[a,b]\to\C\) mit Zerlegung \((t_0,\ldots,t_N)\)  definieren wir das \textbf{Wegintegral}
+\begin{align*}
+\int_\gamma f(z)\, dz:= \sum_{j=0}^{N-1} \int_{\gamma\rvert_{[t_j,t_{j+1}]}} f(z)\,dz.
+\end{align*}\end{definition}
+\begin{remark}{}{complexanalysis/kurvenintegrale:remark-8}
+
+
+
+\par
+Für einen Weg \(\gamma\) können verschiedene Zerlegungen \((t_0,\ldots,t_N)\) s.d., \(\gamma\) ein Integrationsweg bezüglich dieser Zerlegung ist. Man erkennt aber leicht, dass de Wert des Wegintegrals \textbf{unabhängig} von der Wahl der Zerlegung ist
+\end{remark}
+
+\par
+Die Definition des Wegintegral ist unabhängig von Umparametrisierungen eines Weges, dies ist Inhalt des folgenden Lemmas.
+\begin{lemma}{}{complexanalysis/kurvenintegrale:lemma-9}
+
+
+
+\par
+Es sei \(U\subset\C\) offen, \(\gamma:[a,b]\to U\) ein stetig differenzierbarer Weg und \(\phi:[c,d]\to[a,b]\) eine stetig differenzierbare Abbildung mit \(\phi(c)=a,\phi(d)=b\). Ist \(f:U\to\C\) stetig, so gilt
+\begin{align*}
+\int_{\gamma\circ\phi} f(z)\, dz = \int_\gamma f(z)\, dz.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ ToDo.
+\end{proof}
+
+\par
+Insbesondere rechtfertigt diese Aussage, dass wir für den Strahl
+\begin{align*}
+[p,q]:=\{z\in\C: z = p+t(q-p), 0\leq t\leq 1\}
+\end{align*}
+\par
+setzten
+\begin{align*}
+\int_{[p,q]} f(z)\, dz = \int_0^1 f(p+t(q-p))\cdot (q-p)\, dt.
+\end{align*}
+
+\subsection{Stammfunktionen}
+\label{\detokenize{complexanalysis/kurvenintegrale:stammfunktionen}}
+\par
+Analog zum Begriff einer Stammfunktion in \(\R\) betrachten wir dieses Konzept nun für Funktionen \(f\C\to\C\).
+\begin{definition}{}{complexanalysis/kurvenintegrale:definition-10}
+
+
+
+\par
+Es sei \(U\subset\C\) offen, eine holomorphe Funktion \(F:U\to\C\) heißt Stammfunktion einer Funktion \(f:U\to\C\), falls
+\begin{align*}
+F^\prime = f.
+\end{align*}\end{definition}
+\begin{remark}{}{complexanalysis/kurvenintegrale:remark-11}
+
+
+
+\par
+Wir beachten, dass in der obigen Definition die komplexe Ableitung benutzt wird.
+\end{remark}
+
+\par
+Für reelle Funktionen schafft der Hauptsatz der Differentiations  und Integrationsrechnung (HDI) einen Zusammenhang zwischen dem Integral der Ableitung und der Stammfunktion. Mithilfe des Wegintegrals wollen wir nun ein ähnliches Konzept erarbeiten und bemerken zunächst folgende Tatsache.
+\begin{lemma}{(Integral einer Ableitung)}{complexanalysis/kurvenintegrale:lem:intdiff}
+
+
+
+\par
+Es sei \(U\subset\C\) offen und \(f:U\to\C\) sei eine holomorphe Funktion, dann gilt
+\begin{align*}
+\int_\gamma f^\prime(z)\, dz= f(\gamma(b)) - f(\gamma(a))
+\end{align*}
+\par
+für jeden Integrationsweg \(\gamma:[a,b]\to U\).
+\end{lemma}
+
+\begin{proof}
+ Sei \(\gamma:[a,b]\to\C\) zunächst stetig differenzierbar, dann gilt
+\begin{align*}
+\int_\gamma f^\prime(z)\, dz = \int_a^b f^\prime(\gamma(t))\gamma^\prime(t)\, dt =(\#).
+\end{align*}
+\par
+Die Abbildung \((f\circ \gamma):[a,b]\to\C\) ist reell differenzierbar und mit der Kettenregel auf \(\R\) gilt
+\begin{align*}
+(f\circ\gamma)^\prime = (f^\prime\circ\gamma)\cdot\gamma.
+\end{align*}
+\par
+Daher folgt
+\begin{align*}
+(\#) = \int_a^b (f\circ \gamma)^\prime(t)\, dt.
+\end{align*}
+\par
+Nach dem Hauptsatz der Integrations und Differentialrechnung für reelle Funktionen folgt dann
+\begin{align*}
+(\#) = f(\gamma(b)) - f(\gamma(a)).\end{align*}\end{proof}
+
+\par
+Anstatt allgemeiner offener Teilmengen \(U\subset\C\) zu betrachten schränkt man sich oft auf \textbf{Gebiete} ein.
+\begin{definition}{}{complexanalysis/kurvenintegrale:definition-13}
+
+
+
+\par
+Eine offenen Menge \(U\subset\C\) heißt \textbf{Gebiet}, falls sie zusammenhängend ist, das heißt für zwei Mengen \(A,B\subset U,A\neq\emptyset\neq B\) gilt
+\begin{align*}
+A\cap B \neq \emptyset.
+\end{align*}\end{definition}
+
+\par
+Für Gebiete gibt es folgende hilfreiche Charakterisierungen.
+\begin{lemma}{}{complexanalysis/kurvenintegrale:lemma-14}
+
+
+
+\par
+Eine Menge \(U\subset\C\) ist genau dann ein Gebiet, falls eine der folgenden Bedingungen gilt.
+\begin{enumerate}
+
+\item {} 
+\par
+Die Menge \(U\) ist wegzusammenhängend, d.h., für \(x,y\in U\) existiert stets ein Weg \(\gamma:[a,b]\to U\) mit \(\gamma(a)=x,\gamma(b)=y\).
+
+\item {} 
+\par
+Die Menge \(U\) ist polygonzusammenhängend, d.h., für \(x,y\in U\) existiert ein Polygonzug \(\gamma:[a,b]\to U\) mit \(\gamma(a)=x,\gamma(b)=y\).
+
+\item {} 
+\par
+Die Menge \(U\) ist treppenzusammenhängend, d.h., für \(x,y\in U\) existiert ein Treppenzug \(\gamma:[a,b]\to U\) mit \(\gamma(a)=x,\gamma(b)=y\).
+
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+ Siehe z.B. \cite{Nee17} Lemma 3.12.
+\end{proof}
+
+\par
+Auf Gebieten können wir mithilfe von \cref{complexanalysis/kurvenintegrale:lem:intdiff} folgende Aussage zeigen.
+\begin{lemma}{}{complexanalysis/kurvenintegrale:lemma-15}
+
+
+
+\par
+Es sei \(U\subset\C\) ein Gebiet, eine Funktion \(f:U\to\C\) ist genau dann konstant wenn \(f^\prime=0\) gilt.
+\end{lemma}
+
+\begin{proof}
+ Falls \(f\) konstant ist folgt per Definition \(f^\prime=0\). Ist umgekehrt \(f^\prime=0\) dann finden wir für beliebige \(x,y\in U\) einen Polygonzug \(\gamma:[a,b]\to U, \gamma(a)=x,\gamma(b)=y\) mit Zerlegung \((t_0,\ldots,t_N)\), da \(U\) ein Gebiet ist. Dieser Weg ist insbesondere ein Inetgrationsweg und mit \cref{complexanalysis/kurvenintegrale:lem:intdiff} folgt dann
+\begin{align*}
+f(x) - f(y) = \int_\gamma f^\prime(z)\, dz = 0.
+\end{align*}
+\par
+Da \(x,y\in U\) beliebig waren ist \(f\) konstant.
+\end{proof}
+
+\par
+Im folgende formulieren wir ein zentrales Resultat für Stammfunktionen holomorpher Funktionen.
+\begin{theorem}{(Existenz von Stammfunktionen)}{complexanalysis/kurvenintegrale:theorem-16}
+
+
+
+\par
+Es sei \(U\subset\C\) offen, dann besitzt eine stetige Funktion genau dann eine Stammfunktion, falls
+\begin{align*}
+\oint_\gamma f(z)\, dz =0
+\end{align*}
+\par
+für jeden geschlossenen Integrationsweg \(\gamma\) gilt.
+
+\par
+Fixieren wir einen Punkt \(p\in\C\) und ist zusätzlich \(U\) zusammenhängend, so ist eine Stammfunktionen \(F:U\to\C, F(p)=c\in\C\) gegeben durch
+\begin{align*}
+F(w):= c+ \int_{\gamma_w} f(z) \,dz
+\end{align*}
+\par
+wobei \(\gamma_w\) ein beliebiger Integrationsweg von \(p\) nach \(w\) ist.
+\end{theorem}
+
+\begin{proof}
+ Siehe z.B. \cite{Nee17} Satz 3.17.
+\end{proof}
+
+\par
+Die Bedingung an \(f\), dass alle Wegintegrale über geschlossene Wege wegfallen ist in der Praxis schwer nachzuprüfen. Für holomorphe Funktionen hat man allerdings folgendes praktische Korollar.
+\label{complexanalysis/kurvenintegrale:corollary-17}
+\begin{emphBox}{}{}{Corollary 7.1}
+
+
+
+\par
+Sei \(f:B_r(p)\to\C\) eine holomorphe Funktion auf der komplexen Scheibe \(B_r(p)\subset\C\) um \(p\) mit Radius \(r>0\), dann besitzt \(f\) eine Stammfunktion.
+\end{emphBox}
+
+
+\subsection{Integration über nicht differenzierbare Wege}
+\label{\detokenize{complexanalysis/kurvenintegrale:integration-uber-nicht-differenzierbare-wege}}
+\par
+Mithilfe des Konzepts der Stammfunktion können wir nun das Integral über beliebige Wege definieren.
+\begin{definition}{}{complexanalysis/kurvenintegrale:definition-18}
+
+
+
+\par
+Es sei \(\gamma:[a,b]\to U\) ein Weg, eine Zerlegung \((a=t_0,\ldots, t_N=b), t_j<t_{j+1}\) heißt \textbf{zulässig}, falls offenen Scheiben \(B^j\subset U\) existieren, s.d.
+\begin{align*}
+\gamma([t_j,t_{j+1}])\subset B^j\quad j=0,\ldots,N-1.
+\end{align*}\end{definition}
+
+\par
+Für eine holomorphe Funktion \(f:U\to\C\) wissen wir dann, dass für einen Weg \(\gamma\) mit zulässiger Zerlegung \((t_0,\ldots,t_N)\) auf jeder Kreisscheibe \(B^j\subset U\) eine Stammfunktion \(F_j\) existiert, s.d.,
+\begin{align*}
+\int_\gamma f(z)\, dz= \sum_{j=0}^{N-1} \int_{\gamma\rvert_[t_j,t_{j+1}]} f(z)\, dz=
+\sum_{j=0}^{N-1} F_j(\gamma(t_{j+1})) - F_j(\gamma(t_{j})).
+\end{align*}
+\par
+Der Ausdruck auf der rechten Seite ist allerdings auch definiert, falls \(\gamma\) nicht differenzierbar ist, was auf folgende Definition führt.
+\begin{definition}{}{complexanalysis/kurvenintegrale:definition-19}
+
+
+
+\par
+Es sei \(U\) offen und \(\gamma:[a,b]\to U\) ein Weg mit zulässiger Zerlegung \((t_0,\ldots,t_N)\) und offenen Kreisscheiben \(B_j,j=0,\ldots,N-1\). Für eine holomorphe Funktion \(f\) mit Stammfunktionen \(F_j\) auf \(B_j\) definieren wir
+\begin{align*}
+\int_\gamma f(z)\, dz = \sum_{j=1}^N F_j(\gamma(t_{j+1}))- F(\gamma(t_j)).
+\end{align*}\end{definition}
+\begin{remark}{}{complexanalysis/kurvenintegrale:remark-20}
+
+
+
+\par
+Für offenes \(U\subset\C\) und einen Weg \(\gamma:[a,b]\to U\) exsitiert stets eine zulässige Zerlegung und der Wert des Integrals ist unabhängig von der Wahl der Zerlegung, siehe \cite{Nee17}.
+\end{remark}
+
+
+\section{Der Integralsatz von Cauchy}
+\label{\detokenize{complexanalysis/cauchyintegral:der-integralsatz-von-cauchy}}\label{\detokenize{complexanalysis/cauchyintegral::doc}}
+\par
+Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
+Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen. Ein erstes Resultat in diese Richtung erhalten wir indem wir \emph{benachbarte Wege} betrachten.
+
+
+\subsection{Benachbarte Wege}
+\label{\detokenize{complexanalysis/cauchyintegral:benachbarte-wege}}
+\par
+In der Definition eines Wegintegrals über beliebige Wege betrachtet man zulässige Zerlegungen mit offenen Kreisscheiben. Finden wir nun eine Zerlegung, s.d., sich zwei Wege die jeweiligen Kreisscheiben teilen, so wollen wir sie benachbart nennen.
+\begin{definition}{}{complexanalysis/cauchyintegral:definition-0}
+
+
+
+\par
+Es sei \(U\subset \C\) offen und seien \(\gamma_0,\gamma_1:[a,b]\to U\) zwei Wege. Falls eine Zerlegung \((a=t_0,\ldots,b=t_N)\) existiert mit Kreisscheiben \(B^j\), welche zulässig für beide Wege ist, d.h.,
+\begin{align*}
+\gamma_0([t_j, t_{j+1}])\cup \gamma_1([t_j,t_{j+1}]) \subset B^j
+\end{align*}
+\par
+dann nennen wir \(\gamma_0\) und \(\gamma_1\) \textbf{benachbart}.
+\end{definition}
+
+\par
+Der Begriff der Nachbarschaft hat tatsächlich auch eine geometrische Bedeutung, welche in folgendem Lemma festgehalten wird.
+\begin{lemma}{(Nachbarschaftslemma)}{complexanalysis/cauchyintegral:lem:closelem}
+
+
+
+\par
+Es sei \(U\subset\C\) offen, dann existiert ein \(\varepsilon>0\), s.d. falls für zwei Wege \(\gamma_0,\gamma_1:[a,b]\to U\) gilt
+\begin{align*}
+\abs{\gamma_0 - \gamma_1} < \varepsilon
+\end{align*}
+\par
+so folgt schon, dass \(\gamma_0,\gamma_1\) benachbart sind.
+\end{lemma}
+
+\begin{proof}
+ Siehe z.B. \cite{Nee17}.
+\end{proof}
+
+\par
+Für benachbarte Wege erhalten wir nun das folgende Resultat, welches eine Vorstufe zum Integralsatz von Cauchy darstellt.
+\begin{lemma}{}{complexanalysis/cauchyintegral:lem:closepath}
+
+
+
+\par
+Es \(U\subset\C\) eine offene Menge und \(f:U\to\C\) eine holomorphe Funktion, weiterhin seien \(\gamma_0,\gamma_1:[a,b]\to U\) zwei benachbarte Weg die eine der folgenden Bedingungen erfüllen
+\begin{enumerate}
+
+\item {} 
+\par
+die Wege haben gleiche Anfangs  und Endpunkte, oder
+
+\item {} 
+\par
+die Wege sind geschlossen.
+
+\end{enumerate}
+
+\par
+Dann gilt
+\begin{align*}
+\int_{\gamma_0} f(z)\, dz = \int_{\gamma_1} f(z)\, dz.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Siehe z.B. {[}{]} Lemma 4.5.
+\end{proof}
+
+
+\subsection{Homotopie}
+\label{\detokenize{complexanalysis/cauchyintegral:homotopie}}
+\par
+Um nicht nur benachbarte Wege betrachten zu können definieren wir jetzt den Begriff von Homotopie.
+\begin{definition}{}{complexanalysis/cauchyintegral:definition-3}
+
+
+
+\par
+Es sei \(U\subset\C\) offen, zwei Wege \(\gamma_0, \gamma_1:[a,b]\to U\) mit gleichen Anfangs und Endpunkten,
+\begin{align*}
+\gamma_0(a) = \gamma_1(a),\\
+\gamma_0(b) = \gamma_1(b),
+\end{align*}
+\par
+heißen \textbf{homotop}, falls eine stetige Abbildung \(h:[a,b]\times[0,1]\to U\) existiert, so dass für alle \(t\in[a,b]\) gilt
+\begin{align*}
+h(t,0) = \gamma_0(t), \qquad h(t,1) = \gamma_1(t).
+\end{align*}
+\par
+In diesem Fall nennen wir die Abbildung \(h\) eine \textbf{Homotopie} zwischen den Wegen \(\gamma_0\) und \(\gamma_1\) und notieren auch \(h_s:=h(\cdot,s):[a,b]\to U\) für den Weg am Punkt \(s\in [0,1]\).
+\end{definition}
+
+\par
+Anstatt nur Wege mit gleichen Anfangs und Endpunkten zu betrachten können wir auch Homotopie geschlossener Wege definieren.
+\begin{definition}{}{complexanalysis/cauchyintegral:definition-4}
+
+
+
+\par
+Es sei \(U\subset\C\) offen, zwei geschlossene Wege \(\gamma_0, \gamma_1:[a,b]\to U\) heißen \textbf{frei homotop}, falls eine stetige Abbildung \(h:[a,b]\times[0,1]\to U\) existiert, so dass für alle \(t\in[a,b]\) gilt
+\begin{align*}
+h(t,0) = \gamma_0(t), \qquad h(t,1) = \gamma_1(t)\quad
+\end{align*}
+\par
+und der Weg \(h_s\) geschlossen ist für alle \(s\in [0,1]\).
+
+\par
+Ein geschlossener Weg heißt \textbf{zusammenziehbar} oder \textbf{nullhomotop}, falls er frei homotop zu einem konstanten Weg ist.
+\end{definition}
+\begin{remark}{}{complexanalysis/cauchyintegral:remark-5}
+
+
+
+\par
+Man kann zeigen, dass der Begriff der Homotopie zwischen Wegen in einer Teilmenge \(U \subset \C\) eine \emph{Äquivalenzrelation} auf Wegen in \(U\) induziert. Die zugehörigen Äquivalenzklassen werden auch \emph{Homotopieklassen} genannt.
+\end{remark}
+
+
+\subsection{Der Homotopiesatz und der Integralsatz von Cauchy}
+\label{\detokenize{complexanalysis/cauchyintegral:der-homotopiesatz-und-der-integralsatz-von-cauchy}}
+\par
+Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.
+\begin{lemma}{}{complexanalysis/cauchyintegral:lem:homotop}
+
+
+
+\par
+Es sei \(U \subset \C\) offen und seien \(\gamma_0\) und \(\gamma_1:[a,b]\to U\) homotope oder frei homotope Wege.
+Sei außerdem \(f:U\to C\) eine holomorphe Funktion, dann gilt
+\begin{align*}
+\oint_{\gamma_0} f(z) \, dz = \oint_{\gamma_1} f(z) \, dz.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Es sei \(h:[a,b]\times[0,1]\to U\) eine Homotopie, mit \(h_0=\gamma_0, h_1=\gamma_1\). Die Menge \([a,b]\times[0,1]\) ist kompakt und somit ist \(h\) gleichmäßig stetig, d.h. insbesondere, dass für \(\varepsilon>0\) ein \(\delta >0\) existiert, s.d.,
+\begin{align*}
+\abs{h_{s_0}-h_{s_1}}_\infty <\varepsilon \text{ für } \abs{s_1-s_2}< \delta.
+\end{align*}
+\par
+Wir können nach \cref{complexanalysis/cauchyintegral:lem:closelem} somit \(\delta\) klein genug wählen, s.d. Wege \(h_{s_0}, h_{s_1}\) benachbart sind für \(\abs{s_0-s_1}<\delta\). Somit gilt nach \cref{complexanalysis/cauchyintegral:lem:closepath}  dass
+\begin{align*}
+\int_{h_{s_0}} f(z)\, dz = \int_{h_{s_1}} f(z)\, dz
+\end{align*}
+\par
+gilt für \(\abs{s_0-s_1}<\delta\). Damit folgt die Aussage.
+\end{proof}
+
+\par
+Es folgt, dass das Kurvenintegral einer holomorphe Funktionen über einen nullhomotopen Weg verschwindet, was als \textbf{Integralsatz von Cauchy} bekannt ist.
+\begin{theorem}{(Integralsatz von Cauchy)}{complexanalysis/cauchyintegral:theorem-7}
+
+
+
+\par
+Es sei \(U\subset\C\) offen und sei \(\gamma:[a,b]\to U\) ein nullhomotoper Weg, für jede holomorphe Funktion \(f:U\to\C\) gilt dann
+\begin{align*}
+\oint_\gamma f(z)\, dz = 0.
+\end{align*}\end{theorem}
+
+\begin{proof}
+ Folgt direkt aus \cref{complexanalysis/cauchyintegral:lem:homotop} 
+\end{proof}
+
+
+\subsection{Die Integralformel von Cauchy}
+\label{\detokenize{complexanalysis/cauchyintegral:die-integralformel-von-cauchy}}
+\par
+Wir werden die obigen Konzepte nun auf Wegen betrachten welche den rnd einer Kreisscheibe parametrisieren. Dazu sei \(B_r(p)\subset\C\) eine Kreisscheibe um den Punkt \(p\in\C\) mit Radius \(r>0\), wir wählen die natürliche Parametrisierung des Randes
+\begin{align*}
+\gamma_{p,r}:[0,2\pi]&\to \partial B_r(p)\\
+t&\mapsto p + r\exp(i t),
+\end{align*}
+\par
+wobei wir die Eulersche Formel \eqref{equation:complexanalysis/complexnumbers:eq:euler} benutzt haben.
+
+\par
+Mithilfe der natürlichen Parametrisierung schreiben wir auch
+\begin{align*}
+\int_{\partial B_r(p)} f(z)\, dz := \int_{\gamma_{p,r}} f(z)\, dz
+\end{align*}
+\par
+und formulieren nun die Integralformel von Cauchy.
+\begin{theorem}{(Cauchy Integralformel)}{complexanalysis/cauchyintegral:theorem-8}
+
+
+
+\par
+Sei \(U \subset \C\) offen, \(\overline{B_r(p)}\subset \C\) und \(f:U\to \C\) holomorph\$, dann gilt
+\begin{align*}
+f(w) = \frac{1}{2\pi i} \int_{B_r(p)} \frac{f(z)}{z-w}\, dz
+\end{align*}
+\par
+für alle \(w\in B_r(p)\).
+\end{theorem}
+
+\begin{proof}
+ Siehe z.B. \cite{Nee17} Satz 4.13.
+\end{proof}
+
+\par
+Als Korollar erhält man die Tatsache, dass Ableitungen holomorpher Funktionen selbst holomorph sind. Somit ist jede holomorphe Funktion unendlich oft differenzierbar.
+\label{complexanalysis/cauchyintegral:cor:infholo}
+\begin{emphBox}{}{}{Corollary 7.2}
+
+
+
+\par
+Es sei \(U\subset\C\) offen und \(f:U\to\C\) holomorph, dann ist \(f^\prime:U\to\C\) auch holomorph und für \(\overline{B_r(p)}\subset U\) gilt
+\begin{align*}
+f^{(n)}(w) = \frac{n!}{2\pi i} \int_{\partial B_r(p)} \frac{f(z)}{(z-w)^{n+1}}\, dz
+\end{align*}
+\par
+für alle \(w\in B_r(p)\).
+\end{emphBox}
+
+
+\subsection{Der Satz von Liouville}
+\label{\detokenize{complexanalysis/cauchyintegral:der-satz-von-liouville}}
+\par
+Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liouville.
+
+\begin{emphBox}{Joseph Liouville}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Joseph\_Liouville}{Joseph Liouville} (Geboren 24. März 1809 in Saint Omer; Gestorben 8. September 1882 in Paris) war ein französischer Mathematiker.
+\end{emphBox}
+\begin{theorem}{(Satz von Liouville)}{complexanalysis/cauchyintegral:theorem-10}
+
+
+
+\par
+Jede beschränkte holomorphe Funktion \(f:\C\to\C\) ist konstant.
+\end{theorem}
+
+\begin{proof}
+ Es gelte \(\abs{f(z)}< C <\infty\) für alle \(z\in\C\), dann gilt nach \cref{complexanalysis/cauchyintegral:cor:infholo}  dass
+\begin{align*}
+f^\prime(w) = \frac{1}{2\pi i} \int_{\partial B_r(w)} \frac{f(z)}{(z-w)^2}\, dz
+\end{align*}
+\par
+für alle \(w\in \C\) und alle \(r> 0\). Damit folgt
+\begin{align*}
+\abs{f^\prime(w)}\leq \frac{C}{2 \pi} \abs{\int_{\partial B_r(w)} dz}\leq \frac{C}{r}.
+\end{align*}
+\par
+Da diese Ungleichung für alle \(r>0\) und \(w\in\C\) gilt folgt \(\abs{f^\prime(w)} = 0\) für alle \(w\in\C\) und somit ist \(f\) konstant.
+\end{proof}
+
+\par
+Hieraus folgt sofort der Fundamentalsatz der Algebra.
+\begin{theorem}{(Fundamentalsatz der Algebra)}{complexanalysis/cauchyintegral:theorem-11}
+
+
+
+\par
+Hat ein Polynom
+\begin{align*}
+f(z)=\sum_{j=0}^N a_j z^j
+\end{align*}
+\par
+keine Nullstellen, so ist es konstant.
+\end{theorem}
+
+\begin{proof}
+ Wir nehmen o.B.d.A. an, dass \(a_N=1\) gilt. Dann existiert ein Polynom \(g\), s.d. \(f(z) = z^n + g(z)\) und
+\begin{align*}
+\lim_{z\to\infty} \frac{g(z)}{z^n} = 0,
+\end{align*}
+\par
+wir finden also \(r>0\), s.d. \(\abs{g(z)} < 1/2 \abs{z^n}\) für alle \(\abs{z}>r\). Dann folgt auch
+\begin{align*}
+\abs{f(z)} = \abs{z^n + g(z)} \geq \abs{z^n} - 1/2 \abs{z^n}\geq r^n/2.
+\end{align*}
+\par
+Besitzt \(f\) keine Nullstellen, so ist \(1/f:\C\to\C\) eine auf ganz \(\C\) holomorphe Funktion. Weiterhin gilt
+\begin{align*}
+\abs{1/f(z)} \leq \frac{2}{r^n}
+\end{align*}
+\par
+für alle \(\abs{z}\geq r\) und somit
+\begin{align*}
+\abs{1/f} \leq \max\{\max_{B_r(0)} \abs{f(z)}, \frac{2}{r^n} \} < \infty
+\end{align*}
+\par
+daher ist \(1/f\) beschränkt und nach dem Satz von Liouville konstant. Damit ist auch \(f\) konstant.
+\end{proof}
+
+
+\section{Potenzreihen}
+\label{\detokenize{complexanalysis/powerseries:potenzreihen}}\label{\detokenize{complexanalysis/powerseries::doc}}
+\par
+In diesem Abschnitt wollen wir genauer auf analytische Funktionen bzw. Potenzreihen eingehen, wir betrachten also Funktionen
+\begin{align*}
+z\mapsto \sum_{j=0}^{\infty} a_j (z-p)^j,
+\end{align*}
+\par
+mit komplexen Koeffizienten \(a_j\in\C\).
+
+
+\subsection{Analytische Funktionen}
+\label{\detokenize{complexanalysis/powerseries:analytische-funktionen}}
+\par
+Wir betrachten zunächst Funktionen welche durch Potenzreihen gegeben sind und erhalten, dass sie auf Kreisscheiben schon holomorph sind.
+\begin{lemma}{}{complexanalysis/powerseries:lem:potseries}
+
+
+
+\par
+Es sei \(a_j\in\C, j\in\N_0\) eine Folge komplexer Zahlen, \(p\in\C\) und die Reihe
+\begin{align*}
+\sum_{j=0}^\infty a_j (z_0-p)^j\end{align*}
+\par
+konvergiere für \(z\neq p\). Dann ist die Funktion \(f:z\mapsto \sum_{j=0}^\infty a_j (z-p)^j\) holomorph auf der Kreisscheibe \(B_r(p)\), wobei \(r:=\abs{z_0-p}\) und
+\begin{align*}
+f^\prime(z) = \sum_{j=1}^\infty a_j\cdot j\cdot (z-p)^{j-1}.
+\end{align*}\end{lemma}
+
+\begin{proof}
+ Siehe \cite{Nee17} Satz 2.19.
+\end{proof}
+
 \par
 Eine besondere Klasse von Funktionen sind \emph{analytische Funktonen}, die sich lokal mit Hilfe von Reihen darstellen lassen.
-\begin{definition}{(Analytische Funktion)}{complexanalysis/cauchyriemann:definition-3}
+\begin{definition}{}{complexanalysis/powerseries:definition-1}
 
 
 
 \par
-Sei \(D \subset \C\) eine Teilmenge und \(f \colon D \rightarrow \C\) eine Funktion.
+Sei \(U \subset \C\) offen und \(f: U\to \C\) eine Funktion.
 
 \par
-Wir nennen die Funktion \(f\) \textbf{analytisch} in einem Punkt \(z_0 \in D\) genau dann, wenn ein \(\epsilon > 0\) existiert, so dass sich jeder Funktionswert \(f(z) \in \C\) in einer entsprechenden lokalen Umgebung durch eine absolut konvergente Reihe darstellen lässt mit
+Wir nennen \(f\) \textbf{analytisch} in einem Punkt \(p \in U\) genau dann, wenn ein \(r > 0\) existiert, so dass sich die Funktion lokal in \(B_r(p)\) als Potenzreihe darstellen lässt,
 \begin{align*}
-f(z) = \sum_{n \geq 0} a_n (z-z_0)^n, \qquad \forall |z - z_0| < \epsilon,
+f(z) = \sum_{j=0}^\infty a_j (z-p)^j, \qquad \forall z\in B_r(p)
 \end{align*}
 \par
 wobei \((a_n)_{n_\in\N}\) eine Folge in \(\C\) ist.
 
 \par
-Wir nennen die Funktion \(f\) analytisch auf der Teilmenge \(D\), wenn sie analytisch ist für alle Punkte \(z_0 \in D\).
+Wir nennen die Funktion \(f\) analytisch auf der Teilmenge \(U\), wenn sie analytisch ist für alle Punkte \(z_0 \in D\).
 \end{definition}
 
 \par
 Der folgende Satz beschreibt den Zusammenhang zwischen analytischen und holomorphen Funktionen.
-\begin{theorem}{}{complexanalysis/cauchyriemann:thm:analytischHolomorph}
+\begin{theorem}{}{complexanalysis/powerseries:thm:analytischHolomorph}
 
 
 
 \par
-Jede analytische Funktion \(f\) auf einer Teilmenge \(D \subset \C\) ist auch holomorph auf \(D\).
+Jede analytische Funktion \(f\) auf einer Teilmenge \(U \subset \C\) ist auch holomorph auf \(U\).
 \end{theorem}
 
 \begin{proof}
- Vertauschung des Limes \(h \rightarrow 0\) und der Summe.
+ Folgt direkt aus \cref{complexanalysis/powerseries:lem:potseries} \end{proof}
+
+\par
+Wir wollen im folgenden sehen, dass auch die Umkehrung gilt.
+
+
+\subsection{Konvergenzradius}
+\label{\detokenize{complexanalysis/powerseries:konvergenzradius}}
+\par
+Ein wichtige Eigenschaft von Potenzreihen um \(p\in\C\) ist, dass Konvergenz an einem Punkt \(z\) schon die absolute und gleichmäßige Konvergenz innerhalb einer Kreisscheibe impliziert.
+\begin{lemma}{}{complexanalysis/powerseries:lem:powerradius}
+
+
+
+\par
+Konvergiert die Reihe \(\sum_{j=0}^\infty a_j (z_0-p)^j\) für \(z_0\in\C\), so konvergiert die Reihe \(\sum_{j=0}^\infty a_j (z-p)^n\) auf jeder offenen Kreisscheibe \(B_r(p)\) mit \(r< \abs{z_0 - p}\).
+\end{lemma}
+
+\begin{proof}
+ O.B.d.A. gelte \(p=0\), da \(\sum_{j=0}^\infty a_j z_0^j\) konvergiert ist, \(a_j z_0^j\) eine Nullfolge und insbesondere existiert eine Konstante \(C>0\), s.d., \(\abs{a_j z_0^j}< C\) für alle \(j\in\N\). Sei nun \(r<\abs{z_0}\), dann folgt für jedes \(z\in B_r(0)\), dass
+\begin{align*}
+\abs{a_j z^j} = \abs{a_j z_0^j}\abs{\frac{z}{z_0}}^j\leq C \left(\frac{r}{z_0}\right)^j
+\end{align*}
+\par
+und damit
+\begin{align*}
+\sum_{j=0}^\infty \abs{a_j z_j} \leq C \sum_{j=0}^\infty \left(\frac{r}{z_0}\right)^j
+\end{align*}
+\par
+wobei die geometrische Reihe auf der linken Seite konvergiert. Somit konvergiert die Reihe auf \(B_r(0)\) nach dem Majorantenkriterium gleichmäßig absolut.
 \end{proof}
 
 \par
-Wie wir später im Hauptsatz der Funktionentheorie sehen werden gilt auch die Umkehrung.
-
-
-\section{Kurvenintegrale}
-\label{\detokenize{complexanalysis/kurvenintegrale:kurvenintegrale}}\label{\detokenize{complexanalysis/kurvenintegrale::doc}}
-
-\subsection{Wege und Kurven}
-\label{\detokenize{complexanalysis/kurvenintegrale:wege-und-kurven}}
-\par
-Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven.
-\begin{definition}{(Weg und Kurve)}{complexanalysis/kurvenintegrale:definition-0}
+Der maximale Radius für welchen eine Potenzreihe konvergiert, wird als Konvergenzradius bezeichnet.
+\begin{definition}{}{complexanalysis/powerseries:definition-4}
 
 
 
 \par
-Sei \((X,\tau)\) ein topologischer Raum und \(I = [a,b]\) ein reelles Intervall für \(a,b \in \R\).
-Wir nennen eine stetige Funktion \(f \colon I \rightarrow X\) einen \textbf{Weg} in \(X\).
-Wir bezeichnen einen Weg \(f\) als \textbf{glatt}, wenn er stetig differenzierbar ist und seine Ableitung für jeden Punkt \(x \in I\) ungleich Null ist.
-Außerdem bezeichnen wir einen Weg \(f\) als \textbf{geschlossen}, wenn gilt \(f(a) = f(b)\).
-Schließlich nennen wir einen Weg \(f\) \textbf{konstant}, wenn er für alle \(t \in [a,b]\) auf den gleichen Punkt in \(\C\) abbildet.
+Für eine Koeeffizientenfolge \(a_j\in\C\) und \(p\in\C\) ist der \textbf{Konvergenzradius} der Potenzreihe definiert durch
+\begin{align*}
+R :=\sup\left\{\abs{z - p}: \sum_{j=0}^\infty a_j (z-p)^j \text{ konvergiert}\right\}.
+\end{align*}\end{definition}
 
 \par
-Die Bildmenge \(f(I) \subset X\) nennen wir \textbf{Kurve} in \(X\).
+Die Definition ist äquivalent zum Wert
+\begin{align*}
+R :=\sup\left\{r<0: \sum_{j=0}^\infty a_j r^j\text{ konvergiert} \right\}
+\end{align*}
+\par
+was auf das bekannte \textbf{Wurzelkriterium} führt.
+
+
+\subsection{Entwicklungssatz}
+\label{\detokenize{complexanalysis/powerseries:entwicklungssatz}}
+\par
+In diesem Abschnitt erarbeiten wir mithilfe von Potenzreihen die komplexe Taylorreihe.
+
+\begin{emphBox}{Brook Taylor}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Brook\_Taylor}{Brook Taylor} (Geboren 18. August 1685 in Edmonton, Middlesex; Gestorben 29. Dezember 1731 in Somerset House, London) war ein britischer Mathematiker und Mitglied der Royal Society.
+\end{emphBox}
+\begin{theorem}{(Entwicklungssatz)}{complexanalysis/powerseries:theorem-5}
+
+
+
+\par
+Es sei \(B_r(p)\) eine offene Kreisscheibe um \(p\in\C\) und \(f:B_r(p)\to\C\) eine Funktion. Die Funktion \(f\) ist genau dann holomorph, wenn sie durch eine konvergente Potenzreihe mit Entwicklungspunkt \(p\) dargestellt werden kann, d.h. falls eine Folge \(a_j\in\C\) existiert, s.d.,
+\begin{align*}
+f(z) = \sum_{j=0}^\infty a_j (z-p)^n.
+\end{align*}
+\par
+In diesem Fall gilt insbesondere
+\begin{align*}
+a_n = \frac{1}{n!} f^{(n)}(p)
+\end{align*}\end{theorem}
+\begin{remark}{}{complexanalysis/powerseries:remark-6}
+
+
+
+\par
+Diese Aussage bildet das Gegenstück zur Tatsache das analytische Funktionen holomorph sind. Insbesondere ist die Reihe die man so erhält die Taylorreihe
+\begin{align*}
+\sum_{j=0}^\infty \frac{1}{n!} f^{(n)}(p) (z-p)^n.
+\end{align*}\end{remark}
+
+\begin{proof}
+ ToDo, siehe \cite{Nee17} Satz 5.7.
+\end{proof}
+\begin{example}{}{complexanalysis/powerseries:example-7}
+
+
+
+\par
+ToDo, sehr wichtiges Beispiel aus \cite{Nee17} 5.10.
+\end{example}
+
+
+\section{Laurententwicklung und Residuensatz}
+\label{\detokenize{complexanalysis/residuensatz:laurententwicklung-und-residuensatz}}\label{\detokenize{complexanalysis/residuensatz::doc}}
+\par
+In diesem Abschnitt betrachten wir nun Singularitäten holomorpher Funktionen auf gelochten Kreisscheiben. Konkret betrachten wir holomorphe Funktionen \(f:B_r(p)\setminus\{p\}\to\C\) und interessieren uns speziell für das Verhalten nahes des entfernten Mittelpunktes \(p\in\C\).
+
+
+\subsection{Singularitäten holomorpher Funktionen}
+\label{\detokenize{complexanalysis/residuensatz:singularitaten-holomorpher-funktionen}}
+\par
+In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.
+\begin{definition}{}{complexanalysis/residuensatz:definition-0}
+
+
+
+\par
+Sei \(U \subset \C\) offen und \(p\in U\) ein Punkt und \(f: U \setminus \{p\}\to\C\) eine holomorphe Funktion ist, dann nennen wir den Punkt \(p\) eine \textbf{isolierte Singularität} von \(f\).
+\begin{enumerate}
+
+\item {} 
+\par
+Der Punkt \(p\in U\) heißt \textbf{hebbare Singularität}, falls \(p\) eine isolierte Singularität ist und es eine holomorphe Funktion \(g:U\to\C\) gibt, so dass \(g(z) = f(z)\) gilt für alle \(z \in U \setminus \{p\}\).
+
+\item {} 
+\par
+Der Punkt \(p\in U\) heißt \textbf{Pol}, wenn ein \(k\in\N\) existiert, s.d., \(z\mapsto (z-p)^k f(z)\) eine hebbare Singularität in \(p\) hat. Das kleinste \(k\in\N\), das diese erfüllt heißt \textbf{Ordnung} des Pols.
+
+\item {} 
+\par
+Wir nennen den Punkt \(p\) eine \textbf{wesentliche Singularität}, wenn \(p\) weder hebbar noch Pol ist.
+
+\end{enumerate}
 \end{definition}
 
-\begin{emphBox}{}{}
 \par
-Normalerweise nennen wir eine Abbildung \emph{glatt}, wenn sie unendlich oft differenzierbar ist.
-Dies wird im Kontext von Wegen nicht gefordert und es genügt eine einfache stetige Differenzierbarkeit.
+Intuitiv ist eine Polstelle hebbar, falls die Funktion um die Polstelle herum beschränkt ist. Dies ist die Aussage des Riemannschen Hebbarkeitssatzes.
+\begin{theorem}{}{complexanalysis/residuensatz:thm:hebbar}
+
+
+
+\par
+Es sei \(U\subset \C\) offen, \(p\in U\) und \(f:U\setminus\{p\}\to\C\) holomorph. Falls eine Umgebung \(V\subset U, p\in V\) existiert, s.d., \(f\) auf \(V\setminus\{p\}\) beschränkt ist, so ist \(p\) eine hebbare Singularität.
+\end{theorem}
+
+\begin{proof}
+ Wir nehmen o.B.d.A. an, dass \(p=0\) gilt und betrachten die Funktion
+\begin{align*}
+g(z) :=
+\begin{cases}
+z^2\cdot f(z)&\text{ für } z\neq 0,\\
+0&\text{ für } z=0.
+\end{cases}
+\end{align*}
+\par
+Dann gilt
+\begin{align*}
+\lim_{z\to 0} \frac{g(z) - g(0)}{z} = \lim_{z\to 0} z\cdot f(z) =0
+\end{align*}
+\par
+da \(f\) beschränkt in einer Umgebung um \(0\) ist. Somit ist \(g\) holomorph auf \(U\) und lässt sich damit als Potenzreihe in der \(0\) entwickeln,
+\begin{align*}
+g(z) = \sum_{j=0}^\infty a_j z^j,\quad 0 = g(0) = a_0, 0=g^\prime(0)=a_1.
+\end{align*}
+\par
+Insbesondere gilt dann für \(z\in U\setminus\{0\}\)
+\begin{align*}
+f(z) = g(z)/z^2 = \sum_{j=2}^\infty a_j z^{j-2}
+\end{align*}
+\par
+wobei die Reihe auf der rechten Seite eine holomorphe Funktion auf ganz \(U\) definiert, daher ist \(0\) eine hebbare Singularität.
+\end{proof}
+
+
+\subsection{Laurent Reihen}
+\label{\detokenize{complexanalysis/residuensatz:laurent-reihen}}
+\par
+Zusätzlich zu Potenzreihen betrachtet man für Singularitäten sogenannte \textbf{Laurent Reihen}, wobei man nicht nur Potenzen \((z-p)^j\) für \(j\in \N\) betrachtet, sondern auch negative Exponenten zulässt und somit effektive rationale Funktionen \(\frac{1}{(z-p)^j}\) hinzuaddiert.
+
+\begin{emphBox}{Pierre Alphonse Laurent}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Pierre\_Alphonse\_Laurent}{Pierre Alphonse Laurent} (Geboren 18. Juli 1813 in Paris; Gestorben 2. September 1854 ebenda) war ein französischer Mathematiker.
+\end{emphBox}
+\begin{definition}{}{complexanalysis/residuensatz:definition-2}
+
+
+
+\par
+Für eine Folge \(a_j\in\C, j\in \Z\) nennen wir die Reihe
+\begin{align*}
+\sum_{j=-\infty}^\infty a_j (z-p)^j
+\end{align*}
+\par
+\textbf{Laurent Reihe} am Entwicklungspunkt \(p\in\C\). Wir nennen die Reihe konvergent, falls die Teilsummen
+\begin{align*}
+\sum_{j=0}^\infty a_j (z-p)^j\qquad \sum_{j=1}^\infty a_{-j} \frac{1}{(z-p)^j}
+\end{align*}
+\par
+konvergieren und setzten den Grenzwert als Summe der beiden einzelnen Grenzwerte.
+\end{definition}
+
+\par
+Für Laurent Reihen erhält man zwei Konvergenzradien, jeweils für die beiden Teilsummen.
+\begin{definition}{}{complexanalysis/residuensatz:definition-3}
+
+
+
+\par
+Für eine Laurent Reihe sei \(R>0\) der Konvergenzradius der Reihe
+\begin{align*}
+\sum_{j=0}^\infty a_j (z-p)^j
+\end{align*}
+\par
+und \(\tilde{r}\) der Konvergenzradius der Reihe
+\begin{align*}
+\sum_{j=1}^\infty a_{-j} \frac{1}{(z-p)^j}.
+\end{align*}
+\par
+Dann heißt \(R\) \textbf{äußerer} und \(\frac{1}{\tilde{r}}\) \textbf{innerer} Konvergenzradius.
+\end{definition}
+
+\par
+Anstatt von Kreisscheiben betrachten wir hier nun offene Ringe
+\begin{align*}
+B_{r,R}(p) := \{z\in \C: r< \abs{z-p} < R\}
+\end{align*}
+\par
+und erhalten folgende Aussage.
+\begin{lemma}{}{complexanalysis/residuensatz:lemma-4}
+
+
+
+\par
+Es sei \(\sum_{j=-\infty}^\infty a_j (z-p)^j\) eine Laurent Reihe mit äußerem Konvergenzradius \(R\) und innerem Konvergenzradius \(r\), dann gilt
+\begin{itemize}
+\item {} 
+\par
+Die Reihe divergiert auf \$\textbackslash{}C\textbackslash{}setminus\textbackslash{}overline\{B\_\{r,R\}(p)\},
+
+\item {} 
+\par
+Die Reihe konvergiert auf \(B_{r,R}(p)\),
+
+\item {} 
+\par
+für \(r<\tilde{r}<\tilde{R}< R\) konvergiert die Reihe gleichmäßig absolut auf \(B_{\tilde{r},\tilde{R}}(p)\)
+
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+ Folgt direkt aus \cref{complexanalysis/powerseries:lem:powerradius} \end{proof}
+
+\par
+Analog zur Entwicklung in die Taylorreihe haben wir auf offenen Ringen eine Entwicklung in Laurent Reihen.
+\begin{lemma}{}{complexanalysis/residuensatz:lem:laurent}
+
+
+
+\par
+Es sei \(f:B_{r,R}(p)\to\C\) holomorph, dann gilt
+\begin{align*}
+f(z) = \sum_{j=-\infty}^\infty a_j (z-p)^j,
+\end{align*}
+\par
+wobei die Koeffizienten für \(j\in\Z\) gegeben sind durch
+\begin{align*}
+a_j = \frac{1}{2\pi i} \oint_{\partial B_s(p)} \frac{f(z)}{(z-p)^{j+1}} dz \text{ für beliebiges } s\in (r,R).
+\end{align*}\end{lemma}
+
+\begin{proof}
+ ToDo, siehe \cite{Nee17} Satz 6.7.
+\end{proof}
+
+\par
+Mithilfe der Laurent Entwicklung auf der gelochten Kreisscheibe \(B_{0,R}(p)\) können wir nun Singularitäten von holomorphen Funktionen charakterisieren.
+\begin{lemma}{}{complexanalysis/residuensatz:lemma-6}
+
+
+
+\par
+Es sei \(f:U\setminus\{p\}\to\C\) holomorph, \(B_{0,R}(p)\subset U\setminus\{p\}\) und \(a_j\in\C, j\in\Z\) seien die Koeffizienten der Laurent Entwicklung auf \(B_{0,R}\) welche nach \cref{complexanalysis/residuensatz:lem:laurent} existieren. Dann gilt:
+\begin{enumerate}
+
+\item {} 
+\par
+Die Singularität \(p\) ist genau dann hebbar, wenn \(a_{j}=0\) für alle \(j<0\).
+
+\item {} 
+\par
+Die Singularität \(p\) ist genau dann ein Pol der Ordnung \(k\in\N\), \(a_{-k}\neq 0\) und \(a_j = 0\) für alle \(j<k\).
+
+\item {} 
+\par
+Die Singularität \(p\) ist genau dann wesentlich, falls \(a_{-j}\neq 0\) für fast alle \(j\in\N\).
+
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+ \textbf{Ad 1.}
+
+\par
+Gilt \(a_j=0\) für alle \(j<0\) so ist die Laurent Reihe
+\begin{align*}
+f(z) = \sum_{0}^\infty a_j (z-p)^j,
+\end{align*}
+\par
+holomorph von \(B_{0,R}(p)\) auf \(B_R(p)\) fortsetzbar und die Singularität somit hebbar.
+
+\par
+\textbf{Ad 2.}
+
+\par
+ToDo
+
+\par
+\textbf{Ad 3.}
+
+\par
+ToDo
+\end{proof}
+\begin{definition}{}{complexanalysis/residuensatz:definition-7}
+
+
+
+\par
+Sei \(D \subset \C\) eine offene Teilmenge.
+Wir nennen eine Funktion \(f \colon D \rightarrow \C\) \textbf{meromorph} auf \(D\) genau dann, wenn eine lokalendliche Menge \(P\) existiert, so dass die Funktion \(f\) holomorph auf \(D \setminus P\) mit Polen in \(P\) ist.
+\end{definition}
+\begin{example}{(Meromorphe Funktionen)}{complexanalysis/residuensatz:example-8}
+
+
+
+\par
+Rationale Funktionen oder konkretes Beispiel
+
+\par
+Schulz Baldes S.332
+\end{example}
+
+
+\subsection{Der Satz von Casorati–Weierstraß}
+\label{\detokenize{complexanalysis/residuensatz:der-satz-von-casorati-weierstrasz}}
+\par
+Für wesentliche Singularitäten \(p\) können wir weder einen Wert der Funktion am Punkt \(p\) definieren, noch feststellen, dass die Funktion hier eindeutig gegen unendlich strebt. Tatsächlich nimmt eine Funktion um eine wesentliche Singularität herum überaschend viele verschiedene Werte an. Diese ist die Aussage des Satzes von Casorati–Weierstraß.
+
+\begin{emphBox}{Felice Casorati}{}
+
+\par
+\href{https://de.wikipedia.org/wiki/Felice\_Casorati\_(Mathematiker)}{Felice Casorati} (Geboren 17. Dezember 1835 in Pavia; Gestorben 11. September 1890 in Casteggio) war ein italienischer Mathematiker.
 \end{emphBox}
 
-\par
-Wir wollen im Folgenden annehmen, dass \(f\) eine holomorphe Funktion auf einer offenen Teilmenge \(D \subset \C\) ist.
-Wir betrachten \(f(z) \mathrm{d}z\) als die zugehörige \(1\) Form und außerdem sei \(\gamma \colon I \rightarrow D\) für \(I := [0,1]\) ein glatter Weg.
-Wegen der Jacobischen Transformationsformel in \cref{masstheorie/integrationstechnik:thm:jacobitransformation} gilt dann für das Kurvenintegral von \(f\) bezüglich \(\gamma\)
-\begin{align}\label{equation:complexanalysis/kurvenintegrale:eq:kurvenintegral}
-\int_{\gamma} f(z) \, \mathrm{d}z = \int_I \gamma^*(f(z) \, \mathrm{d}z) = \int_0^1 f(\gamma(t)) \gamma'(t) \, \mathrm{d}t.
-\end{align}
-\par
-Häufig ist die Annahme eines global glatten Weges \(\gamma\) eine zu starke Forderung.
-Es genügt auch zu fordern, dass der Weg \(\gamma\) stückweise glatt ist und aus endlich vielen Teilstücken besteht.
-In diesem Fall lässt sich das Integral \cref{complexanalysis/kurvenintegrale:equation-eq-kurvenintegral} als Summe der Integrale über die Teilstücke schreiben.
+\begin{emphBox}{Karl Weierstraß}{}
 
 \par
-\textbf{ToDo: Abbildung von stückweise glatten Wegen / Kurven}
+\href{https://de.wikipedia.org/wiki/Karl\_Weierstra\%C3\%9F}{Karl Theodor Wilhelm Weierstraß} (Geboren 31. Oktober 1815 in Ostenfelde bei Ennigerloh, Münsterland; Gestorben 19. Februar 1897 in Berlin) war ein deutscher Mathematiker.
+\end{emphBox}
+\begin{theorem}{}{complexanalysis/residuensatz:theorem-9}
 
+
+
+\par
+Es sei \(U \subset \C\) offen und \(p\in U\) eine wesentliche Singularität der holomorphen Funktion \(f:U\setminus\{p\}\to\C\), dann gilt, dass \(f(U\setminus\{p\})\) dicht in \(\C\) liegt.
+\end{theorem}
+
+\begin{proof}
+ Angenommen \(f(U\setminus\{p\})\) wäre nicht dicht, dann existiert ein \(w\in\C\) und ein \(r>0\), s.d.
+\begin{align*}
+B_r(w) \cap f(U\setminus\{p\}) = \emptyset.
+\end{align*}
+\par
+Da das Bild von \(f\) somit einen echten Abstand zum Punkt \(p\) hat ist die Funktion
+\begin{align*}
+z\mapsto\frac{1}{f(z) - w}
+\end{align*}
+\par
+beschränkt und holomorph auf \(U\setminus\{p\}\). Somit folgt mit dem Hebbarkeitssatz \cref{complexanalysis/residuensatz:thm:hebbar}  dass diese Funktion einen hebbaren Pol bei \(p\) hat und somit zur holomorphen Funktion \(h:U\to\C\) fortsetzbar auf \(U\) ist. Diese Funktion hat keine Nullstellen
+
+\par
+ToDo
+\end{proof}
+
+
+\subsection{Umlaufzahlen}
+\label{\detokenize{complexanalysis/residuensatz:umlaufzahlen}}
 \par
 Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in \(\C\), den sogenannten Index.
-\begin{definition}{(Index)}{complexanalysis/kurvenintegrale:definition-1}
+\begin{definition}{}{complexanalysis/residuensatz:definition-10}
 
 
 
@@ -9315,7 +10640,7 @@ Sie ist eine \emph{topologische Invariante}, die anschaulich beschreibt, wie hä
 
 \par
 \textbf{ToDo: Abbildung mit Beispiel von \href{https://de.wikipedia.org/wiki/Umlaufzahl\_(Mathematik)}{Wikipedia}}
-\begin{lemma}{}{complexanalysis/kurvenintegrale:lemma-2}
+\begin{lemma}{}{complexanalysis/residuensatz:lemma-11}
 
 
 
@@ -9329,291 +10654,11 @@ Dann ist die Abbildung, die jedem Punkt \(w \in \C \setminus \operatorname{Bild}
 \end{proof}
 
 
-\subsection{Homotopie}
-\begin{definition}{(Homotopie)}{\detokenize{complexanalysis/kurvenintegrale:homotopie}}\label{complexanalysis/kurvenintegrale:definition-3}
-
-
-
-\par
-Sei \(I := [0,1]\) ein reelles Intervall und \(D \subset \C\) eine Teilmenge.
-Wir nennen zwei Wege \(\gamma, \Gamma \colon I \rightarrow D\) \textbf{homotop} in der Teilmenge \(D\) genau dann, wenn eine stetige Abbildung \(H \colon I \times I \rightarrow D\) existiert, so dass
-\begin{align*}
-H(t,0) = \gamma(t), \qquad H(t,1) = \Gamma(t).
-\end{align*}
-\par
-In diesem Fall nennen wir die Abbildung \(H\) eine \textbf{Homotopie} zwischen den Wegen \(\gamma\) und \(\Gamma\).
-\end{definition}
-
-\par
-Man kann zeigen, dass der Begriff der Homotopie zwischen Wegen in einer Teilmenge \(D \subset \C\) eine \emph{Äquivalenzrelation} auf Wegen in \(D\) induziert.
-Die zugehörigen Äquivalenzklassen werden auch \emph{Homotopieklassen} genannt.
-
-\par
-Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.
-\begin{lemma}{}{complexanalysis/kurvenintegrale:lemma-4}
-
-
-
-\par
-Sei \(D \subset \C\) eine Teilmenge und seien \(\gamma\) und \(\Gamma\) geschlossene, homotope Wege in \(D\).
-Sei außerdem \(f \colon D \rightarrow \C\) eine holomorphe Funktion.
-
-\par
-Dann gilt
-\begin{align*}
-\oint_\gamma f(z) \, \mathrm{d}z = \oint_\Gamma f(z) \, \mathrm{d}z.
-\end{align*}\end{lemma}
-
-\begin{proof}
- Schulz Baldes S.321
-\end{proof}
-
-\par
-Eine besondere Klasse von Wegen sind solche, die nullhomotop sind.
-\begin{definition}{(Nullhomotoper Weg)}{complexanalysis/kurvenintegrale:definition-5}
-
-
-
-\par
-Wir nennen einen Weg \(\gamma\) \textbf{nullhomotop} in einer Teilmenge \(D \subset \C\) genau dann, wenn \(\gamma\) homotop in \(D\) zu einem konstanten Weg ist.
-\end{definition}
-
-\par
-Wir realisieren also, dass sich nullhomotope Wege in einer Teilmenge \(D \subset \C\) zu einem Punkt \(w \in D\) zusammenziehen lassen.
-Darüber hinaus zeigt der folgende Satz, dass das Kurvenintegral einer holomorphe Funktionen auf einem nullhomotopen Weg verschwindet.
-\begin{theorem}{(Satz von Cauchy)}{complexanalysis/kurvenintegrale:theorem-6}
-
-
-
-\par
-Sei \(\gamma\) ein nullhomotoper Weg in einer Teilmenge \(D \subset \C\), der sich zu einem Punkt \(w \in D\) zusammenziehen lässt.
-Sei darüber hinaus \(f \colon D \rightarrow \C\) eine stetige Funktion, welche zudem holomorph auf der Menge \(D \setminus \{w\}\) sei.
-
-\par
-Dann gilt für das Kurvenintegral
-\begin{align*}
-\oint_\gamma f(z) \, \mathrm{d}z = 0.
-\end{align*}\end{theorem}
-
-\begin{proof}
- Schulz Baldes S.322
-\end{proof}
-
-
-\subsection{Cauchyscher Integralsatz}
-\label{\detokenize{complexanalysis/kurvenintegrale:cauchyscher-integralsatz}}
-\par
-Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
-Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen.
-\begin{theorem}{(Cauchyscher Integralsatz)}{complexanalysis/kurvenintegrale:theorem-7}
-
-
-
-\par
-Sei \(D \subset \C\) ein Sterngebiet, d.h., \(D\) ist eine offene Menge in der mindestens einen Punkt \(z_0 \in \C\) gibt, so dass die Verbindungsstrecke jedes beliebigen Punktes \(z \in D\) zu \(z_0\) vollständig in \(D\) liegt.
-Sei außerdem \(\gamma\) ein geschlossener Weg in \(D\).
-
-\par
-Dann lässt sich der Funktionswert von \(f\) in jedem Punkt \(z \in D \setminus \operatorname{Bild}(\gamma)\) darstellen durch das Kurvenintegral
-\begin{align*}
-f(z) \ = \ \frac{1}{\operatorname{Ind}_\gamma(z)} \oint_\gamma \frac{f(\zeta)}{\zeta - z} \frac{\mathrm{d}\zeta}{2\pi i}.
-\end{align*}\end{theorem}
-
-\begin{proof}
- Schulz Baldes S.323
-\end{proof}
-
-\par
-Wir werden den Cauchyschen Integralsatz später noch in Form des sogenannten \emph{Residuensatzes} stark verallgemeinern.
-Für den Moment erlaubt uns dessen Aussage jedoch zu zeigen, dass jede holomorphe Funktion bereits analytisch ist, was die Umkehrung zu \cref{complexanalysis/cauchyriemann:thm:analytischHolomorph} ist.
-\begin{theorem}{(Holomorphe Funktionen sind analytisch)}{complexanalysis/kurvenintegrale:theorem-8}
-
-
-
-\par
-Sei \(\epsilon > 0\) und \(z_0 \in D\) ein Punkt in einer offenen Teilmenge \(D \subset \C\).
-Sei außerdem \(f \colon B_\epsilon(z_0) \rightarrow \C\) eine holomorphe Funktion.
-
-\par
-Dann ist die Funktion \(f\) für jeden Punkt \(z \in B_\epsilon(z_0)\) durch eine konvergente Potenzreihe darstellbar (also analytisch) als
-\begin{align*}
-f(z) = \sum_{n=1}^\infty a_n (z-z_0)^n,
-\end{align*}
-\par
-deren Koeffizienten \((a_n)_{n\in\N}\) für alle \(\epsilon' < \epsilon\) gegeben sind durch
-\begin{align*}
-a_n \ = \ \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i}.
-\end{align*}
-\par
-Insbesondere ist \(f\) unendlich oft komplex differenzierbar und für alle \(n \in \N\) gilt für die \(n\) te Ableitung von \(f\)
-\begin{align*}
-f^{(n)}(z_0) \ = \ n! \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i} = n! a_n.
-\end{align*}\end{theorem}
-
-\begin{proof}
- Schulz Baldes S.325f.
-\end{proof}
-
-\par
-Das folgende Korollar erlaubt eine direkte Abschätzung der \(n\) ten Ableitung einer holomorphen Funktion.
-\label{complexanalysis/kurvenintegrale:corollary-9}
-\begin{emphBox}{}{}{Corollary 7.1 (Cauchy Abschätzungen)}
-
-
-
-\par
-Sei \(\epsilon > 0\) und \(z_0 \in D\) ein Punkt in einer offenen Teilmenge \(D \subset \C\).
-Außerdem sei \(f \colon B_\epsilon(z_0) \rightarrow \C\) eine holomorphe Funktion.
-Dann gilt für alle \(0 < \epsilon' < \epsilon\) die folgende genannte \textbf{Cauchy Abschätzung}
-\begin{align*}
-|f^{(n)}(z_0)| \ \leq \ \frac{n!}{\epsilon'^n} \max_{|z - z_0|=\epsilon'} |f(z)|.
-\end{align*}\end{emphBox}
-
-
-\section{Laurententwicklung und Residuensatz}
-\label{\detokenize{complexanalysis/residuensatz:laurententwicklung-und-residuensatz}}\label{\detokenize{complexanalysis/residuensatz::doc}}
-
-\subsection{Singularitäten homomorpher Funktionen}
-\label{\detokenize{complexanalysis/residuensatz:singularitaten-homomorpher-funktionen}}
-\par
-In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.
-\begin{definition}{(Singularitäten)}{complexanalysis/residuensatz:definition-0}
-
-
-
-\par
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) ein Punkt.
-
-\par
-1. Wenn \(f \colon D \setminus \{z_0\} \rightarrow \C\) eine holomorphe Funktion ist.
-Dann nennen wir den Punkt \(z_0\) eine \textbf{isolierte Singularität} von \(f\).
-
-\par
-2. Wir nennen den Punkt \(z_0\) eine \textbf{hebbare Singularität}, wenn \(z_0\) eine isolierte Singularität einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\) ist und es eine holomorphe Funktion \(g \colon D \rightarrow \C\) gibt, so dass \(g(z) = f(z)\) gilt für alle \(z \in D \setminus \{z_0\}\).
-
-\par
-3. Wir nennen den Punkt \(z_0\) einen \textbf{Pol}, wenn für alle Folgen \(z_n \rightarrow z_0\) gilt
-\begin{align*}
-\lim_{n\rightarrow \infty} |f(z_n)| = \infty.
-\end{align*}
-\par
-4. Wir nennen den Punkt \(z_0\) eine \textbf{wesentliche Singularität}, wenn \(z_0\) weder hebbar noch Pol ist.
-\end{definition}
-
-\par
-Der Satz von Casorati Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.
-\begin{remark}{(Casorati Weierstraß)}{complexanalysis/residuensatz:remark-1}
-
-
-
-\par
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) ein Punkt.
-
-\par
-Der Punkt \(z_0\) ist genau dann eine wesentliche Singularität einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\), wenn für alle \(\epsilon > 0\) die Menge der Funktionswerte \(f(B_\epsilon(z_0)) \setminus \{z_0\})\) dicht in \(\C\) liegt.
-\end{remark}
-
-\par
-\textbf{ToDo: Hier Beispiel zu Singularitäten? Schulz Baldes S.329}
-\begin{theorem}{(Riemannscher Hebbarkeitssatz)}{complexanalysis/residuensatz:theorem-2}
-
-
-
-\par
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) ein Punkt.
-Sei außerdem \(f \colon D \setminus \{z_0\} \rightarrow \C\) eine holomorphe Funktion.
-Falls eine Umgebung \(U \subset D\) von \(z_0\) gibt, so dass \(f\) auf \(U \setminus \{z_0\}\) beschränkt ist, so kann man einen Funktionswert \(f(z_0)\) in \(z_0\) so wählen, dass die Funktion \(f\) auf der gesamten Teilmenge \(D\) holomorph ist, d.h., der Punkt \(z_0\) ist eine hebbare Singularität.
-\end{theorem}
-
-\begin{proof}
- Schulz Baldes S.327
-\end{proof}
-
-\par
-Das folgende Lemma charakterisiert Pole einer holomorphen Funktion.
-\begin{lemma}{}{complexanalysis/residuensatz:lem:pole}
-
-
-
-\par
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) eine isolierte Singularität einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\).
-
-\par
-Dann sind folgende Aussagen äquivalent:
-
-\par
-1. Der Punkt \(z_0\) ist ein Pol der Funktion \(f\).
-
-\par
-2. Es existiert ein \(m \in \N\), so dass die Funktion \((z - z_0)^m f(z)\) beschränkt in einer lokalen Umgebung von \(z_0\) ist, jedoch die Funktion \((z - z_0)^{m-1} f(z)\) unbeschränkt ist.
-
-\par
-Die Ordnung der Funktion \(f\) im Pol \(z_0\) ist dann definiert als
-\begin{align*}
-\operatorname{Ord}_{z_0}(f) := -m.
-\end{align*}\end{lemma}
-
-\begin{proof}
- Schulz Baldes S.330
-\end{proof}
-
-\par
-Dieser Begriff von Ordnung setzt den Begriff der Ordnung von Polynomen für holomorphe Funktionen fort.
-Häufig spricht man jedoch nur von der Ordnung \(m > 0\) eines Pols.
-
-
-\subsection{Laurent Reihe}
-\label{\detokenize{complexanalysis/residuensatz:laurent-reihe}}
-\par
-Die Beobachtung aus \cref{complexanalysis/residuensatz:lem:pole} motiviert die folgende Definition der Laurent Reihe, die nach \{prf:ref\}`` immer an einem Pol von Ordnung \(m\) existiert.
-\label{complexanalysis/residuensatz:definition-4}
-\begin{emphBox}{}{}{ (Laurent Reihe)}
-
-
-
-\par
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) Pol von Ordnung \(m\) einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\).
-
-\par
-Dann definieren wir die \textbf{Laurent Reihe} von \(f\) um den Pol \(z_0\) durch
-\begin{align*}
-f(z) := \sum_{n=-m}^\infty a_n (z-z_0)^n.
-\end{align*}
-\par
-Als \textbf{Hauptteil} der Laurent Reihe bezeichnen wir den Term
-\begin{align*}
-\sum_{n=-m} a_n (z-z_0)^n
-\end{align*}
-\par
-und das \textbf{Residuum} von \(f\) bei \(z_0\) als
-\begin{align*}
-\operatorname{Res}_{z_0}(f) = a_{-1}.
-\end{align*}\begin{definition}{}{complexanalysis/residuensatz:definition-5}
-
-
-
-\par
-Sei \(D \subset \C\) eine offene Teilmenge.
-Wir nennen eine Funktion \(f \colon D \rightarrow \C\) \textbf{meromorph} auf \(D\) genau dann, wenn eine lokalendliche Menge \(P\) existiert, so dass die Funktion \(f\) holomorph auf \(D \setminus P\) mit Polen in \(P\) ist.
-\end{definition}
-\end{emphBox}
-\begin{example}{(Meromorphe Funktionen)}{complexanalysis/residuensatz:example-6}
-
-
-
-\par
-Rationale Funktionen oder konkretes Beispiel
-
-\par
-Schulz Baldes S.332
-\end{example}
-
-
 \subsection{Cauchyscher Residuensatz}
 \label{\detokenize{complexanalysis/residuensatz:cauchyscher-residuensatz}}
 \par
 Das folgende Lemma erlaubt die explizite Berechnung des Residuums.
-\begin{lemma}{(Berechnung des Residuums)}{complexanalysis/residuensatz:lemma-7}
+\begin{lemma}{}{complexanalysis/residuensatz:lemma-12}
 
 
 
@@ -9634,7 +10679,7 @@ Falls der Pol von Ordnung \(-m\) ist, lässt sich das Residuum von \(f\) bei \(z
 \begin{proof}
  Schulz Baldes S.333f.
 \end{proof}
-\begin{example}{(Berechnung des Residuums)}{complexanalysis/residuensatz:example-8}
+\begin{example}{(Berechnung des Residuums)}{complexanalysis/residuensatz:example-13}
 
 
 
@@ -9644,7 +10689,7 @@ Rationale Funktion bei Schulz Baldes S.335
 
 \par
 Der folgende Residuensatz von Cauchy stellt eine zentrale Aussage der Funktionentheorie vor.
-\begin{theorem}{(Cauchyscher Residuensatz)}{complexanalysis/residuensatz:theorem-9}
+\begin{theorem}{}{complexanalysis/residuensatz:theorem-14}
 
 
 
@@ -9661,7 +10706,7 @@ Dann gilt der folgende Zusammenhang
 \begin{proof}
  Schulz Baldes S.337
 \end{proof}
-\begin{remark}{}{complexanalysis/residuensatz:remark-10}
+\begin{remark}{}{complexanalysis/residuensatz:remark-15}
 
 
 
@@ -9669,7 +10714,7 @@ Dann gilt der folgende Zusammenhang
 Für holomorphe Funktionen \(f\) entspricht der Residuensatz gerade dem Cauchyschen Integralsatz.
 Wenn \(D\) als Sterngebiet angenommen wird ist die Zusammenziehbarkeit des Wegs \(\gamma\) immer erfüllt.
 \end{remark}
-\begin{example}{}{complexanalysis/residuensatz:example-11}
+\begin{example}{}{complexanalysis/residuensatz:example-16}
 
 
 
@@ -9684,7 +10729,7 @@ Viele konkrete Beispiele in Schulz Baldes S.338 344
 
 
 \begin{sphinxthebibliography}{Janich03}
-\bibitem[AF13]{references:id15}
+\bibitem[AF13]{references:id16}
 \par
 Ilka Agricola and Thomas Friedrich. \emph{Globale Analysis   Differentialformen in Analysis, Geometrie und Physik}. Springer Verlag, Berlin Heidelberg New York, edition, 2013. ISBN 978 3 322 92903 7.
 \bibitem[Bog07]{references:id5}
@@ -9696,7 +10741,7 @@ Martin Burger. \emph{Skript zur Vorlesung "Mathematik für Data Science 1 / Phys
 \bibitem[For17]{references:id4}
 \par
 Otto Forster. \emph{Analysis 2}. Springer, 2017.
-\bibitem[Janich03]{references:id16}
+\bibitem[Janich03]{references:id17}
 \par
 Klaus Jänich. \emph{Der Tangentialraum}. Springer Berlin Heidelberg, 2003. URL: \url{https://doi.org/10.1007/978-3-662-10750-8\_2}, \href{https://doi.org/10.1007/978-3-662-10750-8\_2}{doi:10.1007/978 3 662 10750 8\_2}.
 \bibitem[Kna13]{references:id7}
@@ -9705,9 +10750,12 @@ Peter Knabner. \emph{Skript zur Vorlesung "Gewöhnliche Differentialgleichungen"
 \bibitem[Kna20]{references:id9}
 \par
 Andreas Knauf. \emph{Skript zur Vorlesung "Mathematik für Physikstudierende 3"}. 2020.
-\bibitem[Lee03]{references:id17}
+\bibitem[Lee03]{references:id18}
 \par
 John Lee. \emph{Introduction to smooth manifolds}. Springer, New York, 2003. ISBN 0 387 95448 1.
+\bibitem[Nee17]{references:id13}
+\par
+Karl Hermann Neeb. \emph{Skript zur Vorlesung "Funktionentheorie I"}. 2017.
 \bibitem[Nol11]{references:id11}
 \par
 Wolfgang Nolting. \emph{Grundkurs Theoretische Physik 2   Analytische Mechanik}. Springer Berlin Heidelberg, 2011. \href{https://doi.org/10.1007/978-3-642-12950-6}{doi:10.1007/978 3 642 12950 6}.
@@ -9717,7 +10765,7 @@ Herman Schulz Baldes. \emph{Skript zur Vorlesung "Mathematik für Physiker 3"}. 
 \bibitem[Tao07]{references:id6}
 \par
 Terence Tao. \emph{An Introduction to Measure Theory}. AMS, 2007.
-\bibitem[Ten21]{references:id14}
+\bibitem[Ten21]{references:id15}
 \par
 Daniel Tenbrinck. \emph{Skript zur Vorlesung "Mathematik für Data Science 2"}. 2021. URL: \url{https://fau-ammn.github.io/MathDataScience2}.
 \end{sphinxthebibliography}

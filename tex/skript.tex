@@ -80,7 +80,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{08.02.2022}
+\date{12.02.2022}
 \release{}
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -116,7 +116,7 @@ Das Skript orientiert sich teilweise an dem Vorlesungsskript “Mathematik für 
 \sphinxAtStartPar
 In diesem ersten Kapitel der Vorlesung wollen wir weiterführende Konzepte zum Thema gewöhnlicher Differentialgleichungen einführen.
 Insbesondere wollen wir uns mit gewöhnlichen Differentialgleichungen für dynamische Systeme beschäftigen.
-Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 8 {[}\hyperlink{cite.references:id14}{Ten21}{]} kennengelernt haben.
+Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 8 {[}\hyperlink{cite.references:id15}{Ten21}{]} kennengelernt haben.
 Anschließend definieren wir zwei grundlegende mathematische Werkzeuge um dynamische Systeme zu charakterisieren, nämlich Flüsse und Phasenportraits.
 Zum Schluss wollen wir diese zur Untersuchung und Lösung von Hamiltonschen Differentialgleichungen nutzen, welche eine insbesondere in der klassischen Mechanik innerhalb der Physik eine wichtige Rolle spielen.
 
@@ -227,7 +227,7 @@ Wir werden diese Art von Differentialgleichungen in Kapitel {\hyperref[\detokeni
 \section{Wiederholung: Gewöhnliche Differentialgleichungen}
 \label{\detokenize{ode/repetition:wiederholung-gewohnliche-differentialgleichungen}}\label{\detokenize{ode/repetition::doc}}
 \sphinxAtStartPar
-In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in {[}\hyperlink{cite.references:id14}{Ten21}{]} wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
+In diesem Abschnitt werden wir kurz die wichtigsten Definitionen und Ergebnisse zu gewöhnlichen Differentialgleichungen aus Kapitel 8 in {[}\hyperlink{cite.references:id15}{Ten21}{]} wiederholen und um neue Begriffe erweitern, mit denen wir die Theorie dynamischer Systeme mathematisch untersuchen können.
 
 
 \subsection{Gewöhnliche Differentialgleichungen}
@@ -509,7 +509,7 @@ Man sagt, \(F\) genüge in \(G\) einer \sphinxstylestrong{lokalen Lipschitz\sphi
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Für die \sphinxstylestrong{(lokale) Existenz von Lösungen} haben wir in Kapitel 8.4 {[}\hyperlink{cite.references:id14}{Ten21}{]} den Satz von Picard\sphinxhyphen{}Lindelöf formuliert, den wir im Folgenden wiederholen werden.
+Für die \sphinxstylestrong{(lokale) Existenz von Lösungen} haben wir in Kapitel 8.4 {[}\hyperlink{cite.references:id15}{Ten21}{]} den Satz von Picard\sphinxhyphen{}Lindelöf formuliert, den wir im Folgenden wiederholen werden.
 \label{ode/repetition:thm:piclindlokal}
 \begin{sphinxadmonition}{note}{Theorem 1.1 (Lokaler Existenzsatz nach Picard–Lindelöf)}
 
@@ -595,7 +595,7 @@ Proof. Siehe Theorem 2.25, Kapitel 2.3 {[}\hyperlink{cite.references:id7}{Kna13}
 \subsection{Lösungen von linearen Differentialgleichungssystemen}
 \label{\detokenize{ode/repetition:losungen-von-linearen-differentialgleichungssystemen}}\label{\detokenize{ode/repetition:s-lineare-dglsysteme}}
 \sphinxAtStartPar
-Analog zu Kapitel 8 in {[}\hyperlink{cite.references:id14}{Ten21}{]} wollen wir uns mit Lösungen für \sphinxstylestrong{homogene lineare Differentialgleichungen} beschäftigen, jedoch dieses Mal nicht im skalaren Fall \(n=1\), sondern für ein Anfangswertproblem von der Form
+Analog zu Kapitel 8 in {[}\hyperlink{cite.references:id15}{Ten21}{]} wollen wir uns mit Lösungen für \sphinxstylestrong{homogene lineare Differentialgleichungen} beschäftigen, jedoch dieses Mal nicht im skalaren Fall \(n=1\), sondern für ein Anfangswertproblem von der Form
 \begin{equation}\label{equation:ode/repetition:eq:linhomdglsystem}
 \begin{split}\dot{x}(t) &= A x(t), \quad \forall t \in I \subset \R^+_0, \\
 x(t_0) &= x_0 \in U \subset \R^n.\end{split}
@@ -703,7 +703,7 @@ Hierzu wollen wir die abschließende Bemerkung machen.
 
 
 \sphinxAtStartPar
-1. Zur Berechnung einer konkreten Lösung \(x(t)\) des linearen homogenen Differentialgleichungssystems \eqref{equation:ode/repetition:eq:linhomdglsystem} bietet es sich an, die \sphinxstylestrong{Jordansche Normalform} \(J = SAS^{-1}\) von \(A\) aus Kapitel 2.7 in {[}\hyperlink{cite.references:id14}{Ten21}{]} auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
+1. Zur Berechnung einer konkreten Lösung \(x(t)\) des linearen homogenen Differentialgleichungssystems \eqref{equation:ode/repetition:eq:linhomdglsystem} bietet es sich an, die \sphinxstylestrong{Jordansche Normalform} \(J = SAS^{-1}\) von \(A\) aus Kapitel 2.7 in {[}\hyperlink{cite.references:id15}{Ten21}{]} auszunutzen, da für diese das Matrixexponential wie folgt berechnet werden kann:
 \begin{equation*}
 \begin{split}e^{tA} &=  \sum_{k=0}^\infty \frac{(t A)^k}{k!} = \sum_{k=0}^\infty \frac{(tS^{-1}JS)^k}{k!} 
 \\&= 
@@ -720,7 +720,7 @@ für eine Transformationsmatrix \(S \in \C^{n \times n}\), eine Diagonalmatrix \
 x(t_0) &= x_0 \in U \subset \R^n,\end{split}
 \end{equation}
 \sphinxAtStartPar
-so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in {[}\hyperlink{cite.references:id14}{Ten21}{]} eine eindeutige Lösung des Anfangswertproblems \eqref{equation:ode/repetition:eq:lininhomdglsystem} angeben als
+so lässt sich über die Variation der Konstanten aus Kapitel 8.2 in {[}\hyperlink{cite.references:id15}{Ten21}{]} eine eindeutige Lösung des Anfangswertproblems \eqref{equation:ode/repetition:eq:lininhomdglsystem} angeben als
 \begin{equation*}
 \begin{split}x(t) = e^{tA}x_0 + \int_0^t e^{(t-s)A}b(s) \, \mathrm{d}s.\end{split}
 \end{equation*}
@@ -946,7 +946,7 @@ Weiterhin wissen wir auf Grund der ersten Flusseigenschaft, dass
 \begin{split}\phi_1(0) = \Phi(s, x_0) = \Phi(0, \Phi(s, x_0)) = \phi_2(0).\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall \([t, \epsilon(x_0)]\) gleich, was eine direkte Folgerung aus dem Eindeutigkeitssatz 8.20 aus {[}\hyperlink{cite.references:id14}{Ten21}{]} ist.
+Somit stimmen also beide Funktionen an einem Punkt überein und sind somit schon auf dem gesamten Intervall \([t, \epsilon(x_0)]\) gleich, was eine direkte Folgerung aus dem Eindeutigkeitssatz 8.20 aus {[}\hyperlink{cite.references:id15}{Ten21}{]} ist.
 Wir haben also insgesamt
 \begin{equation*}
 \begin{split}\Phi(s + \tau, x_0) = \phi_1(\tau) = \phi_2(\tau) = \Phi(\tau, \Phi(s,x_0))\end{split}
@@ -1530,7 +1530,7 @@ Die Ruhelage ist \sphinxstylestrong{instabil} für den Fall einer negativen Reib
 \label{\detokenize{odestability/ruhelagen:stabilitat-von-ruhelagen}}\label{\detokenize{odestability/ruhelagen::doc}}
 \sphinxAtStartPar
 Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine \sphinxstylestrong{lineare} Differentialgleichungssysteme untersuchen.
-Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in {[}\hyperlink{cite.references:id14}{Ten21}{]} kennen gelernt.
+Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in {[}\hyperlink{cite.references:id15}{Ten21}{]} kennen gelernt.
 
 \sphinxAtStartPar
 Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.
@@ -1661,7 +1661,7 @@ Im Folgenden definieren wir zwei wichtige Werkzeuge zur Untersuchung der Stabili
 
 \sphinxAtStartPar
 Sei \(F\in C^1(U;\R^n)\) ein Vektorfeld auf dem Phasenraum \(U \subset \R^n\) und \(0\) eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in \eqref{equation:odestability/ruhelagen:eq:awpallg} charakterisiert wird.
-Sei nun \((DF)(x)\) die Jacobi\sphinxhyphen{}Matrix der Funktion \(F\) im Punkt \(x \in U\) (vgl. Kapitel 6.2 in {[}\hyperlink{cite.references:id14}{Ten21}{]}).
+Sei nun \((DF)(x)\) die Jacobi\sphinxhyphen{}Matrix der Funktion \(F\) im Punkt \(x \in U\) (vgl. Kapitel 6.2 in {[}\hyperlink{cite.references:id15}{Ten21}{]}).
 Dann bezeichnen wir mit \(A := (DF)(0)\) die \sphinxstylestrong{Linearisierung} von \(F\) in der Ruhelage \(0 \in U\).
 Außerdem bezeichnen wir die Funktion \(R \in C^1(U; \R^n)\) mit
 \begin{equation*}
@@ -1695,7 +1695,7 @@ Proof. Wir setzen zunächst die unbekannte Lösung \(x(t)\) des Anfangswertprobl
 \begin{split}x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0\end{split}
 \end{equation*}
 \sphinxAtStartPar
-an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion \(c(t)\) mittels \sphinxstylestrong{Variation der Konstanten} (vgl. Kapitel 8.2 in {[}\hyperlink{cite.references:id14}{Ten21}{]}).
+an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion \(c(t)\) mittels \sphinxstylestrong{Variation der Konstanten} (vgl. Kapitel 8.2 in {[}\hyperlink{cite.references:id15}{Ten21}{]}).
 
 \sphinxAtStartPar
 Mittels der Rechenregeln für das Matrixexponentials in {\hyperref[\detokenize{ode/repetition:rem:matrixexponentialregeln}]{\sphinxcrossref{Remark 1.3}}} können wir die Ableitung der Funktion \(x\) mittels Produktregel angeben als
@@ -1717,7 +1717,7 @@ gelten muss.
 Äquivalent können wir auch folgern, dass \(\dot{c}(s) = e^{-As}R(x(s))\) gilt.
 
 \sphinxAtStartPar
-Nach dem Hauptsatz der Differential\sphinxhyphen{} und Integralrechnung (vgl. Theorem 5.3 in {[}\hyperlink{cite.references:id14}{Ten21}{]}) gilt dann für die unbekannte Funktion \(c\) der folgende Zusammenhang
+Nach dem Hauptsatz der Differential\sphinxhyphen{} und Integralrechnung (vgl. Theorem 5.3 in {[}\hyperlink{cite.references:id15}{Ten21}{]}) gilt dann für die unbekannte Funktion \(c\) der folgende Zusammenhang
 \begin{equation*}
 \begin{split}c(t) = c(0) + \int_0^t \dot{c}(s)\, \mathrm{d}s = x_0+ \int_0^t e^{-As}R(x(s)) \, \mathrm{d}s.\end{split}
 \end{equation*}
@@ -1882,7 +1882,7 @@ Wir können nun einen Radius \(r\in (0,{r^\ast})\) bestimmen, so dass die folgen
 \begin{split}\|R(x)\| \leq \frac{\Lambda}{2c} \|x\|, \quad \forall \|x\| \leq r.\end{split}
 \end{equation}
 \sphinxAtStartPar
-Dies liegt an der totalen Differenzierbarkeit des Vektorfelds \(F\) in der Ruhelage (vgl. Kapitel 6.2 in {[}\hyperlink{cite.references:id14}{Ten21}{]}), denn dies bedeutet, dass das Residuum in der Nähe der Ruhelage schnell genug gegen Null konvergiert, so dass gilt
+Dies liegt an der totalen Differenzierbarkeit des Vektorfelds \(F\) in der Ruhelage (vgl. Kapitel 6.2 in {[}\hyperlink{cite.references:id15}{Ten21}{]}), denn dies bedeutet, dass das Residuum in der Nähe der Ruhelage schnell genug gegen Null konvergiert, so dass gilt
 \begin{equation*}
 \begin{split}\lim_{x\to 0} \frac{\|R(x)\|}{\|x\|} = \lim_{x\to 0}\frac{\|F(x)- (DF)(0)\cdot x\|}{\|x\|} = 0.\end{split}
 \end{equation*}
@@ -1984,7 +1984,7 @@ J_{r_1}(\lambda_1)& & & 0\\
 \end{pmatrix}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Hierbei bezeichnen \(r_i \in \N, i=1,\ldots, k\) die algebraischen Vielfachheiten der zugehörigen Eigenwerte und jeder Jordanblock (vgl. Kapitel 2.7 in {[}\hyperlink{cite.references:id14}{Ten21}{]})) hat die Gestalt
+Hierbei bezeichnen \(r_i \in \N, i=1,\ldots, k\) die algebraischen Vielfachheiten der zugehörigen Eigenwerte und jeder Jordanblock (vgl. Kapitel 2.7 in {[}\hyperlink{cite.references:id15}{Ten21}{]})) hat die Gestalt
 \begin{equation*}
 \begin{split} J_r(\lambda) \ \coloneqq \ \begin{pmatrix}
 \lambda & 1 & & 0\\
@@ -2175,7 +2175,7 @@ Dieses Kalkül lässt auch den geometrischen Gehalt physikalischer Theorien wie 
 So lassen sich beispielsweise die Maxwellschen Gleichungen der Elektrodynamik mit Hilfe des Differentialformenkalkül elegant beschreiben.
 
 \sphinxAtStartPar
-Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von Agricola und Friedrich {[}\hyperlink{cite.references:id15}{AF13}{]}.
+Als zusätzliche Literatur und Referenz für diese Thematiken empfehlen wir das Buch von Agricola und Friedrich {[}\hyperlink{cite.references:id16}{AF13}{]}.
 
 
 \section{Multilinearformen}
@@ -2212,7 +2212,7 @@ den \sphinxstylestrong{algebraischer Dualraum} zu \(V\).
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Aus {[}\hyperlink{cite.references:id14}{Ten21}{]} ist bereits der Begriff des \sphinxstyleemphasis{topologischen Dualraums} bekannt, welcher allerdings eine etwas restriktivere Definition hat.
+Aus {[}\hyperlink{cite.references:id15}{Ten21}{]} ist bereits der Begriff des \sphinxstyleemphasis{topologischen Dualraums} bekannt, welcher allerdings eine etwas restriktivere Definition hat.
 Sie fordert nämlich noch zusätzlich die Stetigkeit der linearen Abbildungen.
 \label{vektoranalysis/multilinear:def:topologischerDualraum}
 \begin{sphinxadmonition}{note}{Definition 3.2 (Topologischer Dualraum)}
@@ -3108,6 +3108,15 @@ ein Tensorprodukt der Vektorräume \(V=W=\R^2\).
 
 \sphinxAtStartPar
 Betrachten wir nun ein weiteres Tensorprodukt auf dem kartesischen Produktraum \(V \times W\), nämlich das \sphinxstylestrong{Kronecker\sphinxhyphen{}Produkt} \(\otimes_K\).
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Leopold Kronecker}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Leopold\_Kronecker}{Leopold Kronecker} (Geboren 7. Dezember 1823 in Liegnitz; Gestorben 29. Dezember 1891 in Berlin) war ein deutscher Mathematiker.
+\end{sphinxShadowBox}
+
+\sphinxAtStartPar
 Das Kronecker\sphinxhyphen{}Produkt realisiert eine Abbildung
 \begin{equation*}
 \begin{split}\otimes_K \colon \R^2 \times \R^2 \rightarrow \R^2 \otimes_K \R^2 = \R^{4} =: X_K,\end{split}
@@ -4600,14 +4609,16 @@ Proof. In der Hausaufgabe zu zeigen.
 \sphinxAtStartPar
 Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.
 \label{manifolds/manifolds_prelim:lem:differenzierbarkeitKartenunabhaengig}
-\begin{sphinxadmonition}{note}{Lemma 4.2}
+\begin{sphinxadmonition}{note}{Lemma 4.2 (Kartenunabhängigkeit)}
 
 
 
 \sphinxAtStartPar
 Es sei \(\M\) eine glatte Mannigfaltigkeit und \(\mathcal{A}\) ein Atlas auf \(\M\).
-Außerdem sei \(f:\M \to \R^m\) eine Funktion, \((U,\phi)\in \mathcal{A}\) eine Karte und \(x \in U\) ein Punkt in der offenen Menge \(U\).
-Ist \(f\circ\phi^{-1}\) differenzierbar in \(x\), so ist \(f\circ\psi^{-1}\) auch differenzierbar in \(x\) für jede Karte \((V,\psi) \in \mathcal{A}\) mit \(x\in V\).
+Außerdem sei \(f:\M \to \R^m\) eine Funktion, \((U,\varphi), (V,\varphi)\in \mathcal{A}\) zwei Karten mit \(x \in U\cap V\).
+
+\sphinxAtStartPar
+Dann gilt, \(f\circ\varphi^{-1}\) ist genau dann differenzierbar in \(\varphi(x)\), falls \(f\circ\psi^{-1}\) differenzierbar in \(\psi(x)\) ist.
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
@@ -4682,7 +4693,7 @@ Elemente dieses Raums sind dann je nach Kontext geometrisch oder algebraisch zu 
 \subsubsection{Geometrische Definition}
 \label{\detokenize{manifolds/tangential:geometrische-definition}}
 \sphinxAtStartPar
-Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der \sphinxstylestrong{Richtungsableitung} bekannt (siehe Kapitel 6.2.2 in {[}\hyperlink{cite.references:id14}{Ten21}{]}).
+Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der \sphinxstylestrong{Richtungsableitung} bekannt (siehe Kapitel 6.2.2 in {[}\hyperlink{cite.references:id15}{Ten21}{]}).
 Hierbei betrachtet man für eine Funktion \(F:\R^n\to\R\) den Strahl \(\gamma(t):= x + t\cdot v\), wobei \(x,v\in\R^n\) und den Grenzwert
 \begin{equation*}
 \begin{split}\lim_{t\to 0} \frac{F(\gamma(t)) - F(\gamma(0))}{t} = \frac{F(x + t\cdot v) - F(x))}{t}.\end{split}
@@ -4966,7 +4977,7 @@ Dann gilt die folgende Isomorphie
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Siehe z.B. Kapitel 2.3 in {[}\hyperlink{cite.references:id16}{Janich03}{]}.
+Proof. Siehe z.B. Kapitel 2.3 in {[}\hyperlink{cite.references:id17}{Janich03}{]}.
 \end{sphinxadmonition}
 
 
@@ -4994,7 +5005,7 @@ Wir erhalten somit Kurven
 und mithilfe der Richtungsableitung aus {\hyperref[\detokenize{manifolds/tangential:def:direcdiv}]{\sphinxcrossref{Definition 4.13}}} die Derivationen
 \begin{equation*}
 \begin{split}\partial_{x^i}^p: C^\infty(\M) &\to \R\\
-f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).\end{split}
+f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}.\end{split}
 \end{equation*}\label{manifolds/tangential:definition-12}
 \begin{sphinxadmonition}{note}{Definition 4.16 (Partielle Derivation)}
 
@@ -5004,7 +5015,7 @@ f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).\end{spl
 Sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeit für \(n\in\N\) und sei \(f \in C^\infty(\M)\) eine glatte Funktion.
 Dann bezeichnen wir die Derivationen
 \begin{equation*}
-\begin{split}\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)), \quad i=1,\ldots,n\end{split}
+\begin{split}\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}, \quad i=1,\ldots,n\end{split}
 \end{equation*}
 \sphinxAtStartPar
 als \sphinxstylestrong{partielle Derivationen} von \(f\) im Punkt \(p \in \M\).
@@ -5026,7 +5037,7 @@ Dann gilt für die partielle Derivation
 \begin{split}\partial_{x^i}^p(\varphi_j) = \delta_{ij},\end{split}
 \end{equation*}
 \sphinxAtStartPar
-wobei \(\delta_ij\) das \sphinxstyleemphasis{Kronecker\sphinxhyphen{}Delta} bezeichnet.
+wobei \(\delta_{ij}\) das \sphinxstyleemphasis{Kronecker\sphinxhyphen{}Delta} bezeichnet.
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
@@ -5038,7 +5049,7 @@ Proof. Wir betrachten zunächst die Funktion \(\varphi_j \circ \gamma_{x^i}\) un
 &= (\varphi(p) + t e_i)_j\\ 
 &=
 \begin{cases}
-\varphi(p) + t e_i &\text{ für } i=j,\\
+\varphi_i(p) + t e_i &\text{ für } i=j,\\
 \varphi_j(p)&\text{ sonst}.
 \end{cases}\end{split}
 \end{equation*}
@@ -5046,7 +5057,7 @@ Proof. Wir betrachten zunächst die Funktion \(\varphi_j \circ \gamma_{x^i}\) un
 Somit gilt schon für die partielle Derivation
 \begin{equation*}
 \begin{split}\partial_{x^i}^p(\varphi_j)=
-\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t)) = 
+\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t))\big\rvert_{t=0} = 
 \begin{cases}
 1&\text{ für } i=j,\\
 0&\text{ sonst}.
@@ -5090,7 +5101,7 @@ t&\mapsto g(t\cdot z).\end{split}
 \end{equation*}
 \sphinxAtStartPar
 Hierbei sieht man erneut ein, dass \(\tilde{g}\in C^\infty([0,1])\) gilt.
-Dies bedeutet insbesondere, dass wir den \sphinxstyleemphasis{Hauptsatz der Differential\sphinxhyphen{} und Integralrechnung} (vgl. Theorem 5.3 in {[}\hyperlink{cite.references:id14}{Ten21}{]}) anwenden können und somit erhalten wir
+Dies bedeutet insbesondere, dass wir den \sphinxstyleemphasis{Hauptsatz der Differential\sphinxhyphen{} und Integralrechnung} (vgl. Theorem 5.3 in {[}\hyperlink{cite.references:id15}{Ten21}{]}) anwenden können und somit erhalten wir
 \begin{equation*}
 \begin{split}\tilde{g}(1) = \tilde{g}(0) + \int_{0}^1 \tilde{g}^\prime(t)\,\mathrm{d}t.\end{split}
 \end{equation*}
@@ -5400,7 +5411,7 @@ In diesem Fall nennt man die Mannigfaltigkeit \(\M\) auch \sphinxstylestrong{par
 
 
 \sphinxAtStartPar
-Es lässt sich zeigen, dass \(\mathbb{S}^1, \mathbb{S}^3,\mathbb{S}^7\) die \sphinxstyleemphasis{einzigen} paralleslisierbaren Sphären sind (siehe {[}\hyperlink{cite.references:id17}{Lee03}{]}).
+Es lässt sich zeigen, dass \(\mathbb{S}^1, \mathbb{S}^3,\mathbb{S}^7\) die \sphinxstyleemphasis{einzigen} paralleslisierbaren Sphären sind (siehe {[}\hyperlink{cite.references:id18}{Lee03}{]}).
 Die Tatsache, dass \(\mathbb{S}^2\) nicht parallelisierbar ist wird beim Satz vom gekämmten Igel in \sphinxcode{\sphinxupquote{prf:ref}}\{TODO\} erneut auftauchen.
 \end{sphinxadmonition}
 
@@ -5480,7 +5491,7 @@ eine glatte und bijektive Abbildung.
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Wir werden lediglich die Idee skizzieren, für den vollständingen Beweis siehe Proposition 3.18 in {[}\hyperlink{cite.references:id17}{Lee03}{]}.
+Proof. Wir werden lediglich die Idee skizzieren, für den vollständingen Beweis siehe Proposition 3.18 in {[}\hyperlink{cite.references:id18}{Lee03}{]}.
 Wir benutzen hier die algebraische Definition des Tangentialraums.
 
 \sphinxAtStartPar
@@ -5759,7 +5770,7 @@ Es sei \(\pi:T\M\to\M\) eine Tangentialbündel, dann ist das Kotangentialbündel
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Der Beweis funktioniert analog zum Beweis von {\hyperref[\detokenize{manifolds/tangential:lem:tanbundle}]{\sphinxcrossref{Lemma 4.9}}}. Für die Details zur Argumentation weshalb auch \(T^\ast\M\) eine Mannigfaltigkeit ist, verweisen wir auf {[}\hyperlink{cite.references:id17}{Lee03}{]} Prop. 11.9.
+Proof. Der Beweis funktioniert analog zum Beweis von {\hyperref[\detokenize{manifolds/tangential:lem:tanbundle}]{\sphinxcrossref{Lemma 4.9}}}. Für die Details zur Argumentation weshalb auch \(T^\ast\M\) eine Mannigfaltigkeit ist, verweisen wir auf {[}\hyperlink{cite.references:id18}{Lee03}{]} Prop. 11.9.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -5786,7 +5797,7 @@ Man kann hier analog lokale Koordinaten Kovektorfelder definierne indem man loka
 Es sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeit und \((U,\phi)\) eine Karte.
 Dann definieren wir die sogenannten \sphinxstylestrong{lokalen Koordinaten Kovektorfelder} für \(i=1,\ldots,n\) durch
 \begin{equation*}
-\begin{split}dx^{i}:\M&\to T\M\\
+\begin{split}dx^{i}:\M&\to T^\ast\M\\
 p&\mapsto dx^{i}_p. \end{split}
 \end{equation*}\end{sphinxadmonition}
 
@@ -5812,7 +5823,7 @@ eine Differentialform, wobei \(df_p\in T_p^\ast\M\) für eine Derivation \(D\in 
 weil \(D\) als Derivation gerade eine lineare Abbildung \(D:C^\infty\to\R\) ist.
 
 \sphinxAtStartPar
-Für die Glattheitseigenschaft verweisen wir auf {[}\hyperlink{cite.references:id17}{Lee03}{]} Prop. 10.22., was zeigt, dass \(df\) eine glatte Abbildung ist. Desweiteren sehen wir, dass
+Für die Glattheitseigenschaft verweisen wir auf {[}\hyperlink{cite.references:id18}{Lee03}{]} Prop. 10.22., was zeigt, dass \(df\) eine glatte Abbildung ist. Desweiteren sehen wir, dass
 \begin{equation*}
 \begin{split}\pi^\ast(df(p)) = \pi^\ast((p,df_p)) = p \end{split}
 \end{equation*}
@@ -5875,7 +5886,7 @@ wobei \(f_i\in C^\infty(\M)\) gegeben ist durch \(\omega(\partial_{x^i})\).
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Siehe z.B. {[}\hyperlink{cite.references:id17}{Lee03}{]} Seite 282.
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id18}{Lee03}{]} Seite 282.
 \end{sphinxadmonition}
 
 
@@ -5977,7 +5988,7 @@ Es sei \(\M\) eine glatte \(n\)\sphinxhyphen{}dimensionale Mannigfaltigkeit, \((
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Folgt aus {\hyperref[\detokenize{manifolds/tangential:lem:localsections}]{\sphinxcrossref{Lemma 4.10}}} und {\hyperref[\detokenize{manifolds/tangential:lem:coordcovec}]{\sphinxcrossref{Lemma 4.12}}},  für Details siehe {[}\hyperlink{cite.references:id17}{Lee03}{]} Prop. 12.19.
+Proof. Folgt aus {\hyperref[\detokenize{manifolds/tangential:lem:localsections}]{\sphinxcrossref{Lemma 4.10}}} und {\hyperref[\detokenize{manifolds/tangential:lem:coordcovec}]{\sphinxcrossref{Lemma 4.12}}},  für Details siehe {[}\hyperlink{cite.references:id18}{Lee03}{]} Prop. 12.19.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -5996,7 +6007,7 @@ Es sei \(\M\) eine glatte Mannigfaltigkeit, für \(r,l\in \N\) seien \(A\in \Gam
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Siehe {[}\hyperlink{cite.references:id17}{Lee03}{]} Prop. 12.22.
+Proof. Siehe {[}\hyperlink{cite.references:id18}{Lee03}{]} Prop. 12.22.
 \end{sphinxadmonition}
 
 
@@ -6037,7 +6048,7 @@ gelte, dann heißt \(D\) Untervektorbündel von \(E\).
 \capstart
 
 \noindent\sphinxincludegraphics[height=300\sphinxpxdimen]{{subbundle}.png}
-\caption{Visualisierung eines Untervektorbündels, siehe Kapitel 10 in {[}\hyperlink{cite.references:id17}{Lee03}{]}.}\label{\detokenize{manifolds/diffformen:fig-subbundle}}\end{figure}
+\caption{Visualisierung eines Untervektorbündels, siehe Kapitel 10 in {[}\hyperlink{cite.references:id18}{Lee03}{]}.}\label{\detokenize{manifolds/diffformen:fig-subbundle}}\end{figure}
 
 \sphinxAtStartPar
 In diesem Fall erhält man also ein Untervektorbündel.
@@ -6101,7 +6112,7 @@ wobei \(\omega_{i_1\ldots i_k}\in C^\infty(\M)\) für alle \(i_1,\ldots,i_k\in\{
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Siehe z.B. {[}\hyperlink{cite.references:id17}{Lee03}{]} Kapitel 14.
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id18}{Lee03}{]} Kapitel 14.
 \end{sphinxadmonition}
 \label{manifolds/diffformen:example-4}
 \begin{sphinxadmonition}{note}{Example 4.10}
@@ -6161,7 +6172,7 @@ d(f\, dx^{i_1}\wedge\ldots\wedge dx^{i_k}):= df \wedge dx^{i_1}\wedge\ldots\wedg
 
 
 \sphinxAtStartPar
-Beachte, dass die obige Abbildung nur jeweils für lokale Koordinaten definiert ist. Wegen der Kartenunabängigkeit führt dies aber auf eine eindeutig definierte Funktion, siehe z.B. {[}\hyperlink{cite.references:id17}{Lee03}{]} Kapitel 14. Da wir \(d\) auf den Elementen \(dx^{i_1}\wedge\ldots\wedge dx^{i_k}\) definiert haben erhalten wir jeweils lokal eine eindeutige lineare Fortsetzung, da jedes \(\omega\in \Omega^k(\M)\) lokal die Darstellung
+Beachte, dass die obige Abbildung nur jeweils für lokale Koordinaten definiert ist. Wegen der Kartenunabängigkeit führt dies aber auf eine eindeutig definierte Funktion, siehe z.B. {[}\hyperlink{cite.references:id18}{Lee03}{]} Kapitel 14. Da wir \(d\) auf den Elementen \(dx^{i_1}\wedge\ldots\wedge dx^{i_k}\) definiert haben erhalten wir jeweils lokal eine eindeutige lineare Fortsetzung, da jedes \(\omega\in \Omega^k(\M)\) lokal die Darstellung
 \begin{equation*}
 \begin{split}\omega = \sum_{1\leq i_1,\ldots,i_k \leq n}\omega_{i_1\ldots i_k}
 dx_{i_1}\wedge\ldots\wedge dx_{i_k}\end{split}
@@ -6290,19 +6301,19 @@ Es sei \(U\subset\R^n\) eine offene sternförmige Menge, dann gilt für \(\omega
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Siehe z.B. {[}\hyperlink{cite.references:id17}{Lee03}{]} Theorem 11.49.
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id18}{Lee03}{]} Theorem 11.49.
 \end{sphinxadmonition}
 
 
 \subsection{Der Pullback}
 \label{\detokenize{manifolds/diffformen:der-pullback}}
 \sphinxAtStartPar
-Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte \sphinxstylestrong{Pullback}. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten \(\M,\mathcal{N}\) und eine glatte Funktion \(F:M\to\mathcal{N}\). Das Ziel ist es nun eine Differentialform auf \(N\), \(\omega\in\Omega^k(\mathcal{N})\) mithilfe von \(F\) auf eine Differentialform auf \(\M\) zurückzuziehen. Ausgewertet an \(p\in\M\) ergibt eine Differentialform \(\eta\in\Omega^k(\M)\) ein Element aus \(L^k(T_p^\ast\M)\),
+Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte \sphinxstylestrong{Pullback}. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten \(\M,\mathcal{N}\) und eine glatte Funktion \(F:M\to\mathcal{N}\). Das Ziel ist es nun eine Differentialform auf \(N\), \(\omega\in\Omega^k(\mathcal{N})\) mithilfe von \(F\) auf eine Differentialform auf \(\M\) zurückzuziehen. Ausgewertet an \(p\in\M\) ergibt eine Differentialform \(\eta\in\Omega^k(\M)\) ein Element aus \(L^k(T_p\M)\), da
 \begin{equation*}
-\begin{split}\eta_p\in \Omega^k(T_p\M) \subset L^k(T_p^\ast\M)\end{split}
+\begin{split}\eta_p\in \Lambda^k(T_p\M) \subset L^k(T_p^\M)\end{split}
 \end{equation*}
 \sphinxAtStartPar
-also eine Linearform, welche auf \(k\) Elemente \(v_1,\ldots,v_k\in T_p^\ast\M\) des Kotangentialraums in \(p\) an \(\M\) wirkt. Haben wir nun a priori \(\omega\in\Omega^k(\mathcal{N})\) gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über \(F\) von \(\M\) nach \(\N\) vorschieben können, der sogennante \sphinxstylestrong{Pushforward}.
+also eine Linearform, welche auf \(k\) Elemente \(v_1,\ldots,v_k\in T_p\M\) des Tangentialraums in \(p\) an \(\M\) wirkt. Haben wir nun a priori \(\omega\in\Omega^k(\mathcal{N})\) gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über \(F\) von \(\M\) nach \(\mathcal{N}\) vorschieben können, der sogenannte \sphinxstylestrong{Pushforward}.
 \label{manifolds/diffformen:definition-12}
 \begin{sphinxadmonition}{note}{Definition 4.35}
 
@@ -6384,7 +6395,7 @@ Für lokale Koordinaten Kovektorfelder \(dy^1,\ldots,dy^m\) und \(f\in C^\infty(
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Für 1. und 2. siehe Hausaufgaben, Für 3. siehe {[}\hyperlink{cite.references:id17}{Lee03}{]} Lemma 14.16.
+Proof. Für 1. und 2. siehe Hausaufgaben, Für 3. siehe {[}\hyperlink{cite.references:id18}{Lee03}{]} Lemma 14.16.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -6519,6 +6530,9 @@ Um eine Funktion wie die Dirichlet\sphinxhyphen{}Funktion in {\hyperref[\detoken
 Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einführen um diesen Umstand zu verstehen und einen verallgemeinerten Begriff des Integrals definieren, der diese Nullmenge berücksichtigt \sphinxhyphen{} das \sphinxstylestrong{Lebesgue Integral}.
 Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue\sphinxhyphen{}integrierbaren Funktionen eine Obermenge der Menge der Riemann\sphinxhyphen{}integrierbaren Funktionen ist.
 Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.
+
+\sphinxAtStartPar
+Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz\sphinxhyphen{}Baldes (FAU) {[}\hyperlink{cite.references:id12}{SB18}{]}, aber besonders auch das Buch von Prof.Terence Tao zur Einführung in die Maßtheorie {[}\hyperlink{cite.references:id6}{Tao07}{]} welches einen sehr intuitiven Einblick in die Materie gibt. Eine weitere sehr ausführliche Referenz, welche im Folgenden zitiert wird, ist das Buch von Prof.Vladimir I. Bogachev {[}\hyperlink{cite.references:id5}{Bog07}{]}.
 
 
 \section{Maßtheorie}
@@ -7695,7 +7709,7 @@ Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wi
 \begin{split}\lambda^*(MA) = |\!\operatorname{det}(M)| \, \lambda^*(A).\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. \sphinxstylestrong{Rotationen} und \sphinxstylestrong{Spiegelungen}) ist, da für diese Transformationen \(|\!\operatorname{det}(M)| = 1\) gilt (siehe Kapitel 3.6 in {[}\hyperlink{cite.references:id14}{Ten21}{]}).
+Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. \sphinxstylestrong{Rotationen} und \sphinxstylestrong{Spiegelungen}) ist, da für diese Transformationen \(|\!\operatorname{det}(M)| = 1\) gilt (siehe Kapitel 3.6 in {[}\hyperlink{cite.references:id15}{Ten21}{]}).
 
 \sphinxAtStartPar
 Außerdem gilt, dass die Teilmenge \(A\) genau dann Lebesgue\sphinxhyphen{}messbar ist, wenn die linear transformierte Teilmenge \(MA\) Lebesgue\sphinxhyphen{}messbar ist.
@@ -8337,7 +8351,7 @@ Proof. ToDo
 \section{Lebesgue\sphinxhyphen{}Integral}
 \label{\detokenize{masstheorie/lebesgue_integral:lebesgue-integral}}\label{\detokenize{masstheorie/lebesgue_integral::doc}}
 \sphinxAtStartPar
-Anhand des in {\hyperref[\detokenize{masstheorie/masstheorie:s-lebesguemeasure}]{\sphinxcrossref{\DUrole{std,std-ref}{Das Lebesgue Maß}}}} konstruirten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion \(f:\Omega\to\R\) zu zerteilen. Dies führt auf das Problem, dass man Urbildern
+Anhand des in {\hyperref[\detokenize{masstheorie/masstheorie:s-lebesguemeasure}]{\sphinxcrossref{\DUrole{std,std-ref}{Das Lebesgue Maß}}}} konstruierten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion \(f:\Omega\to\R\) zu zerteilen. Dies führt auf das Problem, dass man Urbildern
 \begin{equation*}
 \begin{split}f^{-1}(I)\end{split}
 \end{equation*}
@@ -8378,7 +8392,7 @@ schreiben lässt. In diesem Kapitel wollen wir speziell Funktionen \(f:\Omega\to
 
 
 \sphinxAtStartPar
-Wir nennen eine Funktion \(f:\R^n\to\overline{R}\) \sphinxstylestrong{Borel\sphinxhyphen{}messbar}, falls
+Wir nennen eine Funktion \(f:\R^n\to\overline{\R}\) \sphinxstylestrong{Borel\sphinxhyphen{}messbar}, falls
 \begin{equation*}
 \begin{split}f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{B}(\R^n).\end{split}
 \end{equation*}
@@ -8437,6 +8451,17 @@ Proof. ToDo
 \label{\detokenize{masstheorie/lebesgue_integral:charakterisierung-uber-niveaumengen}}
 \sphinxAtStartPar
 Im Falle von Borel und Lebesgue\sphinxhyphen{}Messbarkeit haben wir als Zielalgebra \(\B(\overline{\R})\) betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.
+\label{masstheorie/lebesgue_integral:lem:Niveaumengen}
+\begin{sphinxadmonition}{note}{Lemma 5.15}
+
+
+
+\sphinxAtStartPar
+Es sei \((\Omega,\Sigma)\) ein Messraum, eine Funktion \(f:\Omega\to\overline{\R}\) eine Funktion ist genau dann messbar bezüglich \(\Sigma\), falls
+für die Niveaumengen gilt
+\begin{equation*}
+\begin{split}\{f< c\}\in\Sigma\quad\forall c\in\R.\end{split}
+\end{equation*}\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
@@ -8467,7 +8492,7 @@ was aber wiederum äquivalent zu
 \sphinxAtStartPar
 ist.
 \end{sphinxadmonition}
-\label{masstheorie/lebesgue_integral:remark-4}
+\label{masstheorie/lebesgue_integral:remark-5}
 \begin{sphinxadmonition}{note}{Remark 5.7}
 
 
@@ -8478,8 +8503,8 @@ Für uns ist vor allem der Fall von Bedeutung, wenn \(\Sigma\) im obigen Lemma d
 
 \sphinxAtStartPar
 Mithilfe dieses Lemma können wir die folgende Aussage zeigen.
-\label{masstheorie/lebesgue_integral:lemma-5}
-\begin{sphinxadmonition}{note}{Lemma 5.15}
+\label{masstheorie/lebesgue_integral:lemma-6}
+\begin{sphinxadmonition}{note}{Lemma 5.16}
 
 
 
@@ -8493,7 +8518,7 @@ Es sei \((\Omega,\Sigma)\) ein Messraum und \(f,g:\Omega\to\overline{\R}\) zwei 
 
 \item {} 
 \sphinxAtStartPar
-\(\lambda f\) ist messbar für alle \(\lambda\in\overline{R}\),
+\(\lambda f\) ist messbar für alle \(\lambda\in\overline{\R}\),
 
 \item {} 
 \sphinxAtStartPar
@@ -8520,8 +8545,8 @@ Proof. Siehe Übung.
 
 \sphinxAtStartPar
 Für Folgen von messbaren Funktionen gilt auch, dass deren Grenzwerte messbar sind.
-\label{masstheorie/lebesgue_integral:lemma-6}
-\begin{sphinxadmonition}{note}{Lemma 5.16}
+\label{masstheorie/lebesgue_integral:lemma-7}
+\begin{sphinxadmonition}{note}{Lemma 5.17}
 
 
 
@@ -8552,7 +8577,16 @@ Proof. ToDo, siehe \sphinxhref{https://www.fau.tv/clip/id/40563}{Vorlesung} Minu
 \subsection{Das Lebesgue\sphinxhyphen{}Integral einfacher Funktionen}
 \label{\detokenize{masstheorie/lebesgue_integral:das-lebesgue-integral-einfacher-funktionen}}
 \sphinxAtStartPar
-Für das Riemann\sphinxhyphen{}Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als nalogon betrachtet man hier sogenannte einfache Funktionen.
+Für das Riemann\sphinxhyphen{}Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als Analogon betrachtet man hier sogenannte einfache Funktionen, welche mithilfe der Indikatorfunktionen
+\begin{equation*}
+\begin{split}\bone_A(x):=
+\begin{cases}
+1&\text{ falls }x\in A,\\
+0&\text{ sonst,}
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für verschiedenen Mengen \(A\subset \R^n\) definiert sind.
 
 \begin{figure}[htbp]
 \centering
@@ -8560,21 +8594,21 @@ Für das Riemann\sphinxhyphen{}Integral werden Treppenfunktionen benutzt, welche
 
 \noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{simplefun}.jpg}
 \caption{Visualisierung einer einfachen Funktion.}\label{\detokenize{masstheorie/lebesgue_integral:fig-simplefun}}\end{figure}
-\label{masstheorie/lebesgue_integral:definition-7}
+\label{masstheorie/lebesgue_integral:definition-8}
 \begin{sphinxadmonition}{note}{Definition 5.20}
 
 
 
 \sphinxAtStartPar
-Eine Funktion \(f:\R^n\to\overline{R}\) heißt einfach, falls Koeffizienten \(\alpha_i\in\overline{\R}\) und messbare Mengen \(A_i\in\mathcal{A}(\R^n)\) für \(i=1,\ldots,N\) existieren, s.d.,
+Eine Funktion \(f:\R^n\to\overline{\R}\) heißt einfach, falls Koeffizienten \(\alpha_i\in\overline{\R}\) und messbare Mengen \(A_i\in\mathcal{A}(\R^n)\) für \(i=1,\ldots,N\) existieren, s.d.,
 \begin{equation*}
 \begin{split}f = \sum_{i=1}^N \alpha_i \bone_{A_i}.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
 Man erhält über die Definition direkt ein Lemma, dass einfache Funktionen Lebesgue\sphinxhyphen{}messbar sind.
-\label{masstheorie/lebesgue_integral:lemma-8}
-\begin{sphinxadmonition}{note}{Lemma 5.17}
+\label{masstheorie/lebesgue_integral:lemma-9}
+\begin{sphinxadmonition}{note}{Lemma 5.18}
 
 
 
@@ -8589,7 +8623,7 @@ Proof. Siehe \sphinxhref{https://www.fau.tv/clip/id/40589}{Vorlesung} ab Minute 
 
 \sphinxAtStartPar
 Für einfache Funktionen können wir analog zum Riemann\sphinxhyphen{}Integral das Lebesgue\sphinxhyphen{}Integral definieren, indem wir das Maß der einzelnen Mengen multipliziert mit den Funktionswerten summieren, welche eine einfache Funktion erzeugen.
-\label{masstheorie/lebesgue_integral:remark-9}
+\label{masstheorie/lebesgue_integral:remark-10}
 \begin{sphinxadmonition}{note}{Remark 5.8 (Wohldefiniertheit)}
 
 
@@ -8604,7 +8638,7 @@ Es ist wichtig anzumerken, dass für eine einfache Funktion \(f\) verschiedene Z
 \sphinxAtStartPar
 Die wichtige Eigenschaft, welche die Betrachtung von einfachen Funktion so relevant macht, ist dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen. Diese Tatsache formulieren wir in folgendem Lemma.
 \label{masstheorie/lebesgue_integral:lem:simplefun}
-\begin{sphinxadmonition}{note}{Lemma 5.18}
+\begin{sphinxadmonition}{note}{Lemma 5.19}
 
 
 
@@ -8623,20 +8657,20 @@ Proof. Siehe \sphinxhref{https://www.fau.tv/clip/id/40589}{Vorlesung} ab Minute 
 
 \sphinxAtStartPar
 Mithilfe der Tatsache, dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen, können wir nun das Lebesgue\sphinxhyphen{}Integral für nicht\sphinxhyphen{}negative messbare Funktionen einführen.
-\label{masstheorie/lebesgue_integral:definition-11}
+\label{masstheorie/lebesgue_integral:definition-12}
 \begin{sphinxadmonition}{note}{Definition 5.21 (Lebesgue\sphinxhyphen{}Integral nicht\sphinxhyphen{}negativer Funktionen)}
 
 
 
 \sphinxAtStartPar
-Es sei \(f:\Omega\to[0,\infty]\) Lebesgue\sphinxhyphen{}messbar und nach {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:simplefun}]{\sphinxcrossref{Lemma 5.18}}} \((f_i)_{i\in\N}\) eine monoton wachsende Folge von einfachen Funktionen mit \(\lim_{i\to\infty} f_i = f\), dann ist das \sphinxstylestrong{Lebesgue\sphinxhyphen{}Integral} von \(f\) definiert durch
+Es sei \(f:\Omega\to[0,\infty]\) Lebesgue\sphinxhyphen{}messbar und nach {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:simplefun}]{\sphinxcrossref{Lemma 5.19}}} \((f_i)_{i\in\N}\) eine monoton wachsende Folge von einfachen Funktionen mit \(\lim_{i\to\infty} f_i = f\), dann ist das \sphinxstylestrong{Lebesgue\sphinxhyphen{}Integral} von \(f\) definiert durch
 \begin{equation*}
 \begin{split}\int_{\Omega} f \,d\lambda^n = \lim_{i\rightarrow \infty} \int_{\R^n} f_i \,d\lambda^n.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
 Wir zeigen im Folgenden wichtige Eigenschaften des Lebesgue\sphinxhyphen{}Integrals.
-\label{masstheorie/lebesgue_integral:theorem-12}
+\label{masstheorie/lebesgue_integral:theorem-13}
 \begin{sphinxadmonition}{note}{Theorem 5.8 (Eigenschaften des Lebesgue\sphinxhyphen{}Integrals)}
 
 
@@ -8664,7 +8698,7 @@ Anstatt der Folge von einfachen Funktionen, kann man auch eine beliebige monoton
 \sphinxhref{https://de.wikipedia.org/wiki/Beppo\_Levi}{Beppo Levi} (Geboren 14. Mai 1875 in Turin, Italien; Gestorben 28. August 1961 in Rosario, Argentinien) war ein italienischer Mathematiker.
 \end{sphinxShadowBox}
 \label{masstheorie/lebesgue_integral:lem:levi}
-\begin{sphinxadmonition}{note}{Lemma 5.19 (Satz von Beppo Levi)}
+\begin{sphinxadmonition}{note}{Lemma 5.20 (Satz von Beppo Levi)}
 
 
 
@@ -8694,8 +8728,8 @@ Eine weitere Aussage in diesem Kontext ist das \sphinxstylestrong{Lemma von Fato
 \sphinxAtStartPar
 \sphinxhref{https://de.wikipedia.org/wiki/Pierre\_Fatou}{Pierre Joseph Louis Fatou} (Geboren 28. Februar 1878 in Lorient; Gestorben 10. August 1929 in Pornichet) war ein französischer Mathematiker.
 \end{sphinxShadowBox}
-\label{masstheorie/lebesgue_integral:lemma-14}
-\begin{sphinxadmonition}{note}{Lemma 5.20 (Lemma von Fatou)}
+\label{masstheorie/lebesgue_integral:lemma-15}
+\begin{sphinxadmonition}{note}{Lemma 5.21 (Lemma von Fatou)}
 
 
 
@@ -8720,7 +8754,7 @@ Proof. Ref missing.
 \label{\detokenize{masstheorie/lebesgue_integral:das-lebesgue-integral-integrierbarer-funktionen}}
 \sphinxAtStartPar
 Wir wollen nun das Lebesgue\sphinxhyphen{}Integral auf messbaren Funktionen mit wechselndem Vorzeichen betrachten. Dafür spalten wir eine Funktionen in ihren positiven und ihren negativen Teil auf und bilden das Integral über diese Funktionen. Um die beiden Teile aufsummieren zu können, müssen wir allerdings fordern, dass beide endlich sind.
-\label{masstheorie/lebesgue_integral:definition-15}
+\label{masstheorie/lebesgue_integral:definition-16}
 \begin{sphinxadmonition}{note}{Definition 5.22 (Lebesgue\sphinxhyphen{}Integral integrierbarer Funktionen)}
 
 
@@ -8740,8 +8774,8 @@ so dass gilt \(f = f^+ - f_-\). Dann können wir das \sphinxstylestrong{Lebesgue
 \begin{equation*}
 \begin{split}\int_{\R^n} f\, d\lambda^n := \int_{\R^n} f^+\, d\lambda^n - \int_{\R^n} f_-\, d\lambda^n.\end{split}
 \end{equation*}\end{sphinxadmonition}
-\label{masstheorie/lebesgue_integral:lemma-16}
-\begin{sphinxadmonition}{note}{Lemma 5.21}
+\label{masstheorie/lebesgue_integral:lemma-17}
+\begin{sphinxadmonition}{note}{Lemma 5.22}
 
 
 
@@ -8756,7 +8790,7 @@ Proof. ToDo
 
 \sphinxAtStartPar
 Auch für integrierbare Funktionen gibt es einen wichtigen Konvergenzsatz, der \sphinxstylestrong{Konvergenzsatz von Lebesgue} oder auch der \sphinxstylestrong{Satz von der dominierten Konvergenz}.
-\label{masstheorie/lebesgue_integral:theorem-17}
+\label{masstheorie/lebesgue_integral:theorem-18}
 \begin{sphinxadmonition}{note}{Theorem 5.9}
 
 
@@ -8774,7 +8808,7 @@ Proof. Ref missing.
 
 
 \subsection{Fast überall Eigenschaften}
-\label{\detokenize{masstheorie/lebesgue_integral:fast-uberall-eigenschaften}}\label{masstheorie/lebesgue_integral:definition-18}
+\label{\detokenize{masstheorie/lebesgue_integral:fast-uberall-eigenschaften}}\label{masstheorie/lebesgue_integral:definition-19}
 \begin{sphinxadmonition}{note}{Definition 5.23}
 
 
@@ -8824,12 +8858,12 @@ E^y := \{x\in \Omega_1: (x,y)\in E\}\subset\Omega_1\end{split}
 \sphinxAtStartPar
 wofür man folgende Aussage hat.
 \label{masstheorie/integrationstechnik:lem:secmeasure}
-\begin{sphinxadmonition}{note}{Lemma 5.22}
+\begin{sphinxadmonition}{note}{Lemma 5.23}
 
 
 
 \sphinxAtStartPar
-Es seien \((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\) Messräume, dann gilt für eine Produktmessbare Menge \(E\in \Sigma_1\otimes\Sigma_2\), dass \(E_x\in \Sigma_2, E_y\in\Sigma_1\) für alle \(x\in\Omega_1,y\in\Omega_2\).
+Es seien \((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\) Messräume, dann gilt für eine Menge \(E\in \Sigma_1\otimes\Sigma_2\), dass \(E_x\in \Sigma_2, E_y\in\Sigma_1\) für alle \(x\in\Omega_1,y\in\Omega_2\).
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
@@ -8839,7 +8873,7 @@ Proof. Wir betrachten das Teilmengensystem
 \begin{split}\M = \{E\subset\Omega_1\times\Omega_2:  E_x\in\Sigma_2, E^y\in\Sigma_1,\quad\forall x\in\Omega_1,  y\in\Omega_2\}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für \(A\in\Sigma1,B\in\Sigma_2\) gilt
+d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für \(A\in\Sigma_1,B\in\Sigma_2\) gilt
 \begin{equation*}
 \begin{split}(A\times B)_x = 
 \begin{cases}
@@ -8853,7 +8887,7 @@ und daher \((A\times B)_x\in\Sigma_2\) für alle \(x\in\Omega_1\). Analog zeigt 
 \begin{split}\Sigma_1\times\Sigma_2\subset \M.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Weiterhin ist \(\M\) eine \(\sigma\)\sphinxhyphen{}Algebra. Es gilt \(\emptyset\M\), weiterhin \((E^C)_x = (E_x)^C\)und analog \((E^C)^y= (E^y)^C\) und daher
+Weiterhin ist \(\M\) eine \(\sigma\)\sphinxhyphen{}Algebra, denn es gilt \(\emptyset\in\M\), weiterhin \((E^C)_x = (E_x)^C\)und analog \((E^C)^y= (E^y)^C\) und daher
 gilt
 \begin{equation*}
 \begin{split}E\in\M\Rightarrow E^C\in\M.\end{split}
@@ -8875,9 +8909,9 @@ Somit folgt
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Speziell für \(\Omega_1=\R^n, \Omega_1=\R^m\) könnte man sich nun fragen wie sich die Produkt\sphinxhyphen{}Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel \(\sigma\)\sphinxhyphen{}Algebra haben wir folgende Aussage.
+Speziell für \(\Omega_1=\R^n, \Omega_2=\R^m\) könnte man sich nun fragen wie sich die Produkt\sphinxhyphen{}Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel \(\sigma\)\sphinxhyphen{}Algebra haben wir folgende Aussage.
 \label{masstheorie/integrationstechnik:lemma-1}
-\begin{sphinxadmonition}{note}{Lemma 5.23}
+\begin{sphinxadmonition}{note}{Lemma 5.24}
 
 
 
@@ -8957,9 +8991,9 @@ Wir erkennen aber, dass sich \(V\) als Schnitt dieser Produkt\sphinxhyphen{}Meng
 \begin{split}V = (V\times\{0\})^0\end{split}
 \end{equation*}
 \sphinxAtStartPar
-wäre nun \((V\times\{0\})^0\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\) so würde mit {\hyperref[\detokenize{masstheorie/integrationstechnik:lem:secmeasure}]{\sphinxcrossref{Lemma 5.22}}} folgen, dass auch der Schnitt \(V\in\mathcal{A}(\R)\) gilt, was ein Widerspruch ist, daher
+wäre nun \(V\times\{0\}\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\) so würde mit {\hyperref[\detokenize{masstheorie/integrationstechnik:lem:secmeasure}]{\sphinxcrossref{Lemma 5.23}}} folgen, dass auch der Schnitt \(V\in\mathcal{A}(\R)\) gilt, was ein Widerspruch ist, daher
 \begin{equation*}
-\begin{split}(V\times\{0\})^0 \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).\end{split}
+\begin{split}V\times\{0\} \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -8970,7 +9004,7 @@ Das abstrakte Konzept, welches sich hinter diesem Beispiel verbirgt wir mit dem 
 
 
 \sphinxAtStartPar
-Ein Maßraum \((\Omega,\Sigma,\mu)\), falls für jede \(\mu\)\sphinxhyphen{}Nullmenge \(N\in\Sigma, \mu(N)=0\) gilt
+Ein Maßraum \((\Omega,\Sigma,\mu)\) heißt \sphinxstylestrong{vollständig}, falls für jede \(\mu\)\sphinxhyphen{}Nullmenge \(N\in\Sigma, \mu(N)=0\) gilt
 \begin{equation*}
 \begin{split}A\subset N \Rightarrow A\in \Sigma.\end{split}
 \end{equation*}\end{sphinxadmonition}
@@ -8996,7 +9030,7 @@ betrachten zusammen mit dem Maß
 \sphinxAtStartPar
 Hier lässt sich nun folgendes zeigen.
 \label{masstheorie/integrationstechnik:lem:completelebesgue}
-\begin{sphinxadmonition}{note}{Lemma 5.24}
+\begin{sphinxadmonition}{note}{Lemma 5.25}
 
 
 
@@ -9034,7 +9068,7 @@ Es seien \((\Omega_1,\Sigma_1,\mu_1), (\Omega_2,\Sigma_2,\mu_2)\) zwei Maßräum
 \sphinxAtStartPar
 In {\hyperref[\detokenize{vektoranalysis/tensor:s-grass}]{\sphinxcrossref{\DUrole{std,std-ref}{Grassmann\sphinxhyphen{}Algebra}}}} haben wir das Tensorprodukt zweier lineare Abbildungen \(T_1,T_2\) definiert über
 \begin{equation*}
-\begin{split}(T_1\otimes T_2)(v_1,V_2) := T_1(v_1)\cdot T_2(v_2).\end{split}
+\begin{split}(T_1\otimes T_2)(v_1,v_2) := T_1(v_1)\cdot T_2(v_2).\end{split}
 \end{equation*}
 \sphinxAtStartPar
 Es sei hier erwähnt, dass das Maß \sphinxstylestrong{keine} lineare Abbildung ist, insbesondere haben wir keinen Vektorraum gegeben. Die Produktstruktur ist trotzdem ähnlich, weshalb eine gewisse Analogie zwischen dem Tensorprodukt und dem Produktmaß herrscht.
@@ -9051,7 +9085,7 @@ In den obigen Produkten können einzelnen Terme jeweils unendlich werden, hierbe
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogennate \(\sigma\)\sphinxhyphen{}Endlichkeit.
+Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogenannte \(\sigma\)\sphinxhyphen{}Endlichkeit.
 \label{masstheorie/integrationstechnik:definition-9}
 \begin{sphinxadmonition}{note}{Definition 5.26}
 
@@ -9100,7 +9134,7 @@ Proof. See Bogachev ref missing.
 \sphinxAtStartPar
 Anhand von {\hyperref[\detokenize{masstheorie/integrationstechnik:ex:prodsig}]{\sphinxcrossref{Example 5.5}}} haben wir gesehen, dass die Lebesgue \(\sigma\)\sphinxhyphen{}Algebra auf \(\R^{n+m}\) größer ist als die Produkt \(\sigma\)\sphinxhyphen{}Algebra. Allerdings kann man zeigen, dass das Produktmaß zumindest auf der kleineren Produktalgebra übereinstimmt.
 \label{masstheorie/integrationstechnik:lem:lebesguecomp}
-\begin{sphinxadmonition}{note}{Lemma 5.25}
+\begin{sphinxadmonition}{note}{Lemma 5.26}
 
 
 
@@ -9167,17 +9201,22 @@ Ein Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klasse
 
 \sphinxAtStartPar
 Es sei \(\Omega\) eine Menge, ein Teilmengensystem \(\mathcal{C}\subset 2^\Omega\) heißt \sphinxstylestrong{monotone Klasse}, falls
-
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
 \sphinxAtStartPar
-1. Für eine aufsteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N\) gilt auch
+Für eine aufsteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N\) gilt auch
 \begin{equation*}
 \begin{split}\bigcup_{i\in\N} A_i\in\mathcal{C}.\end{split}
 \end{equation*}
+\item {} 
 \sphinxAtStartPar
-1. Für eine absteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\supset A_{i+1}, i\in\N\) gilt auch
+Für eine absteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\supset A_{i+1}, i\in\N\) gilt auch
 \begin{equation*}
 \begin{split}\bigcap_{i\in\N} A_i\in\mathcal{C}.\end{split}
-\end{equation*}\end{sphinxadmonition}
+\end{equation*}
+\end{enumerate}
+\end{sphinxadmonition}
 
 \sphinxAtStartPar
 Offensichtlich ist jede \(\sigma\)\sphinxhyphen{}Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen.
@@ -9209,7 +9248,7 @@ allerdings schon und sie erzeugt offensichtlich auch die Produkt\sphinxhyphen{}\
 \sphinxAtStartPar
 Betrachtet man analog zur kleinsten von \(\mathcal{C}\) erzeugten \(\sigma\)\sphinxhyphen{}Algebra die kleinste von \(\mathcal{C}\) erzeugt monotone Klasse \(\text{M}\big[\mathcal{C}\big]\) so gilt folgendes hilfreiches Lemma.
 \label{masstheorie/integrationstechnik:lem:monclass}
-\begin{sphinxadmonition}{note}{Lemma 5.26 (Monotone Klassen Lemma)}
+\begin{sphinxadmonition}{note}{Lemma 5.27 (Monotone Klassen Lemma)}
 
 
 
@@ -9253,7 +9292,7 @@ Proof. Es sei \(\mathcal{C}\subset\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\) da
 \begin{split}\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)\subset \mathcal{C}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Mit dem monotone Klassen Lemma ({\hyperref[\detokenize{masstheorie/integrationstechnik:lem:monclass}]{\sphinxcrossref{Lemma 5.26}}}) folgt dann
+Mit dem monotone Klassen Lemma ({\hyperref[\detokenize{masstheorie/integrationstechnik:lem:monclass}]{\sphinxcrossref{Lemma 5.27}}}) folgt dann
 \begin{equation*}
 \begin{split}\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m) = \sigma(\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)) = 
 \text{M}\big[\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)\big] \subset 
@@ -9289,17 +9328,17 @@ für fast alle \(x\in\R^n\). Die Aussage für \(\lambda^n(E^y)\) folgt analog.
 \sphinxAtStartPar
 Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen \(E\in \mathcal{A}(\R^{n+m})\) zu verallgemeinern.
 \label{masstheorie/integrationstechnik:lemma-19}
-\begin{sphinxadmonition}{note}{Lemma 5.27}
+\begin{sphinxadmonition}{note}{Lemma 5.28}
 
 
 
 \sphinxAtStartPar
-Die Aussage von {\hyperref[\detokenize{masstheorie/integrationstechnik:thm:cavalieri}]{\sphinxcrossref{Theorem 5.11}}} gilt auch für Mengen \(E\in \mathcal{A}(\R^{n+m})\).
+Die Aussage von {\hyperref[\detokenize{masstheorie/integrationstechnik:thm:cavalieri}]{\sphinxcrossref{Theorem 5.11}}} (Prinzip von Cavalieri) gilt auch für Mengen \(E\in \mathcal{A}(\R^{n+m})\).
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Es sei \(E\in \mathcal{A}(\R^{n+m})\), nach {\hyperref[\detokenize{masstheorie/integrationstechnik:lem:completelebesgue}]{\sphinxcrossref{Lemma 5.24}}} existieren Mengen \(\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\), \(N\subset \tilde{N}\), s.d.
+Proof. Es sei \(E\in \mathcal{A}(\R^{n+m})\), nach {\hyperref[\detokenize{masstheorie/integrationstechnik:lem:completelebesgue}]{\sphinxcrossref{Lemma 5.25}}} existieren Mengen \(\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\), \(N\subset \tilde{N}\), s.d.
 \begin{equation*}
 \begin{split}E = \tilde{E}\cup N\\
 (\lambda^n\otimes\lambda^m)(\tilde{N}) = 0.\end{split}
@@ -9365,7 +9404,7 @@ r^2\pi.\end{split}
 \sphinxAtStartPar
 Das Volumen einer Kugel in \(n\)\sphinxhyphen{}Dimensionen lässt sich mithilfe des folgenden Lemmas berechnen.
 \label{masstheorie/integrationstechnik:lemma-21}
-\begin{sphinxadmonition}{note}{Lemma 5.28}
+\begin{sphinxadmonition}{note}{Lemma 5.29}
 
 
 
@@ -9378,10 +9417,10 @@ Für die \(n\)\sphinxhyphen{}dimensionale Kugel
 gilt
 \begin{equation*}
 \begin{split}\lambda^n(B_r^n) =
-r^d\,
+r^n\,
 \begin{cases}
 \frac{1}{(n/2)!} \pi^{n/2}&\text{ falls }n \text{ gerade,}\\
-\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
+\frac{2}{1\cdot 3\cdot\ldots n} (2\pi)^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
 
@@ -9429,7 +9468,7 @@ messbar und es gilt
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Man beweist die Aussage zunächst für Funktionen \(f:\R^{n+m}\to\overline{R}\) welche bezüglich \(\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\) messbar sind. Hierfür erkennt man durch mehrfache Anwendung des Satzes von Beppo Levi ({\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:levi}]{\sphinxcrossref{Lemma 5.19}}}) unter Ausnutzung der \(\sigma\)\sphinxhyphen{}Endlichkeit von \(\mathcal{A}(\R^n)\) und \(\mathcal{A}(\R^m)\), dass es reicht die Aussage auf Mengen endlichen Maßes zu zeigen. Da sich nach {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:simplefun}]{\sphinxcrossref{Lemma 5.18}}} aber jede Funktion durch einfache Funktionen approximieren lässt und das Integral linear ist, reicht es die Aussage für Indikatorfunktionen zu zeigen. Hier folgt die Aussage aber aus dem Prinzip von Cavalieri, {\hyperref[\detokenize{masstheorie/integrationstechnik:thm:cavalieri}]{\sphinxcrossref{Theorem 5.11}}}.
+Proof. Man beweist die Aussage zunächst für Funktionen \(f:\R^{n+m}\to\overline{R}\) welche bezüglich \(\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\) messbar sind. Hierfür erkennt man durch mehrfache Anwendung des Satzes von Beppo Levi ({\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:levi}]{\sphinxcrossref{Lemma 5.20}}}) unter Ausnutzung der \(\sigma\)\sphinxhyphen{}Endlichkeit von \(\mathcal{A}(\R^n)\) und \(\mathcal{A}(\R^m)\), dass es reicht die Aussage auf Mengen endlichen Maßes zu zeigen. Da sich nach {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:simplefun}]{\sphinxcrossref{Lemma 5.19}}} aber jede Funktion durch einfache Funktionen approximieren lässt und das Integral linear ist, reicht es die Aussage für Indikatorfunktionen zu zeigen. Hier folgt die Aussage aber aus dem Prinzip von Cavalieri, {\hyperref[\detokenize{masstheorie/integrationstechnik:thm:cavalieri}]{\sphinxcrossref{Theorem 5.11}}}.
 
 \sphinxAtStartPar
 Benutzten wir nun {\hyperref[\detokenize{masstheorie/integrationstechnik:cor:zeroprodset}]{\sphinxcrossref{Corollary 5.2}}} so folgt die Behauptung auch für Funktionen welche bezüglich \(\mathcal{A}(\R^{n+m})\) messbar sind.
@@ -9487,7 +9526,7 @@ Die Intuition hinter dem Prinzip von Cavalieri ist, dass man über parallele Sch
 \caption{Visualisierung von Mengentransformationen.}\label{\detokenize{masstheorie/integrationstechnik:fig-trafo}}\end{figure}
 
 \sphinxAtStartPar
-In {\hyperref[\detokenize{masstheorie/masstheorie:rem:transinvariance}]{\sphinxcrossref{Remark 5.4}}} haben wir eine Matrix \(M\) und eine Menge \(M\) bereits die Identität
+In {\hyperref[\detokenize{masstheorie/masstheorie:rem:transinvariance}]{\sphinxcrossref{Remark 5.4}}} haben wir für eine Matrix \(M\) und eine Lebesgue\sphinxhyphen{}messbare Menge \(A\) bereits die Identität
 \begin{equation*}
 \begin{split}\lambda(MA) = |\det(M)| \, \lambda(A)\end{split}
 \end{equation*}
@@ -9510,10 +9549,10 @@ Sei außerdem \(f \colon V \rightarrow \R\) eine Lebesgue\sphinxhyphen{}integrie
 \sphinxAtStartPar
 Dann gilt, dass die Verknüpfung \(f \circ \Phi \colon U \rightarrow \R\) auch Lebesgue\sphinxhyphen{}integrierbar ist und es gilt die folgende Integrationsregel
 \begin{equation*}
-\begin{split}\int_{\Phi(U)} f(y) \mu(\mathrm{d}y) = \int_U (f \circ \Phi)(x) \cdot |\det(D\Phi(x))|\mu(\mathrm{d}x). \end{split}
+\begin{split}\int_{\Phi(U)} f(y)\,d\lambda^n(y) = \int_U (f \circ \Phi)(x) \cdot \abs{\det(D\Phi(x))} d\lambda^n(x). \end{split}
 \end{equation*}
 \sphinxAtStartPar
-Hierbei nennt man \(\det(D\Phi(x))\) die \sphinxstylestrong{Jacobi\sphinxhyphen{}Determinante}.
+Hierbei ist man \(\det(D\Phi(x))\) die \sphinxstylestrong{Jacobi\sphinxhyphen{}Determinante}.
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
@@ -9549,57 +9588,330 @@ Diese befasst sich hauptsächlich mit der Theorie differenzierbarer komplexer Fu
 Da viele Konzepte der reellen Analysis verwendet werden, wird dieses Gebiet auch häufig \sphinxstylestrong{komplexe Analysis} genannt.
 
 \sphinxAtStartPar
-Die Grundlagen des Körpers der komplexen Zahlen wurden bereits in {[}{]} behandelt.
+Die Grundlagen des Körpers der komplexen Zahlen wurden bereits in {[}\hyperlink{cite.references:id15}{Ten21}{]} behandelt. Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz\sphinxhyphen{}Baldes {[}\hyperlink{cite.references:id12}{SB18}{]} aber auch das Skript zur Funktionentheorie von Prof.Dr.Karl\sphinxhyphen{}Hermann Neeb {[}\hyperlink{cite.references:id13}{Nee17}{]}. Teile des im Folgenden präsentierten Stoffs basieren auf diesen Referenzen.
 
 
-\section{Cauchy\sphinxhyphen{}Riemann Gleichungen}
-\label{\detokenize{complexanalysis/cauchyriemann:cauchy-riemann-gleichungen}}\label{\detokenize{complexanalysis/cauchyriemann::doc}}
+\section{Die Komplexen Zahlen}
+\label{\detokenize{complexanalysis/complexnumbers:die-komplexen-zahlen}}\label{\detokenize{complexanalysis/complexnumbers::doc}}
 \sphinxAtStartPar
-Der zentrale Begriff der Funktionentheorie ist der einer \sphinxstyleemphasis{holomorphen Funktion}.
+Wir werden hier zunächst die wichtigen Grundlagen der komplexen Zahlen wiederholen.
+Die komplexen Zahlen werden eingeführt als das Tupel
+\begin{equation*}
+\begin{split}\C := (\R^2,+,\cdot)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+zusammen mit den Operationen
+\begin{equation*}
+\begin{split}(x_1,y_1) + (x_2,y_2) &:= (x_1 + x_2, y_1+y_2),\\
+(x_1,y_1) \cdot (x_2,y_2) &:= (x_1\cdot x_2 - y_1\cdot y_2, y_1\cdot x_2 + x_1\cdot y_2).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Diese Struktur bildet einen \sphinxstylestrong{Körper} mit dem Einselement \(1:=(1,0)\). Das Element \(i:=(0,1)\) heißt \sphinxstylestrong{imaginäre Einheit} und erfüllt die Gleichung
+\begin{equation*}
+\begin{split}i^2 = (0,1)\cdot(0,1) = -(1,0) = -1.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Als reeller Vektorraum hat \(\C\) die kanonische Basis \(\{(1,0),(0,1)\}=\{1,i\}\) weshalb wir jedes Element darstellen können über
+\begin{equation*}
+\begin{split}(x,y) = x + iy.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Für eine komplexe Zahl \(z=x+ iy\in\C\) definieren wir
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\(\Re(z):= x\) den \sphinxstylestrong{Realteil},
+
+\item {} 
+\sphinxAtStartPar
+\(\Im(z):=y\) den \sphinxstylestrong{Imaginärteil},
+
+\item {} 
+\sphinxAtStartPar
+\(\overline{z}:= x-iy\) die \sphinxstylestrong{komplexe Konjugation},
+
+\item {} 
+\sphinxAtStartPar
+\(\abs{z} = \sqrt{z\overline{z}} = \sqrt{x^2+y^2}\) den \sphinxstylestrong{Betrag}.
+
+\end{enumerate}
+
+\sphinxAtStartPar
+Für den Betrag komplexer Zahlen gelten die bekannten Rechenregeln
+\begin{equation*}
+\begin{split}\abs{0}&=0,\\
+\abs{z\cdot w} &= \abs{z}\cdot \abs{w},\\
+\abs{z+w}&\leq\abs{z}+\abs{w},\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für zwei komplexe Zahlen \(z,w\in\C\)
+
+\sphinxAtStartPar
+Insbesondere induziert der Betrag die Metrik
+\begin{equation*}
+\begin{split}d(z,w):= \abs{z-w}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und damit auch eine Topologie sowie die Begriffe Konvergenz und Stetigkeit einer Funktion \(f:\C\to\C\).
+
+\sphinxAtStartPar
+Weiterhin lassen sich komplexe Zahlen auch in \sphinxstylestrong{Polarkoordinaten} darstellen, d.h., für jedes \(z\in\C\) existiert ein eindeutig bestimmter Winkel \(\varphi\in [0,2\pi]\), s.d.
+\begin{equation*}
+\begin{split}z = r(\cos(\varphi) + i\sin(\varphi))\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei \(r=\abs{z}\). In diesem Kontext ist auch die \sphinxstylestrong{Eulersche Formel} relevant,
+\begin{equation}\label{equation:complexanalysis/complexnumbers:eq:euler}
+\begin{split}\exp(i\varphi) = \cos(\varphi) + i\sin(\varphi)\end{split}
+\end{equation}
+\sphinxAtStartPar
+für \(\varphi\in [0,2\pi]\).
+
+
+\section{Holomorphe Funktionen}
+\label{\detokenize{complexanalysis/cauchyriemann:holomorphe-funktionen}}\label{\detokenize{complexanalysis/cauchyriemann::doc}}
+\sphinxAtStartPar
+Wir betrachten im Folgenden komplexe Funktionen \(f:\C\to\C\). Der Begriff der Stetigkeit wird durch die Metrik induziert. Das Konzept der Differenzierbarkeit führt auf den zentralen Begriff der Funktionentheorie, sogenannte \sphinxstyleemphasis{holomorphen Funktionen}.
 \label{complexanalysis/cauchyriemann:def:holomorph}
 \begin{sphinxadmonition}{note}{Definition 7.1 (Holomorphe Funktion)}
 
 
 
 \sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge und \(f \colon D \rightarrow \C\) eine stetige Funktion.
+Sei \(U \subset \C\) eine offene Teilmenge, eine Funktion \(f:U\to\C\) heißt \sphinxstylestrong{komplex differenzierbar} in \(p\in\C\), falls der Grenzwert
+\begin{equation*}
+\begin{split}f'(p) = \lim_{h\rightarrow 0} \frac{f(p+h) - f(p)}{h}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+existiert. Ist \(f\) komplex differenzierbar für alle \(p\in U\) so nennen wir \(f\) \sphinxstylestrong{holomorph}.
+\end{sphinxadmonition}
+\label{complexanalysis/cauchyriemann:remark-1}
+\begin{sphinxadmonition}{note}{Remark 7.1}
+
+
 
 \sphinxAtStartPar
-Wir nennen die Funktion \(f\) \sphinxstylestrong{holomorph} auf der Teilmenge \(D\), wenn es für jeden Punkt \(z \in D\) eine komplexe Ableitung der Funktion \(f\) gibt mit
+Beachte, dass im obigen Grenzwert \(h\in\C\) gilt, der Limes existiert also, falls für eine beliebige Folge \(h_k\in\C,k\in\N\) mit \(\abs{h_k}\to 0\) gilt, dass
 \begin{equation*}
-\begin{split}f'(z) = \lim_{h\rightarrow 0} \frac{f(z+h) - f(z)}{h}.\end{split}
+\begin{split}\lim_{k\to\infty} \frac{f(p+h_k) - f(p)}{h_k} = f'(p).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Dies ist äquivalent dazu, dass für eine beliebige Folge \(z_k\in\C,k\in\N\) mit \(\abs{z_k-p}\to 0\) gilt, dass
+\begin{equation*}
+\begin{split}\lim_{k\to\infty} \frac{f(z_k) - f(p)}{z_k - p} = f'(p).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+
+\subsection{Eigenschaften holomorpher Funktionen}
+\label{\detokenize{complexanalysis/cauchyriemann:eigenschaften-holomorpher-funktionen}}
+\sphinxAtStartPar
+Eine sehr nützliche Eigenschaft komplex differenzierbarer Funktionen liefert das folgende Lemma.
+\label{complexanalysis/cauchyriemann:lem:splitholo}
+\begin{sphinxadmonition}{note}{Lemma 7.1}
+
+
+
+\sphinxAtStartPar
+Sei \(U \subset \C\) eine offene Teilmenge, die Funktion \(f:U\to\C\) ist genau dann komplex differenzierbar in \(p\in U\), falls eine in \(p\) stetige Funktion \(h:U\to\C\) existiert, s.d.
+\begin{equation*}
+\begin{split}f(z) = f(p) + h(z)\cdot (z-p)\quad\forall z\in U.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Weiterhin gilt in diesem Fall \(h(p) = f^\prime(p)\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Es sei \(f\) komplex differenzierbar in \(p\), dann definieren wir die Funktion
+\begin{equation*}
+\begin{split}h(z):=
+\begin{cases}
+\frac{f(z) - f(p)}{z-p}\text{ falls }z\neq p\\
+f^\prime(p)\text{ sonst.}
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Da \(f\) komplex differenzierbar in \(p\) ist existiert der Grenzwert
+\begin{equation*}
+\begin{split}\lim_{z\to p} \frac{f(z) - f(p)}{z-p}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und ist gleich \(f^\prime(p)\) und daher ist \(h\) stetig in \(p\). Weiterhin gilt
+\begin{equation*}
+\begin{split}h(z)\cdot (z-p) = f(z) - f(p)\quad\forall z\in U\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und daher die Behauptung.
+
+\sphinxAtStartPar
+Für die andere Richtung sei \(h\) eine in \(p\) stetige Funktion s.d.
+\begin{equation*}
+\begin{split}f(z) = f(p) + h(z)\cdot (z-p)\quad\forall z\in U.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Dann gilt
+\begin{equation*}
+\begin{split}\lim_{z\to p} \frac{f(z) - f(p)}{z-p} = \lim_{z\to p} h(z) = h(p)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei der Grenzwert existiert, da \(h\) stetig in \(p\) ist. Somit ist \(f\) komplex differenzierbar in \(p\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Mithilfe des obigen Lemmas können wir sofort folgern, dass holomorphe Funktionen stetig sind.
+\label{complexanalysis/cauchyriemann:lemma-3}
+\begin{sphinxadmonition}{note}{Lemma 7.2}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen und \(f:U\to\C\) sei komplex differenzierbar in \(p\in U\), dann folgt \(f\) ist stetig in \(p\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Die Funktion \(f\) sei komplex differenzierbar in \(p\), dann existiert nach {\hyperref[\detokenize{complexanalysis/cauchyriemann:lem:splitholo}]{\sphinxcrossref{Lemma 7.1}}} eine in \(p\) stetige Funktion \(h\), s.d.,
+\begin{equation*}
+\begin{split}f(z) = f(p) + h(z)\cdot(z-p)\quad \forall z\in U.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Die Polynome \(z\mapsto f(p), z\mapsto (z-p)\) sind jeweils stetig in \(p\), Addition und Multiplikation stetiger Funktionen erhält Stetigkeit und somit ist \(f\) stetig in \(p\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir betrachten nun noch Ableitungsregeln, welche versichern, dass wir für die komplexe Ableitung die gewohnten Rechenregeln benutzten dürfen.
+\label{complexanalysis/cauchyriemann:lemma-4}
+\begin{sphinxadmonition}{note}{Lemma 7.3 (Komplexe Ableitungsregeln)}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen und \(f,g:U\to\C\) zwei holomorphe Funktionen, dann gilt
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(f+g\) ist holomorph, mit \((f+g)^\prime = f^\prime + g^\prime\),
+
+\item {} 
+\sphinxAtStartPar
+\(f\cdot g\) ist holomorph, mit \((f\cdot g)^\prime = f^\prime g+ f g^\prime\).
+
+\end{itemize}
+
+\sphinxAtStartPar
+Weiterhin seien \(f:U\to V, g:V\to C\) zwei holomorphe Funktionen mit \(V\subset\C\) offen, dann gilt
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(g\circ f\) ist holomorph mit \((g\circ f)^\prime = (g^\prime \circ f)\, f^\prime\).
+
+\end{itemize}
+
+\sphinxAtStartPar
+Zusätzlich gilt
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(\frac{1}{f}: U\setminus f^{-1}(0)\to \C\) ist holomorph, mit \((\frac{1}{f})^\prime = \frac{f^\prime}{f^2}\).
+
+\end{itemize}
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. ToDo
+\end{sphinxadmonition}
+
+
+\subsection{Die Cauchy–Riemannschen Differentialgleichungen}
+\label{\detokenize{complexanalysis/cauchyriemann:die-cauchy-riemannschen-differentialgleichungen}}
+\sphinxAtStartPar
+Da die komplexen Zahlen auch einen zweidimensionalen reellen Vektorraum bilden, stellt sich die Frage wie komplexe Differenzierbarkeit mit der bekannten totalen Differenzierbarkeit im \(\R^n\) zusammenhängt.
+\label{complexanalysis/cauchyriemann:definition-5}
+\begin{sphinxadmonition}{note}{Definition 7.2}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\R^n\) offen, eine Funktion \(F:U\to\R^m\) heißt \sphinxstylestrong{total differenzierbar} in \(a\in U\), falls ein reell lineares Funktional \(df(a):\R^n\to\R^m\) existiert, s.d.,
+\begin{equation*}
+\begin{split}\lim_{x\to a} \frac{\abs{f(x)-f(a) - df(a)(x-a)}}{\abs{x-a}} = 0.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Der Differentialquotient in {\hyperref[\detokenize{complexanalysis/cauchyriemann:def:holomorph}]{\sphinxcrossref{Definition 7.1}}} erinnert sehr an die Definition der Ableitung einer reellen Funktion.
-Der grundlegende Unterschied ist hier jedoch, dass \(h \in \C\) komplex ist.
-Interpretiert man den Körper der komplexen Zahlen als zweidimensionalen reellen Vektorraum, so muss für die beiden Richtungsableitungen \(x := \operatorname{Re}(z)\) und \(y := \operatorname{Im}(z)\) gelten
+Im Falle von totaler Differenzierbarkeit, wissen wir, dass \(F\) in alle Richtung partiell differenzierbar ist, und dass das Differential \(df(a)\) durch die Jacobi\sphinxhyphen{}Matrix am Punkt \(a\) gegeben ist. Falls \(F\) andererseits in alle Richtungen \sphinxstylestrong{stetig} partiell differenzierbar ist, so ist es auch total Differenzierbar.
+
+\sphinxAtStartPar
+Sei nun \(f\C\to\C\) eine komplexe Funktion wobei wir mit \(u:=\Re(f),v:=\Im(f)\) jeweils der Real\sphinxhyphen{} und Imaginärteil von \(f\) sind. Dann ist ist \(f\) natürlicherweise auch eine Funktion \(f:\R^2\to\R^2\), denn
 \begin{equation*}
-\begin{split}\partial_x f(z) = \lim_{\epsilon \rightarrow 0} \frac{f(z+\epsilon) - f(z)}{\epsilon} = \lim_{\epsilon \rightarrow 0} \frac{f(z+i\epsilon) - f(z)}{i\epsilon} = -i \partial_y f(z), \quad \epsilon \in \R.\end{split}
+\begin{split}f = u+iv = \begin{pmatrix} u\\ v\end{pmatrix}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Dieser Zusammenhang ist charakteristisch für holomorphe Funktionen und wird im folgenden Satz präzisiert.
-\label{complexanalysis/cauchyriemann:theorem-1}
-\begin{sphinxadmonition}{note}{Theorem 7.1 (Cauchy\sphinxhyphen{}Riemann Gleichungen)}
+Somit können wir auch für \(f:\C\to\C\) den Begriff der totalen Differenzierbarkeit betrachten. Der folgende Satz setzt nun Holomorphie und Totale Differenzierbarkeit in Beziehung und führt auf natürliche Weise auf die \sphinxstylestrong{Cauchy–Riemannschen Differentialgleichungen}.
+\label{complexanalysis/cauchyriemann:remark-6}
+\begin{sphinxadmonition}{note}{Remark 7.2}
 
 
 
 \sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge und \(f \colon D \rightarrow \C\) eine stetige Funktion für die gilt
+Der konzeptionelle Unterschied zwischen totaler Differenzierbarkeit und Holomorphie ist, dass der Grenzwert in {\hyperref[\detokenize{complexanalysis/cauchyriemann:def:holomorph}]{\sphinxcrossref{Definition 7.1}}} durch den Quotienten die komplexe Multiplikation benutzt, während wir bei totaler Differenzierbarkeit die Beträge von Vektoren betrachten. Allgemein unterscheidet sich \(\C\) als Körper nur durch die zusätzlich definierte komplexe Multiplikation vom reellen Vektorraum \(\R^2\). Genau diese komplexe Multiplikation die hier einfließt, führt dazu, dass der Begriff der Holomorphie nicht gleich dem der klassischen Differenzierbarkeit auf \(\R^2\) ist.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Dafür setzen wir Voraus, dass die Komponenten \(u,v\), stetig partiell differenzierbar sind und somit das totale Differential in \(p\in U\subset\C\) gegeben ist durch
 \begin{equation*}
-\begin{split}f(z) = u(z) + i v(z), \qquad u,v \colon D \rightarrow \R.\end{split}
+\begin{split}df(p) = 
+\begin{pmatrix} 
+\partial_x u &\partial_y u\\
+\partial_x v &\partial_y v
+\end{pmatrix}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Dann ist die Funktion \(f\) genau dann holomorph auf der Teilmenge \(D\), wenn die folgenden \sphinxstylestrong{Cauchy\sphinxhyphen{}Riemann Gleichungen} auf ganz \(D\) gelten:
+Wir erkennen, dass das totale Differential auch eine Abbildung \(df(p):\C\to\C\) definiert
+\begin{equation*}
+\begin{split}df(p)(z)= df(p)(x+iy):= 
+\begin{pmatrix} 
+\partial_x u &\partial_y u\\
+\partial_x v &\partial_y v
+\end{pmatrix}
+\begin{pmatrix}
+x\\y
+\end{pmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+welche offensichtlich linear über \(\R\) aber \sphinxstylestrong{nicht notwendigerweise} linear über \(\C\) ist.
+\label{complexanalysis/cauchyriemann:theorem-7}
+\begin{sphinxadmonition}{note}{Theorem 7.1}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset \C\) offen und \(f=u+iv:\C\to\C\) eine Funktionen mit \sphinxstylestrong{stetig partiell differenzierbaren} Funktionen \(u,v:\C\to\R\), dann sind folgende Aussagen äquivalent,
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\(f\) ist holomorph,
+
+\item {} 
+\sphinxAtStartPar
+die Abbildung \(df(p):\C\to\C\) ist linear über dem Körper \(\C\),
+
+\item {} 
+\sphinxAtStartPar
+es gelten die Cauchy–Riemannschen Differentialgleichungen
+
+\end{enumerate}
 \begin{equation*}
 \begin{split}\partial_x u = \partial_y v, \qquad \partial_y u = -\partial_x v.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.313
+Proof. ToDo, siehe \sphinxhref{https://www.fau.tv/clip/id/40944}{Video} ab Minute 32:30.
 \end{sphinxadmonition}
-\label{complexanalysis/cauchyriemann:example-2}
+\label{complexanalysis/cauchyriemann:example-8}
 \begin{sphinxadmonition}{note}{Example 7.1 (Holomorphe Funktionen)}
 
 
@@ -9611,96 +9923,1195 @@ Ableitung eines komplexen Monoms \sphinxhyphen{}> Beispiel 10.4 auf S.314 in Sch
 \(f(z) := \overline{z}\) ist nicht holomorph \sphinxhyphen{}> Beispiel 10.7 auf S.315 in Schulz\sphinxhyphen{}Baldes
 \end{sphinxadmonition}
 
+
+\section{Wegintegrale}
+\label{\detokenize{complexanalysis/kurvenintegrale:wegintegrale}}\label{\detokenize{complexanalysis/kurvenintegrale::doc}}
+\sphinxAtStartPar
+Der vorhergehende Abschnitt beschäftigt sich mit der komplexen Ableitung. Darauf aufbauend wollen wir in diesem Abschnitt einen Integralbegriff für komplexe Funktionen entwickeln. Für Funktionen \(f:\C\to\C\) entsteht hierbei die Schwierigkeit durch den komplexen Definitionsbereich. Für Funktionen \(g:[a,b]\to\C\) wobei \([a,b]\subset\R\) ein reelles Intervall ist können wir mithilfe des Riemann\sphinxhyphen{}Integrals folgendes Integral definieren.
+\label{complexanalysis/kurvenintegrale:definition-0}
+\begin{sphinxadmonition}{note}{Definition 7.3}
+
+
+
+\sphinxAtStartPar
+Es seien \(a<b\) zwei reelle Zahlen und \(g:[a,b]\to\C\) eine stetige Funktion, dann definieren wir das Integral
+\begin{equation*}
+\begin{split}\int_a^b g(t)\, dt = \int_a^b \Re(g)(t)\,dt + i\int_a^b \Im(g)(t)\, dt.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Wir versuchen also im Folgenden einen ähnlichen Integrationsbegriff für Funktionen \(f:\C\to\C\) zu erhalten.
+
+
+\subsection{Integration über stetig differenzierbare Wege}
+\label{\detokenize{complexanalysis/kurvenintegrale:integration-uber-stetig-differenzierbare-wege}}
+\sphinxAtStartPar
+Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven, welche die Grundlage der komplexen Integration bilden.
+\label{complexanalysis/kurvenintegrale:definition-1}
+\begin{sphinxadmonition}{note}{Definition 7.4 (Weg und Kurve)}
+
+
+
+\sphinxAtStartPar
+Für zwei reelle Zahlen \(a<b\) betrachten wir eine Abbildung \(\gamma:[a,b]\to\C\).
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Falls die Abbildung stetig ist, so nennen wir \(\gamma\) \sphinxstylestrong{Weg} mit Anfangspunkt \(\gamma(a)\) und Endpunkt \(\gamma(b)\).
+
+\item {} 
+\sphinxAtStartPar
+Ein Weg heißt geschlossen, falls \(\gamma(a)=\gamma(b)\).
+
+\item {} 
+\sphinxAtStartPar
+Ein Weg heißt stetig differenzierbar, falls \(\gamma^\prime\) existiert und stetig ist.
+
+\end{enumerate}
+\end{sphinxadmonition}
+\label{complexanalysis/kurvenintegrale:remark-2}
+\begin{sphinxadmonition}{note}{Remark 7.3}
+
+
+
+\sphinxAtStartPar
+Wir beachten, dass wir bei der Definition der Differenzierbarkeit eines Weges den klassischen Begriff der Differenzierbarkeit benutzten und \sphinxstylestrong{nicht} den der Holomorphie, da der Definitionsbereich von \(\gamma:[a,b]\to\C\) rein reell ist.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Damit können wir nun das \sphinxstylestrong{Wegintegral} definieren.
+\label{complexanalysis/kurvenintegrale:definition-3}
+\begin{sphinxadmonition}{note}{Definition 7.5}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) eine offene Teilmenge und \(f:U\to\C\) eine stetige Funktion, für einen stetig differenzierbaren Weg \(\gamma:[a,b]\to\C\) definieren wir das \sphinxstylestrong{Wegintegral}
+\begin{equation*}
+\begin{split}\int_\gamma f(z)\, dz := \int_a^b f(\gamma(t))\gamma^\prime(t)dt.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Ist \(\gamma\) geschlossen so schreiben wir
+\begin{equation*}
+\begin{split}\oint_\gamma f(z)\, dz:=\int_\gamma f(z)\, dz.\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{complexanalysis/kurvenintegrale:remark-4}
+\begin{sphinxadmonition}{note}{Remark 7.4}
+
+
+
+\sphinxAtStartPar
+Wir erkennen in der Definition des Wegintegrals konzeptionelle Ähnlichkeiten zur Transformationsregel {\hyperref[\detokenize{masstheorie/integrationstechnik:thm:jacobitransformation}]{\sphinxcrossref{Theorem 5.14}}}.
+\end{sphinxadmonition}
+
+
+\subsection{Integration über stückweise differenzierbare Wege}
+\label{\detokenize{complexanalysis/kurvenintegrale:integration-uber-stuckweise-differenzierbare-wege}}
+\sphinxAtStartPar
+Wir wollen nicht nur Wege \(\gamma:[a,b]\to\C\) betrachten welche auf dem ganzen Intervall \([a,b]\) stetig differenzierbar sein sondern wollen auch stetige Abbildungen mit endliche vielen Knickstellen zulassen.
+\label{complexanalysis/kurvenintegrale:definition-5}
+\begin{sphinxadmonition}{note}{Definition 7.6}
+
+
+
+\sphinxAtStartPar
+Für zwei reelle Zahlen \(a<b\) sei \(\gamma:[a,b]\to\C\) ein Weg.
+
+\sphinxAtStartPar
+1. Falls endlich viele Punkte \(a=t_0<t_1<\ldots t_N =b\) existieren s.d. \(\gamma\rvert_{[t_j,t_{j+1}]}\) stetig differenzierbar ist, für alle \(j=0,\ldots, N-1\), so heißt \(\gamma\) \sphinxstylestrong{Integrationsweg} mit Zerlegung \((t_0,\ldots,t_N)\).
+
+\sphinxAtStartPar
+2. Falls endlich viele Punkte \(a=t_0<t_1<\ldots < t_N =b\) existieren, s.d. für alle \(j=0,\ldots, N-1\) gilt
+\begin{equation*}
+\begin{split}\gamma(t) = \gamma(t_j) + \frac{t - t_j}{t_{j+1} - t_j} \big(\gamma(t_{j+1}) - \gamma(t_j))\quad\text{ für } t\in(t_j,t_{j+1}\big)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so heißt \(\gamma\) \sphinxstylestrong{Polygonzug} mit Zerlegung \((t_0,\ldots,t_N)\).
+
+\sphinxAtStartPar
+3. Falls \(\gamma\) ein Polygonzug mit Zerlegung \((t_0,\ldots,t_N)\) ist und falls für alle \(j=0,\ldots,N-1\) gilt
+\begin{equation*}
+\begin{split}\big(\gamma(t_{j+1}) - \gamma(t_j)) \in \{ \alpha_j, \alpha_j i\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für reelle Faktoren \(\alpha_j\in\R\), so heißt \(\gamma\) Treppenzug.
+\end{sphinxadmonition}
+\label{complexanalysis/kurvenintegrale:remark-6}
+\begin{sphinxadmonition}{note}{Remark 7.5}
+
+
+
+\sphinxAtStartPar
+Jeder Polygonzug ist ein Integrationsweg.
+\end{sphinxadmonition}
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics[height=300\sphinxpxdimen]{{treppenzug}.jpg}
+\caption{Visualisierung eines Integrationswegs in grün, eines Polygonzugs in rot und eines Treppenzugs in blau.}\label{\detokenize{complexanalysis/kurvenintegrale:fig-treppenzug}}\end{figure}
+
+\sphinxAtStartPar
+Analog definiert man hier den Begriff des Integrals.
+\label{complexanalysis/kurvenintegrale:definition-7}
+\begin{sphinxadmonition}{note}{Definition 7.7}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) eine offene Teilmenge und \(f:U\to\C\) eine stetige Funktion, für einen Integrationsweg \(\gamma:[a,b]\to\C\) mit Zerlegung \((t_0,\ldots,t_N)\)  definieren wir das \sphinxstylestrong{Wegintegral}
+\begin{equation*}
+\begin{split}\int_\gamma f(z)\, dz:= \sum_{j=0}^{N-1} \int_{\gamma\rvert_{[t_j,t_{j+1}]}} f(z)\,dz.\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{complexanalysis/kurvenintegrale:remark-8}
+\begin{sphinxadmonition}{note}{Remark 7.6}
+
+
+
+\sphinxAtStartPar
+Für einen Weg \(\gamma\) können verschiedene Zerlegungen \((t_0,\ldots,t_N)\) s.d., \(\gamma\) ein Integrationsweg bezüglich dieser Zerlegung ist. Man erkennt aber leicht, dass de Wert des Wegintegrals \sphinxstylestrong{unabhängig} von der Wahl der Zerlegung ist
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Die Definition des Wegintegral ist unabhängig von Umparametrisierungen eines Weges, dies ist Inhalt des folgenden Lemmas.
+\label{complexanalysis/kurvenintegrale:lemma-9}
+\begin{sphinxadmonition}{note}{Lemma 7.4}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen, \(\gamma:[a,b]\to U\) ein stetig differenzierbarer Weg und \(\phi:[c,d]\to[a,b]\) eine stetig differenzierbare Abbildung mit \(\phi(c)=a,\phi(d)=b\). Ist \(f:U\to\C\) stetig, so gilt
+\begin{equation*}
+\begin{split}\int_{\gamma\circ\phi} f(z)\, dz = \int_\gamma f(z)\, dz.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. ToDo.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Insbesondere rechtfertigt diese Aussage, dass wir für den Strahl
+\begin{equation*}
+\begin{split}[p,q]:=\{z\in\C: z = p+t(q-p), 0\leq t\leq 1\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+setzten
+\begin{equation*}
+\begin{split}\int_{[p,q]} f(z)\, dz = \int_0^1 f(p+t(q-p))\cdot (q-p)\, dt.\end{split}
+\end{equation*}
+
+\subsection{Stammfunktionen}
+\label{\detokenize{complexanalysis/kurvenintegrale:stammfunktionen}}
+\sphinxAtStartPar
+Analog zum Begriff einer Stammfunktion in \(\R\) betrachten wir dieses Konzept nun für Funktionen \(f\C\to\C\).
+\label{complexanalysis/kurvenintegrale:definition-10}
+\begin{sphinxadmonition}{note}{Definition 7.8}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen, eine holomorphe Funktion \(F:U\to\C\) heißt Stammfunktion einer Funktion \(f:U\to\C\), falls
+\begin{equation*}
+\begin{split}F^\prime = f.\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{complexanalysis/kurvenintegrale:remark-11}
+\begin{sphinxadmonition}{note}{Remark 7.7}
+
+
+
+\sphinxAtStartPar
+Wir beachten, dass in der obigen Definition die komplexe Ableitung benutzt wird.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Für reelle Funktionen schafft der Hauptsatz der Differentiations\sphinxhyphen{} und Integrationsrechnung (HDI) einen Zusammenhang zwischen dem Integral der Ableitung und der Stammfunktion. Mithilfe des Wegintegrals wollen wir nun ein ähnliches Konzept erarbeiten und bemerken zunächst folgende Tatsache.
+\label{complexanalysis/kurvenintegrale:lem:intdiff}
+\begin{sphinxadmonition}{note}{Lemma 7.5 (Integral einer Ableitung)}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen und \(f:U\to\C\) sei eine holomorphe Funktion, dann gilt
+\begin{equation*}
+\begin{split}\int_\gamma f^\prime(z)\, dz= f(\gamma(b)) - f(\gamma(a))\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für jeden Integrationsweg \(\gamma:[a,b]\to U\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Sei \(\gamma:[a,b]\to\C\) zunächst stetig differenzierbar, dann gilt
+\begin{equation*}
+\begin{split}\int_\gamma f^\prime(z)\, dz = \int_a^b f^\prime(\gamma(t))\gamma^\prime(t)\, dt =(\#).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Die Abbildung \((f\circ \gamma):[a,b]\to\C\) ist reell differenzierbar und mit der Kettenregel auf \(\R\) gilt
+\begin{equation*}
+\begin{split}(f\circ\gamma)^\prime = (f^\prime\circ\gamma)\cdot\gamma.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Daher folgt
+\begin{equation*}
+\begin{split}(\#) = \int_a^b (f\circ \gamma)^\prime(t)\, dt.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Nach dem Hauptsatz der Integrations und Differentialrechnung für reelle Funktionen folgt dann
+\begin{equation*}
+\begin{split}(\#) = f(\gamma(b)) - f(\gamma(a)). \end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Anstatt allgemeiner offener Teilmengen \(U\subset\C\) zu betrachten schränkt man sich oft auf \sphinxstylestrong{Gebiete} ein.
+\label{complexanalysis/kurvenintegrale:definition-13}
+\begin{sphinxadmonition}{note}{Definition 7.9}
+
+
+
+\sphinxAtStartPar
+Eine offenen Menge \(U\subset\C\) heißt \sphinxstylestrong{Gebiet}, falls sie zusammenhängend ist, das heißt für zwei Mengen \(A,B\subset U,A\neq\emptyset\neq B\) gilt
+\begin{equation*}
+\begin{split}A\cap B \neq \emptyset.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Für Gebiete gibt es folgende hilfreiche Charakterisierungen.
+\label{complexanalysis/kurvenintegrale:lemma-14}
+\begin{sphinxadmonition}{note}{Lemma 7.6}
+
+
+
+\sphinxAtStartPar
+Eine Menge \(U\subset\C\) ist genau dann ein Gebiet, falls eine der folgenden Bedingungen gilt.
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Die Menge \(U\) ist wegzusammenhängend, d.h., für \(x,y\in U\) existiert stets ein Weg \(\gamma:[a,b]\to U\) mit \(\gamma(a)=x,\gamma(b)=y\).
+
+\item {} 
+\sphinxAtStartPar
+Die Menge \(U\) ist polygonzusammenhängend, d.h., für \(x,y\in U\) existiert ein Polygonzug \(\gamma:[a,b]\to U\) mit \(\gamma(a)=x,\gamma(b)=y\).
+
+\item {} 
+\sphinxAtStartPar
+Die Menge \(U\) ist treppenzusammenhängend, d.h., für \(x,y\in U\) existiert ein Treppenzug \(\gamma:[a,b]\to U\) mit \(\gamma(a)=x,\gamma(b)=y\).
+
+\end{enumerate}
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id13}{Nee17}{]} Lemma 3.12.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Auf Gebieten können wir mithilfe von {\hyperref[\detokenize{complexanalysis/kurvenintegrale:lem:intdiff}]{\sphinxcrossref{Lemma 7.5}}} folgende Aussage zeigen.
+\label{complexanalysis/kurvenintegrale:lemma-15}
+\begin{sphinxadmonition}{note}{Lemma 7.7}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) ein Gebiet, eine Funktion \(f:U\to\C\) ist genau dann konstant wenn \(f^\prime=0\) gilt.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Falls \(f\) konstant ist folgt per Definition \(f^\prime=0\). Ist umgekehrt \(f^\prime=0\) dann finden wir für beliebige \(x,y\in U\) einen Polygonzug \(\gamma:[a,b]\to U, \gamma(a)=x,\gamma(b)=y\) mit Zerlegung \((t_0,\ldots,t_N)\), da \(U\) ein Gebiet ist. Dieser Weg ist insbesondere ein Inetgrationsweg und mit {\hyperref[\detokenize{complexanalysis/kurvenintegrale:lem:intdiff}]{\sphinxcrossref{Lemma 7.5}}} folgt dann
+\begin{equation*}
+\begin{split}f(x) - f(y) = \int_\gamma f^\prime(z)\, dz = 0.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Da \(x,y\in U\) beliebig waren ist \(f\) konstant.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Im folgende formulieren wir ein zentrales Resultat für Stammfunktionen holomorpher Funktionen.
+\label{complexanalysis/kurvenintegrale:theorem-16}
+\begin{sphinxadmonition}{note}{Theorem 7.2 (Existenz von Stammfunktionen)}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen, dann besitzt eine stetige Funktion genau dann eine Stammfunktion, falls
+\begin{equation*}
+\begin{split}\oint_\gamma f(z)\, dz =0\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für jeden geschlossenen Integrationsweg \(\gamma\) gilt.
+
+\sphinxAtStartPar
+Fixieren wir einen Punkt \(p\in\C\) und ist zusätzlich \(U\) zusammenhängend, so ist eine Stammfunktionen \(F:U\to\C, F(p)=c\in\C\) gegeben durch
+\begin{equation*}
+\begin{split}F(w):= c+ \int_{\gamma_w} f(z) \,dz\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei \(\gamma_w\) ein beliebiger Integrationsweg von \(p\) nach \(w\) ist.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id13}{Nee17}{]} Satz 3.17.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Die Bedingung an \(f\), dass alle Wegintegrale über geschlossene Wege wegfallen ist in der Praxis schwer nachzuprüfen. Für holomorphe Funktionen hat man allerdings folgendes praktische Korollar.
+\label{complexanalysis/kurvenintegrale:corollary-17}
+\begin{sphinxadmonition}{note}{Corollary 7.1}
+
+
+
+\sphinxAtStartPar
+Sei \(f:B_r(p)\to\C\) eine holomorphe Funktion auf der komplexen Scheibe \(B_r(p)\subset\C\) um \(p\) mit Radius \(r>0\), dann besitzt \(f\) eine Stammfunktion.
+\end{sphinxadmonition}
+
+
+\subsection{Integration über nicht differenzierbare Wege}
+\label{\detokenize{complexanalysis/kurvenintegrale:integration-uber-nicht-differenzierbare-wege}}
+\sphinxAtStartPar
+Mithilfe des Konzepts der Stammfunktion können wir nun das Integral über beliebige Wege definieren.
+\label{complexanalysis/kurvenintegrale:definition-18}
+\begin{sphinxadmonition}{note}{Definition 7.10}
+
+
+
+\sphinxAtStartPar
+Es sei \(\gamma:[a,b]\to U\) ein Weg, eine Zerlegung \((a=t_0,\ldots, t_N=b), t_j<t_{j+1}\) heißt \sphinxstylestrong{zulässig}, falls offenen Scheiben \(B^j\subset U\) existieren, s.d.
+\begin{equation*}
+\begin{split}\gamma([t_j,t_{j+1}])\subset B^j\quad j=0,\ldots,N-1.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Für eine holomorphe Funktion \(f:U\to\C\) wissen wir dann, dass für einen Weg \(\gamma\) mit zulässiger Zerlegung \((t_0,\ldots,t_N)\) auf jeder Kreisscheibe \(B^j\subset U\) eine Stammfunktion \(F_j\) existiert, s.d.,
+\begin{equation*}
+\begin{split}\int_\gamma f(z)\, dz= \sum_{j=0}^{N-1} \int_{\gamma\rvert_[t_j,t_{j+1}]} f(z)\, dz=
+\sum_{j=0}^{N-1} F_j(\gamma(t_{j+1})) - F_j(\gamma(t_{j})).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Der Ausdruck auf der rechten Seite ist allerdings auch definiert, falls \(\gamma\) nicht differenzierbar ist, was auf folgende Definition führt.
+\label{complexanalysis/kurvenintegrale:definition-19}
+\begin{sphinxadmonition}{note}{Definition 7.11}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\) offen und \(\gamma:[a,b]\to U\) ein Weg mit zulässiger Zerlegung \((t_0,\ldots,t_N)\) und offenen Kreisscheiben \(B_j,j=0,\ldots,N-1\). Für eine holomorphe Funktion \(f\) mit Stammfunktionen \(F_j\) auf \(B_j\) definieren wir
+\begin{equation*}
+\begin{split}\int_\gamma f(z)\, dz = \sum_{j=1}^N F_j(\gamma(t_{j+1}))- F(\gamma(t_j)).\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{complexanalysis/kurvenintegrale:remark-20}
+\begin{sphinxadmonition}{note}{Remark 7.8}
+
+
+
+\sphinxAtStartPar
+Für offenes \(U\subset\C\) und einen Weg \(\gamma:[a,b]\to U\) exsitiert stets eine zulässige Zerlegung und der Wert des Integrals ist unabhängig von der Wahl der Zerlegung, siehe {[}\hyperlink{cite.references:id13}{Nee17}{]}.
+\end{sphinxadmonition}
+
+
+\section{Der Integralsatz von Cauchy}
+\label{\detokenize{complexanalysis/cauchyintegral:der-integralsatz-von-cauchy}}\label{\detokenize{complexanalysis/cauchyintegral::doc}}
+\sphinxAtStartPar
+Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
+Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen. Ein erstes Resultat in diese Richtung erhalten wir indem wir \sphinxstyleemphasis{benachbarte Wege} betrachten.
+
+
+\subsection{Benachbarte Wege}
+\label{\detokenize{complexanalysis/cauchyintegral:benachbarte-wege}}
+\sphinxAtStartPar
+In der Definition eines Wegintegrals über beliebige Wege betrachtet man zulässige Zerlegungen mit offenen Kreisscheiben. Finden wir nun eine Zerlegung, s.d., sich zwei Wege die jeweiligen Kreisscheiben teilen, so wollen wir sie benachbart nennen.
+\label{complexanalysis/cauchyintegral:definition-0}
+\begin{sphinxadmonition}{note}{Definition 7.12}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset \C\) offen und seien \(\gamma_0,\gamma_1:[a,b]\to U\) zwei Wege. Falls eine Zerlegung \((a=t_0,\ldots,b=t_N)\) existiert mit Kreisscheiben \(B^j\), welche zulässig für beide Wege ist, d.h.,
+\begin{equation*}
+\begin{split}\gamma_0([t_j, t_{j+1}])\cup \gamma_1([t_j,t_{j+1}]) \subset B^j\end{split}
+\end{equation*}
+\sphinxAtStartPar
+dann nennen wir \(\gamma_0\) und \(\gamma_1\) \sphinxstylestrong{benachbart}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Der Begriff der Nachbarschaft hat tatsächlich auch eine geometrische Bedeutung, welche in folgendem Lemma festgehalten wird.
+\label{complexanalysis/cauchyintegral:lem:closelem}
+\begin{sphinxadmonition}{note}{Lemma 7.8 (Nachbarschaftslemma)}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen, dann existiert ein \(\varepsilon>0\), s.d. falls für zwei Wege \(\gamma_0,\gamma_1:[a,b]\to U\) gilt
+\begin{equation*}
+\begin{split}\abs{\gamma_0 - \gamma_1} < \varepsilon\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so folgt schon, dass \(\gamma_0,\gamma_1\) benachbart sind.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id13}{Nee17}{]}.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Für benachbarte Wege erhalten wir nun das folgende Resultat, welches eine Vorstufe zum Integralsatz von Cauchy darstellt.
+\label{complexanalysis/cauchyintegral:lem:closepath}
+\begin{sphinxadmonition}{note}{Lemma 7.9}
+
+
+
+\sphinxAtStartPar
+Es \(U\subset\C\) eine offene Menge und \(f:U\to\C\) eine holomorphe Funktion, weiterhin seien \(\gamma_0,\gamma_1:[a,b]\to U\) zwei benachbarte Weg die eine der folgenden Bedingungen erfüllen
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+die Wege haben gleiche Anfangs\sphinxhyphen{} und Endpunkte, oder
+
+\item {} 
+\sphinxAtStartPar
+die Wege sind geschlossen.
+
+\end{enumerate}
+
+\sphinxAtStartPar
+Dann gilt
+\begin{equation*}
+\begin{split}\int_{\gamma_0} f(z)\, dz = \int_{\gamma_1} f(z)\, dz.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe z.B. {[}{]} Lemma 4.5.
+\end{sphinxadmonition}
+
+
+\subsection{Homotopie}
+\label{\detokenize{complexanalysis/cauchyintegral:homotopie}}
+\sphinxAtStartPar
+Um nicht nur benachbarte Wege betrachten zu können definieren wir jetzt den Begriff von Homotopie.
+\label{complexanalysis/cauchyintegral:definition-3}
+\begin{sphinxadmonition}{note}{Definition 7.13 (Homotopie)}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen, zwei Wege \(\gamma_0, \gamma_1:[a,b]\to U\) mit gleichen Anfangs und Endpunkten,
+\begin{equation*}
+\begin{split}\gamma_0(a) = \gamma_1(a),\\
+\gamma_0(b) = \gamma_1(b),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+heißen \sphinxstylestrong{homotop}, falls eine stetige Abbildung \(h:[a,b]\times[0,1]\to U\) existiert, so dass für alle \(t\in[a,b]\) gilt
+\begin{equation*}
+\begin{split}h(t,0) = \gamma_0(t), \qquad h(t,1) = \gamma_1(t).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In diesem Fall nennen wir die Abbildung \(h\) eine \sphinxstylestrong{Homotopie} zwischen den Wegen \(\gamma_0\) und \(\gamma_1\) und notieren auch \(h_s:=h(\cdot,s):[a,b]\to U\) für den Weg am Punkt \(s\in [0,1]\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Anstatt nur Wege mit gleichen Anfangs und Endpunkten zu betrachten können wir auch Homotopie geschlossener Wege definieren.
+\label{complexanalysis/cauchyintegral:definition-4}
+\begin{sphinxadmonition}{note}{Definition 7.14 (Homotopie geschlossener Wege)}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen, zwei geschlossene Wege \(\gamma_0, \gamma_1:[a,b]\to U\) heißen \sphinxstylestrong{frei homotop}, falls eine stetige Abbildung \(h:[a,b]\times[0,1]\to U\) existiert, so dass für alle \(t\in[a,b]\) gilt
+\begin{equation*}
+\begin{split}h(t,0) = \gamma_0(t), \qquad h(t,1) = \gamma_1(t)\quad\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und der Weg \(h_s\) geschlossen ist für alle \(s\in [0,1]\).
+
+\sphinxAtStartPar
+Ein geschlossener Weg heißt \sphinxstylestrong{zusammenziehbar} oder \sphinxstylestrong{nullhomotop}, falls er frei homotop zu einem konstanten Weg ist.
+\end{sphinxadmonition}
+\label{complexanalysis/cauchyintegral:remark-5}
+\begin{sphinxadmonition}{note}{Remark 7.9}
+
+
+
+\sphinxAtStartPar
+Man kann zeigen, dass der Begriff der Homotopie zwischen Wegen in einer Teilmenge \(U \subset \C\) eine \sphinxstyleemphasis{Äquivalenzrelation} auf Wegen in \(U\) induziert. Die zugehörigen Äquivalenzklassen werden auch \sphinxstyleemphasis{Homotopieklassen} genannt.
+\end{sphinxadmonition}
+
+
+\subsection{Der Homotopiesatz und der Integralsatz von Cauchy}
+\label{\detokenize{complexanalysis/cauchyintegral:der-homotopiesatz-und-der-integralsatz-von-cauchy}}
+\sphinxAtStartPar
+Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.
+\label{complexanalysis/cauchyintegral:lem:homotop}
+\begin{sphinxadmonition}{note}{Lemma 7.10 (Homotopiesatz)}
+
+
+
+\sphinxAtStartPar
+Es sei \(U \subset \C\) offen und seien \(\gamma_0\) und \(\gamma_1:[a,b]\to U\) homotope oder frei homotope Wege.
+Sei außerdem \(f:U\to C\) eine holomorphe Funktion, dann gilt
+\begin{equation*}
+\begin{split}\oint_{\gamma_0} f(z) \, dz = \oint_{\gamma_1} f(z) \, dz.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Es sei \(h:[a,b]\times[0,1]\to U\) eine Homotopie, mit \(h_0=\gamma_0, h_1=\gamma_1\). Die Menge \([a,b]\times[0,1]\) ist kompakt und somit ist \(h\) gleichmäßig stetig, d.h. insbesondere, dass für \(\varepsilon>0\) ein \(\delta >0\) existiert, s.d.,
+\begin{equation*}
+\begin{split}\abs{h_{s_0}-h_{s_1}}_\infty <\varepsilon \text{ für } \abs{s_1-s_2}< \delta.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Wir können nach {\hyperref[\detokenize{complexanalysis/cauchyintegral:lem:closelem}]{\sphinxcrossref{Lemma 7.8}}} somit \(\delta\) klein genug wählen, s.d. Wege \(h_{s_0}, h_{s_1}\) benachbart sind für \(\abs{s_0-s_1}<\delta\). Somit gilt nach {\hyperref[\detokenize{complexanalysis/cauchyintegral:lem:closepath}]{\sphinxcrossref{Lemma 7.9}}}, dass
+\begin{equation*}
+\begin{split}\int_{h_{s_0}} f(z)\, dz = \int_{h_{s_1}} f(z)\, dz\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gilt für \(\abs{s_0-s_1}<\delta\). Damit folgt die Aussage.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Es folgt, dass das Kurvenintegral einer holomorphe Funktionen über einen nullhomotopen Weg verschwindet, was als \sphinxstylestrong{Integralsatz von Cauchy} bekannt ist.
+\label{complexanalysis/cauchyintegral:theorem-7}
+\begin{sphinxadmonition}{note}{Theorem 7.3 (Integralsatz von Cauchy)}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen und sei \(\gamma:[a,b]\to U\) ein nullhomotoper Weg, für jede holomorphe Funktion \(f:U\to\C\) gilt dann
+\begin{equation*}
+\begin{split}\oint_\gamma f(z)\, dz = 0.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Folgt direkt aus {\hyperref[\detokenize{complexanalysis/cauchyintegral:lem:homotop}]{\sphinxcrossref{Lemma 7.10}}}.
+\end{sphinxadmonition}
+
+
+\subsection{Die Integralformel von Cauchy}
+\label{\detokenize{complexanalysis/cauchyintegral:die-integralformel-von-cauchy}}
+\sphinxAtStartPar
+Wir werden die obigen Konzepte nun auf Wegen betrachten welche den rnd einer Kreisscheibe parametrisieren. Dazu sei \(B_r(p)\subset\C\) eine Kreisscheibe um den Punkt \(p\in\C\) mit Radius \(r>0\), wir wählen die natürliche Parametrisierung des Randes
+\begin{equation*}
+\begin{split}\gamma_{p,r}:[0,2\pi]&\to \partial B_r(p)\\
+t&\mapsto p + r\exp(i t),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei wir die Eulersche Formel \eqref{equation:complexanalysis/complexnumbers:eq:euler} benutzt haben.
+
+\sphinxAtStartPar
+Mithilfe der natürlichen Parametrisierung schreiben wir auch
+\begin{equation*}
+\begin{split}\int_{\partial B_r(p)} f(z)\, dz := \int_{\gamma_{p,r}} f(z)\, dz\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und formulieren nun die Integralformel von Cauchy.
+\label{complexanalysis/cauchyintegral:theorem-8}
+\begin{sphinxadmonition}{note}{Theorem 7.4 (Cauchy Integralformel)}
+
+
+
+\sphinxAtStartPar
+Sei \(U \subset \C\) offen, \(\overline{B_r(p)}\subset \C\) und \(f:U\to \C\) holomorph\$, dann gilt
+\begin{equation*}
+\begin{split}f(w) = \frac{1}{2\pi i} \int_{B_r(p)} \frac{f(z)}{z-w}\, dz\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für alle \(w\in B_r(p)\).
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe z.B. {[}\hyperlink{cite.references:id13}{Nee17}{]} Satz 4.13.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Als Korollar erhält man die Tatsache, dass Ableitungen holomorpher Funktionen selbst holomorph sind. Somit ist jede holomorphe Funktion unendlich oft differenzierbar.
+\label{complexanalysis/cauchyintegral:cor:infholo}
+\begin{sphinxadmonition}{note}{Corollary 7.2}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset\C\) offen und \(f:U\to\C\) holomorph, dann ist \(f^\prime:U\to\C\) auch holomorph und für \(\overline{B_r(p)}\subset U\) gilt
+\begin{equation*}
+\begin{split}f^{(n)}(w) = \frac{n!}{2\pi i} \int_{\partial B_r(p)} \frac{f(z)}{(z-w)^{n+1}}\, dz\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für alle \(w\in B_r(p)\).
+\end{sphinxadmonition}
+
+
+\subsection{Der Satz von Liouville}
+\label{\detokenize{complexanalysis/cauchyintegral:der-satz-von-liouville}}
+\sphinxAtStartPar
+Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liouville.
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Joseph Liouville}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Joseph\_Liouville}{Joseph Liouville} (Geboren 24. März 1809 in Saint\sphinxhyphen{}Omer; Gestorben 8. September 1882 in Paris) war ein französischer Mathematiker.
+\end{sphinxShadowBox}
+\label{complexanalysis/cauchyintegral:theorem-10}
+\begin{sphinxadmonition}{note}{Theorem 7.5 (Satz von Liouville)}
+
+
+
+\sphinxAtStartPar
+Jede beschränkte holomorphe Funktion \(f:\C\to\C\) ist konstant.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Es gelte \(\abs{f(z)}< C <\infty\) für alle \(z\in\C\), dann gilt nach {\hyperref[\detokenize{complexanalysis/cauchyintegral:cor:infholo}]{\sphinxcrossref{Corollary 7.2}}}, dass
+\begin{equation*}
+\begin{split}f^\prime(w) = \frac{1}{2\pi i} \int_{\partial B_r(w)} \frac{f(z)}{(z-w)^2}\, dz\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für alle \(w\in \C\) und alle \(r> 0\). Damit folgt
+\begin{equation*}
+\begin{split}\abs{f^\prime(w)}\leq \frac{C}{2 \pi} \abs{\int_{\partial B_r(w)} dz}\leq \frac{C}{r}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Da diese Ungleichung für alle \(r>0\) und \(w\in\C\) gilt folgt \(\abs{f^\prime(w)} = 0\) für alle \(w\in\C\) und somit ist \(f\) konstant.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Hieraus folgt sofort der Fundamentalsatz der Algebra.
+\label{complexanalysis/cauchyintegral:theorem-11}
+\begin{sphinxadmonition}{note}{Theorem 7.6 (Fundamentalsatz der Algebra)}
+
+
+
+\sphinxAtStartPar
+Hat ein Polynom
+\begin{equation*}
+\begin{split}f(z)=\sum_{j=0}^N a_j z^j\end{split}
+\end{equation*}
+\sphinxAtStartPar
+keine Nullstellen, so ist es konstant.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Wir nehmen o.B.d.A. an, dass \(a_N=1\) gilt. Dann existiert ein Polynom \(g\), s.d. \(f(z) = z^n + g(z)\) und
+\begin{equation*}
+\begin{split}\lim_{z\to\infty} \frac{g(z)}{z^n} = 0,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wir finden also \(r>0\), s.d. \(\abs{g(z)} < 1/2 \abs{z^n}\) für alle \(\abs{z}>r\). Dann folgt auch
+\begin{equation*}
+\begin{split}\abs{f(z)} = \abs{z^n + g(z)} \geq \abs{z^n} - 1/2 \abs{z^n}\geq r^n/2.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Besitzt \(f\) keine Nullstellen, so ist \(1/f:\C\to\C\) eine auf ganz \(\C\) holomorphe Funktion. Weiterhin gilt
+\begin{equation*}
+\begin{split}\abs{1/f(z)} \leq \frac{2}{r^n}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+für alle \(\abs{z}\geq r\) und somit
+\begin{equation*}
+\begin{split}\abs{1/f} \leq \max\{\max_{B_r(0)} \abs{f(z)}, \frac{2}{r^n} \} < \infty\end{split}
+\end{equation*}
+\sphinxAtStartPar
+daher ist \(1/f\) beschränkt und nach dem Satz von Liouville konstant. Damit ist auch \(f\) konstant.
+\end{sphinxadmonition}
+
+
+\section{Potenzreihen}
+\label{\detokenize{complexanalysis/powerseries:potenzreihen}}\label{\detokenize{complexanalysis/powerseries::doc}}
+\sphinxAtStartPar
+In diesem Abschnitt wollen wir genauer auf analytische Funktionen bzw. Potenzreihen eingehen, wir betrachten also Funktionen
+\begin{equation*}
+\begin{split}z\mapsto \sum_{j=0}^{\infty} a_j (z-p)^j,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+mit komplexen Koeffizienten \(a_j\in\C\).
+
+
+\subsection{Analytische Funktionen}
+\label{\detokenize{complexanalysis/powerseries:analytische-funktionen}}
+\sphinxAtStartPar
+Wir betrachten zunächst Funktionen welche durch Potenzreihen gegeben sind und erhalten, dass sie auf Kreisscheiben schon holomorph sind.
+\label{complexanalysis/powerseries:lem:potseries}
+\begin{sphinxadmonition}{note}{Lemma 7.11}
+
+
+
+\sphinxAtStartPar
+Es sei \(a_j\in\C, j\in\N_0\) eine Folge komplexer Zahlen, \(p\in\C\) und die Reihe
+\begin{equation*}
+\begin{split}\sum_{j=0}^\infty a_j (z_0-p)^j \end{split}
+\end{equation*}
+\sphinxAtStartPar
+konvergiere für \(z\neq p\). Dann ist die Funktion \(f:z\mapsto \sum_{j=0}^\infty a_j (z-p)^j\) holomorph auf der Kreisscheibe \(B_r(p)\), wobei \(r:=\abs{z_0-p}\) und
+\begin{equation*}
+\begin{split}f^\prime(z) = \sum_{j=1}^\infty a_j\cdot j\cdot (z-p)^{j-1}.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Siehe {[}\hyperlink{cite.references:id13}{Nee17}{]} Satz 2.19.
+\end{sphinxadmonition}
+
 \sphinxAtStartPar
 Eine besondere Klasse von Funktionen sind \sphinxstyleemphasis{analytische Funktonen}, die sich lokal mit Hilfe von Reihen darstellen lassen.
-\label{complexanalysis/cauchyriemann:definition-3}
-\begin{sphinxadmonition}{note}{Definition 7.2 (Analytische Funktion)}
+\label{complexanalysis/powerseries:definition-1}
+\begin{sphinxadmonition}{note}{Definition 7.15 (Analytische Funktion)}
 
 
 
 \sphinxAtStartPar
-Sei \(D \subset \C\) eine Teilmenge und \(f \colon D \rightarrow \C\) eine Funktion.
+Sei \(U \subset \C\) offen und \(f: U\to \C\) eine Funktion.
 
 \sphinxAtStartPar
-Wir nennen die Funktion \(f\) \sphinxstylestrong{analytisch} in einem Punkt \(z_0 \in D\) genau dann, wenn ein \(\epsilon > 0\) existiert, so dass sich jeder Funktionswert \(f(z) \in \C\) in einer entsprechenden lokalen Umgebung durch eine absolut konvergente Reihe darstellen lässt mit
+Wir nennen \(f\) \sphinxstylestrong{analytisch} in einem Punkt \(p \in U\) genau dann, wenn ein \(r > 0\) existiert, so dass sich die Funktion lokal in \(B_r(p)\) als Potenzreihe darstellen lässt,
 \begin{equation*}
-\begin{split}f(z) = \sum_{n \geq 0} a_n (z-z_0)^n, \qquad \forall |z - z_0| < \epsilon,\end{split}
+\begin{split}f(z) = \sum_{j=0}^\infty a_j (z-p)^j, \qquad \forall z\in B_r(p)\end{split}
 \end{equation*}
 \sphinxAtStartPar
 wobei \((a_n)_{n_\in\N}\) eine Folge in \(\C\) ist.
 
 \sphinxAtStartPar
-Wir nennen die Funktion \(f\) analytisch auf der Teilmenge \(D\), wenn sie analytisch ist für alle Punkte \(z_0 \in D\).
+Wir nennen die Funktion \(f\) analytisch auf der Teilmenge \(U\), wenn sie analytisch ist für alle Punkte \(z_0 \in D\).
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Der folgende Satz beschreibt den Zusammenhang zwischen analytischen und holomorphen Funktionen.
-\label{complexanalysis/cauchyriemann:thm:analytischHolomorph}
-\begin{sphinxadmonition}{note}{Theorem 7.2}
+\label{complexanalysis/powerseries:thm:analytischHolomorph}
+\begin{sphinxadmonition}{note}{Theorem 7.7}
 
 
 
 \sphinxAtStartPar
-Jede analytische Funktion \(f\) auf einer Teilmenge \(D \subset \C\) ist auch holomorph auf \(D\).
+Jede analytische Funktion \(f\) auf einer Teilmenge \(U \subset \C\) ist auch holomorph auf \(U\).
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Vertauschung des Limes \(h \rightarrow 0\) und der Summe.
+Proof. Folgt direkt aus {\hyperref[\detokenize{complexanalysis/powerseries:lem:potseries}]{\sphinxcrossref{Lemma 7.11}}}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Wie wir später im Hauptsatz der Funktionentheorie sehen werden gilt auch die Umkehrung.
+Wir wollen im folgenden sehen, dass auch die Umkehrung gilt.
 
 
-\section{Kurvenintegrale}
-\label{\detokenize{complexanalysis/kurvenintegrale:kurvenintegrale}}\label{\detokenize{complexanalysis/kurvenintegrale::doc}}
-
-\subsection{Wege und Kurven}
-\label{\detokenize{complexanalysis/kurvenintegrale:wege-und-kurven}}
+\subsection{Konvergenzradius}
+\label{\detokenize{complexanalysis/powerseries:konvergenzradius}}
 \sphinxAtStartPar
-Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven.
-\label{complexanalysis/kurvenintegrale:definition-0}
-\begin{sphinxadmonition}{note}{Definition 7.3 (Weg und Kurve)}
+Ein wichtige Eigenschaft von Potenzreihen um \(p\in\C\) ist, dass Konvergenz an einem Punkt \(z\) schon die absolute und gleichmäßige Konvergenz innerhalb einer Kreisscheibe impliziert.
+\label{complexanalysis/powerseries:lem:powerradius}
+\begin{sphinxadmonition}{note}{Lemma 7.12}
 
 
 
 \sphinxAtStartPar
-Sei \((X,\tau)\) ein topologischer Raum und \(I = [a,b]\) ein reelles Intervall für \(a,b \in \R\).
-Wir nennen eine stetige Funktion \(f \colon I \rightarrow X\) einen \sphinxstylestrong{Weg} in \(X\).
-Wir bezeichnen einen Weg \(f\) als \sphinxstylestrong{glatt}, wenn er stetig differenzierbar ist und seine Ableitung für jeden Punkt \(x \in I\) ungleich Null ist.
-Außerdem bezeichnen wir einen Weg \(f\) als \sphinxstylestrong{geschlossen}, wenn gilt \(f(a) = f(b)\).
-Schließlich nennen wir einen Weg \(f\) \sphinxstylestrong{konstant}, wenn er für alle \(t \in [a,b]\) auf den gleichen Punkt in \(\C\) abbildet.
-
-\sphinxAtStartPar
-Die Bildmenge \(f(I) \subset X\) nennen wir \sphinxstylestrong{Kurve} in \(X\).
+Konvergiert die Reihe \(\sum_{j=0}^\infty a_j (z_0-p)^j\) für \(z_0\in\C\), so konvergiert die Reihe \(\sum_{j=0}^\infty a_j (z-p)^n\) auf jeder offenen Kreisscheibe \(B_r(p)\) mit \(r< \abs{z_0 - p}\).
 \end{sphinxadmonition}
 
-\begin{sphinxadmonition}{danger}{Gefahr:}
+\begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Normalerweise nennen wir eine Abbildung \sphinxstyleemphasis{glatt}, wenn sie unendlich oft differenzierbar ist.
-Dies wird im Kontext von Wegen nicht gefordert und es genügt eine einfache stetige Differenzierbarkeit.
+Proof. O.B.d.A. gelte \(p=0\), da \(\sum_{j=0}^\infty a_j z_0^j\) konvergiert ist, \(a_j z_0^j\) eine Nullfolge und insbesondere existiert eine Konstante \(C>0\), s.d., \(\abs{a_j z_0^j}< C\) für alle \(j\in\N\). Sei nun \(r<\abs{z_0}\), dann folgt für jedes \(z\in B_r(0)\), dass
+\begin{equation*}
+\begin{split}\abs{a_j z^j} = \abs{a_j z_0^j}\abs{\frac{z}{z_0}}^j\leq C \left(\frac{r}{z_0}\right)^j\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und damit
+\begin{equation*}
+\begin{split}\sum_{j=0}^\infty \abs{a_j z_j} \leq C \sum_{j=0}^\infty \left(\frac{r}{z_0}\right)^j\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei die geometrische Reihe auf der linken Seite konvergiert. Somit konvergiert die Reihe auf \(B_r(0)\) nach dem Majorantenkriterium gleichmäßig absolut.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Wir wollen im Folgenden annehmen, dass \(f\) eine holomorphe Funktion auf einer offenen Teilmenge \(D \subset \C\) ist.
-Wir betrachten \(f(z) \mathrm{d}z\) als die zugehörige \(1\)\sphinxhyphen{}Form und außerdem sei \(\gamma \colon I \rightarrow D\) für \(I := [0,1]\) ein glatter Weg.
-Wegen der Jacobischen Transformationsformel in {\hyperref[\detokenize{masstheorie/integrationstechnik:thm:jacobitransformation}]{\sphinxcrossref{Theorem 5.14}}} gilt dann für das Kurvenintegral von \(f\) bezüglich \(\gamma\)
-\begin{equation}\label{equation:complexanalysis/kurvenintegrale:eq:kurvenintegral}
-\begin{split}\int_{\gamma} f(z) \, \mathrm{d}z = \int_I \gamma^*(f(z) \, \mathrm{d}z) = \int_0^1 f(\gamma(t)) \gamma'(t) \, \mathrm{d}t.\end{split}
-\end{equation}
-\sphinxAtStartPar
-Häufig ist die Annahme eines global glatten Weges \(\gamma\) eine zu starke Forderung.
-Es genügt auch zu fordern, dass der Weg \(\gamma\) stückweise glatt ist und aus endlich vielen Teilstücken besteht.
-In diesem Fall lässt sich das Integral {\hyperref[\detokenize{complexanalysis/kurvenintegrale:equation-eq-kurvenintegral}]{\sphinxcrossref{(7.1)}}} als Summe der Integrale über die Teilstücke schreiben.
+Der maximale Radius für welchen eine Potenzreihe konvergiert, wird als Konvergenzradius bezeichnet.
+\label{complexanalysis/powerseries:definition-4}
+\begin{sphinxadmonition}{note}{Definition 7.16 (Konvergenzradius)}
+
+
 
 \sphinxAtStartPar
-\sphinxstylestrong{ToDo: Abbildung von stückweise glatten Wegen / Kurven}
+Für eine Koeeffizientenfolge \(a_j\in\C\) und \(p\in\C\) ist der \sphinxstylestrong{Konvergenzradius} der Potenzreihe definiert durch
+\begin{equation*}
+\begin{split}R :=\sup\left\{\abs{z - p}: \sum_{j=0}^\infty a_j (z-p)^j \text{ konvergiert}\right\}.\end{split}
+\end{equation*}\end{sphinxadmonition}
 
+\sphinxAtStartPar
+Die Definition ist äquivalent zum Wert
+\begin{equation*}
+\begin{split}R :=\sup\left\{r<0: \sum_{j=0}^\infty a_j r^j\text{ konvergiert} \right\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+was auf das bekannte \sphinxstylestrong{Wurzelkriterium} führt.
+
+
+\subsection{Entwicklungssatz}
+\label{\detokenize{complexanalysis/powerseries:entwicklungssatz}}
+\sphinxAtStartPar
+In diesem Abschnitt erarbeiten wir mithilfe von Potenzreihen die komplexe Taylorreihe.
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Brook Taylor}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Brook\_Taylor}{Brook Taylor} (Geboren 18. August 1685 in Edmonton, Middlesex; Gestorben 29. Dezember 1731 in Somerset House, London) war ein britischer Mathematiker und Mitglied der Royal Society.
+\end{sphinxShadowBox}
+\label{complexanalysis/powerseries:theorem-5}
+\begin{sphinxadmonition}{note}{Theorem 7.8 (Entwicklungssatz)}
+
+
+
+\sphinxAtStartPar
+Es sei \(B_r(p)\) eine offene Kreisscheibe um \(p\in\C\) und \(f:B_r(p)\to\C\) eine Funktion. Die Funktion \(f\) ist genau dann holomorph, wenn sie durch eine konvergente Potenzreihe mit Entwicklungspunkt \(p\) dargestellt werden kann, d.h. falls eine Folge \(a_j\in\C\) existiert, s.d.,
+\begin{equation*}
+\begin{split}f(z) = \sum_{j=0}^\infty a_j (z-p)^n.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In diesem Fall gilt insbesondere
+\begin{equation*}
+\begin{split}a_n = \frac{1}{n!} f^{(n)}(p)\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{complexanalysis/powerseries:remark-6}
+\begin{sphinxadmonition}{note}{Remark 7.10}
+
+
+
+\sphinxAtStartPar
+Diese Aussage bildet das Gegenstück zur Tatsache das analytische Funktionen holomorph sind. Insbesondere ist die Reihe die man so erhält die Taylorreihe
+\begin{equation*}
+\begin{split}\sum_{j=0}^\infty \frac{1}{n!} f^{(n)}(p) (z-p)^n.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. ToDo, siehe {[}\hyperlink{cite.references:id13}{Nee17}{]} Satz 5.7.
+\end{sphinxadmonition}
+\label{complexanalysis/powerseries:example-7}
+\begin{sphinxadmonition}{note}{Example 7.2}
+
+
+
+\sphinxAtStartPar
+ToDo, sehr wichtiges Beispiel aus {[}\hyperlink{cite.references:id13}{Nee17}{]} 5.10.
+\end{sphinxadmonition}
+
+
+\section{Laurententwicklung und Residuensatz}
+\label{\detokenize{complexanalysis/residuensatz:laurententwicklung-und-residuensatz}}\label{\detokenize{complexanalysis/residuensatz::doc}}
+\sphinxAtStartPar
+In diesem Abschnitt betrachten wir nun Singularitäten holomorpher Funktionen auf gelochten Kreisscheiben. Konkret betrachten wir holomorphe Funktionen \(f:B_r(p)\setminus\{p\}\to\C\) und interessieren uns speziell für das Verhalten nahes des entfernten Mittelpunktes \(p\in\C\).
+
+
+\subsection{Singularitäten holomorpher Funktionen}
+\label{\detokenize{complexanalysis/residuensatz:singularitaten-holomorpher-funktionen}}
+\sphinxAtStartPar
+In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.
+\label{complexanalysis/residuensatz:definition-0}
+\begin{sphinxadmonition}{note}{Definition 7.17 (Singularitäten)}
+
+
+
+\sphinxAtStartPar
+Sei \(U \subset \C\) offen und \(p\in U\) ein Punkt und \(f: U \setminus \{p\}\to\C\) eine holomorphe Funktion ist, dann nennen wir den Punkt \(p\) eine \sphinxstylestrong{isolierte Singularität} von \(f\).
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Der Punkt \(p\in U\) heißt \sphinxstylestrong{hebbare Singularität}, falls \(p\) eine isolierte Singularität ist und es eine holomorphe Funktion \(g:U\to\C\) gibt, so dass \(g(z) = f(z)\) gilt für alle \(z \in U \setminus \{p\}\).
+
+\item {} 
+\sphinxAtStartPar
+Der Punkt \(p\in U\) heißt \sphinxstylestrong{Pol}, wenn ein \(k\in\N\) existiert, s.d., \(z\mapsto (z-p)^k f(z)\) eine hebbare Singularität in \(p\) hat. Das kleinste \(k\in\N\), das diese erfüllt heißt \sphinxstylestrong{Ordnung} des Pols.
+
+\item {} 
+\sphinxAtStartPar
+Wir nennen den Punkt \(p\) eine \sphinxstylestrong{wesentliche Singularität}, wenn \(p\) weder hebbar noch Pol ist.
+
+\end{enumerate}
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Intuitiv ist eine Polstelle hebbar, falls die Funktion um die Polstelle herum beschränkt ist. Dies ist die Aussage des Riemannschen Hebbarkeitssatzes.
+\label{complexanalysis/residuensatz:thm:hebbar}
+\begin{sphinxadmonition}{note}{Theorem 7.9}
+
+
+
+\sphinxAtStartPar
+Es sei \(U\subset \C\) offen, \(p\in U\) und \(f:U\setminus\{p\}\to\C\) holomorph. Falls eine Umgebung \(V\subset U, p\in V\) existiert, s.d., \(f\) auf \(V\setminus\{p\}\) beschränkt ist, so ist \(p\) eine hebbare Singularität.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Wir nehmen o.B.d.A. an, dass \(p=0\) gilt und betrachten die Funktion
+\begin{equation*}
+\begin{split}g(z) :=
+\begin{cases}
+z^2\cdot f(z)&\text{ für } z\neq 0,\\
+0&\text{ für } z=0.
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Dann gilt
+\begin{equation*}
+\begin{split}\lim_{z\to 0} \frac{g(z) - g(0)}{z} = \lim_{z\to 0} z\cdot f(z) =0\end{split}
+\end{equation*}
+\sphinxAtStartPar
+da \(f\) beschränkt in einer Umgebung um \(0\) ist. Somit ist \(g\) holomorph auf \(U\) und lässt sich damit als Potenzreihe in der \(0\) entwickeln,
+\begin{equation*}
+\begin{split}g(z) = \sum_{j=0}^\infty a_j z^j,\quad 0 = g(0) = a_0, 0=g^\prime(0)=a_1.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Insbesondere gilt dann für \(z\in U\setminus\{0\}\)
+\begin{equation*}
+\begin{split}f(z) = g(z)/z^2 = \sum_{j=2}^\infty a_j z^{j-2}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei die Reihe auf der rechten Seite eine holomorphe Funktion auf ganz \(U\) definiert, daher ist \(0\) eine hebbare Singularität.
+\end{sphinxadmonition}
+
+
+\subsection{Laurent\sphinxhyphen{}Reihen}
+\label{\detokenize{complexanalysis/residuensatz:laurent-reihen}}
+\sphinxAtStartPar
+Zusätzlich zu Potenzreihen betrachtet man für Singularitäten sogenannte \sphinxstylestrong{Laurent\sphinxhyphen{}Reihen}, wobei man nicht nur Potenzen \((z-p)^j\) für \(j\in \N\) betrachtet, sondern auch negative Exponenten zulässt und somit effektive rationale Funktionen \(\frac{1}{(z-p)^j}\) hinzuaddiert.
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Pierre Alphonse Laurent}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Pierre\_Alphonse\_Laurent}{Pierre Alphonse Laurent} (Geboren 18. Juli 1813 in Paris; Gestorben 2. September 1854 ebenda) war ein französischer Mathematiker.
+\end{sphinxShadowBox}
+\label{complexanalysis/residuensatz:definition-2}
+\begin{sphinxadmonition}{note}{Definition 7.18 (Laurent\sphinxhyphen{}Reihen)}
+
+
+
+\sphinxAtStartPar
+Für eine Folge \(a_j\in\C, j\in \Z\) nennen wir die Reihe
+\begin{equation*}
+\begin{split}\sum_{j=-\infty}^\infty a_j (z-p)^j\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Laurent\sphinxhyphen{}Reihe} am Entwicklungspunkt \(p\in\C\). Wir nennen die Reihe konvergent, falls die Teilsummen
+\begin{equation*}
+\begin{split}\sum_{j=0}^\infty a_j (z-p)^j\qquad \sum_{j=1}^\infty a_{-j} \frac{1}{(z-p)^j}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+konvergieren und setzten den Grenzwert als Summe der beiden einzelnen Grenzwerte.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Für Laurent\sphinxhyphen{}Reihen erhält man zwei Konvergenzradien, jeweils für die beiden Teilsummen.
+\label{complexanalysis/residuensatz:definition-3}
+\begin{sphinxadmonition}{note}{Definition 7.19 (Laurent Konvergenzradien)}
+
+
+
+\sphinxAtStartPar
+Für eine Laurent\sphinxhyphen{}Reihe sei \(R>0\) der Konvergenzradius der Reihe
+\begin{equation*}
+\begin{split}\sum_{j=0}^\infty a_j (z-p)^j\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und \(\tilde{r}\) der Konvergenzradius der Reihe
+\begin{equation*}
+\begin{split}\sum_{j=1}^\infty a_{-j} \frac{1}{(z-p)^j}.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Dann heißt \(R\) \sphinxstylestrong{äußerer} und \(\frac{1}{\tilde{r}}\) \sphinxstylestrong{innerer} Konvergenzradius.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Anstatt von Kreisscheiben betrachten wir hier nun offene Ringe
+\begin{equation*}
+\begin{split}B_{r,R}(p) := \{z\in \C: r< \abs{z-p} < R\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und erhalten folgende Aussage.
+\label{complexanalysis/residuensatz:lemma-4}
+\begin{sphinxadmonition}{note}{Lemma 7.13}
+
+
+
+\sphinxAtStartPar
+Es sei \(\sum_{j=-\infty}^\infty a_j (z-p)^j\) eine Laurent\sphinxhyphen{}Reihe mit äußerem Konvergenzradius \(R\) und innerem Konvergenzradius \(r\), dann gilt
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Die Reihe divergiert auf \$\textbackslash{}C\textbackslash{}setminus\textbackslash{}overline\{B\_\{r,R\}(p)\},
+
+\item {} 
+\sphinxAtStartPar
+Die Reihe konvergiert auf \(B_{r,R}(p)\),
+
+\item {} 
+\sphinxAtStartPar
+für \(r<\tilde{r}<\tilde{R}< R\) konvergiert die Reihe gleichmäßig absolut auf \(B_{\tilde{r},\tilde{R}}(p)\)
+
+\end{itemize}
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Folgt direkt aus {\hyperref[\detokenize{complexanalysis/powerseries:lem:powerradius}]{\sphinxcrossref{Lemma 7.12}}}
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Analog zur Entwicklung in die Taylorreihe haben wir auf offenen Ringen eine Entwicklung in Laurent\sphinxhyphen{}Reihen.
+\label{complexanalysis/residuensatz:lem:laurent}
+\begin{sphinxadmonition}{note}{Lemma 7.14 (Laurent\sphinxhyphen{}Entwicklung)}
+
+
+
+\sphinxAtStartPar
+Es sei \(f:B_{r,R}(p)\to\C\) holomorph, dann gilt
+\begin{equation*}
+\begin{split}f(z) = \sum_{j=-\infty}^\infty a_j (z-p)^j,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei die Koeffizienten für \(j\in\Z\) gegeben sind durch
+\begin{equation*}
+\begin{split}a_j = \frac{1}{2\pi i} \oint_{\partial B_s(p)} \frac{f(z)}{(z-p)^{j+1}} dz \text{ für beliebiges } s\in (r,R).\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. ToDo, siehe {[}\hyperlink{cite.references:id13}{Nee17}{]} Satz 6.7.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Mithilfe der Laurent\sphinxhyphen{}Entwicklung auf der gelochten Kreisscheibe \(B_{0,R}(p)\) können wir nun Singularitäten von holomorphen Funktionen charakterisieren.
+\label{complexanalysis/residuensatz:lemma-6}
+\begin{sphinxadmonition}{note}{Lemma 7.15}
+
+
+
+\sphinxAtStartPar
+Es sei \(f:U\setminus\{p\}\to\C\) holomorph, \(B_{0,R}(p)\subset U\setminus\{p\}\) und \(a_j\in\C, j\in\Z\) seien die Koeffizienten der Laurent\sphinxhyphen{}Entwicklung auf \(B_{0,R}\) welche nach {\hyperref[\detokenize{complexanalysis/residuensatz:lem:laurent}]{\sphinxcrossref{Lemma 7.14}}} existieren. Dann gilt:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Die Singularität \(p\) ist genau dann hebbar, wenn \(a_{j}=0\) für alle \(j<0\).
+
+\item {} 
+\sphinxAtStartPar
+Die Singularität \(p\) ist genau dann ein Pol der Ordnung \(k\in\N\), \(a_{-k}\neq 0\) und \(a_j = 0\) für alle \(j<k\).
+
+\item {} 
+\sphinxAtStartPar
+Die Singularität \(p\) ist genau dann wesentlich, falls \(a_{-j}\neq 0\) für fast alle \(j\in\N\).
+
+\end{enumerate}
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. \sphinxstylestrong{Ad 1.}
+
+\sphinxAtStartPar
+Gilt \(a_j=0\) für alle \(j<0\) so ist die Laurent\sphinxhyphen{}Reihe
+\begin{equation*}
+\begin{split}f(z) = \sum_{0}^\infty a_j (z-p)^j,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+holomorph von \(B_{0,R}(p)\) auf \(B_R(p)\) fortsetzbar und die Singularität somit hebbar.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Ad 2.}
+
+\sphinxAtStartPar
+ToDo
+
+\sphinxAtStartPar
+\sphinxstylestrong{Ad 3.}
+
+\sphinxAtStartPar
+ToDo
+\end{sphinxadmonition}
+\label{complexanalysis/residuensatz:definition-7}
+\begin{sphinxadmonition}{note}{Definition 7.20 (Meromorphe Funktion)}
+
+
+
+\sphinxAtStartPar
+Sei \(D \subset \C\) eine offene Teilmenge.
+Wir nennen eine Funktion \(f \colon D \rightarrow \C\) \sphinxstylestrong{meromorph} auf \(D\) genau dann, wenn eine lokalendliche Menge \(P\) existiert, so dass die Funktion \(f\) holomorph auf \(D \setminus P\) mit Polen in \(P\) ist.
+\end{sphinxadmonition}
+\label{complexanalysis/residuensatz:example-8}
+\begin{sphinxadmonition}{note}{Example 7.3 (Meromorphe Funktionen)}
+
+
+
+\sphinxAtStartPar
+Rationale Funktionen oder konkretes Beispiel
+
+\sphinxAtStartPar
+Schulz\sphinxhyphen{}Baldes S.332
+\end{sphinxadmonition}
+
+
+\subsection{Der Satz von Casorati–Weierstraß}
+\label{\detokenize{complexanalysis/residuensatz:der-satz-von-casorati-weierstrasz}}
+\sphinxAtStartPar
+Für wesentliche Singularitäten \(p\) können wir weder einen Wert der Funktion am Punkt \(p\) definieren, noch feststellen, dass die Funktion hier eindeutig gegen unendlich strebt. Tatsächlich nimmt eine Funktion um eine wesentliche Singularität herum überaschend viele verschiedene Werte an. Diese ist die Aussage des Satzes von Casorati–Weierstraß.
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Felice Casorati}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Felice\_Casorati\_(Mathematiker)}{Felice Casorati} (Geboren 17. Dezember 1835 in Pavia; Gestorben 11. September 1890 in Casteggio) war ein italienischer Mathematiker.
+\end{sphinxShadowBox}
+
+\begin{sphinxShadowBox}
+\sphinxstylesidebartitle{Karl Weierstraß}
+
+\sphinxAtStartPar
+\sphinxhref{https://de.wikipedia.org/wiki/Karl\_Weierstra\%C3\%9F}{Karl Theodor Wilhelm Weierstraß} (Geboren 31. Oktober 1815 in Ostenfelde bei Ennigerloh, Münsterland; Gestorben 19. Februar 1897 in Berlin) war ein deutscher Mathematiker.
+\end{sphinxShadowBox}
+\label{complexanalysis/residuensatz:theorem-9}
+\begin{sphinxadmonition}{note}{Theorem 7.10 (Casorati–Weierstraß)}
+
+
+
+\sphinxAtStartPar
+Es sei \(U \subset \C\) offen und \(p\in U\) eine wesentliche Singularität der holomorphen Funktion \(f:U\setminus\{p\}\to\C\), dann gilt, dass \(f(U\setminus\{p\})\) dicht in \(\C\) liegt.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Angenommen \(f(U\setminus\{p\})\) wäre nicht dicht, dann existiert ein \(w\in\C\) und ein \(r>0\), s.d.
+\begin{equation*}
+\begin{split}B_r(w) \cap f(U\setminus\{p\}) = \emptyset.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Da das Bild von \(f\) somit einen echten Abstand zum Punkt \(p\) hat ist die Funktion
+\begin{equation*}
+\begin{split}z\mapsto\frac{1}{f(z) - w}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+beschränkt und holomorph auf \(U\setminus\{p\}\). Somit folgt mit dem Hebbarkeitssatz {\hyperref[\detokenize{complexanalysis/residuensatz:thm:hebbar}]{\sphinxcrossref{Theorem 7.9}}}, dass diese Funktion einen hebbaren Pol bei \(p\) hat und somit zur holomorphen Funktion \(h:U\to\C\) fortsetzbar auf \(U\) ist. Diese Funktion hat keine Nullstellen
+
+\sphinxAtStartPar
+ToDo
+\end{sphinxadmonition}
+
+
+\subsection{Umlaufzahlen}
+\label{\detokenize{complexanalysis/residuensatz:umlaufzahlen}}
 \sphinxAtStartPar
 Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in \(\C\), den sogenannten Index.
-\label{complexanalysis/kurvenintegrale:definition-1}
-\begin{sphinxadmonition}{note}{Definition 7.4 (Index)}
+\label{complexanalysis/residuensatz:definition-10}
+\begin{sphinxadmonition}{note}{Definition 7.21 (Index)}
 
 
 
@@ -9717,8 +11128,8 @@ Sie ist eine \sphinxstyleemphasis{topologische Invariante}, die anschaulich besc
 
 \sphinxAtStartPar
 \sphinxstylestrong{ToDo: Abbildung mit Beispiel von \sphinxhref{https://de.wikipedia.org/wiki/Umlaufzahl\_(Mathematik)}{Wikipedia}}
-\label{complexanalysis/kurvenintegrale:lemma-2}
-\begin{sphinxadmonition}{note}{Lemma 7.1}
+\label{complexanalysis/residuensatz:lemma-11}
+\begin{sphinxadmonition}{note}{Lemma 7.16}
 
 
 
@@ -9733,310 +11144,12 @@ Proof. Schulz\sphinxhyphen{}Baldes S.318f.
 \end{sphinxadmonition}
 
 
-\subsection{Homotopie}
-\label{\detokenize{complexanalysis/kurvenintegrale:homotopie}}\label{complexanalysis/kurvenintegrale:definition-3}
-\begin{sphinxadmonition}{note}{Definition 7.5 (Homotopie)}
-
-
-
-\sphinxAtStartPar
-Sei \(I := [0,1]\) ein reelles Intervall und \(D \subset \C\) eine Teilmenge.
-Wir nennen zwei Wege \(\gamma, \Gamma \colon I \rightarrow D\) \sphinxstylestrong{homotop} in der Teilmenge \(D\) genau dann, wenn eine stetige Abbildung \(H \colon I \times I \rightarrow D\) existiert, so dass
-\begin{equation*}
-\begin{split}H(t,0) = \gamma(t), \qquad H(t,1) = \Gamma(t).\end{split}
-\end{equation*}
-\sphinxAtStartPar
-In diesem Fall nennen wir die Abbildung \(H\) eine \sphinxstylestrong{Homotopie} zwischen den Wegen \(\gamma\) und \(\Gamma\).
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-Man kann zeigen, dass der Begriff der Homotopie zwischen Wegen in einer Teilmenge \(D \subset \C\) eine \sphinxstyleemphasis{Äquivalenzrelation} auf Wegen in \(D\) induziert.
-Die zugehörigen Äquivalenzklassen werden auch \sphinxstyleemphasis{Homotopieklassen} genannt.
-
-\sphinxAtStartPar
-Für geschlossene Wege impliziert Homotopie eine besondere Eigenschaft bezüglich des Kurvenintegrals, wie folgendes Lemma festhält.
-\label{complexanalysis/kurvenintegrale:lemma-4}
-\begin{sphinxadmonition}{note}{Lemma 7.2}
-
-
-
-\sphinxAtStartPar
-Sei \(D \subset \C\) eine Teilmenge und seien \(\gamma\) und \(\Gamma\) geschlossene, homotope Wege in \(D\).
-Sei außerdem \(f \colon D \rightarrow \C\) eine holomorphe Funktion.
-
-\sphinxAtStartPar
-Dann gilt
-\begin{equation*}
-\begin{split}\oint_\gamma f(z) \, \mathrm{d}z = \oint_\Gamma f(z) \, \mathrm{d}z.\end{split}
-\end{equation*}\end{sphinxadmonition}
-
-\begin{sphinxadmonition}{note}
-\sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.321
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-Eine besondere Klasse von Wegen sind solche, die nullhomotop sind.
-\label{complexanalysis/kurvenintegrale:definition-5}
-\begin{sphinxadmonition}{note}{Definition 7.6 (Nullhomotoper Weg)}
-
-
-
-\sphinxAtStartPar
-Wir nennen einen Weg \(\gamma\) \sphinxstylestrong{nullhomotop} in einer Teilmenge \(D \subset \C\) genau dann, wenn \(\gamma\) homotop in \(D\) zu einem konstanten Weg ist.
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-Wir realisieren also, dass sich nullhomotope Wege in einer Teilmenge \(D \subset \C\) zu einem Punkt \(w \in D\) zusammenziehen lassen.
-Darüber hinaus zeigt der folgende Satz, dass das Kurvenintegral einer holomorphe Funktionen auf einem nullhomotopen Weg verschwindet.
-\label{complexanalysis/kurvenintegrale:theorem-6}
-\begin{sphinxadmonition}{note}{Theorem 7.3 (Satz von Cauchy)}
-
-
-
-\sphinxAtStartPar
-Sei \(\gamma\) ein nullhomotoper Weg in einer Teilmenge \(D \subset \C\), der sich zu einem Punkt \(w \in D\) zusammenziehen lässt.
-Sei darüber hinaus \(f \colon D \rightarrow \C\) eine stetige Funktion, welche zudem holomorph auf der Menge \(D \setminus \{w\}\) sei.
-
-\sphinxAtStartPar
-Dann gilt für das Kurvenintegral
-\begin{equation*}
-\begin{split}\oint_\gamma f(z) \, \mathrm{d}z = 0.\end{split}
-\end{equation*}\end{sphinxadmonition}
-
-\begin{sphinxadmonition}{note}
-\sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.322
-\end{sphinxadmonition}
-
-
-\subsection{Cauchyscher Integralsatz}
-\label{\detokenize{complexanalysis/kurvenintegrale:cauchyscher-integralsatz}}
-\sphinxAtStartPar
-Wir wollen nun einen der zentralen Aussagen der Funktionentheorie formulieren, die Cauchysche Integralformel.
-Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines bestimmten Gebietes bereits durch die Werte auf dem Gebietsrand bestimmen lassen.
-\label{complexanalysis/kurvenintegrale:theorem-7}
-\begin{sphinxadmonition}{note}{Theorem 7.4 (Cauchyscher Integralsatz)}
-
-
-
-\sphinxAtStartPar
-Sei \(D \subset \C\) ein Sterngebiet, d.h., \(D\) ist eine offene Menge in der mindestens einen Punkt \(z_0 \in \C\) gibt, so dass die Verbindungsstrecke jedes beliebigen Punktes \(z \in D\) zu \(z_0\) vollständig in \(D\) liegt.
-Sei außerdem \(\gamma\) ein geschlossener Weg in \(D\).
-
-\sphinxAtStartPar
-Dann lässt sich der Funktionswert von \(f\) in jedem Punkt \(z \in D \setminus \operatorname{Bild}(\gamma)\) darstellen durch das Kurvenintegral
-\begin{equation*}
-\begin{split}f(z) \ = \ \frac{1}{\operatorname{Ind}_\gamma(z)} \oint_\gamma \frac{f(\zeta)}{\zeta - z} \frac{\mathrm{d}\zeta}{2\pi i}.\end{split}
-\end{equation*}\end{sphinxadmonition}
-
-\begin{sphinxadmonition}{note}
-\sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.323
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-Wir werden den Cauchyschen Integralsatz später noch in Form des sogenannten \sphinxstyleemphasis{Residuensatzes} stark verallgemeinern.
-Für den Moment erlaubt uns dessen Aussage jedoch zu zeigen, dass jede holomorphe Funktion bereits analytisch ist, was die Umkehrung zu {\hyperref[\detokenize{complexanalysis/cauchyriemann:thm:analytischHolomorph}]{\sphinxcrossref{Theorem 7.2}}} ist.
-\label{complexanalysis/kurvenintegrale:theorem-8}
-\begin{sphinxadmonition}{note}{Theorem 7.5 (Holomorphe Funktionen sind analytisch)}
-
-
-
-\sphinxAtStartPar
-Sei \(\epsilon > 0\) und \(z_0 \in D\) ein Punkt in einer offenen Teilmenge \(D \subset \C\).
-Sei außerdem \(f \colon B_\epsilon(z_0) \rightarrow \C\) eine holomorphe Funktion.
-
-\sphinxAtStartPar
-Dann ist die Funktion \(f\) für jeden Punkt \(z \in B_\epsilon(z_0)\) durch eine konvergente Potenzreihe darstellbar (also analytisch) als
-\begin{equation*}
-\begin{split}f(z) = \sum_{n=1}^\infty a_n (z-z_0)^n,\end{split}
-\end{equation*}
-\sphinxAtStartPar
-deren Koeffizienten \((a_n)_{n\in\N}\) für alle \(\epsilon' < \epsilon\) gegeben sind durch
-\begin{equation*}
-\begin{split}a_n \ = \ \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i}.\end{split}
-\end{equation*}
-\sphinxAtStartPar
-Insbesondere ist \(f\) unendlich oft komplex differenzierbar und für alle \(n \in \N\) gilt für die \(n\)\sphinxhyphen{}te Ableitung von \(f\)
-\begin{equation*}
-\begin{split}f^{(n)}(z_0) \ = \ n! \oint_{\partial B_{\epsilon'}(z_0)} \frac{f(\zeta)}{(\zeta - z_0)^{n+1}} \frac{\mathrm{d}\zeta}{2\pi i} = n! a_n.\end{split}
-\end{equation*}\end{sphinxadmonition}
-
-\begin{sphinxadmonition}{note}
-\sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.325f.
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-Das folgende Korollar erlaubt eine direkte Abschätzung der \(n\)\sphinxhyphen{}ten Ableitung einer holomorphen Funktion.
-\label{complexanalysis/kurvenintegrale:corollary-9}
-\begin{sphinxadmonition}{note}{Corollary 7.1 (Cauchy\sphinxhyphen{}Abschätzungen)}
-
-
-
-\sphinxAtStartPar
-Sei \(\epsilon > 0\) und \(z_0 \in D\) ein Punkt in einer offenen Teilmenge \(D \subset \C\).
-Außerdem sei \(f \colon B_\epsilon(z_0) \rightarrow \C\) eine holomorphe Funktion.
-Dann gilt für alle \(0 < \epsilon' < \epsilon\) die folgende genannte \sphinxstylestrong{Cauchy\sphinxhyphen{}Abschätzung}
-\begin{equation*}
-\begin{split}|f^{(n)}(z_0)| \ \leq \ \frac{n!}{\epsilon'^n} \max_{|z - z_0|=\epsilon'} |f(z)|.\end{split}
-\end{equation*}\end{sphinxadmonition}
-
-
-\section{Laurententwicklung und Residuensatz}
-\label{\detokenize{complexanalysis/residuensatz:laurententwicklung-und-residuensatz}}\label{\detokenize{complexanalysis/residuensatz::doc}}
-
-\subsection{Singularitäten homomorpher Funktionen}
-\label{\detokenize{complexanalysis/residuensatz:singularitaten-homomorpher-funktionen}}
-\sphinxAtStartPar
-In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.
-\label{complexanalysis/residuensatz:definition-0}
-\begin{sphinxadmonition}{note}{Definition 7.7 (Singularitäten)}
-
-
-
-\sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) ein Punkt.
-
-\sphinxAtStartPar
-1. Wenn \(f \colon D \setminus \{z_0\} \rightarrow \C\) eine holomorphe Funktion ist.
-Dann nennen wir den Punkt \(z_0\) eine \sphinxstylestrong{isolierte Singularität} von \(f\).
-
-\sphinxAtStartPar
-2. Wir nennen den Punkt \(z_0\) eine \sphinxstylestrong{hebbare Singularität}, wenn \(z_0\) eine isolierte Singularität einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\) ist und es eine holomorphe Funktion \(g \colon D \rightarrow \C\) gibt, so dass \(g(z) = f(z)\) gilt für alle \(z \in D \setminus \{z_0\}\).
-
-\sphinxAtStartPar
-3. Wir nennen den Punkt \(z_0\) einen \sphinxstylestrong{Pol}, wenn für alle Folgen \(z_n \rightarrow z_0\) gilt
-\begin{equation*}
-\begin{split}\lim_{n\rightarrow \infty} |f(z_n)| = \infty.\end{split}
-\end{equation*}
-\sphinxAtStartPar
-4. Wir nennen den Punkt \(z_0\) eine \sphinxstylestrong{wesentliche Singularität}, wenn \(z_0\) weder hebbar noch Pol ist.
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-Der Satz von Casorati\sphinxhyphen{}Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.
-\label{complexanalysis/residuensatz:remark-1}
-\begin{sphinxadmonition}{note}{Remark 7.1 (Casorati\sphinxhyphen{}Weierstraß)}
-
-
-
-\sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) ein Punkt.
-
-\sphinxAtStartPar
-Der Punkt \(z_0\) ist genau dann eine wesentliche Singularität einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\), wenn für alle \(\epsilon > 0\) die Menge der Funktionswerte \(f(B_\epsilon(z_0)) \setminus \{z_0\})\) dicht in \(\C\) liegt.
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-\sphinxstylestrong{ToDo: Hier Beispiel zu Singularitäten? Schulz\sphinxhyphen{}Baldes S.329}
-\label{complexanalysis/residuensatz:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 7.6 (Riemannscher Hebbarkeitssatz)}
-
-
-
-\sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) ein Punkt.
-Sei außerdem \(f \colon D \setminus \{z_0\} \rightarrow \C\) eine holomorphe Funktion.
-Falls eine Umgebung \(U \subset D\) von \(z_0\) gibt, so dass \(f\) auf \(U \setminus \{z_0\}\) beschränkt ist, so kann man einen Funktionswert \(f(z_0)\) in \(z_0\) so wählen, dass die Funktion \(f\) auf der gesamten Teilmenge \(D\) holomorph ist, d.h., der Punkt \(z_0\) ist eine hebbare Singularität.
-\end{sphinxadmonition}
-
-\begin{sphinxadmonition}{note}
-\sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.327
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-Das folgende Lemma charakterisiert Pole einer holomorphen Funktion.
-\label{complexanalysis/residuensatz:lem:pole}
-\begin{sphinxadmonition}{note}{Lemma 7.3}
-
-
-
-\sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) eine isolierte Singularität einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\).
-
-\sphinxAtStartPar
-Dann sind folgende Aussagen äquivalent:
-
-\sphinxAtStartPar
-1. Der Punkt \(z_0\) ist ein Pol der Funktion \(f\).
-
-\sphinxAtStartPar
-2. Es existiert ein \(m \in \N\), so dass die Funktion \((z - z_0)^m f(z)\) beschränkt in einer lokalen Umgebung von \(z_0\) ist, jedoch die Funktion \((z - z_0)^{m-1} f(z)\) unbeschränkt ist.
-
-\sphinxAtStartPar
-Die Ordnung der Funktion \(f\) im Pol \(z_0\) ist dann definiert als
-\begin{equation*}
-\begin{split}\operatorname{Ord}_{z_0}(f) := -m.\end{split}
-\end{equation*}\end{sphinxadmonition}
-
-\begin{sphinxadmonition}{note}
-\sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.330
-\end{sphinxadmonition}
-
-\sphinxAtStartPar
-Dieser Begriff von Ordnung setzt den Begriff der Ordnung von Polynomen für holomorphe Funktionen fort.
-Häufig spricht man jedoch nur von der Ordnung \(m > 0\) eines Pols.
-
-
-\subsection{Laurent\sphinxhyphen{}Reihe}
-\label{\detokenize{complexanalysis/residuensatz:laurent-reihe}}
-\sphinxAtStartPar
-Die Beobachtung aus {\hyperref[\detokenize{complexanalysis/residuensatz:lem:pole}]{\sphinxcrossref{Lemma 7.3}}} motiviert die folgende Definition der Laurent\sphinxhyphen{}Reihe, die nach \{prf:ref\}`` immer an einem Pol von Ordnung \(m\) existiert.
-\label{complexanalysis/residuensatz:definition-4}
-\begin{sphinxadmonition}{note}{ (Laurent\sphinxhyphen{}Reihe)}
-
-
-
-\sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) Pol von Ordnung \(m\) einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\).
-
-\sphinxAtStartPar
-Dann definieren wir die \sphinxstylestrong{Laurent\sphinxhyphen{}Reihe} von \(f\) um den Pol \(z_0\) durch
-\begin{equation*}
-\begin{split}f(z) := \sum_{n=-m}^\infty a_n (z-z_0)^n.\end{split}
-\end{equation*}
-\sphinxAtStartPar
-Als \sphinxstylestrong{Hauptteil} der Laurent\sphinxhyphen{}Reihe bezeichnen wir den Term
-\begin{equation*}
-\begin{split}\sum_{n=-m} a_n (z-z_0)^n\end{split}
-\end{equation*}
-\sphinxAtStartPar
-und das \sphinxstylestrong{Residuum} von \(f\) bei \(z_0\) als
-\begin{equation*}
-\begin{split}\operatorname{Res}_{z_0}(f) = a_{-1}.\end{split}
-\end{equation*}\label{complexanalysis/residuensatz:definition-5}
-\begin{sphinxadmonition}{note}{Definition 7.8Definition 7.9 (Meromorphe Funktion)}
-
-
-
-\sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge.
-Wir nennen eine Funktion \(f \colon D \rightarrow \C\) \sphinxstylestrong{meromorph} auf \(D\) genau dann, wenn eine lokalendliche Menge \(P\) existiert, so dass die Funktion \(f\) holomorph auf \(D \setminus P\) mit Polen in \(P\) ist.
-\end{sphinxadmonition}
-\end{sphinxadmonition}
-\label{complexanalysis/residuensatz:example-6}
-\begin{sphinxadmonition}{note}{Example 7.2 (Meromorphe Funktionen)}
-
-
-
-\sphinxAtStartPar
-Rationale Funktionen oder konkretes Beispiel
-
-\sphinxAtStartPar
-Schulz\sphinxhyphen{}Baldes S.332
-\end{sphinxadmonition}
-
-
 \subsection{Cauchyscher Residuensatz}
 \label{\detokenize{complexanalysis/residuensatz:cauchyscher-residuensatz}}
 \sphinxAtStartPar
 Das folgende Lemma erlaubt die explizite Berechnung des Residuums.
-\label{complexanalysis/residuensatz:lemma-7}
-\begin{sphinxadmonition}{note}{Lemma 7.4 (Berechnung des Residuums)}
+\label{complexanalysis/residuensatz:lemma-12}
+\begin{sphinxadmonition}{note}{Lemma 7.17 (Berechnung des Residuums)}
 
 
 
@@ -10058,8 +11171,8 @@ Falls der Pol von Ordnung \(-m\) ist, lässt sich das Residuum von \(f\) bei \(z
 \sphinxAtStartPar
 Proof. Schulz\sphinxhyphen{}Baldes S.333f.
 \end{sphinxadmonition}
-\label{complexanalysis/residuensatz:example-8}
-\begin{sphinxadmonition}{note}{Example 7.3 (Berechnung des Residuums)}
+\label{complexanalysis/residuensatz:example-13}
+\begin{sphinxadmonition}{note}{Example 7.4 (Berechnung des Residuums)}
 
 
 
@@ -10069,8 +11182,8 @@ Rationale Funktion bei Schulz\sphinxhyphen{}Baldes S.335
 
 \sphinxAtStartPar
 Der folgende Residuensatz von Cauchy stellt eine zentrale Aussage der Funktionentheorie vor.
-\label{complexanalysis/residuensatz:theorem-9}
-\begin{sphinxadmonition}{note}{Theorem 7.7 (Cauchyscher Residuensatz)}
+\label{complexanalysis/residuensatz:theorem-14}
+\begin{sphinxadmonition}{note}{Theorem 7.11 (Cauchyscher Residuensatz)}
 
 
 
@@ -10088,8 +11201,8 @@ Dann gilt der folgende Zusammenhang
 \sphinxAtStartPar
 Proof. Schulz\sphinxhyphen{}Baldes S.337
 \end{sphinxadmonition}
-\label{complexanalysis/residuensatz:remark-10}
-\begin{sphinxadmonition}{note}{Remark 7.2}
+\label{complexanalysis/residuensatz:remark-15}
+\begin{sphinxadmonition}{note}{Remark 7.11}
 
 
 
@@ -10097,8 +11210,8 @@ Proof. Schulz\sphinxhyphen{}Baldes S.337
 Für holomorphe Funktionen \(f\) entspricht der Residuensatz gerade dem Cauchyschen Integralsatz.
 Wenn \(D\) als Sterngebiet angenommen wird ist die Zusammenziehbarkeit des Wegs \(\gamma\) immer erfüllt.
 \end{sphinxadmonition}
-\label{complexanalysis/residuensatz:example-11}
-\begin{sphinxadmonition}{note}{Example 7.4}
+\label{complexanalysis/residuensatz:example-16}
+\begin{sphinxadmonition}{note}{Example 7.5}
 
 
 
@@ -10113,7 +11226,7 @@ Viele konkrete Beispiele in Schulz\sphinxhyphen{}Baldes S.338\sphinxhyphen{}344
 
 
 \begin{sphinxthebibliography}{Janich03}
-\bibitem[AF13]{references:id15}
+\bibitem[AF13]{references:id16}
 \sphinxAtStartPar
 Ilka Agricola and Thomas Friedrich. \sphinxstyleemphasis{Globale Analysis \sphinxhyphen{} Differentialformen in Analysis, Geometrie und Physik}. Springer\sphinxhyphen{}Verlag, Berlin Heidelberg New York, edition, 2013. ISBN 978\sphinxhyphen{}3\sphinxhyphen{}322\sphinxhyphen{}92903\sphinxhyphen{}7.
 \bibitem[Bog07]{references:id5}
@@ -10125,7 +11238,7 @@ Martin Burger. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Data S
 \bibitem[For17]{references:id4}
 \sphinxAtStartPar
 Otto Forster. \sphinxstyleemphasis{Analysis 2}. Springer, 2017.
-\bibitem[Janich03]{references:id16}
+\bibitem[Janich03]{references:id17}
 \sphinxAtStartPar
 Klaus Jänich. \sphinxstyleemphasis{Der Tangentialraum}. Springer Berlin Heidelberg, 2003. URL: \sphinxurl{https://doi.org/10.1007/978-3-662-10750-8\_2}, \sphinxhref{https://doi.org/10.1007/978-3-662-10750-8\_2}{doi:10.1007/978\sphinxhyphen{}3\sphinxhyphen{}662\sphinxhyphen{}10750\sphinxhyphen{}8\_2}.
 \bibitem[Kna13]{references:id7}
@@ -10134,9 +11247,12 @@ Peter Knabner. \sphinxstyleemphasis{Skript zur Vorlesung "Gewöhnliche Different
 \bibitem[Kna20]{references:id9}
 \sphinxAtStartPar
 Andreas Knauf. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Physikstudierende 3"}. 2020.
-\bibitem[Lee03]{references:id17}
+\bibitem[Lee03]{references:id18}
 \sphinxAtStartPar
 John Lee. \sphinxstyleemphasis{Introduction to smooth manifolds}. Springer, New York, 2003. ISBN 0\sphinxhyphen{}387\sphinxhyphen{}95448\sphinxhyphen{}1.
+\bibitem[Nee17]{references:id13}
+\sphinxAtStartPar
+Karl\sphinxhyphen{}Hermann Neeb. \sphinxstyleemphasis{Skript zur Vorlesung "Funktionentheorie I"}. 2017.
 \bibitem[Nol11]{references:id11}
 \sphinxAtStartPar
 Wolfgang Nolting. \sphinxstyleemphasis{Grundkurs Theoretische Physik 2 \sphinxhyphen{} Analytische Mechanik}. Springer Berlin Heidelberg, 2011. \sphinxhref{https://doi.org/10.1007/978-3-642-12950-6}{doi:10.1007/978\sphinxhyphen{}3\sphinxhyphen{}642\sphinxhyphen{}12950\sphinxhyphen{}6}.
@@ -10146,7 +11262,7 @@ Herman Schulz\sphinxhyphen{}Baldes. \sphinxstyleemphasis{Skript zur Vorlesung "M
 \bibitem[Tao07]{references:id6}
 \sphinxAtStartPar
 Terence Tao. \sphinxstyleemphasis{An Introduction to Measure Theory}. AMS, 2007.
-\bibitem[Ten21]{references:id14}
+\bibitem[Ten21]{references:id15}
 \sphinxAtStartPar
 Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Data Science 2"}. 2021. URL: \sphinxurl{https://fau-ammn.github.io/MathDataScience2}.
 \end{sphinxthebibliography}
@@ -10161,6 +11277,9 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \let\bigletter\sphinxstyleindexlettergroup
 \bigletter{cor:eindeutigkeitlinear}
 \item\relax\sphinxstyleindexentry{cor:eindeutigkeitlinear}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{cor:eindeutigkeitlinear}}
+\indexspace
+\bigletter{cor:infholo}
+\item\relax\sphinxstyleindexentry{cor:infholo}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{cor:infholo}}
 \indexspace
 \bigletter{cor:isomorphieEndlichDimensional}
 \item\relax\sphinxstyleindexentry{cor:isomorphieEndlichDimensional}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{cor:isomorphieEndlichDimensional}}
@@ -10177,6 +11296,9 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{cor:zeroprodset}
 \item\relax\sphinxstyleindexentry{cor:zeroprodset}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{cor:zeroprodset}}
 \indexspace
+\bigletter{corollary\sphinxhyphen{}17}
+\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}17}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{corollary-17}}
+\indexspace
 \bigletter{corollary\sphinxhyphen{}30}
 \item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}30}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{corollary-30}}
 \indexspace
@@ -10185,9 +11307,6 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{corollary\sphinxhyphen{}6}
 \item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}6}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{corollary-6}}
-\indexspace
-\bigletter{corollary\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}9}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{corollary-9}}
 \indexspace
 \bigletter{def:DGL}
 \item\relax\sphinxstyleindexentry{def:DGL}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{def:DGL}}
@@ -10277,31 +11396,46 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{def:wirkung}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{def:wirkung}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-0}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-0}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-1}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{definition-1}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}10}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}10}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-10}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}11}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}11}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-11}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}11}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-11}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}12}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}12}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-12}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}13}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}13}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{definition-13}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}14}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}14}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{definition-14}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}14}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-14}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}15}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}15}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-15}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}15}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-15}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}16}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}16}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-16}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}18}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}18}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-18}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}18}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{definition-18}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}19}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}19}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-19}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-2}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-2}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}20}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}20}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-20}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}22}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}22}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-22}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}23}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}23}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-23}}
@@ -10316,7 +11450,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}29}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-29}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{definition-3}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-3}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}30}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}30}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-30}}
@@ -10334,7 +11468,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}38}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-38}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ode/fluesse}\sphinxstyleindexpageref{ode/fluesse:\detokenize{definition-4}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{definition-4}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}42}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}42}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-42}}
@@ -10352,10 +11486,13 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}6}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{definition-6}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-7}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-7}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-8}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}9}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{definition-9}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}9}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-9}}
 \indexspace
 \bigletter{ex:10.14}
 \item\relax\sphinxstyleindexentry{ex:10.14}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{ex:10.14}}
@@ -10408,14 +11545,14 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{example\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{example-1}}
 \indexspace
-\bigletter{example\sphinxhyphen{}11}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}11}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{example-11}}
-\indexspace
 \bigletter{example\sphinxhyphen{}12}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}12}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-12}}
 \indexspace
+\bigletter{example\sphinxhyphen{}13}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}13}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{example-13}}
+\indexspace
 \bigletter{example\sphinxhyphen{}16}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}16}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{example-16}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}16}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{example-16}}
 \indexspace
 \bigletter{example\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-2}}
@@ -10460,10 +11597,10 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{example-6}}
 \indexspace
 \bigletter{example\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{example-7}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{example-7}}
 \indexspace
 \bigletter{example\sphinxhyphen{}8}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{example-8}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{example-8}}
 \indexspace
 \bigletter{example\sphinxhyphen{}9}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-9}}
@@ -10471,8 +11608,17 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{lem:LISO}
 \item\relax\sphinxstyleindexentry{lem:LISO}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:LISO}}
 \indexspace
+\bigletter{lem:Niveaumengen}
+\item\relax\sphinxstyleindexentry{lem:Niveaumengen}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lem:Niveaumengen}}
+\indexspace
 \bigletter{lem:changesigma}
 \item\relax\sphinxstyleindexentry{lem:changesigma}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lem:changesigma}}
+\indexspace
+\bigletter{lem:closelem}
+\item\relax\sphinxstyleindexentry{lem:closelem}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{lem:closelem}}
+\indexspace
+\bigletter{lem:closepath}
+\item\relax\sphinxstyleindexentry{lem:closepath}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{lem:closepath}}
 \indexspace
 \bigletter{lem:completelebesgue}
 \item\relax\sphinxstyleindexentry{lem:completelebesgue}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{lem:completelebesgue}}
@@ -10498,6 +11644,12 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{lem:genborel}
 \item\relax\sphinxstyleindexentry{lem:genborel}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lem:genborel}}
 \indexspace
+\bigletter{lem:homotop}
+\item\relax\sphinxstyleindexentry{lem:homotop}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{lem:homotop}}
+\indexspace
+\bigletter{lem:intdiff}
+\item\relax\sphinxstyleindexentry{lem:intdiff}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{lem:intdiff}}
+\indexspace
 \bigletter{lem:intexpglgn}
 \item\relax\sphinxstyleindexentry{lem:intexpglgn}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lem:intexpglgn}}
 \indexspace
@@ -10506,6 +11658,9 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{lem:isomorphismusTensorproduktraum}
 \item\relax\sphinxstyleindexentry{lem:isomorphismusTensorproduktraum}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lem:isomorphismusTensorproduktraum}}
+\indexspace
+\bigletter{lem:laurent}
+\item\relax\sphinxstyleindexentry{lem:laurent}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lem:laurent}}
 \indexspace
 \bigletter{lem:lebesguecomp}
 \item\relax\sphinxstyleindexentry{lem:lebesguecomp}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{lem:lebesguecomp}}
@@ -10531,8 +11686,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{lem:partderkron}
 \item\relax\sphinxstyleindexentry{lem:partderkron}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:partderkron}}
 \indexspace
-\bigletter{lem:pole}
-\item\relax\sphinxstyleindexentry{lem:pole}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lem:pole}}
+\bigletter{lem:potseries}
+\item\relax\sphinxstyleindexentry{lem:potseries}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{lem:potseries}}
+\indexspace
+\bigletter{lem:powerradius}
+\item\relax\sphinxstyleindexentry{lem:powerradius}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{lem:powerradius}}
 \indexspace
 \bigletter{lem:pullbackprop}
 \item\relax\sphinxstyleindexentry{lem:pullbackprop}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{lem:pullbackprop}}
@@ -10542,6 +11700,9 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{lem:simplefun}
 \item\relax\sphinxstyleindexentry{lem:simplefun}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lem:simplefun}}
+\indexspace
+\bigletter{lem:splitholo}
+\item\relax\sphinxstyleindexentry{lem:splitholo}\sphinxstyleindexextra{complexanalysis/cauchyriemann}\sphinxstyleindexpageref{complexanalysis/cauchyriemann:\detokenize{lem:splitholo}}
 \indexspace
 \bigletter{lem:tanbundle}
 \item\relax\sphinxstyleindexentry{lem:tanbundle}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:tanbundle}}
@@ -10556,25 +11717,31 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{lem:tensorbundle}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lem:tensorbundle}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}1}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{lemma-1}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}1}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-1}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}11}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}11}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-11}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}12}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}12}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-12}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}14}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}14}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-14}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}14}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{lemma-14}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}15}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}15}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{lemma-15}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}16}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}16}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-16}}
+\bigletter{lemma\sphinxhyphen{}17}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}17}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-17}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}18}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}18}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-18}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}19}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}19}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{lemma-19}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}19}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-19}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}21}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}21}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{lemma-21}}
-\indexspace
-\bigletter{lemma\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}3}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-3}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}30}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}30}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lemma-30}}
@@ -10583,10 +11750,13 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}34}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-34}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}35}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}35}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-35}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}35}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lemma-35}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}36}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}36}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-36}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}4}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}4}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-4}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}40}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}40}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-40}}
@@ -10594,17 +11764,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{lemma\sphinxhyphen{}47}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}47}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-47}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}5}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}5}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-5}}
-\indexspace
 \bigletter{lemma\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}6}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-6}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}6}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-6}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}7}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-7}}
-\indexspace
-\bigletter{lemma\sphinxhyphen{}8}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}8}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-8}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-7}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}9}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-9}}
@@ -10637,7 +11801,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-1}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}10}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}10}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-10}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}10}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-10}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}11}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}11}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-11}}
@@ -10649,7 +11813,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}14}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-14}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}15}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}15}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-15}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}15}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{remark-15}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}16}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}16}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-16}}
@@ -10678,8 +11842,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{remark\sphinxhyphen{}32}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}32}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-32}}
 \indexspace
+\bigletter{remark\sphinxhyphen{}35}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}35}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{remark-35}}
+\indexspace
 \bigletter{remark\sphinxhyphen{}36}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}36}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-36}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}36}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-36}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}38}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}38}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-38}}
@@ -10688,37 +11855,43 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}39}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-39}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}4}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-4}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}4}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-4}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}5}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}5}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{remark-5}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-6}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{remark-6}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-7}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}7}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-7}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}8}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}8}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-8}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}9}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{remark-9}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}9}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{remark-9}}
 \indexspace
 \bigletter{satz:picardlindeloef}
 \item\relax\sphinxstyleindexentry{satz:picardlindeloef}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}1}\sphinxstyleindexextra{complexanalysis/cauchyriemann}\sphinxstyleindexpageref{complexanalysis/cauchyriemann:\detokenize{theorem-1}}
+\bigletter{theorem\sphinxhyphen{}10}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}10}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-10}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}11}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}11}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{theorem-11}}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}11}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-11}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}12}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}12}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{theorem-12}}
+\bigletter{theorem\sphinxhyphen{}13}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}13}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{theorem-13}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}17}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}17}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{theorem-17}}
+\bigletter{theorem\sphinxhyphen{}14}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}14}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{theorem-14}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}2}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{theorem-2}}
+\bigletter{theorem\sphinxhyphen{}16}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}16}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{theorem-16}}
+\indexspace
+\bigletter{theorem\sphinxhyphen{}18}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}18}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{theorem-18}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}37}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}37}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{theorem-37}}
@@ -10732,14 +11905,20 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{theorem\sphinxhyphen{}45}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}45}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{theorem-45}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}6}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{theorem-6}}
+\bigletter{theorem\sphinxhyphen{}5}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}5}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{theorem-5}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{theorem-7}}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-7}}
+\indexspace
+\bigletter{theorem\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}8}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-8}}
+\indexspace
+\bigletter{theorem\sphinxhyphen{}9}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}9}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{theorem-9}}
 \indexspace
 \bigletter{thm:analytischHolomorph}
-\item\relax\sphinxstyleindexentry{thm:analytischHolomorph}\sphinxstyleindexextra{complexanalysis/cauchyriemann}\sphinxstyleindexpageref{complexanalysis/cauchyriemann:\detokenize{thm:analytischHolomorph}}
+\item\relax\sphinxstyleindexentry{thm:analytischHolomorph}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{thm:analytischHolomorph}}
 \indexspace
 \bigletter{thm:cavalieri}
 \item\relax\sphinxstyleindexentry{thm:cavalieri}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{thm:cavalieri}}
@@ -10752,6 +11931,9 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{thm:hamconst}
 \item\relax\sphinxstyleindexentry{thm:hamconst}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{thm:hamconst}}
+\indexspace
+\bigletter{thm:hebbar}
+\item\relax\sphinxstyleindexentry{thm:hebbar}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{thm:hebbar}}
 \indexspace
 \bigletter{thm:heineborel}
 \item\relax\sphinxstyleindexentry{thm:heineborel}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{thm:heineborel}}

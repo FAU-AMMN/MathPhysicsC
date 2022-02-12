@@ -101,7 +101,7 @@ Dann heißt $R$ **äußerer** und $\frac{1}{\tilde{r}}$ **innerer** Konvergenzra
 Anstatt von Kreisscheiben betrachten wir hier nun offene Ringe
 
 ```{math}
-B_{r,R}(p) := \{z\in \C: r< \abs{z-p} < R}
+B_{r,R}(p) := \{z\in \C: r< \abs{z-p} < R\}
 ```
 
 und erhalten folgende Aussage.

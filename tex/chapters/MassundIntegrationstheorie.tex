@@ -54,6 +54,9 @@ Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einfüh
 Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue integrierbaren Funktionen eine Obermenge der Menge der Riemann integrierbaren Funktionen ist.
 Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.
 
+\par
+Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz Baldes (FAU) \cite{SB18}, aber besonders auch das Buch von Prof.Terence Tao zur Einführung in die Maßtheorie \cite{Tao07} welches einen sehr intuitiven Einblick in die Materie gibt. Eine weitere sehr ausführliche Referenz, welche im Folgenden zitiert wird, ist das Buch von Prof.Vladimir I. Bogachev \cite{Bog07}.
+
 
 \section{Maßtheorie}
 \label{\detokenize{masstheorie/masstheorie:masztheorie}}\label{\detokenize{masstheorie/masstheorie::doc}}
@@ -1802,7 +1805,7 @@ Eine Teilmenge \(A \subset \R^n\) ist genau dann Lebesgue messbar, wenn eine Tei
 \section{Lebesgue Integral}
 \label{\detokenize{masstheorie/lebesgue_integral:lebesgue-integral}}\label{\detokenize{masstheorie/lebesgue_integral::doc}}
 \par
-Anhand des in \cref{masstheorie/masstheorie:s-lebesguemeasure}  konstruirten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion \(f:\Omega\to\R\) zu zerteilen. Dies führt auf das Problem, dass man Urbildern
+Anhand des in \cref{masstheorie/masstheorie:s-lebesguemeasure}  konstruierten Maßes wollen wir nun einen neuen Begriff des Integrals herleiten. Unsere Motivation hierbei war anstatt den Definitionsbereich, den Bildbereich einer Funktion \(f:\Omega\to\R\) zu zerteilen. Dies führt auf das Problem, dass man Urbildern
 \begin{align*}
 f^{-1}(I)
 \end{align*}
@@ -1841,7 +1844,7 @@ schreiben lässt. In diesem Kapitel wollen wir speziell Funktionen \(f:\Omega\to
 
 
 \par
-Wir nennen eine Funktion \(f:\R^n\to\overline{R}\) \textbf{Borel messbar}, falls
+Wir nennen eine Funktion \(f:\R^n\to\overline{\R}\) \textbf{Borel messbar}, falls
 \begin{align*}
 f^{-1}(\mathcal{B}(\overline{\R}))\subset \mathcal{B}(\R^n).
 \end{align*}
@@ -1896,6 +1899,16 @@ Stetige Funktionen sind Borel messbar.
 \label{\detokenize{masstheorie/lebesgue_integral:charakterisierung-uber-niveaumengen}}
 \par
 Im Falle von Borel und Lebesgue Messbarkeit haben wir als Zielalgebra \(\B(\overline{\R})\) betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.
+\begin{lemma}{}{masstheorie/lebesgue_integral:lem:Niveaumengen}
+
+
+
+\par
+Es sei \((\Omega,\Sigma)\) ein Messraum, eine Funktion \(f:\Omega\to\overline{\R}\) eine Funktion ist genau dann messbar bezüglich \(\Sigma\), falls
+für die Niveaumengen gilt
+\begin{align*}
+\{f< c\}\in\Sigma\quad\forall c\in\R.
+\end{align*}\end{lemma}
 
 \begin{proof}
  Wir betrachten das Mengensystem
@@ -1925,7 +1938,7 @@ f^{-1}(\mathcal{C}) \subset \Sigma
 \par
 ist.
 \end{proof}
-\begin{remark}{}{masstheorie/lebesgue_integral:remark-4}
+\begin{remark}{}{masstheorie/lebesgue_integral:remark-5}
 
 
 
@@ -1935,7 +1948,7 @@ Für uns ist vor allem der Fall von Bedeutung, wenn \(\Sigma\) im obigen Lemma d
 
 \par
 Mithilfe dieses Lemma können wir die folgende Aussage zeigen.
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-5}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-6}
 
 
 
@@ -1949,7 +1962,7 @@ Es sei \((\Omega,\Sigma)\) ein Messraum und \(f,g:\Omega\to\overline{\R}\) zwei 
 
 \item {} 
 \par
-\(\lambda f\) ist messbar für alle \(\lambda\in\overline{R}\),
+\(\lambda f\) ist messbar für alle \(\lambda\in\overline{\R}\),
 
 \item {} 
 \par
@@ -1975,7 +1988,7 @@ bezüglich \(\Sigma\).
 
 \par
 Für Folgen von messbaren Funktionen gilt auch, dass deren Grenzwerte messbar sind.
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-6}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-7}
 
 
 
@@ -2005,7 +2018,16 @@ auch messbar bezüglich \(\Sigma\).
 \subsection{Das Lebesgue Integral einfacher Funktionen}
 \label{\detokenize{masstheorie/lebesgue_integral:das-lebesgue-integral-einfacher-funktionen}}
 \par
-Für das Riemann Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als nalogon betrachtet man hier sogenannte einfache Funktionen.
+Für das Riemann Integral werden Treppenfunktionen benutzt, welche auf einem diskretisierten Definitionsbereich definiert sind. Als Analogon betrachtet man hier sogenannte einfache Funktionen, welche mithilfe der Indikatorfunktionen
+\begin{align*}
+\bone_A(x):=
+\begin{cases}
+1&\text{ falls }x\in A,\\
+0&\text{ sonst,}
+\end{cases}
+\end{align*}
+\par
+für verschiedenen Mengen \(A\subset \R^n\) definiert sind.
 
 \begin{figure}[htbp]
 \centering
@@ -2013,19 +2035,19 @@ Für das Riemann Integral werden Treppenfunktionen benutzt, welche auf einem dis
 
 \noindent\includegraphics[width=\textwidth]{../\string_build/html/\string_images/simplefun.jpg}
 \caption{Visualisierung einer einfachen Funktion.}\label{\detokenize{masstheorie/lebesgue_integral:fig-simplefun}}\end{figure}
-\begin{definition}{}{masstheorie/lebesgue_integral:definition-7}
+\begin{definition}{}{masstheorie/lebesgue_integral:definition-8}
 
 
 
 \par
-Eine Funktion \(f:\R^n\to\overline{R}\) heißt einfach, falls Koeffizienten \(\alpha_i\in\overline{\R}\) und messbare Mengen \(A_i\in\mathcal{A}(\R^n)\) für \(i=1,\ldots,N\) existieren, s.d.,
+Eine Funktion \(f:\R^n\to\overline{\R}\) heißt einfach, falls Koeffizienten \(\alpha_i\in\overline{\R}\) und messbare Mengen \(A_i\in\mathcal{A}(\R^n)\) für \(i=1,\ldots,N\) existieren, s.d.,
 \begin{align*}
 f = \sum_{i=1}^N \alpha_i \bone_{A_i}.
 \end{align*}\end{definition}
 
 \par
 Man erhält über die Definition direkt ein Lemma, dass einfache Funktionen Lebesgue messbar sind.
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-8}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-9}
 
 
 
@@ -2039,7 +2061,7 @@ Es sei \(f:\R^n\to\overline{\R}\) eine einfache Funktion, dann ist \(f\) Lebesgu
 
 \par
 Für einfache Funktionen können wir analog zum Riemann Integral das Lebesgue Integral definieren, indem wir das Maß der einzelnen Mengen multipliziert mit den Funktionswerten summieren, welche eine einfache Funktion erzeugen.
-\begin{remark}{(Wohldefiniertheit)}{masstheorie/lebesgue_integral:remark-9}
+\begin{remark}{(Wohldefiniertheit)}{masstheorie/lebesgue_integral:remark-10}
 
 
 
@@ -2070,7 +2092,7 @@ f&=\lim_{i\to\infty} f_i.
 
 \par
 Mithilfe der Tatsache, dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen, können wir nun das Lebesgue Integral für nicht negative messbare Funktionen einführen.
-\begin{definition}{}{masstheorie/lebesgue_integral:definition-11}
+\begin{definition}{}{masstheorie/lebesgue_integral:definition-12}
 
 
 
@@ -2082,7 +2104,7 @@ Es sei \(f:\Omega\to[0,\infty]\) Lebesgue messbar und nach \cref{masstheorie/leb
 
 \par
 Wir zeigen im Folgenden wichtige Eigenschaften des Lebesgue Integrals.
-\begin{theorem}{(Eigenschaften des Lebesgue Integrals)}{masstheorie/lebesgue_integral:theorem-12}
+\begin{theorem}{(Eigenschaften des Lebesgue Integrals)}{masstheorie/lebesgue_integral:theorem-13}
 
 
 
@@ -2134,7 +2156,7 @@ Eine weitere Aussage in diesem Kontext ist das \textbf{Lemma von Fatou}, welches
 \par
 \href{https://de.wikipedia.org/wiki/Pierre\_Fatou}{Pierre Joseph Louis Fatou} (Geboren 28. Februar 1878 in Lorient; Gestorben 10. August 1929 in Pornichet) war ein französischer Mathematiker.
 \end{emphBox}
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-14}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-15}
 
 
 
@@ -2158,7 +2180,7 @@ nicht negativ und Lebesgue messbar und es gilt
 \label{\detokenize{masstheorie/lebesgue_integral:das-lebesgue-integral-integrierbarer-funktionen}}
 \par
 Wir wollen nun das Lebesgue Integral auf messbaren Funktionen mit wechselndem Vorzeichen betrachten. Dafür spalten wir eine Funktionen in ihren positiven und ihren negativen Teil auf und bilden das Integral über diese Funktionen. Um die beiden Teile aufsummieren zu können, müssen wir allerdings fordern, dass beide endlich sind.
-\begin{definition}{}{masstheorie/lebesgue_integral:definition-15}
+\begin{definition}{}{masstheorie/lebesgue_integral:definition-16}
 
 
 
@@ -2177,7 +2199,7 @@ so dass gilt \(f = f^+ - f_-\). Dann können wir das \textbf{Lebesgue Integral} 
 \begin{align*}
 \int_{\R^n} f\, d\lambda^n := \int_{\R^n} f^+\, d\lambda^n - \int_{\R^n} f_-\, d\lambda^n.
 \end{align*}\end{definition}
-\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-16}
+\begin{lemma}{}{masstheorie/lebesgue_integral:lemma-17}
 
 
 
@@ -2191,7 +2213,7 @@ Das Lebesgue Integral ist ein linearer und monotoner Operator auf der Menge der 
 
 \par
 Auch für integrierbare Funktionen gibt es einen wichtigen Konvergenzsatz, der \textbf{Konvergenzsatz von Lebesgue} oder auch der \textbf{Satz von der dominierten Konvergenz}.
-\begin{theorem}{}{masstheorie/lebesgue_integral:theorem-17}
+\begin{theorem}{}{masstheorie/lebesgue_integral:theorem-18}
 
 
 
@@ -2207,7 +2229,7 @@ Es sei \(f_i:\R^n\to\R\) eine Folge Lebesgue messbarer Funktionen mit \(\lim_{i\
 
 
 \subsection{Fast überall Eigenschaften}
-\begin{definition}{}{\detokenize{masstheorie/lebesgue_integral:fast-uberall-eigenschaften}}\label{masstheorie/lebesgue_integral:definition-18}
+\begin{definition}{}{\detokenize{masstheorie/lebesgue_integral:fast-uberall-eigenschaften}}\label{masstheorie/lebesgue_integral:definition-19}
 
 
 
@@ -2260,7 +2282,7 @@ wofür man folgende Aussage hat.
 
 
 \par
-Es seien \((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\) Messräume, dann gilt für eine Produktmessbare Menge \(E\in \Sigma_1\otimes\Sigma_2\), dass \(E_x\in \Sigma_2, E_y\in\Sigma_1\) für alle \(x\in\Omega_1,y\in\Omega_2\).
+Es seien \((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\) Messräume, dann gilt für eine Menge \(E\in \Sigma_1\otimes\Sigma_2\), dass \(E_x\in \Sigma_2, E_y\in\Sigma_1\) für alle \(x\in\Omega_1,y\in\Omega_2\).
 \end{lemma}
 
 \begin{proof}
@@ -2269,7 +2291,7 @@ Es seien \((\Omega_1,\Sigma_1), (\Omega_2,\Sigma_2)\) Messräume, dann gilt für
 \M = \{E\subset\Omega_1\times\Omega_2:  E_x\in\Sigma_2, E^y\in\Sigma_1,\quad\forall x\in\Omega_1,  y\in\Omega_2\}
 \end{align*}
 \par
-d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für \(A\in\Sigma1,B\in\Sigma_2\) gilt
+d.h. alle Mengen, welche die gewünschte Bedingung erfüllen. Wir sehen, dass für \(A\in\Sigma_1,B\in\Sigma_2\) gilt
 \begin{align*}
 (A\times B)_x = 
 \begin{cases}
@@ -2283,7 +2305,7 @@ und daher \((A\times B)_x\in\Sigma_2\) für alle \(x\in\Omega_1\). Analog zeigt 
 \Sigma_1\times\Sigma_2\subset \M.
 \end{align*}
 \par
-Weiterhin ist \(\M\) eine \(\sigma\) Algebra. Es gilt \(\emptyset\M\), weiterhin \((E^C)_x = (E_x)^C\)und analog \((E^C)^y= (E^y)^C\) und daher
+Weiterhin ist \(\M\) eine \(\sigma\) Algebra, denn es gilt \(\emptyset\in\M\), weiterhin \((E^C)_x = (E_x)^C\)und analog \((E^C)^y= (E^y)^C\) und daher
 gilt
 \begin{align*}
 E\in\M\Rightarrow E^C\in\M.
@@ -2305,7 +2327,7 @@ Somit folgt
 \end{align*}\end{proof}
 
 \par
-Speziell für \(\Omega_1=\R^n, \Omega_1=\R^m\) könnte man sich nun fragen wie sich die Produkt Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel \(\sigma\) Algebra haben wir folgende Aussage.
+Speziell für \(\Omega_1=\R^n, \Omega_2=\R^m\) könnte man sich nun fragen wie sich die Produkt Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel \(\sigma\) Algebra haben wir folgende Aussage.
 \begin{lemma}{}{masstheorie/integrationstechnik:lemma-1}
 
 
@@ -2384,9 +2406,9 @@ Wir erkennen aber, dass sich \(V\) als Schnitt dieser Produkt Menge darstellen l
 V = (V\times\{0\})^0
 \end{align*}
 \par
-wäre nun \((V\times\{0\})^0\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\) so würde mit \cref{masstheorie/integrationstechnik:lem:secmeasure} folgen, dass auch der Schnitt \(V\in\mathcal{A}(\R)\) gilt, was ein Widerspruch ist, daher
+wäre nun \(V\times\{0\}\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\) so würde mit \cref{masstheorie/integrationstechnik:lem:secmeasure} folgen, dass auch der Schnitt \(V\in\mathcal{A}(\R)\) gilt, was ein Widerspruch ist, daher
 \begin{align*}
-(V\times\{0\})^0 \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).
+V\times\{0\} \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).
 \end{align*}\end{example}
 
 \par
@@ -2396,7 +2418,7 @@ Das abstrakte Konzept, welches sich hinter diesem Beispiel verbirgt wir mit dem 
 
 
 \par
-Ein Maßraum \((\Omega,\Sigma,\mu)\), falls für jede \(\mu\) Nullmenge \(N\in\Sigma, \mu(N)=0\) gilt
+Ein Maßraum \((\Omega,\Sigma,\mu)\) heißt \textbf{vollständig}, falls für jede \(\mu\) Nullmenge \(N\in\Sigma, \mu(N)=0\) gilt
 \begin{align*}
 A\subset N \Rightarrow A\in \Sigma.
 \end{align*}\end{definition}
@@ -2455,7 +2477,7 @@ Es seien \((\Omega_1,\Sigma_1,\mu_1), (\Omega_2,\Sigma_2,\mu_2)\) zwei Maßräum
 \par
 In \cref{vektoranalysis/tensor:s-grass}  haben wir das Tensorprodukt zweier lineare Abbildungen \(T_1,T_2\) definiert über
 \begin{align*}
-(T_1\otimes T_2)(v_1,V_2) := T_1(v_1)\cdot T_2(v_2).
+(T_1\otimes T_2)(v_1,v_2) := T_1(v_1)\cdot T_2(v_2).
 \end{align*}
 \par
 Es sei hier erwähnt, dass das Maß \textbf{keine} lineare Abbildung ist, insbesondere haben wir keinen Vektorraum gegeben. Die Produktstruktur ist trotzdem ähnlich, weshalb eine gewisse Analogie zwischen dem Tensorprodukt und dem Produktmaß herrscht.
@@ -2471,7 +2493,7 @@ In den obigen Produkten können einzelnen Terme jeweils unendlich werden, hierbe
 \end{align*}\end{remark}
 
 \par
-Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogennate \(\sigma\) Endlichkeit.
+Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogenannte \(\sigma\) Endlichkeit.
 \begin{definition}{}{masstheorie/integrationstechnik:definition-9}
 
 
@@ -2579,17 +2601,22 @@ Ein Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klasse
 
 \par
 Es sei \(\Omega\) eine Menge, ein Teilmengensystem \(\mathcal{C}\subset 2^\Omega\) heißt \textbf{monotone Klasse}, falls
+\begin{enumerate}
 
+\item {} 
 \par
-1. Für eine aufsteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N\) gilt auch
+Für eine aufsteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\subset A_{i+1}, i\in\N\) gilt auch
 \begin{align*}
 \bigcup_{i\in\N} A_i\in\mathcal{C}.
 \end{align*}
+\item {} 
 \par
-1. Für eine absteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\supset A_{i+1}, i\in\N\) gilt auch
+Für eine absteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\supset A_{i+1}, i\in\N\) gilt auch
 \begin{align*}
 \bigcap_{i\in\N} A_i\in\mathcal{C}.
-\end{align*}\end{definition}
+\end{align*}
+\end{enumerate}
+\end{definition}
 
 \par
 Offensichtlich ist jede \(\sigma\) Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen.
@@ -2698,7 +2725,7 @@ Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen \(E\in \
 
 
 \par
-Die Aussage von \cref{masstheorie/integrationstechnik:thm:cavalieri} gilt auch für Mengen \(E\in \mathcal{A}(\R^{n+m})\).
+Die Aussage von \cref{masstheorie/integrationstechnik:thm:cavalieri} (Prinzip von Cavalieri) gilt auch für Mengen \(E\in \mathcal{A}(\R^{n+m})\).
 \end{lemma}
 
 \begin{proof}
@@ -2779,10 +2806,10 @@ B_r^n:=\{x\in\R^n: |x|\leq r\}
 gilt
 \begin{align*}
 \lambda^n(B_r^n) =
-r^d\,
+r^n\,
 \begin{cases}
 \frac{1}{(n/2)!} \pi^{n/2}&\text{ falls }n \text{ gerade,}\\
-\frac{2}{1\cdot 3\cdot\ldots n} \pi^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
+\frac{2}{1\cdot 3\cdot\ldots n} (2\pi)^{(n-1)/2}&\text{ falls }n \text{ ungerade.}
 \end{cases}
 \end{align*}\end{lemma}
 
@@ -2881,7 +2908,7 @@ Die Intuition hinter dem Prinzip von Cavalieri ist, dass man über parallele Sch
 \caption{Visualisierung von Mengentransformationen.}\label{\detokenize{masstheorie/integrationstechnik:fig-trafo}}\end{figure}
 
 \par
-In \cref{masstheorie/masstheorie:rem:transinvariance} haben wir eine Matrix \(M\) und eine Menge \(M\) bereits die Identität
+In \cref{masstheorie/masstheorie:rem:transinvariance} haben wir für eine Matrix \(M\) und eine Lebesgue messbare Menge \(A\) bereits die Identität
 \begin{align*}
 \lambda(MA) = |\det(M)| \, \lambda(A)
 \end{align*}
@@ -2903,9 +2930,9 @@ Sei außerdem \(f \colon V \rightarrow \R\) eine Lebesgue integrierbare Funktion
 \par
 Dann gilt, dass die Verknüpfung \(f \circ \Phi \colon U \rightarrow \R\) auch Lebesgue integrierbar ist und es gilt die folgende Integrationsregel
 \begin{align*}
-\int_{\Phi(U)} f(y) \mu(\mathrm{d}y) = \int_U (f \circ \Phi)(x) \cdot |\det(D\Phi(x))|\mu(\mathrm{d}x).\end{align*}
+\int_{\Phi(U)} f(y)\,d\lambda^n(y) = \int_U (f \circ \Phi)(x) \cdot \abs{\det(D\Phi(x))} d\lambda^n(x).\end{align*}
 \par
-Hierbei nennt man \(\det(D\Phi(x))\) die \textbf{Jacobi Determinante}.
+Hierbei ist man \(\det(D\Phi(x))\) die \textbf{Jacobi Determinante}.
 \end{theorem}
 
 \begin{proof}

@@ -444,14 +444,16 @@ Dann ist \(C^\infty(\M; \R^m)\) ein reeller Vektorraum mit den Verknüpfungen
 
 \par
 Die Eigenschaft der Differenzierbarkeit einer Funktion auf einer Mannigfaltigkeit ist kartenunabhängig, wie folgendes Lemma feststellt.
-\begin{lemma}{}{manifolds/manifolds_prelim:lem:differenzierbarkeitKartenunabhaengig}
+\begin{lemma}{(Kartenunabhängigkeit)}{manifolds/manifolds_prelim:lem:differenzierbarkeitKartenunabhaengig}
 
 
 
 \par
 Es sei \(\M\) eine glatte Mannigfaltigkeit und \(\mathcal{A}\) ein Atlas auf \(\M\).
-Außerdem sei \(f:\M \to \R^m\) eine Funktion, \((U,\phi)\in \mathcal{A}\) eine Karte und \(x \in U\) ein Punkt in der offenen Menge \(U\).
-Ist \(f\circ\phi^{-1}\) differenzierbar in \(x\), so ist \(f\circ\psi^{-1}\) auch differenzierbar in \(x\) für jede Karte \((V,\psi) \in \mathcal{A}\) mit \(x\in V\).
+Außerdem sei \(f:\M \to \R^m\) eine Funktion, \((U,\varphi), (V,\varphi)\in \mathcal{A}\) zwei Karten mit \(x \in U\cap V\).
+
+\par
+Dann gilt, \(f\circ\varphi^{-1}\) ist genau dann differenzierbar in \(\varphi(x)\), falls \(f\circ\psi^{-1}\) differenzierbar in \(\psi(x)\) ist.
 \end{lemma}
 
 \begin{proof}
@@ -821,7 +823,7 @@ Wir erhalten somit Kurven
 und mithilfe der Richtungsableitung aus \cref{manifolds/tangential:def:direcdiv} die Derivationen
 \begin{align*}
 \partial_{x^i}^p: C^\infty(\M) &\to \R\\
-f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
+f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}.
 \end{align*}\begin{definition}{}{manifolds/tangential:definition-12}
 
 
@@ -830,7 +832,7 @@ f &\mapsto \partial_{x^i}^p(f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)).
 Sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit für \(n\in\N\) und sei \(f \in C^\infty(\M)\) eine glatte Funktion.
 Dann bezeichnen wir die Derivationen
 \begin{align*}
-\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t)), \quad i=1,\ldots,n
+\partial_{x^i}^p (f) := \frac{d}{dt} (f\circ \gamma_{x^i}(t))\big\rvert_{t=0}, \quad i=1,\ldots,n
 \end{align*}
 \par
 als \textbf{partielle Derivationen} von \(f\) im Punkt \(p \in \M\).
@@ -851,7 +853,7 @@ Dann gilt für die partielle Derivation
 \partial_{x^i}^p(\varphi_j) = \delta_{ij},
 \end{align*}
 \par
-wobei \(\delta_ij\) das \emph{Kronecker Delta} bezeichnet.
+wobei \(\delta_{ij}\) das \emph{Kronecker Delta} bezeichnet.
 \end{lemma}
 
 \begin{proof}
@@ -862,7 +864,7 @@ wobei \(\delta_ij\) das \emph{Kronecker Delta} bezeichnet.
 &= (\varphi(p) + t e_i)_j\\ 
 &=
 \begin{cases}
-\varphi(p) + t e_i &\text{ für } i=j,\\
+\varphi_i(p) + t e_i &\text{ für } i=j,\\
 \varphi_j(p)&\text{ sonst}.
 \end{cases}
 \end{align*}
@@ -870,7 +872,7 @@ wobei \(\delta_ij\) das \emph{Kronecker Delta} bezeichnet.
 Somit gilt schon für die partielle Derivation
 \begin{align*}
 \partial_{x^i}^p(\varphi_j)=
-\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t)) = 
+\frac{d}{dt} (\varphi_j \circ \gamma_{x^i}(t))\big\rvert_{t=0} = 
 \begin{cases}
 1&\text{ für } i=j,\\
 0&\text{ sonst}.
@@ -1577,7 +1579,7 @@ Man kann hier analog lokale Koordinaten Kovektorfelder definierne indem man loka
 Es sei \(\M\) eine glatte \(n\) dimensionale Mannigfaltigkeit und \((U,\phi)\) eine Karte.
 Dann definieren wir die sogenannten \textbf{lokalen Koordinaten Kovektorfelder} für \(i=1,\ldots,n\) durch
 \begin{align*}
-dx^{i}:\M&\to T\M\\
+dx^{i}:\M&\to T^\ast\M\\
 p&\mapsto dx^{i}_p.\end{align*}\end{definition}
 
 \par
@@ -2058,12 +2060,12 @@ Es sei \(U\subset\R^n\) eine offene sternförmige Menge, dann gilt für \(\omega
 \subsection{Der Pullback}
 \label{\detokenize{manifolds/diffformen:der-pullback}}
 \par
-Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte \textbf{Pullback}. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten \(\M,\mathcal{N}\) und eine glatte Funktion \(F:M\to\mathcal{N}\). Das Ziel ist es nun eine Differentialform auf \(N\), \(\omega\in\Omega^k(\mathcal{N})\) mithilfe von \(F\) auf eine Differentialform auf \(\M\) zurückzuziehen. Ausgewertet an \(p\in\M\) ergibt eine Differentialform \(\eta\in\Omega^k(\M)\) ein Element aus \(L^k(T_p^\ast\M)\),
+Die letzte Operation die wir in diesem Kapitel betrachten ist der sogenannte \textbf{Pullback}. Hierbei betrachten wir zwei glatte Mannigfaltigkeiten \(\M,\mathcal{N}\) und eine glatte Funktion \(F:M\to\mathcal{N}\). Das Ziel ist es nun eine Differentialform auf \(N\), \(\omega\in\Omega^k(\mathcal{N})\) mithilfe von \(F\) auf eine Differentialform auf \(\M\) zurückzuziehen. Ausgewertet an \(p\in\M\) ergibt eine Differentialform \(\eta\in\Omega^k(\M)\) ein Element aus \(L^k(T_p\M)\), da
 \begin{align*}
-\eta_p\in \Omega^k(T_p\M) \subset L^k(T_p^\ast\M)
+\eta_p\in \Lambda^k(T_p\M) \subset L^k(T_p^\M)
 \end{align*}
 \par
-also eine Linearform, welche auf \(k\) Elemente \(v_1,\ldots,v_k\in T_p^\ast\M\) des Kotangentialraums in \(p\) an \(\M\) wirkt. Haben wir nun a priori \(\omega\in\Omega^k(\mathcal{N})\) gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über \(F\) von \(\M\) nach \(\N\) vorschieben können, der sogennante \textbf{Pushforward}.
+also eine Linearform, welche auf \(k\) Elemente \(v_1,\ldots,v_k\in T_p\M\) des Tangentialraums in \(p\) an \(\M\) wirkt. Haben wir nun a priori \(\omega\in\Omega^k(\mathcal{N})\) gegeben brauchen wir deshalb zunächst eine Methode mit der wir Tangentialvektoren über \(F\) von \(\M\) nach \(\mathcal{N}\) vorschieben können, der sogenannte \textbf{Pushforward}.
 \begin{definition}{}{manifolds/diffformen:definition-12}
 
 
