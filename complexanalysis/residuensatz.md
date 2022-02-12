@@ -1,5 +1,227 @@
 # Laurententwicklung und Residuensatz
 
+In diesem Abschnitt betrachten wir nun Singularitäten holomorpher Funktionen auf gelochten Kreisscheiben. Konkret betrachten wir holomorphe Funktionen $f:B_r(p)\setminus\{p\}\to\C$ und interessieren uns speziell für das Verhalten nahes des entfernten Mittelpunktes $p\in\C$.
+
+## Singularitäten holomorpher Funktionen
+
+In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.
+
+````{prf:definition} Singularitäten
+Sei $U \subset \C$ offen und $p\in U$ ein Punkt und $f: U \setminus \{p\}\to\C$ eine holomorphe Funktion ist, dann nennen wir den Punkt $p$ eine **isolierte Singularität** von $f$.
+
+1. Der Punkt $p\in U$ heißt **hebbare Singularität**, falls $p$ eine isolierte Singularität ist und es eine holomorphe Funktion $g:U\to\C$ gibt, so dass $g(z) = f(z)$ gilt für alle $z \in U \setminus \{p\}$.
+
+2. Der Punkt $p\in U$ heißt **Pol**, wenn ein $k\in\N$ existiert, s.d., $z\mapsto (z-p)^k f(z)$ eine hebbare Singularität in $p$ hat. Das kleinste $k\in\N$, das diese erfüllt heißt **Ordnung** des Pols.
+
+3. Wir nennen den Punkt $p$ eine **wesentliche Singularität**, wenn $p$ weder hebbar noch Pol ist.
+````
+
+Intuitiv ist eine Polstelle hebbar, falls die Funktion um die Polstelle herum beschränkt ist. Dies ist die Aussage des Riemannschen Hebbarkeitssatzes.
+
+````{prf:theorem}
+:label: thm:hebbar
+
+Es sei $U\subset \C$ offen, $p\in U$ und $f:U\setminus\{p\}\to\C$ holomorph. Falls eine Umgebung $V\subset U, p\in V$ existiert, s.d., $f$ auf $V\setminus\{p\}$ beschränkt ist, so ist $p$ eine hebbare Singularität.
+````
+
+````{prf:proof}
+Wir nehmen o.B.d.A. an, dass $p=0$ gilt und betrachten die Funktion
+
+```{math}
+g(z) :=
+\begin{cases}
+z^2\cdot f(z)&\text{ für } z\neq 0,\\
+0&\text{ für } z=0.
+\end{cases}
+```
+
+Dann gilt
+
+```{math}
+\lim_{z\to 0} \frac{g(z) - g(0)}{z} = \lim_{z\to 0} z\cdot f(z) =0
+```
+
+da $f$ beschränkt in einer Umgebung um $0$ ist. Somit ist $g$ holomorph auf $U$ und lässt sich damit als Potenzreihe in der $0$ entwickeln,
+
+```{math}
+g(z) = \sum_{j=0}^\infty a_j z^j,\quad 0 = g(0) = a_0, 0=g^\prime(0)=a_1.
+```
+
+Insbesondere gilt dann für $z\in U\setminus\{0\}$
+
+```{math}
+f(z) = g(z)/z^2 = \sum_{j=2}^\infty a_j z^{j-2}
+```
+
+wobei die Reihe auf der rechten Seite eine holomorphe Funktion auf ganz $U$ definiert, daher ist $0$ eine hebbare Singularität.
+````
+
+## Laurent-Reihen
+
+Zusätzlich zu Potenzreihen betrachtet man für Singularitäten sogenannte **Laurent-Reihen**, wobei man nicht nur Potenzen $(z-p)^j$ für $j\in \N$ betrachtet, sondern auch negative Exponenten zulässt und somit effektive rationale Funktionen $\frac{1}{(z-p)^j}$ hinzuaddiert.
+
+```{margin} Pierre Alphonse Laurent
+[Pierre Alphonse Laurent](https://de.wikipedia.org/wiki/Pierre_Alphonse_Laurent) (Geboren 18. Juli 1813 in Paris; Gestorben 2. September 1854 ebenda) war ein französischer Mathematiker.
+```
+
+````{prf:definition} Laurent-Reihen
+Für eine Folge $a_j\in\C, j\in \Z$ nennen wir die Reihe
+
+```{math}
+\sum_{j=-\infty}^\infty a_j (z-p)^j
+```
+
+**Laurent-Reihe** am Entwicklungspunkt $p\in\C$. Wir nennen die Reihe konvergent, falls die Teilsummen
+
+```{math}
+\sum_{j=0}^\infty a_j (z-p)^j\qquad \sum_{j=1}^\infty a_{-j} \frac{1}{(z-p)^j}
+```
+
+konvergieren und setzten den Grenzwert als Summe der beiden einzelnen Grenzwerte.
+````
+
+Für Laurent-Reihen erhält man zwei Konvergenzradien, jeweils für die beiden Teilsummen.
+
+````{prf:definition} Laurent Konvergenzradien
+Für eine Laurent-Reihe sei $R>0$ der Konvergenzradius der Reihe
+
+```{math}
+\sum_{j=0}^\infty a_j (z-p)^j
+```
+
+und $\tilde{r}$ der Konvergenzradius der Reihe 
+
+```{math}
+\sum_{j=1}^\infty a_{-j} \frac{1}{(z-p)^j}.
+```
+
+Dann heißt $R$ **äußerer** und $\frac{1}{\tilde{r}}$ **innerer** Konvergenzradius.
+````
+
+Anstatt von Kreisscheiben betrachten wir hier nun offene Ringe
+
+```{math}
+B_{r,R}(p) := \{z\in \C: r< \abs{z-p} < R}
+```
+
+und erhalten folgende Aussage.
+
+````{prf:lemma}
+Es sei $\sum_{j=-\infty}^\infty a_j (z-p)^j$ eine Laurent-Reihe mit äußerem Konvergenzradius $R$ und innerem Konvergenzradius $r$, dann gilt
+
+* Die Reihe divergiert auf $\C\setminus\overline{B_{r,R}(p)},
+
+* Die Reihe konvergiert auf $B_{r,R}(p)$,
+
+* für $r<\tilde{r}<\tilde{R}< R$ konvergiert die Reihe gleichmäßig absolut auf $B_{\tilde{r},\tilde{R}}(p)$
+````
+
+````{prf:proof}
+Folgt direkt aus {prf:ref}`lem:powerradius`
+````
+
+Analog zur Entwicklung in die Taylorreihe haben wir auf offenen Ringen eine Entwicklung in Laurent-Reihen.
+
+````{prf:lemma} Laurent-Entwicklung
+:label: lem:laurent
+
+Es sei $f:B_{r,R}(p)\to\C$ holomorph, dann gilt
+
+```{math}
+f(z) = \sum_{j=-\infty}^\infty a_j (z-p)^j,
+```
+
+wobei die Koeffizienten für $j\in\Z$ gegeben sind durch
+
+```{math}
+a_j = \frac{1}{2\pi i} \oint_{\partial B_s(p)} \frac{f(z)}{(z-p)^{j+1}} dz \text{ für beliebiges } s\in (r,R).
+```
+````
+
+````{prf:proof}
+ToDo, siehe {cite:p}`neeb_2017` Satz 6.7.
+````
+
+Mithilfe der Laurent-Entwicklung auf der gelochten Kreisscheibe $B_{0,R}(p)$ können wir nun Singularitäten von holomorphen Funktionen charakterisieren.
+
+````{prf:lemma}
+Es sei $f:U\setminus\{p\}\to\C$ holomorph, $B_{0,R}(p)\subset U\setminus\{p\}$ und $a_j\in\C, j\in\Z$ seien die Koeffizienten der Laurent-Entwicklung auf $B_{0,R}$ welche nach {prf:ref}`lem:laurent` existieren. Dann gilt:
+
+1. Die Singularität $p$ ist genau dann hebbar, wenn $a_{j}=0$ für alle $j<0$.
+
+2. Die Singularität $p$ ist genau dann ein Pol der Ordnung $k\in\N$, $a_{-k}\neq 0$ und $a_j = 0$ für alle $j<k$.
+
+3. Die Singularität $p$ ist genau dann wesentlich, falls $a_{-j}\neq 0$ für fast alle $j\in\N$.
+````
+
+````{prf:proof}
+**Ad 1.**
+
+Gilt $a_j=0$ für alle $j<0$ so ist die Laurent-Reihe
+
+```{math}
+f(z) = \sum_{0}^\infty a_j (z-p)^j,
+```
+
+holomorph von $B_{0,R}(p)$ auf $B_R(p)$ fortsetzbar und die Singularität somit hebbar.
+
+**Ad 2.**
+
+ToDo
+
+**Ad 3.**
+
+ToDo
+````
+
+````{prf:definition} Meromorphe Funktion
+Sei $D \subset \C$ eine offene Teilmenge.
+Wir nennen eine Funktion $f \colon D \rightarrow \C$ **meromorph** auf $D$ genau dann, wenn eine lokalendliche Menge $P$ existiert, so dass die Funktion $f$ holomorph auf $D \setminus P$ mit Polen in $P$ ist. 
+````
+
+````{prf:example} Meromorphe Funktionen
+Rationale Funktionen oder konkretes Beispiel
+
+Schulz-Baldes S.332
+
+````
+
+## Der Satz von Casorati--Weierstraß
+
+Für wesentliche Singularitäten $p$ können wir weder einen Wert der Funktion am Punkt $p$ definieren, noch feststellen, dass die Funktion hier eindeutig gegen unendlich strebt. Tatsächlich nimmt eine Funktion um eine wesentliche Singularität herum überaschend viele verschiedene Werte an. Diese ist die Aussage des Satzes von Casorati--Weierstraß.
+
+```{margin} Felice Casorati
+[Felice Casorati](https://de.wikipedia.org/wiki/Felice_Casorati_(Mathematiker)) (Geboren 17. Dezember 1835 in Pavia; Gestorben 11. September 1890 in Casteggio) war ein italienischer Mathematiker.
+```
+
+```{margin} Karl Weierstraß
+[Karl Theodor Wilhelm Weierstraß](https://de.wikipedia.org/wiki/Karl_Weierstra%C3%9F) (Geboren 31. Oktober 1815 in Ostenfelde bei Ennigerloh, Münsterland; Gestorben 19. Februar 1897 in Berlin) war ein deutscher Mathematiker.
+```
+
+````{prf:theorem} Casorati--Weierstraß
+Es sei $U \subset \C$ offen und $p\in U$ eine wesentliche Singularität der holomorphen Funktion $f:U\setminus\{p\}\to\C$, dann gilt, dass $f(U\setminus\{p\})$ dicht in $\C$ liegt.
+````
+
+````{prf:proof}
+Angenommen $f(U\setminus\{p\})$ wäre nicht dicht, dann existiert ein $w\in\C$ und ein $r>0$, s.d.
+
+```{math}
+B_r(w) \cap f(U\setminus\{p\}) = \emptyset.
+```
+
+Da das Bild von $f$ somit einen echten Abstand zum Punkt $p$ hat ist die Funktion
+
+```{math}
+z\mapsto\frac{1}{f(z) - w}
+```
+
+beschränkt und holomorph auf $U\setminus\{p\}$. Somit folgt mit dem Hebbarkeitssatz {prf:ref}`thm:hebbar`, dass diese Funktion einen hebbaren Pol bei $p$ hat und somit zur holomorphen Funktion $h:U\to\C$ fortsetzbar auf $U$ ist. Diese Funktion hat keine Nullstellen 
+
+ToDo
+````
+
+## Umlaufzahlen
+
 Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in $\C$, den sogenannten Index.
 
 ````{prf:definition} Index
@@ -24,117 +246,6 @@ Dann ist die Abbildung, die jedem Punkt $w \in \C \setminus \operatorname{Bild}(
 
 ````{prf:proof}
 Schulz-Baldes S.318f.
-````
-
-
-## Singularitäten homomorpher Funktionen
-
-In diesem Abschnitt beschäftigen wir uns mit speziell ausgezeichneten Punkten, den sogenannten Singularitäten.
-
-````{prf:definition} Singularitäten
-Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ ein Punkt.
-
-1\. Wenn $f \colon D \setminus \{z_0\} \rightarrow \C$ eine holomorphe Funktion ist.
-Dann nennen wir den Punkt $z_0$ eine **isolierte Singularität** von $f$.
-
-2\. Wir nennen den Punkt $z_0$ eine **hebbare Singularität**, wenn $z_0$ eine isolierte Singularität einer holomorphen Funktion $f \colon D \setminus \{z_0\} \rightarrow \C$ ist und es eine holomorphe Funktion $g \colon D \rightarrow \C$ gibt, so dass $g(z) = f(z)$ gilt für alle $z \in D \setminus \{z_0\}$.
-
-3\. Wir nennen den Punkt $z_0$ einen **Pol**, wenn für alle Folgen $z_n \rightarrow z_0$ gilt
-
-```{math}
-\lim_{n\rightarrow \infty} |f(z_n)| = \infty.
-```
-
-4\. Wir nennen den Punkt $z_0$ eine **wesentliche Singularität**, wenn $z_0$ weder hebbar noch Pol ist.
-````
-
-Der Satz von Casorati-Weierstraß erlaubt es wesentliche Singularitäten zu charakterisieren.
-
-````{prf:remark} Casorati-Weierstraß
-Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ ein Punkt.
-
-Der Punkt $z_0$ ist genau dann eine wesentliche Singularität einer holomorphen Funktion $f \colon D \setminus \{z_0\} \rightarrow \C$, wenn für alle $\epsilon > 0$ die Menge der Funktionswerte $f(B_\epsilon(z_0)) \setminus \{z_0\})$ dicht in $\C$ liegt.
-
-````
-
-**ToDo: Hier Beispiel zu Singularitäten? Schulz-Baldes S.329**
-
-````{prf:theorem} Riemannscher Hebbarkeitssatz
-
-Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ ein Punkt.
-Sei außerdem $f \colon D \setminus \{z_0\} \rightarrow \C$ eine holomorphe Funktion.
-Falls eine Umgebung $U \subset D$ von $z_0$ gibt, so dass $f$ auf $U \setminus \{z_0\}$ beschränkt ist, so kann man einen Funktionswert $f(z_0)$ in $z_0$ so wählen, dass die Funktion $f$ auf der gesamten Teilmenge $D$ holomorph ist, d.h., der Punkt $z_0$ ist eine hebbare Singularität.
-
-````
-
-````{prf:proof}
-Schulz-Baldes S.327
-````
-
-Das folgende Lemma charakterisiert Pole einer holomorphen Funktion.
-
-````{prf:lemma}
-:label: lem:pole
-
-Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ eine isolierte Singularität einer holomorphen Funktion $f \colon D \setminus \{z_0\} \rightarrow \C$.
-
-Dann sind folgende Aussagen äquivalent:
-
-1\. Der Punkt $z_0$ ist ein Pol der Funktion $f$.
-
-2\. Es existiert ein $m \in \N$, so dass die Funktion $(z - z_0)^m f(z)$ beschränkt in einer lokalen Umgebung von $z_0$ ist, jedoch die Funktion $(z - z_0)^{m-1} f(z)$ unbeschränkt ist.
-
-Die Ordnung der Funktion $f$ im Pol $z_0$ ist dann definiert als
-
-```{math}
-\operatorname{Ord}_{z_0}(f) := -m.
-```
-
-````
-
-````{prf:proof}
-Schulz-Baldes S.330
-````
-
-Dieser Begriff von Ordnung setzt den Begriff der Ordnung von Polynomen für holomorphe Funktionen fort.
-Häufig spricht man jedoch nur von der Ordnung $m > 0$ eines Pols.
-
-## Laurent-Reihe
-
-Die Beobachtung aus {prf:ref}`lem:pole` motiviert die folgende Definition der Laurent-Reihe, die nach {prf:ref}`` immer an einem Pol von Ordnung $m$ existiert.
-
-````{prf:definition} Laurent-Reihe
-
-Sei $D \subset \C$ eine offene Teilmenge und $z_0 \in D$ Pol von Ordnung $m$ einer holomorphen Funktion $f \colon D \setminus \{z_0\} \rightarrow \C$.
-
-Dann definieren wir die **Laurent-Reihe** von $f$ um den Pol $z_0$ durch
-
-```{math}
-f(z) := \sum_{n=-m}^\infty a_n (z-z_0)^n.
-```
-
-Als **Hauptteil** der Laurent-Reihe bezeichnen wir den Term
-
-```{math}
-\sum_{n=-m} a_n (z-z_0)^n
-```
-
-und das **Residuum** von $f$ bei $z_0$ als
-
-```{math}
-\operatorname{Res}_{z_0}(f) = a_{-1}.
-```
-
-````{prf:definition} Meromorphe Funktion
-Sei $D \subset \C$ eine offene Teilmenge.
-Wir nennen eine Funktion $f \colon D \rightarrow \C$ **meromorph** auf $D$ genau dann, wenn eine lokalendliche Menge $P$ existiert, so dass die Funktion $f$ holomorph auf $D \setminus P$ mit Polen in $P$ ist. 
-````
-
-````{prf:example} Meromorphe Funktionen
-Rationale Funktionen oder konkretes Beispiel
-
-Schulz-Baldes S.332
-
 ````
 
 ## Cauchyscher Residuensatz

@@ -191,26 +191,6 @@ f^{(n)}(w) = \frac{n!}{2\pi i} \int_{\partial B_r(p)} \frac{f(z)}{(z-w)^{n+1}}\,
 für alle $w\in B_r(p)$.
 ````
 
-Als weiteres Korollar erhalten wir, dass holomorphe Funktionen analytisch sind, was die Umkehrung zu {prf:ref}`thm:analytischHolomorph` ist.
-
-````{prf:corollary}
-Es sei $f:B_r(p)\to\C$ holomorph, dann ist $f$ für jeden Punkt $w \in B_r(p)$ durch eine konvergente Potenzreihe darstellbar (also analytisch),
-
-```{math}
-f(w) = \sum_{n=1}^\infty a_n (w-p)^n,
-```
-
-deren Koeffizienten $(a_n)_{n\in\N}$ für alle $r^\prime < r$ gegeben sind durch
-
-```{math}
-a_n  = \frac{1}{2\pi i}\,\oint_{\partial B_{r^\prime}(p)} \frac{f(z)}{(z - p)^{n+1}}\,dz.
-```
-````
-
-````{prf:proof}
-Siehe z.B. {cite:p}`baldes_2018` S.325f.
-````
-
 ## Der Satz von Liouville
 
 Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liouville.

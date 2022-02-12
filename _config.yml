@@ -55,7 +55,7 @@ sphinx:
           "R"    : ["\\mathbb{R}"]
           "B"    : ["\\mathcal{B}"]
           "norm" : ["{\\Vert#1\\Vert}",1]
-          "abs" : ["{|#1|}",1]
+          "abs" : ["{\\left|#1\\right|}",1]
           "coloneqq": ["{:=}"]
           "eqqcolon": ["{=:}"]
           "emph" : ["\\pmb#1",1]

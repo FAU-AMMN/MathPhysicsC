@@ -38,5 +38,6 @@ chapters:
   - file: complexanalysis/cauchyriemann.md
   - file: complexanalysis/kurvenintegrale.md
   - file: complexanalysis/cauchyintegral.md
+  - file: complexanalysis/powerseries.md
   - file: complexanalysis/residuensatz.md
 - file: references
