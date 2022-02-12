@@ -4174,7 +4174,7 @@ Das zentrale Konzept topologischer Räume ist die folgende Definition der \sphin
 
 
 \sphinxAtStartPar
-Sei \(\M\) eine Menge und \(\tau \subset \mathcal{P}(M)\) eine Teilmenge der Potenzmenge.
+Sei \(\M\) eine Menge und \(\tau \subset 2^\M\) eine Teilmenge der Potenzmenge.
 Wir nennen das Tupel \((\M,\tau)\) \sphinxstylestrong{topologischer Raum}, falls die folgenden Eigenschaften erfüllt sind,
 \begin{itemize}
 \item {} 
@@ -6554,10 +6554,10 @@ Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die M
 Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.
 
 
-\subsection{\protect\(\sigma\protect\)\sphinxhyphen{}Algebren und Maße}
-\label{\detokenize{masstheorie/masstheorie:sigma-algebren-und-masze}}\label{\detokenize{masstheorie/masstheorie:s-sigmaalg}}
+\subsection{Mengensysteme und Maße}
+\label{\detokenize{masstheorie/masstheorie:mengensysteme-und-masze}}\label{\detokenize{masstheorie/masstheorie:s-sigmaalg}}
 \sphinxAtStartPar
-Wir betrachten im Folgenden eine beliebige zu Grundmenge \(\Omega\), welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von \(\Omega\) einen Wert zuordnen weshalb wir die \sphinxstylestrong{Potenzmenge} \(2^\Omega\) betrachten, welche die Menge aller möglichen Teilmengen von \(\Omega\) bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe {\hyperref[\detokenize{masstheorie/masstheorie:def:mass}]{\sphinxcrossref{Definition 5.3}}}) eine spezielle Abbildung \(\mu:\Sigma\to[0,\infty]\), wobei \(\Sigma\subset 2^\Omega\) ein Mengensystem ist, welches man auch System der \(\mu\)\sphinxhyphen{}messbaren Mengen nennt.
+Wir betrachten im Folgenden eine beliebige zu Grundmenge \(\Omega\), welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von \(\Omega\) einen Wert zuordnen weshalb wir die \sphinxstylestrong{Potenzmenge} \(2^\Omega\) betrachten, welche die Menge aller möglichen Teilmengen von \(\Omega\) bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe {\hyperref[\detokenize{masstheorie/masstheorie:def:mass}]{\sphinxcrossref{Definition 5.5}}}) eine spezielle Abbildung \(\mu:\Sigma\to[0,\infty]\), wobei \(\Sigma\subset 2^\Omega\) ein Mengensystem ist, welches man auch System der \(\mu\)\sphinxhyphen{}messbaren Mengen nennt.
 
 \begin{sphinxadmonition}{note}{Bemerkung:}
 \sphinxAtStartPar
@@ -6579,9 +6579,133 @@ Das Maß disjunkt vereinigter Mengen soll gleich der Summe der einzelnen Maße s
 \end{enumerate}
 
 \sphinxAtStartPar
-Der erste Wunsch würde darauf hindeuten die Potenzmenge \(2^\Omega\) als System der messbaren Mengen zu betrachten. Allerdings gibt es viele Fälle (siehe {\hyperref[\detokenize{masstheorie/masstheorie:s-vitali}]{\sphinxcrossref{\DUrole{std,std-ref}{Das äußere Maß ist kein Maß}}}}) in welchen diese Wahl den zweiten Wunsch unmöglich machen. Deshalb ist die Strategie meist ein möglichst großes Teilmengensystem zu finden, s.d. der zweite Wunsch erfüllbar ist. Die Klasse von Systemen auf der wir im Folgenden arbeiten werden, sind sogenannte \(\sigma\)\sphinxhyphen{}Algebren.
+Der erste Wunsch würde darauf hindeuten die Potenzmenge \(2^\Omega\) als System der messbaren Mengen zu betrachten. Allerdings gibt es viele Fälle (siehe {\hyperref[\detokenize{masstheorie/masstheorie:s-vitali}]{\sphinxcrossref{\DUrole{std,std-ref}{Das äußere Maß ist kein Maß}}}}) in welchen diese Wahl den zweiten Wunsch unmöglich machen. Deshalb ist die Strategie meist ein möglichst großes Teilmengensystem zu finden, s.d. der zweite Wunsch erfüllbar ist. Man steht also vor dem Problem geeignete Klassen von Mengensystemen zu betrachten.
+
+\sphinxAtStartPar
+Beginnt man also Minimalanforderungen an das System zu stellen führt das zunächst auf den Begriff eines Mengenrings.
+\label{masstheorie/masstheorie:def:ring}
+\begin{sphinxadmonition}{note}{Definition 5.1 (Mengenring)}
+
+
+
+\sphinxAtStartPar
+Ein Mengensystem \(\mathcal{R} \subset 2^{\Omega}\) heißt \sphinxstylestrong{Mengen\sphinxhyphen{}Ring} (im maßtheoretischen Sinne) auf einer Menge \(\Omega\), falls die folgenden Eigenschaften erfüllt sind:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\(\emptyset \in \mathcal{R}\)
+
+\item {} 
+\sphinxAtStartPar
+\(A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}\)
+
+\item {} 
+\sphinxAtStartPar
+\(A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}\)
+
+\end{enumerate}
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Ein Mengenring hat zusätzlich folgende Eigenschaften, wobei wir für zwei Mengen \(A,B\) mit
+\begin{equation*}
+\begin{split}A\triangle B := (A\setminus B)\cup (B\setminus A)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+die symmetrische Differenz bezeichnen.
+\label{masstheorie/masstheorie:lemma-1}
+\begin{sphinxadmonition}{note}{Lemma 5.1}
+
+
+
+\sphinxAtStartPar
+Es sei \(\mathcal{R}\) ein Mengenring, dann gilt
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\(A,B \in \mathcal{R} \Rightarrow (A \cap B) \in \mathcal{R}\)
+
+\item {} 
+\sphinxAtStartPar
+\(A,B \in \mathcal{R} \Rightarrow (A \triangle B) \in \mathcal{R}\)
+
+\end{enumerate}
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Die zweite Eigenschaft folgt direkt per Definition. Die erste Eigenschaft gilt, da
+\begin{equation*}
+\begin{split}A\cap B = A\setminus (A\setminus B).\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{masstheorie/masstheorie:remark-2}
+\begin{sphinxadmonition}{note}{Remark 5.1 (Der Begriff Ring)}
+
+
+
+\sphinxAtStartPar
+Aus der Algebra kennt man die Definition, dass ein Tupel \((F,+,\cdot)\) \sphinxstylestrong{Ring} heißt, falls
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\((F,+)\) eine abelsche Gruppe ist,
+
+\item {} 
+\sphinxAtStartPar
+\((F,\cdot)\) eine Halbgruppe ist,
+
+\item {} 
+\sphinxAtStartPar
+die Distributivgesetze gelten.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Betrachten wir für einen Mengenring \(\mathcal{R}\) die Struktur \((\mathcal{R}, \triangle, \cap)\) so fällt auf, dass \((\mathcal{R},\triangle)\) eine abelsche Gruppe mit Nullelement \(\emptyset\) ist. Insbesondere gilt \(A\triangle A=\emptyset\) und somit existieren auch inverse Elemente. Weiterhin sind Mengenschnitte assoziativ und daher ist \((\mathcal{R}, \cap)\) eine Halbgruppe. Somit bildet \((\mathcal{R},\triangle,\cap)\) einen Ring mit neutralem Element \(\emptyset\), insbesondere ist er kommutativ.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Zwar erlaubt ein Mengenring beliebige (endliche) Mengenoperationen, es fällt aber schnell auf, dass keine Beziehung zur Grundmenge \(\Omega\) gefordert wird. Insbesondere muss diese nicht in einem Mengenring enthalten sein. In vielen Fällen will man aber sicherstellen, das die Grundmenge im System enthalten ist, was auf folgenden Begriff führt.
+\label{masstheorie/masstheorie:definition-3}
+\begin{sphinxadmonition}{note}{Definition 5.2}
+
+
+
+\sphinxAtStartPar
+Es sei \(\mathcal{R}\) ein Mengenring über der Menge \(\Omega\), gilt auch \(\Omega\in\mathcal{R}\), dann nennen wir \(\mathcal{R}\) \sphinxstylestrong{Mengenalgebra}.
+\end{sphinxadmonition}
+\label{masstheorie/masstheorie:remark-4}
+\begin{sphinxadmonition}{note}{Remark 5.2 (Der Begriff Algebra)}
+
+
+
+\sphinxAtStartPar
+Eine Algebra über einem Körper \(\K\) ist ein \(\K\)\sphinxhyphen{}Vektorraum \(V\) zusammen mit einer bilinearen Abbildung
+\begin{equation*}
+\begin{split}\cdot:V\times V&\to \V,\\
+(x,y)&\mapsto x\cdot y.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Man beachte, dass das Symbol \(\cdot\) hier nun doppelt verwendet wird, einmal für die Skalarmultiplikation von \(V\) über \(\K\) und für die Multiplikation in \(V\).
+
+\sphinxAtStartPar
+Eine Verallgemeinerung besteht hier darin keinen Vektorraum \(V\) zu betrachten sondern ein \(F\)\sphinxhyphen{}Modul über einen kommutativen Ring \((F,+,\cdot)\). Hier erhält man nun, dass jeder kommutative Ring \(F\) mit einem Einselement eine Algebra über sich selbst ist, wobei die bilineare Abbildung
+\begin{equation*}
+\begin{split}\cdot:F\times F\to F\end{split}
+\end{equation*}
+\sphinxAtStartPar
+gerade durch das Produkt auf dem Ring \(F\) gegeben ist.
+
+\sphinxAtStartPar
+Für den Mengenring \((\mathcal{R},\triangle, \cap)\) ist die Grundmenge \(\Omega\) das neutrale Element der Multiplikation \(\cap\) und daher gilt, falls \(\Omega\in\mathcal{R}\), dass \((\mathcal{R},\triangle, \cap)\) ein kommutativer Ring mit Eins und daher eine Algebra über sich selbst ist.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Die Klasse von Systemen auf der wir im Folgenden arbeiten werden, sind sogenannte \(\sigma\)\sphinxhyphen{}Algebren.
 \label{masstheorie/masstheorie:def:sigmaalgebra}
-\begin{sphinxadmonition}{note}{Definition 5.1 (\protect\(\sigma\protect\)\sphinxhyphen{}Algebra und Messraum)}
+\begin{sphinxadmonition}{note}{Definition 5.3 (\protect\(\sigma\protect\)\sphinxhyphen{}Algebra und Messraum)}
 
 
 
@@ -6608,10 +6732,10 @@ Für eine \(\sigma\)\sphinxhyphen{}Algebra \(\Sigma \subseteq \mathcal{P}(\Omega
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Das Symbol \(\sigma\) erinnert an den Begriff der Summe, insbesondere wegen der dritten Eigenschaft in {\hyperref[\detokenize{masstheorie/masstheorie:def:sigmaalgebra}]{\sphinxcrossref{Definition 5.1}}}, also der Abgeschlossenheit unter abzählbarer Vereinigung von Teilmengen.
+Das Symbol \(\sigma\) erinnert an den Begriff der Summe, insbesondere wegen der dritten Eigenschaft in {\hyperref[\detokenize{masstheorie/masstheorie:def:sigmaalgebra}]{\sphinxcrossref{Definition 5.3}}}, also der Abgeschlossenheit unter abzählbarer Vereinigung von Teilmengen.
 Aus diesen drei Eigenschaften lässt sich auch direkt zeigen, dass \(\sigma\)\sphinxhyphen{}Algebren ebenfalls unter \sphinxstyleemphasis{abzählbaren Schnitten} abgeschlossen sind, wie das folgende Lemma zeigt.
-\label{masstheorie/masstheorie:lemma-1}
-\begin{sphinxadmonition}{note}{Lemma 5.1 (Abgeschlossenheit unter abzählbaren Schnitten)}
+\label{masstheorie/masstheorie:lemma-6}
+\begin{sphinxadmonition}{note}{Lemma 5.2 (Abgeschlossenheit unter abzählbaren Schnitten)}
 
 
 
@@ -6630,13 +6754,13 @@ Proof. Es reicht die Aussage für \(n=2\) zu zeigen. Seien dazu \(A_1,A_2\in\Sig
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Aus der {\hyperref[\detokenize{masstheorie/masstheorie:def:sigmaalgebra}]{\sphinxcrossref{Definition 5.1}}} kann man sich leicht zwei Spezialfälle von \(\sigma\)\sphinxhyphen{}Algebren überlegen.
+Aus der {\hyperref[\detokenize{masstheorie/masstheorie:def:sigmaalgebra}]{\sphinxcrossref{Definition 5.3}}} kann man sich leicht zwei Spezialfälle von \(\sigma\)\sphinxhyphen{}Algebren überlegen.
 Es wird klar, dass das Mengensystem \(\{\emptyset, \Omega\}\) die kleinstmögliche \(\sigma\)\sphinxhyphen{}Algebra bildet, wohingegen die Potenzmenge \(\mathcal{P}(\Omega)\) die größtmögliche \(\sigma\)\sphinxhyphen{}Algebra darstellt.
 
 \sphinxAtStartPar
 Für ein beliebiges Mengensystem \(\mathcal{C}\subset 2^\Omega\) können wir zusätzlich die erzeugt \(\sigma\)\sphinxhyphen{}Algebra betrachten, welche die kleinste \(\sigma\)\sphinxhyphen{}Algebra ist die \(\mathcal{C}\) enthält.
-\label{masstheorie/masstheorie:definition-2}
-\begin{sphinxadmonition}{note}{Definition 5.2 (Erzeugte \protect\(\sigma\protect\)\sphinxhyphen{}Algebra)}
+\label{masstheorie/masstheorie:definition-7}
+\begin{sphinxadmonition}{note}{Definition 5.4 (Erzeugte \protect\(\sigma\protect\)\sphinxhyphen{}Algebra)}
 
 
 
@@ -6651,8 +6775,8 @@ die von \(\mathcal{C}\) erzeugte \(\sigma\)\sphinxhyphen{}Algebra.
 
 \sphinxAtStartPar
 Für die erzeugt \(\sigma\)\sphinxhyphen{}Algebra, haben wir folgende Eigenschaften.
-\label{masstheorie/masstheorie:lemma-3}
-\begin{sphinxadmonition}{note}{Lemma 5.2}
+\label{masstheorie/masstheorie:lemma-8}
+\begin{sphinxadmonition}{note}{Lemma 5.3}
 
 
 
@@ -6686,7 +6810,7 @@ Proof. Übung.
 \sphinxAtStartPar
 Basierend auf dem Begriff einer \(\sigma\)\sphinxhyphen{}Algebra und eines Messraums können wir nun formal einführen, was wir unter einem Maß verstehen.
 \label{masstheorie/masstheorie:def:mass}
-\begin{sphinxadmonition}{note}{Definition 5.3 (Maß und Maßraum)}
+\begin{sphinxadmonition}{note}{Definition 5.5 (Maß und Maßraum)}
 
 
 
@@ -6712,7 +6836,7 @@ Wir nennen das Maß \(\mu\) \sphinxstylestrong{endlich}, wenn \(\mu(\Omega)<\inf
 Das Tripel \((\Omega, \Sigma, \mu)\) wird als \sphinxstylestrong{Maßraum} bezeichnet.
 \end{sphinxadmonition}
 \label{masstheorie/masstheorie:rem:wahrscheinlichkeitsmass}
-\begin{sphinxadmonition}{note}{Remark 5.1}
+\begin{sphinxadmonition}{note}{Remark 5.3}
 
 
 
@@ -6724,8 +6848,8 @@ Diese finden vor allem in der Quantenmechanik Anwendung.
 
 \sphinxAtStartPar
 Aus den beiden grundlegenden Eigenschaften eines Maßes lassen sich weitere nützliche Eigenschaften herleiten, wie das folgende Lemma beschreibt.
-\label{masstheorie/masstheorie:lemma-6}
-\begin{sphinxadmonition}{note}{Lemma 5.3 (Eigenschaften von Maßen)}
+\label{masstheorie/masstheorie:lemma-11}
+\begin{sphinxadmonition}{note}{Lemma 5.4 (Eigenschaften von Maßen)}
 
 
 
@@ -6756,7 +6880,7 @@ Proof. In der Hausaufgabe zu zeigen.
 
 \sphinxAtStartPar
 Im Folgenden wollen wir ein paar Beispiele von geläufigen Maßen diskutieren.
-\label{masstheorie/masstheorie:example-7}
+\label{masstheorie/masstheorie:example-12}
 \begin{sphinxadmonition}{note}{Example 5.2 (Maße)}
 
 
@@ -6798,14 +6922,14 @@ Entsprechend hat aber für \(d<n\) der Einheitswürfel das Maß \(\mu_d([0,1]^n)
 Genau genommen \sphinxstyleemphasis{definiert} man hierbei die Dimension der Menge \(A\subset \R^n\) durch \(d(A):=\inf\{d'>0\mid \mu_{d'}(A)=0\}.\)
 
 \sphinxAtStartPar
-6. Im Zusammenhang mit dem sogenannten Feynmanschen \sphinxhref{https://de.wikipedia.org/wiki/Pfadintegral}{\sphinxstylestrong{Pfadintegral}} der Quantenmechanik wird auf dem unendlich\sphinxhyphen{}dimensionalen Raum \(\Omega\) der Weg zwischen zwei Punkten des Konfigurationsraumes \(\R^d\) ein \sphinxstyleemphasis{Wahrscheinlichkeitsmaß} (siehe {\hyperref[\detokenize{masstheorie/masstheorie:rem:wahrscheinlichkeitsmass}]{\sphinxcrossref{Remark 5.1}}}) definiert.
+6. Im Zusammenhang mit dem sogenannten Feynmanschen \sphinxhref{https://de.wikipedia.org/wiki/Pfadintegral}{\sphinxstylestrong{Pfadintegral}} der Quantenmechanik wird auf dem unendlich\sphinxhyphen{}dimensionalen Raum \(\Omega\) der Weg zwischen zwei Punkten des Konfigurationsraumes \(\R^d\) ein \sphinxstyleemphasis{Wahrscheinlichkeitsmaß} (siehe {\hyperref[\detokenize{masstheorie/masstheorie:rem:wahrscheinlichkeitsmass}]{\sphinxcrossref{Remark 5.3}}}) definiert.
 Dabei erhalten Pfade, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein größeres Gewicht als beliebige Pfade.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 Eine sehr nützliche Eigenschaft von gewissen Maßen auf topologischen Räumen ist die der Regularität, welche wir im Folgenden definieren wollen.
 \label{masstheorie/masstheorie:def:regularitaet}
-\begin{sphinxadmonition}{note}{Definition 5.4 (Regularität von Maßen)}
+\begin{sphinxadmonition}{note}{Definition 5.6 (Regularität von Maßen)}
 
 
 
@@ -6837,8 +6961,8 @@ Neben \(\sigma\)\sphinxhyphen{}Algebren kennen wir auch Topologien als wichtige 
 \sphinxAtStartPar
 \sphinxhref{https://de.wikipedia.org/wiki/\%C3\%89mile\_Borel}{Émile Borel} (geboren am 7. Januar 1871 in Saint\sphinxhyphen{}Affrique; gestorben am 3. Februar 1956 in Paris) war ein französischer Mathematiker und Politiker.
 \end{sphinxShadowBox}
-\label{masstheorie/masstheorie:definition-9}
-\begin{sphinxadmonition}{note}{Definition 5.5 (Borel\sphinxhyphen{}\protect\(\sigma\protect\)\sphinxhyphen{}Algebra)}
+\label{masstheorie/masstheorie:definition-14}
+\begin{sphinxadmonition}{note}{Definition 5.7 (Borel\sphinxhyphen{}\protect\(\sigma\protect\)\sphinxhyphen{}Algebra)}
 
 
 
@@ -6847,8 +6971,8 @@ Die \sphinxstylestrong{Borel\sphinxhyphen{}\(\sigma\)\sphinxhyphen{}Algebra} auf
 \begin{equation*}
 \begin{split}\B(\Omega) := \sigma(\tau).\end{split}
 \end{equation*}\end{sphinxadmonition}
-\label{masstheorie/masstheorie:remark-10}
-\begin{sphinxadmonition}{note}{Remark 5.2 (Borelsche \protect\(\sigma\protect\)\sphinxhyphen{}Algebra von \protect\(\R\protect\))}
+\label{masstheorie/masstheorie:remark-15}
+\begin{sphinxadmonition}{note}{Remark 5.4 (Borelsche \protect\(\sigma\protect\)\sphinxhyphen{}Algebra von \protect\(\R\protect\))}
 
 
 
@@ -6860,8 +6984,8 @@ Es lässt sich sogar zeigen, dass die borelsche \(\sigma\)\sphinxhyphen{}Algebra
 \sphinxAtStartPar
 Man erkennt an der Notaion, dass die Topologie \(\tau\) meist unterschlagen wird. Man spricht meist auch vom topologischen Raum \(\Omega\) ohne \(\tau\) zu nennen.
 Ein Maß auf dieser \(\sigma\)\sphinxhyphen{}Algebra nennen wir auch \sphinxstylestrong{Borel\sphinxhyphen{}Maß}.
-\label{masstheorie/masstheorie:definition-11}
-\begin{sphinxadmonition}{note}{Definition 5.6}
+\label{masstheorie/masstheorie:definition-16}
+\begin{sphinxadmonition}{note}{Definition 5.8}
 
 
 
@@ -6874,8 +6998,8 @@ Es sei \(\Omega\) ein topologischer Raum, dann heißt ein Maß \(\mu\) auf \(\B(
 \label{\detokenize{masstheorie/masstheorie:erzeugte-topologien}}\label{\detokenize{masstheorie/masstheorie:s-gentop}}
 \sphinxAtStartPar
 Das Konzept der erzeugten \(\sigma\)\sphinxhyphen{}Algebra lässt sich auch auf Topologien übertragen. Hierbei betrachtet man meist eine sogenannte Basis einer Topologie.
-\label{masstheorie/masstheorie:definition-12}
-\begin{sphinxadmonition}{note}{Definition 5.7}
+\label{masstheorie/masstheorie:definition-17}
+\begin{sphinxadmonition}{note}{Definition 5.9}
 
 
 
@@ -6891,7 +7015,7 @@ In diesem Fall schreiben wir auch \(\tau(\mathcal{C})=\tau\).
 \sphinxAtStartPar
 Besonders relevant sind für uns die Mengensysteme, welche die kanonische Topologie für \(\R\) erzeugt. Hierbei wissen wir, dass alle offene \sphinxstyleemphasis{Intervalle} der Form \((a,b)\subset \R\), sowie alle Intervalle der Form \((-\infty, b)\) und \((a, \infty)\) die euklidische Topologie in \(\R\) erzeugen. Wir betrachten weiterhin ein derartiges Mengenssystem bestehend aus Intervallen, welche die Borel\sphinxhyphen{}\(\sigma\)\sphinxhyphen{}Algebra erzeugt.
 \label{masstheorie/masstheorie:lem:genborel}
-\begin{sphinxadmonition}{note}{Lemma 5.4}
+\begin{sphinxadmonition}{note}{Lemma 5.5}
 
 
 
@@ -6909,8 +7033,8 @@ dann gilt \(\sigma(\mathcal{C}) = \B(\overline{\R})\).
 \label{\detokenize{masstheorie/masstheorie:eigenschaften-von-borel-maszen}}
 \sphinxAtStartPar
 Für spezielle topologische Räume lässt sich eine wichtige Eigenschaft von Maßen über die Borel\sphinxhyphen{}\(\sigma\)\sphinxhyphen{}Algebra definieren.
-\label{masstheorie/masstheorie:definition-14}
-\begin{sphinxadmonition}{note}{Definition 5.8 (Lokale Endlichkeit von Maßen)}
+\label{masstheorie/masstheorie:definition-19}
+\begin{sphinxadmonition}{note}{Definition 5.10 (Lokale Endlichkeit von Maßen)}
 
 
 
@@ -6925,8 +7049,8 @@ Wie wir später sehen werden ist das Lebesgue\sphinxhyphen{}Maß auf dem Raum \(
 
 \sphinxAtStartPar
 Basierend auf der oben definierten Borel\sphinxhyphen{}\(\sigma\)\sphinxhyphen{}Algebra lässt sich nun das sogenannte Borel\sphinxhyphen{}Maß einführen.
-\label{masstheorie/masstheorie:definition-15}
-\begin{sphinxadmonition}{note}{Definition 5.9 (Borel\sphinxhyphen{}Maß)}
+\label{masstheorie/masstheorie:definition-20}
+\begin{sphinxadmonition}{note}{Definition 5.11 (Borel\sphinxhyphen{}Maß)}
 
 
 
@@ -6953,7 +7077,7 @@ Diese Partitionierung einer Menge lässt sich im \(\R^n\) auf mehrdimensionale Q
 \sphinxAtStartPar
 und analog für \(a \leq b, a > b\) und \(a \geq b\).
 \label{masstheorie/masstheorie:def:quader}
-\begin{sphinxadmonition}{note}{Definition 5.10 (Mehrdimensionale Quader)}
+\begin{sphinxadmonition}{note}{Definition 5.12 (Mehrdimensionale Quader)}
 
 
 
@@ -7013,7 +7137,7 @@ Führen wir diesen Prozess bis \(i=k\) durch, so erhalten wir folgendes Resultat
 \noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{DisRect}.jpg}
 \caption{Nicht disjunkte Quader werden in System disjunkter Quader überführt. Man erkennt insbesondere, dass die Vereinigung gleich bleibt und, dass sich jeder einzelne ursprüngliche Quader, aus den neuen Quadern zusammensetzbar ist.}\label{\detokenize{masstheorie/masstheorie:fig-disrect}}\end{figure}
 \label{masstheorie/masstheorie:lem:disRect}
-\begin{sphinxadmonition}{note}{Lemma 5.5}
+\begin{sphinxadmonition}{note}{Lemma 5.6}
 
 
 
@@ -7029,32 +7153,9 @@ und für jedes \(i\in\{1,\ldots,n\}\) gilt
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen sogenannten Mengen\sphinxhyphen{}Ring.
-\label{masstheorie/masstheorie:def:ring}
-\begin{sphinxadmonition}{note}{Definition 5.11 (Ring)}
-
-
-
-\sphinxAtStartPar
-Ein Mengensystem \(\mathcal{R} \subset 2^{\Omega}\) heißt \sphinxstylestrong{Mengen\sphinxhyphen{}Ring} (im maßtheoretischen Sinne) auf einer Menge \(\Omega\), falls die folgenden Eigenschaften erfüllt sind:
-\begin{enumerate}
-\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
-\item {} 
-\sphinxAtStartPar
-\(\emptyset \in \mathcal{R}\)
-
-\item {} 
-\sphinxAtStartPar
-\(A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}\)
-
-\item {} 
-\sphinxAtStartPar
-\(A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}\)
-
-\end{enumerate}
-\end{sphinxadmonition}
-\label{masstheorie/masstheorie:lemma-19}
-\begin{sphinxadmonition}{note}{Lemma 5.6 (Der von halboffenen Quadern erzeugte Ring)}
+Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen Mengen\sphinxhyphen{}Ring.
+\label{masstheorie/masstheorie:lemma-23}
+\begin{sphinxadmonition}{note}{Lemma 5.7 (Der von halboffenen Quadern erzeugte Ring)}
 
 
 
@@ -7064,7 +7165,7 @@ Das System der halboffenen Quadern \(\mathcal{R}_{\text{Q}}\) bildet einen Menge
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Um zu zeigen, dass es sich bei dem Mengensystem \(\mathcal{R}_{\text{Q}}\) um einen Ring handelt müssen wir die Eigenschaften aus {\hyperref[\detokenize{masstheorie/masstheorie:def:ring}]{\sphinxcrossref{Definition 5.11}}} nachweisen.
+Proof. Um zu zeigen, dass es sich bei dem Mengensystem \(\mathcal{R}_{\text{Q}}\) um einen Ring handelt müssen wir die Eigenschaften aus {\hyperref[\detokenize{masstheorie/masstheorie:def:ring}]{\sphinxcrossref{Definition 5.1}}} nachweisen.
 
 \sphinxAtStartPar
 1. Für einen beliebigen Punkt \(a \in \R^n\) gilt \(\emptyset = (a,a] \in \mathcal{R}_{\text{Q}}\).
@@ -7098,8 +7199,8 @@ Damit haben wir gezeigt, dass das Mengensystem \(\mathcal{R}_{\text{Q}}\), welch
 
 \sphinxAtStartPar
 Wir können den Lebesgue\sphinxhyphen{}Inhalt nun auf Elemente von \(\mathcal{R}_{\text{Q}}\) fortsetzen
-\label{masstheorie/masstheorie:definition-20}
-\begin{sphinxadmonition}{note}{Definition 5.12}
+\label{masstheorie/masstheorie:definition-24}
+\begin{sphinxadmonition}{note}{Definition 5.13}
 
 
 
@@ -7108,8 +7209,8 @@ Es sei \(A\in\mathcal{R}_{\text{Q}}\) mit \(A=\bigcup_{i=1}^n Q_i\) wobei \(Q_1,
 \begin{equation*}
 \begin{split}\lambda^n(A):=\sum_{i=1}^{n} \lambda^n(Q_i).\end{split}
 \end{equation*}\end{sphinxadmonition}
-\label{masstheorie/masstheorie:remark-21}
-\begin{sphinxadmonition}{note}{Remark 5.3}
+\label{masstheorie/masstheorie:remark-25}
+\begin{sphinxadmonition}{note}{Remark 5.5}
 
 
 
@@ -7171,7 +7272,7 @@ Für \(a\in\R^d\) haben wir
 
 \sphinxAtStartPar
 Für disjunkte Mengen \(A_1,\ldots, A_k\in\mathcal{R}\) wählen wir für jedes \(i\in\{1,\ldots,k\}\) paarweise disjunkte Quader
-\(Q^i_1,\ldots, Q^i_{n_i}\), welche nach {\hyperref[\detokenize{masstheorie/masstheorie:lem:disRect}]{\sphinxcrossref{Lemma 5.5}}} existieren, s.d.,
+\(Q^i_1,\ldots, Q^i_{n_i}\), welche nach {\hyperref[\detokenize{masstheorie/masstheorie:lem:disRect}]{\sphinxcrossref{Lemma 5.6}}} existieren, s.d.,
 \begin{equation*}
 \begin{split}A_i = \bigcup_{j=1}^{n_i} Q^i_j.\end{split}
 \end{equation*}
@@ -7257,8 +7358,8 @@ Somit gilt mit \(N\to\infty\)
 \label{\detokenize{masstheorie/masstheorie:der-jordan-inhalt-und-jordan-messbare-mengen}}
 \sphinxAtStartPar
 Wir haben bisher einen Inhalt auf \(\mathcal{R}_{\text{R}}\) definiert. Diese Klasse an Mengen ist aber relativ klein, weshalb der Begriff ausgedehnt werden soll. Eine Möglichkeit hier ist die Idee des Riemann\sphinxhyphen{}Integrals mit Ober\sphinxhyphen{} und Untersummen zu benutzen. Es stellt aber auch hier heraus, dass der Begriff zu einschränkend ist. Insbesondere führt deses Konzept \sphinxstylestrong{nicht} auf ein Maß. Wir werden es im Folgenden trotzdem betrachten.
-\label{masstheorie/masstheorie:definition-23}
-\begin{sphinxadmonition}{note}{Definition 5.13 (Jordan\sphinxhyphen{}messbare Mengen)}
+\label{masstheorie/masstheorie:definition-27}
+\begin{sphinxadmonition}{note}{Definition 5.14 (Jordan\sphinxhyphen{}messbare Mengen)}
 
 
 
@@ -7342,8 +7443,8 @@ und somit
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Die Menge der Jordan\sphinxhyphen{}messbaren Mengen bildet weiterhin keine \(\sigma\)\sphinxhyphen{}Algebra und daher ist der Jordan\sphinxhyphen{}Inhalt kein Maß im Sinne von {\hyperref[\detokenize{masstheorie/masstheorie:def:mass}]{\sphinxcrossref{Definition 5.3}}}. Dies ist an folgendem Beispiel ersichtlich.
-\label{masstheorie/masstheorie:example-25}
+Die Menge der Jordan\sphinxhyphen{}messbaren Mengen bildet weiterhin keine \(\sigma\)\sphinxhyphen{}Algebra und daher ist der Jordan\sphinxhyphen{}Inhalt kein Maß im Sinne von {\hyperref[\detokenize{masstheorie/masstheorie:def:mass}]{\sphinxcrossref{Definition 5.5}}}. Dies ist an folgendem Beispiel ersichtlich.
+\label{masstheorie/masstheorie:example-29}
 \begin{sphinxadmonition}{note}{Example 5.4}
 
 
@@ -7380,8 +7481,8 @@ Wir der letzte Abschnitt zeigt ist der Begriff der Jordan\sphinxhyphen{}messbark
 \sphinxAtStartPar
 Der innere und äußere Inhalt sind intuitiv nicht gleichberechtigt, da das Problem asymmetrisch ist. Konkret ist Subadditivität die inhärente Eigenschaft eines Maßes, da Mengenvereinigungen mehrfach auftretenden Elemente nicht berücksichtigen, während die Addition in \(\R\) für positive Zahlen stets ein größeres Ergebnis liefert. Das äußere Maß ist auf natürliche Weise subadditiv und deshalb zu bevorzugen.
 \end{sphinxadmonition}
-\label{masstheorie/masstheorie:definition-26}
-\begin{sphinxadmonition}{note}{Definition 5.14 (Äußeres Lebesgue\sphinxhyphen{}Maß)}
+\label{masstheorie/masstheorie:definition-30}
+\begin{sphinxadmonition}{note}{Definition 5.15 (Äußeres Lebesgue\sphinxhyphen{}Maß)}
 
 
 
@@ -7641,7 +7742,7 @@ und daher die Behauptung.
 
 \sphinxAtStartPar
 Als Korollar von {\hyperref[\detokenize{masstheorie/masstheorie:thm:lebesgue}]{\sphinxcrossref{Theorem 5.3}}} und den vorherigen Eigenschaften erhalten wir eine Abschätzung für das äußere Lebesgue\sphinxhyphen{}Maß sowohl von oben durch den äußeren Jordan\sphinxhyphen{}Inhalt als auch von unten durch den inneren Jordan\sphinxhyphen{}Inhalt.
-\label{masstheorie/masstheorie:corollary-30}
+\label{masstheorie/masstheorie:corollary-34}
 \begin{sphinxadmonition}{note}{Corollary 5.1}
 
 
@@ -7684,7 +7785,7 @@ Die obige Eigenschaft liefert zusätzlich die Aussage, dass für Jordan\sphinxhy
 \begin{equation*}
 \begin{split}\iota(A)\leq\lambda^\ast(A)\leq\iota(A)\Rightarrow \lambda^\ast(A) = \iota(A).\end{split}
 \end{equation*}\label{masstheorie/masstheorie:rem:transinvariance}
-\begin{sphinxadmonition}{note}{Remark 5.4 (Wirkung von Transformationen auf das äußere Lebesgue Maß)}
+\begin{sphinxadmonition}{note}{Remark 5.6 (Wirkung von Transformationen auf das äußere Lebesgue Maß)}
 
 
 
@@ -7720,8 +7821,8 @@ Außerdem gilt, dass die Teilmenge \(A\) genau dann Lebesgue\sphinxhyphen{}messb
 \label{\detokenize{masstheorie/masstheorie:nullmengen}}
 \sphinxAtStartPar
 Eine relevante Klasse von Teilmengen des \(\R^n\) bilden sogenannten \sphinxstylestrong{Lebesgue\sphinxhyphen{}Nullmengen}.
-\label{masstheorie/masstheorie:definition-32}
-\begin{sphinxadmonition}{note}{Definition 5.15 (Lebesgue\sphinxhyphen{}Nullmengen)}
+\label{masstheorie/masstheorie:definition-36}
+\begin{sphinxadmonition}{note}{Definition 5.16 (Lebesgue\sphinxhyphen{}Nullmengen)}
 
 
 
@@ -7734,7 +7835,7 @@ Eine Teilmenge \(N \subset \R^n\) eine \sphinxstylestrong{(Lebesgue\sphinxhyphen
 \sphinxAtStartPar
 Für die Klasse der Nullmengen können wir folgende Eigenschaften zeigen.
 \label{masstheorie/masstheorie:lem:eigenschaftenNullmengen}
-\begin{sphinxadmonition}{note}{Lemma 5.7 (Eigenschaften von Lebesgue\sphinxhyphen{}Nullmengen)}
+\begin{sphinxadmonition}{note}{Lemma 5.8 (Eigenschaften von Lebesgue\sphinxhyphen{}Nullmengen)}
 
 
 
@@ -7865,8 +7966,8 @@ ist ein Widerspruch zur Konstruktion.
 Es sei nun \((q_k)_{k\in\N}\) eine Abzählung der rationalen Zahlen und definiere die verschobenen Vitali Mengen
 \begin{equation*}
 \begin{split}V_k :=\{x+q_k: x\in V\}.\end{split}
-\end{equation*}\label{masstheorie/masstheorie:lemma-34}
-\begin{sphinxadmonition}{note}{Lemma 5.8}
+\end{equation*}\label{masstheorie/masstheorie:lemma-38}
+\begin{sphinxadmonition}{note}{Lemma 5.9}
 
 
 
@@ -7897,7 +7998,7 @@ Proof.
 \sphinxstylestrong{Ad 1.}
 
 \sphinxAtStartPar
-Diese Tatsache folgt, da das äußere Lebesgue\sphinxhyphen{}Maß Translationsinvariant ist, siehe {\hyperref[\detokenize{masstheorie/masstheorie:rem:transinvariance}]{\sphinxcrossref{Remark 5.4}}}.
+Diese Tatsache folgt, da das äußere Lebesgue\sphinxhyphen{}Maß Translationsinvariant ist, siehe {\hyperref[\detokenize{masstheorie/masstheorie:rem:transinvariance}]{\sphinxcrossref{Remark 5.6}}}.
 
 \sphinxAtStartPar
 \sphinxstylestrong{Ad 2.}
@@ -7931,8 +8032,8 @@ Somit folgt \(x=v+q_k\in V_k\) und daher \(x\in\bigcup_{k\in\N} V_k\).
 
 \sphinxAtStartPar
 Mithilfe einer Vitali\sphinxhyphen{}Menge können wir nun die \(\sigma\)\sphinxhyphen{}Additivität des äußeren Lebesgue\sphinxhyphen{}Maßes zum Widerspruch führen.
-\label{masstheorie/masstheorie:lemma-35}
-\begin{sphinxadmonition}{note}{Lemma 5.9}
+\label{masstheorie/masstheorie:lemma-39}
+\begin{sphinxadmonition}{note}{Lemma 5.10}
 
 
 
@@ -8000,8 +8101,8 @@ was ein Widerspruch ist. Daher ist die Annahme der \(\sigma\)\sphinxhyphen{}Addi
 \label{\detokenize{masstheorie/masstheorie:das-lebesgue-masze}}
 \sphinxAtStartPar
 Der vorherige Abschnitt zeigt, dass die Potenzmenge \(2^{\R^n}\) zu groß ist, d.h. auf dieser \(\sigma\)\sphinxhyphen{}Algebra ist \(\lambda^\ast\) kein Maß. Deshalb wollen wir nun eine Klasse messbarer Mengen definieren, welche dann eine kleinere \(\sigma\)\sphinxhyphen{}Algebra liefert.
-\label{masstheorie/masstheorie:remark-36}
-\begin{sphinxadmonition}{note}{Remark 5.5 (Das Jordan\sphinxhyphen{}Konzept)}
+\label{masstheorie/masstheorie:remark-40}
+\begin{sphinxadmonition}{note}{Remark 5.7 (Das Jordan\sphinxhyphen{}Konzept)}
 
 
 
@@ -8068,8 +8169,8 @@ Carathéodory.
 \sphinxAtStartPar
 \sphinxhref{https://de.wikipedia.org/wiki/Constantin\_Carath\%C3\%A9odory}{Constantin Carathéodory} (Geboren 13. September 1873 in Berlin; Gestorben 2. Februar 1950 in München) war ein Mathematiker griechischer Herkunft.
 \end{sphinxShadowBox}
-\label{masstheorie/masstheorie:definition-37}
-\begin{sphinxadmonition}{note}{Definition 5.16 (Lebesgue\sphinxhyphen{}Maß)}
+\label{masstheorie/masstheorie:definition-41}
+\begin{sphinxadmonition}{note}{Definition 5.17 (Lebesgue\sphinxhyphen{}Maß)}
 
 
 
@@ -8088,8 +8189,8 @@ Wir definieren das \sphinxstylestrong{Lebesgue\sphinxhyphen{}Maß} \(\lambda \co
 \begin{equation*}
 \begin{split}\lambda(A) = \lambda^*(A).\end{split}
 \end{equation*}\end{sphinxadmonition}
-\label{masstheorie/masstheorie:remark-38}
-\begin{sphinxadmonition}{note}{Remark 5.6}
+\label{masstheorie/masstheorie:remark-42}
+\begin{sphinxadmonition}{note}{Remark 5.8}
 
 
 
@@ -8105,7 +8206,7 @@ für alle \(A,E\subset\R^d\). Aus diesem Grund scheint die Einschränkung sinnvo
 \sphinxAtStartPar
 Wir betrachten im Folgenden verschiedene Beispiele messbarer Mengen, was zeigt, dass \(\mathcal{A}\neq \emptyset\).
 \label{masstheorie/masstheorie:thm:lebesguemes}
-\begin{sphinxadmonition}{note}{Lemma 5.10 (Lebesgue\sphinxhyphen{}messbare Mengen)}
+\begin{sphinxadmonition}{note}{Lemma 5.11 (Lebesgue\sphinxhyphen{}messbare Mengen)}
 
 
 \begin{enumerate}
@@ -8143,8 +8244,8 @@ Folgt aus {\hyperref[\detokenize{masstheorie/masstheorie:thm:outerlebesgue}]{\sp
 
 \sphinxAtStartPar
 Weiterhin erhält man über den Begriff der Lebesgue\sphinxhyphen{}messbarkeit endlich die erhoffte \(\sigma\)\sphinxhyphen{}Algebra Struktur.
-\label{masstheorie/masstheorie:lemma-40}
-\begin{sphinxadmonition}{note}{Lemma 5.11}
+\label{masstheorie/masstheorie:lemma-44}
+\begin{sphinxadmonition}{note}{Lemma 5.12}
 
 
 
@@ -8154,7 +8255,7 @@ Die Klasse der Lebesgue\sphinxhyphen{}messbaren Mengen \(\mathcal{A}\) bildet ei
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. 1. Von {\hyperref[\detokenize{masstheorie/masstheorie:thm:lebesguemes}]{\sphinxcrossref{Lemma 5.10}}} erhalten wir zunächst, dass \(\emptyset\in\mathcal{A}\).
+Proof. 1. Von {\hyperref[\detokenize{masstheorie/masstheorie:thm:lebesguemes}]{\sphinxcrossref{Lemma 5.11}}} erhalten wir zunächst, dass \(\emptyset\in\mathcal{A}\).
 
 \sphinxAtStartPar
 2. Weiterhin sei \(A\in\mathcal{A}\) messbar und \(E\subset\R^d\) beliebig, dann gilt
@@ -8239,7 +8340,7 @@ Nach 4. ist damit auch diese Vereinigung messbar.
 \sphinxAtStartPar
 Mit dieser Aussage können wir weitere messbare Mengen identifizieren.
 \label{masstheorie/masstheorie:thm:lebesgueOffenAbgeschlossen}
-\begin{sphinxadmonition}{note}{Lemma 5.12}
+\begin{sphinxadmonition}{note}{Lemma 5.13}
 
 
 
@@ -8267,8 +8368,8 @@ Abgeschlossene Mengen sind als Komplemente offener und daher messbarer Mengen, s
 
 \sphinxAtStartPar
 Da wir nun eine \(\sigma\)\sphinxhyphen{}Algebra zu Verfügung haben können wir ein Maß definieren.
-\label{masstheorie/masstheorie:definition-42}
-\begin{sphinxadmonition}{note}{Definition 5.17 (Lebesgue\sphinxhyphen{}Maß)}
+\label{masstheorie/masstheorie:definition-46}
+\begin{sphinxadmonition}{note}{Definition 5.18 (Lebesgue\sphinxhyphen{}Maß)}
 
 
 
@@ -8282,13 +8383,13 @@ Wir definieren das Lebesgue\sphinxhyphen{}Maß \(\lambda^n:\mathcal{A}\to[0,\inf
 \sphinxAtStartPar
 ToDo
 \end{sphinxadmonition}
-\label{masstheorie/masstheorie:theorem-43}
+\label{masstheorie/masstheorie:theorem-47}
 \begin{sphinxadmonition}{note}{Theorem 5.5 (Regularität des Lebesgue Maßes)}
 
 
 
 \sphinxAtStartPar
-Das Lebesgue Maß ist von außen und innen regulär im Sinne von {\hyperref[\detokenize{masstheorie/masstheorie:def:regularitaet}]{\sphinxcrossref{Definition 5.4}}}, d.h., für jede Lebesgue\sphinxhyphen{}messbare Teilmenge \(A \subset \R^n\) gilt
+Das Lebesgue Maß ist von außen und innen regulär im Sinne von {\hyperref[\detokenize{masstheorie/masstheorie:def:regularitaet}]{\sphinxcrossref{Definition 5.6}}}, d.h., für jede Lebesgue\sphinxhyphen{}messbare Teilmenge \(A \subset \R^n\) gilt
 
 \sphinxAtStartPar
 1. für jedes \(\epsilon > 0\) existiert eine offene Menge \(U\) mit \(A \subset U\) für die gilt \(\mu(U \setminus A) < \epsilon\),
@@ -8301,7 +8402,7 @@ Das Lebesgue Maß ist von außen und innen regulär im Sinne von {\hyperref[\det
 \sphinxAtStartPar
 Proof. ToDo.
 \end{sphinxadmonition}
-\label{masstheorie/masstheorie:theorem-44}
+\label{masstheorie/masstheorie:theorem-48}
 \begin{sphinxadmonition}{note}{Theorem 5.6 (Charakterisierung Lebesgue\sphinxhyphen{}messbarer Mengen)}
 
 
@@ -8331,9 +8432,9 @@ Man kann für die Borel\sphinxhyphen{}\(\sigma\)\sphinxhyphen{}Algebra von \(\R^
 \end{equation*}
 \sphinxAtStartPar
 Die letzte Gleichung gilt, da \(\sigma\)\sphinxhyphen{}Algebren abgeschlossen unter Komplementbildung sind.
-Zusammen mit {\hyperref[\detokenize{masstheorie/masstheorie:thm:lebesgueOffenAbgeschlossen}]{\sphinxcrossref{Lemma 5.12}}} folgt dann schon, dass die Borel\sphinxhyphen{}\(\sigma\)\sphinxhyphen{}Algebra \(\B(\R^n)\) eine Teilmenge der Lebesgue messbaren Mengen ist.
+Zusammen mit {\hyperref[\detokenize{masstheorie/masstheorie:thm:lebesgueOffenAbgeschlossen}]{\sphinxcrossref{Lemma 5.13}}} folgt dann schon, dass die Borel\sphinxhyphen{}\(\sigma\)\sphinxhyphen{}Algebra \(\B(\R^n)\) eine Teilmenge der Lebesgue messbaren Mengen ist.
 Der folgende Satz zeigt, dass es eine echte Teilmenge ist indem er den Unterschied der Mengen als Lebesgue Nullmengen charaterisiert.
-\label{masstheorie/masstheorie:theorem-45}
+\label{masstheorie/masstheorie:theorem-49}
 \begin{sphinxadmonition}{note}{Theorem 5.7}
 
 
@@ -8364,7 +8465,7 @@ für Mengen \(I\subset\R\) ein Maß zuordnen muss. Dies soll im Folgenden mithil
 \sphinxAtStartPar
 Wir beginnen mit der Definition von messbaren Funktionen. Wir benutzen hierbei den Begriff eines \sphinxstylestrong{Messraums} der anders als ein Maßraum nur eine Grundmenge und eine \(\sigma\)\sphinxhyphen{}Algebra voraussetzt und kein Maß beinhaltet.
 \label{masstheorie/lebesgue_integral:definition-0}
-\begin{sphinxadmonition}{note}{Definition 5.18 (Messbarkeit von Funktionen)}
+\begin{sphinxadmonition}{note}{Definition 5.19 (Messbarkeit von Funktionen)}
 
 
 
@@ -8387,7 +8488,7 @@ womit sich die Messbarkeit einer Funktion äquivalent auch durch die Bedingung
 \sphinxAtStartPar
 schreiben lässt. In diesem Kapitel wollen wir speziell Funktionen \(f:\Omega\to\overline{\R}\) betrachten wobei \(\Omega\subset\R^n\).
 \label{masstheorie/lebesgue_integral:definition-1}
-\begin{sphinxadmonition}{note}{Definition 5.19}
+\begin{sphinxadmonition}{note}{Definition 5.20}
 
 
 
@@ -8405,7 +8506,7 @@ Analog nennen wir \(f\) \sphinxstylestrong{Lebesgue\sphinxhyphen{}messbar}, fall
 \sphinxAtStartPar
 Eine wichtige Aussage in dem Kontext von messbaren Funktionen ist die Tatsache, dass sich Urbild mit dem \(\sigma\)\sphinxhyphen{}Operator vertauschen lässt, wobei für \(\mathcal{C}\subset 2^\Omega\) die Menge \(\sigma(\mathcal{C})\) gerade die kleinste \(\sigma\)\sphinxhyphen{}Algebra ist welche \(\mathcal{C}\) enthält siehe \hyperref[\detokenize{masstheorie/masstheorie:s-sigmaalg}]{Abschnitt \ref{\detokenize{masstheorie/masstheorie:s-sigmaalg}}}.
 \label{masstheorie/lebesgue_integral:lem:changesigma}
-\begin{sphinxadmonition}{note}{Lemma 5.13}
+\begin{sphinxadmonition}{note}{Lemma 5.14}
 
 
 
@@ -8424,7 +8525,7 @@ Proof. ToDo
 \sphinxAtStartPar
 Mit diesem Lemma können wir die folgenden Aussagen zeigen.
 \label{masstheorie/lebesgue_integral:lemma-3}
-\begin{sphinxadmonition}{note}{Lemma 5.14}
+\begin{sphinxadmonition}{note}{Lemma 5.15}
 
 
 \begin{enumerate}
@@ -8452,7 +8553,7 @@ Proof. ToDo
 \sphinxAtStartPar
 Im Falle von Borel und Lebesgue\sphinxhyphen{}Messbarkeit haben wir als Zielalgebra \(\B(\overline{\R})\) betrachtet. Dank der Charakterisierung der Topologie über Intervalle hat man die Möglichkeit statt aller messbarer Mengen nur Niveaumengen einer Funktion zu betrachten. Dies führt auf das folgende sehr praktische Lemma.
 \label{masstheorie/lebesgue_integral:lem:Niveaumengen}
-\begin{sphinxadmonition}{note}{Lemma 5.15}
+\begin{sphinxadmonition}{note}{Lemma 5.16}
 
 
 
@@ -8475,7 +8576,7 @@ und erkennen, dass
 \begin{split}f^{-1}(\mathcal{C}) = \{\{f<c\}:c\in\R\}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Weiterhin gilt wegen {\hyperref[\detokenize{masstheorie/masstheorie:lem:genborel}]{\sphinxcrossref{Lemma 5.4}}} und {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:changesigma}]{\sphinxcrossref{Lemma 5.13}}}, dass
+Weiterhin gilt wegen {\hyperref[\detokenize{masstheorie/masstheorie:lem:genborel}]{\sphinxcrossref{Lemma 5.5}}} und {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:changesigma}]{\sphinxcrossref{Lemma 5.14}}}, dass
 \begin{equation*}
 \begin{split}\sigma(f^{-1}(\mathcal{C})) = f^{-1}(\sigma(\mathcal{C})) = f^{-1}(\B(\overline{\R}))\end{split}
 \end{equation*}
@@ -8493,7 +8594,7 @@ was aber wiederum äquivalent zu
 ist.
 \end{sphinxadmonition}
 \label{masstheorie/lebesgue_integral:remark-5}
-\begin{sphinxadmonition}{note}{Remark 5.7}
+\begin{sphinxadmonition}{note}{Remark 5.9}
 
 
 
@@ -8504,7 +8605,7 @@ Für uns ist vor allem der Fall von Bedeutung, wenn \(\Sigma\) im obigen Lemma d
 \sphinxAtStartPar
 Mithilfe dieses Lemma können wir die folgende Aussage zeigen.
 \label{masstheorie/lebesgue_integral:lemma-6}
-\begin{sphinxadmonition}{note}{Lemma 5.16}
+\begin{sphinxadmonition}{note}{Lemma 5.17}
 
 
 
@@ -8546,7 +8647,7 @@ Proof. Siehe Übung.
 \sphinxAtStartPar
 Für Folgen von messbaren Funktionen gilt auch, dass deren Grenzwerte messbar sind.
 \label{masstheorie/lebesgue_integral:lemma-7}
-\begin{sphinxadmonition}{note}{Lemma 5.17}
+\begin{sphinxadmonition}{note}{Lemma 5.18}
 
 
 
@@ -8595,7 +8696,7 @@ für verschiedenen Mengen \(A\subset \R^n\) definiert sind.
 \noindent\sphinxincludegraphics[width=400\sphinxpxdimen]{{simplefun}.jpg}
 \caption{Visualisierung einer einfachen Funktion.}\label{\detokenize{masstheorie/lebesgue_integral:fig-simplefun}}\end{figure}
 \label{masstheorie/lebesgue_integral:definition-8}
-\begin{sphinxadmonition}{note}{Definition 5.20}
+\begin{sphinxadmonition}{note}{Definition 5.21}
 
 
 
@@ -8608,7 +8709,7 @@ Eine Funktion \(f:\R^n\to\overline{\R}\) heißt einfach, falls Koeffizienten \(\
 \sphinxAtStartPar
 Man erhält über die Definition direkt ein Lemma, dass einfache Funktionen Lebesgue\sphinxhyphen{}messbar sind.
 \label{masstheorie/lebesgue_integral:lemma-9}
-\begin{sphinxadmonition}{note}{Lemma 5.18}
+\begin{sphinxadmonition}{note}{Lemma 5.19}
 
 
 
@@ -8624,7 +8725,7 @@ Proof. Siehe \sphinxhref{https://www.fau.tv/clip/id/40589}{Vorlesung} ab Minute 
 \sphinxAtStartPar
 Für einfache Funktionen können wir analog zum Riemann\sphinxhyphen{}Integral das Lebesgue\sphinxhyphen{}Integral definieren, indem wir das Maß der einzelnen Mengen multipliziert mit den Funktionswerten summieren, welche eine einfache Funktion erzeugen.
 \label{masstheorie/lebesgue_integral:remark-10}
-\begin{sphinxadmonition}{note}{Remark 5.8 (Wohldefiniertheit)}
+\begin{sphinxadmonition}{note}{Remark 5.10 (Wohldefiniertheit)}
 
 
 
@@ -8638,7 +8739,7 @@ Es ist wichtig anzumerken, dass für eine einfache Funktion \(f\) verschiedene Z
 \sphinxAtStartPar
 Die wichtige Eigenschaft, welche die Betrachtung von einfachen Funktion so relevant macht, ist dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen. Diese Tatsache formulieren wir in folgendem Lemma.
 \label{masstheorie/lebesgue_integral:lem:simplefun}
-\begin{sphinxadmonition}{note}{Lemma 5.19}
+\begin{sphinxadmonition}{note}{Lemma 5.20}
 
 
 
@@ -8658,12 +8759,12 @@ Proof. Siehe \sphinxhref{https://www.fau.tv/clip/id/40589}{Vorlesung} ab Minute 
 \sphinxAtStartPar
 Mithilfe der Tatsache, dass sich messbare Funktionen beliebig gut durch einfache Funktionen approximieren lassen, können wir nun das Lebesgue\sphinxhyphen{}Integral für nicht\sphinxhyphen{}negative messbare Funktionen einführen.
 \label{masstheorie/lebesgue_integral:definition-12}
-\begin{sphinxadmonition}{note}{Definition 5.21 (Lebesgue\sphinxhyphen{}Integral nicht\sphinxhyphen{}negativer Funktionen)}
+\begin{sphinxadmonition}{note}{Definition 5.22 (Lebesgue\sphinxhyphen{}Integral nicht\sphinxhyphen{}negativer Funktionen)}
 
 
 
 \sphinxAtStartPar
-Es sei \(f:\Omega\to[0,\infty]\) Lebesgue\sphinxhyphen{}messbar und nach {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:simplefun}]{\sphinxcrossref{Lemma 5.19}}} \((f_i)_{i\in\N}\) eine monoton wachsende Folge von einfachen Funktionen mit \(\lim_{i\to\infty} f_i = f\), dann ist das \sphinxstylestrong{Lebesgue\sphinxhyphen{}Integral} von \(f\) definiert durch
+Es sei \(f:\Omega\to[0,\infty]\) Lebesgue\sphinxhyphen{}messbar und nach {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:simplefun}]{\sphinxcrossref{Lemma 5.20}}} \((f_i)_{i\in\N}\) eine monoton wachsende Folge von einfachen Funktionen mit \(\lim_{i\to\infty} f_i = f\), dann ist das \sphinxstylestrong{Lebesgue\sphinxhyphen{}Integral} von \(f\) definiert durch
 \begin{equation*}
 \begin{split}\int_{\Omega} f \,d\lambda^n = \lim_{i\rightarrow \infty} \int_{\R^n} f_i \,d\lambda^n.\end{split}
 \end{equation*}\end{sphinxadmonition}
@@ -8698,7 +8799,7 @@ Anstatt der Folge von einfachen Funktionen, kann man auch eine beliebige monoton
 \sphinxhref{https://de.wikipedia.org/wiki/Beppo\_Levi}{Beppo Levi} (Geboren 14. Mai 1875 in Turin, Italien; Gestorben 28. August 1961 in Rosario, Argentinien) war ein italienischer Mathematiker.
 \end{sphinxShadowBox}
 \label{masstheorie/lebesgue_integral:lem:levi}
-\begin{sphinxadmonition}{note}{Lemma 5.20 (Satz von Beppo Levi)}
+\begin{sphinxadmonition}{note}{Lemma 5.21 (Satz von Beppo Levi)}
 
 
 
@@ -8729,7 +8830,7 @@ Eine weitere Aussage in diesem Kontext ist das \sphinxstylestrong{Lemma von Fato
 \sphinxhref{https://de.wikipedia.org/wiki/Pierre\_Fatou}{Pierre Joseph Louis Fatou} (Geboren 28. Februar 1878 in Lorient; Gestorben 10. August 1929 in Pornichet) war ein französischer Mathematiker.
 \end{sphinxShadowBox}
 \label{masstheorie/lebesgue_integral:lemma-15}
-\begin{sphinxadmonition}{note}{Lemma 5.21 (Lemma von Fatou)}
+\begin{sphinxadmonition}{note}{Lemma 5.22 (Lemma von Fatou)}
 
 
 
@@ -8755,7 +8856,7 @@ Proof. Ref missing.
 \sphinxAtStartPar
 Wir wollen nun das Lebesgue\sphinxhyphen{}Integral auf messbaren Funktionen mit wechselndem Vorzeichen betrachten. Dafür spalten wir eine Funktionen in ihren positiven und ihren negativen Teil auf und bilden das Integral über diese Funktionen. Um die beiden Teile aufsummieren zu können, müssen wir allerdings fordern, dass beide endlich sind.
 \label{masstheorie/lebesgue_integral:definition-16}
-\begin{sphinxadmonition}{note}{Definition 5.22 (Lebesgue\sphinxhyphen{}Integral integrierbarer Funktionen)}
+\begin{sphinxadmonition}{note}{Definition 5.23 (Lebesgue\sphinxhyphen{}Integral integrierbarer Funktionen)}
 
 
 
@@ -8775,7 +8876,7 @@ so dass gilt \(f = f^+ - f_-\). Dann können wir das \sphinxstylestrong{Lebesgue
 \begin{split}\int_{\R^n} f\, d\lambda^n := \int_{\R^n} f^+\, d\lambda^n - \int_{\R^n} f_-\, d\lambda^n.\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{masstheorie/lebesgue_integral:lemma-17}
-\begin{sphinxadmonition}{note}{Lemma 5.22}
+\begin{sphinxadmonition}{note}{Lemma 5.23}
 
 
 
@@ -8809,7 +8910,7 @@ Proof. Ref missing.
 
 \subsection{Fast überall Eigenschaften}
 \label{\detokenize{masstheorie/lebesgue_integral:fast-uberall-eigenschaften}}\label{masstheorie/lebesgue_integral:definition-19}
-\begin{sphinxadmonition}{note}{Definition 5.23}
+\begin{sphinxadmonition}{note}{Definition 5.24}
 
 
 
@@ -8858,7 +8959,7 @@ E^y := \{x\in \Omega_1: (x,y)\in E\}\subset\Omega_1\end{split}
 \sphinxAtStartPar
 wofür man folgende Aussage hat.
 \label{masstheorie/integrationstechnik:lem:secmeasure}
-\begin{sphinxadmonition}{note}{Lemma 5.23}
+\begin{sphinxadmonition}{note}{Lemma 5.24}
 
 
 
@@ -8911,7 +9012,7 @@ Somit folgt
 \sphinxAtStartPar
 Speziell für \(\Omega_1=\R^n, \Omega_2=\R^m\) könnte man sich nun fragen wie sich die Produkt\sphinxhyphen{}Algebra für die bekannten Borel und Lebesgue Algebren verhält. Zumindest für die Borel \(\sigma\)\sphinxhyphen{}Algebra haben wir folgende Aussage.
 \label{masstheorie/integrationstechnik:lemma-1}
-\begin{sphinxadmonition}{note}{Lemma 5.24}
+\begin{sphinxadmonition}{note}{Lemma 5.25}
 
 
 
@@ -8991,7 +9092,7 @@ Wir erkennen aber, dass sich \(V\) als Schnitt dieser Produkt\sphinxhyphen{}Meng
 \begin{split}V = (V\times\{0\})^0\end{split}
 \end{equation*}
 \sphinxAtStartPar
-wäre nun \(V\times\{0\}\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\) so würde mit {\hyperref[\detokenize{masstheorie/integrationstechnik:lem:secmeasure}]{\sphinxcrossref{Lemma 5.23}}} folgen, dass auch der Schnitt \(V\in\mathcal{A}(\R)\) gilt, was ein Widerspruch ist, daher
+wäre nun \(V\times\{0\}\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\) so würde mit {\hyperref[\detokenize{masstheorie/integrationstechnik:lem:secmeasure}]{\sphinxcrossref{Lemma 5.24}}} folgen, dass auch der Schnitt \(V\in\mathcal{A}(\R)\) gilt, was ein Widerspruch ist, daher
 \begin{equation*}
 \begin{split}V\times\{0\} \not\in  \mathcal{A}(\R)\otimes\mathcal{A}(\R).\end{split}
 \end{equation*}\end{sphinxadmonition}
@@ -8999,7 +9100,7 @@ wäre nun \(V\times\{0\}\in \mathcal{A}(\R)\otimes\mathcal{A}(\R)\) so würde mi
 \sphinxAtStartPar
 Das abstrakte Konzept, welches sich hinter diesem Beispiel verbirgt wir mit dem Begriff Vollständigkeit eines Maßes bezeichnet.
 \label{masstheorie/integrationstechnik:definition-3}
-\begin{sphinxadmonition}{note}{Definition 5.24}
+\begin{sphinxadmonition}{note}{Definition 5.25}
 
 
 
@@ -9009,7 +9110,7 @@ Ein Maßraum \((\Omega,\Sigma,\mu)\) heißt \sphinxstylestrong{vollständig}, fa
 \begin{split}A\subset N \Rightarrow A\in \Sigma.\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{masstheorie/integrationstechnik:remark-4}
-\begin{sphinxadmonition}{note}{Remark 5.9}
+\begin{sphinxadmonition}{note}{Remark 5.11}
 
 
 
@@ -9030,7 +9131,7 @@ betrachten zusammen mit dem Maß
 \sphinxAtStartPar
 Hier lässt sich nun folgendes zeigen.
 \label{masstheorie/integrationstechnik:lem:completelebesgue}
-\begin{sphinxadmonition}{note}{Lemma 5.25}
+\begin{sphinxadmonition}{note}{Lemma 5.26}
 
 
 
@@ -9051,7 +9152,7 @@ Proof. Siehe z.B. {[}\hyperlink{cite.references:id5}{Bog07}{]} Theorem 1.5.6.
 \sphinxAtStartPar
 Wir wollen nun Maße auf der Produktalgebra betrachten.
 \label{masstheorie/integrationstechnik:definition-6}
-\begin{sphinxadmonition}{note}{Definition 5.25 (Produktmaß)}
+\begin{sphinxadmonition}{note}{Definition 5.26 (Produktmaß)}
 
 
 
@@ -9061,7 +9162,7 @@ Es seien \((\Omega_1,\Sigma_1,\mu_1), (\Omega_2,\Sigma_2,\mu_2)\) zwei Maßräum
 \begin{split}\mu(A_1\times A_2) = \mu_1(A_1)\cdot\mu_2(A_2)\quad\forall A_1\in\Sigma_1, A_2\in\Sigma_2.\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{masstheorie/integrationstechnik:remark-7}
-\begin{sphinxadmonition}{note}{Remark 5.10}
+\begin{sphinxadmonition}{note}{Remark 5.12}
 
 
 
@@ -9074,7 +9175,7 @@ In {\hyperref[\detokenize{vektoranalysis/tensor:s-grass}]{\sphinxcrossref{\DUrol
 Es sei hier erwähnt, dass das Maß \sphinxstylestrong{keine} lineare Abbildung ist, insbesondere haben wir keinen Vektorraum gegeben. Die Produktstruktur ist trotzdem ähnlich, weshalb eine gewisse Analogie zwischen dem Tensorprodukt und dem Produktmaß herrscht.
 \end{sphinxadmonition}
 \label{masstheorie/integrationstechnik:remark-8}
-\begin{sphinxadmonition}{note}{Remark 5.11}
+\begin{sphinxadmonition}{note}{Remark 5.13}
 
 
 
@@ -9087,7 +9188,7 @@ In den obigen Produkten können einzelnen Terme jeweils unendlich werden, hierbe
 \sphinxAtStartPar
 Man kann zeigen, dass ein Produktmaß stets existiert siehe ??. Allerdings ist es nicht notwendigerweise eindeutig bestimmt, hierfür benötigt man die sogenannte \(\sigma\)\sphinxhyphen{}Endlichkeit.
 \label{masstheorie/integrationstechnik:definition-9}
-\begin{sphinxadmonition}{note}{Definition 5.26}
+\begin{sphinxadmonition}{note}{Definition 5.27}
 
 
 
@@ -9097,7 +9198,7 @@ Es sei \((\Omega,\Sigma,\mu)\) ein Maßraum, das Maß \(\mu\) heißt \(\sigma\)\
 \begin{split}\bigcup_{i\in\N} A_i = \Omega.\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{masstheorie/integrationstechnik:remark-10}
-\begin{sphinxadmonition}{note}{Remark 5.12}
+\begin{sphinxadmonition}{note}{Remark 5.14}
 
 
 
@@ -9134,7 +9235,7 @@ Proof. See Bogachev ref missing.
 \sphinxAtStartPar
 Anhand von {\hyperref[\detokenize{masstheorie/integrationstechnik:ex:prodsig}]{\sphinxcrossref{Example 5.5}}} haben wir gesehen, dass die Lebesgue \(\sigma\)\sphinxhyphen{}Algebra auf \(\R^{n+m}\) größer ist als die Produkt \(\sigma\)\sphinxhyphen{}Algebra. Allerdings kann man zeigen, dass das Produktmaß zumindest auf der kleineren Produktalgebra übereinstimmt.
 \label{masstheorie/integrationstechnik:lem:lebesguecomp}
-\begin{sphinxadmonition}{note}{Lemma 5.26}
+\begin{sphinxadmonition}{note}{Lemma 5.27}
 
 
 
@@ -9195,7 +9296,7 @@ welche wir in Beziehung zueinander setzten wollen.
 \sphinxAtStartPar
 Ein Konzept was man in diesem Kontext benötigt, sind sogenannte monotone Klassen.
 \label{masstheorie/integrationstechnik:definition-13}
-\begin{sphinxadmonition}{note}{Definition 5.27 (Monotone Klasse)}
+\begin{sphinxadmonition}{note}{Definition 5.28 (Monotone Klasse)}
 
 
 
@@ -9220,35 +9321,11 @@ Für eine absteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\supset A_{i+1}, 
 
 \sphinxAtStartPar
 Offensichtlich ist jede \(\sigma\)\sphinxhyphen{}Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen.
-Weiterhin arbeiten wir in diesem Kontext zusätzlich mit Mengenalgebren anstatt nur mit Mengenringen.
-\label{masstheorie/integrationstechnik:definition-14}
-\begin{sphinxadmonition}{note}{Definition 5.28}
-
-
-
-\sphinxAtStartPar
-Es sei \(\mathcal{R}\) ein Mengenring über der Menge \(\Omega\), gilt auch \(\Omega\in\mathcal{R}\), dann nennen wir \(\mathcal{R}\) \sphinxstylestrong{Mengenalgebra}.
-\end{sphinxadmonition}
-\label{masstheorie/integrationstechnik:remark-15}
-\begin{sphinxadmonition}{note}{Remark 5.13}
-
-
-
-\sphinxAtStartPar
-Für zwei \(\sigma\)\sphinxhyphen{}Algebren ist das kartesische Produkt \(\Sigma_1\times\Sigma_2\) i.A. keine Mengenalgebra, die Menge
-\begin{equation*}
-\begin{split}\Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}\end{split}
-\end{equation*}
-\sphinxAtStartPar
-allerdings schon und sie erzeugt offensichtlich auch die Produkt\sphinxhyphen{}\(\sigma\)\sphinxhyphen{}Algebra,
-\begin{equation*}
-\begin{split}\sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.\end{split}
-\end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
 Betrachtet man analog zur kleinsten von \(\mathcal{C}\) erzeugten \(\sigma\)\sphinxhyphen{}Algebra die kleinste von \(\mathcal{C}\) erzeugt monotone Klasse \(\text{M}\big[\mathcal{C}\big]\) so gilt folgendes hilfreiches Lemma.
 \label{masstheorie/integrationstechnik:lem:monclass}
-\begin{sphinxadmonition}{note}{Lemma 5.27 (Monotone Klassen Lemma)}
+\begin{sphinxadmonition}{note}{Lemma 5.28 (Monotone Klassen Lemma)}
 
 
 
@@ -9261,6 +9338,24 @@ Es sei \(\mathcal{C}\) eine Mengenalgebra, dann gilt
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
 Proof. Siehe z.B. {[}\hyperlink{cite.references:id6}{Tao07}{]} Lemma 1.7.14.
+\end{sphinxadmonition}
+\label{masstheorie/integrationstechnik:remark-15}
+\begin{sphinxadmonition}{note}{Remark 5.15}
+
+
+
+\sphinxAtStartPar
+Für zwei \(\sigma\)\sphinxhyphen{}Algebren ist das kartesische Produkt \(\Sigma_1\times\Sigma_2\) i.A. keine Mengenalgebra, die Menge
+\begin{equation*}
+\begin{split}\Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+allerdings schon und sie erzeugt offensichtlich auch die Produkt\sphinxhyphen{}\(\sigma\)\sphinxhyphen{}Algebra,
+\begin{equation*}
+\begin{split}\sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Diese Tatsache nutzen wir im Folgenden aus, um das Prinzip von Cavalieri zu zeigen.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -9292,7 +9387,7 @@ Proof. Es sei \(\mathcal{C}\subset\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\) da
 \begin{split}\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)\subset \mathcal{C}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Mit dem monotone Klassen Lemma ({\hyperref[\detokenize{masstheorie/integrationstechnik:lem:monclass}]{\sphinxcrossref{Lemma 5.27}}}) folgt dann
+Mit dem monotone Klassen Lemma ({\hyperref[\detokenize{masstheorie/integrationstechnik:lem:monclass}]{\sphinxcrossref{Lemma 5.28}}}) folgt dann
 \begin{equation*}
 \begin{split}\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m) = \sigma(\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)) = 
 \text{M}\big[\mathcal{A}(\R^n)\diamond\mathcal{A}(\R^m)\big] \subset 
@@ -9327,8 +9422,8 @@ für fast alle \(x\in\R^n\). Die Aussage für \(\lambda^n(E^y)\) folgt analog.
 
 \sphinxAtStartPar
 Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen \(E\in \mathcal{A}(\R^{n+m})\) zu verallgemeinern.
-\label{masstheorie/integrationstechnik:lemma-19}
-\begin{sphinxadmonition}{note}{Lemma 5.28}
+\label{masstheorie/integrationstechnik:lemma-18}
+\begin{sphinxadmonition}{note}{Lemma 5.29}
 
 
 
@@ -9338,7 +9433,7 @@ Die Aussage von {\hyperref[\detokenize{masstheorie/integrationstechnik:thm:caval
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Es sei \(E\in \mathcal{A}(\R^{n+m})\), nach {\hyperref[\detokenize{masstheorie/integrationstechnik:lem:completelebesgue}]{\sphinxcrossref{Lemma 5.25}}} existieren Mengen \(\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\), \(N\subset \tilde{N}\), s.d.
+Proof. Es sei \(E\in \mathcal{A}(\R^{n+m})\), nach {\hyperref[\detokenize{masstheorie/integrationstechnik:lem:completelebesgue}]{\sphinxcrossref{Lemma 5.26}}} existieren Mengen \(\tilde{E}\in\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\), \(N\subset \tilde{N}\), s.d.
 \begin{equation*}
 \begin{split}E = \tilde{E}\cup N\\
 (\lambda^n\otimes\lambda^m)(\tilde{N}) = 0.\end{split}
@@ -9403,8 +9498,8 @@ r^2\pi.\end{split}
 
 \sphinxAtStartPar
 Das Volumen einer Kugel in \(n\)\sphinxhyphen{}Dimensionen lässt sich mithilfe des folgenden Lemmas berechnen.
-\label{masstheorie/integrationstechnik:lemma-21}
-\begin{sphinxadmonition}{note}{Lemma 5.29}
+\label{masstheorie/integrationstechnik:lemma-20}
+\begin{sphinxadmonition}{note}{Lemma 5.30}
 
 
 
@@ -9468,7 +9563,7 @@ messbar und es gilt
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Man beweist die Aussage zunächst für Funktionen \(f:\R^{n+m}\to\overline{R}\) welche bezüglich \(\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\) messbar sind. Hierfür erkennt man durch mehrfache Anwendung des Satzes von Beppo Levi ({\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:levi}]{\sphinxcrossref{Lemma 5.20}}}) unter Ausnutzung der \(\sigma\)\sphinxhyphen{}Endlichkeit von \(\mathcal{A}(\R^n)\) und \(\mathcal{A}(\R^m)\), dass es reicht die Aussage auf Mengen endlichen Maßes zu zeigen. Da sich nach {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:simplefun}]{\sphinxcrossref{Lemma 5.19}}} aber jede Funktion durch einfache Funktionen approximieren lässt und das Integral linear ist, reicht es die Aussage für Indikatorfunktionen zu zeigen. Hier folgt die Aussage aber aus dem Prinzip von Cavalieri, {\hyperref[\detokenize{masstheorie/integrationstechnik:thm:cavalieri}]{\sphinxcrossref{Theorem 5.11}}}.
+Proof. Man beweist die Aussage zunächst für Funktionen \(f:\R^{n+m}\to\overline{R}\) welche bezüglich \(\mathcal{A}(\R^n)\otimes\mathcal{A}(\R^m)\) messbar sind. Hierfür erkennt man durch mehrfache Anwendung des Satzes von Beppo Levi ({\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:levi}]{\sphinxcrossref{Lemma 5.21}}}) unter Ausnutzung der \(\sigma\)\sphinxhyphen{}Endlichkeit von \(\mathcal{A}(\R^n)\) und \(\mathcal{A}(\R^m)\), dass es reicht die Aussage auf Mengen endlichen Maßes zu zeigen. Da sich nach {\hyperref[\detokenize{masstheorie/lebesgue_integral:lem:simplefun}]{\sphinxcrossref{Lemma 5.20}}} aber jede Funktion durch einfache Funktionen approximieren lässt und das Integral linear ist, reicht es die Aussage für Indikatorfunktionen zu zeigen. Hier folgt die Aussage aber aus dem Prinzip von Cavalieri, {\hyperref[\detokenize{masstheorie/integrationstechnik:thm:cavalieri}]{\sphinxcrossref{Theorem 5.11}}}.
 
 \sphinxAtStartPar
 Benutzten wir nun {\hyperref[\detokenize{masstheorie/integrationstechnik:cor:zeroprodset}]{\sphinxcrossref{Corollary 5.2}}} so folgt die Behauptung auch für Funktionen welche bezüglich \(\mathcal{A}(\R^{n+m})\) messbar sind.
@@ -9526,7 +9621,7 @@ Die Intuition hinter dem Prinzip von Cavalieri ist, dass man über parallele Sch
 \caption{Visualisierung von Mengentransformationen.}\label{\detokenize{masstheorie/integrationstechnik:fig-trafo}}\end{figure}
 
 \sphinxAtStartPar
-In {\hyperref[\detokenize{masstheorie/masstheorie:rem:transinvariance}]{\sphinxcrossref{Remark 5.4}}} haben wir für eine Matrix \(M\) und eine Lebesgue\sphinxhyphen{}messbare Menge \(A\) bereits die Identität
+In {\hyperref[\detokenize{masstheorie/masstheorie:rem:transinvariance}]{\sphinxcrossref{Remark 5.6}}} haben wir für eine Matrix \(M\) und eine Lebesgue\sphinxhyphen{}messbare Menge \(A\) bereits die Identität
 \begin{equation*}
 \begin{split}\lambda(MA) = |\det(M)| \, \lambda(A)\end{split}
 \end{equation*}
@@ -9559,15 +9654,15 @@ Hierbei ist man \(\det(D\Phi(x))\) die \sphinxstylestrong{Jacobi\sphinxhyphen{}D
 \sphinxAtStartPar
 Proof. Siehe z.B. {[}\hyperlink{cite.references:id5}{Bog07}{]} Theorem 3.7.1.
 \end{sphinxadmonition}
-\label{masstheorie/integrationstechnik:remark-25}
-\begin{sphinxadmonition}{note}{Remark 5.14}
+\label{masstheorie/integrationstechnik:remark-24}
+\begin{sphinxadmonition}{note}{Remark 5.16}
 
 
 
 \sphinxAtStartPar
 Für \(n=1\) ist diese Regel schon als Substitutionsregel bekannt.
 \end{sphinxadmonition}
-\label{masstheorie/integrationstechnik:example-26}
+\label{masstheorie/integrationstechnik:example-25}
 \begin{sphinxadmonition}{note}{Example 5.7}
 
 
@@ -10172,7 +10267,7 @@ Anstatt allgemeiner offener Teilmengen \(U\subset\C\) zu betrachten schränkt ma
 
 
 \sphinxAtStartPar
-Eine offenen Menge \(U\subset\C\) heißt \sphinxstylestrong{Gebiet}, falls sie zusammenhängend ist, das heißt für zwei Mengen \(A,B\subset U,A\neq\emptyset\neq B\) gilt
+Eine offenen Menge \(U\subset\C\) heißt \sphinxstylestrong{Gebiet}, falls sie zusammenhängend ist, das heißt für zwei in \(U\) offene Mengen \(A,B\subset U,A\neq\emptyset\neq B\) gilt
 \begin{equation*}
 \begin{split}A\cap B \neq \emptyset.\end{split}
 \end{equation*}\end{sphinxadmonition}
@@ -11299,8 +11394,8 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{corollary\sphinxhyphen{}17}
 \item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}17}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{corollary-17}}
 \indexspace
-\bigletter{corollary\sphinxhyphen{}30}
-\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}30}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{corollary-30}}
+\bigletter{corollary\sphinxhyphen{}34}
+\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}34}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{corollary-34}}
 \indexspace
 \bigletter{corollary\sphinxhyphen{}44}
 \item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}44}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{corollary-44}}
@@ -11396,7 +11491,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{def:wirkung}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{def:wirkung}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-0}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-0}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{definition-1}}
@@ -11405,7 +11500,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}10}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-10}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}11}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}11}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-11}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}11}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-11}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}12}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}12}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-12}}
@@ -11416,17 +11511,17 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{definition\sphinxhyphen{}14}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}14}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-14}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}15}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}15}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-15}}
-\indexspace
 \bigletter{definition\sphinxhyphen{}16}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}16}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-16}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}16}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-16}}
+\indexspace
+\bigletter{definition\sphinxhyphen{}17}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}17}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-17}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}18}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}18}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{definition-18}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}19}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}19}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{definition-19}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}19}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-19}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-2}}
@@ -11437,32 +11532,26 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{definition\sphinxhyphen{}22}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}22}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-22}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}23}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}23}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-23}}
-\indexspace
 \bigletter{definition\sphinxhyphen{}24}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}24}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-24}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}24}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-24}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}26}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}26}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-26}}
+\bigletter{definition\sphinxhyphen{}27}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}27}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-27}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}29}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}29}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-29}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-3}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-3}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}30}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}30}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-30}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}32}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}32}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-32}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}30}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-30}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}34}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}34}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-34}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}37}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}37}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-37}}
+\bigletter{definition\sphinxhyphen{}36}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}36}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-36}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}38}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}38}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-38}}
@@ -11470,8 +11559,8 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{definition\sphinxhyphen{}4}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{definition-4}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}42}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}42}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-42}}
+\bigletter{definition\sphinxhyphen{}41}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}41}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-41}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}43}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}43}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-43}}
@@ -11479,20 +11568,23 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{definition\sphinxhyphen{}45}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}45}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-45}}
 \indexspace
+\bigletter{definition\sphinxhyphen{}46}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}46}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-46}}
+\indexspace
 \bigletter{definition\sphinxhyphen{}5}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{definition-5}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-5}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}6}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}6}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{definition-6}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-7}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-7}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}8}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-8}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-8}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}9}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-9}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}9}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{definition-9}}
 \indexspace
 \bigletter{ex:10.14}
 \item\relax\sphinxstyleindexentry{ex:10.14}\sphinxstyleindexextra{manifolds/diffformen}\sphinxstyleindexpageref{manifolds/diffformen:\detokenize{ex:10.14}}
@@ -11546,7 +11638,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{example-1}}
 \indexspace
 \bigletter{example\sphinxhyphen{}12}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}12}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-12}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}12}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{example-12}}
 \indexspace
 \bigletter{example\sphinxhyphen{}13}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}13}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{example-13}}
@@ -11570,16 +11662,13 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}24}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-24}}
 \indexspace
 \bigletter{example\sphinxhyphen{}25}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}25}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{example-25}}
-\indexspace
-\bigletter{example\sphinxhyphen{}26}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}26}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{example-26}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}25}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{example-25}}
 \indexspace
 \bigletter{example\sphinxhyphen{}27}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}27}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-27}}
 \indexspace
 \bigletter{example\sphinxhyphen{}29}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}29}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-29}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}29}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{example-29}}
 \indexspace
 \bigletter{example\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ode/hamilton}\sphinxstyleindexpageref{ode/hamilton:\detokenize{example-3}}
@@ -11720,7 +11809,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}1}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-1}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}11}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}11}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-11}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}11}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-11}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}12}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}12}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-12}}
@@ -11729,25 +11818,25 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}14}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{lemma-14}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}15}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}15}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{lemma-15}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}15}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{lemma-15}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}17}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}17}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-17}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}18}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}18}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-18}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}18}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{lemma-18}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}19}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}19}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-19}}
+\bigletter{lemma\sphinxhyphen{}20}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}20}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{lemma-20}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}21}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}21}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{lemma-21}}
+\bigletter{lemma\sphinxhyphen{}23}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}23}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-23}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}3}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}3}\sphinxstyleindexextra{complexanalysis/cauchyriemann}\sphinxstyleindexpageref{complexanalysis/cauchyriemann:\detokenize{lemma-3}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}30}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}30}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lemma-30}}
-\indexspace
-\bigletter{lemma\sphinxhyphen{}34}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}34}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-34}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}35}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}35}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{lemma-35}}
@@ -11755,23 +11844,32 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{lemma\sphinxhyphen{}36}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}36}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-36}}
 \indexspace
+\bigletter{lemma\sphinxhyphen{}38}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}38}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-38}}
+\indexspace
+\bigletter{lemma\sphinxhyphen{}39}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}39}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-39}}
+\indexspace
 \bigletter{lemma\sphinxhyphen{}4}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}4}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-4}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}40}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}40}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-40}}
+\bigletter{lemma\sphinxhyphen{}44}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}44}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-44}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}47}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}47}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{lemma-47}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}6}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-6}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}6}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-6}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}7}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-7}}
 \indexspace
+\bigletter{lemma\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}8}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-8}}
+\indexspace
 \bigletter{lemma\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{lemma-9}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{lemma-9}}
 \indexspace
 \bigletter{lemma:Gronwall}
 \item\relax\sphinxstyleindexentry{lemma:Gronwall}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lemma:Gronwall}}
@@ -11798,40 +11896,40 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}0}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-0}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-1}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}1}\sphinxstyleindexextra{complexanalysis/cauchyriemann}\sphinxstyleindexpageref{complexanalysis/cauchyriemann:\detokenize{remark-1}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}10}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}10}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-10}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}10}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-10}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}11}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}11}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-11}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}11}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{remark-11}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}12}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}12}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-12}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}12}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{remark-12}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}14}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}14}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-14}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}15}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}15}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{remark-15}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}15}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-15}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}16}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}16}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-16}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{odestability/stabilitaetsbegriffe}\sphinxstyleindexpageref{odestability/stabilitaetsbegriffe:\detokenize{remark-2}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-2}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}20}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}20}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-20}}
-\indexspace
-\bigletter{remark\sphinxhyphen{}21}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}21}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-21}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}20}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{remark-20}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}23}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}23}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{remark-23}}
 \indexspace
+\bigletter{remark\sphinxhyphen{}24}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}24}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-24}}
+\indexspace
 \bigletter{remark\sphinxhyphen{}25}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}25}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-25}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}25}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-25}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}26}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}26}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-26}}
@@ -11848,14 +11946,17 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{remark\sphinxhyphen{}36}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}36}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-36}}
 \indexspace
-\bigletter{remark\sphinxhyphen{}38}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}38}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-38}}
-\indexspace
 \bigletter{remark\sphinxhyphen{}39}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}39}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{remark-39}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}4}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{remark-4}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}4}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-4}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}40}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}40}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-40}}
+\indexspace
+\bigletter{remark\sphinxhyphen{}42}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}42}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-42}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}5}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{remark-5}}
@@ -11864,7 +11965,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{remark-6}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}7}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{remark-7}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-7}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}8}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}8}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-8}}
@@ -11879,7 +11980,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}10}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-10}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}11}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}11}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-11}}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}11}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{theorem-11}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}13}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}13}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{theorem-13}}
@@ -11896,20 +11997,20 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{theorem\sphinxhyphen{}37}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}37}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{theorem-37}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}43}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}43}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{theorem-43}}
+\bigletter{theorem\sphinxhyphen{}47}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}47}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{theorem-47}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}44}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}44}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{theorem-44}}
+\bigletter{theorem\sphinxhyphen{}48}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}48}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{theorem-48}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}45}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}45}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{theorem-45}}
+\bigletter{theorem\sphinxhyphen{}49}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}49}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{theorem-49}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}5}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{theorem-5}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-7}}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/cauchyriemann}\sphinxstyleindexpageref{complexanalysis/cauchyriemann:\detokenize{theorem-7}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}8}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}8}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-8}}

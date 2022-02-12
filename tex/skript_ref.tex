@@ -4034,7 +4034,7 @@ Das zentrale Konzept topologischer Räume ist die folgende Definition der \emph{
 
 
 \par
-Sei \(\M\) eine Menge und \(\tau \subset \mathcal{P}(M)\) eine Teilmenge der Potenzmenge.
+Sei \(\M\) eine Menge und \(\tau \subset 2^\M\) eine Teilmenge der Potenzmenge.
 Wir nennen das Tupel \((\M,\tau)\) \textbf{topologischer Raum}, falls die folgenden Eigenschaften erfüllt sind,
 \begin{itemize}
 \item {} 
@@ -6305,8 +6305,8 @@ Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die M
 Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.
 
 
-\subsection{\protect\(\sigma\protect\) Algebren und Maße}
-\label{\detokenize{masstheorie/masstheorie:sigma-algebren-und-masze}}\label{\detokenize{masstheorie/masstheorie:s-sigmaalg}}
+\subsection{Mengensysteme und Maße}
+\label{\detokenize{masstheorie/masstheorie:mengensysteme-und-masze}}\label{\detokenize{masstheorie/masstheorie:s-sigmaalg}}
 \par
 Wir betrachten im Folgenden eine beliebige zu Grundmenge \(\Omega\), welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von \(\Omega\) einen Wert zuordnen weshalb wir die \textbf{Potenzmenge} \(2^\Omega\) betrachten, welche die Menge aller möglichen Teilmengen von \(\Omega\) bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe \cref{masstheorie/masstheorie:def:mass}  eine spezielle Abbildung \(\mu:\Sigma\to[0,\infty]\), wobei \(\Sigma\subset 2^\Omega\) ein Mengensystem ist, welches man auch System der \(\mu\) messbaren Mengen nennt.
 
@@ -6330,7 +6330,125 @@ Das Maß disjunkt vereinigter Mengen soll gleich der Summe der einzelnen Maße s
 \end{enumerate}
 
 \par
-Der erste Wunsch würde darauf hindeuten die Potenzmenge \(2^\Omega\) als System der messbaren Mengen zu betrachten. Allerdings gibt es viele Fälle (siehe \cref{masstheorie/masstheorie:s-vitali} ) in welchen diese Wahl den zweiten Wunsch unmöglich machen. Deshalb ist die Strategie meist ein möglichst großes Teilmengensystem zu finden, s.d. der zweite Wunsch erfüllbar ist. Die Klasse von Systemen auf der wir im Folgenden arbeiten werden, sind sogenannte \(\sigma\) Algebren.
+Der erste Wunsch würde darauf hindeuten die Potenzmenge \(2^\Omega\) als System der messbaren Mengen zu betrachten. Allerdings gibt es viele Fälle (siehe \cref{masstheorie/masstheorie:s-vitali} ) in welchen diese Wahl den zweiten Wunsch unmöglich machen. Deshalb ist die Strategie meist ein möglichst großes Teilmengensystem zu finden, s.d. der zweite Wunsch erfüllbar ist. Man steht also vor dem Problem geeignete Klassen von Mengensystemen zu betrachten.
+
+\par
+Beginnt man also Minimalanforderungen an das System zu stellen führt das zunächst auf den Begriff eines Mengenrings.
+\begin{definition}{(Mengenring)}{masstheorie/masstheorie:def:ring}
+
+
+
+\par
+Ein Mengensystem \(\mathcal{R} \subset 2^{\Omega}\) heißt \textbf{Mengen Ring} (im maßtheoretischen Sinne) auf einer Menge \(\Omega\), falls die folgenden Eigenschaften erfüllt sind:
+\begin{enumerate}
+
+\item {} 
+\par
+\(\emptyset \in \mathcal{R}\)
+
+\item {} 
+\par
+\(A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}\)
+
+\item {} 
+\par
+\(A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}\)
+
+\end{enumerate}
+\end{definition}
+
+\par
+Ein Mengenring hat zusätzlich folgende Eigenschaften, wobei wir für zwei Mengen \(A,B\) mit
+\begin{align*}
+A\triangle B := (A\setminus B)\cup (B\setminus A)
+\end{align*}
+\par
+die symmetrische Differenz bezeichnen.
+\begin{lemma}{}{masstheorie/masstheorie:lemma-1}
+
+
+
+\par
+Es sei \(\mathcal{R}\) ein Mengenring, dann gilt
+\begin{enumerate}
+
+\item {} 
+\par
+\(A,B \in \mathcal{R} \Rightarrow (A \cap B) \in \mathcal{R}\)
+
+\item {} 
+\par
+\(A,B \in \mathcal{R} \Rightarrow (A \triangle B) \in \mathcal{R}\)
+
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+ Die zweite Eigenschaft folgt direkt per Definition. Die erste Eigenschaft gilt, da
+\begin{align*}
+A\cap B = A\setminus (A\setminus B).
+\end{align*}\end{proof}
+\begin{remark}{(Der Begriff Ring)}{masstheorie/masstheorie:remark-2}
+
+
+
+\par
+Aus der Algebra kennt man die Definition, dass ein Tupel \((F,+,\cdot)\) \textbf{Ring} heißt, falls
+\begin{itemize}
+\item {} 
+\par
+\((F,+)\) eine abelsche Gruppe ist,
+
+\item {} 
+\par
+\((F,\cdot)\) eine Halbgruppe ist,
+
+\item {} 
+\par
+die Distributivgesetze gelten.
+
+\end{itemize}
+
+\par
+Betrachten wir für einen Mengenring \(\mathcal{R}\) die Struktur \((\mathcal{R}, \triangle, \cap)\) so fällt auf, dass \((\mathcal{R},\triangle)\) eine abelsche Gruppe mit Nullelement \(\emptyset\) ist. Insbesondere gilt \(A\triangle A=\emptyset\) und somit existieren auch inverse Elemente. Weiterhin sind Mengenschnitte assoziativ und daher ist \((\mathcal{R}, \cap)\) eine Halbgruppe. Somit bildet \((\mathcal{R},\triangle,\cap)\) einen Ring mit neutralem Element \(\emptyset\), insbesondere ist er kommutativ.
+\end{remark}
+
+\par
+Zwar erlaubt ein Mengenring beliebige (endliche) Mengenoperationen, es fällt aber schnell auf, dass keine Beziehung zur Grundmenge \(\Omega\) gefordert wird. Insbesondere muss diese nicht in einem Mengenring enthalten sein. In vielen Fällen will man aber sicherstellen, das die Grundmenge im System enthalten ist, was auf folgenden Begriff führt.
+\begin{definition}{}{masstheorie/masstheorie:definition-3}
+
+
+
+\par
+Es sei \(\mathcal{R}\) ein Mengenring über der Menge \(\Omega\), gilt auch \(\Omega\in\mathcal{R}\), dann nennen wir \(\mathcal{R}\) \textbf{Mengenalgebra}.
+\end{definition}
+\begin{remark}{(Der Begriff Algebra)}{masstheorie/masstheorie:remark-4}
+
+
+
+\par
+Eine Algebra über einem Körper \(\K\) ist ein \(\K\) Vektorraum \(V\) zusammen mit einer bilinearen Abbildung
+\begin{align*}
+\cdot:V\times V&\to \V,\\
+(x,y)&\mapsto x\cdot y.
+\end{align*}
+\par
+Man beachte, dass das Symbol \(\cdot\) hier nun doppelt verwendet wird, einmal für die Skalarmultiplikation von \(V\) über \(\K\) und für die Multiplikation in \(V\).
+
+\par
+Eine Verallgemeinerung besteht hier darin keinen Vektorraum \(V\) zu betrachten sondern ein \(F\) Modul über einen kommutativen Ring \((F,+,\cdot)\). Hier erhält man nun, dass jeder kommutative Ring \(F\) mit einem Einselement eine Algebra über sich selbst ist, wobei die bilineare Abbildung
+\begin{align*}
+\cdot:F\times F\to F
+\end{align*}
+\par
+gerade durch das Produkt auf dem Ring \(F\) gegeben ist.
+
+\par
+Für den Mengenring \((\mathcal{R},\triangle, \cap)\) ist die Grundmenge \(\Omega\) das neutrale Element der Multiplikation \(\cap\) und daher gilt, falls \(\Omega\in\mathcal{R}\), dass \((\mathcal{R},\triangle, \cap)\) ein kommutativer Ring mit Eins und daher eine Algebra über sich selbst ist.
+\end{remark}
+
+\par
+Die Klasse von Systemen auf der wir im Folgenden arbeiten werden, sind sogenannte \(\sigma\) Algebren.
 \begin{definition}{(\protect\(\sigma\protect\) Algebra und Messraum)}{masstheorie/masstheorie:def:sigmaalgebra}
 
 
@@ -6360,7 +6478,7 @@ Für eine \(\sigma\) Algebra \(\Sigma \subseteq \mathcal{P}(\Omega)\) von \(\Ome
 \par
 Das Symbol \(\sigma\) erinnert an den Begriff der Summe, insbesondere wegen der dritten Eigenschaft in \cref{masstheorie/masstheorie:def:sigmaalgebra}  also der Abgeschlossenheit unter abzählbarer Vereinigung von Teilmengen.
 Aus diesen drei Eigenschaften lässt sich auch direkt zeigen, dass \(\sigma\) Algebren ebenfalls unter \emph{abzählbaren Schnitten} abgeschlossen sind, wie das folgende Lemma zeigt.
-\begin{lemma}{(Abgeschlossenheit unter abzählbaren Schnitten)}{masstheorie/masstheorie:lemma-1}
+\begin{lemma}{(Abgeschlossenheit unter abzählbaren Schnitten)}{masstheorie/masstheorie:lemma-6}
 
 
 
@@ -6383,7 +6501,7 @@ Es wird klar, dass das Mengensystem \(\{\emptyset, \Omega\}\) die kleinstmöglic
 
 \par
 Für ein beliebiges Mengensystem \(\mathcal{C}\subset 2^\Omega\) können wir zusätzlich die erzeugt \(\sigma\) Algebra betrachten, welche die kleinste \(\sigma\) Algebra ist die \(\mathcal{C}\) enthält.
-\begin{definition}{(Erzeugte \protect\(\sigma\protect\) Algebra)}{masstheorie/masstheorie:definition-2}
+\begin{definition}{(Erzeugte \protect\(\sigma\protect\) Algebra)}{masstheorie/masstheorie:definition-7}
 
 
 
@@ -6398,7 +6516,7 @@ die von \(\mathcal{C}\) erzeugte \(\sigma\) Algebra.
 
 \par
 Für die erzeugt \(\sigma\) Algebra, haben wir folgende Eigenschaften.
-\begin{lemma}{}{masstheorie/masstheorie:lemma-3}
+\begin{lemma}{}{masstheorie/masstheorie:lemma-8}
 
 
 
@@ -6467,7 +6585,7 @@ Diese finden vor allem in der Quantenmechanik Anwendung.
 
 \par
 Aus den beiden grundlegenden Eigenschaften eines Maßes lassen sich weitere nützliche Eigenschaften herleiten, wie das folgende Lemma beschreibt.
-\begin{lemma}{(Eigenschaften von Maßen)}{masstheorie/masstheorie:lemma-6}
+\begin{lemma}{(Eigenschaften von Maßen)}{masstheorie/masstheorie:lemma-11}
 
 
 
@@ -6497,7 +6615,7 @@ Dann gelten die folgenden Eigenschaften für das Maß \(\mu \colon \Sigma \right
 
 \par
 Im Folgenden wollen wir ein paar Beispiele von geläufigen Maßen diskutieren.
-\begin{example}{(Maße)}{masstheorie/masstheorie:example-7}
+\begin{example}{(Maße)}{masstheorie/masstheorie:example-12}
 
 
 
@@ -6575,7 +6693,7 @@ Neben \(\sigma\) Algebren kennen wir auch Topologien als wichtige Klasse von Men
 \par
 \href{https://de.wikipedia.org/wiki/\%C3\%89mile\_Borel}{Émile Borel} (geboren am 7. Januar 1871 in Saint Affrique; gestorben am 3. Februar 1956 in Paris) war ein französischer Mathematiker und Politiker.
 \end{emphBox}
-\begin{definition}{(Borel \protect\(\sigma\protect\) Algebra)}{masstheorie/masstheorie:definition-9}
+\begin{definition}{(Borel \protect\(\sigma\protect\) Algebra)}{masstheorie/masstheorie:definition-14}
 
 
 
@@ -6584,7 +6702,7 @@ Die \textbf{Borel \(\sigma\) Algebra} auf einem topologischen Raum \((\Omega, \t
 \begin{align*}
 \B(\Omega) := \sigma(\tau).
 \end{align*}\end{definition}
-\begin{remark}{(Borelsche \protect\(\sigma\protect\) Algebra von \protect\(\R\protect\))}{masstheorie/masstheorie:remark-10}
+\begin{remark}{(Borelsche \protect\(\sigma\protect\) Algebra von \protect\(\R\protect\))}{masstheorie/masstheorie:remark-15}
 
 
 
@@ -6596,7 +6714,7 @@ Es lässt sich sogar zeigen, dass die borelsche \(\sigma\) Algebra von \(\R\) gl
 \par
 Man erkennt an der Notaion, dass die Topologie \(\tau\) meist unterschlagen wird. Man spricht meist auch vom topologischen Raum \(\Omega\) ohne \(\tau\) zu nennen.
 Ein Maß auf dieser \(\sigma\) Algebra nennen wir auch \textbf{Borel Maß}.
-\begin{definition}{}{masstheorie/masstheorie:definition-11}
+\begin{definition}{}{masstheorie/masstheorie:definition-16}
 
 
 
@@ -6609,7 +6727,7 @@ Es sei \(\Omega\) ein topologischer Raum, dann heißt ein Maß \(\mu\) auf \(\B(
 \label{\detokenize{masstheorie/masstheorie:erzeugte-topologien}}\label{\detokenize{masstheorie/masstheorie:s-gentop}}
 \par
 Das Konzept der erzeugten \(\sigma\) Algebra lässt sich auch auf Topologien übertragen. Hierbei betrachtet man meist eine sogenannte Basis einer Topologie.
-\begin{definition}{}{masstheorie/masstheorie:definition-12}
+\begin{definition}{}{masstheorie/masstheorie:definition-17}
 
 
 
@@ -6642,7 +6760,7 @@ dann gilt \(\sigma(\mathcal{C}) = \B(\overline{\R})\).
 \label{\detokenize{masstheorie/masstheorie:eigenschaften-von-borel-maszen}}
 \par
 Für spezielle topologische Räume lässt sich eine wichtige Eigenschaft von Maßen über die Borel \(\sigma\) Algebra definieren.
-\begin{definition}{(Lokale Endlichkeit von Maßen)}{masstheorie/masstheorie:definition-14}
+\begin{definition}{}{masstheorie/masstheorie:definition-19}
 
 
 
@@ -6657,7 +6775,7 @@ Wie wir später sehen werden ist das Lebesgue Maß auf dem Raum \(\R^n\) lokal e
 
 \par
 Basierend auf der oben definierten Borel \(\sigma\) Algebra lässt sich nun das sogenannte Borel Maß einführen.
-\begin{definition}{(Borel Maß)}{masstheorie/masstheorie:definition-15}
+\begin{definition}{}{masstheorie/masstheorie:definition-20}
 
 
 
@@ -6757,30 +6875,8 @@ und für jedes \(i\in\{1,\ldots,n\}\) gilt
 \end{align*}\end{lemma}
 
 \par
-Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen sogenannten Mengen Ring.
-\begin{definition}{}{masstheorie/masstheorie:def:ring}
-
-
-
-\par
-Ein Mengensystem \(\mathcal{R} \subset 2^{\Omega}\) heißt \textbf{Mengen Ring} (im maßtheoretischen Sinne) auf einer Menge \(\Omega\), falls die folgenden Eigenschaften erfüllt sind:
-\begin{enumerate}
-
-\item {} 
-\par
-\(\emptyset \in \mathcal{R}\)
-
-\item {} 
-\par
-\(A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}\)
-
-\item {} 
-\par
-\(A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}\)
-
-\end{enumerate}
-\end{definition}
-\begin{lemma}{(Der von halboffenen Quadern erzeugte Ring)}{masstheorie/masstheorie:lemma-19}
+Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen Mengen Ring.
+\begin{lemma}{(Der von halboffenen Quadern erzeugte Ring)}{masstheorie/masstheorie:lemma-23}
 
 
 
@@ -6823,7 +6919,7 @@ Damit haben wir gezeigt, dass das Mengensystem \(\mathcal{R}_{\text{Q}}\), welch
 
 \par
 Wir können den Lebesgue Inhalt nun auf Elemente von \(\mathcal{R}_{\text{Q}}\) fortsetzen
-\begin{definition}{}{masstheorie/masstheorie:definition-20}
+\begin{definition}{}{masstheorie/masstheorie:definition-24}
 
 
 
@@ -6832,7 +6928,7 @@ Es sei \(A\in\mathcal{R}_{\text{Q}}\) mit \(A=\bigcup_{i=1}^n Q_i\) wobei \(Q_1,
 \begin{align*}
 \lambda^n(A):=\sum_{i=1}^{n} \lambda^n(Q_i).
 \end{align*}\end{definition}
-\begin{remark}{}{masstheorie/masstheorie:remark-21}
+\begin{remark}{}{masstheorie/masstheorie:remark-25}
 
 
 
@@ -6978,7 +7074,7 @@ Somit gilt mit \(N\to\infty\)
 \label{\detokenize{masstheorie/masstheorie:der-jordan-inhalt-und-jordan-messbare-mengen}}
 \par
 Wir haben bisher einen Inhalt auf \(\mathcal{R}_{\text{R}}\) definiert. Diese Klasse an Mengen ist aber relativ klein, weshalb der Begriff ausgedehnt werden soll. Eine Möglichkeit hier ist die Idee des Riemann Integrals mit Ober  und Untersummen zu benutzen. Es stellt aber auch hier heraus, dass der Begriff zu einschränkend ist. Insbesondere führt deses Konzept \textbf{nicht} auf ein Maß. Wir werden es im Folgenden trotzdem betrachten.
-\begin{definition}{}{masstheorie/masstheorie:definition-23}
+\begin{definition}{}{masstheorie/masstheorie:definition-27}
 
 
 
@@ -7062,7 +7158,7 @@ und somit
 
 \par
 Die Menge der Jordan messbaren Mengen bildet weiterhin keine \(\sigma\) Algebra und daher ist der Jordan Inhalt kein Maß im Sinne von \cref{masstheorie/masstheorie:def:mass}  Dies ist an folgendem Beispiel ersichtlich.
-\begin{example}{}{masstheorie/masstheorie:example-25}
+\begin{example}{}{masstheorie/masstheorie:example-29}
 
 
 
@@ -7098,7 +7194,7 @@ Wir der letzte Abschnitt zeigt ist der Begriff der Jordan messbarkeit einerseits
 \par
 Der innere und äußere Inhalt sind intuitiv nicht gleichberechtigt, da das Problem asymmetrisch ist. Konkret ist Subadditivität die inhärente Eigenschaft eines Maßes, da Mengenvereinigungen mehrfach auftretenden Elemente nicht berücksichtigen, während die Addition in \(\R\) für positive Zahlen stets ein größeres Ergebnis liefert. Das äußere Maß ist auf natürliche Weise subadditiv und deshalb zu bevorzugen.
 \end{emphBox}
-\begin{definition}{}{masstheorie/masstheorie:definition-26}
+\begin{definition}{}{masstheorie/masstheorie:definition-30}
 
 
 
@@ -7352,7 +7448,7 @@ und daher die Behauptung.
 
 \par
 Als Korollar von \cref{masstheorie/masstheorie:thm:lebesgue} und den vorherigen Eigenschaften erhalten wir eine Abschätzung für das äußere Lebesgue Maß sowohl von oben durch den äußeren Jordan Inhalt als auch von unten durch den inneren Jordan Inhalt.
-\label{masstheorie/masstheorie:corollary-30}
+\label{masstheorie/masstheorie:corollary-34}
 \begin{emphBox}{}{}{Corollary 5.1}
 
 
@@ -7428,7 +7524,7 @@ Außerdem gilt, dass die Teilmenge \(A\) genau dann Lebesgue messbar ist, wenn d
 \label{\detokenize{masstheorie/masstheorie:nullmengen}}
 \par
 Eine relevante Klasse von Teilmengen des \(\R^n\) bilden sogenannten \textbf{Lebesgue Nullmengen}.
-\begin{definition}{}{masstheorie/masstheorie:definition-32}
+\begin{definition}{}{masstheorie/masstheorie:definition-36}
 
 
 
@@ -7569,7 +7665,7 @@ ist ein Widerspruch zur Konstruktion.
 Es sei nun \((q_k)_{k\in\N}\) eine Abzählung der rationalen Zahlen und definiere die verschobenen Vitali Mengen
 \begin{align*}
 V_k :=\{x+q_k: x\in V\}.
-\end{align*}\begin{lemma}{}{masstheorie/masstheorie:lemma-34}
+\end{align*}\begin{lemma}{}{masstheorie/masstheorie:lemma-38}
 
 
 
@@ -7633,7 +7729,7 @@ Somit folgt \(x=v+q_k\in V_k\) und daher \(x\in\bigcup_{k\in\N} V_k\).
 
 \par
 Mithilfe einer Vitali Menge können wir nun die \(\sigma\) Additivität des äußeren Lebesgue Maßes zum Widerspruch führen.
-\begin{lemma}{}{masstheorie/masstheorie:lemma-35}
+\begin{lemma}{}{masstheorie/masstheorie:lemma-39}
 
 
 
@@ -7700,7 +7796,7 @@ was ein Widerspruch ist. Daher ist die Annahme der \(\sigma\) Additivität falsc
 \label{\detokenize{masstheorie/masstheorie:das-lebesgue-masze}}
 \par
 Der vorherige Abschnitt zeigt, dass die Potenzmenge \(2^{\R^n}\) zu groß ist, d.h. auf dieser \(\sigma\) Algebra ist \(\lambda^\ast\) kein Maß. Deshalb wollen wir nun eine Klasse messbarer Mengen definieren, welche dann eine kleinere \(\sigma\) Algebra liefert.
-\begin{remark}{(Das Jordan Konzept)}{masstheorie/masstheorie:remark-36}
+\begin{remark}{(Das Jordan Konzept)}{masstheorie/masstheorie:remark-40}
 
 
 
@@ -7766,7 +7862,7 @@ Carathéodory.
 \par
 \href{https://de.wikipedia.org/wiki/Constantin\_Carath\%C3\%A9odory}{Constantin Carathéodory} (Geboren 13. September 1873 in Berlin; Gestorben 2. Februar 1950 in München) war ein Mathematiker griechischer Herkunft.
 \end{emphBox}
-\begin{definition}{}{masstheorie/masstheorie:definition-37}
+\begin{definition}{}{masstheorie/masstheorie:definition-41}
 
 
 
@@ -7785,7 +7881,7 @@ Wir definieren das \textbf{Lebesgue Maß} \(\lambda \colon \mathcal{A} \rightarr
 \begin{align*}
 \lambda(A) = \lambda^*(A).
 \end{align*}\end{definition}
-\begin{remark}{}{masstheorie/masstheorie:remark-38}
+\begin{remark}{}{masstheorie/masstheorie:remark-42}
 
 
 
@@ -7837,7 +7933,7 @@ Folgt aus \cref{masstheorie/masstheorie:thm:outerlebesgue} Eigenschaft 4.
 
 \par
 Weiterhin erhält man über den Begriff der Lebesgue messbarkeit endlich die erhoffte \(\sigma\) Algebra Struktur.
-\begin{lemma}{}{masstheorie/masstheorie:lemma-40}
+\begin{lemma}{}{masstheorie/masstheorie:lemma-44}
 
 
 
@@ -7956,7 +8052,7 @@ Abgeschlossene Mengen sind als Komplemente offener und daher messbarer Mengen, s
 
 \par
 Da wir nun eine \(\sigma\) Algebra zu Verfügung haben können wir ein Maß definieren.
-\begin{definition}{}{masstheorie/masstheorie:definition-42}
+\begin{definition}{}{masstheorie/masstheorie:definition-46}
 
 
 
@@ -7970,7 +8066,7 @@ Wir definieren das Lebesgue Maß \(\lambda^n:\mathcal{A}\to[0,\infty]\) über di
 \par
 ToDo
 \end{emphBox}
-\begin{theorem}{(Regularität des Lebesgue Maßes)}{masstheorie/masstheorie:theorem-43}
+\begin{theorem}{(Regularität des Lebesgue Maßes)}{masstheorie/masstheorie:theorem-47}
 
 
 
@@ -7987,7 +8083,7 @@ Das Lebesgue Maß ist von außen und innen regulär im Sinne von \cref{masstheor
 \begin{proof}
  ToDo.
 \end{proof}
-\begin{theorem}{(Charakterisierung Lebesgue messbarer Mengen)}{masstheorie/masstheorie:theorem-44}
+\begin{theorem}{(Charakterisierung Lebesgue messbarer Mengen)}{masstheorie/masstheorie:theorem-48}
 
 
 
@@ -8017,7 +8113,7 @@ Man kann für die Borel \(\sigma\) Algebra von \(\R^n\) zeigen, dass gilt
 Die letzte Gleichung gilt, da \(\sigma\) Algebren abgeschlossen unter Komplementbildung sind.
 Zusammen mit \cref{masstheorie/masstheorie:thm:lebesgueOffenAbgeschlossen} folgt dann schon, dass die Borel \(\sigma\) Algebra \(\B(\R^n)\) eine Teilmenge der Lebesgue messbaren Mengen ist.
 Der folgende Satz zeigt, dass es eine echte Teilmenge ist indem er den Unterschied der Mengen als Lebesgue Nullmengen charaterisiert.
-\begin{theorem}{}{masstheorie/masstheorie:theorem-45}
+\begin{theorem}{}{masstheorie/masstheorie:theorem-49}
 
 
 
@@ -8289,7 +8385,7 @@ Es sei \(f:\R^n\to\overline{\R}\) eine einfache Funktion, dann ist \(f\) Lebesgu
 
 \par
 Für einfache Funktionen können wir analog zum Riemann Integral das Lebesgue Integral definieren, indem wir das Maß der einzelnen Mengen multipliziert mit den Funktionswerten summieren, welche eine einfache Funktion erzeugen.
-\begin{remark}{(Wohldefiniertheit)}{masstheorie/lebesgue_integral:remark-10}
+\begin{remark}{}{masstheorie/lebesgue_integral:remark-10}
 
 
 
@@ -8848,28 +8944,6 @@ Für eine absteigende Folge von Mengen \(A_i\in\mathcal{C}, A_i\supset A_{i+1}, 
 
 \par
 Offensichtlich ist jede \(\sigma\) Algebra eine monotone Klasse,die Umkehrung dieser Aussage gilt nicht im Allgemeinen.
-Weiterhin arbeiten wir in diesem Kontext zusätzlich mit Mengenalgebren anstatt nur mit Mengenringen.
-\begin{definition}{}{masstheorie/integrationstechnik:definition-14}
-
-
-
-\par
-Es sei \(\mathcal{R}\) ein Mengenring über der Menge \(\Omega\), gilt auch \(\Omega\in\mathcal{R}\), dann nennen wir \(\mathcal{R}\) \textbf{Mengenalgebra}.
-\end{definition}
-\begin{remark}{}{masstheorie/integrationstechnik:remark-15}
-
-
-
-\par
-Für zwei \(\sigma\) Algebren ist das kartesische Produkt \(\Sigma_1\times\Sigma_2\) i.A. keine Mengenalgebra, die Menge
-\begin{align*}
-\Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}
-\end{align*}
-\par
-allerdings schon und sie erzeugt offensichtlich auch die Produkt \(\sigma\) Algebra,
-\begin{align*}
-\sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.
-\end{align*}\end{remark}
 
 \par
 Betrachtet man analog zur kleinsten von \(\mathcal{C}\) erzeugten \(\sigma\) Algebra die kleinste von \(\mathcal{C}\) erzeugt monotone Klasse \(\text{M}\big[\mathcal{C}\big]\) so gilt folgendes hilfreiches Lemma.
@@ -8886,6 +8960,23 @@ Es sei \(\mathcal{C}\) eine Mengenalgebra, dann gilt
 \begin{proof}
  Siehe z.B. \cite{Tao07} Lemma 1.7.14.
 \end{proof}
+\begin{remark}{}{masstheorie/integrationstechnik:remark-15}
+
+
+
+\par
+Für zwei \(\sigma\) Algebren ist das kartesische Produkt \(\Sigma_1\times\Sigma_2\) i.A. keine Mengenalgebra, die Menge
+\begin{align*}
+\Sigma_1\diamond\Sigma_2:= \left\{\bigcup_{i=1}^N A^1_i\times A^2_i: A^1_i\in\Sigma_1, A^2_i\in\Sigma_2\quad i=1,\ldots,n\right\}
+\end{align*}
+\par
+allerdings schon und sie erzeugt offensichtlich auch die Produkt \(\sigma\) Algebra,
+\begin{align*}
+\sigma(\Sigma_1\diamond\Sigma_2) = \Sigma_1\otimes\Sigma_2.
+\end{align*}
+\par
+Diese Tatsache nutzen wir im Folgenden aus, um das Prinzip von Cavalieri zu zeigen.
+\end{remark}
 
 \par
 Mithilfe des monotone Klassen Lemmas und den vorherigen Überlegungen können wir nun das Prinzip von Cavalieri beweisen.
@@ -8948,7 +9039,7 @@ für fast alle \(x\in\R^n\). Die Aussage für \(\lambda^n(E^y)\) folgt analog.
 
 \par
 Diese Korollar erlaubt es uns die Aussage von Cavalieri auf alle Mengen \(E\in \mathcal{A}(\R^{n+m})\) zu verallgemeinern.
-\begin{lemma}{}{masstheorie/integrationstechnik:lemma-19}
+\begin{lemma}{}{masstheorie/integrationstechnik:lemma-18}
 
 
 
@@ -9021,7 +9112,7 @@ r^2\pi.
 
 \par
 Das Volumen einer Kugel in \(n\) Dimensionen lässt sich mithilfe des folgenden Lemmas berechnen.
-\begin{lemma}{}{masstheorie/integrationstechnik:lemma-21}
+\begin{lemma}{}{masstheorie/integrationstechnik:lemma-20}
 
 
 
@@ -9166,14 +9257,14 @@ Hierbei ist man \(\det(D\Phi(x))\) die \textbf{Jacobi Determinante}.
 \begin{proof}
  Siehe z.B. \cite{Bog07} Theorem 3.7.1.
 \end{proof}
-\begin{remark}{}{masstheorie/integrationstechnik:remark-25}
+\begin{remark}{}{masstheorie/integrationstechnik:remark-24}
 
 
 
 \par
 Für \(n=1\) ist diese Regel schon als Substitutionsregel bekannt.
 \end{remark}
-\begin{example}{}{masstheorie/integrationstechnik:example-26}
+\begin{example}{}{masstheorie/integrationstechnik:example-25}
 
 
 
@@ -9747,7 +9838,7 @@ Anstatt allgemeiner offener Teilmengen \(U\subset\C\) zu betrachten schränkt ma
 
 
 \par
-Eine offenen Menge \(U\subset\C\) heißt \textbf{Gebiet}, falls sie zusammenhängend ist, das heißt für zwei Mengen \(A,B\subset U,A\neq\emptyset\neq B\) gilt
+Eine offenen Menge \(U\subset\C\) heißt \textbf{Gebiet}, falls sie zusammenhängend ist, das heißt für zwei in \(U\) offene Mengen \(A,B\subset U,A\neq\emptyset\neq B\) gilt
 \begin{align*}
 A\cap B \neq \emptyset.
 \end{align*}\end{definition}

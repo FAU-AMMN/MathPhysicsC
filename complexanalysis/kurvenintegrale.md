@@ -191,7 +191,7 @@ Nach dem Hauptsatz der Integrations und Differentialrechnung für reelle Funktio
 Anstatt allgemeiner offener Teilmengen $U\subset\C$ zu betrachten schränkt man sich oft auf **Gebiete** ein.
 
 ````{prf:definition}
-Eine offenen Menge $U\subset\C$ heißt **Gebiet**, falls sie zusammenhängend ist, das heißt für zwei Mengen $A,B\subset U,A\neq\emptyset\neq B$ gilt
+Eine offenen Menge $U\subset\C$ heißt **Gebiet**, falls sie zusammenhängend ist, das heißt für zwei in $U$ offene Mengen $A,B\subset U,A\neq\emptyset\neq B$ gilt
 
 ```{math}
 A\cap B \neq \emptyset.

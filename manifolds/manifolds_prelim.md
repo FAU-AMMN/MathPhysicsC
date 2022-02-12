@@ -8,7 +8,7 @@ Als Vorbereitung für {ref}`s:mannigfaltigkeiten` wollen wir von den metrischen 
 Das zentrale Konzept topologischer Räume ist die folgende Definition der *offene Mengen*.
 
 ````{prf:definition} Offene Mengen und topologischer Raum
- Sei $\M$ eine Menge und $\tau \subset \mathcal{P}(M)$ eine Teilmenge der Potenzmenge.
+ Sei $\M$ eine Menge und $\tau \subset 2^\M$ eine Teilmenge der Potenzmenge.
  Wir nennen das Tupel $(\M,\tau)$ **topologischer Raum**, falls die folgenden Eigenschaften erfüllt sind, 
 
 * $\emptyset, \M \in \tau$,
