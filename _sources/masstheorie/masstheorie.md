@@ -15,7 +15,7 @@ Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die M
 Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.
 
 (s:sigmaalg)=
-## $\sigma$-Algebren und Maße
+## Mengensysteme und Maße
 
 Wir betrachten im Folgenden eine beliebige zu Grundmenge $\Omega$, welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von $\Omega$ einen Wert zuordnen weshalb wir die **Potenzmenge** $2^\Omega$ betrachten, welche die Menge aller möglichen Teilmengen von $\Omega$ bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe {prf:ref}`def:mass`) eine spezielle Abbildung $\mu:\Sigma\to[0,\infty]$, wobei $\Sigma\subset 2^\Omega$ ein Mengensystem ist, welches man auch System der $\mu$-messbaren Mengen nennt.
 
@@ -29,10 +29,89 @@ Bei der Konstruktion eines Maßes gibt es zwei teilweise konkurrierende Wünsche
 
 2. Das Maß disjunkt vereinigter Mengen soll gleich der Summe der einzelnen Maße sein.
 
-Der erste Wunsch würde darauf hindeuten die Potenzmenge $2^\Omega$ als System der messbaren Mengen zu betrachten. Allerdings gibt es viele Fälle (siehe {ref}`s:vitali`) in welchen diese Wahl den zweiten Wunsch unmöglich machen. Deshalb ist die Strategie meist ein möglichst großes Teilmengensystem zu finden, s.d. der zweite Wunsch erfüllbar ist. Die Klasse von Systemen auf der wir im Folgenden arbeiten werden, sind sogenannte $\sigma$-Algebren.
+Der erste Wunsch würde darauf hindeuten die Potenzmenge $2^\Omega$ als System der messbaren Mengen zu betrachten. Allerdings gibt es viele Fälle (siehe {ref}`s:vitali`) in welchen diese Wahl den zweiten Wunsch unmöglich machen. Deshalb ist die Strategie meist ein möglichst großes Teilmengensystem zu finden, s.d. der zweite Wunsch erfüllbar ist. Man steht also vor dem Problem geeignete Klassen von Mengensystemen zu betrachten.
+
+Beginnt man also Minimalanforderungen an das System zu stellen führt das zunächst auf den Begriff eines Mengenrings.
+
+````{prf:definition} Mengenring
+:label: def:ring
+
+Ein Mengensystem $\mathcal{R} \subset 2^{\Omega}$ heißt **Mengen-Ring** (im maßtheoretischen Sinne) auf einer Menge $\Omega$, falls die folgenden Eigenschaften erfüllt sind:
+
+1. $\emptyset \in \mathcal{R}$
+2. $A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}$
+3. $A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}$
+````
+
+Ein Mengenring hat zusätzlich folgende Eigenschaften, wobei wir für zwei Mengen $A,B$ mit
+
+```{math}
+A\triangle B := (A\setminus B)\cup (B\setminus A)
+```
+
+die symmetrische Differenz bezeichnen.
+
+````{prf:lemma}
+Es sei $\mathcal{R}$ ein Mengenring, dann gilt
+
+1. $A,B \in \mathcal{R} \Rightarrow (A \cap B) \in \mathcal{R}$
+
+2. $A,B \in \mathcal{R} \Rightarrow (A \triangle B) \in \mathcal{R}$
+````
+
+````{prf:proof}
+Die zweite Eigenschaft folgt direkt per Definition. Die erste Eigenschaft gilt, da
+
+```{math}
+A\cap B = A\setminus (A\setminus B).
+```
+````
+
+````{prf:remark} Der Begriff Ring
+Aus der Algebra kennt man die Definition, dass die Struktur $(F,+,\cdot)$ **Ring** heißt, falls 
+
+* $(F,+)$ eine abelsche Gruppe ist,
+
+* $(F,\cdot)$ eine Halbgruppe ist,
+
+* die Distributivgesetze gelten.
+
+Betrachten wir für einen Mengenring $\mathcal{R}$ die Struktur $(\mathcal{R}, \triangle, \cap)$ so fällt auf, dass $(\mathcal{R},\triangle)$ eine abelsche Gruppe mit Nullelement $\emptyset$ ist. Insbesondere gilt $A\triangle A=\emptyset$ und somit existieren auch inverse Elemente. Weiterhin sind Mengenschnitte assoziativ und daher ist $(\mathcal{R}, \cap)$ eine Halbgruppe. Somit bildet $(\mathcal{R},\triangle,\cap)$ einen Ring mit neutralem Element $\emptyset$, insbesondere ist er kommutativ. 
+
+````
+
+Zwar erlaubt ein Mengenring die wichtigsten (endlichen) Mengenoperationen, es fällt aber schnell auf, dass die Grundmenge $\Omega$ nicht zwangsweise in einem Mengenring enthalten sein. In vielen Fällen will man dies aber sicherstellen, was auf folgenden Begriff führt.
+
+````{prf:definition}
+Es sei $\mathcal{R}$ ein Mengenring über der Menge $\Omega$, gilt auch $\Omega\in\mathcal{R}$, dann nennen wir $\mathcal{R}$ **Mengenalgebra**.
+````
+
+````{prf:remark} Der Begriff Algebra
+Eine Algebra über einem Körper $\K$ ist ein $\K$-Vektorraum $V$ zusammen mit einer bilinearen Abbildung
+
+```{math}
+\cdot:V\times V&\to \V,\\
+(x,y)&\mapsto x\cdot y.
+```
+
+Man beachte, dass das Symbol $\cdot$ hier nun doppelt verwendet wird, einmal für die Skalarmultiplikation von $V$ über $\K$ und für die Multiplikation in $V$.
+
+Eine Verallgemeinerung besteht hier darin keinen Vektorraum $V$ zu betrachten sondern ein $F$-Modul über einen kommutativen Ring $(F,+,\cdot)$. Hier erhält man nun, dass jeder kommutative Ring $F$ mit einem Einselement eine Algebra über sich selbst ist, wobei die bilineare Abbildung
+
+```{math}
+\cdot:F\times F\to F
+```
+
+gerade durch das Produkt auf dem Ring $F$ gegeben ist. 
+
+Für den Mengenring $(\mathcal{R},\triangle, \cap)$ ist die Grundmenge $\Omega$ das neutrale Element der Multiplikation $\cap$ und daher gilt, falls $\Omega\in\mathcal{R}$, dass $(\mathcal{R},\triangle, \cap)$ ein kommutativer Ring mit Eins und daher eine Algebra über sich selbst ist.
+````
+
+Die bisher betrachteten System erlauben lediglich endliche Mengenoperationen. Wir benötigen im Folgenden aber auch abzählbare Mengenoperationen, und definieren daher sogenannte $\sigma$-Algebren.
 
 ````{prf:definition} $\sigma$-Algebra und Messraum
 :label: def:sigmaalgebra
+
 Ein Mengensystem $\Sigma \subseteq 2^\Omega$ heißt **$\sigma$-Algebra (von $\Omega$)**, wenn die folgenden Eigenschaften erfüllt sind
 
 1. $\Omega\in \Sigma$
@@ -373,17 +452,7 @@ und für jedes $i\in\{1,\ldots,n\}$ gilt
 ```
 ````
 
-Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen sogenannten Mengen-Ring.
-
-````{prf:definition} Ring
-:label: def:ring
-
-Ein Mengensystem $\mathcal{R} \subset 2^{\Omega}$ heißt **Mengen-Ring** (im maßtheoretischen Sinne) auf einer Menge $\Omega$, falls die folgenden Eigenschaften erfüllt sind:
-
-1. $\emptyset \in \mathcal{R}$
-2. $A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}$
-3. $A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}$
-````
+Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen Mengen-Ring.
 
 ````{prf:lemma} Der von halboffenen Quadern erzeugte Ring
 Das System der halboffenen Quadern $\mathcal{R}_{\text{Q}}$ bildet einen Mengenring.

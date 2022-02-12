@@ -398,12 +398,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sigma-algebren-und-masze">
-   5.1.1.
-   <span class="math notranslate nohighlight">
-    \(\sigma\)
-   </span>
-   -Algebren und Maße
+  <a class="reference internal nav-link" href="#mengensysteme-und-masze">
+   5.1.1. Mengensysteme und Maße
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -481,12 +477,8 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sigma-algebren-und-masze">
-   5.1.1.
-   <span class="math notranslate nohighlight">
-    \(\sigma\)
-   </span>
-   -Algebren und Maße
+  <a class="reference internal nav-link" href="#mengensysteme-und-masze">
+   5.1.1. Mengensysteme und Maße
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -562,9 +554,9 @@ Die hier beschriebenen Werkzeuge werden uns im nächsten Kapitel bei der Einfüh
 <p>Hierbei soll das Maß <span class="math notranslate nohighlight">\(\mu\)</span> natürlich mit dem Volumen der Teilmenge <span class="math notranslate nohighlight">\(A\)</span> zusammenhängen.
 Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die Menge <span class="math notranslate nohighlight">\(\Omega\)</span> schon der gesamte <span class="math notranslate nohighlight">\(\R^n\)</span> ist.</p>
 <p>Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.</p>
-<div class="section" id="sigma-algebren-und-masze">
-<span id="s-sigmaalg"></span><h2><span class="section-number">5.1.1. </span><span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren und Maße<a class="headerlink" href="#sigma-algebren-und-masze" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Wir betrachten im Folgenden eine beliebige zu Grundmenge <span class="math notranslate nohighlight">\(\Omega\)</span>, welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von <span class="math notranslate nohighlight">\(\Omega\)</span> einen Wert zuordnen weshalb wir die <strong>Potenzmenge</strong> <span class="math notranslate nohighlight">\(2^\Omega\)</span> betrachten, welche die Menge aller möglichen Teilmengen von <span class="math notranslate nohighlight">\(\Omega\)</span> bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe <a class="reference internal" href="#def:mass">Definition 5.3</a>) eine spezielle Abbildung <span class="math notranslate nohighlight">\(\mu:\Sigma\to[0,\infty]\)</span>, wobei <span class="math notranslate nohighlight">\(\Sigma\subset 2^\Omega\)</span> ein Mengensystem ist, welches man auch System der <span class="math notranslate nohighlight">\(\mu\)</span>-messbaren Mengen nennt.</p>
+<div class="section" id="mengensysteme-und-masze">
+<span id="s-sigmaalg"></span><h2><span class="section-number">5.1.1. </span>Mengensysteme und Maße<a class="headerlink" href="#mengensysteme-und-masze" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Wir betrachten im Folgenden eine beliebige zu Grundmenge <span class="math notranslate nohighlight">\(\Omega\)</span>, welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von <span class="math notranslate nohighlight">\(\Omega\)</span> einen Wert zuordnen weshalb wir die <strong>Potenzmenge</strong> <span class="math notranslate nohighlight">\(2^\Omega\)</span> betrachten, welche die Menge aller möglichen Teilmengen von <span class="math notranslate nohighlight">\(\Omega\)</span> bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe <a class="reference internal" href="#def:mass">Definition 5.5</a>) eine spezielle Abbildung <span class="math notranslate nohighlight">\(\mu:\Sigma\to[0,\infty]\)</span>, wobei <span class="math notranslate nohighlight">\(\Sigma\subset 2^\Omega\)</span> ein Mengensystem ist, welches man auch System der <span class="math notranslate nohighlight">\(\mu\)</span>-messbaren Mengen nennt.</p>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
 <p>Mengen von Mengen nennen wir häufig auch <em>Mengensysteme</em>.</p>
@@ -574,9 +566,70 @@ Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die M
 <li><p>Möglichst vielen Mengen soll ein Volumen zugeordnet werden können, d.h., <span class="math notranslate nohighlight">\(\Sigma\)</span> soll groß sein.</p></li>
 <li><p>Das Maß disjunkt vereinigter Mengen soll gleich der Summe der einzelnen Maße sein.</p></li>
 </ol>
-<p>Der erste Wunsch würde darauf hindeuten die Potenzmenge <span class="math notranslate nohighlight">\(2^\Omega\)</span> als System der messbaren Mengen zu betrachten. Allerdings gibt es viele Fälle (siehe <a class="reference internal" href="#s-vitali"><span class="std std-ref">Das äußere Maß ist kein Maß</span></a>) in welchen diese Wahl den zweiten Wunsch unmöglich machen. Deshalb ist die Strategie meist ein möglichst großes Teilmengensystem zu finden, s.d. der zweite Wunsch erfüllbar ist. Die Klasse von Systemen auf der wir im Folgenden arbeiten werden, sind sogenannte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren.</p>
+<p>Der erste Wunsch würde darauf hindeuten die Potenzmenge <span class="math notranslate nohighlight">\(2^\Omega\)</span> als System der messbaren Mengen zu betrachten. Allerdings gibt es viele Fälle (siehe <a class="reference internal" href="#s-vitali"><span class="std std-ref">Das äußere Maß ist kein Maß</span></a>) in welchen diese Wahl den zweiten Wunsch unmöglich machen. Deshalb ist die Strategie meist ein möglichst großes Teilmengensystem zu finden, s.d. der zweite Wunsch erfüllbar ist. Man steht also vor dem Problem geeignete Klassen von Mengensystemen zu betrachten.</p>
+<p>Beginnt man also Minimalanforderungen an das System zu stellen führt das zunächst auf den Begriff eines Mengenrings.</p>
+<div class="proof definition admonition" id="def:ring">
+<p class="admonition-title"><span class="caption-number">Definition 5.1 </span> (Mengenring)</p>
+<div class="definition-content section" id="proof-content">
+<p>Ein Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R} \subset 2^{\Omega}\)</span> heißt <strong>Mengen-Ring</strong> (im maßtheoretischen Sinne) auf einer Menge <span class="math notranslate nohighlight">\(\Omega\)</span>, falls die folgenden Eigenschaften erfüllt sind:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\emptyset \in \mathcal{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}\)</span></p></li>
+</ol>
+</div>
+</div><p>Ein Mengenring hat zusätzlich folgende Eigenschaften, wobei wir für zwei Mengen <span class="math notranslate nohighlight">\(A,B\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[A\triangle B := (A\setminus B)\cup (B\setminus A)\]</div>
+<p>die symmetrische Differenz bezeichnen.</p>
+<div class="proof lemma admonition" id="lemma-1">
+<p class="admonition-title"><span class="caption-number">Lemma 5.1 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> ein Mengenring, dann gilt</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(A,B \in \mathcal{R} \Rightarrow (A \cap B) \in \mathcal{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A,B \in \mathcal{R} \Rightarrow (A \triangle B) \in \mathcal{R}\)</span></p></li>
+</ol>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Die zweite Eigenschaft folgt direkt per Definition. Die erste Eigenschaft gilt, da</p>
+<div class="math notranslate nohighlight">
+\[A\cap B = A\setminus (A\setminus B).\]</div>
+</div>
+<div class="proof remark admonition" id="remark-2">
+<p class="admonition-title"><span class="caption-number">Remark 5.1 </span> (Der Begriff Ring)</p>
+<div class="remark-content section" id="proof-content">
+<p>Aus der Algebra kennt man die Definition, dass die Struktur <span class="math notranslate nohighlight">\((F,+,\cdot)\)</span> <strong>Ring</strong> heißt, falls</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((F,+)\)</span> eine abelsche Gruppe ist,</p></li>
+<li><p><span class="math notranslate nohighlight">\((F,\cdot)\)</span> eine Halbgruppe ist,</p></li>
+<li><p>die Distributivgesetze gelten.</p></li>
+</ul>
+<p>Betrachten wir für einen Mengenring <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> die Struktur <span class="math notranslate nohighlight">\((\mathcal{R}, \triangle, \cap)\)</span> so fällt auf, dass <span class="math notranslate nohighlight">\((\mathcal{R},\triangle)\)</span> eine abelsche Gruppe mit Nullelement <span class="math notranslate nohighlight">\(\emptyset\)</span> ist. Insbesondere gilt <span class="math notranslate nohighlight">\(A\triangle A=\emptyset\)</span> und somit existieren auch inverse Elemente. Weiterhin sind Mengenschnitte assoziativ und daher ist <span class="math notranslate nohighlight">\((\mathcal{R}, \cap)\)</span> eine Halbgruppe. Somit bildet <span class="math notranslate nohighlight">\((\mathcal{R},\triangle,\cap)\)</span> einen Ring mit neutralem Element <span class="math notranslate nohighlight">\(\emptyset\)</span>, insbesondere ist er kommutativ.</p>
+</div>
+</div><p>Zwar erlaubt ein Mengenring die wichtigsten (endlichen) Mengenoperationen, es fällt aber schnell auf, dass die Grundmenge <span class="math notranslate nohighlight">\(\Omega\)</span> nicht zwangsweise in einem Mengenring enthalten sein. In vielen Fällen will man dies aber sicherstellen, was auf folgenden Begriff führt.</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 5.2 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> ein Mengenring über der Menge <span class="math notranslate nohighlight">\(\Omega\)</span>, gilt auch <span class="math notranslate nohighlight">\(\Omega\in\mathcal{R}\)</span>, dann nennen wir <span class="math notranslate nohighlight">\(\mathcal{R}\)</span> <strong>Mengenalgebra</strong>.</p>
+</div>
+</div><div class="proof remark admonition" id="remark-4">
+<p class="admonition-title"><span class="caption-number">Remark 5.2 </span> (Der Begriff Algebra)</p>
+<div class="remark-content section" id="proof-content">
+<p>Eine Algebra über einem Körper <span class="math notranslate nohighlight">\(\K\)</span> ist ein <span class="math notranslate nohighlight">\(\K\)</span>-Vektorraum <span class="math notranslate nohighlight">\(V\)</span> zusammen mit einer bilinearen Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\cdot:V\times V&amp;\to \V,\\
+(x,y)&amp;\mapsto x\cdot y.\end{split}\]</div>
+<p>Man beachte, dass das Symbol <span class="math notranslate nohighlight">\(\cdot\)</span> hier nun doppelt verwendet wird, einmal für die Skalarmultiplikation von <span class="math notranslate nohighlight">\(V\)</span> über <span class="math notranslate nohighlight">\(\K\)</span> und für die Multiplikation in <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<p>Eine Verallgemeinerung besteht hier darin keinen Vektorraum <span class="math notranslate nohighlight">\(V\)</span> zu betrachten sondern ein <span class="math notranslate nohighlight">\(F\)</span>-Modul über einen kommutativen Ring <span class="math notranslate nohighlight">\((F,+,\cdot)\)</span>. Hier erhält man nun, dass jeder kommutative Ring <span class="math notranslate nohighlight">\(F\)</span> mit einem Einselement eine Algebra über sich selbst ist, wobei die bilineare Abbildung</p>
+<div class="math notranslate nohighlight">
+\[\cdot:F\times F\to F\]</div>
+<p>gerade durch das Produkt auf dem Ring <span class="math notranslate nohighlight">\(F\)</span> gegeben ist.</p>
+<p>Für den Mengenring <span class="math notranslate nohighlight">\((\mathcal{R},\triangle, \cap)\)</span> ist die Grundmenge <span class="math notranslate nohighlight">\(\Omega\)</span> das neutrale Element der Multiplikation <span class="math notranslate nohighlight">\(\cap\)</span> und daher gilt, falls <span class="math notranslate nohighlight">\(\Omega\in\mathcal{R}\)</span>, dass <span class="math notranslate nohighlight">\((\mathcal{R},\triangle, \cap)\)</span> ein kommutativer Ring mit Eins und daher eine Algebra über sich selbst ist.</p>
+</div>
+</div><p>Die bisher betrachteten System erlauben lediglich endliche Mengenoperationen. Wir benötigen im Folgenden aber auch abzählbare Mengenoperationen, und definieren daher sogenannte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren.</p>
 <div class="proof definition admonition" id="def:sigmaalgebra">
-<p class="admonition-title"><span class="caption-number">Definition 5.1 </span> (<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und Messraum)</p>
+<p class="admonition-title"><span class="caption-number">Definition 5.3 </span> (<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und Messraum)</p>
 <div class="definition-content section" id="proof-content">
 <p>Ein Mengensystem <span class="math notranslate nohighlight">\(\Sigma \subseteq 2^\Omega\)</span> heißt <strong><span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra (von <span class="math notranslate nohighlight">\(\Omega\)</span>)</strong>, wenn die folgenden Eigenschaften erfüllt sind</p>
 <ol class="simple">
@@ -586,10 +639,10 @@ Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die M
 </ol>
 <p>Für eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\Sigma \subseteq \mathcal{P}(\Omega)\)</span> von <span class="math notranslate nohighlight">\(\Omega\)</span> nennen wir das Paar (<span class="math notranslate nohighlight">\(\Omega,\Sigma\)</span>) <strong>Messraum</strong> und die Mengen des Mengensystems <span class="math notranslate nohighlight">\(\Sigma\)</span> heißen <strong>messbar</strong>.</p>
 </div>
-</div><p>Das Symbol <span class="math notranslate nohighlight">\(\sigma\)</span> erinnert an den Begriff der Summe, insbesondere wegen der dritten Eigenschaft in <a class="reference internal" href="#def:sigmaalgebra">Definition 5.1</a>, also der Abgeschlossenheit unter abzählbarer Vereinigung von Teilmengen.
+</div><p>Das Symbol <span class="math notranslate nohighlight">\(\sigma\)</span> erinnert an den Begriff der Summe, insbesondere wegen der dritten Eigenschaft in <a class="reference internal" href="#def:sigmaalgebra">Definition 5.3</a>, also der Abgeschlossenheit unter abzählbarer Vereinigung von Teilmengen.
 Aus diesen drei Eigenschaften lässt sich auch direkt zeigen, dass <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren ebenfalls unter <em>abzählbaren Schnitten</em> abgeschlossen sind, wie das folgende Lemma zeigt.</p>
-<div class="proof lemma admonition" id="lemma-1">
-<p class="admonition-title"><span class="caption-number">Lemma 5.1 </span> (Abgeschlossenheit unter abzählbaren Schnitten)</p>
+<div class="proof lemma admonition" id="lemma-6">
+<p class="admonition-title"><span class="caption-number">Lemma 5.2 </span> (Abgeschlossenheit unter abzählbaren Schnitten)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei (<span class="math notranslate nohighlight">\(\Omega,\Sigma\)</span>) ein Messraum und es sei <span class="math notranslate nohighlight">\((A_i)_{i\in_\N}\)</span> eine Familie von Elementen der <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\Sigma\)</span> mit <span class="math notranslate nohighlight">\(A_i \in \Sigma\)</span> für <span class="math notranslate nohighlight">\(i \in \N\)</span>.
 Dann sind abzählbare Schnitte dieser Mengen auch Elemente der <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\Sigma\)</span>, d.h.,</p>
@@ -601,11 +654,11 @@ Dann sind abzählbare Schnitte dieser Mengen auch Elemente der <span class="math
 <div class="math notranslate nohighlight">
 \[A_1\cap A_2 = (A_1^C\cup A_2^C)^C \in \Sigma.\]</div>
 </div>
-<p>Aus der <a class="reference internal" href="#def:sigmaalgebra">Definition 5.1</a> kann man sich leicht zwei Spezialfälle von <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren überlegen.
+<p>Aus der <a class="reference internal" href="#def:sigmaalgebra">Definition 5.3</a> kann man sich leicht zwei Spezialfälle von <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren überlegen.
 Es wird klar, dass das Mengensystem <span class="math notranslate nohighlight">\(\{\emptyset, \Omega\}\)</span> die kleinstmögliche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra bildet, wohingegen die Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span> die größtmögliche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra darstellt.</p>
 <p>Für ein beliebiges Mengensystem <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> können wir zusätzlich die erzeugt <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra betrachten, welche die kleinste <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra ist die <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> enthält.</p>
-<div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 5.2 </span> (Erzeugte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra)</p>
+<div class="proof definition admonition" id="definition-7">
+<p class="admonition-title"><span class="caption-number">Definition 5.4 </span> (Erzeugte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> ein Mengensystem, dann bezeichnen wir mit</p>
 <div class="math notranslate nohighlight">
@@ -613,8 +666,8 @@ Es wird klar, dass das Mengensystem <span class="math notranslate nohighlight">\
 <p>die von <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> erzeugte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra.</p>
 </div>
 </div><p>Für die erzeugt <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra, haben wir folgende Eigenschaften.</p>
-<div class="proof lemma admonition" id="lemma-3">
-<p class="admonition-title"><span class="caption-number">Lemma 5.2 </span></p>
+<div class="proof lemma admonition" id="lemma-8">
+<p class="admonition-title"><span class="caption-number">Lemma 5.3 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> ein Mengensystem, dann gilt</p>
 <ol class="simple">
@@ -631,7 +684,7 @@ Es wird klar, dass das Mengensystem <span class="math notranslate nohighlight">\
 <h2><span class="section-number">5.1.2. </span>Maße<a class="headerlink" href="#masze" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Basierend auf dem Begriff einer <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und eines Messraums können wir nun formal einführen, was wir unter einem Maß verstehen.</p>
 <div class="proof definition admonition" id="def:mass">
-<p class="admonition-title"><span class="caption-number">Definition 5.3 </span> (Maß und Maßraum)</p>
+<p class="admonition-title"><span class="caption-number">Definition 5.5 </span> (Maß und Maßraum)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\((\Omega, \Sigma)\)</span> ein Messraum.
 Wir nennen eine Abbildung <span class="math notranslate nohighlight">\(\mu: \Sigma\to [0, \infty]\)</span> <strong>Maß</strong>, wenn die folgenden beiden Eigenschaften erfüllt sind.</p>
@@ -645,15 +698,15 @@ Wir nennen eine Abbildung <span class="math notranslate nohighlight">\(\mu: \Sig
 Das Tripel <span class="math notranslate nohighlight">\((\Omega, \Sigma, \mu)\)</span> wird als <strong>Maßraum</strong> bezeichnet.</p>
 </div>
 </div><div class="proof remark admonition" id="rem:wahrscheinlichkeitsmass">
-<p class="admonition-title"><span class="caption-number">Remark 5.1 </span></p>
+<p class="admonition-title"><span class="caption-number">Remark 5.3 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Maße spielen insbesondere in der <em>Wahrscheinlichkeitstheorie</em> eine zentrale Rolle, um die Wahrscheinlichkeit von Ereignismengen anzugeben.
 Dabei wird nicht nur gefordert, dass das Maß <span class="math notranslate nohighlight">\(\mu\)</span> endlich sein muss, sondern dass sogar <span class="math notranslate nohighlight">\(\mu(\Omega)=1\)</span> gilt, damit es sich um ein <strong>Wahrscheinlichkeitsmaß</strong> handelt.
 Diese finden vor allem in der Quantenmechanik Anwendung.</p>
 </div>
 </div><p>Aus den beiden grundlegenden Eigenschaften eines Maßes lassen sich weitere nützliche Eigenschaften herleiten, wie das folgende Lemma beschreibt.</p>
-<div class="proof lemma admonition" id="lemma-6">
-<p class="admonition-title"><span class="caption-number">Lemma 5.3 </span> (Eigenschaften von Maßen)</p>
+<div class="proof lemma admonition" id="lemma-11">
+<p class="admonition-title"><span class="caption-number">Lemma 5.4 </span> (Eigenschaften von Maßen)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\((\Omega, \Sigma, \mu)\)</span> ein Maßraum.
 Dann gelten die folgenden Eigenschaften für das Maß <span class="math notranslate nohighlight">\(\mu \colon \Sigma \rightarrow [0,\infty]\)</span>.</p>
@@ -671,7 +724,7 @@ Dann gelten die folgenden Eigenschaften für das Maß <span class="math notransl
 <p>Proof. In der Hausaufgabe zu zeigen.</p>
 </div>
 <p>Im Folgenden wollen wir ein paar Beispiele von geläufigen Maßen diskutieren.</p>
-<div class="proof example admonition" id="example-7">
+<div class="proof example admonition" id="example-12">
 <p class="admonition-title"><span class="caption-number">Example 5.2 </span> (Maße)</p>
 <div class="example-content section" id="proof-content">
 <p>Wichtige Maße in der Mathematik und Physik sind beispielsweise die folgenden.</p>
@@ -694,12 +747,12 @@ Auch das dafür benutzte Maß <span class="math notranslate nohighlight">\(\mu_d
 Entsprechend hat aber für <span class="math notranslate nohighlight">\(d&lt;n\)</span> der Einheitswürfel das Maß <span class="math notranslate nohighlight">\(\mu_d([0,1]^n)=\infty\)</span>.</p>
 <p>5. Man kann sogar sogenannte <a class="reference external" href="https://de.wikipedia.org/wiki/Hausdorff-Ma%c3%9f"><strong>Hausdorff-Maße</strong></a> <span class="math notranslate nohighlight">\(\mu_d\)</span> konstruieren, die Mengen beliebiger fraktaler Dimension <span class="math notranslate nohighlight">\(d\in[0,n]\)</span> messen.
 Genau genommen <em>definiert</em> man hierbei die Dimension der Menge <span class="math notranslate nohighlight">\(A\subset \R^n\)</span> durch <span class="math notranslate nohighlight">\(d(A):=\inf\{d'&gt;0\mid \mu_{d'}(A)=0\}.\)</span></p>
-<p>6. Im Zusammenhang mit dem sogenannten Feynmanschen <a class="reference external" href="https://de.wikipedia.org/wiki/Pfadintegral"><strong>Pfadintegral</strong></a> der Quantenmechanik wird auf dem unendlich-dimensionalen Raum <span class="math notranslate nohighlight">\(\Omega\)</span> der Weg zwischen zwei Punkten des Konfigurationsraumes <span class="math notranslate nohighlight">\(\R^d\)</span> ein <em>Wahrscheinlichkeitsmaß</em> (siehe <a class="reference internal" href="#rem:wahrscheinlichkeitsmass">Remark 5.1</a>) definiert.
+<p>6. Im Zusammenhang mit dem sogenannten Feynmanschen <a class="reference external" href="https://de.wikipedia.org/wiki/Pfadintegral"><strong>Pfadintegral</strong></a> der Quantenmechanik wird auf dem unendlich-dimensionalen Raum <span class="math notranslate nohighlight">\(\Omega\)</span> der Weg zwischen zwei Punkten des Konfigurationsraumes <span class="math notranslate nohighlight">\(\R^d\)</span> ein <em>Wahrscheinlichkeitsmaß</em> (siehe <a class="reference internal" href="#rem:wahrscheinlichkeitsmass">Remark 5.3</a>) definiert.
 Dabei erhalten Pfade, die in der Nähe von Lösungskurven der DGL der Klassischen Mechanik sind, ein größeres Gewicht als beliebige Pfade.</p>
 </div>
 </div><p>Eine sehr nützliche Eigenschaft von gewissen Maßen auf topologischen Räumen ist die der Regularität, welche wir im Folgenden definieren wollen.</p>
 <div class="proof definition admonition" id="def:regularitaet">
-<p class="admonition-title"><span class="caption-number">Definition 5.4 </span> (Regularität von Maßen)</p>
+<p class="admonition-title"><span class="caption-number">Definition 5.6 </span> (Regularität von Maßen)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\((\Omega, \tau)\)</span> ein topologischer Raum und <span class="math notranslate nohighlight">\((\Omega, \Sigma, \mu)\)</span> ein entsprechender Maßraum auf <span class="math notranslate nohighlight">\(\Omega\)</span>, so dass gilt <span class="math notranslate nohighlight">\(\tau \subset \Sigma\)</span>.
 Dann können wir die Regulariät des Maßes <span class="math notranslate nohighlight">\(\mu\)</span> wie folgt definieren.</p>
@@ -716,31 +769,31 @@ Dann können wir die Regulariät des Maßes <span class="math notranslate nohigh
 <p class="sidebar-title"></p>
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/%C3%89mile_Borel">Émile Borel</a> (geboren am 7. Januar 1871 in Saint-Affrique; gestorben am 3. Februar 1956 in Paris) war ein französischer Mathematiker und Politiker.</p>
 </div>
-<div class="proof definition admonition" id="definition-9">
-<p class="admonition-title"><span class="caption-number">Definition 5.5 </span> (Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra)</p>
+<div class="proof definition admonition" id="definition-14">
+<p class="admonition-title"><span class="caption-number">Definition 5.7 </span> (Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra)</p>
 <div class="definition-content section" id="proof-content">
 <p>Die <strong>Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra</strong> auf einem topologischen Raum <span class="math notranslate nohighlight">\((\Omega, \tau)\)</span> ist die von <span class="math notranslate nohighlight">\(\tau\)</span> erzeugte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra,</p>
 <div class="math notranslate nohighlight">
 \[\B(\Omega) := \sigma(\tau).\]</div>
 </div>
-</div><div class="proof remark admonition" id="remark-10">
-<p class="admonition-title"><span class="caption-number">Remark 5.2 </span> (Borelsche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra von <span class="math notranslate nohighlight">\(\R\)</span>)</p>
+</div><div class="proof remark admonition" id="remark-15">
+<p class="admonition-title"><span class="caption-number">Remark 5.4 </span> (Borelsche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra von <span class="math notranslate nohighlight">\(\R\)</span>)</p>
 <div class="remark-content section" id="proof-content">
 <p>Wir bemerken, dass die Borelsche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra von <span class="math notranslate nohighlight">\(\R\)</span> <strong>nicht</strong> alle Teilmengen von <span class="math notranslate nohighlight">\(\R\)</span> enthält.
 Es lässt sich sogar zeigen, dass die borelsche <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra von <span class="math notranslate nohighlight">\(\R\)</span> gleichmächtig zu <span class="math notranslate nohighlight">\(\R\)</span> ist, während die Potenzmenge <span class="math notranslate nohighlight">\(2^\R\)</span> eine echt größere Mächtigkeit als <span class="math notranslate nohighlight">\(\R\)</span> besitzt.</p>
 </div>
 </div><p>Man erkennt an der Notaion, dass die Topologie <span class="math notranslate nohighlight">\(\tau\)</span> meist unterschlagen wird. Man spricht meist auch vom topologischen Raum <span class="math notranslate nohighlight">\(\Omega\)</span> ohne <span class="math notranslate nohighlight">\(\tau\)</span> zu nennen.
 Ein Maß auf dieser <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra nennen wir auch <strong>Borel-Maß</strong>.</p>
-<div class="proof definition admonition" id="definition-11">
-<p class="admonition-title"><span class="caption-number">Definition 5.6 </span></p>
+<div class="proof definition admonition" id="definition-16">
+<p class="admonition-title"><span class="caption-number">Definition 5.8 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\Omega\)</span> ein topologischer Raum, dann heißt ein Maß <span class="math notranslate nohighlight">\(\mu\)</span> auf <span class="math notranslate nohighlight">\(\B(\Omega)\)</span> Borel-Maß.</p>
 </div>
 </div><div class="section" id="erzeugte-topologien">
 <span id="s-gentop"></span><h3><span class="section-number">5.1.3.1. </span>Erzeugte Topologien<a class="headerlink" href="#erzeugte-topologien" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Das Konzept der erzeugten <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra lässt sich auch auf Topologien übertragen. Hierbei betrachtet man meist eine sogenannte Basis einer Topologie.</p>
-<div class="proof definition admonition" id="definition-12">
-<p class="admonition-title"><span class="caption-number">Definition 5.7 </span></p>
+<div class="proof definition admonition" id="definition-17">
+<p class="admonition-title"><span class="caption-number">Definition 5.9 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\((\Omega,\tau)\)</span> ein topologischer Raum, ein System <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> heißt Basis für <span class="math notranslate nohighlight">\(\tau\)</span>, falls für jede Menge <span class="math notranslate nohighlight">\(U\in\tau\)</span> Teilmengen aus <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> existieren, <span class="math notranslate nohighlight">\(J\subset\mathcal{C}\)</span>, s.d.,</p>
 <div class="math notranslate nohighlight">
@@ -749,7 +802,7 @@ Ein Maß auf dieser <span class="math notranslate nohighlight">\(\sigma\)</span>
 </div>
 </div><p>Besonders relevant sind für uns die Mengensysteme, welche die kanonische Topologie für <span class="math notranslate nohighlight">\(\R\)</span> erzeugt. Hierbei wissen wir, dass alle offene <em>Intervalle</em> der Form <span class="math notranslate nohighlight">\((a,b)\subset \R\)</span>, sowie alle Intervalle der Form <span class="math notranslate nohighlight">\((-\infty, b)\)</span> und <span class="math notranslate nohighlight">\((a, \infty)\)</span> die euklidische Topologie in <span class="math notranslate nohighlight">\(\R\)</span> erzeugen. Wir betrachten weiterhin ein derartiges Mengenssystem bestehend aus Intervallen, welche die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra erzeugt.</p>
 <div class="proof lemma admonition" id="lem:genborel">
-<p class="admonition-title"><span class="caption-number">Lemma 5.4 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.5 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es sei</p>
 <div class="math notranslate nohighlight">
@@ -760,8 +813,8 @@ Ein Maß auf dieser <span class="math notranslate nohighlight">\(\sigma\)</span>
 <div class="section" id="eigenschaften-von-borel-maszen">
 <h3><span class="section-number">5.1.3.2. </span>Eigenschaften von Borel-Maßen<a class="headerlink" href="#eigenschaften-von-borel-maszen" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Für spezielle topologische Räume lässt sich eine wichtige Eigenschaft von Maßen über die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra definieren.</p>
-<div class="proof definition admonition" id="definition-14">
-<p class="admonition-title"><span class="caption-number">Definition 5.8 </span> (Lokale Endlichkeit von Maßen)</p>
+<div class="proof definition admonition" id="definition-19">
+<p class="admonition-title"><span class="caption-number">Definition 5.10 </span> (Lokale Endlichkeit von Maßen)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\((\Omega, \tau)\)</span> ein Haussdorf-Raum (siehe <a class="reference internal" href="../manifolds/manifolds_prelim.html#def:hausdorffraum">Definition 4.8</a>) und sei <span class="math notranslate nohighlight">\(\B(\Omega) = \sigma(\tau)\)</span> die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra, die durch <span class="math notranslate nohighlight">\(\tau\)</span> erzeugt wird.
 Wir nennen ein Maß <span class="math notranslate nohighlight">\(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\)</span> <strong>lokal endlich</strong>, falls jeder Punkt <span class="math notranslate nohighlight">\(x \in \Omega\)</span> eine lokale Umgebung mit endlichem Maß besitzt.</p>
@@ -769,8 +822,8 @@ Wir nennen ein Maß <span class="math notranslate nohighlight">\(\sigma \colon \
 </div><p>Die lokale Endlichkeit ist essentiell bei der Untersuchung von Maßen auf topologischen Räumen, weil sie für jeden Punkt die Existenz einer Umgebung mit endlichem Maß garantiert.
 Wie wir später sehen werden ist das Lebesgue-Maß auf dem Raum <span class="math notranslate nohighlight">\(\R^n\)</span> lokal endlich.</p>
 <p>Basierend auf der oben definierten Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra lässt sich nun das sogenannte Borel-Maß einführen.</p>
-<div class="proof definition admonition" id="definition-15">
-<p class="admonition-title"><span class="caption-number">Definition 5.9 </span> (Borel-Maß)</p>
+<div class="proof definition admonition" id="definition-20">
+<p class="admonition-title"><span class="caption-number">Definition 5.11 </span> (Borel-Maß)</p>
 <div class="definition-content section" id="proof-content">
 <p>Ein lokal endliches Maß <span class="math notranslate nohighlight">\(\sigma \colon \B(\Omega) \rightarrow [0, \infty]\)</span> auf der Borelschen <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra eines Hausdorff-Raums <span class="math notranslate nohighlight">\((\Omega,\tau)\)</span> heißt <strong>Borel-Maß</strong>.</p>
 </div>
@@ -788,7 +841,7 @@ Diese Partitionierung einer Menge lässt sich im <span class="math notranslate n
 \[a &lt; b \qquad \Leftrightarrow \qquad a_i &lt; b_i \quad i=1,\ldots,n\]</div>
 <p>und analog für <span class="math notranslate nohighlight">\(a \leq b, a &gt; b\)</span> und <span class="math notranslate nohighlight">\(a \geq b\)</span>.</p>
 <div class="proof definition admonition" id="def:quader">
-<p class="admonition-title"><span class="caption-number">Definition 5.10 </span> (Mehrdimensionale Quader)</p>
+<p class="admonition-title"><span class="caption-number">Definition 5.12 </span> (Mehrdimensionale Quader)</p>
 <div class="definition-content section" id="proof-content">
 <p>und darüber im Folgenden <strong>offene, halboffene</strong> und <strong>abgeschlossene Quader</strong> im <span class="math notranslate nohighlight">\(\R^n\)</span> respektive beschreiben durch</p>
 <div class="math notranslate nohighlight">
@@ -823,7 +876,7 @@ Q_m^2&amp;=(\alpha^m,b^m].\end{split}\]</div>
 <p class="caption"><span class="caption-number">Abb. 5.2 </span><span class="caption-text">Nicht disjunkte Quader werden in System disjunkter Quader überführt. Man erkennt insbesondere, dass die Vereinigung gleich bleibt und, dass sich jeder einzelne ursprüngliche Quader, aus den neuen Quadern zusammensetzbar ist.</span><a class="headerlink" href="#fig-disrect" title="Link zu diesem Bild">¶</a></p>
 </div>
 <div class="proof lemma admonition" id="lem:disRect">
-<p class="admonition-title"><span class="caption-number">Lemma 5.5 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.6 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Es seien <span class="math notranslate nohighlight">\(Q_1,\ldots,Q_k\subset\R^d\)</span> halboffene Quader, dann existieren paarweise disjunkte halboffene Quader <span class="math notranslate nohighlight">\(W_1,\ldots, W_M\)</span> mit Indexmengen <span class="math notranslate nohighlight">\(J_i\subset\{1,\ldots,M\}\)</span>, s.d.</p>
 <div class="math notranslate nohighlight">
@@ -832,24 +885,14 @@ Q_m^2&amp;=(\alpha^m,b^m].\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\bigcup_{j\in J_i} W_j = Q_i.\]</div>
 </div>
-</div><p>Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen sogenannten Mengen-Ring.</p>
-<div class="proof definition admonition" id="def:ring">
-<p class="admonition-title"><span class="caption-number">Definition 5.11 </span> (Ring)</p>
-<div class="definition-content section" id="proof-content">
-<p>Ein Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R} \subset 2^{\Omega}\)</span> heißt <strong>Mengen-Ring</strong> (im maßtheoretischen Sinne) auf einer Menge <span class="math notranslate nohighlight">\(\Omega\)</span>, falls die folgenden Eigenschaften erfüllt sind:</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(\emptyset \in \mathcal{R}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(A,B \in \mathcal{R} \Rightarrow (A \setminus B) \in \mathcal{R}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(A,B \in \mathcal{R} \Rightarrow (A \cup B) \in \mathcal{R}\)</span></p></li>
-</ol>
-</div>
-</div><div class="proof lemma admonition" id="lemma-19">
-<p class="admonition-title"><span class="caption-number">Lemma 5.6 </span> (Der von halboffenen Quadern erzeugte Ring)</p>
+</div><p>Das System der halboffenen Quadern bildet eine besondere mathematische Struktur, einen Mengen-Ring.</p>
+<div class="proof lemma admonition" id="lemma-23">
+<p class="admonition-title"><span class="caption-number">Lemma 5.7 </span> (Der von halboffenen Quadern erzeugte Ring)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Das System der halboffenen Quadern <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> bildet einen Mengenring.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Um zu zeigen, dass es sich bei dem Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> um einen Ring handelt müssen wir die Eigenschaften aus <a class="reference internal" href="#def:ring">Definition 5.11</a> nachweisen.</p>
+<p>Proof. Um zu zeigen, dass es sich bei dem Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> um einen Ring handelt müssen wir die Eigenschaften aus <a class="reference internal" href="#def:ring">Definition 5.1</a> nachweisen.</p>
 <p>1. Für einen beliebigen Punkt <span class="math notranslate nohighlight">\(a \in \R^n\)</span> gilt <span class="math notranslate nohighlight">\(\emptyset = (a,a] \in \mathcal{R}_{\text{Q}}\)</span>.</p>
 <p>2. Als nächstes müssen wir zeigen, dass für zwei Mengen <span class="math notranslate nohighlight">\(A,B \in \mathcal{R}_{\text{Q}}\)</span> gilt, dass auch die Mengendifferenz in <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> enthalten ist, d.h., dass gilt <span class="math notranslate nohighlight">\((A \setminus B) \in \mathcal{R}_{\text{Q}}\)</span>. Nach {prf:ref}``disRect` existieren paarweise disjunkte halboffene Quader <span class="math notranslate nohighlight">\(S_j\)</span>, <span class="math notranslate nohighlight">\(j=1,\ldots,n\)</span>, und Indexmengen <span class="math notranslate nohighlight">\(I_A,I_B\subset\{1,\ldots,n\}\)</span>, s.d.,</p>
 <div class="math notranslate nohighlight">
@@ -867,15 +910,15 @@ B = \bigcup_{j\in I_B} S_j.\end{split}\]</div>
 <p>Damit haben wir gezeigt, dass das Mengensystem <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span>, welches durch disjunkte halboffene Quader im <span class="math notranslate nohighlight">\(\R^n\)</span> erzeugt wird, einen Ring bildet.</p>
 </div>
 <p>Wir können den Lebesgue-Inhalt nun auf Elemente von <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{Q}}\)</span> fortsetzen</p>
-<div class="proof definition admonition" id="definition-20">
-<p class="admonition-title"><span class="caption-number">Definition 5.12 </span></p>
+<div class="proof definition admonition" id="definition-24">
+<p class="admonition-title"><span class="caption-number">Definition 5.13 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(A\in\mathcal{R}_{\text{Q}}\)</span> mit <span class="math notranslate nohighlight">\(A=\bigcup_{i=1}^n Q_i\)</span> wobei <span class="math notranslate nohighlight">\(Q_1,\ldots,Q_n\)</span> <strong>paarweise disjunkte</strong> halboffene Quader sind, dann setzen wir</p>
 <div class="math notranslate nohighlight">
 \[\lambda^n(A):=\sum_{i=1}^{n} \lambda^n(Q_i).\]</div>
 </div>
-</div><div class="proof remark admonition" id="remark-21">
-<p class="admonition-title"><span class="caption-number">Remark 5.3 </span></p>
+</div><div class="proof remark admonition" id="remark-25">
+<p class="admonition-title"><span class="caption-number">Remark 5.5 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Man erkennt leicht, dass der Wert <span class="math notranslate nohighlight">\(\lambda^n(A)\)</span> <strong>nicht</strong> von der Wahl der Zerlegung <span class="math notranslate nohighlight">\(Q_1,\ldots,Q_n\)</span> abhängt, der Lebesgue-Inhalt ist also wohldefiniert.</p>
 </div>
@@ -909,7 +952,7 @@ Dann gilt:</p>
 \[\lambda^n(\emptyset) = \lambda^n((a,a]) = \Pi_{i=1}^n (a_i - a_i) = 0.\]</div>
 <p><strong>Ad 2.</strong></p>
 <p>Für disjunkte Mengen <span class="math notranslate nohighlight">\(A_1,\ldots, A_k\in\mathcal{R}\)</span> wählen wir für jedes <span class="math notranslate nohighlight">\(i\in\{1,\ldots,k\}\)</span> paarweise disjunkte Quader
-<span class="math notranslate nohighlight">\(Q^i_1,\ldots, Q^i_{n_i}\)</span>, welche nach <a class="reference internal" href="#lem:disRect">Lemma 5.5</a> existieren, s.d.,</p>
+<span class="math notranslate nohighlight">\(Q^i_1,\ldots, Q^i_{n_i}\)</span>, welche nach <a class="reference internal" href="#lem:disRect">Lemma 5.6</a> existieren, s.d.,</p>
 <div class="math notranslate nohighlight">
 \[A_i = \bigcup_{j=1}^{n_i} Q^i_j.\]</div>
 <p>Da die <span class="math notranslate nohighlight">\(A_i\)</span> paarweise disjunkt sind, gilt insbesondere</p>
@@ -962,8 +1005,8 @@ Dann gilt:</p>
 <div class="section" id="der-jordan-inhalt-und-jordan-messbare-mengen">
 <h3><span class="section-number">5.1.4.1. </span>Der Jordan-Inhalt und Jordan-messbare Mengen<a class="headerlink" href="#der-jordan-inhalt-und-jordan-messbare-mengen" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Wir haben bisher einen Inhalt auf <span class="math notranslate nohighlight">\(\mathcal{R}_{\text{R}}\)</span> definiert. Diese Klasse an Mengen ist aber relativ klein, weshalb der Begriff ausgedehnt werden soll. Eine Möglichkeit hier ist die Idee des Riemann-Integrals mit Ober- und Untersummen zu benutzen. Es stellt aber auch hier heraus, dass der Begriff zu einschränkend ist. Insbesondere führt deses Konzept <strong>nicht</strong> auf ein Maß. Wir werden es im Folgenden trotzdem betrachten.</p>
-<div class="proof definition admonition" id="definition-23">
-<p class="admonition-title"><span class="caption-number">Definition 5.13 </span> (Jordan-messbare Mengen)</p>
+<div class="proof definition admonition" id="definition-27">
+<p class="admonition-title"><span class="caption-number">Definition 5.14 </span> (Jordan-messbare Mengen)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> eine beliebige Teilmenge.
 Wir betrachten die folgenden <strong>endlichen</strong> Ober- und Untersummen für die Teilmenge <span class="math notranslate nohighlight">\(A\)</span>,</p>
@@ -1016,8 +1059,8 @@ Für Jordan-messbare Mengen <span class="math notranslate nohighlight">\(A\)</sp
 <div class="math notranslate nohighlight">
 \[\iota_\ast(J) \neq \iota^\ast(J).\]</div>
 </div>
-</div><p>Die Menge der Jordan-messbaren Mengen bildet weiterhin keine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und daher ist der Jordan-Inhalt kein Maß im Sinne von <a class="reference internal" href="#def:mass">Definition 5.3</a>. Dies ist an folgendem Beispiel ersichtlich.</p>
-<div class="proof example admonition" id="example-25">
+</div><p>Die Menge der Jordan-messbaren Mengen bildet weiterhin keine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra und daher ist der Jordan-Inhalt kein Maß im Sinne von <a class="reference internal" href="#def:mass">Definition 5.5</a>. Dies ist an folgendem Beispiel ersichtlich.</p>
+<div class="proof example admonition" id="example-29">
 <p class="admonition-title"><span class="caption-number">Example 5.4 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Wir wollen den Jordan-Inhalt einer Punktmengen <span class="math notranslate nohighlight">\(\{a\}\)</span> für <span class="math notranslate nohighlight">\(a\in\R\)</span> berechnen. Mit der Argumentation aus <a class="reference internal" href="#ex:jordan">Example 5.3</a> erkennen wir, dass das innere Maß gleich null ist, also</p>
@@ -1040,8 +1083,8 @@ Für Jordan-messbare Mengen <span class="math notranslate nohighlight">\(A\)</sp
 <p class="admonition-title">Bemerkung</p>
 <p>Der innere und äußere Inhalt sind intuitiv nicht gleichberechtigt, da das Problem asymmetrisch ist. Konkret ist Subadditivität die inhärente Eigenschaft eines Maßes, da Mengenvereinigungen mehrfach auftretenden Elemente nicht berücksichtigen, während die Addition in <span class="math notranslate nohighlight">\(\R\)</span> für positive Zahlen stets ein größeres Ergebnis liefert. Das äußere Maß ist auf natürliche Weise subadditiv und deshalb zu bevorzugen.</p>
 </div>
-<div class="proof definition admonition" id="definition-26">
-<p class="admonition-title"><span class="caption-number">Definition 5.14 </span> (Äußeres Lebesgue-Maß)</p>
+<div class="proof definition admonition" id="definition-30">
+<p class="admonition-title"><span class="caption-number">Definition 5.15 </span> (Äußeres Lebesgue-Maß)</p>
 <div class="definition-content section" id="proof-content">
 <p>Das <strong>äußere Lebesgue-Maß</strong> <span class="math notranslate nohighlight">\(\lambda^* \colon 2^{\R^n} \rightarrow [0,\infty]\)</span> ist definiert durch</p>
 <div class="math notranslate nohighlight">
@@ -1196,7 +1239,7 @@ A = \bigcup_{i=1}^N Q_i\end{split}\]</div>
 <p>und daher die Behauptung.</p>
 </div>
 <p>Als Korollar von <a class="reference internal" href="#thm:lebesgue">Theorem 5.3</a> und den vorherigen Eigenschaften erhalten wir eine Abschätzung für das äußere Lebesgue-Maß sowohl von oben durch den äußeren Jordan-Inhalt als auch von unten durch den inneren Jordan-Inhalt.</p>
-<div class="proof corollary admonition" id="corollary-30">
+<div class="proof corollary admonition" id="corollary-34">
 <p class="admonition-title"><span class="caption-number">Corollary 5.1 </span></p>
 <div class="corollary-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(A\subset\R^n\)</span>, dann gilt</p>
@@ -1224,7 +1267,7 @@ A = \bigcup_{i=1}^N Q_i\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\iota(A)\leq\lambda^\ast(A)\leq\iota(A)\Rightarrow \lambda^\ast(A) = \iota(A).\]</div>
 <div class="proof remark admonition" id="rem:transinvariance">
-<p class="admonition-title"><span class="caption-number">Remark 5.4 </span> (Wirkung von Transformationen auf das äußere Lebesgue Maß)</p>
+<p class="admonition-title"><span class="caption-number">Remark 5.6 </span> (Wirkung von Transformationen auf das äußere Lebesgue Maß)</p>
 <div class="remark-content section" id="proof-content">
 <p>Eine besondere Eigenschaft des äußeren Lebesgue Maßes ist es, dass es <em>bewegungsinvariant</em> ist, d.h., dass es unter Translationen und Rotationen den gleichen Wert behält.
 Dies ist für viele Anwendungen eine fundamentale Eigenschaft.
@@ -1245,8 +1288,8 @@ Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wi
 <div class="section" id="nullmengen">
 <h3><span class="section-number">5.1.4.3. </span>Nullmengen<a class="headerlink" href="#nullmengen" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Eine relevante Klasse von Teilmengen des <span class="math notranslate nohighlight">\(\R^n\)</span> bilden sogenannten <strong>Lebesgue-Nullmengen</strong>.</p>
-<div class="proof definition admonition" id="definition-32">
-<p class="admonition-title"><span class="caption-number">Definition 5.15 </span> (Lebesgue-Nullmengen)</p>
+<div class="proof definition admonition" id="definition-36">
+<p class="admonition-title"><span class="caption-number">Definition 5.16 </span> (Lebesgue-Nullmengen)</p>
 <div class="definition-content section" id="proof-content">
 <p>Eine Teilmenge <span class="math notranslate nohighlight">\(N \subset \R^n\)</span> eine <strong>(Lebesgue-)Nullmenge</strong>, falls ihr äußeres Lebesgue-Maß Null ist, d.h., es gilt</p>
 <div class="math notranslate nohighlight">
@@ -1254,7 +1297,7 @@ Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wi
 </div>
 </div><p>Für die Klasse der Nullmengen können wir folgende Eigenschaften zeigen.</p>
 <div class="proof lemma admonition" id="lem:eigenschaftenNullmengen">
-<p class="admonition-title"><span class="caption-number">Lemma 5.7 </span> (Eigenschaften von Lebesgue-Nullmengen)</p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.8 </span> (Eigenschaften von Lebesgue-Nullmengen)</p>
 <div class="lemma-content section" id="proof-content">
 <p>Für Lebesgue-Nullmengen gelten die folgenden Eigenschaften:</p>
 <ol class="simple">
@@ -1325,8 +1368,8 @@ z-y\in\Q\\
 <p>Es sei nun <span class="math notranslate nohighlight">\((q_k)_{k\in\N}\)</span> eine Abzählung der rationalen Zahlen und definiere die verschobenen Vitali Mengen</p>
 <div class="math notranslate nohighlight">
 \[V_k :=\{x+q_k: x\in V\}.\]</div>
-<div class="proof lemma admonition" id="lemma-34">
-<p class="admonition-title"><span class="caption-number">Lemma 5.8 </span></p>
+<div class="proof lemma admonition" id="lemma-38">
+<p class="admonition-title"><span class="caption-number">Lemma 5.9 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Mit den obigen Definitionen gilt</p>
 <ol class="simple">
@@ -1338,7 +1381,7 @@ z-y\in\Q\\
 </div><div class="proof admonition" id="proof">
 <p>Proof. <br/></p>
 <p><strong>Ad 1.</strong></p>
-<p>Diese Tatsache folgt, da das äußere Lebesgue-Maß Translationsinvariant ist, siehe <a class="reference internal" href="#rem:transinvariance">Remark 5.4</a>.</p>
+<p>Diese Tatsache folgt, da das äußere Lebesgue-Maß Translationsinvariant ist, siehe <a class="reference internal" href="#rem:transinvariance">Remark 5.6</a>.</p>
 <p><strong>Ad 2.</strong></p>
 <p>Für <span class="math notranslate nohighlight">\(x,y\in V\)</span> gilt</p>
 <div class="math notranslate nohighlight">
@@ -1356,8 +1399,8 @@ z-y\in\Q\\
 <p>Somit folgt <span class="math notranslate nohighlight">\(x=v+q_k\in V_k\)</span> und daher <span class="math notranslate nohighlight">\(x\in\bigcup_{k\in\N} V_k\)</span>.</p>
 </div>
 <p>Mithilfe einer Vitali-Menge können wir nun die <span class="math notranslate nohighlight">\(\sigma\)</span>-Additivität des äußeren Lebesgue-Maßes zum Widerspruch führen.</p>
-<div class="proof lemma admonition" id="lemma-35">
-<p class="admonition-title"><span class="caption-number">Lemma 5.9 </span></p>
+<div class="proof lemma admonition" id="lemma-39">
+<p class="admonition-title"><span class="caption-number">Lemma 5.10 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Das äußere Lebesgue-Maß <span class="math notranslate nohighlight">\(\lambda^\ast\)</span> ist nicht <span class="math notranslate nohighlight">\(\sigma\)</span>-Additiv auf <span class="math notranslate nohighlight">\(2^{\R}\)</span>.</p>
 </div>
@@ -1398,8 +1441,8 @@ z-y\in\Q\\
 <div class="section" id="das-lebesgue-masze">
 <h3><span class="section-number">5.1.4.5. </span>Das Lebesgue-Maße<a class="headerlink" href="#das-lebesgue-masze" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Der vorherige Abschnitt zeigt, dass die Potenzmenge <span class="math notranslate nohighlight">\(2^{\R^n}\)</span> zu groß ist, d.h. auf dieser <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra ist <span class="math notranslate nohighlight">\(\lambda^\ast\)</span> kein Maß. Deshalb wollen wir nun eine Klasse messbarer Mengen definieren, welche dann eine kleinere <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra liefert.</p>
-<div class="proof remark admonition" id="remark-36">
-<p class="admonition-title"><span class="caption-number">Remark 5.5 </span> (Das Jordan-Konzept)</p>
+<div class="proof remark admonition" id="remark-40">
+<p class="admonition-title"><span class="caption-number">Remark 5.7 </span> (Das Jordan-Konzept)</p>
 <div class="remark-content section" id="proof-content">
 <p>Eine mögliche Idee um messbare Mengen zu definieren haben wir bereits beim Jordan-Inhalt kennengelernt. Hierbei wird zusätzlich zum äußeren Maß ein inneres Maß definiert. Beim Übergang vom äußeren Jordan-Inhalt zum äußeren Lebesgue-Maß werden endliche Vereinigungen durch unendliche ersetzt, weshalb man versuchen könnte, das nun auch hier zu tun, indem man das innere Lebesgue-Maß auch über unendliche Vereinigungen definiert</p>
 <div class="math notranslate nohighlight">
@@ -1436,8 +1479,8 @@ Carathéodory.</p>
 <p class="sidebar-title">Constantin Carathéodory</p>
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/Constantin_Carath%C3%A9odory">Constantin Carathéodory</a> (Geboren 13. September 1873 in Berlin; Gestorben 2. Februar 1950 in München) war ein Mathematiker griechischer Herkunft.</p>
 </div>
-<div class="proof definition admonition" id="definition-37">
-<p class="admonition-title"><span class="caption-number">Definition 5.16 </span> (Lebesgue-Maß)</p>
+<div class="proof definition admonition" id="definition-41">
+<p class="admonition-title"><span class="caption-number">Definition 5.17 </span> (Lebesgue-Maß)</p>
 <div class="definition-content section" id="proof-content">
 <p>Wir nennen eine Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> <strong>Lebesgue-messbar</strong>, genau dann wenn für alle Teilmengen <span class="math notranslate nohighlight">\(E \subset \R^n\)</span> gilt:</p>
 <div class="math notranslate nohighlight">
@@ -1449,8 +1492,8 @@ Carathéodory.</p>
 <div class="math notranslate nohighlight">
 \[\lambda(A) = \lambda^*(A).\]</div>
 </div>
-</div><div class="proof remark admonition" id="remark-38">
-<p class="admonition-title"><span class="caption-number">Remark 5.6 </span></p>
+</div><div class="proof remark admonition" id="remark-42">
+<p class="admonition-title"><span class="caption-number">Remark 5.8 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Es ist wichtig zu bemerken, dass diese Bedingung eine Einschränkung ist, da das äußere Lebesgue-Maß <strong>nicht</strong> additiv ist auf <span class="math notranslate nohighlight">\(2^{\R^n}\)</span>, es gilt lediglich</p>
 <div class="math notranslate nohighlight">
@@ -1459,7 +1502,7 @@ Carathéodory.</p>
 </div>
 </div><p>Wir betrachten im Folgenden verschiedene Beispiele messbarer Mengen, was zeigt, dass <span class="math notranslate nohighlight">\(\mathcal{A}\neq \emptyset\)</span>.</p>
 <div class="proof lemma admonition" id="thm:lebesguemes">
-<p class="admonition-title"><span class="caption-number">Lemma 5.10 </span> (Lebesgue-messbare Mengen)</p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.11 </span> (Lebesgue-messbare Mengen)</p>
 <div class="lemma-content section" id="proof-content">
 <ol class="simple">
 <li><p>Jede Lebesgue-Nullmenge ist Lebesgue-messbar, insbesondere ist <span class="math notranslate nohighlight">\(\emptyset\)</span> Lebesgue-messbar.</p></li>
@@ -1477,13 +1520,13 @@ Carathéodory.</p>
 <p>Folgt aus <a class="reference internal" href="#thm:outerlebesgue">Theorem 5.4</a> Eigenschaft 4.</p>
 </div>
 <p>Weiterhin erhält man über den Begriff der Lebesgue-messbarkeit endlich die erhoffte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra Struktur.</p>
-<div class="proof lemma admonition" id="lemma-40">
-<p class="admonition-title"><span class="caption-number">Lemma 5.11 </span></p>
+<div class="proof lemma admonition" id="lemma-44">
+<p class="admonition-title"><span class="caption-number">Lemma 5.12 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Die Klasse der Lebesgue-messbaren Mengen <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> bildet eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. 1. Von <a class="reference internal" href="#thm:lebesguemes">Lemma 5.10</a> erhalten wir zunächst, dass <span class="math notranslate nohighlight">\(\emptyset\in\mathcal{A}\)</span>.</p>
+<p>Proof. 1. Von <a class="reference internal" href="#thm:lebesguemes">Lemma 5.11</a> erhalten wir zunächst, dass <span class="math notranslate nohighlight">\(\emptyset\in\mathcal{A}\)</span>.</p>
 <p>2. Weiterhin sei <span class="math notranslate nohighlight">\(A\in\mathcal{A}\)</span> messbar und <span class="math notranslate nohighlight">\(E\subset\R^d\)</span> beliebig, dann gilt</p>
 <div class="math notranslate nohighlight">
 \[\lambda^\ast(E) = \lambda^\ast(\underbrace{A\cap E}_{=E\setminus A^C}) + \lambda^\ast(\underbrace{E\setminus A}_{=E\cap A^C}) = 
@@ -1536,7 +1579,7 @@ Carathéodory.</p>
 </div>
 <p>Mit dieser Aussage können wir weitere messbare Mengen identifizieren.</p>
 <div class="proof lemma admonition" id="thm:lebesgueOffenAbgeschlossen">
-<p class="admonition-title"><span class="caption-number">Lemma 5.12 </span></p>
+<p class="admonition-title"><span class="caption-number">Lemma 5.13 </span></p>
 <div class="lemma-content section" id="proof-content">
 <p>Offene und abgeschlossene Teilmengen des <span class="math notranslate nohighlight">\(\R^n\)</span> sind Lebesgue-messbar.</p>
 </div>
@@ -1551,8 +1594,8 @@ Carathéodory.</p>
 <p>Abgeschlossene Mengen sind als Komplemente offener und daher messbarer Mengen, selbst messbar.</p>
 </div>
 <p>Da wir nun eine <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra zu Verfügung haben können wir ein Maß definieren.</p>
-<div class="proof definition admonition" id="definition-42">
-<p class="admonition-title"><span class="caption-number">Definition 5.17 </span> (Lebesgue-Maß)</p>
+<div class="proof definition admonition" id="definition-46">
+<p class="admonition-title"><span class="caption-number">Definition 5.18 </span> (Lebesgue-Maß)</p>
 <div class="definition-content section" id="proof-content">
 <p>Wir definieren das Lebesgue-Maß <span class="math notranslate nohighlight">\(\lambda^n:\mathcal{A}\to[0,\infty]\)</span> über die Einschränkung des äußeren Maßes, d.h.,</p>
 <div class="math notranslate nohighlight">
@@ -1562,17 +1605,17 @@ Carathéodory.</p>
 <p class="admonition-title">Gefahr</p>
 <p>ToDo</p>
 </div>
-<div class="proof theorem admonition" id="theorem-43">
+<div class="proof theorem admonition" id="theorem-47">
 <p class="admonition-title"><span class="caption-number">Theorem 5.5 </span> (Regularität des Lebesgue Maßes)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Das Lebesgue Maß ist von außen und innen regulär im Sinne von <a class="reference internal" href="#def:regularitaet">Definition 5.4</a>, d.h., für jede Lebesgue-messbare Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> gilt</p>
+<p>Das Lebesgue Maß ist von außen und innen regulär im Sinne von <a class="reference internal" href="#def:regularitaet">Definition 5.6</a>, d.h., für jede Lebesgue-messbare Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> gilt</p>
 <p>1. für jedes <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert eine offene Menge <span class="math notranslate nohighlight">\(U\)</span> mit <span class="math notranslate nohighlight">\(A \subset U\)</span> für die gilt <span class="math notranslate nohighlight">\(\mu(U \setminus A) &lt; \epsilon\)</span>,</p>
 <p>2. für jedes <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert eine abgeschlossene Menge <span class="math notranslate nohighlight">\(F\)</span> mit <span class="math notranslate nohighlight">\(F \subset A\)</span> für die gilt <span class="math notranslate nohighlight">\(\mu(A \setminus F) &lt; \epsilon\)</span>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. ToDo.</p>
 </div>
-<div class="proof theorem admonition" id="theorem-44">
+<div class="proof theorem admonition" id="theorem-48">
 <p class="admonition-title"><span class="caption-number">Theorem 5.6 </span> (Charakterisierung Lebesgue-messbarer Mengen)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Die folgenden drei Aussagen sind äquivalent, so dass sie eine Charakterisierung der Lebesgue-messbaren Mengen darstellen.</p>
@@ -1587,9 +1630,9 @@ Carathéodory.</p>
 <div class="math notranslate nohighlight">
 \[\B(\R^n) = \sigma(\lbrace A \subset \R^n \text{ offen }\rbrace) ) = \sigma(\lbrace A \subset \R^n \text{ abgeschlossen }\rbrace)\]</div>
 <p>Die letzte Gleichung gilt, da <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebren abgeschlossen unter Komplementbildung sind.
-Zusammen mit <a class="reference internal" href="#thm:lebesgueOffenAbgeschlossen">Lemma 5.12</a> folgt dann schon, dass die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\B(\R^n)\)</span> eine Teilmenge der Lebesgue messbaren Mengen ist.
+Zusammen mit <a class="reference internal" href="#thm:lebesgueOffenAbgeschlossen">Lemma 5.13</a> folgt dann schon, dass die Borel-<span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra <span class="math notranslate nohighlight">\(\B(\R^n)\)</span> eine Teilmenge der Lebesgue messbaren Mengen ist.
 Der folgende Satz zeigt, dass es eine echte Teilmenge ist indem er den Unterschied der Mengen als Lebesgue Nullmengen charaterisiert.</p>
-<div class="proof theorem admonition" id="theorem-45">
+<div class="proof theorem admonition" id="theorem-49">
 <p class="admonition-title"><span class="caption-number">Theorem 5.7 </span></p>
 <div class="theorem-content section" id="proof-content">
 <p>Eine Teilmenge <span class="math notranslate nohighlight">\(A \subset \R^n\)</span> ist genau dann Lebesgue-messbar, wenn eine Teilmenge <span class="math notranslate nohighlight">\(B \in \B(\R^n)\)</span> und eine Nullmenge <span class="math notranslate nohighlight">\(N \subset \R^n\)</span> existiert, so dass <span class="math notranslate nohighlight">\(A = B \cup N\)</span> ist, wobei <span class="math notranslate nohighlight">\(B\cap N=\emptyset\)</span>.</p>
