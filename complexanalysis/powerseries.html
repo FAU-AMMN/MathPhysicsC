@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Funktionentheorie &#8212; Mathematik für Physikstudierende C</title>
+    <title>7.5. Potenzreihen &#8212; Mathematik für Physikstudierende C</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -48,6 +48,8 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -58,8 +60,8 @@
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="7.1. Die Komplexen Zahlen" href="complexnumbers.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../surfaceintegrals/manifolds.html" />
+    <link rel="next" title="7.6. Laurententwicklung und Residuensatz" href="residuensatz.html" />
+    <link rel="prev" title="7.4. Der Integralsatz von Cauchy" href="cauchyintegral.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -265,7 +267,7 @@
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="complexanalysis.html">
    7. Funktionentheorie
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
@@ -273,7 +275,7 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="complexnumbers.html">
      7.1. Die Komplexen Zahlen
@@ -294,8 +296,8 @@
      7.4. Der Integralsatz von Cauchy
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="powerseries.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      7.5. Potenzreihen
     </a>
    </li>
@@ -352,7 +354,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/complexanalysis/complexanalysis.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/complexanalysis/powerseries.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -390,6 +392,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analytische-funktionen">
+   7.5.1. Analytische Funktionen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#konvergenzradius">
+   7.5.2. Konvergenzradius
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entwicklungssatz">
+   7.5.3. Entwicklungssatz
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -397,25 +422,147 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Funktionentheorie</h1>
+                <h1>Potenzreihen</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Inhalt </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analytische-funktionen">
+   7.5.1. Analytische Funktionen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#konvergenzradius">
+   7.5.2. Konvergenzradius
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entwicklungssatz">
+   7.5.3. Entwicklungssatz
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="funktionentheorie">
-<h1><span class="section-number">7. </span>Funktionentheorie<a class="headerlink" href="#funktionentheorie" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Im letzten Kapitel der Vorlesung widmen wir uns der <em>Funktionentheorie</em>.
-Diese befasst sich hauptsächlich mit der Theorie differenzierbarer komplexer Funktionen.
-Da viele Konzepte der reellen Analysis verwendet werden, wird dieses Gebiet auch häufig <strong>komplexe Analysis</strong> genannt.</p>
-<p>Die Grundlagen des Körpers der komplexen Zahlen wurden bereits in <span id="id1">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> behandelt. Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz-Baldes <span id="id2">[<a class="reference internal" href="../references.html#id12">SB18</a>]</span> aber auch das Skript zur Funktionentheorie von Prof.Dr.Karl-Hermann Neeb <span id="id3">[<a class="reference internal" href="../references.html#id13">Nee17</a>]</span>. Teile des im Folgenden präsentierten Stoffs basieren auf diesen Referenzen.</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="potenzreihen">
+<h1><span class="section-number">7.5. </span>Potenzreihen<a class="headerlink" href="#potenzreihen" title="Link zu dieser Überschrift">¶</a></h1>
+<p>In diesem Abschnitt wollen wir genauer auf analytische Funktionen bzw. Potenzreihen eingehen, wir betrachten also Funktionen</p>
+<div class="math notranslate nohighlight">
+\[z\mapsto \sum_{j=0}^{\infty} a_j (z-p)^j,\]</div>
+<p>mit komplexen Koeffizienten <span class="math notranslate nohighlight">\(a_j\in\C\)</span>.</p>
+<div class="section" id="analytische-funktionen">
+<h2><span class="section-number">7.5.1. </span>Analytische Funktionen<a class="headerlink" href="#analytische-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Wir betrachten zunächst Funktionen welche durch Potenzreihen gegeben sind und erhalten, dass sie auf Kreisscheiben schon holomorph sind.</p>
+<div class="proof lemma admonition" id="lem:potseries">
+<p class="admonition-title"><span class="caption-number">Lemma 7.11 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(a_j\in\C, j\in\N_0\)</span> eine Folge komplexer Zahlen, <span class="math notranslate nohighlight">\(p\in\C\)</span> und die Reihe</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j=0}^\infty a_j (z_0-p)^j \]</div>
+<p>konvergiere für <span class="math notranslate nohighlight">\(z\neq p\)</span>. Dann ist die Funktion <span class="math notranslate nohighlight">\(f:z\mapsto \sum_{j=0}^\infty a_j (z-p)^j\)</span> holomorph auf der Kreisscheibe <span class="math notranslate nohighlight">\(B_r(p)\)</span>, wobei <span class="math notranslate nohighlight">\(r:=\abs{z_0-p}\)</span> und</p>
+<div class="math notranslate nohighlight">
+\[f^\prime(z) = \sum_{j=1}^\infty a_j\cdot j\cdot (z-p)^{j-1}.\]</div>
 </div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Siehe <span id="id1">[<a class="reference internal" href="../references.html#id13">Nee17</a>]</span> Satz 2.19.</p>
+</div>
+<p>Eine besondere Klasse von Funktionen sind <em>analytische Funktonen</em>, die sich lokal mit Hilfe von Reihen darstellen lassen.</p>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 7.15 </span> (Analytische Funktion)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> offen und <span class="math notranslate nohighlight">\(f: U\to \C\)</span> eine Funktion.</p>
+<p>Wir nennen <span class="math notranslate nohighlight">\(f\)</span> <strong>analytisch</strong> in einem Punkt <span class="math notranslate nohighlight">\(p \in U\)</span> genau dann, wenn ein <span class="math notranslate nohighlight">\(r &gt; 0\)</span> existiert, so dass sich die Funktion lokal in <span class="math notranslate nohighlight">\(B_r(p)\)</span> als Potenzreihe darstellen lässt,</p>
+<div class="math notranslate nohighlight">
+\[f(z) = \sum_{j=0}^\infty a_j (z-p)^j, \qquad \forall z\in B_r(p)\]</div>
+<p>wobei <span class="math notranslate nohighlight">\((a_n)_{n_\in\N}\)</span> eine Folge in <span class="math notranslate nohighlight">\(\C\)</span> ist.</p>
+<p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> analytisch auf der Teilmenge <span class="math notranslate nohighlight">\(U\)</span>, wenn sie analytisch ist für alle Punkte <span class="math notranslate nohighlight">\(z_0 \in D\)</span>.</p>
+</div>
+</div><p>Der folgende Satz beschreibt den Zusammenhang zwischen analytischen und holomorphen Funktionen.</p>
+<div class="proof theorem admonition" id="thm:analytischHolomorph">
+<p class="admonition-title"><span class="caption-number">Theorem 7.7 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Jede analytische Funktion <span class="math notranslate nohighlight">\(f\)</span> auf einer Teilmenge <span class="math notranslate nohighlight">\(U \subset \C\)</span> ist auch holomorph auf <span class="math notranslate nohighlight">\(U\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Folgt direkt aus <a class="reference internal" href="#lem:potseries">Lemma 7.11</a></p>
+</div>
+<p>Wir wollen im folgenden sehen, dass auch die Umkehrung gilt.</p>
+</div>
+<div class="section" id="konvergenzradius">
+<h2><span class="section-number">7.5.2. </span>Konvergenzradius<a class="headerlink" href="#konvergenzradius" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Ein wichtige Eigenschaft von Potenzreihen um <span class="math notranslate nohighlight">\(p\in\C\)</span> ist, dass Konvergenz an einem Punkt <span class="math notranslate nohighlight">\(z\)</span> schon die absolute und gleichmäßige Konvergenz innerhalb einer Kreisscheibe impliziert.</p>
+<div class="proof lemma admonition" id="lem:powerradius">
+<p class="admonition-title"><span class="caption-number">Lemma 7.12 </span></p>
+<div class="lemma-content section" id="proof-content">
+<p>Konvergiert die Reihe <span class="math notranslate nohighlight">\(\sum_{j=0}^\infty a_j (z_0-p)^j\)</span> für <span class="math notranslate nohighlight">\(z_0\in\C\)</span>, so konvergiert die Reihe <span class="math notranslate nohighlight">\(\sum_{j=0}^\infty a_j (z-p)^n\)</span> auf jeder offenen Kreisscheibe <span class="math notranslate nohighlight">\(B_r(p)\)</span> mit <span class="math notranslate nohighlight">\(r&lt; \abs{z_0 - p}\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. O.B.d.A. gelte <span class="math notranslate nohighlight">\(p=0\)</span>, da <span class="math notranslate nohighlight">\(\sum_{j=0}^\infty a_j z_0^j\)</span> konvergiert ist, <span class="math notranslate nohighlight">\(a_j z_0^j\)</span> eine Nullfolge und insbesondere existiert eine Konstante <span class="math notranslate nohighlight">\(C&gt;0\)</span>, s.d., <span class="math notranslate nohighlight">\(\abs{a_j z_0^j}&lt; C\)</span> für alle <span class="math notranslate nohighlight">\(j\in\N\)</span>. Sei nun <span class="math notranslate nohighlight">\(r&lt;\abs{z_0}\)</span>, dann folgt für jedes <span class="math notranslate nohighlight">\(z\in B_r(0)\)</span>, dass</p>
+<div class="math notranslate nohighlight">
+\[\abs{a_j z^j} = \abs{a_j z_0^j}\abs{\frac{z}{z_0}}^j\leq C \left(\frac{r}{z_0}\right)^j\]</div>
+<p>und damit</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j=0}^\infty \abs{a_j z_j} \leq C \sum_{j=0}^\infty \left(\frac{r}{z_0}\right)^j\]</div>
+<p>wobei die geometrische Reihe auf der linken Seite konvergiert. Somit konvergiert die Reihe auf <span class="math notranslate nohighlight">\(B_r(0)\)</span> nach dem Majorantenkriterium gleichmäßig absolut.</p>
+</div>
+<p>Der maximale Radius für welchen eine Potenzreihe konvergiert, wird als Konvergenzradius bezeichnet.</p>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 7.16 </span> (Konvergenzradius)</p>
+<div class="definition-content section" id="proof-content">
+<p>Für eine Koeeffizientenfolge <span class="math notranslate nohighlight">\(a_j\in\C\)</span> und <span class="math notranslate nohighlight">\(p\in\C\)</span> ist der <strong>Konvergenzradius</strong> der Potenzreihe definiert durch</p>
+<div class="math notranslate nohighlight">
+\[R :=\sup\left\{\abs{z - p}: \sum_{j=0}^\infty a_j (z-p)^j \text{ konvergiert}\right\}.\]</div>
+</div>
+</div><p>Die Definition ist äquivalent zum Wert</p>
+<div class="math notranslate nohighlight">
+\[R :=\sup\left\{r&lt;0: \sum_{j=0}^\infty a_j r^j\text{ konvergiert} \right\}\]</div>
+<p>was auf das bekannte <strong>Wurzelkriterium</strong> führt.</p>
+</div>
+<div class="section" id="entwicklungssatz">
+<h2><span class="section-number">7.5.3. </span>Entwicklungssatz<a class="headerlink" href="#entwicklungssatz" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In diesem Abschnitt erarbeiten wir mithilfe von Potenzreihen die komplexe Taylorreihe.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Brook Taylor</p>
+<p><a class="reference external" href="https://de.wikipedia.org/wiki/Brook_Taylor">Brook Taylor</a> (Geboren 18. August 1685 in Edmonton, Middlesex; Gestorben 29. Dezember 1731 in Somerset House, London) war ein britischer Mathematiker und Mitglied der Royal Society.</p>
+</div>
+<div class="proof theorem admonition" id="theorem-5">
+<p class="admonition-title"><span class="caption-number">Theorem 7.8 </span> (Entwicklungssatz)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Es sei <span class="math notranslate nohighlight">\(B_r(p)\)</span> eine offene Kreisscheibe um <span class="math notranslate nohighlight">\(p\in\C\)</span> und <span class="math notranslate nohighlight">\(f:B_r(p)\to\C\)</span> eine Funktion. Die Funktion <span class="math notranslate nohighlight">\(f\)</span> ist genau dann holomorph, wenn sie durch eine konvergente Potenzreihe mit Entwicklungspunkt <span class="math notranslate nohighlight">\(p\)</span> dargestellt werden kann, d.h. falls eine Folge <span class="math notranslate nohighlight">\(a_j\in\C\)</span> existiert, s.d.,</p>
+<div class="math notranslate nohighlight">
+\[f(z) = \sum_{j=0}^\infty a_j (z-p)^n.\]</div>
+<p>In diesem Fall gilt insbesondere</p>
+<div class="math notranslate nohighlight">
+\[a_n = \frac{1}{n!} f^{(n)}(p)\]</div>
+</div>
+</div><div class="proof remark admonition" id="remark-6">
+<p class="admonition-title"><span class="caption-number">Remark 7.10 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Diese Aussage bildet das Gegenstück zur Tatsache das analytische Funktionen holomorph sind. Insbesondere ist die Reihe die man so erhält die Taylorreihe</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j=0}^\infty \frac{1}{n!} f^{(n)}(p) (z-p)^n.\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. ToDo, siehe <span id="id2">[<a class="reference internal" href="../references.html#id13">Nee17</a>]</span> Satz 5.7.</p>
+</div>
+<div class="proof example admonition" id="example-7">
+<p class="admonition-title"><span class="caption-number">Example 7.2 </span></p>
+<div class="example-content section" id="proof-content">
+<p>ToDo, sehr wichtiges Beispiel aus <span id="id3">[<a class="reference internal" href="../references.html#id13">Nee17</a>]</span> 5.10.</p>
+</div>
+</div></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -443,17 +590,17 @@ Da viele Konzepte der reellen Analysis verwendet werden, wird dieses Gebiet auch
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../surfaceintegrals/manifolds.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="cauchyintegral.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title">&lt;no title&gt;</p>
+            <p class="prev-next-title"><span class="section-number">7.4. </span>Der Integralsatz von Cauchy</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="complexnumbers.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="residuensatz.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">7.1. </span>Die Komplexen Zahlen</p>
+        <p class="prev-next-title"><span class="section-number">7.6. </span>Laurententwicklung und Residuensatz</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

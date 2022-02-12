@@ -199,39 +199,3 @@ Ableitung eines komplexen Monoms -> Beispiel 10.4 auf S.314 in Schulz-Baldes
 
 $f(z) := \overline{z}$ ist nicht holomorph -> Beispiel 10.7 auf S.315 in Schulz-Baldes
 ````
-
-## Analytische Funktionen
-
-```{danger}
-This section is under Construction.
-```
-
-Eine besondere Klasse von Funktionen sind *analytische Funktonen*, die sich lokal mit Hilfe von Reihen darstellen lassen.
-
-````{prf:definition} Analytische Funktion
-Sei $D \subset \C$ eine Teilmenge und $f \colon D \rightarrow \C$ eine Funktion.
-
-Wir nennen die Funktion $f$ **analytisch** in einem Punkt $z_0 \in D$ genau dann, wenn ein $\epsilon > 0$ existiert, so dass sich jeder Funktionswert $f(z) \in \C$ in einer entsprechenden lokalen Umgebung durch eine absolut konvergente Reihe darstellen lässt mit 
-
-```{math}
-f(z) = \sum_{n \geq 0} a_n (z-z_0)^n, \qquad \forall |z - z_0| < \epsilon,
-```
-
-wobei $(a_n)_{n_\in\N}$ eine Folge in $\C$ ist.
-
-Wir nennen die Funktion $f$ analytisch auf der Teilmenge $D$, wenn sie analytisch ist für alle Punkte $z_0 \in D$.
-
-````
-
-Der folgende Satz beschreibt den Zusammenhang zwischen analytischen und holomorphen Funktionen.
-
-````{prf:theorem}
-:label: thm:analytischHolomorph
-Jede analytische Funktion $f$ auf einer Teilmenge $D \subset \C$ ist auch holomorph auf $D$.
-````
-
-````{prf:proof}
-Vertauschung des Limes $h \rightarrow 0$ und der Summe.
-````
-
-Wie wir später im Hauptsatz der Funktionentheorie sehen werden gilt auch die Umkehrung.

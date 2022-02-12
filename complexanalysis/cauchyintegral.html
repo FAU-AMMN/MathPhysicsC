@@ -49,7 +49,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -60,7 +60,7 @@
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="7.5. Laurententwicklung und Residuensatz" href="residuensatz.html" />
+    <link rel="next" title="7.5. Potenzreihen" href="powerseries.html" />
     <link rel="prev" title="7.3. Wegintegrale" href="kurvenintegrale.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
@@ -297,8 +297,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="powerseries.html">
+     7.5. Potenzreihen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="residuensatz.html">
-     7.5. Laurententwicklung und Residuensatz
+     7.6. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -479,7 +484,7 @@ Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines be
 <h2><span class="section-number">7.4.1. </span>Benachbarte Wege<a class="headerlink" href="#benachbarte-wege" title="Link zu dieser Überschrift">¶</a></h2>
 <p>In der Definition eines Wegintegrals über beliebige Wege betrachtet man zulässige Zerlegungen mit offenen Kreisscheiben. Finden wir nun eine Zerlegung, s.d., sich zwei Wege die jeweiligen Kreisscheiben teilen, so wollen wir sie benachbart nennen.</p>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 7.13 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.12 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\subset \C\)</span> offen und seien <span class="math notranslate nohighlight">\(\gamma_0,\gamma_1:[a,b]\to U\)</span> zwei Wege. Falls eine Zerlegung <span class="math notranslate nohighlight">\((a=t_0,\ldots,b=t_N)\)</span> existiert mit Kreisscheiben <span class="math notranslate nohighlight">\(B^j\)</span>, welche zulässig für beide Wege ist, d.h.,</p>
 <div class="math notranslate nohighlight">
@@ -519,7 +524,7 @@ Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines be
 <h2><span class="section-number">7.4.2. </span>Homotopie<a class="headerlink" href="#homotopie" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Um nicht nur benachbarte Wege betrachten zu können definieren wir jetzt den Begriff von Homotopie.</p>
 <div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 7.14 </span> (Homotopie)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.13 </span> (Homotopie)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen, zwei Wege <span class="math notranslate nohighlight">\(\gamma_0, \gamma_1:[a,b]\to U\)</span> mit gleichen Anfangs und Endpunkten,</p>
 <div class="math notranslate nohighlight">
@@ -532,7 +537,7 @@ Diese besagt, dass sich die Werte einer holomorphen Funktion im Inneren eines be
 </div>
 </div><p>Anstatt nur Wege mit gleichen Anfangs und Endpunkten zu betrachten können wir auch Homotopie geschlossener Wege definieren.</p>
 <div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 7.15 </span> (Homotopie geschlossener Wege)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.14 </span> (Homotopie geschlossener Wege)</p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen, zwei geschlossene Wege <span class="math notranslate nohighlight">\(\gamma_0, \gamma_1:[a,b]\to U\)</span> heißen <strong>frei homotop</strong>, falls eine stetige Abbildung <span class="math notranslate nohighlight">\(h:[a,b]\times[0,1]\to U\)</span> existiert, so dass für alle <span class="math notranslate nohighlight">\(t\in[a,b]\)</span> gilt</p>
 <div class="math notranslate nohighlight">
@@ -568,7 +573,7 @@ Sei außerdem <span class="math notranslate nohighlight">\(f:U\to C\)</span> ein
 </div>
 <p>Es folgt, dass das Kurvenintegral einer holomorphe Funktionen über einen nullhomotopen Weg verschwindet, was als <strong>Integralsatz von Cauchy</strong> bekannt ist.</p>
 <div class="proof theorem admonition" id="theorem-7">
-<p class="admonition-title"><span class="caption-number">Theorem 7.4 </span> (Integralsatz von Cauchy)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.3 </span> (Integralsatz von Cauchy)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen und sei <span class="math notranslate nohighlight">\(\gamma:[a,b]\to U\)</span> ein nullhomotoper Weg, für jede holomorphe Funktion <span class="math notranslate nohighlight">\(f:U\to\C\)</span> gilt dann</p>
 <div class="math notranslate nohighlight">
@@ -590,7 +595,7 @@ t&amp;\mapsto p + r\exp(i t),\end{split}\]</div>
 \[\int_{\partial B_r(p)} f(z)\, dz := \int_{\gamma_{p,r}} f(z)\, dz\]</div>
 <p>und formulieren nun die Integralformel von Cauchy.</p>
 <div class="proof theorem admonition" id="theorem-8">
-<p class="admonition-title"><span class="caption-number">Theorem 7.5 </span> (Cauchy Integralformel)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.4 </span> (Cauchy Integralformel)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> offen, <span class="math notranslate nohighlight">\(\overline{B_r(p)}\subset \C\)</span> und <span class="math notranslate nohighlight">\(f:U\to \C\)</span> holomorph$, dann gilt</p>
 <div class="math notranslate nohighlight">
@@ -609,21 +614,7 @@ t&amp;\mapsto p + r\exp(i t),\end{split}\]</div>
 \[f^{(n)}(w) = \frac{n!}{2\pi i} \int_{\partial B_r(p)} \frac{f(z)}{(z-w)^{n+1}}\, dz\]</div>
 <p>für alle <span class="math notranslate nohighlight">\(w\in B_r(p)\)</span>.</p>
 </div>
-</div><p>Als weiteres Korollar erhalten wir, dass holomorphe Funktionen analytisch sind, was die Umkehrung zu <a class="reference internal" href="cauchyriemann.html#thm:analytischHolomorph">Theorem 7.2</a> ist.</p>
-<div class="proof corollary admonition" id="corollary-10">
-<p class="admonition-title"><span class="caption-number">Corollary 7.3 </span></p>
-<div class="corollary-content section" id="proof-content">
-<p>Es sei <span class="math notranslate nohighlight">\(f:B_r(p)\to\C\)</span> holomorph, dann ist <span class="math notranslate nohighlight">\(f\)</span> für jeden Punkt <span class="math notranslate nohighlight">\(w \in B_r(p)\)</span> durch eine konvergente Potenzreihe darstellbar (also analytisch),</p>
-<div class="math notranslate nohighlight">
-\[f(w) = \sum_{n=1}^\infty a_n (w-p)^n,\]</div>
-<p>deren Koeffizienten <span class="math notranslate nohighlight">\((a_n)_{n\in\N}\)</span> für alle <span class="math notranslate nohighlight">\(r^\prime &lt; r\)</span> gegeben sind durch</p>
-<div class="math notranslate nohighlight">
-\[a_n  = \frac{1}{2\pi i}\,\oint_{\partial B_{r^\prime}(p)} \frac{f(z)}{(z - p)^{n+1}}\,dz.\]</div>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Siehe z.B. <span id="id4">[<a class="reference internal" href="../references.html#id12">SB18</a>]</span> S.325f.</p>
-</div>
-</div>
+</div></div>
 <div class="section" id="der-satz-von-liouville">
 <h2><span class="section-number">7.4.5. </span>Der Satz von Liouville<a class="headerlink" href="#der-satz-von-liouville" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Eine weitere interessante Folgerung aus der Integralformel ist der Satz von Liouville.</p>
@@ -631,8 +622,8 @@ t&amp;\mapsto p + r\exp(i t),\end{split}\]</div>
 <p class="sidebar-title">Joseph Liouville</p>
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/Joseph_Liouville">Joseph Liouville</a> (Geboren 24. März 1809 in Saint-Omer; Gestorben 8. September 1882 in Paris) war ein französischer Mathematiker.</p>
 </div>
-<div class="proof theorem admonition" id="theorem-11">
-<p class="admonition-title"><span class="caption-number">Theorem 7.6 </span> (Satz von Liouville)</p>
+<div class="proof theorem admonition" id="theorem-10">
+<p class="admonition-title"><span class="caption-number">Theorem 7.5 </span> (Satz von Liouville)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Jede beschränkte holomorphe Funktion <span class="math notranslate nohighlight">\(f:\C\to\C\)</span> ist konstant.</p>
 </div>
@@ -646,8 +637,8 @@ t&amp;\mapsto p + r\exp(i t),\end{split}\]</div>
 <p>Da diese Ungleichung für alle <span class="math notranslate nohighlight">\(r&gt;0\)</span> und <span class="math notranslate nohighlight">\(w\in\C\)</span> gilt folgt <span class="math notranslate nohighlight">\(\abs{f^\prime(w)} = 0\)</span> für alle <span class="math notranslate nohighlight">\(w\in\C\)</span> und somit ist <span class="math notranslate nohighlight">\(f\)</span> konstant.</p>
 </div>
 <p>Hieraus folgt sofort der Fundamentalsatz der Algebra.</p>
-<div class="proof theorem admonition" id="theorem-12">
-<p class="admonition-title"><span class="caption-number">Theorem 7.7 </span> (Fundamentalsatz der Algebra)</p>
+<div class="proof theorem admonition" id="theorem-11">
+<p class="admonition-title"><span class="caption-number">Theorem 7.6 </span> (Fundamentalsatz der Algebra)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Hat ein Polynom</p>
 <div class="math notranslate nohighlight">
@@ -704,10 +695,10 @@ t&amp;\mapsto p + r\exp(i t),\end{split}\]</div>
             <p class="prev-next-title"><span class="section-number">7.3. </span>Wegintegrale</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="residuensatz.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="powerseries.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">7.5. </span>Laurententwicklung und Residuensatz</p>
+        <p class="prev-next-title"><span class="section-number">7.5. </span>Potenzreihen</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -49,7 +49,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -297,8 +297,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="powerseries.html">
+     7.5. Potenzreihen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="residuensatz.html">
-     7.5. Laurententwicklung und Residuensatz
+     7.6. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -465,7 +470,7 @@
 <h1><span class="section-number">7.3. </span>Wegintegrale<a class="headerlink" href="#wegintegrale" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Der vorhergehende Abschnitt beschäftigt sich mit der komplexen Ableitung. Darauf aufbauend wollen wir in diesem Abschnitt einen Integralbegriff für komplexe Funktionen entwickeln. Für Funktionen <span class="math notranslate nohighlight">\(f:\C\to\C\)</span> entsteht hierbei die Schwierigkeit durch den komplexen Definitionsbereich. Für Funktionen <span class="math notranslate nohighlight">\(g:[a,b]\to\C\)</span> wobei <span class="math notranslate nohighlight">\([a,b]\subset\R\)</span> ein reelles Intervall ist können wir mithilfe des Riemann-Integrals folgendes Integral definieren.</p>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 7.4 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.3 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es seien <span class="math notranslate nohighlight">\(a&lt;b\)</span> zwei reelle Zahlen und <span class="math notranslate nohighlight">\(g:[a,b]\to\C\)</span> eine stetige Funktion, dann definieren wir das Integral</p>
 <div class="math notranslate nohighlight">
@@ -476,7 +481,7 @@
 <h2><span class="section-number">7.3.1. </span>Integration über stetig differenzierbare Wege<a class="headerlink" href="#integration-uber-stetig-differenzierbare-wege" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir beginnen diesen Abschnitt mit der grundlegenden Definition von Wegen und Kurven, welche die Grundlage der komplexen Integration bilden.</p>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 7.5 </span> (Weg und Kurve)</p>
+<p class="admonition-title"><span class="caption-number">Definition 7.4 </span> (Weg und Kurve)</p>
 <div class="definition-content section" id="proof-content">
 <p>Für zwei reelle Zahlen <span class="math notranslate nohighlight">\(a&lt;b\)</span> betrachten wir eine Abbildung <span class="math notranslate nohighlight">\(\gamma:[a,b]\to\C\)</span>.</p>
 <ol class="simple">
@@ -492,7 +497,7 @@
 </div>
 </div><p>Damit können wir nun das <strong>Wegintegral</strong> definieren.</p>
 <div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 7.6 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.5 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f:U\to\C\)</span> eine stetige Funktion, für einen stetig differenzierbaren Weg <span class="math notranslate nohighlight">\(\gamma:[a,b]\to\C\)</span> definieren wir das <strong>Wegintegral</strong></p>
 <div class="math notranslate nohighlight">
@@ -511,7 +516,7 @@
 <h2><span class="section-number">7.3.2. </span>Integration über stückweise differenzierbare Wege<a class="headerlink" href="#integration-uber-stuckweise-differenzierbare-wege" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir wollen nicht nur Wege <span class="math notranslate nohighlight">\(\gamma:[a,b]\to\C\)</span> betrachten welche auf dem ganzen Intervall <span class="math notranslate nohighlight">\([a,b]\)</span> stetig differenzierbar sein sondern wollen auch stetige Abbildungen mit endliche vielen Knickstellen zulassen.</p>
 <div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 7.7 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.6 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Für zwei reelle Zahlen <span class="math notranslate nohighlight">\(a&lt;b\)</span> sei <span class="math notranslate nohighlight">\(\gamma:[a,b]\to\C\)</span> ein Weg.</p>
 <p>1. Falls endlich viele Punkte <span class="math notranslate nohighlight">\(a=t_0&lt;t_1&lt;\ldots t_N =b\)</span> existieren s.d. <span class="math notranslate nohighlight">\(\gamma\rvert_{[t_j,t_{j+1}]}\)</span> stetig differenzierbar ist, für alle <span class="math notranslate nohighlight">\(j=0,\ldots, N-1\)</span>, so heißt <span class="math notranslate nohighlight">\(\gamma\)</span> <strong>Integrationsweg</strong> mit Zerlegung <span class="math notranslate nohighlight">\((t_0,\ldots,t_N)\)</span>.</p>
@@ -535,7 +540,7 @@
 </div>
 <p>Analog definiert man hier den Begriff des Integrals.</p>
 <div class="proof definition admonition" id="definition-7">
-<p class="admonition-title"><span class="caption-number">Definition 7.8 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.7 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f:U\to\C\)</span> eine stetige Funktion, für einen Integrationsweg <span class="math notranslate nohighlight">\(\gamma:[a,b]\to\C\)</span> mit Zerlegung <span class="math notranslate nohighlight">\((t_0,\ldots,t_N)\)</span>  definieren wir das <strong>Wegintegral</strong></p>
 <div class="math notranslate nohighlight">
@@ -568,7 +573,7 @@
 <h2><span class="section-number">7.3.3. </span>Stammfunktionen<a class="headerlink" href="#stammfunktionen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Analog zum Begriff einer Stammfunktion in <span class="math notranslate nohighlight">\(\R\)</span> betrachten wir dieses Konzept nun für Funktionen <span class="math notranslate nohighlight">\(f\C\to\C\)</span>.</p>
 <div class="proof definition admonition" id="definition-10">
-<p class="admonition-title"><span class="caption-number">Definition 7.9 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.8 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen, eine holomorphe Funktion <span class="math notranslate nohighlight">\(F:U\to\C\)</span> heißt Stammfunktion einer Funktion <span class="math notranslate nohighlight">\(f:U\to\C\)</span>, falls</p>
 <div class="math notranslate nohighlight">
@@ -604,7 +609,7 @@
 </div>
 <p>Anstatt allgemeiner offener Teilmengen <span class="math notranslate nohighlight">\(U\subset\C\)</span> zu betrachten schränkt man sich oft auf <strong>Gebiete</strong> ein.</p>
 <div class="proof definition admonition" id="definition-13">
-<p class="admonition-title"><span class="caption-number">Definition 7.10 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.9 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Eine offenen Menge <span class="math notranslate nohighlight">\(U\subset\C\)</span> heißt <strong>Gebiet</strong>, falls sie zusammenhängend ist, das heißt für zwei Mengen <span class="math notranslate nohighlight">\(A,B\subset U,A\neq\emptyset\neq B\)</span> gilt</p>
 <div class="math notranslate nohighlight">
@@ -638,7 +643,7 @@
 </div>
 <p>Im folgende formulieren wir ein zentrales Resultat für Stammfunktionen holomorpher Funktionen.</p>
 <div class="proof theorem admonition" id="theorem-16">
-<p class="admonition-title"><span class="caption-number">Theorem 7.3 </span> (Existenz von Stammfunktionen)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.2 </span> (Existenz von Stammfunktionen)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\subset\C\)</span> offen, dann besitzt eine stetige Funktion genau dann eine Stammfunktion, falls</p>
 <div class="math notranslate nohighlight">
@@ -663,7 +668,7 @@
 <h2><span class="section-number">7.3.4. </span>Integration über nicht differenzierbare Wege<a class="headerlink" href="#integration-uber-nicht-differenzierbare-wege" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Mithilfe des Konzepts der Stammfunktion können wir nun das Integral über beliebige Wege definieren.</p>
 <div class="proof definition admonition" id="definition-18">
-<p class="admonition-title"><span class="caption-number">Definition 7.11 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.10 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\gamma:[a,b]\to U\)</span> ein Weg, eine Zerlegung <span class="math notranslate nohighlight">\((a=t_0,\ldots, t_N=b), t_j&lt;t_{j+1}\)</span> heißt <strong>zulässig</strong>, falls offenen Scheiben <span class="math notranslate nohighlight">\(B^j\subset U\)</span> existieren, s.d.</p>
 <div class="math notranslate nohighlight">
@@ -675,7 +680,7 @@
 \sum_{j=0}^{N-1} F_j(\gamma(t_{j+1})) - F_j(\gamma(t_{j})).\]</div>
 <p>Der Ausdruck auf der rechten Seite ist allerdings auch definiert, falls <span class="math notranslate nohighlight">\(\gamma\)</span> nicht differenzierbar ist, was auf folgende Definition führt.</p>
 <div class="proof definition admonition" id="definition-19">
-<p class="admonition-title"><span class="caption-number">Definition 7.12 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7.11 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U\)</span> offen und <span class="math notranslate nohighlight">\(\gamma:[a,b]\to U\)</span> ein Weg mit zulässiger Zerlegung <span class="math notranslate nohighlight">\((t_0,\ldots,t_N)\)</span> und offenen Kreisscheiben <span class="math notranslate nohighlight">\(B_j,j=0,\ldots,N-1\)</span>. Für eine holomorphe Funktion <span class="math notranslate nohighlight">\(f\)</span> mit Stammfunktionen <span class="math notranslate nohighlight">\(F_j\)</span> auf <span class="math notranslate nohighlight">\(B_j\)</span> definieren wir</p>
 <div class="math notranslate nohighlight">

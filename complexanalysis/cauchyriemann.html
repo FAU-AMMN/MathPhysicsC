@@ -49,7 +49,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{|#1|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -297,8 +297,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="powerseries.html">
+     7.5. Potenzreihen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="residuensatz.html">
-     7.5. Laurententwicklung und Residuensatz
+     7.6. Laurententwicklung und Residuensatz
     </a>
    </li>
   </ul>
@@ -402,11 +407,6 @@
    7.2.2. Die Cauchy–Riemannschen Differentialgleichungen
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analytische-funktionen">
-   7.2.3. Analytische Funktionen
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -435,11 +435,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#die-cauchy-riemannschen-differentialgleichungen">
    7.2.2. Die Cauchy–Riemannschen Differentialgleichungen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analytische-funktionen">
-   7.2.3. Analytische Funktionen
   </a>
  </li>
 </ul>
@@ -600,34 +595,6 @@ x\\y
 <p><span class="math notranslate nohighlight">\(f(z) := \overline{z}\)</span> ist nicht holomorph -&gt; Beispiel 10.7 auf S.315 in Schulz-Baldes</p>
 </div>
 </div></div>
-<div class="section" id="analytische-funktionen">
-<h2><span class="section-number">7.2.3. </span>Analytische Funktionen<a class="headerlink" href="#analytische-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
-<div class="admonition danger">
-<p class="admonition-title">Gefahr</p>
-<p>This section is under Construction.</p>
-</div>
-<p>Eine besondere Klasse von Funktionen sind <em>analytische Funktonen</em>, die sich lokal mit Hilfe von Reihen darstellen lassen.</p>
-<div class="proof definition admonition" id="definition-9">
-<p class="admonition-title"><span class="caption-number">Definition 7.3 </span> (Analytische Funktion)</p>
-<div class="definition-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine Funktion.</p>
-<p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> <strong>analytisch</strong> in einem Punkt <span class="math notranslate nohighlight">\(z_0 \in D\)</span> genau dann, wenn ein <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> existiert, so dass sich jeder Funktionswert <span class="math notranslate nohighlight">\(f(z) \in \C\)</span> in einer entsprechenden lokalen Umgebung durch eine absolut konvergente Reihe darstellen lässt mit</p>
-<div class="math notranslate nohighlight">
-\[f(z) = \sum_{n \geq 0} a_n (z-z_0)^n, \qquad \forall |z - z_0| &lt; \epsilon,\]</div>
-<p>wobei <span class="math notranslate nohighlight">\((a_n)_{n_\in\N}\)</span> eine Folge in <span class="math notranslate nohighlight">\(\C\)</span> ist.</p>
-<p>Wir nennen die Funktion <span class="math notranslate nohighlight">\(f\)</span> analytisch auf der Teilmenge <span class="math notranslate nohighlight">\(D\)</span>, wenn sie analytisch ist für alle Punkte <span class="math notranslate nohighlight">\(z_0 \in D\)</span>.</p>
-</div>
-</div><p>Der folgende Satz beschreibt den Zusammenhang zwischen analytischen und holomorphen Funktionen.</p>
-<div class="proof theorem admonition" id="thm:analytischHolomorph">
-<p class="admonition-title"><span class="caption-number">Theorem 7.2 </span></p>
-<div class="theorem-content section" id="proof-content">
-<p>Jede analytische Funktion <span class="math notranslate nohighlight">\(f\)</span> auf einer Teilmenge <span class="math notranslate nohighlight">\(D \subset \C\)</span> ist auch holomorph auf <span class="math notranslate nohighlight">\(D\)</span>.</p>
-</div>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Vertauschung des Limes <span class="math notranslate nohighlight">\(h \rightarrow 0\)</span> und der Summe.</p>
-</div>
-<p>Wie wir später im Hauptsatz der Funktionentheorie sehen werden gilt auch die Umkehrung.</p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
