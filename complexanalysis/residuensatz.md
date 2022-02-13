@@ -295,7 +295,9 @@ Bisher wissen wir jedoch nicht, dass alle Wege zu einem Weg der Gestalt $\gamma_
 Der folgende Satz liefert uns diese Aussage.
 
 ````{prf:theorem}
-Sind $\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}$ ein geschlossener Integrationsweg und $\gamma_0(a) = \gamma_1(a)$, so sind die beiden Integrationswege genau dann homotop, wenn ihre Umlaufzahlen übereinstimmen, d.h.,
+Sei $\gamma \colon [a,b] \rightarrow \C \setminus \{w\}$ ein geschlossenen Integrationsweg und $w \in \C$ ein Punkt.
+Dann gilt $\operatorname{Um}_\gamma(w) \in \Z$.
+Sind außerdem $\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}$ zwei geschlossene Integrationswege und $\gamma_0(a) = \gamma_1(a)$, so sind die beiden Integrationswege genau dann homotop, wenn ihre Umlaufzahlen übereinstimmen, d.h.,
 
 ```{math}
 \operatorname{Um}_{\gamma_0}(w) = \operatorname{Um}_{\gamma_1}(w)$ 
@@ -304,7 +306,61 @@ Sind $\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}$ ein geschl
 ````
 
 ````{prf:proof}
-Neeb S. 48
+Sei also $\gamma \colon [a,b] \rightarrow \C \setminus \{w\}$ ein geschlossener Integrationsweg und sei $\gamma(a) = z_0 \in \C$.
+Für die Funktion
+
+```{math}
+\eta &\colon [a,b] \rightarrow \C, \\
+\eta(t) &:= \int_{\gamma|_{[a,t]}} \frac{\mathrm{d}z}{z-w} = \int_a^t \frac{\gamma'(s)}{\gamma(s) - w} \mathrm{d}s 
+```
+
+gilt dann nach dem Hauptsatz der Integral- und Differentialrechnung $\eta'(t) = \frac{\gamma'(t)}{\gamma(t)-w}$ für jedes $t$ in dem $\gamma$ differenzierbar ist.
+Damit erhalten wir
+
+```{math}
+\frac{\mathrm{d}}{\mathrm{d}t} \left( (\gamma(t) - w)\exp^{-\eta(t)}\right) &= \gamma'(t)\exp^{-\eta(t)} + (\gamma(t) - w)\exp^{-\eta(t)}(-\eta'(t))\\
+&= \gamma'(t)\exp^{-\gamma(t)} - \gamma'(t)\exp^{-\eta(t)}\\
+&= 0.
+```
+
+Da offensichtlich $\eta(a) = 0$ gilt erhalten wir
+
+```{math}
+(\gamma(t) - w)\exp^{-\gamma(t)} = (\gamma(a) - w)\exp^{-\eta(a)} = \gamma(a) - w = z_0 - w,
+```
+
+so dass gilt
+
+```{math}
+\gamma(t) = w + \exp^{\gamma(t)}(z_0 - w) \quad \text{ für } \quad a \leq t \leq b.
+```
+
+Für $t = b$ erhalten wir insbesondere aus $\gamma(a) = \gamma(b) = z_0$ die Beziehung $\exp^{\gamma(b)} = 1$.
+Andererseits gilt aber $\eta(b) = 2\pi i \operatorname{Um}_\gamma(w)$ und somit folgt schon $\operatorname{Um}_\gamma(w) \in \Z$.
+
+Seien also nun $\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}$ geschlossene Integrationswege mit dem gleichen Anfangspunkt $z_0 \in C$.
+Wir definieren zwei Funktionen $\eta_0, \eta_1 : [a,b] \rightarrow \C$ analog wie oben.
+Diese Funktionen sind stückweise stetig differenzierbare Kurven mit
+
+```{math}
+\gamma_0(a) = \gamma_1(a) = 0 \quad \text{ und } \quad \eta_0(b) = 2 \pi i \operatorname{Um}_{\gamma_1}(w) = 2 \pi i \operatorname{Um}_{\gamma_2}(w) = \eta_1(b).
+```
+
+Sei nun
+
+```{math}
+h(s,t) := s \eta_1(t) + (1-s) \eta_0(t)
+```
+
+eine Homotopie von $\eta_0$ nach $\eta_1$ mit festen Endpunkten.
+Also ist
+
+```{math}
+H(s,t) := w + \exp^{h(s,t)}(z_0 - w)
+```
+
+eine Homotopie von $\gamma_0$ nach $\gamma_1$ mit festen Endpunkten.
+
 ````
 
 Aus der Einsicht, dass jede Umlaufzahl ganzzahlig ist, stellt sich die Frage, wie diese Umlaufzahl von der Wahl des Punktes abhängt.
@@ -325,14 +381,26 @@ und es gilt $\operatorname{Um}_\gamma(w) = 0$ für alle $w \in \K_{>R}(0)$.
 ````
 
 ````{prf:proof}
-ToDo: Neeb S. 49
+Aus der Formel
+
+```{math}
+\operatorname{Um}_\gamma(w) = \frac{1}{2 \pi i} \oint_\gamma \frac{1}{z-w} \mathrm{d}z = \frac{1}{2 \pi i} \int_a^b \frac{\gamma'(t)}{\gamma(t) - w} \mathrm{d}t
+```
+
+und aus der Stetigkeit des Integranden als Funktion von $(t,w)$ in der Menge $[a,b] \times U$ folgt die Stetigkeit der Funktion $\operatorname{Um}_\gamma$.
+Da die Funktion $\operatorname{Um}_\gamma$ Werte in $\Z$ annimmt, muss sie auf jeder Zusammenhangskomponente von $U$ konstant sein.
+Andererseits gilt für die Länge $L(\gamma) = \int_a^b |\gamma'(t)| \mathrm{d}t$ die Abschätzung
+
+```{math}
+\left| \int_a^b \frac{\gamma'(t)}{\gamma(t)-w} \mathrm{d}t \right| \leq \int_a^b \frac{|\gamma'(t)|}{|\gamma(t) - w|} \mathrm{d}t \leq \int_a^b \frac{|\gamma'(t)|}{|w| - R} \mathrm{d}t = \frac{1}{|w| - R} L(\gamma). 
+```
+
+Hieraus folgt schon $\lim_{w \rightarrow \infty} \operatorname{Um}_\gamma(w) = 0$, also ist $\operatorname{Um}_\gamma(w) = 0$ für alle Punkte $w \in \C$ mit $|w| > R$.
+
+
 ````
 
 **ToDo: Abbildung hier zu Korollar - S.51 in Neeb**
-
-Evtl. Satz 6.13 aus Neeb?
-
-
 
 ## Cauchyscher Residuensatz
 
@@ -403,7 +471,35 @@ Dann gilt der folgende Zusammenhang
 ````
 
 ````{prf:proof}
-Neeb S.52
+Sei $p \in P$ und $f(z) = \sum_{n=-\infty}^\infty a_n(z-p)^n$ die Laurent-Entwicklung von $f$ um $p$.
+Dann ist
+
+```{math}
+h_p(z) := \sum_{n \leq -2} a_n(z-p)^n
+```
+
+eine auf $\C \setminus \{p\}$ holomorphe Funktion mit Stammfunktion
+
+```{math}
+H(z) := \sum_{n \leq -2} \frac{a_n}{n+1} (z-p)^{n+1}$.
+```
+
+Also verschwindet jedes Integral $\int_\delta h_p(z)$ für jeden geschlossenen Weg $\delta$ in $\C \setminus \{p\}$.
+Die Funktion 
+
+```{math}
+F(z) := f(z) - \sum_{p\in P} h_p(z) - \sum_{p\in P} \frac{\operatorname{Res}_p f}{z-p}
+```
+
+hat nun in allen $p \in P$ hebbare Singularitäten und ist somit holomorph auf $U$.
+Nach dem Integralsatz von Cauchy in {prf:ref}`` gilt schließlich
+
+```{math}
+0 &= \int_\gamma \left( f(z) - \sum_{p \in P} h_p(z) - \sum_{p\in P} \frac{\operatorname{Res}_p f}{z-p} \right) \mathrm{d}z\\
+&= \int_\gamma f(z) \mathrm{d}z - \sum_{p \in P} \operatorname{Res}_p f \cdot \int_\gamma \frac{1}{z-p} \mathrm{d}z\\
+&= \int_\gamma f(z) \mathrm{d}z - 2\pi i \sum_{p\in P} \operatorname{Res}_p f \cdot \operatorname{Um}_\gamma(p).
+```
+
 ````
 
 ````{prf:remark}
