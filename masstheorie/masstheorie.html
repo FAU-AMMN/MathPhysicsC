@@ -49,7 +49,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -398,8 +398,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mengensysteme-und-masze">
-   5.1.1. Mengensysteme und Maße
+  <a class="reference internal nav-link" href="#mengensysteme">
+   5.1.1. Mengensysteme
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -477,8 +477,8 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mengensysteme-und-masze">
-   5.1.1. Mengensysteme und Maße
+  <a class="reference internal nav-link" href="#mengensysteme">
+   5.1.1. Mengensysteme
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -554,8 +554,8 @@ Die hier beschriebenen Werkzeuge werden uns im nächsten Kapitel bei der Einfüh
 <p>Hierbei soll das Maß <span class="math notranslate nohighlight">\(\mu\)</span> natürlich mit dem Volumen der Teilmenge <span class="math notranslate nohighlight">\(A\)</span> zusammenhängen.
 Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die Menge <span class="math notranslate nohighlight">\(\Omega\)</span> schon der gesamte <span class="math notranslate nohighlight">\(\R^n\)</span> ist.</p>
 <p>Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.</p>
-<div class="section" id="mengensysteme-und-masze">
-<span id="s-sigmaalg"></span><h2><span class="section-number">5.1.1. </span>Mengensysteme und Maße<a class="headerlink" href="#mengensysteme-und-masze" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="mengensysteme">
+<span id="s-sigmaalg"></span><h2><span class="section-number">5.1.1. </span>Mengensysteme<a class="headerlink" href="#mengensysteme" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir betrachten im Folgenden eine beliebige zu Grundmenge <span class="math notranslate nohighlight">\(\Omega\)</span>, welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von <span class="math notranslate nohighlight">\(\Omega\)</span> einen Wert zuordnen weshalb wir die <strong>Potenzmenge</strong> <span class="math notranslate nohighlight">\(2^\Omega\)</span> betrachten, welche die Menge aller möglichen Teilmengen von <span class="math notranslate nohighlight">\(\Omega\)</span> bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe <a class="reference internal" href="#def:mass">Definition 5.5</a>) eine spezielle Abbildung <span class="math notranslate nohighlight">\(\mu:\Sigma\to[0,\infty]\)</span>, wobei <span class="math notranslate nohighlight">\(\Sigma\subset 2^\Omega\)</span> ein Mengensystem ist, welches man auch System der <span class="math notranslate nohighlight">\(\mu\)</span>-messbaren Mengen nennt.</p>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>

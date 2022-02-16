@@ -49,7 +49,7 @@
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Im": "\\mathrm{Im}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -585,9 +585,9 @@ z^2\cdot f(z)&amp;\text{ für } z\neq 0,\\
 <div class="lemma-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(f:U\setminus\{p\}\to\C\)</span> holomorph, <span class="math notranslate nohighlight">\(B_{0,R}(p)\subset U\setminus\{p\}\)</span> und <span class="math notranslate nohighlight">\(a_j\in\C, j\in\Z\)</span> seien die Koeffizienten der Laurent-Entwicklung auf <span class="math notranslate nohighlight">\(B_{0,R}\)</span> welche nach <a class="reference internal" href="#lem:laurent">Lemma 7.14</a> existieren. Dann gilt:</p>
 <ol class="simple">
-<li><p>Die Singularität <span class="math notranslate nohighlight">\(p\)</span> ist genau dann hebbar, wenn <span class="math notranslate nohighlight">\(a_{j}=0\)</span> für alle <span class="math notranslate nohighlight">\(j&lt;0\)</span>.</p></li>
-<li><p>Die Singularität <span class="math notranslate nohighlight">\(p\)</span> ist genau dann ein Pol der Ordnung <span class="math notranslate nohighlight">\(k\in\N\)</span>, <span class="math notranslate nohighlight">\(a_{-k}\neq 0\)</span> und <span class="math notranslate nohighlight">\(a_j = 0\)</span> für alle <span class="math notranslate nohighlight">\(j&lt;k\)</span>.</p></li>
-<li><p>Die Singularität <span class="math notranslate nohighlight">\(p\)</span> ist genau dann wesentlich, falls <span class="math notranslate nohighlight">\(a_{-j}\neq 0\)</span> für fast alle <span class="math notranslate nohighlight">\(j\in\N\)</span>.</p></li>
+<li><p>Die Singularität <span class="math notranslate nohighlight">\(p\)</span> ist genau dann <em>hebbar</em>, wenn <span class="math notranslate nohighlight">\(a_{j}=0\)</span> für alle <span class="math notranslate nohighlight">\(j&lt;0\)</span>.</p></li>
+<li><p>Die Singularität <span class="math notranslate nohighlight">\(p\)</span> ist genau dann ein <em>Pol</em> der Ordnung <span class="math notranslate nohighlight">\(k\in\N\)</span>, <span class="math notranslate nohighlight">\(a_{-k}\neq 0\)</span> und <span class="math notranslate nohighlight">\(a_j = 0\)</span> für alle <span class="math notranslate nohighlight">\(j&lt;k\)</span>.</p></li>
+<li><p>Die Singularität <span class="math notranslate nohighlight">\(p\)</span> ist genau dann <em>wesentlich</em>, falls <span class="math notranslate nohighlight">\(a_{-j}\neq 0\)</span> für fast alle <span class="math notranslate nohighlight">\(j\in\N\)</span>.</p></li>
 </ol>
 </div>
 </div><div class="proof admonition" id="proof">
@@ -597,26 +597,24 @@ z^2\cdot f(z)&amp;\text{ für } z\neq 0,\\
 \[f(z) = \sum_{0}^\infty a_j (z-p)^j,\]</div>
 <p>holomorph von <span class="math notranslate nohighlight">\(B_{0,R}(p)\)</span> auf <span class="math notranslate nohighlight">\(B_R(p)\)</span> fortsetzbar und die Singularität somit hebbar.</p>
 <p><strong>Ad 2.</strong></p>
-<p>ToDo</p>
+<p>Ist <span class="math notranslate nohighlight">\(f(z) = \sum_{j \geq -k} a_j (z-p)^j\)</span> mit <span class="math notranslate nohighlight">\(a_k \neq 0\)</span>, so ist</p>
+<div class="math notranslate nohighlight">
+\[(z-p)^k f(z) = \sum_{j \geq -k} a_j (z-p)^j+k\]</div>
+<p>auf der Kreisscheibe <span class="math notranslate nohighlight">\(K_R(0)\)</span> eine holomorphe Funktion und der Index <span class="math notranslate nohighlight">\(k\)</span> ist minimal mit dieser Eigenschaft, denn für <span class="math notranslate nohighlight">\(m &lt; k\)</span> ist</p>
+<div class="math notranslate nohighlight">
+\[(z-p)^m f(z) = \sum_{j \geq -k} a_j (z-p)^{j+m} = (z-p)^{m-k} \sum_{j \geq -k} a_j (z-p)^{j+k} = (z-p)^m F(z),\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(F(p) = a_k \neq 0\)</span> ist und <span class="math notranslate nohighlight">\(|z-p|^{m-k} \rightarrow \infty\)</span> für <span class="math notranslate nohighlight">\(z \rightarrow p\)</span> gilt.
+Also besitzt <span class="math notranslate nohighlight">\(f\)</span> in <span class="math notranslate nohighlight">\(p\)</span> einen Pol der Ordnung <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <p><strong>Ad 3.</strong></p>
-<p>ToDo</p>
+<p>In diesem Fall erhalten wir für kein <span class="math notranslate nohighlight">\(k \in \N\)</span> eine hebbare Singularität von</p>
+<div class="math notranslate nohighlight">
+\[(z-p)^k f(z) = \sum_{j \geq k} a_j (z-p)^{j+k},\]</div>
+<p>so dass die Singularität von <span class="math notranslate nohighlight">\(f\)</span> in <span class="math notranslate nohighlight">\(p\)</span> wesentlich ist.</p>
 </div>
-<div class="proof definition admonition" id="definition-7">
-<p class="admonition-title"><span class="caption-number">Definition 7.20 </span> (Meromorphe Funktion)</p>
-<div class="definition-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge.
-Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> <strong>meromorph</strong> auf <span class="math notranslate nohighlight">\(D\)</span> genau dann, wenn eine lokalendliche Menge <span class="math notranslate nohighlight">\(P\)</span> existiert, so dass die Funktion <span class="math notranslate nohighlight">\(f\)</span> holomorph auf <span class="math notranslate nohighlight">\(D \setminus P\)</span> mit Polen in <span class="math notranslate nohighlight">\(P\)</span> ist.</p>
 </div>
-</div><div class="proof example admonition" id="example-8">
-<p class="admonition-title"><span class="caption-number">Example 7.3 </span> (Meromorphe Funktionen)</p>
-<div class="example-content section" id="proof-content">
-<p>Rationale Funktionen oder konkretes Beispiel</p>
-<p>Schulz-Baldes S.332</p>
-</div>
-</div></div>
 <div class="section" id="der-satz-von-casorati-weierstrasz">
 <h2><span class="section-number">7.6.3. </span>Der Satz von Casorati–Weierstraß<a class="headerlink" href="#der-satz-von-casorati-weierstrasz" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Für wesentliche Singularitäten <span class="math notranslate nohighlight">\(p\)</span> können wir weder einen Wert der Funktion am Punkt <span class="math notranslate nohighlight">\(p\)</span> definieren, noch feststellen, dass die Funktion hier eindeutig gegen unendlich strebt. Tatsächlich nimmt eine Funktion um eine wesentliche Singularität herum überaschend viele verschiedene Werte an. Diese ist die Aussage des Satzes von Casorati–Weierstraß.</p>
+<p>Für wesentliche Singularitäten <span class="math notranslate nohighlight">\(p\)</span> können wir weder einen Wert der Funktion am Punkt <span class="math notranslate nohighlight">\(p\)</span> definieren, noch feststellen, dass die Funktion hier eindeutig gegen unendlich strebt. Tatsächlich nimmt eine Funktion um eine wesentliche Singularität herum überraschend viele verschiedene Werte an. Diese ist die Aussage des Satzes von Casorati–Weierstraß.</p>
 <div class="margin sidebar">
 <p class="sidebar-title">Felice Casorati</p>
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/Felice_Casorati_(Mathematiker)">Felice Casorati</a> (Geboren 17. Dezember 1835 in Pavia; Gestorben 11. September 1890 in Casteggio) war ein italienischer Mathematiker.</p>
@@ -625,7 +623,7 @@ Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon D
 <p class="sidebar-title">Karl Weierstraß</p>
 <p><a class="reference external" href="https://de.wikipedia.org/wiki/Karl_Weierstra%C3%9F">Karl Theodor Wilhelm Weierstraß</a> (Geboren 31. Oktober 1815 in Ostenfelde bei Ennigerloh, Münsterland; Gestorben 19. Februar 1897 in Berlin) war ein deutscher Mathematiker.</p>
 </div>
-<div class="proof theorem admonition" id="theorem-9">
+<div class="proof theorem admonition" id="theorem-7">
 <p class="admonition-title"><span class="caption-number">Theorem 7.10 </span> (Casorati–Weierstraß)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> offen und <span class="math notranslate nohighlight">\(p\in U\)</span> eine wesentliche Singularität der holomorphen Funktion <span class="math notranslate nohighlight">\(f:U\setminus\{p\}\to\C\)</span>, dann gilt, dass <span class="math notranslate nohighlight">\(f(U\setminus\{p\})\)</span> dicht in <span class="math notranslate nohighlight">\(\C\)</span> liegt.</p>
@@ -637,79 +635,192 @@ Wir nennen eine Funktion <span class="math notranslate nohighlight">\(f \colon D
 <p>Da das Bild von <span class="math notranslate nohighlight">\(f\)</span> somit einen echten Abstand zum Punkt <span class="math notranslate nohighlight">\(p\)</span> hat ist die Funktion</p>
 <div class="math notranslate nohighlight">
 \[z\mapsto\frac{1}{f(z) - w}\]</div>
-<p>beschränkt und holomorph auf <span class="math notranslate nohighlight">\(U\setminus\{p\}\)</span>. Somit folgt mit dem Hebbarkeitssatz <a class="reference internal" href="#thm:hebbar">Theorem 7.9</a>, dass diese Funktion einen hebbaren Pol bei <span class="math notranslate nohighlight">\(p\)</span> hat und somit zur holomorphen Funktion <span class="math notranslate nohighlight">\(h:U\to\C\)</span> fortsetzbar auf <span class="math notranslate nohighlight">\(U\)</span> ist. Diese Funktion hat keine Nullstellen</p>
-<p>ToDo</p>
+<p>beschränkt und holomorph auf <span class="math notranslate nohighlight">\(U\setminus\{p\}\)</span>. Somit folgt mit dem Hebbarkeitssatz in <a class="reference internal" href="#thm:hebbar">Theorem 7.9</a>, dass diese Funktion einen hebbaren Pol bei <span class="math notranslate nohighlight">\(p\)</span> hat und somit zur holomorphen Funktion <span class="math notranslate nohighlight">\(h:U\to\C\)</span> fortsetzbar auf <span class="math notranslate nohighlight">\(U\)</span> ist. Diese Funktion hat keine Nullstellen auf <span class="math notranslate nohighlight">\(U\setminus\{p\}\)</span> und ist daher von der From</p>
+<div class="math notranslate nohighlight">
+\[h(z) = (z-p)^k j(z)\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(k\in\N_0, j:U\to\C\)</span> holomorph mit <span class="math notranslate nohighlight">\(j(p)\neq 0\)</span>. Dann hat aber</p>
+<div class="math notranslate nohighlight">
+\[f(z) = \frac{1}{h(z)} + w\]</div>
+<p>eine hebbare Singularität bzw. einen Pol bei <span class="math notranslate nohighlight">\(p\)</span> was ein Widerspruch zur Annahme ist.</p>
+<p>eine hebbare Singularität bei <span class="math notranslate nohighlight">\(z=p\)</span>.</p>
 </div>
 </div>
 <div class="section" id="umlaufzahlen">
 <h2><span class="section-number">7.6.4. </span>Umlaufzahlen<a class="headerlink" href="#umlaufzahlen" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in <span class="math notranslate nohighlight">\(\C\)</span>, den sogenannten Index.</p>
-<div class="proof definition admonition" id="definition-10">
-<p class="admonition-title"><span class="caption-number">Definition 7.21 </span> (Index)</p>
+<p>Eine charakteristische Größe von Integrationswegen ist die sogenannte <strong>Umlaufzahl</strong>, welche beschreibt wie oft ein Weg um einen Punkt <span class="math notranslate nohighlight">\(w\in\C\)</span> herum läuft.</p>
+<div class="proof definition admonition" id="definition-8">
+<p class="admonition-title"><span class="caption-number">Definition 7.20 </span> (Umlaufzahl)</p>
 <div class="definition-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span> und <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> ein beliebiger Punkt außerhalb der zugehörigen Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.
-Wir bezeichnen als <strong>Index</strong> von <span class="math notranslate nohighlight">\(w\)</span> bezüglich des Wegs <span class="math notranslate nohighlight">\(\gamma\)</span> folgende charakteristische Größe</p>
+<p>Sei <span class="math notranslate nohighlight">\(\gamma:[a,b]\to\C\)</span> ein Integrationsweg und <span class="math notranslate nohighlight">\(w \in \C \setminus \Im(\gamma)\)</span> ein Punkt.
+Dann bezeichnet</p>
 <div class="math notranslate nohighlight">
-\[\operatorname{Ind}_\gamma(w) \ := \ \oint_\gamma \frac{1}{z - w} \frac{\mathrm{d}z}{2\pi i} \ = \ \int_0^1 \frac{\gamma'(t)}{\gamma(t - w)} \frac{\mathrm{d}z}{2\pi i} \in \mathbb{Z}.\]</div>
-<p>Häufig wird der Index auch <strong>Windungszahl</strong> von <span class="math notranslate nohighlight">\(\gamma\)</span> um <span class="math notranslate nohighlight">\(w\)</span> genannt.
-Sie ist eine <em>topologische Invariante</em>, die anschaulich beschreibt, wie häufig sich die zugehörige Kurve um den Punkt <span class="math notranslate nohighlight">\(w\)</span> windet.</p>
+\[\Um_\gamma(w) := 
+\frac{1}{2\pi i} \oint_\gamma \frac{1}{z - w} dz\]</div>
+<p>die <strong>Umlaufzahl</strong> (manchmal auch <strong>Index</strong>) von <span class="math notranslate nohighlight">\(\gamma\)</span> um <span class="math notranslate nohighlight">\(w\)</span>.</p>
 </div>
-</div><p><strong>ToDo: Abbildung mit Beispiel von <a class="reference external" href="https://de.wikipedia.org/wiki/Umlaufzahl_(Mathematik)">Wikipedia</a></strong></p>
-<div class="proof lemma admonition" id="lemma-11">
-<p class="admonition-title"><span class="caption-number">Lemma 7.16 </span></p>
+</div><p>Anschaulich möchten wir für geschlossene Wege <span class="math notranslate nohighlight">\(\gamma\)</span> zählen, wie oft <span class="math notranslate nohighlight">\(\gamma\)</span> um einen Punkt <span class="math notranslate nohighlight">\(w\)</span> herumläuft.
+A priori ist allerdings nicht klar, dass die Umlaufzahl tatsächlich ganzzahlig ist.
+Dafür erhalten wir zunächst das folgende Resultat.</p>
+<div class="proof lemma admonition" id="lemma-9">
+<p class="admonition-title"><span class="caption-number">Lemma 7.16 </span> (Ganzzahligkeit der Umlaufzahl)</p>
 <div class="lemma-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [0,1] \rightarrow \C\)</span> ein geschlossener Weg in <span class="math notranslate nohighlight">\(\C\)</span>.
-Dann ist die Abbildung, die jedem Punkt <span class="math notranslate nohighlight">\(w \in \C \setminus \operatorname{Bild}(\gamma)\)</span> außerhalb der zugehörigen Kurve seinen Index <span class="math notranslate nohighlight">\(\operatorname{Ind_\gamma}(w)\)</span> konstant auf jeder Zusammenhangskomponente bezüglich der Kurve von <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+<p>Für <span class="math notranslate nohighlight">\(r&gt;0\)</span>, <span class="math notranslate nohighlight">\(w\in\C \setminus \Im(\gamma)\)</span> ein Punkt, und <span class="math notranslate nohighlight">\(k\in\Z\)</span> eine ganze Zahl.
+Sei außerdem ein Weg <span class="math notranslate nohighlight">\(\gamma_{r,k}:[0,2\pi]\to\C\)</span> gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[\gamma_{r,k}(t) := w + r \exp(ikt).\]</div>
+<p>Dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\Um_{\gamma_{r,k}}(w) = k.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Schulz-Baldes S.318f.</p>
+<p>Proof. Wir berechnen explizit</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Um_{\gamma_{r,k}}(w) &amp;:= 
+\frac{1}{2\pi i} \oint_{\gamma_{r,k}} \frac{1}{z - w} dz\\ 
+&amp;=
+\frac{1}{2\pi i} \oint_{\gamma_{r,k}} \frac{r k \exp(ikt)}{r \exp(ikt)} dz\\
+&amp;= k,\end{split}\]</div>
+<p>was die Behauptung zeigt.</p>
+</div>
+<p><strong>ToDo: Abbildung mit Beispiel von <a class="reference external" href="https://de.wikipedia.org/wiki/Umlaufzahl_(Mathematik)">Wikipedia</a></strong></p>
+<p>Wir wissen bereits aus dem Homotopiesatz in {prf:ref}``, dass homotope Wege die gleiche Umlaufzahl liefern.
+Bisher wissen wir jedoch nicht, dass alle Wege zu einem Weg der Gestalt <span class="math notranslate nohighlight">\(\gamma_{r,k}\)</span> homotop sind.
+Der folgende Satz liefert uns diese Aussage.</p>
+<div class="proof theorem admonition" id="theorem-10">
+<p class="admonition-title"><span class="caption-number">Theorem 7.11 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [a,b] \rightarrow \C \setminus \{w\}\)</span> ein geschlossenen Integrationsweg und <span class="math notranslate nohighlight">\(w \in \C\)</span> ein Punkt.
+Dann gilt <span class="math notranslate nohighlight">\(\Um_\gamma(w) \in \Z\)</span>.
+Sind außerdem <span class="math notranslate nohighlight">\(\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}\)</span> zwei geschlossene Integrationswege und <span class="math notranslate nohighlight">\(\gamma_0(a) = \gamma_1(a)\)</span>, so sind die beiden Integrationswege genau dann homotop, wenn ihre Umlaufzahlen übereinstimmen, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[\Um_{\gamma_0}(w) = \Um_{\gamma_1}(w)\]</div>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Sei also <span class="math notranslate nohighlight">\(\gamma \colon [a,b] \rightarrow \C \setminus \{w\}\)</span> ein geschlossener Integrationsweg und sei <span class="math notranslate nohighlight">\(\gamma(a) = z_0 \in \C\)</span>.
+Für die Funktion</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\eta &amp;\colon [a,b] \rightarrow \C, \\
+\eta(t) &amp;:= \int_{\gamma|_{[a,t]}} \frac{\mathrm{d}z}{z-w} = \int_a^t \frac{\gamma'(s)}{\gamma(s) - w} \mathrm{d}s \end{split}\]</div>
+<p>gilt dann nach dem Hauptsatz der Integral- und Differentialrechnung <span class="math notranslate nohighlight">\(\eta'(t) = \frac{\gamma'(t)}{\gamma(t)-w}\)</span> für jedes <span class="math notranslate nohighlight">\(t\)</span> in dem <span class="math notranslate nohighlight">\(\gamma\)</span> differenzierbar ist.
+Damit erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\mathrm{d}}{\mathrm{d}t} \left( (\gamma(t) - w)\exp^{-\eta(t)}\right) &amp;= \gamma'(t)\exp^{-\eta(t)} + (\gamma(t) - w)\exp^{-\eta(t)}(-\eta'(t))\\
+&amp;= \gamma'(t)\exp^{-\gamma(t)} - \gamma'(t)\exp^{-\eta(t)}\\
+&amp;= 0.\end{split}\]</div>
+<p>Da offensichtlich <span class="math notranslate nohighlight">\(\eta(a) = 0\)</span> gilt erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[(\gamma(t) - w)\exp^{-\gamma(t)} = (\gamma(a) - w)\exp^{-\eta(a)} = \gamma(a) - w = z_0 - w,\]</div>
+<p>so dass gilt</p>
+<div class="math notranslate nohighlight">
+\[\gamma(t) = w + \exp^{\gamma(t)}(z_0 - w) \quad \text{ für } \quad a \leq t \leq b.\]</div>
+<p>Für <span class="math notranslate nohighlight">\(t = b\)</span> erhalten wir insbesondere aus <span class="math notranslate nohighlight">\(\gamma(a) = \gamma(b) = z_0\)</span> die Beziehung <span class="math notranslate nohighlight">\(\exp^{\gamma(b)} = 1\)</span>.
+Andererseits gilt aber <span class="math notranslate nohighlight">\(\eta(b) = 2\pi i \Um_\gamma(w)\)</span> und somit folgt schon <span class="math notranslate nohighlight">\(\Um_\gamma(w) \in \Z\)</span>.</p>
+<p>Seien also nun <span class="math notranslate nohighlight">\(\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}\)</span> geschlossene Integrationswege mit dem gleichen Anfangspunkt <span class="math notranslate nohighlight">\(z_0 \in C\)</span>.
+Wir definieren zwei Funktionen <span class="math notranslate nohighlight">\(\eta_0, \eta_1 : [a,b] \rightarrow \C\)</span> analog wie oben.
+Diese Funktionen sind stückweise stetig differenzierbare Kurven mit</p>
+<div class="math notranslate nohighlight">
+\[\gamma_0(a) = \gamma_1(a) = 0 \quad \text{ und } \quad \eta_0(b) = 2 \pi i \Um_{\gamma_1}(w) = 2 \pi i \Um_{\gamma_2}(w) = \eta_1(b).\]</div>
+<p>Sei nun</p>
+<div class="math notranslate nohighlight">
+\[h(s,t) := s \eta_1(t) + (1-s) \eta_0(t)\]</div>
+<p>eine Homotopie von <span class="math notranslate nohighlight">\(\eta_0\)</span> nach <span class="math notranslate nohighlight">\(\eta_1\)</span> mit festen Endpunkten.
+Also ist</p>
+<div class="math notranslate nohighlight">
+\[H(s,t) := w + \exp^{h(s,t)}(z_0 - w)\]</div>
+<p>eine Homotopie von <span class="math notranslate nohighlight">\(\gamma_0\)</span> nach <span class="math notranslate nohighlight">\(\gamma_1\)</span> mit festen Endpunkten.</p>
+</div>
+<p>Aus der Einsicht, dass jede Umlaufzahl ganzzahlig ist, stellt sich die Frage, wie diese Umlaufzahl von der Wahl des Punktes abhängt.
+Dies beantwortet uns das folgene Korollar.</p>
+<div class="proof corollary admonition" id="corollary-11">
+<p class="admonition-title"><span class="caption-number">Corollary 7.3 </span></p>
+<div class="corollary-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(\gamma \colon [a,b] \rightarrow \C\)</span> ein geschlossener Weg.
+Dann ist die Menge <span class="math notranslate nohighlight">\(U := \C \setminus \Im(\gamma)\)</span> offen und <span class="math notranslate nohighlight">\(\Um_\gamma \colon U \rightarrow \Z\)</span> ist eine Funktion, die <em>konstant</em> auf jeder Zusammenhangskomponente von <span class="math notranslate nohighlight">\(U\)</span> ist.</p>
+<p>Außerdem existiert ein Radius <span class="math notranslate nohighlight">\(R &gt; 0\)</span>, so dass für die Kreisscheibe <span class="math notranslate nohighlight">\(K_{&gt;R}(0)\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[K_{&gt;R}(0) := \lbrace z \in \C : |z| &gt; R \rbrace \subset U\]</div>
+<p>und es gilt <span class="math notranslate nohighlight">\(\Um_\gamma(w) = 0\)</span> für alle <span class="math notranslate nohighlight">\(w \in \K_{&gt;R}(0)\)</span>.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Aus der Formel</p>
+<div class="math notranslate nohighlight">
+\[\Um_\gamma(w) = \frac{1}{2 \pi i} \oint_\gamma \frac{1}{z-w} \mathrm{d}z = \frac{1}{2 \pi i} \int_a^b \frac{\gamma'(t)}{\gamma(t) - w} \mathrm{d}t\]</div>
+<p>und aus der Stetigkeit des Integranden als Funktion von <span class="math notranslate nohighlight">\((t,w)\)</span> in der Menge <span class="math notranslate nohighlight">\([a,b] \times U\)</span> folgt die Stetigkeit der Funktion <span class="math notranslate nohighlight">\(\Um_\gamma\)</span>.
+Da die Funktion <span class="math notranslate nohighlight">\(\Um_\gamma\)</span> Werte in <span class="math notranslate nohighlight">\(\Z\)</span> annimmt, muss sie auf jeder Zusammenhangskomponente von <span class="math notranslate nohighlight">\(U\)</span> konstant sein.
+Andererseits gilt für die Länge <span class="math notranslate nohighlight">\(L(\gamma) = \int_a^b |\gamma'(t)| \mathrm{d}t\)</span> die Abschätzung</p>
+<div class="math notranslate nohighlight">
+\[\left| \int_a^b \frac{\gamma'(t)}{\gamma(t)-w} \mathrm{d}t \right| \leq \int_a^b \frac{|\gamma'(t)|}{|\gamma(t) - w|} \mathrm{d}t \leq \int_a^b \frac{|\gamma'(t)|}{|w| - R} \mathrm{d}t = \frac{1}{|w| - R} L(\gamma). \]</div>
+<p>Hieraus folgt schon <span class="math notranslate nohighlight">\(\lim_{w \rightarrow \infty} \Um_\gamma(w) = 0\)</span>, also ist <span class="math notranslate nohighlight">\(\Um_\gamma(w) = 0\)</span> für alle Punkte <span class="math notranslate nohighlight">\(w \in \C\)</span> mit <span class="math notranslate nohighlight">\(|w| &gt; R\)</span>.</p>
 </div>
 </div>
 <div class="section" id="cauchyscher-residuensatz">
 <h2><span class="section-number">7.6.5. </span>Cauchyscher Residuensatz<a class="headerlink" href="#cauchyscher-residuensatz" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Das folgende Lemma erlaubt die explizite Berechnung des Residuums.</p>
-<div class="proof lemma admonition" id="lemma-12">
+<p>In diesem letzten Abschnitt zur Funktionentheorie widmen wir uns einem der zentralen Aussagen der Funktionentheorie, den <strong>Cauchyschen Residuensatz</strong>.</p>
+<p>Er erlaubt es die Berechnung von Kurvenintegralen auf eine wesentlich einfachere Berechnung von Umlaufzahlen und sogenannten Residuen zu reduzieren, was für viele Anwendungen in der Physik sehr praktisch ist.</p>
+<p>Wir beginnen zunächst mit der Einführung des Begriffs des Residuums einer Laurent-Entwicklung.</p>
+<div class="proof definition admonition" id="definition-12">
+<p class="admonition-title"><span class="caption-number">Definition 7.21 </span> (Residuum)</p>
+<div class="definition-content section" id="proof-content">
+<p>Sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> eine offene Menge, <span class="math notranslate nohighlight">\(p \in U\)</span> ein Punkt und <span class="math notranslate nohighlight">\(f \colon U \setminus \{p\} \rightarrow \C\)</span> eine holomorphe Funktion.
+Sei außerdem</p>
+<div class="math notranslate nohighlight">
+\[f(z) = \sum_{j=-\infty}^\infty a_j (z-p)^j\]</div>
+<p>die Laurent-Entwicklung von <span class="math notranslate nohighlight">\(f\)</span> bei der isolierten Singularität <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>Dann nennen wir</p>
+<div class="math notranslate nohighlight">
+\[\Res_p f := a_{-1}\]</div>
+<p>das **Residuum<span class="math notranslate nohighlight">\( von \)</span>f<span class="math notranslate nohighlight">\( bei \)</span>p$.</p>
+</div>
+</div><p>Das folgende Lemma erlaubt die explizite Berechnung des Residuums.</p>
+<div class="proof lemma admonition" id="lemma-13">
 <p class="admonition-title"><span class="caption-number">Lemma 7.17 </span> (Berechnung des Residuums)</p>
 <div class="lemma-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(z_0 \in D\)</span> Pol einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon D \setminus \{z_0\} \rightarrow \C\)</span>.</p>
-<p>Für genügend kleine <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> lässt sich das Residuum von <span class="math notranslate nohighlight">\(f\)</span> bei <span class="math notranslate nohighlight">\(z_0\)</span> angeben als</p>
+<p>Sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(p \in U\)</span> Pol einer holomorphen Funktion <span class="math notranslate nohighlight">\(f \colon U \setminus \{p\} \rightarrow \C\)</span>.</p>
+<p>Für genügend kleine <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span> lässt sich das Residuum von <span class="math notranslate nohighlight">\(f\)</span> bei <span class="math notranslate nohighlight">\(p\)</span> angeben als</p>
 <div class="math notranslate nohighlight">
-\[\operatorname{Res}_{z_0}(f) = \oint_{\partial B_\epsilon(z_0)} f(z) \frac{\mathrm{d}z}{2\pi i}.\]</div>
-<p>Falls der Pol von Ordnung <span class="math notranslate nohighlight">\(-m\)</span> ist, lässt sich das Residuum von <span class="math notranslate nohighlight">\(f\)</span> bei <span class="math notranslate nohighlight">\(z_0\)</span> sogar angeben als</p>
+\[\Res_{p}(f) = \oint_{\partial B_\epsilon(p)} f(z) \frac{\mathrm{d}z}{2\pi i}.\]</div>
+<p>Falls der Pol von Ordnung <span class="math notranslate nohighlight">\(-m\)</span> ist, lässt sich das Residuum von <span class="math notranslate nohighlight">\(f\)</span> bei <span class="math notranslate nohighlight">\(p\)</span> sogar angeben als</p>
 <div class="math notranslate nohighlight">
-\[\operatorname{Res}_{z_0}(f) = \partial_z^{m-1}\left( (z-z_0)^m \frac{f(z)}{(m-1)!}\right)|_{z=z_0}.\]</div>
+\[\Res_{p}(f) = \partial_z^{m-1}\left( (z-p)^m \frac{f(z)}{(m-1)!}\right)|_{z=p}.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Schulz-Baldes S.333f.</p>
+<p>Proof. Folgt direkt mit der Darstellung der Laurent-Koeeffizienten in <a class="reference internal" href="#lem:laurent">Lemma 7.14</a>.</p>
 </div>
-<div class="proof example admonition" id="example-13">
-<p class="admonition-title"><span class="caption-number">Example 7.4 </span> (Berechnung des Residuums)</p>
-<div class="example-content section" id="proof-content">
-<p>Rationale Funktion bei Schulz-Baldes S.335</p>
-</div>
-</div><p>Der folgende Residuensatz von Cauchy stellt eine zentrale Aussage der Funktionentheorie vor.</p>
+<p>Der folgende Residuensatz von Cauchy stellt eine der zentralen Aussagen der Funktionentheorie dar.
+Er erlaubt es uns Kurvenintegrale mit Hilfe der Umlaufzahl und des Residuums zu berechnen, was sich als sehr nützlich herausstellt.</p>
 <div class="proof theorem admonition" id="theorem-14">
-<p class="admonition-title"><span class="caption-number">Theorem 7.11 </span> (Cauchyscher Residuensatz)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 7.12 </span> (Cauchyscher Residuensatz)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Sei <span class="math notranslate nohighlight">\(D \subset \C\)</span> eine offene Teilmenge und <span class="math notranslate nohighlight">\(f \colon D \rightarrow \C\)</span> eine meromorphe Funktion mit endlicher Menge <span class="math notranslate nohighlight">\(P \subset D\)</span> von Polstellen.
-Sei außerdem <span class="math notranslate nohighlight">\(\gamma\)</span> ein geschlossener und zusammenziehbarer Weg in <span class="math notranslate nohighlight">\(D\)</span> mit <span class="math notranslate nohighlight">\(\operatorname{Bild}(\gamma) \cap P = \emptyset\)</span>.</p>
-<p>Dann gilt der folgende Zusammenhang</p>
+<p>Sei <span class="math notranslate nohighlight">\(U \subset \C\)</span> offen und <span class="math notranslate nohighlight">\(f:U\setminus P \to \C\)</span> eine holomorphe Funktion mit endlicher Menge <span class="math notranslate nohighlight">\(P \subset \C\)</span> von Polstellen.
+Sei außerdem <span class="math notranslate nohighlight">\(\gamma\)</span> ein geschlossener und zusammenziehbarer Weg in <span class="math notranslate nohighlight">\(U\)</span> mit <span class="math notranslate nohighlight">\(\Im(\gamma) \cap P = \emptyset\)</span>.</p>
+<p>Dann gilt,</p>
 <div class="math notranslate nohighlight">
-\[\int_\gamma f(z) \frac{\mathrm{d}z}{2\pi i} = \sum_{z_0 \in P} \operatorname{Ind}_\gamma(z_0) \operatorname{Res}_{z_0}(f).\]</div>
+\[\frac{1}{2\pi i}\int_\gamma f(z) dz = \sum_{p \in P} \Um_\gamma(p) \Res_{p}(f).\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Schulz-Baldes S.337</p>
+<p>Proof. Sei <span class="math notranslate nohighlight">\(p \in P\)</span> und <span class="math notranslate nohighlight">\(f(z) = \sum_{n=-\infty}^\infty a_n(z-p)^n\)</span> die Laurent-Entwicklung von <span class="math notranslate nohighlight">\(f\)</span> um <span class="math notranslate nohighlight">\(p\)</span>.
+Dann ist</p>
+<div class="math notranslate nohighlight">
+\[h_p(z) := \sum_{n \leq -2} a_n(z-p)^n\]</div>
+<p>eine auf <span class="math notranslate nohighlight">\(\C \setminus \{p\}\)</span> holomorphe Funktion mit Stammfunktion</p>
+<div class="math notranslate nohighlight">
+\[H(z) := \sum_{n \leq -2} \frac{a_n}{n+1} (z-p)^{n+1}$.\]</div>
+<p>Also verschwindet jedes Integral <span class="math notranslate nohighlight">\(\int_\delta h_p(z)\)</span> für jeden geschlossenen Weg <span class="math notranslate nohighlight">\(\delta\)</span> in <span class="math notranslate nohighlight">\(\C \setminus \{p\}\)</span>.
+Die Funktion</p>
+<div class="math notranslate nohighlight">
+\[F(z) := f(z) - \sum_{p\in P} h_p(z) - \sum_{p\in P} \frac{\Res_p f}{z-p}\]</div>
+<p>hat nun in allen <span class="math notranslate nohighlight">\(p \in P\)</span> hebbare Singularitäten und ist somit holomorph auf <span class="math notranslate nohighlight">\(U\)</span>.
+Nach dem Integralsatz von Cauchy in {prf:ref}`` gilt schließlich</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}0 &amp;= \int_\gamma \left( f(z) - \sum_{p \in P} h_p(z) - \sum_{p\in P} \frac{\Res_p f}{z-p} \right) \mathrm{d}z\\
+&amp;= \int_\gamma f(z) \mathrm{d}z - \sum_{p \in P} \Res_p f \cdot \int_\gamma \frac{1}{z-p} \mathrm{d}z\\
+&amp;= \int_\gamma f(z) \mathrm{d}z - 2\pi i \sum_{p\in P} \Res_p f \cdot \Um_\gamma(p).\end{split}\]</div>
 </div>
 <div class="proof remark admonition" id="remark-15">
 <p class="admonition-title"><span class="caption-number">Remark 7.11 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Für holomorphe Funktionen <span class="math notranslate nohighlight">\(f\)</span> entspricht der Residuensatz gerade dem Cauchyschen Integralsatz.
 Wenn <span class="math notranslate nohighlight">\(D\)</span> als Sterngebiet angenommen wird ist die Zusammenziehbarkeit des Wegs <span class="math notranslate nohighlight">\(\gamma\)</span> immer erfüllt.</p>
-</div>
-</div><div class="proof example admonition" id="example-16">
-<p class="admonition-title"><span class="caption-number">Example 7.5 </span></p>
-<div class="example-content section" id="proof-content">
-<p>Viele konkrete Beispiele in Schulz-Baldes S.338-344</p>
 </div>
 </div></div>
 </div>
