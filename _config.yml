@@ -67,6 +67,7 @@ sphinx:
           "diag" : "\\operatorname{diag}"
           "Kern" : "\\operatorname{Kern}"
           "Bild" : "\\operatorname{Bild}"
+          "Im"   : "\\operatorname{Im}"
           "Rang" : "\\operatorname{Rang}"
           "GL"   : "\\operatorname{GL}"
           "Eig"  : "\\operatorname{Eig}"
@@ -84,7 +85,8 @@ sphinx:
           "S"    : "\\mathbb{S}"
           "bone" : "\\unicode{x1D7D9}"
           "Re"   : "\\mathrm{Re}"
-          "Im"   : "\\mathrm{Im}"
+          "Um"   : "\\operatorname{Um}"
+          "Res"   : "\\operatorname{Res}"
     #mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     # tojupyter_target_html: true
     # tojupyter_lang_synonyms: ["ipython", "ipython3", "python"]

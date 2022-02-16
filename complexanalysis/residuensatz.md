@@ -193,21 +193,9 @@ In diesem Fall erhalten wir für kein $k \in \N$ eine hebbare Singularität von
 so dass die Singularität von $f$ in $p$ wesentlich ist.
 ````
 
-````{prf:definition} Meromorphe Funktion
-Sei $D \subset \C$ eine offene Teilmenge.
-Wir nennen eine Funktion $f \colon D \rightarrow \C$ **meromorph** auf $D$ genau dann, wenn eine lokalendliche Menge $P$ existiert, so dass die Funktion $f$ holomorph auf $D \setminus P$ mit Polen in $P$ ist. 
-````
-
-````{prf:example} Meromorphe Funktionen
-Rationale Funktionen oder konkretes Beispiel
-
-Schulz-Baldes S.332
-
-````
-
 ## Der Satz von Casorati--Weierstraß
 
-Für wesentliche Singularitäten $p$ können wir weder einen Wert der Funktion am Punkt $p$ definieren, noch feststellen, dass die Funktion hier eindeutig gegen unendlich strebt. Tatsächlich nimmt eine Funktion um eine wesentliche Singularität herum überaschend viele verschiedene Werte an. Diese ist die Aussage des Satzes von Casorati--Weierstraß.
+Für wesentliche Singularitäten $p$ können wir weder einen Wert der Funktion am Punkt $p$ definieren, noch feststellen, dass die Funktion hier eindeutig gegen unendlich strebt. Tatsächlich nimmt eine Funktion um eine wesentliche Singularität herum überraschend viele verschiedene Werte an. Diese ist die Aussage des Satzes von Casorati--Weierstraß.
 
 ```{margin} Felice Casorati
 [Felice Casorati](https://de.wikipedia.org/wiki/Felice_Casorati_(Mathematiker)) (Geboren 17. Dezember 1835 in Pavia; Gestorben 11. September 1890 in Casteggio) war ein italienischer Mathematiker.
@@ -234,9 +222,21 @@ Da das Bild von $f$ somit einen echten Abstand zum Punkt $p$ hat ist die Funktio
 z\mapsto\frac{1}{f(z) - w}
 ```
 
-beschränkt und holomorph auf $U\setminus\{p\}$. Somit folgt mit dem Hebbarkeitssatz in {prf:ref}`thm:hebbar`, dass diese Funktion einen hebbaren Pol bei $p$ hat und somit zur holomorphen Funktion $h:U\to\C$ fortsetzbar auf $U$ ist. Diese Funktion hat keine Nullstellen 
+beschränkt und holomorph auf $U\setminus\{p\}$. Somit folgt mit dem Hebbarkeitssatz in {prf:ref}`thm:hebbar`, dass diese Funktion einen hebbaren Pol bei $p$ hat und somit zur holomorphen Funktion $h:U\to\C$ fortsetzbar auf $U$ ist. Diese Funktion hat keine Nullstellen auf $U\setminus\{p\}$ und ist daher von der From
 
-ToDo
+```{math}
+h(z) = (z-p)^k j(z)
+```
+
+wobei $k\in\N_0, j:U\to\C$ holomorph mit $j(p)\neq 0$. Dann hat aber
+
+```{math}
+f(z) = \frac{1}{h(z)} + w
+```
+
+eine hebbare Singularität bzw. einen Pol bei $p$ was ein Widerspruch zur Annahme ist.
+
+eine hebbare Singularität bei $z=p$.
 ````
 
 ## Umlaufzahlen
@@ -244,11 +244,11 @@ ToDo
 Eine charakteristische Größe von Integrationswegen ist die sogenannte **Umlaufzahl**, welche beschreibt wie oft ein Weg um einen Punkt $w\in\C$ herum läuft.
 
 ````{prf:definition} Umlaufzahl
-Sei $\gamma:[a,b]\to\C$ ein Integrationsweg und $w \in \C \setminus \operatorname{Bild}(\gamma)$ ein Punkt.
+Sei $\gamma:[a,b]\to\C$ ein Integrationsweg und $w \in \C \setminus \Im(\gamma)$ ein Punkt.
 Dann bezeichnet
 
 ```{math}
-\operatorname{Um}_\gamma(w) := 
+\Um_\gamma(w) := 
 \frac{1}{2\pi i} \oint_\gamma \frac{1}{z - w} dz
 ```
 
@@ -261,7 +261,7 @@ A priori ist allerdings nicht klar, dass die Umlaufzahl tatsächlich ganzzahlig 
 Dafür erhalten wir zunächst das folgende Resultat.
 
 ````{prf:lemma} Ganzzahligkeit der Umlaufzahl
-Für $r>0$, $w\in\C \setminus \operatorname{Bild}(\gamma)$ ein Punkt, und $k\in\Z$ eine ganze Zahl.
+Für $r>0$, $w\in\C \setminus \Im(\gamma)$ ein Punkt, und $k\in\Z$ eine ganze Zahl.
 Sei außerdem ein Weg $\gamma_{r,k}:[0,2\pi]\to\C$ gegeben durch
 ```{math}
 \gamma_{r,k}(t) := w + r \exp(ikt).
@@ -270,7 +270,7 @@ Sei außerdem ein Weg $\gamma_{r,k}:[0,2\pi]\to\C$ gegeben durch
 Dann gilt
 
 ```{math}
-\operatorname{Um}_{\gamma_{r,k}}(w) = k.
+\Um_{\gamma_{r,k}}(w) = k.
 ```
 ````
 
@@ -278,7 +278,7 @@ Dann gilt
 Wir berechnen explizit
 
 ```{math}
-\operatorname{Um}_{\gamma_{r,k}}(w) &:= 
+\Um_{\gamma_{r,k}}(w) &:= 
 \frac{1}{2\pi i} \oint_{\gamma_{r,k}} \frac{1}{z - w} dz\\ 
 &=
 \frac{1}{2\pi i} \oint_{\gamma_{r,k}} \frac{r k \exp(ikt)}{r \exp(ikt)} dz\\
@@ -296,11 +296,11 @@ Der folgende Satz liefert uns diese Aussage.
 
 ````{prf:theorem}
 Sei $\gamma \colon [a,b] \rightarrow \C \setminus \{w\}$ ein geschlossenen Integrationsweg und $w \in \C$ ein Punkt.
-Dann gilt $\operatorname{Um}_\gamma(w) \in \Z$.
+Dann gilt $\Um_\gamma(w) \in \Z$.
 Sind außerdem $\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}$ zwei geschlossene Integrationswege und $\gamma_0(a) = \gamma_1(a)$, so sind die beiden Integrationswege genau dann homotop, wenn ihre Umlaufzahlen übereinstimmen, d.h.,
 
 ```{math}
-\operatorname{Um}_{\gamma_0}(w) = \operatorname{Um}_{\gamma_1}(w)$ 
+\Um_{\gamma_0}(w) = \Um_{\gamma_1}(w)
 ```
 
 ````
@@ -336,14 +336,14 @@ so dass gilt
 ```
 
 Für $t = b$ erhalten wir insbesondere aus $\gamma(a) = \gamma(b) = z_0$ die Beziehung $\exp^{\gamma(b)} = 1$.
-Andererseits gilt aber $\eta(b) = 2\pi i \operatorname{Um}_\gamma(w)$ und somit folgt schon $\operatorname{Um}_\gamma(w) \in \Z$.
+Andererseits gilt aber $\eta(b) = 2\pi i \Um_\gamma(w)$ und somit folgt schon $\Um_\gamma(w) \in \Z$.
 
 Seien also nun $\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}$ geschlossene Integrationswege mit dem gleichen Anfangspunkt $z_0 \in C$.
 Wir definieren zwei Funktionen $\eta_0, \eta_1 : [a,b] \rightarrow \C$ analog wie oben.
 Diese Funktionen sind stückweise stetig differenzierbare Kurven mit
 
 ```{math}
-\gamma_0(a) = \gamma_1(a) = 0 \quad \text{ und } \quad \eta_0(b) = 2 \pi i \operatorname{Um}_{\gamma_1}(w) = 2 \pi i \operatorname{Um}_{\gamma_2}(w) = \eta_1(b).
+\gamma_0(a) = \gamma_1(a) = 0 \quad \text{ und } \quad \eta_0(b) = 2 \pi i \Um_{\gamma_1}(w) = 2 \pi i \Um_{\gamma_2}(w) = \eta_1(b).
 ```
 
 Sei nun
@@ -368,7 +368,7 @@ Dies beantwortet uns das folgene Korollar.
 
 ````{prf:corollary}
 Sei $\gamma \colon [a,b] \rightarrow \C$ ein geschlossener Weg.
-Dann ist die Menge $U := \C \setminus \operatorname{Bild}(\gamma)$ offen und $\operatorname{Um}_\gamma \colon U \rightarrow \Z$ ist eine Funktion, die *konstant* auf jeder Zusammenhangskomponente von $U$ ist.
+Dann ist die Menge $U := \C \setminus \Im(\gamma)$ offen und $\Um_\gamma \colon U \rightarrow \Z$ ist eine Funktion, die *konstant* auf jeder Zusammenhangskomponente von $U$ ist.
 
 Außerdem existiert ein Radius $R > 0$, so dass für die Kreisscheibe $K_{>R}(0)$ gilt
 
@@ -376,7 +376,7 @@ Außerdem existiert ein Radius $R > 0$, so dass für die Kreisscheibe $K_{>R}(0)
 K_{>R}(0) := \lbrace z \in \C : |z| > R \rbrace \subset U
 ```
 
-und es gilt $\operatorname{Um}_\gamma(w) = 0$ für alle $w \in \K_{>R}(0)$.
+und es gilt $\Um_\gamma(w) = 0$ für alle $w \in \K_{>R}(0)$.
 
 ````
 
@@ -384,30 +384,29 @@ und es gilt $\operatorname{Um}_\gamma(w) = 0$ für alle $w \in \K_{>R}(0)$.
 Aus der Formel
 
 ```{math}
-\operatorname{Um}_\gamma(w) = \frac{1}{2 \pi i} \oint_\gamma \frac{1}{z-w} \mathrm{d}z = \frac{1}{2 \pi i} \int_a^b \frac{\gamma'(t)}{\gamma(t) - w} \mathrm{d}t
+\Um_\gamma(w) = \frac{1}{2 \pi i} \oint_\gamma \frac{1}{z-w} \mathrm{d}z = \frac{1}{2 \pi i} \int_a^b \frac{\gamma'(t)}{\gamma(t) - w} \mathrm{d}t
 ```
 
-und aus der Stetigkeit des Integranden als Funktion von $(t,w)$ in der Menge $[a,b] \times U$ folgt die Stetigkeit der Funktion $\operatorname{Um}_\gamma$.
-Da die Funktion $\operatorname{Um}_\gamma$ Werte in $\Z$ annimmt, muss sie auf jeder Zusammenhangskomponente von $U$ konstant sein.
+und aus der Stetigkeit des Integranden als Funktion von $(t,w)$ in der Menge $[a,b] \times U$ folgt die Stetigkeit der Funktion $\Um_\gamma$.
+Da die Funktion $\Um_\gamma$ Werte in $\Z$ annimmt, muss sie auf jeder Zusammenhangskomponente von $U$ konstant sein.
 Andererseits gilt für die Länge $L(\gamma) = \int_a^b |\gamma'(t)| \mathrm{d}t$ die Abschätzung
 
 ```{math}
 \left| \int_a^b \frac{\gamma'(t)}{\gamma(t)-w} \mathrm{d}t \right| \leq \int_a^b \frac{|\gamma'(t)|}{|\gamma(t) - w|} \mathrm{d}t \leq \int_a^b \frac{|\gamma'(t)|}{|w| - R} \mathrm{d}t = \frac{1}{|w| - R} L(\gamma). 
 ```
 
-Hieraus folgt schon $\lim_{w \rightarrow \infty} \operatorname{Um}_\gamma(w) = 0$, also ist $\operatorname{Um}_\gamma(w) = 0$ für alle Punkte $w \in \C$ mit $|w| > R$.
+Hieraus folgt schon $\lim_{w \rightarrow \infty} \Um_\gamma(w) = 0$, also ist $\Um_\gamma(w) = 0$ für alle Punkte $w \in \C$ mit $|w| > R$.
 
 
 ````
 
-**ToDo: Abbildung hier zu Korollar - S.51 in Neeb**
-
 ## Cauchyscher Residuensatz
 
-In diesem letzten Abschnitt zur Funktionentheorie widmen wir uns einem der zentralen Aussagen der Funktionentheorie - den *Cauchyschen Residuensatz*.
+In diesem letzten Abschnitt zur Funktionentheorie widmen wir uns einem der zentralen Aussagen der Funktionentheorie, den **Cauchyschen Residuensatz**.
+
 Er erlaubt es die Berechnung von Kurvenintegralen auf eine wesentlich einfachere Berechnung von Umlaufzahlen und sogenannten Residuen zu reduzieren, was für viele Anwendungen in der Physik sehr praktisch ist.
 
-Wir beginnen zunächst mit der Einführung des Begriffs des Residuums einer Laurententwicklung.
+Wir beginnen zunächst mit der Einführung des Begriffs des Residuums einer Laurent-Entwicklung.
 
 ````{prf:definition} Residuum
 Sei $U \subset \C$ eine offene Menge, $p \in U$ ein Punkt und $f \colon U \setminus \{p\} \rightarrow \C$ eine holomorphe Funktion.
@@ -417,12 +416,12 @@ Sei außerdem
 f(z) = \sum_{j=-\infty}^\infty a_j (z-p)^j
 ```
 
-die Laurententwicklung von $f$ bei der isolierten Singularität $p$.
+die Laurent-Entwicklung von $f$ bei der isolierten Singularität $p$.
 
 Dann nennen wir
 
 ```{math}
-\operatorname{Res}_p f := a_{-1}
+\Res_p f := a_{-1}
 ```
 
 das **Residuum$ von $f$ bei $p$.
@@ -437,36 +436,32 @@ Sei $U \subset \C$ eine offene Teilmenge und $p \in U$ Pol einer holomorphen Fun
 Für genügend kleine $\epsilon > 0$ lässt sich das Residuum von $f$ bei $p$ angeben als
 
 ```{math}
-\operatorname{Res}_{p}(f) = \oint_{\partial B_\epsilon(p)} f(z) \frac{\mathrm{d}z}{2\pi i}.
+\Res_{p}(f) = \oint_{\partial B_\epsilon(p)} f(z) \frac{\mathrm{d}z}{2\pi i}.
 ```
 
 Falls der Pol von Ordnung $-m$ ist, lässt sich das Residuum von $f$ bei $p$ sogar angeben als
 
 ```{math}
-\operatorname{Res}_{p}(f) = \partial_z^{m-1}\left( (z-p)^m \frac{f(z)}{(m-1)!}\right)|_{z=p}.
+\Res_{p}(f) = \partial_z^{m-1}\left( (z-p)^m \frac{f(z)}{(m-1)!}\right)|_{z=p}.
 ```
 
 ````
 
 ````{prf:proof}
-Schulz-Baldes S.333f.
-````
-
-````{prf:example} Berechnung des Residuums
-Rationale Funktion bei Schulz-Baldes S.335
+Folgt direkt mit der Darstellung der Laurent-Koeeffizienten in {prf:ref}`lem:laurent`.
 ````
 
 Der folgende Residuensatz von Cauchy stellt eine der zentralen Aussagen der Funktionentheorie dar.
 Er erlaubt es uns Kurvenintegrale mit Hilfe der Umlaufzahl und des Residuums zu berechnen, was sich als sehr nützlich herausstellt.
 
 ````{prf:theorem} Cauchyscher Residuensatz
-Sei $U \subset \C$ eine offene Teilmenge und $f \colon U \rightarrow \C$ eine meromorphe Funktion mit endlicher Menge $P \subset U$ von Polstellen.
-Sei außerdem $\gamma$ ein geschlossener und zusammenziehbarer Weg in $U$ mit $\operatorname{Bild}(\gamma) \cap P = \emptyset$.
+Sei $U \subset \C$ offen und $f:U\setminus P \to \C$ eine holomorphe Funktion mit endlicher Menge $P \subset \C$ von Polstellen.
+Sei außerdem $\gamma$ ein geschlossener und zusammenziehbarer Weg in $U$ mit $\Im(\gamma) \cap P = \emptyset$.
 
-Dann gilt der folgende Zusammenhang
+Dann gilt, 
 
 ```{math}
-\int_\gamma f(z) \frac{\mathrm{d}z}{2\pi i} = \sum_{p \in P} \operatorname{Um}_\gamma(p) \operatorname{Res}_{p}(f).
+\frac{1}{2\pi i}\int_\gamma f(z) dz = \sum_{p \in P} \Um_\gamma(p) \Res_{p}(f).
 ```
 ````
 
@@ -488,16 +483,16 @@ Also verschwindet jedes Integral $\int_\delta h_p(z)$ für jeden geschlossenen W
 Die Funktion 
 
 ```{math}
-F(z) := f(z) - \sum_{p\in P} h_p(z) - \sum_{p\in P} \frac{\operatorname{Res}_p f}{z-p}
+F(z) := f(z) - \sum_{p\in P} h_p(z) - \sum_{p\in P} \frac{\Res_p f}{z-p}
 ```
 
 hat nun in allen $p \in P$ hebbare Singularitäten und ist somit holomorph auf $U$.
 Nach dem Integralsatz von Cauchy in {prf:ref}`` gilt schließlich
 
 ```{math}
-0 &= \int_\gamma \left( f(z) - \sum_{p \in P} h_p(z) - \sum_{p\in P} \frac{\operatorname{Res}_p f}{z-p} \right) \mathrm{d}z\\
-&= \int_\gamma f(z) \mathrm{d}z - \sum_{p \in P} \operatorname{Res}_p f \cdot \int_\gamma \frac{1}{z-p} \mathrm{d}z\\
-&= \int_\gamma f(z) \mathrm{d}z - 2\pi i \sum_{p\in P} \operatorname{Res}_p f \cdot \operatorname{Um}_\gamma(p).
+0 &= \int_\gamma \left( f(z) - \sum_{p \in P} h_p(z) - \sum_{p\in P} \frac{\Res_p f}{z-p} \right) \mathrm{d}z\\
+&= \int_\gamma f(z) \mathrm{d}z - \sum_{p \in P} \Res_p f \cdot \int_\gamma \frac{1}{z-p} \mathrm{d}z\\
+&= \int_\gamma f(z) \mathrm{d}z - 2\pi i \sum_{p\in P} \Res_p f \cdot \Um_\gamma(p).
 ```
 
 ````
@@ -505,9 +500,4 @@ Nach dem Integralsatz von Cauchy in {prf:ref}`` gilt schließlich
 ````{prf:remark}
 Für holomorphe Funktionen $f$ entspricht der Residuensatz gerade dem Cauchyschen Integralsatz.
 Wenn $D$ als Sterngebiet angenommen wird ist die Zusammenziehbarkeit des Wegs $\gamma$ immer erfüllt. 
-````
-
-````{prf:example}
-Viele konkrete Beispiele in Schulz-Baldes S.338-344
-oder zu uneigentlichen Integralen in Neeb S. 53f.
 ````
