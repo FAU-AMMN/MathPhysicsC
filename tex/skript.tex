@@ -80,7 +80,7 @@
         
 
 \title{Mathematik für Physikstudierende C}
-\date{12.02.2022}
+\date{16.02.2022}
 \release{}
 \author{J.\@{} Laubmann, T.\@{} Roith, D.\@{} Tenbrinck}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -6554,8 +6554,8 @@ Man beachte, dass wir auch explizit unendliche Maße zulassen, z.B., falls die M
 Bevor wir den Begriff des Maßes formal definieren können und dessen Eigenschaften näher diskutieren, müssen wir jedoch noch mehr Verständnis für die zu Grunde liegenden Mengen und Mengensystem entwickeln.
 
 
-\subsection{Mengensysteme und Maße}
-\label{\detokenize{masstheorie/masstheorie:mengensysteme-und-masze}}\label{\detokenize{masstheorie/masstheorie:s-sigmaalg}}
+\subsection{Mengensysteme}
+\label{\detokenize{masstheorie/masstheorie:mengensysteme}}\label{\detokenize{masstheorie/masstheorie:s-sigmaalg}}
 \sphinxAtStartPar
 Wir betrachten im Folgenden eine beliebige zu Grundmenge \(\Omega\), welche endlich, abzählbar oder auch überabzählbar sein kann. Ein Maß soll nun Teilmengen von \(\Omega\) einen Wert zuordnen weshalb wir die \sphinxstylestrong{Potenzmenge} \(2^\Omega\) betrachten, welche die Menge aller möglichen Teilmengen von \(\Omega\) bildet. Ein Maß ist dann (unter zusätzlichen Voraussetzungen, siehe {\hyperref[\detokenize{masstheorie/masstheorie:def:mass}]{\sphinxcrossref{Definition 5.5}}}) eine spezielle Abbildung \(\mu:\Sigma\to[0,\infty]\), wobei \(\Sigma\subset 2^\Omega\) ein Mengensystem ist, welches man auch System der \(\mu\)\sphinxhyphen{}messbaren Mengen nennt.
 
@@ -6646,7 +6646,7 @@ Proof. Die zweite Eigenschaft folgt direkt per Definition. Die erste Eigenschaft
 
 
 \sphinxAtStartPar
-Aus der Algebra kennt man die Definition, dass ein Tupel \((F,+,\cdot)\) \sphinxstylestrong{Ring} heißt, falls
+Aus der Algebra kennt man die Definition, dass die Struktur \((F,+,\cdot)\) \sphinxstylestrong{Ring} heißt, falls
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -6667,7 +6667,7 @@ Betrachten wir für einen Mengenring \(\mathcal{R}\) die Struktur \((\mathcal{R}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Zwar erlaubt ein Mengenring beliebige (endliche) Mengenoperationen, es fällt aber schnell auf, dass keine Beziehung zur Grundmenge \(\Omega\) gefordert wird. Insbesondere muss diese nicht in einem Mengenring enthalten sein. In vielen Fällen will man aber sicherstellen, das die Grundmenge im System enthalten ist, was auf folgenden Begriff führt.
+Zwar erlaubt ein Mengenring die wichtigsten (endlichen) Mengenoperationen, es fällt aber schnell auf, dass die Grundmenge \(\Omega\) nicht zwangsweise in einem Mengenring enthalten sein. In vielen Fällen will man dies aber sicherstellen, was auf folgenden Begriff führt.
 \label{masstheorie/masstheorie:definition-3}
 \begin{sphinxadmonition}{note}{Definition 5.2}
 
@@ -6703,7 +6703,7 @@ Für den Mengenring \((\mathcal{R},\triangle, \cap)\) ist die Grundmenge \(\Omeg
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Die Klasse von Systemen auf der wir im Folgenden arbeiten werden, sind sogenannte \(\sigma\)\sphinxhyphen{}Algebren.
+Die bisher betrachteten System erlauben lediglich endliche Mengenoperationen. Wir benötigen im Folgenden aber auch abzählbare Mengenoperationen, und definieren daher sogenannte \(\sigma\)\sphinxhyphen{}Algebren.
 \label{masstheorie/masstheorie:def:sigmaalgebra}
 \begin{sphinxadmonition}{note}{Definition 5.3 (\protect\(\sigma\protect\)\sphinxhyphen{}Algebra und Messraum)}
 
@@ -11096,15 +11096,15 @@ Es sei \(f:U\setminus\{p\}\to\C\) holomorph, \(B_{0,R}(p)\subset U\setminus\{p\}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
 \sphinxAtStartPar
-Die Singularität \(p\) ist genau dann hebbar, wenn \(a_{j}=0\) für alle \(j<0\).
+Die Singularität \(p\) ist genau dann \sphinxstyleemphasis{hebbar}, wenn \(a_{j}=0\) für alle \(j<0\).
 
 \item {} 
 \sphinxAtStartPar
-Die Singularität \(p\) ist genau dann ein Pol der Ordnung \(k\in\N\), \(a_{-k}\neq 0\) und \(a_j = 0\) für alle \(j<k\).
+Die Singularität \(p\) ist genau dann ein \sphinxstyleemphasis{Pol} der Ordnung \(k\in\N\), \(a_{-k}\neq 0\) und \(a_j = 0\) für alle \(j<k\).
 
 \item {} 
 \sphinxAtStartPar
-Die Singularität \(p\) ist genau dann wesentlich, falls \(a_{-j}\neq 0\) für fast alle \(j\in\N\).
+Die Singularität \(p\) ist genau dann \sphinxstyleemphasis{wesentlich}, falls \(a_{-j}\neq 0\) für fast alle \(j\in\N\).
 
 \end{enumerate}
 \end{sphinxadmonition}
@@ -11125,40 +11125,36 @@ holomorph von \(B_{0,R}(p)\) auf \(B_R(p)\) fortsetzbar und die Singularität so
 \sphinxstylestrong{Ad 2.}
 
 \sphinxAtStartPar
-ToDo
+Ist \(f(z) = \sum_{j \geq -k} a_j (z-p)^j\) mit \(a_k \neq 0\), so ist
+\begin{equation*}
+\begin{split}(z-p)^k f(z) = \sum_{j \geq -k} a_j (z-p)^j+k\end{split}
+\end{equation*}
+\sphinxAtStartPar
+auf der Kreisscheibe \(K_R(0)\) eine holomorphe Funktion und der Index \(k\) ist minimal mit dieser Eigenschaft, denn für \(m < k\) ist
+\begin{equation*}
+\begin{split}(z-p)^m f(z) = \sum_{j \geq -k} a_j (z-p)^{j+m} = (z-p)^{m-k} \sum_{j \geq -k} a_j (z-p)^{j+k} = (z-p)^m F(z),\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei \(F(p) = a_k \neq 0\) ist und \(|z-p|^{m-k} \rightarrow \infty\) für \(z \rightarrow p\) gilt.
+Also besitzt \(f\) in \(p\) einen Pol der Ordnung \(k\).
 
 \sphinxAtStartPar
 \sphinxstylestrong{Ad 3.}
 
 \sphinxAtStartPar
-ToDo
-\end{sphinxadmonition}
-\label{complexanalysis/residuensatz:definition-7}
-\begin{sphinxadmonition}{note}{Definition 7.20 (Meromorphe Funktion)}
-
-
-
+In diesem Fall erhalten wir für kein \(k \in \N\) eine hebbare Singularität von
+\begin{equation*}
+\begin{split}(z-p)^k f(z) = \sum_{j \geq k} a_j (z-p)^{j+k},\end{split}
+\end{equation*}
 \sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge.
-Wir nennen eine Funktion \(f \colon D \rightarrow \C\) \sphinxstylestrong{meromorph} auf \(D\) genau dann, wenn eine lokalendliche Menge \(P\) existiert, so dass die Funktion \(f\) holomorph auf \(D \setminus P\) mit Polen in \(P\) ist.
-\end{sphinxadmonition}
-\label{complexanalysis/residuensatz:example-8}
-\begin{sphinxadmonition}{note}{Example 7.3 (Meromorphe Funktionen)}
-
-
-
-\sphinxAtStartPar
-Rationale Funktionen oder konkretes Beispiel
-
-\sphinxAtStartPar
-Schulz\sphinxhyphen{}Baldes S.332
+so dass die Singularität von \(f\) in \(p\) wesentlich ist.
 \end{sphinxadmonition}
 
 
 \subsection{Der Satz von Casorati–Weierstraß}
 \label{\detokenize{complexanalysis/residuensatz:der-satz-von-casorati-weierstrasz}}
 \sphinxAtStartPar
-Für wesentliche Singularitäten \(p\) können wir weder einen Wert der Funktion am Punkt \(p\) definieren, noch feststellen, dass die Funktion hier eindeutig gegen unendlich strebt. Tatsächlich nimmt eine Funktion um eine wesentliche Singularität herum überaschend viele verschiedene Werte an. Diese ist die Aussage des Satzes von Casorati–Weierstraß.
+Für wesentliche Singularitäten \(p\) können wir weder einen Wert der Funktion am Punkt \(p\) definieren, noch feststellen, dass die Funktion hier eindeutig gegen unendlich strebt. Tatsächlich nimmt eine Funktion um eine wesentliche Singularität herum überraschend viele verschiedene Werte an. Diese ist die Aussage des Satzes von Casorati–Weierstraß.
 
 \begin{sphinxShadowBox}
 \sphinxstylesidebartitle{Felice Casorati}
@@ -11173,7 +11169,7 @@ Für wesentliche Singularitäten \(p\) können wir weder einen Wert der Funktion
 \sphinxAtStartPar
 \sphinxhref{https://de.wikipedia.org/wiki/Karl\_Weierstra\%C3\%9F}{Karl Theodor Wilhelm Weierstraß} (Geboren 31. Oktober 1815 in Ostenfelde bei Ennigerloh, Münsterland; Gestorben 19. Februar 1897 in Berlin) war ein deutscher Mathematiker.
 \end{sphinxShadowBox}
-\label{complexanalysis/residuensatz:theorem-9}
+\label{complexanalysis/residuensatz:theorem-7}
 \begin{sphinxadmonition}{note}{Theorem 7.10 (Casorati–Weierstraß)}
 
 
@@ -11194,108 +11190,292 @@ Da das Bild von \(f\) somit einen echten Abstand zum Punkt \(p\) hat ist die Fun
 \begin{split}z\mapsto\frac{1}{f(z) - w}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-beschränkt und holomorph auf \(U\setminus\{p\}\). Somit folgt mit dem Hebbarkeitssatz {\hyperref[\detokenize{complexanalysis/residuensatz:thm:hebbar}]{\sphinxcrossref{Theorem 7.9}}}, dass diese Funktion einen hebbaren Pol bei \(p\) hat und somit zur holomorphen Funktion \(h:U\to\C\) fortsetzbar auf \(U\) ist. Diese Funktion hat keine Nullstellen
+beschränkt und holomorph auf \(U\setminus\{p\}\). Somit folgt mit dem Hebbarkeitssatz in {\hyperref[\detokenize{complexanalysis/residuensatz:thm:hebbar}]{\sphinxcrossref{Theorem 7.9}}}, dass diese Funktion einen hebbaren Pol bei \(p\) hat und somit zur holomorphen Funktion \(h:U\to\C\) fortsetzbar auf \(U\) ist. Diese Funktion hat keine Nullstellen auf \(U\setminus\{p\}\) und ist daher von der From
+\begin{equation*}
+\begin{split}h(z) = (z-p)^k j(z)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+wobei \(k\in\N_0, j:U\to\C\) holomorph mit \(j(p)\neq 0\). Dann hat aber
+\begin{equation*}
+\begin{split}f(z) = \frac{1}{h(z)} + w\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine hebbare Singularität bzw. einen Pol bei \(p\) was ein Widerspruch zur Annahme ist.
 
 \sphinxAtStartPar
-ToDo
+eine hebbare Singularität bei \(z=p\).
 \end{sphinxadmonition}
 
 
 \subsection{Umlaufzahlen}
 \label{\detokenize{complexanalysis/residuensatz:umlaufzahlen}}
 \sphinxAtStartPar
-Wir definieren als Nächstes eine charakteristische Größe von geschlossenen Wegen in \(\C\), den sogenannten Index.
-\label{complexanalysis/residuensatz:definition-10}
-\begin{sphinxadmonition}{note}{Definition 7.21 (Index)}
+Eine charakteristische Größe von Integrationswegen ist die sogenannte \sphinxstylestrong{Umlaufzahl}, welche beschreibt wie oft ein Weg um einen Punkt \(w\in\C\) herum läuft.
+\label{complexanalysis/residuensatz:definition-8}
+\begin{sphinxadmonition}{note}{Definition 7.20 (Umlaufzahl)}
 
 
 
 \sphinxAtStartPar
-Sei \(\gamma \colon [0,1] \rightarrow \C\) ein geschlossener Weg in \(\C\) und \(w \in \C \setminus \operatorname{Bild}(\gamma)\) ein beliebiger Punkt außerhalb der zugehörigen Kurve von \(\gamma\).
-Wir bezeichnen als \sphinxstylestrong{Index} von \(w\) bezüglich des Wegs \(\gamma\) folgende charakteristische Größe
+Sei \(\gamma:[a,b]\to\C\) ein Integrationsweg und \(w \in \C \setminus \Im(\gamma)\) ein Punkt.
+Dann bezeichnet
 \begin{equation*}
-\begin{split}\operatorname{Ind}_\gamma(w) \ := \ \oint_\gamma \frac{1}{z - w} \frac{\mathrm{d}z}{2\pi i} \ = \ \int_0^1 \frac{\gamma'(t)}{\gamma(t - w)} \frac{\mathrm{d}z}{2\pi i} \in \mathbb{Z}.\end{split}
+\begin{split}\Um_\gamma(w) := 
+\frac{1}{2\pi i} \oint_\gamma \frac{1}{z - w} dz\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Häufig wird der Index auch \sphinxstylestrong{Windungszahl} von \(\gamma\) um \(w\) genannt.
-Sie ist eine \sphinxstyleemphasis{topologische Invariante}, die anschaulich beschreibt, wie häufig sich die zugehörige Kurve um den Punkt \(w\) windet.
+die \sphinxstylestrong{Umlaufzahl} (manchmal auch \sphinxstylestrong{Index}) von \(\gamma\) um \(w\).
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Anschaulich möchten wir für geschlossene Wege \(\gamma\) zählen, wie oft \(\gamma\) um einen Punkt \(w\) herumläuft.
+A priori ist allerdings nicht klar, dass die Umlaufzahl tatsächlich ganzzahlig ist.
+Dafür erhalten wir zunächst das folgende Resultat.
+\label{complexanalysis/residuensatz:lemma-9}
+\begin{sphinxadmonition}{note}{Lemma 7.16 (Ganzzahligkeit der Umlaufzahl)}
+
+
+
+\sphinxAtStartPar
+Für \(r>0\), \(w\in\C \setminus \Im(\gamma)\) ein Punkt, und \(k\in\Z\) eine ganze Zahl.
+Sei außerdem ein Weg \(\gamma_{r,k}:[0,2\pi]\to\C\) gegeben durch
+\begin{equation*}
+\begin{split}\gamma_{r,k}(t) := w + r \exp(ikt).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Dann gilt
+\begin{equation*}
+\begin{split}\Um_{\gamma_{r,k}}(w) = k.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Wir berechnen explizit
+\begin{equation*}
+\begin{split}\Um_{\gamma_{r,k}}(w) &:= 
+\frac{1}{2\pi i} \oint_{\gamma_{r,k}} \frac{1}{z - w} dz\\ 
+&=
+\frac{1}{2\pi i} \oint_{\gamma_{r,k}} \frac{r k \exp(ikt)}{r \exp(ikt)} dz\\
+&= k,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+was die Behauptung zeigt.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
 \sphinxstylestrong{ToDo: Abbildung mit Beispiel von \sphinxhref{https://de.wikipedia.org/wiki/Umlaufzahl\_(Mathematik)}{Wikipedia}}
-\label{complexanalysis/residuensatz:lemma-11}
-\begin{sphinxadmonition}{note}{Lemma 7.16}
+
+\sphinxAtStartPar
+Wir wissen bereits aus dem Homotopiesatz in \{prf:ref\}``, dass homotope Wege die gleiche Umlaufzahl liefern.
+Bisher wissen wir jedoch nicht, dass alle Wege zu einem Weg der Gestalt \(\gamma_{r,k}\) homotop sind.
+Der folgende Satz liefert uns diese Aussage.
+\label{complexanalysis/residuensatz:theorem-10}
+\begin{sphinxadmonition}{note}{Theorem 7.11}
 
 
 
 \sphinxAtStartPar
-Sei \(\gamma \colon [0,1] \rightarrow \C\) ein geschlossener Weg in \(\C\).
-Dann ist die Abbildung, die jedem Punkt \(w \in \C \setminus \operatorname{Bild}(\gamma)\) außerhalb der zugehörigen Kurve seinen Index \(\operatorname{Ind_\gamma}(w)\) konstant auf jeder Zusammenhangskomponente bezüglich der Kurve von \(\gamma\).
+Sei \(\gamma \colon [a,b] \rightarrow \C \setminus \{w\}\) ein geschlossenen Integrationsweg und \(w \in \C\) ein Punkt.
+Dann gilt \(\Um_\gamma(w) \in \Z\).
+Sind außerdem \(\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}\) zwei geschlossene Integrationswege und \(\gamma_0(a) = \gamma_1(a)\), so sind die beiden Integrationswege genau dann homotop, wenn ihre Umlaufzahlen übereinstimmen, d.h.,
+\begin{equation*}
+\begin{split}\Um_{\gamma_0}(w) = \Um_{\gamma_1}(w)\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}
+\sphinxAtStartPar
+Proof. Sei also \(\gamma \colon [a,b] \rightarrow \C \setminus \{w\}\) ein geschlossener Integrationsweg und sei \(\gamma(a) = z_0 \in \C\).
+Für die Funktion
+\begin{equation*}
+\begin{split}\eta &\colon [a,b] \rightarrow \C, \\
+\eta(t) &:= \int_{\gamma|_{[a,t]}} \frac{\mathrm{d}z}{z-w} = \int_a^t \frac{\gamma'(s)}{\gamma(s) - w} \mathrm{d}s \end{split}
+\end{equation*}
+\sphinxAtStartPar
+gilt dann nach dem Hauptsatz der Integral\sphinxhyphen{} und Differentialrechnung \(\eta'(t) = \frac{\gamma'(t)}{\gamma(t)-w}\) für jedes \(t\) in dem \(\gamma\) differenzierbar ist.
+Damit erhalten wir
+\begin{equation*}
+\begin{split}\frac{\mathrm{d}}{\mathrm{d}t} \left( (\gamma(t) - w)\exp^{-\eta(t)}\right) &= \gamma'(t)\exp^{-\eta(t)} + (\gamma(t) - w)\exp^{-\eta(t)}(-\eta'(t))\\
+&= \gamma'(t)\exp^{-\gamma(t)} - \gamma'(t)\exp^{-\eta(t)}\\
+&= 0.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Da offensichtlich \(\eta(a) = 0\) gilt erhalten wir
+\begin{equation*}
+\begin{split}(\gamma(t) - w)\exp^{-\gamma(t)} = (\gamma(a) - w)\exp^{-\eta(a)} = \gamma(a) - w = z_0 - w,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so dass gilt
+\begin{equation*}
+\begin{split}\gamma(t) = w + \exp^{\gamma(t)}(z_0 - w) \quad \text{ für } \quad a \leq t \leq b.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Für \(t = b\) erhalten wir insbesondere aus \(\gamma(a) = \gamma(b) = z_0\) die Beziehung \(\exp^{\gamma(b)} = 1\).
+Andererseits gilt aber \(\eta(b) = 2\pi i \Um_\gamma(w)\) und somit folgt schon \(\Um_\gamma(w) \in \Z\).
+
+\sphinxAtStartPar
+Seien also nun \(\gamma_0, \gamma_1 \colon [a,b] \rightarrow \C \setminus \{w\}\) geschlossene Integrationswege mit dem gleichen Anfangspunkt \(z_0 \in C\).
+Wir definieren zwei Funktionen \(\eta_0, \eta_1 : [a,b] \rightarrow \C\) analog wie oben.
+Diese Funktionen sind stückweise stetig differenzierbare Kurven mit
+\begin{equation*}
+\begin{split}\gamma_0(a) = \gamma_1(a) = 0 \quad \text{ und } \quad \eta_0(b) = 2 \pi i \Um_{\gamma_1}(w) = 2 \pi i \Um_{\gamma_2}(w) = \eta_1(b).\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Sei nun
+\begin{equation*}
+\begin{split}h(s,t) := s \eta_1(t) + (1-s) \eta_0(t)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine Homotopie von \(\eta_0\) nach \(\eta_1\) mit festen Endpunkten.
+Also ist
+\begin{equation*}
+\begin{split}H(s,t) := w + \exp^{h(s,t)}(z_0 - w)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine Homotopie von \(\gamma_0\) nach \(\gamma_1\) mit festen Endpunkten.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Aus der Einsicht, dass jede Umlaufzahl ganzzahlig ist, stellt sich die Frage, wie diese Umlaufzahl von der Wahl des Punktes abhängt.
+Dies beantwortet uns das folgene Korollar.
+\label{complexanalysis/residuensatz:corollary-11}
+\begin{sphinxadmonition}{note}{Corollary 7.3}
+
+
+
+\sphinxAtStartPar
+Sei \(\gamma \colon [a,b] \rightarrow \C\) ein geschlossener Weg.
+Dann ist die Menge \(U := \C \setminus \Im(\gamma)\) offen und \(\Um_\gamma \colon U \rightarrow \Z\) ist eine Funktion, die \sphinxstyleemphasis{konstant} auf jeder Zusammenhangskomponente von \(U\) ist.
+
+\sphinxAtStartPar
+Außerdem existiert ein Radius \(R > 0\), so dass für die Kreisscheibe \(K_{>R}(0)\) gilt
+\begin{equation*}
+\begin{split}K_{>R}(0) := \lbrace z \in \C : |z| > R \rbrace \subset U\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und es gilt \(\Um_\gamma(w) = 0\) für alle \(w \in \K_{>R}(0)\).
 \end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.318f.
+Proof. Aus der Formel
+\begin{equation*}
+\begin{split}\Um_\gamma(w) = \frac{1}{2 \pi i} \oint_\gamma \frac{1}{z-w} \mathrm{d}z = \frac{1}{2 \pi i} \int_a^b \frac{\gamma'(t)}{\gamma(t) - w} \mathrm{d}t\end{split}
+\end{equation*}
+\sphinxAtStartPar
+und aus der Stetigkeit des Integranden als Funktion von \((t,w)\) in der Menge \([a,b] \times U\) folgt die Stetigkeit der Funktion \(\Um_\gamma\).
+Da die Funktion \(\Um_\gamma\) Werte in \(\Z\) annimmt, muss sie auf jeder Zusammenhangskomponente von \(U\) konstant sein.
+Andererseits gilt für die Länge \(L(\gamma) = \int_a^b |\gamma'(t)| \mathrm{d}t\) die Abschätzung
+\begin{equation*}
+\begin{split}\left| \int_a^b \frac{\gamma'(t)}{\gamma(t)-w} \mathrm{d}t \right| \leq \int_a^b \frac{|\gamma'(t)|}{|\gamma(t) - w|} \mathrm{d}t \leq \int_a^b \frac{|\gamma'(t)|}{|w| - R} \mathrm{d}t = \frac{1}{|w| - R} L(\gamma). \end{split}
+\end{equation*}
+\sphinxAtStartPar
+Hieraus folgt schon \(\lim_{w \rightarrow \infty} \Um_\gamma(w) = 0\), also ist \(\Um_\gamma(w) = 0\) für alle Punkte \(w \in \C\) mit \(|w| > R\).
 \end{sphinxadmonition}
 
 
 \subsection{Cauchyscher Residuensatz}
 \label{\detokenize{complexanalysis/residuensatz:cauchyscher-residuensatz}}
 \sphinxAtStartPar
+In diesem letzten Abschnitt zur Funktionentheorie widmen wir uns einem der zentralen Aussagen der Funktionentheorie, den \sphinxstylestrong{Cauchyschen Residuensatz}.
+
+\sphinxAtStartPar
+Er erlaubt es die Berechnung von Kurvenintegralen auf eine wesentlich einfachere Berechnung von Umlaufzahlen und sogenannten Residuen zu reduzieren, was für viele Anwendungen in der Physik sehr praktisch ist.
+
+\sphinxAtStartPar
+Wir beginnen zunächst mit der Einführung des Begriffs des Residuums einer Laurent\sphinxhyphen{}Entwicklung.
+\label{complexanalysis/residuensatz:definition-12}
+\begin{sphinxadmonition}{note}{Definition 7.21 (Residuum)}
+
+
+
+\sphinxAtStartPar
+Sei \(U \subset \C\) eine offene Menge, \(p \in U\) ein Punkt und \(f \colon U \setminus \{p\} \rightarrow \C\) eine holomorphe Funktion.
+Sei außerdem
+\begin{equation*}
+\begin{split}f(z) = \sum_{j=-\infty}^\infty a_j (z-p)^j\end{split}
+\end{equation*}
+\sphinxAtStartPar
+die Laurent\sphinxhyphen{}Entwicklung von \(f\) bei der isolierten Singularität \(p\).
+
+\sphinxAtStartPar
+Dann nennen wir
+\begin{equation*}
+\begin{split}\Res_p f := a_{-1}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+das **Residuum\( von \)f\( bei \)p\$.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
 Das folgende Lemma erlaubt die explizite Berechnung des Residuums.
-\label{complexanalysis/residuensatz:lemma-12}
+\label{complexanalysis/residuensatz:lemma-13}
 \begin{sphinxadmonition}{note}{Lemma 7.17 (Berechnung des Residuums)}
 
 
 
 \sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge und \(z_0 \in D\) Pol einer holomorphen Funktion \(f \colon D \setminus \{z_0\} \rightarrow \C\).
+Sei \(U \subset \C\) eine offene Teilmenge und \(p \in U\) Pol einer holomorphen Funktion \(f \colon U \setminus \{p\} \rightarrow \C\).
 
 \sphinxAtStartPar
-Für genügend kleine \(\epsilon > 0\) lässt sich das Residuum von \(f\) bei \(z_0\) angeben als
+Für genügend kleine \(\epsilon > 0\) lässt sich das Residuum von \(f\) bei \(p\) angeben als
 \begin{equation*}
-\begin{split}\operatorname{Res}_{z_0}(f) = \oint_{\partial B_\epsilon(z_0)} f(z) \frac{\mathrm{d}z}{2\pi i}.\end{split}
+\begin{split}\Res_{p}(f) = \oint_{\partial B_\epsilon(p)} f(z) \frac{\mathrm{d}z}{2\pi i}.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Falls der Pol von Ordnung \(-m\) ist, lässt sich das Residuum von \(f\) bei \(z_0\) sogar angeben als
+Falls der Pol von Ordnung \(-m\) ist, lässt sich das Residuum von \(f\) bei \(p\) sogar angeben als
 \begin{equation*}
-\begin{split}\operatorname{Res}_{z_0}(f) = \partial_z^{m-1}\left( (z-z_0)^m \frac{f(z)}{(m-1)!}\right)|_{z=z_0}.\end{split}
+\begin{split}\Res_{p}(f) = \partial_z^{m-1}\left( (z-p)^m \frac{f(z)}{(m-1)!}\right)|_{z=p}.\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.333f.
-\end{sphinxadmonition}
-\label{complexanalysis/residuensatz:example-13}
-\begin{sphinxadmonition}{note}{Example 7.4 (Berechnung des Residuums)}
-
-
-
-\sphinxAtStartPar
-Rationale Funktion bei Schulz\sphinxhyphen{}Baldes S.335
+Proof. Folgt direkt mit der Darstellung der Laurent\sphinxhyphen{}Koeeffizienten in {\hyperref[\detokenize{complexanalysis/residuensatz:lem:laurent}]{\sphinxcrossref{Lemma 7.14}}}.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
-Der folgende Residuensatz von Cauchy stellt eine zentrale Aussage der Funktionentheorie vor.
+Der folgende Residuensatz von Cauchy stellt eine der zentralen Aussagen der Funktionentheorie dar.
+Er erlaubt es uns Kurvenintegrale mit Hilfe der Umlaufzahl und des Residuums zu berechnen, was sich als sehr nützlich herausstellt.
 \label{complexanalysis/residuensatz:theorem-14}
-\begin{sphinxadmonition}{note}{Theorem 7.11 (Cauchyscher Residuensatz)}
+\begin{sphinxadmonition}{note}{Theorem 7.12 (Cauchyscher Residuensatz)}
 
 
 
 \sphinxAtStartPar
-Sei \(D \subset \C\) eine offene Teilmenge und \(f \colon D \rightarrow \C\) eine meromorphe Funktion mit endlicher Menge \(P \subset D\) von Polstellen.
-Sei außerdem \(\gamma\) ein geschlossener und zusammenziehbarer Weg in \(D\) mit \(\operatorname{Bild}(\gamma) \cap P = \emptyset\).
+Sei \(U \subset \C\) offen und \(f:U\setminus P \to \C\) eine holomorphe Funktion mit endlicher Menge \(P \subset \C\) von Polstellen.
+Sei außerdem \(\gamma\) ein geschlossener und zusammenziehbarer Weg in \(U\) mit \(\Im(\gamma) \cap P = \emptyset\).
 
 \sphinxAtStartPar
-Dann gilt der folgende Zusammenhang
+Dann gilt,
 \begin{equation*}
-\begin{split}\int_\gamma f(z) \frac{\mathrm{d}z}{2\pi i} = \sum_{z_0 \in P} \operatorname{Ind}_\gamma(z_0) \operatorname{Res}_{z_0}(f).\end{split}
+\begin{split}\frac{1}{2\pi i}\int_\gamma f(z) dz = \sum_{p \in P} \Um_\gamma(p) \Res_{p}(f).\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \begin{sphinxadmonition}{note}
 \sphinxAtStartPar
-Proof. Schulz\sphinxhyphen{}Baldes S.337
-\end{sphinxadmonition}
+Proof. Sei \(p \in P\) und \(f(z) = \sum_{n=-\infty}^\infty a_n(z-p)^n\) die Laurent\sphinxhyphen{}Entwicklung von \(f\) um \(p\).
+Dann ist
+\begin{equation*}
+\begin{split}h_p(z) := \sum_{n \leq -2} a_n(z-p)^n\end{split}
+\end{equation*}
+\sphinxAtStartPar
+eine auf \(\C \setminus \{p\}\) holomorphe Funktion mit Stammfunktion
+\begin{equation*}
+\begin{split}H(z) := \sum_{n \leq -2} \frac{a_n}{n+1} (z-p)^{n+1}$.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Also verschwindet jedes Integral \(\int_\delta h_p(z)\) für jeden geschlossenen Weg \(\delta\) in \(\C \setminus \{p\}\).
+Die Funktion
+\begin{equation*}
+\begin{split}F(z) := f(z) - \sum_{p\in P} h_p(z) - \sum_{p\in P} \frac{\Res_p f}{z-p}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+hat nun in allen \(p \in P\) hebbare Singularitäten und ist somit holomorph auf \(U\).
+Nach dem Integralsatz von Cauchy in \{prf:ref\}`` gilt schließlich
+\begin{equation*}
+\begin{split}0 &= \int_\gamma \left( f(z) - \sum_{p \in P} h_p(z) - \sum_{p\in P} \frac{\Res_p f}{z-p} \right) \mathrm{d}z\\
+&= \int_\gamma f(z) \mathrm{d}z - \sum_{p \in P} \Res_p f \cdot \int_\gamma \frac{1}{z-p} \mathrm{d}z\\
+&= \int_\gamma f(z) \mathrm{d}z - 2\pi i \sum_{p\in P} \Res_p f \cdot \Um_\gamma(p).\end{split}
+\end{equation*}\end{sphinxadmonition}
 \label{complexanalysis/residuensatz:remark-15}
 \begin{sphinxadmonition}{note}{Remark 7.11}
 
@@ -11304,14 +11484,6 @@ Proof. Schulz\sphinxhyphen{}Baldes S.337
 \sphinxAtStartPar
 Für holomorphe Funktionen \(f\) entspricht der Residuensatz gerade dem Cauchyschen Integralsatz.
 Wenn \(D\) als Sterngebiet angenommen wird ist die Zusammenziehbarkeit des Wegs \(\gamma\) immer erfüllt.
-\end{sphinxadmonition}
-\label{complexanalysis/residuensatz:example-16}
-\begin{sphinxadmonition}{note}{Example 7.5}
-
-
-
-\sphinxAtStartPar
-Viele konkrete Beispiele in Schulz\sphinxhyphen{}Baldes S.338\sphinxhyphen{}344
 \end{sphinxadmonition}
 
 
@@ -11390,6 +11562,9 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{cor:zeroprodset}
 \item\relax\sphinxstyleindexentry{cor:zeroprodset}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{cor:zeroprodset}}
+\indexspace
+\bigletter{corollary\sphinxhyphen{}11}
+\item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}11}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{corollary-11}}
 \indexspace
 \bigletter{corollary\sphinxhyphen{}17}
 \item\relax\sphinxstyleindexentry{corollary\sphinxhyphen{}17}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{corollary-17}}
@@ -11491,19 +11666,16 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{def:wirkung}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{def:wirkung}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-0}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-0}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{definition-1}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}10}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}10}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-10}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{definition-1}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}11}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}11}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-11}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}12}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}12}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{definition-12}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}12}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-12}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}13}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}13}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{definition-13}}
@@ -11581,7 +11753,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{definition-7}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}8}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{definition-8}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{definition-8}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}9}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}9}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{definition-9}}
@@ -11640,17 +11812,8 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{example\sphinxhyphen{}12}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}12}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{example-12}}
 \indexspace
-\bigletter{example\sphinxhyphen{}13}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}13}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{example-13}}
-\indexspace
-\bigletter{example\sphinxhyphen{}16}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}16}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{example-16}}
-\indexspace
 \bigletter{example\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{vektoranalysis/multilinear}\sphinxstyleindexpageref{vektoranalysis/multilinear:\detokenize{example-2}}
-\indexspace
-\bigletter{example\sphinxhyphen{}21}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}21}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-21}}
 \indexspace
 \bigletter{example\sphinxhyphen{}22}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}22}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-22}}
@@ -11687,9 +11850,6 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \indexspace
 \bigletter{example\sphinxhyphen{}7}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{example-7}}
-\indexspace
-\bigletter{example\sphinxhyphen{}8}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{example-8}}
 \indexspace
 \bigletter{example\sphinxhyphen{}9}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{vektoranalysis/tensor}\sphinxstyleindexpageref{vektoranalysis/tensor:\detokenize{example-9}}
@@ -11811,14 +11971,11 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{lemma\sphinxhyphen{}11}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}11}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-11}}
 \indexspace
-\bigletter{lemma\sphinxhyphen{}12}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}12}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-12}}
+\bigletter{lemma\sphinxhyphen{}13}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}13}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-13}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}14}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}14}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{lemma-14}}
-\indexspace
-\bigletter{lemma\sphinxhyphen{}15}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}15}\sphinxstyleindexextra{manifolds/manifolds\_prelim}\sphinxstyleindexpageref{manifolds/manifolds_prelim:\detokenize{lemma-15}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}17}
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}17}\sphinxstyleindexextra{masstheorie/lebesgue\_integral}\sphinxstyleindexpageref{masstheorie/lebesgue_integral:\detokenize{lemma-17}}
@@ -11869,7 +12026,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}8}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{lemma-8}}
 \indexspace
 \bigletter{lemma\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{lemma-9}}
+\item\relax\sphinxstyleindexentry{lemma\sphinxhyphen{}9}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{lemma-9}}
 \indexspace
 \bigletter{lemma:Gronwall}
 \item\relax\sphinxstyleindexentry{lemma:Gronwall}\sphinxstyleindexextra{odestability/ruhelagen}\sphinxstyleindexpageref{odestability/ruhelagen:\detokenize{lemma:Gronwall}}
@@ -11913,14 +12070,8 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \bigletter{remark\sphinxhyphen{}15}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}15}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-15}}
 \indexspace
-\bigletter{remark\sphinxhyphen{}16}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}16}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{remark-16}}
-\indexspace
 \bigletter{remark\sphinxhyphen{}2}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}2}\sphinxstyleindexextra{masstheorie/masstheorie}\sphinxstyleindexpageref{masstheorie/masstheorie:\detokenize{remark-2}}
-\indexspace
-\bigletter{remark\sphinxhyphen{}20}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}20}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{remark-20}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}23}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}23}\sphinxstyleindexextra{manifolds/tangential}\sphinxstyleindexpageref{manifolds/tangential:\detokenize{remark-23}}
@@ -11962,7 +12113,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}5}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{remark-5}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{remark-6}}
+\item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}6}\sphinxstyleindexextra{complexanalysis/kurvenintegrale}\sphinxstyleindexpageref{complexanalysis/kurvenintegrale:\detokenize{remark-6}}
 \indexspace
 \bigletter{remark\sphinxhyphen{}7}
 \item\relax\sphinxstyleindexentry{remark\sphinxhyphen{}7}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{remark-7}}
@@ -11977,7 +12128,7 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{satz:picardlindeloef}\sphinxstyleindexextra{ode/repetition}\sphinxstyleindexpageref{ode/repetition:\detokenize{satz:picardlindeloef}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}10}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}10}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-10}}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}10}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{theorem-10}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}11}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}11}\sphinxstyleindexextra{masstheorie/integrationstechnik}\sphinxstyleindexpageref{masstheorie/integrationstechnik:\detokenize{theorem-11}}
@@ -12010,13 +12161,10 @@ Daniel Tenbrinck. \sphinxstyleemphasis{Skript zur Vorlesung "Mathematik für Dat
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}5}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{theorem-5}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/cauchyriemann}\sphinxstyleindexpageref{complexanalysis/cauchyriemann:\detokenize{theorem-7}}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}7}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{theorem-7}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}8}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}8}\sphinxstyleindexextra{complexanalysis/cauchyintegral}\sphinxstyleindexpageref{complexanalysis/cauchyintegral:\detokenize{theorem-8}}
-\indexspace
-\bigletter{theorem\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}9}\sphinxstyleindexextra{complexanalysis/residuensatz}\sphinxstyleindexpageref{complexanalysis/residuensatz:\detokenize{theorem-9}}
 \indexspace
 \bigletter{thm:analytischHolomorph}
 \item\relax\sphinxstyleindexentry{thm:analytischHolomorph}\sphinxstyleindexextra{complexanalysis/powerseries}\sphinxstyleindexpageref{complexanalysis/powerseries:\detokenize{thm:analytischHolomorph}}

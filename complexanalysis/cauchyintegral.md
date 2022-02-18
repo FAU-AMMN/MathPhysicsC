@@ -109,7 +109,7 @@ Es sei $U \subset \C$ offen und seien $\gamma_0$ und $\gamma_1:[a,b]\to U$ homot
 Sei außerdem $f:U\to C$ eine holomorphe Funktion, dann gilt
 
 ```{math}
-\oint_{\gamma_0} f(z) \, dz = \oint_{\gamma_1} f(z) \, dz.
+\int_{\gamma_0} f(z) \, dz = \int_{\gamma_1} f(z) \, dz.
 ```
 ````
 

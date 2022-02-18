@@ -230,7 +230,7 @@ f(x) - f(y) = \int_\gamma f^\prime(z)\, dz = 0.
 Da $x,y\in U$ beliebig waren ist $f$ konstant.
 ````
 
-Im folgende formulieren wir ein zentrales Resultat für Stammfunktionen holomorpher Funktionen.
+Im Folgenden formulieren wir ein zentrales Resultat für Stammfunktionen holomorpher Funktionen.
 
 ````{prf:theorem} Existenz von Stammfunktionen
 Es sei $U\subset\C$ offen, dann besitzt eine stetige Funktion genau dann eine Stammfunktion, falls
