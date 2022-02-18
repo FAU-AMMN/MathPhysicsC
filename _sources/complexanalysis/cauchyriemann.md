@@ -138,7 +138,7 @@ Es sei $U\subset\R^n$ offen, eine Funktion $F:U\to\R^m$ heißt **total differenz
 
 Im Falle von totaler Differenzierbarkeit, wissen wir, dass $F$ in alle Richtung partiell differenzierbar ist, und dass das Differential $df(a)$ durch die Jacobi-Matrix am Punkt $a$ gegeben ist. Falls $F$ andererseits in alle Richtungen **stetig** partiell differenzierbar ist, so ist es auch total Differenzierbar.
 
-Sei nun $f\C\to\C$ eine komplexe Funktion wobei wir mit $u:=\Re(f),v:=\Im(f)$ jeweils der Real- und Imaginärteil von $f$ sind. Dann ist ist $f$ natürlicherweise auch eine Funktion $f:\R^2\to\R^2$, denn
+Sei nun $f:\C\to\C$ eine komplexe Funktion wobei wir mit $u:=\Re(f),v:=\Im(f)$ jeweils der Real- und Imaginärteil von $f$ sind. Dann ist ist $f$ natürlicherweise auch eine Funktion $f:\R^2\to\R^2$, denn
 
 ```{math}
 f = u+iv = \begin{pmatrix} u\\ v\end{pmatrix}.
