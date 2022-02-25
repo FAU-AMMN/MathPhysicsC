@@ -152,7 +152,7 @@ Für ein beliebiges Mengensystem $\mathcal{C}\subset 2^\Omega$ können wir zusä
 Es sei $\mathcal{C}\subset 2^\Omega$ ein Mengensystem, dann bezeichnen wir mit 
 
 ```{math}
-\sigma(\mathcal{C}) := \bigcup_{\substack{\Sigma \text{ ist $\sigma$-Algebra}\\ \mathcal{C} \subset \Sigma}} \Sigma
+\sigma(\mathcal{C}) := \bigcap_{\substack{\Sigma \text{ ist $\sigma$-Algebra}\\ \mathcal{C} \subset \Sigma}} \Sigma
 ```
 
 die von $\mathcal{C}$ erzeugte $\sigma$-Algebra.

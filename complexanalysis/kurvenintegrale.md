@@ -194,7 +194,7 @@ Anstatt allgemeiner offener Teilmengen $U\subset\C$ zu betrachten schränkt man 
 Eine offenen Menge $U\subset\C$ heißt **Gebiet**, falls sie zusammenhängend ist, das heißt für zwei in $U$ offene Mengen $A,B\subset U,A\neq\emptyset\neq B$ gilt
 
 ```{math}
-A\cap B \neq \emptyset.
+\big[A\cup B = U\big] \Rightarrow A\cap B \neq \emptyset.
 ```
 ````
 

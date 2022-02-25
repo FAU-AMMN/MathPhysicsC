@@ -292,7 +292,7 @@ Es gilt insbesondere, dass $F^\ast v \in T_p^\ast\M$ für jedes $v\in T_{F(p)}^\
 Dieses Konzept können wir nun auf Formen übertragen in dem wir eine neue Differentialform punktweise an $p$ definieren am Punkt $F(p)$. Konkret seien $v_1,\ldots, v_k\in T_p\M$, dann definiere
 
 ```{math}
-(F^\ast\omega)_p (v_1,\ldots,v_k) := \omega_F(p)\big(F_\ast(v_1),\ldots,F_\ast(v_k)\big).
+(F^\ast\omega)_p (v_1,\ldots,v_k) := \omega_{F(p)}\big(F_\ast(v_1),\ldots,F_\ast(v_k)\big).
 ```
 
 Die so definierte Abbildung bildet tatsächlich zwischen den passenden Räumen ab
