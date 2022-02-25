@@ -48,15 +48,14 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
@@ -995,7 +994,7 @@ Dann ist die Abbildung</p>
 </div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Seien <span class="math notranslate nohighlight">\(V_1\)</span> und <span class="math notranslate nohighlight">\(W_1\)</span> zwei endlich-dimensionale, reelle Vektorräume mit <span class="math notranslate nohighlight">\(\operatorname{dim}(V_1) = n \in \N\)</span> und <span class="math notranslate nohighlight">\(\operatorname{dim}(W_1) = m \in \N\)</span>.
-Nach dem <em>Isomorphiesatz für endlich-dimensionale Vektorräume</em> 3.20 in <span id="id1">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span> existiert dann je ein Isomorphismus, so dass <span class="math notranslate nohighlight">\(V_1 \cong \R^n\)</span> und <span class="math notranslate nohighlight">\(W_1 \cong \R^m\)</span>.
+Nach dem <em>Isomorphiesatz für endlich-dimensionale Vektorräume</em> 3.20 in <span id="id1">[<a class="reference internal" href="../references.html#id2" title="Martin Burger. Skript zur Vorlesung &quot;Mathematik für Data Science 1 / Physikstudierende A&quot;. 2020.">Bur20</a>]</span> existiert dann je ein Isomorphismus, so dass <span class="math notranslate nohighlight">\(V_1 \cong \R^n\)</span> und <span class="math notranslate nohighlight">\(W_1 \cong \R^m\)</span>.
 Über diesen Isomorphismus lässt sich auch zeigen, dass <span class="math notranslate nohighlight">\(L(V_1; V_2) \cong L(\R^n; V_2)\)</span> und <span class="math notranslate nohighlight">\(L(W_1; W_2) \cong L(\R^m; W_2)\)</span> gilt.
 Zusammen mit der <em>Transitivitätseigenschaft des Tensorprodukts</em> aus <a class="reference internal" href="#lem:natISO">Lemma 3.5</a> folgt dann aber schon</p>
 <div class="math notranslate nohighlight">
@@ -1424,7 +1423,7 @@ Dann gilt nach der Definition des <span class="math notranslate nohighlight">\(k
 \vdots &amp; &amp; \vdots \\
 \omega_1(v_k) &amp; \cdots &amp; \omega_k(v_k)
 \end{pmatrix}.\end{split}\]</div>
-<p>Bei der letzten Gleichung haben wir den <strong>Determinantenproduktsatz</strong> aus Satz 3.40 in <span id="id2">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span> verwendet.</p>
+<p>Bei der letzten Gleichung haben wir den <strong>Determinantenproduktsatz</strong> aus Satz 3.40 in <span id="id2">[<a class="reference internal" href="../references.html#id2" title="Martin Burger. Skript zur Vorlesung &quot;Mathematik für Data Science 1 / Physikstudierende A&quot;. 2020.">Bur20</a>]</span> verwendet.</p>
 </div>
 <p>Das folgende Lemma weist auf eine interessante Eigenschaft des Vektorraums der antisymmetrischen Tensoren hin, für den Fall, dass die Stufe der zugehörigen Tensoren größer als die Dimension des zu Grunde liegenden Vektorraums <span class="math notranslate nohighlight">\(V\)</span> ist.</p>
 <div class="proof lemma admonition" id="lem:tensorStufe">

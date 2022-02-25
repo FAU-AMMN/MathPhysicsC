@@ -48,12 +48,11 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
@@ -413,7 +412,7 @@
 <p>Im letzten Kapitel der Vorlesung widmen wir uns der <em>Funktionentheorie</em>.
 Diese befasst sich hauptsächlich mit der Theorie differenzierbarer komplexer Funktionen.
 Da viele Konzepte der reellen Analysis verwendet werden, wird dieses Gebiet auch häufig <strong>komplexe Analysis</strong> genannt.</p>
-<p>Die Grundlagen des Körpers der komplexen Zahlen wurden bereits in <span id="id1">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> behandelt. Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz-Baldes <span id="id2">[<a class="reference internal" href="../references.html#id12">SB18</a>]</span> aber auch das Skript zur Funktionentheorie von Prof.Dr.Karl-Hermann Neeb <span id="id3">[<a class="reference internal" href="../references.html#id13">Nee17</a>]</span>. Teile des im Folgenden präsentierten Stoffs basieren auf diesen Referenzen.</p>
+<p>Die Grundlagen des Körpers der komplexen Zahlen wurden bereits in <span id="id1">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span> behandelt. Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz-Baldes <span id="id2">[<a class="reference internal" href="../references.html#id12" title="Herman Schulz-Baldes. Skript zur Vorlesung &quot;Mathematik für Physiker 3&quot;. 2018.">SB18</a>]</span> aber auch das Skript zur Funktionentheorie von Prof.Dr.Karl-Hermann Neeb <span id="id3">[<a class="reference internal" href="../references.html#id13" title="Karl-Hermann Neeb. Skript zur Vorlesung &quot;Funktionentheorie I&quot;. 2017.">Nee17</a>]</span>. Teile des im Folgenden präsentierten Stoffs basieren auf diesen Referenzen.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>

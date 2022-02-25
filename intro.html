@@ -48,12 +48,11 @@
     <script src="_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
@@ -500,7 +499,7 @@
 <p>Das vorliegende Skript begleitet die <strong>Vorlesung Mathematik für Physikstudierende C</strong> und ist im Wintersemester 21/22 an der FAU Erlangen-Nürnberg entstanden. Es soll den Studierenden zusätzlich zur virtuellen Vorlesung als Nachschlagewerk dienen und ist ausführlicher und genauer gehalten als die Vorlesungsnotizen.</p>
 <div class="section" id="referenz">
 <h2>Referenz<a class="headerlink" href="#referenz" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Das Skript orientiert sich teilweise an dem Vorlesungsskript “Mathematik für Physikstudierende 3” <span id="id1">[<a class="reference internal" href="references.html#id9">Kna20</a>]</span> von Prof.Dr.Andreas Knauf (FAU) aus dem Sommersemester 2020 und den Folien zu „Mathematik für Physiker 3“ von Prof.Dr.Hermann Schulz-Baldes (FAU) <span id="id2">[<a class="reference internal" href="references.html#id12">SB18</a>]</span>.</p>
+<p>Das Skript orientiert sich teilweise an dem Vorlesungsskript “Mathematik für Physikstudierende 3” <span id="id1">[<a class="reference internal" href="references.html#id9" title="Andreas Knauf. Skript zur Vorlesung &quot;Mathematik für Physikstudierende 3&quot;. 2020.">Kna20</a>]</span> von Prof.Dr.Andreas Knauf (FAU) aus dem Sommersemester 2020 und den Folien zu „Mathematik für Physiker 3“ von Prof.Dr.Hermann Schulz-Baldes (FAU) <span id="id2">[<a class="reference internal" href="references.html#id12" title="Herman Schulz-Baldes. Skript zur Vorlesung &quot;Mathematik für Physiker 3&quot;. 2018.">SB18</a>]</span>.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>

@@ -48,12 +48,11 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
@@ -412,7 +411,7 @@
 <h1><span class="section-number">1. </span>Gewöhnliche Differentialgleichungen für dynamische Systeme<a class="headerlink" href="#gewohnliche-differentialgleichungen-fur-dynamische-systeme" title="Link zu dieser Überschrift">¶</a></h1>
 <p>In diesem ersten Kapitel der Vorlesung wollen wir weiterführende Konzepte zum Thema gewöhnlicher Differentialgleichungen einführen.
 Insbesondere wollen wir uns mit gewöhnlichen Differentialgleichungen für dynamische Systeme beschäftigen.
-Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 8 <span id="id1">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> kennengelernt haben.
+Hierfür wiederholen wir zunächst die wichtigsten Aussagen und Begriffe, die Sie in Kaptiel 8 <span id="id1">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span> kennengelernt haben.
 Anschließend definieren wir zwei grundlegende mathematische Werkzeuge um dynamische Systeme zu charakterisieren, nämlich Flüsse und Phasenportraits.
 Zum Schluss wollen wir diese zur Untersuchung und Lösung von Hamiltonschen Differentialgleichungen nutzen, welche eine insbesondere in der klassischen Mechanik innerhalb der Physik eine wichtige Rolle spielen.</p>
 <div class="toctree-wrapper compound">

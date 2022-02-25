@@ -48,15 +48,14 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
@@ -412,7 +411,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="masz-und-integrationstheorie">
 <h1><span class="section-number">5. </span>Maß- und Integrationstheorie<a class="headerlink" href="#masz-und-integrationstheorie" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Im ersten Semester haben wir bereits das <em>Riemann Integral</em> zur Berechnung des Flächeninhalts zwischen einer Funktion <span class="math notranslate nohighlight">\(f \colon [a,b] \rightarrow \R\)</span> und der x-Achse eingeführt (siehe Kapitel 7 in <span id="id1">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span>).
+<p>Im ersten Semester haben wir bereits das <em>Riemann Integral</em> zur Berechnung des Flächeninhalts zwischen einer Funktion <span class="math notranslate nohighlight">\(f \colon [a,b] \rightarrow \R\)</span> und der x-Achse eingeführt (siehe Kapitel 7 in <span id="id1">[<a class="reference internal" href="../references.html#id2" title="Martin Burger. Skript zur Vorlesung &quot;Mathematik für Data Science 1 / Physikstudierende A&quot;. 2020.">Bur20</a>]</span>).
 Die grundlegende Idee hierbei war es die x-Achse in (unterschiedlich große) Intervalle zu unterteilen und mittels dieser Zerlegung Rechtecke zwischen dem Graphen der Funktion und der x-Achse zu konstruieren.
 Durch das Produkt der Seitenlängen dieser Rechtecke lässt sich nämlich deren Flächeninhalt leicht berechnen und die Summe all dieser Flächeninhalte approximiert den wahren Flächeninhalt zwischen dem Graphen und <span class="math notranslate nohighlight">\(f\)</span> und der x-Achse.
 Dieses Vorgehen ist zur Erinnerung nochmal in Abbildung <a class="reference internal" href="#fig-riemann-integral"><span class="std std-numref">Abb. 5.1</span></a> illustriert.</p>
@@ -445,7 +444,7 @@ Man sieht leicht ein, dass diese Funktion <strong>nicht Riemann-integrierbar</st
 Wir werden im Laufe der Vorlesung die nötigen Werkzeuge der Maßtheorie einführen um diesen Umstand zu verstehen und einen verallgemeinerten Begriff des Integrals definieren, der diese Nullmenge berücksichtigt - das <strong>Lebesgue Integral</strong>.
 Dieses Integral ist eine echte Verallgemeinerung des Riemann Integrals und wir werden einsehen, dass die Menge der Lebesgue-integrierbaren Funktionen eine Obermenge der Menge der Riemann-integrierbaren Funktionen ist.
 Außerdem verhält sich das Lebesgue Integral bei Grenzwertbildungen einfacher als das Riemann Integral.</p>
-<p>Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz-Baldes (FAU) <span id="id2">[<a class="reference internal" href="../references.html#id12">SB18</a>]</span>, aber besonders auch das Buch von Prof.Terence Tao zur Einführung in die Maßtheorie <span id="id3">[<a class="reference internal" href="../references.html#id6">Tao07</a>]</span> welches einen sehr intuitiven Einblick in die Materie gibt. Eine weitere sehr ausführliche Referenz, welche im Folgenden zitiert wird, ist das Buch von Prof.Vladimir I. Bogachev <span id="id4">[<a class="reference internal" href="../references.html#id5">Bog07</a>]</span>.</p>
+<p>Als Referenz empfehlen wir hier wiederum das Skript von Prof.Dr.Hermann Schulz-Baldes (FAU) <span id="id2">[<a class="reference internal" href="../references.html#id12" title="Herman Schulz-Baldes. Skript zur Vorlesung &quot;Mathematik für Physiker 3&quot;. 2018.">SB18</a>]</span>, aber besonders auch das Buch von Prof.Terence Tao zur Einführung in die Maßtheorie <span id="id3">[<a class="reference internal" href="../references.html#id6" title="Terence Tao. An Introduction to Measure Theory. AMS, 2007.">Tao07</a>]</span> welches einen sehr intuitiven Einblick in die Materie gibt. Eine weitere sehr ausführliche Referenz, welche im Folgenden zitiert wird, ist das Buch von Prof.Vladimir I. Bogachev <span id="id4">[<a class="reference internal" href="../references.html#id5" title="Vladimir I. Bogachev. Measure Theory, Volume 1. Springer, 2007.">Bog07</a>]</span>.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>

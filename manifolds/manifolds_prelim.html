@@ -48,15 +48,14 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
@@ -484,7 +483,7 @@
 <h1><span class="section-number">4.1. </span>Differenzierbare Mannigfaltigkeit<a class="headerlink" href="#differenzierbare-mannigfaltigkeit" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="section" id="topologische-raume">
 <h2><span class="section-number">4.1.1. </span>Topologische Räume<a class="headerlink" href="#topologische-raume" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Wir haben bisher immer Mathematik auf <strong>metrischen</strong> oder gar <strong>normierten Vektorräumen</strong> betrieben, da uns diese Struktur für alle erklärten Konzepte am dienlichsten war (siehe Kapitel 4 &amp; 5 in <span id="id1">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span> und <a class="reference external" href="https://fau-ammn.github.io/MathDataScience2/normierte_raeume/normierte_raeume.html">MP-2 Skript</a>).
+<p>Wir haben bisher immer Mathematik auf <strong>metrischen</strong> oder gar <strong>normierten Vektorräumen</strong> betrieben, da uns diese Struktur für alle erklärten Konzepte am dienlichsten war (siehe Kapitel 4 &amp; 5 in <span id="id1">[<a class="reference internal" href="../references.html#id2" title="Martin Burger. Skript zur Vorlesung &quot;Mathematik für Data Science 1 / Physikstudierende A&quot;. 2020.">Bur20</a>]</span> und <a class="reference external" href="https://fau-ammn.github.io/MathDataScience2/normierte_raeume/normierte_raeume.html">MP-2 Skript</a>).
 Als Vorbereitung für <a class="reference internal" href="#s-mannigfaltigkeiten"><span class="std std-ref">Mannigfaltigkeiten</span></a> wollen wir von den metrischen Räumen zu allgemeineren Strukturen wechseln - den sogenannten <strong>topologischen Räumen</strong>.</p>
 <p>Das zentrale Konzept topologischer Räume ist die folgende Definition der <em>offene Mengen</em>.</p>
 <div class="proof definition admonition" id="definition-0">

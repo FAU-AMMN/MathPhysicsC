@@ -48,15 +48,14 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
@@ -662,7 +661,7 @@ Es wird klar, dass das Mengensystem <span class="math notranslate nohighlight">\
 <div class="definition-content section" id="proof-content">
 <p>Es sei <span class="math notranslate nohighlight">\(\mathcal{C}\subset 2^\Omega\)</span> ein Mengensystem, dann bezeichnen wir mit</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\sigma(\mathcal{C}) := \bigcup_{\substack{\Sigma \text{ ist $\sigma$-Algebra}\\ \mathcal{C} \subset \Sigma}} \Sigma\end{split}\]</div>
+\[\begin{split}\sigma(\mathcal{C}) := \bigcap_{\substack{\Sigma \text{ ist $\sigma$-Algebra}\\ \mathcal{C} \subset \Sigma}} \Sigma\end{split}\]</div>
 <p>die von <span class="math notranslate nohighlight">\(\mathcal{C}\)</span> erzeugte <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra.</p>
 </div>
 </div><p>Für die erzeugt <span class="math notranslate nohighlight">\(\sigma\)</span>-Algebra, haben wir folgende Eigenschaften.</p>
@@ -1101,7 +1100,7 @@ Für Jordan-messbare Mengen <span class="math notranslate nohighlight">\(A\)</sp
 </ol>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe z.B. <span id="id1">[<a class="reference internal" href="../references.html#id4">For17</a>]</span>.</p>
+<p>Proof. Siehe z.B. <span id="id1">[<a class="reference internal" href="../references.html#id4" title="Otto Forster. Analysis 2. Springer, 2017.">For17</a>]</span>.</p>
 </div>
 <p>Mit diesem Resultat können wir die folgende Aussage beweisen.</p>
 <div class="proof theorem admonition" id="thm:lebesgue">
@@ -1281,7 +1280,7 @@ Dann ist das äußere Lebesgue Maß <strong>translationsinvariant</strong> unter
 Dann gilt für das äußere Lebesgue Maß der folgende Zusammenhang unter der Wirkung der linearen Transformation <span class="math notranslate nohighlight">\(M\)</span></p>
 <div class="math notranslate nohighlight">
 \[\lambda^*(MA) = |\!\operatorname{det}(M)| \, \lambda^*(A).\]</div>
-<p>Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. <strong>Rotationen</strong> und <strong>Spiegelungen</strong>) ist, da für diese Transformationen <span class="math notranslate nohighlight">\(|\!\operatorname{det}(M)| = 1\)</span> gilt (siehe Kapitel 3.6 in <span id="id2">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span>).</p>
+<p>Das heißt insbesondere, dass das äußere Lebesgue Maß invariant unter Transformationen der orthogonalen Gruppe (z.B. <strong>Rotationen</strong> und <strong>Spiegelungen</strong>) ist, da für diese Transformationen <span class="math notranslate nohighlight">\(|\!\operatorname{det}(M)| = 1\)</span> gilt (siehe Kapitel 3.6 in <span id="id2">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span>).</p>
 <p>Außerdem gilt, dass die Teilmenge <span class="math notranslate nohighlight">\(A\)</span> genau dann Lebesgue-messbar ist, wenn die linear transformierte Teilmenge <span class="math notranslate nohighlight">\(MA\)</span> Lebesgue-messbar ist.</p>
 </div>
 </div></div>

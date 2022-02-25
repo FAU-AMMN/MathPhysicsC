@@ -48,15 +48,14 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
@@ -585,7 +584,7 @@ Elemente dieses Raums sind dann je nach Kontext geometrisch oder algebraisch zu 
 </div>
 <div class="section" id="geometrische-definition">
 <h3><span class="section-number">4.2.1.1. </span>Geometrische Definition<a class="headerlink" href="#geometrische-definition" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der <strong>Richtungsableitung</strong> bekannt (siehe Kapitel 6.2.2 in <span id="id1">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span>).
+<p>Von der Differentiation im Mehrdimensionalen ist bereits das Konzept der <strong>Richtungsableitung</strong> bekannt (siehe Kapitel 6.2.2 in <span id="id1">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span>).
 Hierbei betrachtet man für eine Funktion <span class="math notranslate nohighlight">\(F:\R^n\to\R\)</span> den Strahl <span class="math notranslate nohighlight">\(\gamma(t):= x + t\cdot v\)</span>, wobei <span class="math notranslate nohighlight">\(x,v\in\R^n\)</span> und den Grenzwert</p>
 <div class="math notranslate nohighlight">
 \[\lim_{t\to 0} \frac{F(\gamma(t)) - F(\gamma(0))}{t} = \frac{F(x + t\cdot v) - F(x))}{t}.\]</div>
@@ -648,7 +647,7 @@ Für zwei differenzierbare Kurven <span class="math notranslate nohighlight">\(\
 \[\gamma \sim_p \eta
 \qquad \Leftrightarrow \qquad
 \frac{d}{dt}(\phi \circ \gamma)\rvert_{t=0} = \frac{d}{dt}(\phi \circ \eta)\rvert_{t=0}\in \R^n\]</div>
-<p>eine Äquivalenzrelation (siehe Kapitel 2.1.1 in <span id="id2">[<a class="reference internal" href="../references.html#id2">Bur20</a>]</span>).
+<p>eine Äquivalenzrelation (siehe Kapitel 2.1.1 in <span id="id2">[<a class="reference internal" href="../references.html#id2" title="Martin Burger. Skript zur Vorlesung &quot;Mathematik für Data Science 1 / Physikstudierende A&quot;. 2020.">Bur20</a>]</span>).
 Insbesondere ist die Äquivalenzklasse unabhängig von der Wahl des Homöomorphismus <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
 </div>
 </div><p>Mittels der oben beschriebenen Äquivalenzrelation sind wir in der Lage den Begriff der <em>Tangentialvektoren</em> und des <em>Tangentialraums</em> zu definieren.</p>
@@ -763,7 +762,7 @@ Dann gilt die folgende Isomorphie</p>
 \[T^{\text{geom}}_p\M \ \cong \ T^{\text{alg}}_p\M.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe z.B. Kapitel 2.3 in <span id="id3">[<a class="reference internal" href="../references.html#id17">Janich03</a>]</span>.</p>
+<p>Proof. Siehe z.B. Kapitel 2.3 in <span id="id3">[<a class="reference internal" href="../references.html#id17" title="Klaus Jänich. Der Tangentialraum. Springer Berlin Heidelberg, 2003. URL: https://doi.org/10.1007/978-3-662-10750-8_2, doi:10.1007/978-3-662-10750-8_2.">Janich03</a>]</span>.</p>
 </div>
 </div>
 <div class="section" id="basis-des-algebraische-tangentialraums">
@@ -850,7 +849,7 @@ Für einen beliebigen Punkt <span class="math notranslate nohighlight">\(q\in\ti
 \[\begin{split}\tilde{g}:[0,1] &amp;\to\R\\
 t&amp;\mapsto g(t\cdot z).\end{split}\]</div>
 <p>Hierbei sieht man erneut ein, dass <span class="math notranslate nohighlight">\(\tilde{g}\in C^\infty([0,1])\)</span> gilt.
-Dies bedeutet insbesondere, dass wir den <em>Hauptsatz der Differential- und Integralrechnung</em> (vgl. Theorem 5.3 in <span id="id4">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span>) anwenden können und somit erhalten wir</p>
+Dies bedeutet insbesondere, dass wir den <em>Hauptsatz der Differential- und Integralrechnung</em> (vgl. Theorem 5.3 in <span id="id4">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span>) anwenden können und somit erhalten wir</p>
 <div class="math notranslate nohighlight">
 \[\tilde{g}(1) = \tilde{g}(0) + \int_{0}^1 \tilde{g}^\prime(t)\,\mathrm{d}t.\]</div>
 <p>Wir berechnen die Ableitung im Integral als Richtungsableitung und erhalten,</p>
@@ -1045,7 +1044,7 @@ Das Tangentialbündel <span class="math notranslate nohighlight">\(T\M\)</span> 
 </div><div class="proof remark admonition" id="remark-23">
 <p class="admonition-title"><span class="caption-number">Remark 4.6 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>Es lässt sich zeigen, dass <span class="math notranslate nohighlight">\(\mathbb{S}^1, \mathbb{S}^3,\mathbb{S}^7\)</span> die <em>einzigen</em> paralleslisierbaren Sphären sind (siehe <span id="id5">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span>).
+<p>Es lässt sich zeigen, dass <span class="math notranslate nohighlight">\(\mathbb{S}^1, \mathbb{S}^3,\mathbb{S}^7\)</span> die <em>einzigen</em> paralleslisierbaren Sphären sind (siehe <span id="id5">[<a class="reference internal" href="../references.html#id18" title="John Lee. Introduction to smooth manifolds. Springer, New York, 2003. ISBN 0-387-95448-1.">Lee03</a>]</span>).
 Die Tatsache, dass <span class="math notranslate nohighlight">\(\mathbb{S}^2\)</span> nicht parallelisierbar ist wird beim Satz vom gekämmten Igel in <code class="docutils literal notranslate"><span class="pre">prf:ref</span></code>{TODO} erneut auftauchen.</p>
 </div>
 </div><p>Wir wollen uns nun mit der Frage beschäftigen, wie sich die Tangentialräume für unterschiedliche Punkte <span class="math notranslate nohighlight">\(p,q\in B\)</span> des Basisraums zueinander verhalten, insbesondere wenn <span class="math notranslate nohighlight">\(p\)</span> und <span class="math notranslate nohighlight">\(q\)</span> nahe beieinander liegen.
@@ -1095,7 +1094,7 @@ Insbesondere ist</p>
 <p>eine glatte und bijektive Abbildung.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Wir werden lediglich die Idee skizzieren, für den vollständingen Beweis siehe Proposition 3.18 in <span id="id6">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span>.
+<p>Proof. Wir werden lediglich die Idee skizzieren, für den vollständingen Beweis siehe Proposition 3.18 in <span id="id6">[<a class="reference internal" href="../references.html#id18" title="John Lee. Introduction to smooth manifolds. Springer, New York, 2003. ISBN 0-387-95448-1.">Lee03</a>]</span>.
 Wir benutzen hier die algebraische Definition des Tangentialraums.</p>
 <p>Es sei <span class="math notranslate nohighlight">\((U,\varphi)\)</span> eine Karte.
 Wir betrachten die Menge <span class="math notranslate nohighlight">\(\pi^{-1}(U)\subset T\M\)</span> und die Abbildung</p>
@@ -1277,7 +1276,7 @@ Dann haben wir wegen <a class="reference internal" href="#thm:tanbasis">Theorem 
 <p>Es sei <span class="math notranslate nohighlight">\(\pi:T\M\to\M\)</span> eine Tangentialbündel, dann ist das Kotangentialbündel <span class="math notranslate nohighlight">\(\pi^\ast:T^\ast\M\to\M\)</span> ein Vektorbündel.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Der Beweis funktioniert analog zum Beweis von <a class="reference internal" href="#lem:tanbundle">Lemma 4.9</a>. Für die Details zur Argumentation weshalb auch <span class="math notranslate nohighlight">\(T^\ast\M\)</span> eine Mannigfaltigkeit ist, verweisen wir auf <span id="id7">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span> Prop. 11.9.</p>
+<p>Proof. Der Beweis funktioniert analog zum Beweis von <a class="reference internal" href="#lem:tanbundle">Lemma 4.9</a>. Für die Details zur Argumentation weshalb auch <span class="math notranslate nohighlight">\(T^\ast\M\)</span> eine Mannigfaltigkeit ist, verweisen wir auf <span id="id7">[<a class="reference internal" href="../references.html#id18" title="John Lee. Introduction to smooth manifolds. Springer, New York, 2003. ISBN 0-387-95448-1.">Lee03</a>]</span> Prop. 11.9.</p>
 </div>
 <p>Wir interessieren uns auch hier für glatte Schnitte, welche in diesem Kontext als 1-Differentialformen bezeichnet werden.</p>
 <div class="proof definition admonition" id="definition-37">
@@ -1309,7 +1308,7 @@ p\mapsto (p, df_p)\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[df_p(D) := D(f),\]</div>
 <p>weil <span class="math notranslate nohighlight">\(D\)</span> als Derivation gerade eine lineare Abbildung <span class="math notranslate nohighlight">\(D:C^\infty\to\R\)</span> ist.</p>
-<p>Für die Glattheitseigenschaft verweisen wir auf <span id="id8">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span> Prop. 10.22., was zeigt, dass <span class="math notranslate nohighlight">\(df\)</span> eine glatte Abbildung ist. Desweiteren sehen wir, dass</p>
+<p>Für die Glattheitseigenschaft verweisen wir auf <span id="id8">[<a class="reference internal" href="../references.html#id18" title="John Lee. Introduction to smooth manifolds. Springer, New York, 2003. ISBN 0-387-95448-1.">Lee03</a>]</span> Prop. 10.22., was zeigt, dass <span class="math notranslate nohighlight">\(df\)</span> eine glatte Abbildung ist. Desweiteren sehen wir, dass</p>
 <div class="math notranslate nohighlight">
 \[\pi^\ast(df(p)) = \pi^\ast((p,df_p)) = p \]</div>
 <p>und somit gilt per Definition diese Eigenschaft eines Schnittes. Sei nun <span class="math notranslate nohighlight">\((U,\varphi)\)</span> eine Karte mit lokalen Koordinaten <span class="math notranslate nohighlight">\(\varphi = (x^1,\ldots, x^n)\)</span>. Für <span class="math notranslate nohighlight">\(p\in\M\)</span> und <span class="math notranslate nohighlight">\(D\in T_p\M\)</span> Derivation gilt nach ??, dass</p>
@@ -1348,7 +1347,7 @@ v&amp;\mapsto \langle \nabla f(p), v \rangle = \sum_{i=1}^n \partial_i f(p)\, v^
 <p>wobei <span class="math notranslate nohighlight">\(f_i\in C^\infty(\M)\)</span> gegeben ist durch <span class="math notranslate nohighlight">\(\omega(\partial_{x^i})\)</span>.</p>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe z.B. <span id="id9">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span> Seite 282.</p>
+<p>Proof. Siehe z.B. <span id="id9">[<a class="reference internal" href="../references.html#id18" title="John Lee. Introduction to smooth manifolds. Springer, New York, 2003. ISBN 0-387-95448-1.">Lee03</a>]</span> Seite 282.</p>
 </div>
 </div>
 <div class="section" id="tensorfelder">
@@ -1409,7 +1408,7 @@ v&amp;\mapsto \langle \nabla f(p), v \rangle = \sum_{i=1}^n \partial_i f(p)\, v^
 \[A = A^{i_1,\ldots,i_s}_{j_1,\ldots,j_r} \partial_{x_{i_1}}\otimes\ldots\otimes \partial_{x_{i_r}}\otimes dx^{j_1}\otimes\ldots\otimes dx^{j_s}.\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Folgt aus <a class="reference internal" href="#lem:localsections">Lemma 4.10</a> und <a class="reference internal" href="#lem:coordcovec">Lemma 4.12</a>,  für Details siehe <span id="id10">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span> Prop. 12.19.</p>
+<p>Proof. Folgt aus <a class="reference internal" href="#lem:localsections">Lemma 4.10</a> und <a class="reference internal" href="#lem:coordcovec">Lemma 4.12</a>,  für Details siehe <span id="id10">[<a class="reference internal" href="../references.html#id18" title="John Lee. Introduction to smooth manifolds. Springer, New York, 2003. ISBN 0-387-95448-1.">Lee03</a>]</span> Prop. 12.19.</p>
 </div>
 <p>Ähnlich zu den Überlegungen in <a class="reference internal" href="../vektoranalysis/tensor.html#s-symtensoren"><span class="std std-numref">Abschnitt 3.2.6</span></a> können wir auch hier das Tensorprodukt von Tensorfeldern betrachten.</p>
 <div class="proof lemma admonition" id="lemma-47">
@@ -1421,7 +1420,7 @@ v&amp;\mapsto \langle \nabla f(p), v \rangle = \sum_{i=1}^n \partial_i f(p)\, v^
 (A\otimes B)_{i_1,\ldots,i_{l+r}} = A_{i_1,\ldots, i_l} B_{i_{l+1},\ldots, i_{l+k}}.\end{split}\]</div>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Siehe <span id="id11">[<a class="reference internal" href="../references.html#id18">Lee03</a>]</span> Prop. 12.22.</p>
+<p>Proof. Siehe <span id="id11">[<a class="reference internal" href="../references.html#id18" title="John Lee. Introduction to smooth manifolds. Springer, New York, 2003. ISBN 0-387-95448-1.">Lee03</a>]</span> Prop. 12.22.</p>
 </div>
 </div>
 </div>

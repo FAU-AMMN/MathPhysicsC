@@ -48,15 +48,14 @@
     <script src="../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/FAU_favicon.png"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
@@ -459,7 +458,7 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="stabilitat-von-ruhelagen">
 <h1><span class="section-number">2.2. </span>Stabilität von Ruhelagen<a class="headerlink" href="#stabilitat-von-ruhelagen" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Zunächst wollen wir die Stabilität von dynamischen System im einfachen Fall von Ruhelagen für allgemeine <strong>lineare</strong> Differentialgleichungssysteme untersuchen.
-Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span> kennen gelernt.</p>
+Diese Familie von gewöhnlichen Differentialgleichungssystemen haben wir schon in Kapitel 8 in <span id="id1">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span> kennen gelernt.</p>
 <p>Das folgende Theorem beschreibt die Existenz und Eindeutigkeit einer Ruhelage eines dynamischen System, das durch ein lineares Differentialgleichungssystem charakterisiert wird und gibt Bedingungen für die Stabilität der Ruhelage.</p>
 <div class="proof theorem admonition" id="thm:stablin">
 <p class="admonition-title"><span class="caption-number">Theorem 2.1 </span></p>
@@ -534,7 +533,7 @@ Durch einfache Translation der Koordinaten des Systems um <span class="math notr
 <p class="admonition-title"><span class="caption-number">Definition 2.2 </span> (Linearisierung und Abweichung)</p>
 <div class="definition-content section" id="proof-content">
 <p>Sei <span class="math notranslate nohighlight">\(F\in C^1(U;\R^n)\)</span> ein Vektorfeld auf dem Phasenraum <span class="math notranslate nohighlight">\(U \subset \R^n\)</span> und <span class="math notranslate nohighlight">\(0\)</span> eine Ruhelage des dynamischen Systems, dass durch das allgemeine Differentialgleichungssystem in <a class="reference internal" href="#equation-eq-awpallg">(2.2)</a> charakterisiert wird.
-Sei nun <span class="math notranslate nohighlight">\((DF)(x)\)</span> die Jacobi-Matrix der Funktion <span class="math notranslate nohighlight">\(F\)</span> im Punkt <span class="math notranslate nohighlight">\(x \in U\)</span> (vgl. Kapitel 6.2 in <span id="id2">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span>).
+Sei nun <span class="math notranslate nohighlight">\((DF)(x)\)</span> die Jacobi-Matrix der Funktion <span class="math notranslate nohighlight">\(F\)</span> im Punkt <span class="math notranslate nohighlight">\(x \in U\)</span> (vgl. Kapitel 6.2 in <span id="id2">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span>).
 Dann bezeichnen wir mit <span class="math notranslate nohighlight">\(A := (DF)(0)\)</span> die <strong>Linearisierung</strong> von <span class="math notranslate nohighlight">\(F\)</span> in der Ruhelage <span class="math notranslate nohighlight">\(0 \in U\)</span>.
 Außerdem bezeichnen wir die Funktion <span class="math notranslate nohighlight">\(R \in C^1(U; \R^n)\)</span> mit</p>
 <div class="math notranslate nohighlight">
@@ -555,7 +554,7 @@ Außerdem sei <span class="math notranslate nohighlight">\(A \coloneqq (DF)(0)\)
 <p>Proof. Wir setzen zunächst die unbekannte Lösung <span class="math notranslate nohighlight">\(x(t)\)</span> des Anfangswertproblems <a class="reference internal" href="#equation-eq-awpallg">(2.2)</a> in der allgemeinen Form</p>
 <div class="math notranslate nohighlight">
 \[x(t) = e^{At}c(t),\quad \text{mit }c(0) = x_0\]</div>
-<p>an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion <span class="math notranslate nohighlight">\(c(t)\)</span> mittels <strong>Variation der Konstanten</strong> (vgl. Kapitel 8.2 in <span id="id3">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span>).</p>
+<p>an, und suchen eine Bestimmungsgleichung für die unbekannte Funktion <span class="math notranslate nohighlight">\(c(t)\)</span> mittels <strong>Variation der Konstanten</strong> (vgl. Kapitel 8.2 in <span id="id3">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span>).</p>
 <p>Mittels der Rechenregeln für das Matrixexponentials in <a class="reference internal" href="../ode/repetition.html#rem:matrixexponentialregeln">Remark 1.3</a> können wir die Ableitung der Funktion <span class="math notranslate nohighlight">\(x\)</span> mittels Produktregel angeben als</p>
 <div class="math notranslate nohighlight">
 \[\dot{x}(s) = A e^{As}c(s)+ e^{As}\dot{c}(s) = Ax(s) + e^{As}\dot{c}(s).\]</div>
@@ -567,7 +566,7 @@ Außerdem sei <span class="math notranslate nohighlight">\(A \coloneqq (DF)(0)\)
 \[e^{As}\dot{c}(s) = R(x(s))\]</div>
 <p>gelten muss.
 Äquivalent können wir auch folgern, dass <span class="math notranslate nohighlight">\(\dot{c}(s) = e^{-As}R(x(s))\)</span> gilt.</p>
-<p>Nach dem Hauptsatz der Differential- und Integralrechnung (vgl. Theorem 5.3 in <span id="id4">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span>) gilt dann für die unbekannte Funktion <span class="math notranslate nohighlight">\(c\)</span> der folgende Zusammenhang</p>
+<p>Nach dem Hauptsatz der Differential- und Integralrechnung (vgl. Theorem 5.3 in <span id="id4">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span>) gilt dann für die unbekannte Funktion <span class="math notranslate nohighlight">\(c\)</span> der folgende Zusammenhang</p>
 <div class="math notranslate nohighlight">
 \[c(t) = c(0) + \int_0^t \dot{c}(s)\, \mathrm{d}s = x_0+ \int_0^t e^{-As}R(x(s)) \, \mathrm{d}s.\]</div>
 <p>Setzen wir dies in die erste Gleichung unserer Ansatzfunktion ein und nutzen die Rechenregeln des Matrixexponnentials aus <a class="reference internal" href="../ode/repetition.html#rem:matrixexponentialregeln">Remark 1.3</a>, so erhalten wir schließlich die Aussage des Lemmas</p>
@@ -668,7 +667,7 @@ Da <span class="math notranslate nohighlight">\(U\subseteq\R^n\)</span> nach Vor
 <p>Wir können nun einen Radius <span class="math notranslate nohighlight">\(r\in (0,{r^\ast})\)</span> bestimmen, so dass die folgende Abschätzung gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-residuum">
 <span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-residuum" title="Permalink to this equation">¶</a></span>\[\|R(x)\| \leq \frac{\Lambda}{2c} \|x\|, \quad \forall \|x\| \leq r.\]</div>
-<p>Dies liegt an der totalen Differenzierbarkeit des Vektorfelds <span class="math notranslate nohighlight">\(F\)</span> in der Ruhelage (vgl. Kapitel 6.2 in <span id="id5">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span>), denn dies bedeutet, dass das Residuum in der Nähe der Ruhelage schnell genug gegen Null konvergiert, so dass gilt</p>
+<p>Dies liegt an der totalen Differenzierbarkeit des Vektorfelds <span class="math notranslate nohighlight">\(F\)</span> in der Ruhelage (vgl. Kapitel 6.2 in <span id="id5">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span>), denn dies bedeutet, dass das Residuum in der Nähe der Ruhelage schnell genug gegen Null konvergiert, so dass gilt</p>
 <div class="math notranslate nohighlight">
 \[\lim_{x\to 0} \frac{\|R(x)\|}{\|x\|} = \lim_{x\to 0}\frac{\|F(x)- (DF)(0)\cdot x\|}{\|x\|} = 0.\]</div>
 <p>Wir wollen im Folgenden zeigen, dass wenn der Anfangswert unserer unbekannten Lösung des Differentialgleichungssystems beschränkt ist durch</p>
@@ -734,7 +733,7 @@ J_{r_1}(\lambda_1)&amp; &amp; &amp; 0\\
  &amp; &amp; \ddots &amp; \\
  0 &amp; &amp; &amp; J_{r_k}(\lambda_k)
 \end{pmatrix}.\end{split}\]</div>
-<p>Hierbei bezeichnen <span class="math notranslate nohighlight">\(r_i \in \N, i=1,\ldots, k\)</span> die algebraischen Vielfachheiten der zugehörigen Eigenwerte und jeder Jordanblock (vgl. Kapitel 2.7 in <span id="id6">[<a class="reference internal" href="../references.html#id15">Ten21</a>]</span>)) hat die Gestalt</p>
+<p>Hierbei bezeichnen <span class="math notranslate nohighlight">\(r_i \in \N, i=1,\ldots, k\)</span> die algebraischen Vielfachheiten der zugehörigen Eigenwerte und jeder Jordanblock (vgl. Kapitel 2.7 in <span id="id6">[<a class="reference internal" href="../references.html#id15" title="Daniel Tenbrinck. Skript zur Vorlesung &quot;Mathematik für Data Science 2&quot;. 2021. URL: https://fau-ammn.github.io/MathDataScience2.">Ten21</a>]</span>)) hat die Gestalt</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} J_r(\lambda) \ \coloneqq \ \begin{pmatrix}
 \lambda &amp; 1 &amp; &amp; 0\\
