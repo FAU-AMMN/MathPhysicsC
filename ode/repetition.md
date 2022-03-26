@@ -99,7 +99,7 @@ Sei hierzu  im Folgenden $I \subset \R$ ein offenes Intervall.
 ist **nicht autonom**, da die rechte Seite der Gleichung durch die Funktion
 
 ```{math}
-F(t,x(t)) = x(t) \cdot x
+F(t,x(t)) = x(t) \cdot t
 ```
 
 beschrieben wird und diese Funktion explizit vom Funktionsargument $t \in I$ abhängt.
